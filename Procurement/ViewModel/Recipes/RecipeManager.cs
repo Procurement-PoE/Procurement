@@ -30,7 +30,13 @@ namespace Procurement.ViewModel.Recipes
         {
             return known.SelectMany(recipe => recipe.Matches(items))
                         .GroupBy(r => r.Name)
-                        .ToDictionary(g => g.Key, g => g.ToList());
+                        .Select(group =>
+                            new
+                            {
+                                Name = group.Key,
+                                RecipeGroup = group.OrderByDescending(recipe => recipe.PercentMatch)
+                            })
+                        .ToDictionary(g => g.Name, g => g.RecipeGroup.ToList());
         }
     }
 }
