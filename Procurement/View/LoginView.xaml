@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="Procurement.View.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         Height="600" Width="1012">
+    <Grid x:Name="ViewContent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="65*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Column="0" Width="282" Height="577" Source="/Procurement;component/Images/Sir Marauder.png" />
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="130"/>
+                </Grid.RowDefinitions>
+
+                <Label x:Name="lblEmail" Content="Email" Grid.Row="1" Grid.Column="0" FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top" ></Label>
+                <Label x:Name="lblPassword" Content="Password" Grid.Row="2" Grid.Column="0" FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top" ></Label>
+
+                <TextBox Name="txtLogin" Text="{Binding Email}" Grid.Row="1" Grid.Column="1" Height="22" Width="330" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black" BorderBrush="#FF76591B" Foreground="#FFAB9066" SelectionBrush="#FFCABE9F"></TextBox>
+                <PasswordBox Name="txtPassword" Grid.Row="2" Grid.Column="1" Height="22" Width="330" Background="Black" BorderBrush="#FF76591B" HorizontalAlignment="Left" VerticalAlignment="Top"  Foreground="#FFAB9066" SelectionBrush="#FFCABE9F"/>
+
+                <Grid Grid.Row="3" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="228*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Button Grid.Column="0" Name="LoginButton" Width="85" Height="28" HorizontalAlignment="Left" Click="Login_Click">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_login.png"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_login_hover.png"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+                    
+                    <Button Grid.Column="1" Name="OfflineButton" Width="85" Height="28" HorizontalAlignment="Left" Click="Offline_Click">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_offline.png"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_offline_hover.png"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+
+                    <CheckBox Name="useSession" Content="Use SessionID" Grid.Column="2" HorizontalAlignment="Left" Margin="25,9,0,0" Height="15" VerticalAlignment="Top" IsChecked="{Binding UseSession}" Foreground="#FFAB9066" FontSize="12" FontWeight="Bold"/>
+
+                </Grid>
+                
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <RichTextBox Name="StatusBox" Width="641" HorizontalAlignment="Left" Margin="2,-74,0,30" Background="Black" BorderBrush="#FF93732D" Focusable="True" Foreground="#FFAB9066" FontFamily="Consolas" BorderThickness="1" IsReadOnly="True" VerticalScrollBarVisibility="Hidden" />
+            </Grid>
+        </Grid>
+
+    </Grid>
+</UserControl>
+

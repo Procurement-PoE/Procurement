@@ -1,0 +1,95 @@
+﻿Welcome to my shop! (Last Updated {LastUpdated}),
+
+Please message me here or ingame if something catches your eye. My IGN is {IGN}.
+
+[spoiler="          Uniques          "]
+{Uniques}
+[/spoiler]
+[spoiler="          5-Links          "]
+{5Link}
+[/spoiler]
+[spoiler="          Gems          "]
+[spoiler="          Quality Gems          "]
+{QualityGems}
+[/spoiler]
+[spoiler="          Drop Only Gems          "]
+{DropOnlyGems}
+[/spoiler]
+[spoiler="          Popular Gems          "]
+{PopularGems}
+[/spoiler]
+[spoiler="          Aura Gems          "]
+{AuraGems}
+[/spoiler]
+[spoiler="          Curse Gems          "]
+{CurseGems}
+[/spoiler]
+[spoiler="          Support Gems          "]
+{SupportGems}
+[/spoiler]
+[spoiler="          Leveled Gems          "]
+{LeveledGems}
+[/spoiler]
+[/spoiler]
+[spoiler="          Dual Res Gear          "]
+{DualRes}
+[/spoiler]
+[spoiler="          Tri Res Gear          "]
+{TripRes}
+[/spoiler]
+[spoiler="          IIR/IIQ Gear          "]
+{MagicFind}
+[/spoiler]
+[spoiler="          Weapons and Armor          "]
+[spoiler="          Armor                                 "]
+[spoiler="          Helms          "]
+{RareHelmet}
+[/spoiler]
+[spoiler="          Amulets          "]
+{RareAmulet}
+[/spoiler]
+[spoiler="          Chest Armor          "]
+{RareChest}
+[/spoiler]
+[spoiler="          Rings          "]
+{RareRing}
+[/spoiler]
+[spoiler="          Belts          "]
+{RareBelt}
+[/spoiler]
+[spoiler="          Boots          "]
+{RareBoots}
+[/spoiler]
+[spoiler="          Gloves          "]
+{RareGloves}
+[/spoiler]
+[/spoiler]
+[spoiler="          Shields          "]
+{RareShield}
+[/spoiler]
+[spoiler="          Swords, Axes & Maces          "]
+{RareSword}
+{RareAxe}
+{RareMace}
+[/spoiler]
+[spoiler="          Daggers          "]
+{RareDagger}
+[/spoiler]
+[spoiler="          Claws          "]
+{RareClaw}
+[/spoiler]
+[spoiler="          Bows  & Quivers          "]
+{RareBow}
+{RareQuiver}
+[/spoiler]
+[spoiler="          Wands, Sceptres & Staves          "]
+{RareWand}
+{RareSceptre}
+{RareStaff}
+[/spoiler]
+[/spoiler]
+
+Thanks for visiting!
+
+[url=https://code.google.com/p/procurement/][img]http://i.imgur.com/ZHBMImo.png[/img][/url]
+

@@ -1,0 +1,187 @@
+﻿<Window x:Class="Procurement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:v="clr-namespace:Procurement.View"
+        Height="1000" Width="1100" Background="Transparent" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Procurement;component/Images/Procurement.ico" UseLayoutRounding="True">
+    <Window.Resources>
+        <v:VisibilityConverter x:Key="vc" />
+    </Window.Resources>
+    <Grid Height="1000" Width="1100">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{Binding HeaderHeight}" />
+            <RowDefinition Height="692"/>
+            <RowDefinition Height="{Binding FooterHeight}" />
+        </Grid.RowDefinitions>
+
+
+        <Grid x:Name="Header" Margin="1,0,-1,0" Visibility="{Binding FullMode, Converter={StaticResource vc}}">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Procurement;component/Images/header.png"/>
+            </Grid.Background>            
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Procurement;component/Images/main.png"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="58"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            
+            
+            <Grid  Grid.Row="0" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="880"/>
+                    <ColumnDefinition Width="273"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" x:Name="Buttons" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="108"/>
+                        <ColumnDefinition Width="128"/>
+                        <ColumnDefinition Width="128"/>
+                        <ColumnDefinition Width="253"/>
+                        <ColumnDefinition Width="129"/>
+                        <ColumnDefinition Width="134"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="12"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Column="1" Grid.Row="2" Width="120" Height="42" HorizontalAlignment="Left" Command="{Binding MenuButtonCommand}" CommandParameter="StashView">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_stash.png"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_select_stash.png"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+
+                    <Button Grid.Column="2" Grid.Row="2" Width="120" Height="42" HorizontalAlignment="Left" Command="{Binding MenuButtonCommand}" CommandParameter="Inventory">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_inventory.png"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_select_inventory.png"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+
+                    <Button Grid.Column="3" Grid.Row="2" Width="120" Height="42" HorizontalAlignment="Left" Command="{Binding MenuButtonCommand}" CommandParameter="Trading">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_trading.png"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_selected_trading.png"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+
+                    <Button Grid.Column="4" Grid.Row="2" Width="120" Height="42" HorizontalAlignment="Left" Command="{Binding MenuButtonCommand}" CommandParameter="Settings">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_settings.png"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_selected_settings.png"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+
+                    <Button Grid.Column="5" Grid.Row="2" Width="120" Height="42" HorizontalAlignment="Left" Command="{Binding MenuButtonCommand}" CommandParameter="Recipes">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_recipes.png"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_recipes_hover.png"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+
+
+                </Grid>
+                <Grid Grid.Column="1" Visibility="Visible">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="61"/>
+                        <ColumnDefinition Width="129"/>
+                        <ColumnDefinition Width="83*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="12"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Column="0" Grid.Row="2" Width="49" Height="42" HorizontalAlignment="Left" Click="minimize_Click" >
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_min.png"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_min_hover.png"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+
+                    <Button Grid.Column="1" Grid.Row="2" Width="49" Height="42" HorizontalAlignment="Left" Click="exit_Click">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_close.png"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="/Procurement;component/Images/buttons/btn_close_hover.png"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+
+                </Grid>
+            </Grid>
+
+            <Grid x:Name="MainRegion" Grid.Row="1">
+                
+            </Grid>
+            
+        </Grid>
+
+        <Grid x:Name="Footer" Grid.Row="2" Margin="7,0,-7,0" Visibility="{Binding FullMode, Converter={StaticResource vc}}">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Procurement;component/Images/footer.png"/>
+            </Grid.Background>
+        </Grid>
+        
+    </Grid>
+</Window>

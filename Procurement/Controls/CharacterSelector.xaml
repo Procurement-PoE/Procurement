@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="Procurement.Controls.CharacterSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:v="clr-namespace:Procurement.View"
+             mc:Ignorable="d" 
+             Width="268">
+    <UserControl.Resources>
+        <v:CharacterToImageConverter x:Key="vc" />
+        <v:CharacterToLevelConverter x:Key="lc" />
+    </UserControl.Resources>
+    <Grid>
+        <ListBox Grid.Column="0" ItemsSource="{Binding Characters}" Background="Black" SelectionChanged="ListBox_SelectionChanged">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                        <Grid Width="250">
+                            <Grid.Background>
+                                <SolidColorBrush Color="Black" />
+                            </Grid.Background>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="/Images/character-background.png" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"/>
+                        <!--<Button Click="Button_Click" Tag="{Binding .}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3">-->
+                            <Image Source="{Binding Path=., Converter={StaticResource vc}, ConverterParameter=Class}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" />
+                        <!--</Button>-->
+                        <!--<Button Margin="14,0,0,0" Click="Button_Click" Tag="{Binding .}" Grid.Row="0" Grid.Column="1">-->
+                            <Label Content="{Binding Name, Mode=OneTime}"  FontSize="12"  HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" Grid.Row="0" Grid.Column="1" Foreground="#FFAB9066" />
+                        <!--</Button>-->
+                        <Label Margin="14,0,0,0" Content="{Binding ., Mode=OneTime, Converter={StaticResource lc}}" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" Grid.Row="1" Grid.Column="1" Foreground="#FFAB9066" />
+                        <Label Margin="14,0,0,0" Content="{Binding League, Mode=OneTime}" FontWeight="Bold" Grid.Row="2" Grid.Column="1" Foreground="Gray" />
+                        </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

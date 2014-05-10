@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Settings.xsd">
+  <Ratios>
+    <Orb type="Mirror" OrbAmount="1" ChaosAmount="450" />
+    <Orb type="Eternal" OrbAmount="1" ChaosAmount="50" />
+    <Orb type="Imprint" OrbAmount="1" ChaosAmount="0" />
+    <Orb type="Exalted" OrbAmount="1" ChaosAmount="20" />
+    <Orb type="Divine" OrbAmount="1" ChaosAmount="8" />
+    <Orb type="GemCutterPrism" OrbAmount="1" ChaosAmount="2" />
+    <Orb type="Chisel" OrbAmount="2.5" ChaosAmount="1" />
+    <Orb type="Regal" OrbAmount="1" ChaosAmount="2" />
+    <Orb type="Chaos" OrbAmount="1" ChaosAmount="1" />
+    <Orb type="Regret" OrbAmount="1" ChaosAmount="1" />
+    <Orb type="Blessed" OrbAmount="2" ChaosAmount="1" />
+    <Orb type="Scouring" OrbAmount="2.5" ChaosAmount="1" />
+    <Orb type="Fusing" OrbAmount="2.5" ChaosAmount="1" />
+    <Orb type="Alchemy" OrbAmount="2.5" ChaosAmount="1" />
+    <Orb type="AlchemyShard" OrbAmount="40" ChaosAmount="1" />
+    <Orb type="Chance" OrbAmount="8" ChaosAmount="1" />
+    <Orb type="JewelersOrb" OrbAmount="10" ChaosAmount="1" />
+    <Orb type="Alteration" OrbAmount="20" ChaosAmount="1" />
+    <Orb type="Chromatic" OrbAmount="20" ChaosAmount="1" />
+    <Orb type="VaalOrb" OrbAmount="1" ChaosAmount="1" />    
+  </Ratios>
+  <PopularGems>
+    <Gem name="Cast when Damage Taken" />
+    <Gem name="Cast On Critical Strike" />
+    <Gem name="Blood Magic" />
+    <Gem name="Item Quantity" />
+    <Gem name="Life Gain on Hit" />
+    <Gem name="Life Leech" />
+    <Gem name="Multistrike" />
+    <Gem name="Reduced Mana" />
+    <Gem name="Spell Totem" />
+    <Gem name="Chain" />
+    <Gem name="Faster Attacks" />
+    <Gem name="Greater Multiple Projectiles" />
+    <Gem name="Lesser Multiple Projectiles" />
+    <Gem name="Added Chaos Damage" />
+    <Gem name="Item Rarity" />
+    <Gem name="Concentrated Effect" />
+    <Gem name="Elemental Hit" />
+    <Gem name="Elemental Proliferation" />
+    <Gem name="Elemental Weakness" />
+    <Gem name="Multistrike" />
+    <Gem name="Temporal Chains" />
+    <Gem name="Faster Casting" />
+  </PopularGems>
+  <UserSettings>
+    <Setting name="AccountLogin" value="" />
+    <Setting name="AccountPassword" value="" />
+    <Setting name="UseSessionID" value="false" />
+    <Setting name="FavoriteLeague" value="" />
+    <Setting name="FavoriteCharacter" value="" />
+    <Setting name="CompactMode" value="false" />
+    <Setting name="DownloadOnlyMyLeagues" value="false" />
+    <Setting name="DownloadOnlyMyCharacters" value="false" />
+    <Setting name="CurrencyDistributionMetric" value="Chaos" />
+    <Setting name="EmbedBuyouts" value="True" />
+    <Setting name="BuyoutItemsOnlyVisibleInBuyoutsTag" value="False" />
+  </UserSettings>
+  <ProxySettings>
+    <Setting name="Enabled" value="False" />
+    <Setting name="Username" value="" />
+    <Setting name="Password" value="" />
+    <Setting name="Domain" value="" />
+  </ProxySettings>
+  <Lists>
+    <List name="MyLeagues">
+      <Item value="Standard"/>
+      <Item value="Hardcore"/>
+      <Item value="Invasion"/>
+      <Item value="Ambush"/>
+    </List>
+    <List name="MyTabs">
+      <!--If you only want Procurement to download specific tabs list them here, eg :-->
+      <!--<Item value="Shop" />-->
+    </List>
+    <List name="MyCharacters">
+      <!--If you only want Procurement to download specific characters list them here, eg :-->
+      <!--<Item value="SomeCharacter" />-->
+    </List>
+    <List name="AdditionalTemplates">
+      <!--Add yours own templates here. Eg-->
+      <!--<Item value="LvlingShop.txt"/>-->
+    </List>
+  </Lists>
+  <Buyouts />
+  <TabBuyouts>
+    <!--Add your tabwide buyouts here Eg"-->
+    <!--<Item id="TabNameHere" value="1 chaos" />-->
+  </TabBuyouts>
+</Settings>

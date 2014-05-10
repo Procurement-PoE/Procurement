@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9841DD07-224D-4534-B9D1-F934C1D7BC73}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>POEApi.Model</RootNamespace>
+    <AssemblyName>POEApi.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Character.cs" />
+    <Compile Include="Currency.cs" />
+    <Compile Include="CurrencyHandler.cs" />
+    <Compile Include="CurrencyRatio.cs" />
+    <Compile Include="EquipedItems.cs" />
+    <Compile Include="Events\AuthenticateEventArgs.cs" />
+    <Compile Include="Gear.cs" />
+    <Compile Include="GearType\GearType.cs" />
+    <Compile Include="GearType\GearTypeFactory.cs" />
+    <Compile Include="GearType\GearTypeRunner.cs" />
+    <Compile Include="Gem.cs" />
+    <Compile Include="Events\ImageLoadedEventArgs.cs" />
+    <Compile Include="GemCategory.cs" />
+    <Compile Include="ImageComparer.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ItemFactory.cs" />
+    <Compile Include="JSONProxy\Stash.cs" />
+    <Compile Include="Map.cs" />
+    <Compile Include="OrbType.cs" />
+    <Compile Include="Events\POEEventArgs.cs" />
+    <Compile Include="Events\POEEventState.cs" />
+    <Compile Include="POEModel.cs" />
+    <Compile Include="Property.cs" />
+    <Compile Include="ProxyMapper.cs" />
+    <Compile Include="Requirement.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Socket.cs" />
+    <Compile Include="StackInfo.cs" />
+    <Compile Include="Stash.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Events\StashLoadedEventArgs.cs" />
+    <Compile Include="Tab.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\POEApi.Infrastructure\POEApi.Infrastructure.csproj">
+      <Project>{2F0E4301-694B-4A26-80D8-D57042DA9D6F}</Project>
+      <Name>POEApi.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POEApi.Transport\POEApi.Transport.csproj">
+      <Project>{5933C062-45EA-4BC3-9AE9-0D6CFC26D505}</Project>
+      <Name>POEApi.Transport</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Settings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Settings.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

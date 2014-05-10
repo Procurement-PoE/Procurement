@@ -1,0 +1,630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9369113D-A68F-4FE9-B301-D00C5176666A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Procurement</RootNamespace>
+    <AssemblyName>Procurement</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\Procurement.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\WPF Toolkit\v3.5.50211.1\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\WPF Toolkit\v3.5.50211.1\WPFToolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ApplicationState.cs" />
+    <Compile Include="Controls\Category.cs" />
+    <Compile Include="Controls\CharacterSelector.xaml.cs">
+      <DependentUpon>CharacterSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Equipped.xaml.cs">
+      <DependentUpon>Equipped.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ForumExport.xaml.cs">
+      <DependentUpon>ForumExport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ForumExportTemplateReader.cs" />
+    <Compile Include="Controls\ForumTemplate.xaml.cs">
+      <DependentUpon>ForumTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Inventory.xaml.cs">
+      <DependentUpon>Inventory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ItemDisplay.xaml.cs">
+      <DependentUpon>ItemDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ItemHover.xaml.cs">
+      <DependentUpon>ItemHover.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ItemHoverHeader.xaml.cs">
+      <DependentUpon>ItemHoverHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ItemHoverImage.xaml.cs">
+      <DependentUpon>ItemHoverImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LeagueSelection.xaml.cs">
+      <DependentUpon>LeagueSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NonTopMostPopup.cs" />
+    <Compile Include="Controls\RecipeResults.xaml.cs">
+      <DependentUpon>RecipeResults.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SetBuyoutView.xaml.cs">
+      <DependentUpon>SetBuyoutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\ItemHoverRenderer.cs" />
+    <Compile Include="Utility\StashHelper.cs" />
+    <Compile Include="ViewModel\DelegateCommand.cs" />
+    <Compile Include="ViewModel\DisplayModeStrategy\DisplayModeFactory.cs" />
+    <Compile Include="ViewModel\DisplayModeStrategy\DisplayModeStrategyBase.cs" />
+    <Compile Include="ViewModel\DisplayModeStrategy\IDisplayModeStrategy.cs" />
+    <Compile Include="ViewModel\DisplayModeStrategy\NamePlusValueStrategy.cs" />
+    <Compile Include="ViewModel\DisplayModeStrategy\StringFormatStrategy.cs" />
+    <Compile Include="ViewModel\DisplayModeStrategy\ValuesPlusNameStrategy.cs" />
+    <Compile Include="ViewModel\Filters\FilterGroup.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\AllElementalResistances.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\AndFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\AttackSpeed.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\AuraGemsFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\BuyoutFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\CastSpeed.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\CategoryManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\Filters\ForumExport\ChaosResistance.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\ColdResistance.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\CorruptedGemFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\CurseGemFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\DamageCold.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\DamageFire.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\DamageLightning.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\DamageTriple.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\DropOnlyGemFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\Filters\ForumExport\DualRes.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\FireResistance.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\FiveLink.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\Filters\ForumExport\FourLink.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\Filters\ForumExport\GearTypeFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\GemCategoryFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\ItemQuantityFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\ItemRarityFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\Filters\ForumExport\LeveledGemFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\LightningResistance.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\Link.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\Filters\ForumExport\MagicRarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\Filters\ForumExport\MapLevelFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\OneHandedFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\OrFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\Filters\ForumExport\PopularGemsFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\RarityFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\Filters\ForumExport\QualityGemFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\Filters\ForumExport\RareRarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\Filters\ForumExport\ResistanceBase.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\StatFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\SupportGemsFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\TripleResistance.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\UniqueRarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\Filters\ForumExport\NormalRarity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\Filters\ForumExport\XHandFilter.cs" />
+    <Compile Include="ViewModel\Filters\IFilter.cs" />
+    <Compile Include="ViewModel\Filters\ItemFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\TwoHandedFilter.cs" />
+    <Compile Include="ViewModel\Filters\UserSearchFilter.cs" />
+    <Compile Include="ViewModel\ForumExportViewModel.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\CorruptedGemVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\DualResVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\GemVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\LeveledGemVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\LinksVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\MultipleBuyoutVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\SingleBuyoutVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\DropOnlyGemVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\GearVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\IGNVistior.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\IVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\LastUpdatedVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\MagicFindVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\MapVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\PopularGemsVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\QualityGemVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\StashVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\TripResVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\UniquesVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\VisitorBase.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\XHandedVisitor.cs" />
+    <Compile Include="ViewModel\ForumTemplateViewModel.cs" />
+    <Compile Include="ViewModel\InventoryViewModel.cs" />
+    <Compile Include="ViewModel\ItemHoverViewModel.cs" />
+    <Compile Include="Controls\StashControl.xaml.cs">
+      <DependentUpon>StashControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ItemDisplayViewModel.cs" />
+    <Compile Include="ViewModel\ItemHoverViewModelFactory.cs" />
+    <Compile Include="ViewModel\LoginWindowViewModel.cs" />
+    <Compile Include="ViewModel\MainPageViewModel.cs" />
+    <Compile Include="ViewModel\RecipeResultViewModel.cs" />
+    <Compile Include="ViewModel\Recipes\ArmourersScrapRecipe.cs" />
+    <Compile Include="ViewModel\Recipes\BlacksmithsWhetstoneRecipe.cs" />
+    <Compile Include="ViewModel\Recipes\CartographersChiselRecipe.cs" />
+    <Compile Include="ViewModel\Recipes\ChromaticRecipe.cs" />
+    <Compile Include="ViewModel\Recipes\GCPRecipe.cs" />
+    <Compile Include="ViewModel\Recipes\GlassblowersBaubleRecipe.cs" />
+    <Compile Include="ViewModel\Recipes\MinimumQualityRecipe.cs" />
+    <Compile Include="ViewModel\Recipes\OneChaosRecipe.cs" />
+    <Compile Include="ViewModel\Recipes\Recipe.cs" />
+    <Compile Include="ViewModel\Recipes\RecipeManager.cs" />
+    <Compile Include="ViewModel\Recipes\RecipeResult.cs" />
+    <Compile Include="ViewModel\Recipes\SameBaseTypeRecipe.cs" />
+    <Compile Include="ViewModel\Recipes\SameNameRecipe.cs" />
+    <Compile Include="ViewModel\ScreenController.cs" />
+    <Compile Include="ViewModel\SettingsViewModel.cs" />
+    <Compile Include="ViewModel\StashViewModel.cs" />
+    <Compile Include="ViewModel\StatusController.cs" />
+    <Compile Include="ViewModel\TradingViewModel.cs" />
+    <Compile Include="View\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BindableRichTextBox.cs" />
+    <Compile Include="View\Block.xaml.cs">
+      <DependentUpon>Block.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Converters\CharacterToImageConverter.cs" />
+    <Compile Include="View\Converters\CharacterToLevelConverter.cs" />
+    <Compile Include="View\Converters\FilterListToNameConverter.cs" />
+    <Compile Include="View\Converters\ItemDisplayConverter.cs" />
+    <Compile Include="View\Converters\ItemExplicitModsToFormattedRunConverter.cs" />
+    <Compile Include="View\Converters\ItemPropertyToFormattedRunConverter.cs" />
+    <Compile Include="View\Converters\ItemRequirementToFormattedRunConverter.cs" />
+    <Compile Include="View\Converters\ItemToColorBrushConverter.cs" />
+    <Compile Include="View\Converters\RecipeDescriptionConverter.cs" />
+    <Compile Include="View\Converters\ResultMatchConverter.cs" />
+    <Compile Include="View\Converters\TabIDToStashControlConverter.cs" />
+    <Compile Include="View\InventoryView.xaml.cs">
+      <DependentUpon>InventoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\IViewModel.cs" />
+    <Compile Include="View\LoadingAnimation.xaml.cs">
+      <DependentUpon>LoadingAnimation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RecipeView.xaml.cs">
+      <DependentUpon>RecipeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StashView.xaml.cs">
+      <DependentUpon>StashView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TradingView.xaml.cs">
+      <DependentUpon>TradingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VisibilityConverter.cs" />
+    <Compile Include="View\VisualTreeHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Resource Include="Resources\fontin-regular-webfont.ttf" />
+    <Resource Include="Resources\fontin-smallcaps-webfont.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\CharacterSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ExpressionDark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Equipped.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ExpressionDarkGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ExpressionDarkGrid_brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ForumExport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ForumTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Inventory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ItemDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ItemHover.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ItemHoverHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ItemHoverImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LeagueSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\RecipeResults.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SetBuyoutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\StashControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TabControlStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Block.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\InventoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoadingAnimation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RecipeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StashView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TradingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\POEApi.Infrastructure\POEApi.Infrastructure.csproj">
+      <Project>{2F0E4301-694B-4A26-80D8-D57042DA9D6F}</Project>
+      <Name>POEApi.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POEApi.Model\POEApi.Model.csproj">
+      <Project>{9841DD07-224D-4534-B9D1-F934C1D7BC73}</Project>
+      <Name>POEApi.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\stash-grid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\inventory.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\buttons\btn_about.png" />
+    <Resource Include="Images\buttons\btn_contacts.png" />
+    <Resource Include="Images\buttons\btn_inventory.png" />
+    <Resource Include="Images\buttons\btn_selected_about.png" />
+    <Resource Include="Images\buttons\btn_selected_contacts.png" />
+    <Resource Include="Images\buttons\btn_selected_settings.png" />
+    <Resource Include="Images\buttons\btn_selected_trading.png" />
+    <Resource Include="Images\buttons\btn_select_inventory.png" />
+    <Resource Include="Images\buttons\btn_select_stash.png" />
+    <Resource Include="Images\buttons\btn_settings.png" />
+    <Resource Include="Images\buttons\btn_stash.png" />
+    <Resource Include="Images\buttons\btn_trading.png" />
+    <Resource Include="Images\Sockets\blue.png" />
+    <Resource Include="Images\Sockets\green.png" />
+    <Resource Include="Images\Sockets\link-horizontal.png" />
+    <Resource Include="Images\Sockets\link-vertical.png" />
+    <Resource Include="Images\Sockets\red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mainscreen.png" />
+    <Resource Include="Images\Sir Marauder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Sockets\blue-socketed.png" />
+    <Resource Include="Images\Sockets\green-socketed.png" />
+    <Resource Include="Images\Sockets\red-socketed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\buttons\btn_login.png" />
+    <Resource Include="Images\buttons\btn_login_hover.png" />
+    <Resource Include="Images\buttons\btn_offline.png" />
+    <Resource Include="Images\buttons\btn_offline_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Avatars\templar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TabControl\leftbutton-hover.png" />
+    <Resource Include="Images\TabControl\leftbutton.png" />
+    <Resource Include="Images\TabControl\rightbutton.png" />
+    <Resource Include="Images\TabControl\rightbutton_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Procurement.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TabControl\stash-dropdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Avatars\marauder.png" />
+    <Resource Include="Images\Avatars\ranger.png" />
+    <Resource Include="Images\Avatars\shadow.png" />
+    <Resource Include="Images\Avatars\witch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\character-background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TabControl\stash-dropdown-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\equiped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\buttons\btn_exit.png" />
+    <Resource Include="Images\buttons\btn_selected_exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sticky and thetdev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Avatars\duelist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ItemHover\ItemHeaderWhiteLeft.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderWhiteMiddle.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderWhiteRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ItemHover\ItemHeaderCurrencyLeft.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderCurrencyMiddle.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderCurrencyRight.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderGemLeft.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderGemMiddle.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderGemRight.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderMagicLeft.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderMagicMiddle.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderMagicRight.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderQuestLeft.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderQuestMiddle.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderQuestRight.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderRareLeft.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderRareMiddle.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderRareRight.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderUniqueLeft.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderUniqueMiddle.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderUniqueRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\buttons\btn_close.png" />
+    <Resource Include="Images\buttons\btn_close_hover.png" />
+    <Resource Include="Images\buttons\btn_min.png" />
+    <Resource Include="Images\buttons\btn_min_hover.png" />
+    <Resource Include="Images\buttons\btn_recipes.png" />
+    <Resource Include="Images\buttons\btn_recipes_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\footer.png" />
+    <Resource Include="Images\header.png" />
+    <Resource Include="Images\main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ForumExportTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Resource Include="Images\buttons\donate-hover.png" />
+    <Resource Include="Images\buttons\donate.png" />
+    <Resource Include="Images\buttons\about-button-hover.png" />
+    <Resource Include="Images\buttons\about-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Sockets\white-socketed.png" />
+    <Resource Include="Images\Sockets\white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Avatars\scion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Sockets\blue-socketed-white.png" />
+    <Resource Include="Images\Sockets\green-socketed-white.png" />
+    <Resource Include="Images\Sockets\red-socketed-white.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

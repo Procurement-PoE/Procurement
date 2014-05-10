@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Procurement.Controls.Equipped"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:v="clr-namespace:Procurement.View"
+             mc:Ignorable="d" 
+             Focusable="True">
+        <Grid x:Name="gridOuter" Height="532" Width="600" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Images/equiped.png" />
+            </Grid.Background>
+            <Button></Button>
+            <Canvas x:Name="davinci" Grid.Column="1">
+            </Canvas>
+        </Grid>
+</UserControl>

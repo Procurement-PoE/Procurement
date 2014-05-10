@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="Procurement.View.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:v="clr-namespace:Procurement.View"
+             mc:Ignorable="d" 
+             Height="630" Width="1012">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Procurement;component/Controls/ExpressionDarkGrid.xaml" />
+    </UserControl.Resources>
+    <Grid x:Name="ViewContent" Width="1012">
+        <Grid.Resources>
+            <v:VisibilityConverter x:Key="vc" />
+        </Grid.Resources>
+
+        <Border Canvas.ZIndex="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Black"  Opacity="0.79" Visibility="{Binding IsBusy, Converter={StaticResource vc}, ConverterParameter=IsBusy}">
+            <v:LoadingAnimation HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+
+        <Grid Margin="15,0,15,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="450"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" BorderBrush="#FF76591B" BorderThickness="2" Grid.Column="2" Background="Black" Margin="0,15,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="350"/>
+                        <ColumnDefinition Width="250"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="2" Content="User Settings" Foreground="#FFAB9066" FontSize="14" FontWeight="Bold"/>
+
+                    <Label Grid.Row="1" Grid.Column="0"  Grid.ColumnSpan="2" Content="Favourite League" Foreground="#FFAB9066" />
+                    <ComboBox Grid.Row="1" Grid.Column="1" Foreground="#FFAB9066" SelectedItem="{Binding CurrentLeague}" ItemsSource="{Binding Leagues}" Width="250" Height="20" HorizontalAlignment="Left"/>
+
+                    <Label Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2" Content="Favourite Character" Foreground="#FFAB9066" />
+                    <ComboBox Grid.Row="2" Grid.Column="1" Foreground="#FFAB9066" SelectedItem="{Binding CurrentCharacter}" ItemsSource="{Binding Characters}" Width="250" Height="20" HorizontalAlignment="Left"/>
+
+                    <Label Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="2" Content="Compact Mode" Foreground="#FFAB9066" />
+                    <CheckBox Grid.Row="3" Grid.Column="1" Foreground="#FFAB9066" IsChecked="{Binding CompactMode}" HorizontalAlignment="Left" Margin="0,2,0,0" />
+
+                    <Button Grid.Column="3" Grid.Row="1"  Name="AboutButton" Width="85" Height="28" HorizontalAlignment="Left" Click="AboutButton_Click">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value="/Procurement;component/Images/buttons/about-button.png"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Source" Value="/Procurement;component/Images/buttons/about-button-hover.png"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="2" BorderBrush="#FF76591B" BorderThickness="2" Grid.Column="2" Background="Black">
+                <Grid>                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="Currency Ratios" Foreground="#FFAB9066" FontSize="14" FontWeight="Bold"/>
+                    </Grid>
+
+                    <DataGrid Grid.Row="1" Name="CurrencyGrid" Background="Black" ItemsSource="{Binding CurrencyRatios}" SelectionMode="Single" AutoGenerateColumns="False" RowEditEnding="CurrencyGrid_RowEditEnding" Width="460" HorizontalAlignment="Left" Margin="5,0,0,0" BorderThickness="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding OrbType}" IsReadOnly="True" Width="150" Foreground="#FFAB9066"/>
+                            <DataGridTextColumn Header="OrbAmount" Binding="{Binding OrbAmount, Mode=TwoWay, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Width="150" Foreground="#FFAB9066"  />
+                            <DataGridTextColumn Header="GCPAmount" Binding="{Binding ChaosAmount, Mode=TwoWay, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Width="150" Foreground="#FFAB9066"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="Procurement.Controls.SetBuyoutView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Procurement;component/Controls/ExpressionDark.xaml" />
+    </UserControl.Resources>
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="120" />
+        </Grid.ColumnDefinitions>
+        <Label Content="Set Buyout" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#FFAB9066" FontSize="14" FontWeight="Bold"/>
+        <!--<TextBox  x:Name="BuyoutValue" />-->
+
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
+        <TextBox  x:Name="BuyoutValue" Height="25" Width="50" PreviewTextInput="BuyoutValue_PreviewTextInput"/>
+        <Button Content="+"  Height="25" Width="20" Click="Increase_Click"/>
+        <Button Content="-"  Height="25" Width="20" Click="Decrease_Click"/>
+        </StackPanel>
+
+        <ComboBox Grid.Column="1" Grid.Row="1" Height="25" x:Name="OrbType">
+            <ComboBoxItem Content="Chaos Orb" IsSelected="True"/>
+            <ComboBoxItem Content="Vaal Orb" />
+            <ComboBoxItem Content="Exalted Orb" />
+            <ComboBoxItem Content="Divine Orb" />
+            <ComboBoxItem Content="Orb of Fusing" />
+            <ComboBoxItem Content="Orb of Alchemy" />
+            <ComboBoxItem Content="Orb of Alteration" />
+            <ComboBoxItem Content="Gemcutter's Prism" />
+            <ComboBoxItem Content="Orb of Chance" />
+            <ComboBoxItem Content="Cartographer's Chisel" />
+            <ComboBoxItem Content="Orb of Scouring" />
+            <ComboBoxItem Content="Orb of Regret" />
+            <ComboBoxItem Content="Regal Orb" />
+            <ComboBoxItem Content="Jeweller's Orb" />
+            <ComboBoxItem Content="Chromatic Orb" />
+            <ComboBoxItem Content="Blessed Orb" />
+        </ComboBox>
+
+        <Button Content="Save Buyout" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Height="25" Click="SaveBuyout_Click"/>
+        <Button Content="Remove Buyout" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Height="25" Click="RemoveBuyout_Click"/>
+        <Button Content="Save Image" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Height="25" Click="SaveImage_Click"/>
+
+
+    </Grid>
+</UserControl>

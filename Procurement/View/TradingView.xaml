@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="Procurement.View.TradingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:poe="clr-namespace:Procurement.Controls"
+             mc:Ignorable="d" 
+             Height="600" Width="990">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="TabControlNormalBorderBrush" Color="#AA9072" />
+        <SolidColorBrush x:Key="ButtonNormalBackground" Color="#2D1D13" />
+        <Style TargetType="{x:Type TabItem}" x:Key="NonImages">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Foreground" Value="#E7C892" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter Property="Foreground" Value="#795D42" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                        <Grid>
+                            <Border 
+                                  Name="Border"
+                                  Background="#2D1C13"
+                                  BorderBrush="Black" 
+                                  BorderThickness="1,1,1,1" 
+                                  CornerRadius="6,6,0,0" >
+                                <ContentPresenter x:Name="ContentSite"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    ContentSource="Header"
+                    Margin="12,2,12,2"/>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid x:Name="ViewContent" Width="990">
+        <TabControl>
+            <TabItem Header="Forum Export" Style="{StaticResource NonImages}">
+                <poe:ForumExport />
+            </TabItem>
+            <TabItem Header="Forum Template" Style="{StaticResource NonImages}">
+                <poe:ForumTemplate />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

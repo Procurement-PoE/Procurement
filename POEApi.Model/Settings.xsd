@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Settings" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Settings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Ratios" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="PopularGems" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="UserSettings" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="ProxySettings" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="Lists" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="Buyouts" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="TabBuyouts" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!--Level 1-->
+  <xs:element name="Ratios">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Orb" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="ChaosAmount" type="xs:decimal" use="required" />
+            <xs:attribute name="OrbAmount" type="xs:decimal" use="required" />
+            <xs:attribute name="type" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+ <xs:element name="UserSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Setting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AccountLogin" type="AccountLogin" minOccurs="1" maxOccurs="1" />
+              <xs:element name="AccountPassword" type="AccountPassword" minOccurs="1" maxOccurs="1" />
+              <xs:element name="UseSessionID" type="UseSessionID" minOccurs="1" maxOccurs="1" />
+              <xs:element name="FavoriteLeague" type="FavoriteLeague" minOccurs="1" maxOccurs="1" />
+              <xs:element name="FavoriteCharacter" type="FavoriteCharacter" minOccurs="1" maxOccurs="1" />
+              <xs:element name="CompactMode" type="CompactMode" minOccurs="1" maxOccurs="1" />
+              <xs:element name="DownloadOnlyMyLeagues" type="DownloadOnlyMyLeagues" minOccurs="1" maxOccurs="1" />
+              <xs:element name="DownloadOnlyMyCharacters" type="DownloadOnlyMyCharacters" minOccurs="1" maxOccurs="1" />
+              <xs:element name="CurrencyDistributionMetric" type="CurrencyDistributionMetric" minOccurs="1" maxOccurs="1" />
+              <xs:element name="EmbedBuyouts" type="EmbedBuyouts" minOccurs="1" maxOccurs="1" />
+              <xs:element name="BuyoutItemsOnlyVisibleInBuyoutsTag" type="BuyoutItemsOnlyVisibleInBuyoutsTag" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element> 
+  <xs:element name="ProxySettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Setting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Enabled" type="Enabled" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Username" type="Username" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Password" type="Password" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Domain" type="Domain" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Lists">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="List" minOccurs="4" maxOccurs="4" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Buyouts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Item" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TabBuyouts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Item" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PopularGems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Gem" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="name" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!--Level 2-->
+  <xs:complexType name="AccountLogin">
+    <xs:attribute name="name" fixed="AccountLogin" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="AccountPassword">
+    <xs:attribute name="name" fixed="AccountPassword" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="UseSessionID">
+    <xs:attribute name="name" fixed="UseSessionID" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:boolean" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="FavoriteLeague">
+    <xs:attribute name="name" fixed="FavoriteLeague" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="FavoriteCharacter">
+    <xs:attribute name="name" fixed="FavoriteCharacter" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="CompactMode">
+    <xs:attribute name="name" fixed="CompactMode" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:boolean" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="DownloadOnlyMyLeagues">
+    <xs:attribute name="name" fixed="DownloadOnlyMyLeagues" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:boolean" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="DownloadOnlyMyCharacters">
+    <xs:attribute name="name" fixed="DownloadOnlyMyCharacters" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:boolean" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="CurrencyDistributionMetric">
+    <xs:attribute name="name" fixed="CurrencyDistributionMetric" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="EmbedBuyouts">
+    <xs:attribute name="name" fixed="EmbedBuyouts" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:boolean" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="BuyoutItemsOnlyVisibleInBuyoutsTag">
+    <xs:attribute name="name" fixed="BuyoutItemsOnlyVisibleInBuyoutsTag" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:boolean" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="Enabled">
+    <xs:attribute name="name" fixed="Enabled" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:boolean" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="Username">
+    <xs:attribute name="name" fixed="Username" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="Password">
+    <xs:attribute name="name" fixed="Password" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="Domain">
+    <xs:attribute name="name" fixed="Domain" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="Item">
+    <xs:complexType>
+      <xs:attribute name="id" use="required" type="xs:string" />
+      <xs:attribute name="value" use="required" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="List">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Item" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="value" use="required" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="name" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="MyLeagues" />
+            <xs:enumeration value="MyTabs" />
+            <xs:enumeration value="MyCharacters" />
+            <xs:enumeration value="AdditionalTemplates" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

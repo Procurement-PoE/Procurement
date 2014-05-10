@@ -1,0 +1,256 @@
+﻿<UserControl x:Class="Procurement.View.StashView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:poe="clr-namespace:Procurement.Controls"
+             xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+             mc:Ignorable="d" 
+             Height="630" Width="1012">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="TabControlNormalBorderBrush" Color="#AA9072" />
+        <SolidColorBrush x:Key="ButtonNormalBackground" Color="#2D1D13" />
+        <Style TargetType="{x:Type TabItem}" x:Key="NonImages">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Foreground" Value="#E7C892" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter Property="Foreground" Value="#795D42" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                        <Grid>
+                            <Border 
+                                  Name="Border"
+                                  Background="#2D1C13"
+                                  BorderBrush="Black" 
+                                  BorderThickness="1,1,1,1" 
+                                  CornerRadius="6,6,0,0" >
+                                <ContentPresenter x:Name="ContentSite"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    ContentSource="Header"
+                    Margin="12,2,12,2"/>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid x:Name="ViewContent" Width="1012">
+        <Grid.ColumnDefinitions>
+             <ColumnDefinition Width="600" />
+             <ColumnDefinition Width="10" />
+             <ColumnDefinition Width="370" />
+            <ColumnDefinition Width="32*" />
+        </Grid.ColumnDefinitions>
+        
+        <TabControl Background="Transparent" Width="600" BorderBrush="Transparent" VerticalAlignment="Top" x:Name="tabControl" HorizontalAlignment="Left" Template="{DynamicResource TabControlControlTemplate1}" Style="{Binding /}" Grid.ColumnSpan="2" Margin="4,3,0,0">
+                <TabControl.Resources>
+                <Style x:Key="TabScrollerRepeatButtonStyle" TargetType="{x:Type RepeatButton}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Border Background="Transparent">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding ContentControl.Content}"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
+                <ControlTemplate x:Key="TabControlControlTemplate1" TargetType="{x:Type TabControl}">
+                    <Grid x:Name="Grid" KeyboardNavigation.TabNavigation="Local">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="ColumnDefinition0"/>
+                            <ColumnDefinition x:Name="ColumnDefinition1" Width="0"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition x:Name="RowDefinition0" Height="Auto"/>
+                            <RowDefinition x:Name="RowDefinition1" Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="1" Grid.Column="0" x:Name="ContentPanel" BorderBrush="#FFD0CEBF" BorderThickness="0,0,0,0" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local" KeyboardNavigation.DirectionalNavigation="Contained">
+                            <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0">
+                                <Border Background="{TemplateBinding Background}" x:Name="Border1">
+                                    <ContentPresenter DataContext="{x:Null}" Margin="0,0,0,0" x:Name="PART_SelectedContentHost" Content="{TemplateBinding SelectedContent}" ContentTemplate="{TemplateBinding SelectedContentTemplate}" ContentTemplateSelector="{TemplateBinding SelectedContentTemplateSelector}" ContentSource="SelectedContent"/>
+                                </Border>
+                            </Border>
+                        </Border>
+                        <ScrollViewer x:Name="HeaderPanel" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled">
+                            <ScrollViewer.Style>
+                                <Style TargetType="{x:Type ScrollViewer}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Grid Margin="8,0,8,0" Grid.Row="0" Grid.Column="0" x:Name="HeaderPanel">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="25"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="25"/>
+                                                        <ColumnDefinition Width="25"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="26"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <RepeatButton Grid.Column="0" Command="ScrollBar.LineLeftCommand" Background="Transparent" Style="{StaticResource TabScrollerRepeatButtonStyle}">
+                                                        <Image>
+                                                            <Image.Style>
+                                                                <Style TargetType="{x:Type Image}">                                                                    
+                                                                    <Setter Property="Source" Value="/Procurement;component/Images/TabControl/leftbutton.png"/>
+                                                                    <Style.Triggers>
+                                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                                            <Setter Property="Source" Value="/Procurement;component/Images/TabControl/leftbutton-hover.png"/>
+                                                                        </Trigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Image.Style>
+                                                        </Image>
+                                                    </RepeatButton>
+
+                                                    <ScrollContentPresenter Grid.Column="1" Content="{TemplateBinding ScrollViewer.Content}"  />
+                                                    <RepeatButton Grid.Column="2" Command="ScrollBar.LineRightCommand" Background="Transparent" Style="{StaticResource TabScrollerRepeatButtonStyle}">
+                                                        <Image>
+                                                            <Image.Style>
+                                                                <Style TargetType="{x:Type Image}">
+                                                                    <Setter Property="Source" Value="/Procurement;component/Images/TabControl/rightbutton.png"/>
+                                                                    <Style.Triggers>
+                                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                                            <Setter Property="Source" Value="/Procurement;component/Images/TabControl/rightbutton_hover.png"/>
+                                                                        </Trigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Image.Style>
+                                                        </Image>
+                                                    </RepeatButton>
+                                                    <Button Grid.Column="3" Command="{Binding GetTabs}" Background="{StaticResource TabControlNormalBorderBrush}" Foreground="#E5C690" CommandParameter="{Binding RelativeSource={RelativeSource Self} }"> 
+                                                        <Grid>
+                                                            <Image>
+                                                                <Image.Style>
+                                                                    <Style TargetType="{x:Type Image}">
+                                                                        <Setter Property="Source" Value="/Procurement;component/Images/TabControl/stash-dropdown.png"/>
+                                                                        <Style.Triggers>
+                                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                                <Setter Property="Source" Value="/Procurement;component/Images/TabControl/stash-dropdown-hover.png"/>
+                                                                            </Trigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Image.Style>
+                                                            </Image>
+                                                        </Grid>
+                                                    </Button>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ScrollViewer.Style>
+                            <StackPanel IsItemsHost="true" Orientation="Horizontal" Background="{x:Null}" KeyboardNavigation.TabIndex="1" />
+                        </ScrollViewer>
+                    </Grid>
+                </ControlTemplate>
+            </TabControl.Resources>
+            </TabControl>
+
+        <Grid Grid.Column="2" VerticalAlignment="Top">  
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" BorderBrush="#FF76591B" BorderThickness="2" Background="Black" Margin="0,15,0,0">
+                    <Grid Margin="5,5,5,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                        <poe:LeagueSelection Grid.Row="0" Width="320" Height="55" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                        <Grid Grid.Row="2">
+                            <StackPanel Orientation="Horizontal" Background="Black" >
+                                <Label Content="Search :" Foreground="#FFAB9066"/>
+                                <toolkit:AutoCompleteBox x:Name="autoComplete" MinimumPopulateDelay="100" MinimumPrefixLength="2" FilterMode="Contains" Background="Black" Width="270" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderBrush="#FF76591B" Foreground="#FFAB9066" ItemsSource="{Binding AvailableItems}" />
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <TabControl Grid.Row="1" Grid.Column="2" >
+                    <TabItem Header="Currency Breakdown    " Style="{StaticResource NonImages}">
+                        <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0">
+                            <Grid Margin="5,5,5,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Label Content="Currency Breakdown" Grid.Row="0"  Foreground="#FFAB9066" FontSize="14" FontWeight="Bold"/>
+                                <Label Grid.Row="1" Content="{Binding Total}" Foreground="#FFAB9066"/>
+                                <ItemsControl Grid.Row="2" ItemsSource="{Binding TotalDistibution}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Vertical"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Height="Auto">
+                                                <RichTextBox Background="Black" BorderBrush="Transparent" IsReadOnly="True" SelectionBrush="Transparent">
+                                                    <FlowDocument>
+                                                        <Paragraph>
+                                                            <Bold>
+                                                                <Run Foreground="#FFAB9066" Text="{Binding Key, Mode=OneWay}"></Run>
+                                                            </Bold>
+                                                            <Run Foreground="#FFAB9066" Text=": "></Run>
+                                                            <Run Foreground="#FFAB9066" Text="{Binding Value, Mode=OneWay, StringFormat=0.00}"></Run>
+                                                        </Paragraph>
+                                                    </FlowDocument>
+                                                </RichTextBox>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Grid>
+                        </Border>
+                    </TabItem>
+                    <TabItem Header="Advanced Search" Style="{StaticResource NonImages}">
+                        <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0">
+                            <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="455">
+                            <Grid>
+                                <StackPanel>
+                                    <CheckBox Content="None" Foreground="#FFAB9066" Background="Black" Checked="CheckBox_Checked" />
+                                    <ItemsControl ItemsSource="{Binding AvailableCategories}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Vertical"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <CheckBox Content="{Binding Key}" Foreground="#FFAB9066" Background="Black" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked">
+                                                    <CheckBox.ToolTip>
+                                                        <Border Background="Black" BorderBrush="#FFAB9066" BorderThickness="1">
+                                                            <TextBlock Text="{Binding Value}" Foreground="#FFAB9066" />
+                                                        </Border>
+                                                    </CheckBox.ToolTip>
+                                                </CheckBox>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </Grid>
+                            </ScrollViewer>
+                        </Border>
+                    </TabItem>
+                    
+                </TabControl>
+                
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
