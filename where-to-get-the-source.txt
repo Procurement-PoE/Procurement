@@ -1,1 +1,0 @@
-The source code for Procurement is not hosted on git, and is available at http://code.google.com/p/procurement/
