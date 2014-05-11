@@ -138,6 +138,7 @@
     </Compile>
     <Compile Include="Utility\ItemHoverRenderer.cs" />
     <Compile Include="Utility\StashHelper.cs" />
+    <Compile Include="Utility\VersionChecker.cs" />
     <Compile Include="ViewModel\DelegateCommand.cs" />
     <Compile Include="ViewModel\DisplayModeStrategy\DisplayModeFactory.cs" />
     <Compile Include="ViewModel\DisplayModeStrategy\DisplayModeStrategyBase.cs" />

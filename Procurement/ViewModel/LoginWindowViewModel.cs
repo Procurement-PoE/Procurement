@@ -12,6 +12,7 @@ using POEApi.Infrastructure.Events;
 using POEApi.Model;
 using POEApi.Model.Events;
 using Procurement.View;
+using Procurement.Utility;
 
 namespace Procurement.ViewModel
 {
@@ -83,12 +84,15 @@ namespace Procurement.ViewModel
             this.view.txtPassword.PasswordChanged += new System.Windows.RoutedEventHandler(txtPassword_PasswordChanged);
 
             statusController = new StatusController(this.view.StatusBox);
-            statusController.DisplayMessage(ApplicationState.Version + " Initialized.\r");
 
             ApplicationState.Model.Authenticating += model_Authenticating;
             ApplicationState.Model.Throttled += model_Throttled;
             ApplicationState.InitializeFont(Properties.Resources.fontin_regular_webfont);
             ApplicationState.InitializeFont(Properties.Resources.fontin_smallcaps_webfont);
+
+            statusController.DisplayMessage(ApplicationState.Version + " Initialized.\r");
+
+            VersionChecker.CheckForUpdates();
         }
 
         void txtPassword_PasswordChanged(object sender, System.Windows.RoutedEventArgs e)
