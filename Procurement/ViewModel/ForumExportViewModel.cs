@@ -145,6 +145,10 @@ namespace Procurement.ViewModel
         {
             Text = getFinal(selected.SelectMany(sid => ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(sid))
                                                               .OrderBy(id => id.Y).ThenBy(i => i.X));
+
+            var count = Text.Count();
+            if (count > 50000)
+                MessageBox.Show(string.Format("Shop text is {0} characters, which exceeds the 50,000 character limit on the pathofexile.com forum!", count), "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
         private string getFinal(IEnumerable<Item> items)

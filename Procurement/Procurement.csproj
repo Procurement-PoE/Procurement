@@ -159,6 +159,8 @@
     <Compile Include="ViewModel\Filters\ForumExport\ChaosResistance.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ColdResistance.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CorruptedGemFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\CritChanceFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\GlobalCritMultiplierFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CurseGemFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\DamageCold.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\DamageFire.cs" />
@@ -168,6 +170,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\Filters\ForumExport\DualRes.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\ExplicitModBase.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\FireResistance.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\FiveLink.cs">
       <SubType>Code</SubType>
@@ -177,11 +180,14 @@
     </Compile>
     <Compile Include="ViewModel\Filters\ForumExport\GearTypeFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GemCategoryFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\GlobalCritChanceFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ItemQuantityFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ItemRarityFilter.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\Filters\ForumExport\LeveledGemFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\LifeFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\LifeRegenFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\LightningResistance.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\Link.cs">
       <SubType>Code</SubType>
@@ -206,6 +212,7 @@
     </Compile>
     <Compile Include="ViewModel\Filters\ForumExport\ResistanceBase.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixSocketFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\SpellDamageFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\StatFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SupportGemsFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\TripleResistance.cs" />
@@ -223,6 +230,7 @@
     <Compile Include="ViewModel\ForumExportViewModel.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\CorruptedGemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\DualResVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\ExplicitModVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\GemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\LeveledGemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\LinksVisitor.cs" />

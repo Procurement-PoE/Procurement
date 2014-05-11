@@ -85,7 +85,7 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Name" Binding="{Binding OrbType}" IsReadOnly="True" Width="150" Foreground="#FFAB9066"/>
                             <DataGridTextColumn Header="OrbAmount" Binding="{Binding OrbAmount, Mode=TwoWay, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Width="150" Foreground="#FFAB9066"  />
-                            <DataGridTextColumn Header="GCPAmount" Binding="{Binding ChaosAmount, Mode=TwoWay, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Width="150" Foreground="#FFAB9066"/>
+                            <DataGridTextColumn Header="ChaosAmount" Binding="{Binding ChaosAmount, Mode=TwoWay, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Width="150" Foreground="#FFAB9066"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
