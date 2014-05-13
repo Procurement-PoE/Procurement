@@ -1,8 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
-MinimumVisualStudioVersion = 10.0.40219.1
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POEApi.Transport", "POEApi.Transport\POEApi.Transport.csproj", "{5933C062-45EA-4BC3-9AE9-0D6CFC26D505}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POEApi.Model", "POEApi.Model\POEApi.Model.csproj", "{9841DD07-224D-4534-B9D1-F934C1D7BC73}"
