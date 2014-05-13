@@ -148,6 +148,7 @@
     <Compile Include="ViewModel\DisplayModeStrategy\ValuesPlusNameStrategy.cs" />
     <Compile Include="ViewModel\Filters\FilterGroup.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\AllElementalResistances.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\AllGemsFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\AndFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\AttackSpeed.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\AuraGemsFilter.cs" />
@@ -228,6 +229,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\TwoHandedFilter.cs" />
     <Compile Include="ViewModel\Filters\UserSearchFilter.cs" />
     <Compile Include="ViewModel\ForumExportViewModel.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\AllGemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\CorruptedGemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\DualResVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\ExplicitModVisitor.cs" />
