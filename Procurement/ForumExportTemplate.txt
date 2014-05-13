@@ -8,6 +8,14 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 [spoiler="          5-Links          "]
 {5Link}
 [/spoiler]
+[spoiler="          Maps          "]
+[spoiler="          66-69          "]
+{66Maps}{67Maps}{68Maps}{69Maps}
+[/spoiler]
+[spoiler="          70-78          "]
+{70Maps}{71Maps}{72Maps}{73Maps}{74Maps}{75Maps}{76Maps}{77Maps}{78Maps}
+[/spoiler]
+[/spoiler]
 [spoiler="          Gems          "]
 [spoiler="          Quality Gems          "]
 {QualityGems}
