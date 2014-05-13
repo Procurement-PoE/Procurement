@@ -1,4 +1,5 @@
 ﻿using POEApi.Model;
+using System.Linq;
 
 namespace Procurement.ViewModel.Filters
 {
@@ -34,7 +35,20 @@ namespace Procurement.ViewModel.Filters
             if (string.IsNullOrEmpty(filter))
                 return false;
 
-            return item.TypeLine.ToLower().Contains(filter.ToLower()) || item.Name.ToLower().Contains(filter.ToLower()) || isMatchedGear(item);
+            if (item.TypeLine.ToLower().Contains(filter.ToLower()) || item.Name.ToLower().Contains(filter.ToLower()) || containsMatchedCosmeticMod(item) || isMatchedGear(item))
+                return true;
+
+            var gear = item as Gear;
+
+            if (gear != null && gear.SocketedItems.Any(x => Applicable(x)))
+                return true;
+
+            return false;
+        }
+
+        private bool containsMatchedCosmeticMod(Item item)
+        {
+            return item.Microtransactions.Any(x => x.ToLower().Contains(filter.ToLower()));
         }
 
         private bool isMatchedGear(Item item)

@@ -41,6 +41,7 @@ namespace POEApi.Model
         public int Quality { get; private set; }
         public int UniqueIDHash { get; set; }
         public bool Corrupted { get; private set; }
+        public List<string> Microtransactions { get; set; }
 
 
         protected Item(JSONProxy.Item item)
@@ -72,15 +73,16 @@ namespace POEApi.Model
             }
 
             this.Corrupted = item.Corrupted;
+            this.Microtransactions = item.CosmeticMods == null ? new List<string>() : item.CosmeticMods;
         }
 
         protected abstract int getConcreteHash();
 
         protected int getHash()
         {
-            var anonomousType = new 
-            { 
-                f = this.IconURL, 
+            var anonomousType = new
+            {
+                f = this.IconURL,
                 f1 = this.League,
                 f2 = this.Name,
                 f3 = this.TypeLine,

@@ -149,6 +149,7 @@
     <Compile Include="ViewModel\Filters\FilterGroup.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\AllElementalResistances.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\AllGemsFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\AllMicrotransactions.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\AndFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\AttackSpeed.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\AuraGemsFilter.cs" />

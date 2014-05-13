@@ -23,6 +23,8 @@ namespace Procurement.ViewModel
         public string DescriptionText { get; private set; }
         public string SecondaryDescriptionText { get; private set; }
         public bool IsCorrupted { get; private set; }
+        public List<string> Microtransactions { get; private set; }
+        public bool HasMicrotransactions { get; private set; }
 
         public ItemHoverViewModel(Item item)
         {
@@ -39,7 +41,10 @@ namespace Procurement.ViewModel
             this.DescriptionText = item.DescrText;
 
             this.IsCorrupted = item.Corrupted;
-            
+
+            this.Microtransactions = item.Microtransactions;
+            this.HasMicrotransactions = item.Microtransactions.Count > 0;
+
             SecondaryDescriptionText = item.SecDescrText;
 
             var gear = item as Gear;
@@ -48,12 +53,12 @@ namespace Procurement.ViewModel
             {
                 this.Requirements = gear.Requirements;
                 this.ImplicitMods = gear.Implicitmods;
-                
-                if(gear.FlavourText != null && gear.FlavourText.Count > 0)
+
+                if (gear.FlavourText != null && gear.FlavourText.Count > 0)
                 {
                     var builder = new StringBuilder();
 
-                    foreach (var text in ((Gear) (item)).FlavourText)
+                    foreach (var text in ((Gear)(item)).FlavourText)
                     {
                         builder.Append(text);
                     }

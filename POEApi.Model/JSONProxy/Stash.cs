@@ -129,6 +129,9 @@ namespace POEApi.Model.JSONProxy
 
         [DataMember(Name = "corrupted")]
         public bool Corrupted { get; set; }
+
+        [DataMember(Name = "cosmeticMods")]
+        public List<string> CosmeticMods { get; set; }
     }
 
     [DataContract]

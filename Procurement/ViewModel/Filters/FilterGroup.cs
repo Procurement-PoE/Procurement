@@ -2,6 +2,7 @@
 {
     public enum FilterGroup
     {
+        Microtransactions,
         Resistances,
         Rarity,
         Links,
