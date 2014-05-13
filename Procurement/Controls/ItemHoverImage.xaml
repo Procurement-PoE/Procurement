@@ -211,12 +211,20 @@
                                Converter={StaticResource bc},
                                ConverterParameter=CollapseWhenFalse}" />
 
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7"
+                            Visibility="{Binding HasExplicitMods,
+                                                 Converter={StaticResource bc},
+                                                 ConverterParameter=CollapseWhenFalse}" />                    
+                    
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
                                                Mode=OneWay}"
                                HorizontalAlignment="Center"
                                FontFamily="../Resources/#Fontin SmallCaps"
-                               Foreground="#107119"
+                               Foreground="#FFFFFF"
                                Padding="10 0 10 5"
                                Text="Image generated with Procurement"
                                TextAlignment="Center"
