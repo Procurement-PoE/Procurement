@@ -276,6 +276,7 @@ namespace Procurement.ViewModel
             MenuItem source = sender as MenuItem;
             StashControl stash = source.Tag as StashControl;
             stash.RefreshTab();
+            ScreenController.Instance.InvalidateRecipeScreen();
         }
 
 

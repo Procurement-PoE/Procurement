@@ -22,6 +22,11 @@ namespace Procurement.ViewModel
         public DelegateCommand MenuButtonCommand { get; set; }
 
         private const string STASH_VIEW = "StashView";
+        private const string RECIPE_VIEW = "Recipes";
+        private const string TRADING_VIEW = "Trading";
+        private const string INVENTORY_VIEW = "Inventory";
+        private const string SETTINGS_VIEW = "Settings";
+        private const string ABOUT_VIEW = "About";
 
         public static ScreenController Instance = null;
 
@@ -47,17 +52,17 @@ namespace Procurement.ViewModel
 
         public void UpdateTrading()
         {
-            screens["Trading"] = new TradingView();
+            screens[TRADING_VIEW] = new TradingView();
         }
 
         private void execute(object obj)
         {
             var key = obj.ToString();
 
-            if (key == "Recipes" && screens[key] == null)
+            if (key == RECIPE_VIEW && screens[key] == null)
                 screens[key] = new RecipeView();
 
-            if (key == "Trading" && screens[key] == null)
+            if (key == TRADING_VIEW && screens[key] == null)
                 screens[key] = new TradingView();
 
             
@@ -70,12 +75,17 @@ namespace Procurement.ViewModel
             new Action(() =>
             {
                 screens.Add(STASH_VIEW, new StashView());
-                screens.Add("Inventory", new InventoryView());
-                screens.Add("Trading", null);
-                screens.Add("Settings", new SettingsView());
-                screens.Add("Recipes", null);
-                screens.Add("About", new AboutView());
+                screens.Add(INVENTORY_VIEW, new InventoryView());
+                screens.Add(TRADING_VIEW, null);
+                screens.Add(SETTINGS_VIEW, new SettingsView());
+                screens.Add(RECIPE_VIEW, null);
+                screens.Add(ABOUT_VIEW, new AboutView());
             }));
+        }
+
+        public void InvalidateRecipeScreen()
+        {
+            screens[RECIPE_VIEW] = null;
         }
 
         private void initLogin()
