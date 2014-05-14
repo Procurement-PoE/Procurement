@@ -74,7 +74,7 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
-                                    <Expander IsExpanded="True" Grid.Row="0">
+                                    <Expander IsExpanded="False" Grid.Row="0">
                                         <Expander.Header>
                                             <Label Content="{Binding Converter={StaticResource rd}}" FontWeight="Bold" FontSize="14" Foreground="#FFAB9066" />
                                         </Expander.Header>
