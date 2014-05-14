@@ -42,7 +42,6 @@ namespace Procurement.Controls
         {
             this.Invent = ApplicationState.Model.GetInventory(Character).Where(i => i.inventoryId == "MainInventory").ToList();
             inventByLocation = Invent.ToDictionary(item => new Tuple<int, int>(item.X, item.Y));
-            borderByLocation = new Dictionary<Tuple<int, int>, Border>();
             render();
         }
 
@@ -59,7 +58,6 @@ namespace Procurement.Controls
         private bool initialized = false;
 
         private Dictionary<Tuple<int, int>, Item> inventByLocation;
-        private Dictionary<Tuple<int, int>, Border> borderByLocation;
         public List<Item> Invent { get; set; }
 
         public string Filter
@@ -72,20 +70,8 @@ namespace Procurement.Controls
             }
         }
 
-        public void ForceUpdate()
-        {
-            foreach (var item in Invent)
-            {
-                borderByLocation[Tuple.Create<int, int>(item.X, item.Y)].BorderBrush = Brushes.Transparent;
-                if (search(item))
-                    borderByLocation[Tuple.Create<int, int>(item.X, item.Y)].BorderBrush = Brushes.Red;
-            }
-            this.UpdateLayout();
-        }
-
         public static readonly DependencyProperty FilterProperty =
             DependencyProperty.Register("Filter", typeof(string), typeof(Inventory), null);
-
 
         private void render()
         {
@@ -116,7 +102,6 @@ namespace Procurement.Controls
                     setBackround(childGrid, gearAtLocation);
 
                     Border border = getBorder();
-                    borderByLocation[currentKey] = border;
                     childGrid.Children.Add(border);
 
                     childGrid.Children.Add(getImage(gearAtLocation));
