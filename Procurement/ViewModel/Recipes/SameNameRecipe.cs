@@ -38,7 +38,7 @@ namespace Procurement.ViewModel.Recipes
 
             foreach (var item in itemKeys)
             {
-                var matchedItems = gear.Where(g => g.Name == item.Key).Select(g => g as Item).ToList();
+                var matchedItems = gear.Where(g => g.Rarity != Rarity.Unique && g.Name == item.Key).Select(g => g as Item).ToList();
 
                 if (isCountMatch(matchedItems.Count()))
                     matches.Add(new RecipeResult()
