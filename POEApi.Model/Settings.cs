@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -18,6 +18,9 @@ namespace POEApi.Model
         public static Dictionary<string, string> TabsBuyouts { get; private set; }
         public static List<string> PopularGems { get; private set; }
         private static XElement originalDoc;
+
+        private const string dataLocation = "Data.xml";
+        public static Dictionary<GearType, List<string>> GearBaseTypes { get; private set; }
 
         static Settings()
         {
@@ -51,6 +54,22 @@ namespace POEApi.Model
             PopularGems = new List<string>();
             if (originalDoc.Element("PopularGems") != null)
                 PopularGems = originalDoc.Element("PopularGems").Elements("Gem").Select(e => e.Attribute("name").Value).ToList();
+
+            loadGearTypeData();
+        }
+
+        private static void loadGearTypeData()
+        {
+            XElement dataDoc = XElement.Load(dataLocation);
+            GearBaseTypes = new Dictionary<GearType, List<string>>();
+
+            if (dataDoc.Element("GearBaseTypes") == null)
+                return;
+
+            GearBaseTypes = dataDoc.Element("GearBaseTypes").Elements("GearBaseType")
+                                                            .ToDictionary(g => (GearType)Enum.Parse(typeof(GearType), g.Attribute("name").Value), g => g.Elements("Item")
+                                                            .Select(e => e.Attribute("name").Value)
+                                                            .ToList());
         }
 
         private static double getChaosAmount(XElement orb)
@@ -111,7 +130,7 @@ namespace POEApi.Model
 
         private static void updateLists()
         {
-            var listKeys = Settings.Lists.Keys.Where(k => k == "IgnoreTabsInRecipes" || k == "MyCharacters" || k =="MyLeagues");
+            var listKeys = Settings.Lists.Keys.Where(k => k == "IgnoreTabsInRecipes" || k == "MyCharacters" || k == "MyLeagues");
 
             foreach (var listKey in listKeys)
             {
