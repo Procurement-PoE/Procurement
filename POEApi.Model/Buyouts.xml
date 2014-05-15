@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Buyouts>
+  <ItemBuyouts> 
+    <!-- Buyouts you set on items in Procurement are stored in this section-->
+  </ItemBuyouts>
+  <TabBuyouts>
+    <!--Add your tabwide buyouts here Eg"-->
+    <!--<Item id="TabNameHere" value="1 chaos" />-->
+  </TabBuyouts>
+</Buyouts>

@@ -178,7 +178,7 @@ namespace Procurement.Controls
 
             Settings.Buyouts[item.UniqueIDHash] = string.Format("{0} {1}", amount, abbreviation);
 
-            Settings.Save();
+            Settings.SaveBuyouts();
 
             resyncText();
         }

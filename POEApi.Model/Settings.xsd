@@ -8,8 +8,6 @@
         <xs:element ref="UserSettings" minOccurs="1" maxOccurs="1" />
         <xs:element ref="ProxySettings" minOccurs="1" maxOccurs="1" />
         <xs:element ref="Lists" minOccurs="1" maxOccurs="1" />
-        <xs:element ref="Buyouts" minOccurs="1" maxOccurs="1" />
-        <xs:element ref="TabBuyouts" minOccurs="1" maxOccurs="1" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -72,20 +70,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="List" minOccurs="4" maxOccurs="4" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Buyouts">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="Item" minOccurs="0" maxOccurs="unbounded" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="TabBuyouts">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="Item" minOccurs="0" maxOccurs="unbounded" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
