@@ -19,6 +19,7 @@ namespace Procurement.ViewModel.Recipes
         protected List<Combination> combinations;
         protected bool stop;
         protected int REQUIREDQUALITY = 40;
+        protected int SINGLEITEMREQUIREDQUALITY = 20;
         protected const decimal DEFAULT_MINIMUM_MATCH_PERCENT = 70;
 
         public MinimumQualityRecipe()
@@ -43,6 +44,15 @@ namespace Procurement.ViewModel.Recipes
             bool canContinue = true;
             while (canContinue)
             {
+                getSingleItemCombinations(candidateItems, SINGLEITEMREQUIREDQUALITY);
+                if (combinations.Count > 0)
+                {
+                    Combination singleItem = combinations[0];
+                    candidateItems.Remove(singleItem.Match[0]);
+                    yield return getResult(singleItem);
+                    continue;
+                }
+
                 getCombinations(candidateItems, REQUIREDQUALITY);
 
                 Combination perfect = combinations.Find(c => c.Perfect);
@@ -116,6 +126,14 @@ namespace Procurement.ViewModel.Recipes
             getCombinations(pool, target, new List<T>());
         }
 
+        private void getSingleItemCombinations(List<T> pool, int target)
+        {
+            combinations = new List<Combination>();
+            combinations.AddRange(pool.Where(i => i.Quality == target
+                && (!(i is Gear) || (i as Gear).Rarity == Rarity.Normal)) // Magic and better rarity items do not follow this recipe
+                .Select(c => new Combination() { Match = new List<T>() { c }, Perfect = true, Total = target }));
+        }
+
         private RecipeResult getResult(Combination currentSet)
         {
             RecipeResult result = new RecipeResult();
@@ -124,7 +142,15 @@ namespace Procurement.ViewModel.Recipes
             result.IsMatch = true;
 
             decimal total = currentSet.Total;
-            decimal match = (total / REQUIREDQUALITY) * 100;
+            decimal match = 0;
+            if (currentSet.Match.Count > 1)
+            {
+                match = (total / REQUIREDQUALITY) * 100;
+            }
+            else
+            {
+                match = (total / SINGLEITEMREQUIREDQUALITY) * 100;
+            }
 
             result.IsMatch = match >= base.ReturnMatchesGreaterThan;
             result.PercentMatch = match;
