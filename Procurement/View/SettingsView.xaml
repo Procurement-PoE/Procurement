@@ -12,17 +12,14 @@
     <Grid x:Name="ViewContent" Width="1012">
         <Grid.Resources>
             <v:VisibilityConverter x:Key="vc" />
+            <v:ObjectInListMultiConverter x:Key="oil" />
         </Grid.Resources>
 
-        <Border Canvas.ZIndex="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Black"  Opacity="0.79" Visibility="{Binding IsBusy, Converter={StaticResource vc}, ConverterParameter=IsBusy}">
-            <v:LoadingAnimation HorizontalAlignment="Center" VerticalAlignment="Center" />
-        </Border>
-
-        <Grid Margin="15,0,15,0">
+        <Grid Margin="15,-8,15,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="150"/>
-                <RowDefinition Height="5"/>
-                <RowDefinition Height="450"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="470"/>
             </Grid.RowDefinitions>
             <Border Grid.Row="0" BorderBrush="#FF76591B" BorderThickness="2" Grid.Column="2" Background="Black" Margin="0,15,0,0">
                 <Grid>
@@ -71,6 +68,10 @@
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
                     <Grid Grid.Row="0" >
                         <Grid.ColumnDefinitions>
@@ -88,6 +89,86 @@
                             <DataGridTextColumn Header="ChaosAmount" Binding="{Binding ChaosAmount, Mode=TwoWay, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Width="150" Foreground="#FFAB9066"/>
                         </DataGrid.Columns>
                     </DataGrid>
+
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="Characters and Leagues" Foreground="#FFAB9066" FontSize="14" FontWeight="Bold" Margin="-8,0,0,0"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="200"/>
+                            <RowDefinition Height="28"/>
+                            <RowDefinition Height="180"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <CheckBox Grid.Row="0" Grid.Column="0" IsChecked="{Binding DownloadOnlyMyCharacters, Mode=TwoWay, ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" Content="Download Only Selected Characters" Foreground="#FFAB9066"/>
+                        <CheckBox Grid.Row="0" Grid.Column="1" IsChecked="{Binding DownloadOnlyMyLeagues, Mode=TwoWay, ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" Content="Download Only Selected Leagues" Foreground="#FFAB9066"/>
+
+                        <TreeView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Background="Black" ItemsSource="{Binding AllCharactersByLeague}" SelectedValuePath="Value" BorderBrush="#FF76591B" Width="442" Margin="-50,0,0,0">
+                            <TreeView.ItemTemplate>
+                                <HierarchicalDataTemplate ItemsSource="{Binding Value}">
+                                    <CheckBox Margin="0,0,4,0" Checked="LeagueCheckBox_Checked" Unchecked="LeagueCheckBox_Unchecked">
+                                        <CheckBox.Content>
+                                            <TextBlock Foreground="#FFAB9066" Text="{Binding Key}" />
+                                        </CheckBox.Content>
+                                        <CheckBox.IsChecked>
+                                            <MultiBinding  Mode="OneWay" Converter="{StaticResource oil}">
+                                                <Binding Path="Key" />
+                                                <Binding RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type TreeView}}" Path="DataContext.MyLeagues" />
+                                            </MultiBinding>
+                                        </CheckBox.IsChecked>
+                                    </CheckBox>
+                                
+                                    <HierarchicalDataTemplate.ItemTemplate>
+                                        <DataTemplate>
+                                            <CheckBox Margin="0,0,4,0" Checked="CharacterCheckBox_Checked" Unchecked="CharacterCheckBox_Unchecked">
+                                                <CheckBox.Content>
+                                                    <TextBlock Foreground="#FFAB9066" Text="{Binding }" />
+                                                </CheckBox.Content>
+                                                <CheckBox.IsChecked>
+                                                    <MultiBinding  Mode="OneWay" Converter="{StaticResource oil}">
+                                                        <Binding />
+                                                        <Binding RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type TreeView}}" Path="DataContext.MyCharacters" />
+                                                    </MultiBinding>
+                                                </CheckBox.IsChecked>
+                                            </CheckBox>
+                                         </DataTemplate>
+                                    </HierarchicalDataTemplate.ItemTemplate>
+                                </HierarchicalDataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
+
+                        <Label Grid.Row="2" Grid.Column="0" Content="Exclude tabs from Recipe results" Foreground="#FFAB9066" FontSize="14" FontWeight="Bold" Margin="-8,0,0,0"/>
+
+                        <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"  Background="Black" BorderBrush="#FF76591B" BorderThickness="1" Width="442" Margin="-50,0,0,0">
+                        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" BorderBrush="#FF76591B" >
+                            <ItemsControl ItemsSource="{Binding StashTabs}" Margin="10,10,10,10" x:Name="CheckBoxList">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Vertical"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <CheckBox Tag="{Binding Name, Mode=OneTime}" IsChecked="{Binding IsChecked, Mode=TwoWay}" Checked="recipeTab_Checked" Unchecked="recipeTab_Unchecked" Content="{Binding Name, Mode=OneTime}" Foreground="#FFAB9066" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </Border>
+                    </Grid>                   
                 </Grid>
             </Border>
         </Grid>

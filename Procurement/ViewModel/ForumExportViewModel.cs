@@ -16,36 +16,7 @@ namespace Procurement.ViewModel
 {
     public class ForumExportViewModel : INotifyPropertyChanged
     {
-        public class ExportStashInfo : INotifyPropertyChanged
-        {
-            public string Name { get; set; }
-            public decimal AvailableSpace { get; set; }
-            public string Url { get; set; }
-            public int ID { get; set; }
-            private bool isChecked;
-
-            public bool IsChecked
-            {
-                get { return isChecked; }
-                set 
-                { 
-                    isChecked = value;
-                    if (PropertyChanged != null)
-                        PropertyChanged(this, new PropertyChangedEventArgs("IsChecked"));
-                }
-            }
-
-            public void FixName()
-            {
-                int test = -1;
-                if (int.TryParse(Name, out test))
-                    Name = "Tab " + Name;
-            }
-
-            public event PropertyChangedEventHandler PropertyChanged;
-        }
-
-        private List<ExportStashInfo> stashItems;
+        private List<TabInfo> stashItems;
         private List<int> selected = new List<int>();
         private string text;
         private static List<IVisitor> visitors = null;
@@ -73,7 +44,7 @@ namespace Procurement.ViewModel
             }
         }
 
-        public List<ExportStashInfo> StashItems
+        public List<TabInfo> StashItems
         {
             get { return stashItems; }
             set 
@@ -126,7 +97,7 @@ namespace Procurement.ViewModel
 
             var tabs = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs;
 
-            StashItems = tabs.Where(t => betterSpace.ContainsKey(t.i)).Select(t => new ExportStashInfo() { AvailableSpace = betterSpace[t.i], Name = t.Name, Url = t.srcC, ID = t.i }).ToList();
+            StashItems = tabs.Where(t => betterSpace.ContainsKey(t.i)).Select(t => new TabInfo() { AvailableSpace = betterSpace[t.i], Name = t.Name, Url = t.srcC, ID = t.i }).ToList();
             StashItems.ForEach(s => s.FixName());
         }
 

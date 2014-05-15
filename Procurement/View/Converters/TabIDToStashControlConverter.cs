@@ -7,6 +7,7 @@ using POEApi.Model;
 using Procurement.Controls;
 using Procurement.Utility;
 using Procurement.ViewModel.Filters;
+using Procurement.ViewModel;
 
 namespace Procurement.View
 {
@@ -14,7 +15,7 @@ namespace Procurement.View
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            Procurement.ViewModel.ForumExportViewModel.ExportStashInfo item = value as Procurement.ViewModel.ForumExportViewModel.ExportStashInfo;
+            TabInfo item = value as TabInfo;
             Grid g = new Grid();
             g.Children.Add(new StashControl() { TabNumber = item.ID });
             return g;

@@ -54,7 +54,16 @@ namespace Procurement.ViewModel
         }
         private void updateResults()
         {
-            Results = manager.Run(ApplicationState.Stash[ApplicationState.CurrentLeague].Get<Item>());
+            List<Item> items = new List<Item>();
+            Stash stash = ApplicationState.Stash[ApplicationState.CurrentLeague];
+
+            var usableTabs = stash.Tabs.Where(t => !Settings.Lists["IgnoreTabsInRecipes"].Contains(t.Name)).ToList();
+            foreach (var tab in usableTabs)
+            {
+                items.AddRange(stash.GetItemsByTab(tab.i));
+            }
+
+            Results = manager.Run(items);
             if (Results.Count > 0)
                 SelectedItem = Results.Values.First().First().MatchedItems[0];
         }

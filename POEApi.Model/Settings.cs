@@ -9,7 +9,7 @@ namespace POEApi.Model
 {
     public static class Settings
     {
-        private const string location = "Settings.xml";
+        private const string SAVE_LOCATION = "Settings.xml";
         public static Dictionary<OrbType, CurrencyRatio> CurrencyRatios { get; private set; }
         public static Dictionary<string, string> UserSettings { get; private set; }
         public static Dictionary<string, string> ProxySettings { get; private set; }
@@ -21,7 +21,7 @@ namespace POEApi.Model
 
         static Settings()
         {
-            originalDoc = XElement.Load(location);
+            originalDoc = XElement.Load(SAVE_LOCATION);
             CurrencyRatios = originalDoc.Elements("Ratios").Descendants().ToDictionary(orb => orb.Attribute("type").GetEnum<OrbType>(), orb => new CurrencyRatio(orb.Attribute("type").GetEnum<OrbType>(), getOrbAmount(orb), getChaosAmount(orb)));
 
             UserSettings = getStandardNameValue("UserSettings");
@@ -91,13 +91,39 @@ namespace POEApi.Model
                 originalDoc.Element("Buyouts").Add(buyout);
             }
 
+            updateLists();
+
             try
             {
-                originalDoc.Save(location);
+                originalDoc.Save(SAVE_LOCATION);
             }
             catch (Exception ex)
             {
                 Logger.Log("Couldn't save settings: " + ex.ToString());
+            }
+        }
+
+        public static void SaveLists()
+        {
+            updateLists();
+            originalDoc.Save(SAVE_LOCATION);
+        }
+
+        private static void updateLists()
+        {
+            var listKeys = Settings.Lists.Keys.Where(k => k == "IgnoreTabsInRecipes" || k == "MyCharacters" || k =="MyLeagues");
+
+            foreach (var listKey in listKeys)
+            {
+                XElement original = originalDoc.Element("Lists").Descendants().FirstOrDefault(x => x.Attribute("name") != null && string.Equals(x.Attribute("name").Value, listKey));
+
+                if (original == null)
+                    original = new XElement("List", new XAttribute("name", listKey));
+
+                original.RemoveNodes();
+
+                foreach (var listValue in Settings.Lists[listKey])
+                    original.Add(new XElement("Item", new XAttribute("value", listValue)));
             }
         }
     }

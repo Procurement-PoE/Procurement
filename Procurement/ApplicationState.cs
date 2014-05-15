@@ -49,6 +49,16 @@ namespace Procurement
             }
         }
 
+        private static Dictionary<string, List<string>> allCharactersByLeague = new Dictionary<string, List<string>>();
+        public static Dictionary<string, List<string>> AllCharactersByLeague
+        {
+            get { return allCharactersByLeague; }
+            set
+            {
+                allCharactersByLeague = value;
+            }
+        }
+
         public static void SetDefaults()
         {
             string favoriteLeague = Settings.UserSettings["FavoriteLeague"];

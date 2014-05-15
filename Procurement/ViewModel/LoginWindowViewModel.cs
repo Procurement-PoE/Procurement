@@ -26,7 +26,7 @@ namespace Procurement.ViewModel
         public delegate void LoginCompleted();
         private bool formChanged = false;
         private bool useSession;
-        
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string property)
@@ -36,7 +36,7 @@ namespace Procurement.ViewModel
         }
 
         private string email;
-        public string Email 
+        public string Email
         {
             get { return email; }
             set
@@ -52,9 +52,9 @@ namespace Procurement.ViewModel
         public bool UseSession
         {
             get { return useSession; }
-            set 
-            { 
-                useSession = value;                
+            set
+            {
+                useSession = value;
                 Settings.UserSettings["UseSessionID"] = value.ToString();
                 updateButtonLabels(useSession);
             }
@@ -131,18 +131,20 @@ namespace Procurement.ViewModel
                 try
                 {
                     chars = ApplicationState.Model.GetCharacters();
-                } 
-                catch (WebException wex) 
+                }
+                catch (WebException wex)
                 {
-                    Logger.Log(wex);                    
+                    Logger.Log(wex);
                     statusController.NotOK();
                     throw new Exception("Failed to load characters", wex.InnerException);
                 }
                 statusController.Ok();
 
+                updateCharactersByLeague(chars);
+
                 bool downloadOnlyMyLeagues = false;
-                downloadOnlyMyLeagues = (Settings.UserSettings.ContainsKey("DownloadOnlyMyLeagues") && 
-                                         bool.TryParse(Settings.UserSettings["DownloadOnlyMyLeagues"], out downloadOnlyMyLeagues) && 
+                downloadOnlyMyLeagues = (Settings.UserSettings.ContainsKey("DownloadOnlyMyLeagues") &&
+                                         bool.TryParse(Settings.UserSettings["DownloadOnlyMyLeagues"], out downloadOnlyMyLeagues) &&
                                          downloadOnlyMyLeagues &&
                                          Settings.Lists.ContainsKey("MyLeagues") &&
                                          Settings.Lists["MyLeagues"].Count > 0
@@ -167,7 +169,7 @@ namespace Procurement.ViewModel
                 ApplicationState.SetDefaults();
 
                 if (!offline)
-                    statusController.DisplayMessage("\nDone!");                
+                    statusController.DisplayMessage("\nDone!");
 
                 ApplicationState.Model.Authenticating -= model_Authenticating;
                 ApplicationState.Model.StashLoading -= model_StashLoading;
@@ -177,11 +179,27 @@ namespace Procurement.ViewModel
             }).ContinueWith((t) => { Logger.Log(t.Exception.InnerException.ToString()); statusController.HandleError(t.Exception.InnerException.Message, toggleControls); }, TaskContinuationOptions.OnlyOnFaulted);
         }
 
+        private static void updateCharactersByLeague(List<Character> chars)
+        {
+            var allLeagues = chars.Select(c => c.League).Distinct();
+
+            foreach (var league in allLeagues)
+                ApplicationState.AllCharactersByLeague[league] = new List<string>();
+
+            if (Settings.Lists.ContainsKey("MyLeagues"))
+                foreach (var league in Settings.Lists["MyLeagues"])
+                    if (!ApplicationState.AllCharactersByLeague.ContainsKey(league))
+                        ApplicationState.AllCharactersByLeague[league] = new List<string>();
+
+            foreach (var character in chars)
+                ApplicationState.AllCharactersByLeague[character.League].Add(character.Name);
+        }
+
         private void saveSettings(SecureString password)
         {
             if (!formChanged)
                 return;
-         
+
             Settings.UserSettings["AccountLogin"] = Email;
             Settings.UserSettings["AccountPassword"] = password.Encrypt();
             Settings.UserSettings["UseSessionID"] = useSession.ToString();

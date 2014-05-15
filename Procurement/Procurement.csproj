@@ -146,6 +146,7 @@
     <Compile Include="ViewModel\DisplayModeStrategy\NamePlusValueStrategy.cs" />
     <Compile Include="ViewModel\DisplayModeStrategy\StringFormatStrategy.cs" />
     <Compile Include="ViewModel\DisplayModeStrategy\ValuesPlusNameStrategy.cs" />
+    <Compile Include="ViewModel\TabInfo.cs" />
     <Compile Include="ViewModel\Filters\FilterGroup.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\AllElementalResistances.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\AllGemsFilter.cs" />
@@ -298,6 +299,7 @@
     <Compile Include="View\Converters\ItemPropertyToFormattedRunConverter.cs" />
     <Compile Include="View\Converters\ItemRequirementToFormattedRunConverter.cs" />
     <Compile Include="View\Converters\ItemToColorBrushConverter.cs" />
+    <Compile Include="View\Converters\ObjectInListMultiConverter.cs" />
     <Compile Include="View\Converters\RecipeDescriptionConverter.cs" />
     <Compile Include="View\Converters\ResultMatchConverter.cs" />
     <Compile Include="View\Converters\TabIDToStashControlConverter.cs" />
