@@ -142,30 +142,10 @@ namespace Procurement.ViewModel
 
                 updateCharactersByLeague(chars);
 
-                bool downloadOnlyMyLeagues = false;
-                downloadOnlyMyLeagues = (Settings.UserSettings.ContainsKey("DownloadOnlyMyLeagues") &&
-                                         bool.TryParse(Settings.UserSettings["DownloadOnlyMyLeagues"], out downloadOnlyMyLeagues) &&
-                                         downloadOnlyMyLeagues &&
-                                         Settings.Lists.ContainsKey("MyLeagues") &&
-                                         Settings.Lists["MyLeagues"].Count > 0
-                                         );
+                var items = LoadItems(offline, chars).ToList();
 
-                foreach (var character in chars)
-                {
-                    if (character.League == "Void")
-                        continue;
-
-                    if (downloadOnlyMyLeagues && !Settings.Lists["MyLeagues"].Contains(character.League))
-                        continue;
-
-                    ApplicationState.Characters.Add(character);
-                    loadCharacterInventory(character, offline);
-                    loadStash(character);
-                }
-
-                if (downloadOnlyMyLeagues && ApplicationState.Characters.Count == 0)
-                    throw new Exception("No characters found in the leagues specified. Check spelling or try setting DownloadOnlyMyLeagues to false in settings");
-
+                ApplicationState.Model.GetImages(items);
+                
                 ApplicationState.SetDefaults();
 
                 if (!offline)
@@ -176,7 +156,38 @@ namespace Procurement.ViewModel
                 ApplicationState.Model.ImageLoading -= model_ImageLoading;
                 ApplicationState.Model.Throttled -= model_Throttled;
                 OnLoginCompleted();
-            }).ContinueWith((t) => { Logger.Log(t.Exception.InnerException.ToString()); statusController.HandleError(t.Exception.InnerException.Message, toggleControls); }, TaskContinuationOptions.OnlyOnFaulted);
+            }).ContinueWith(t => { Logger.Log(t.Exception.InnerException.ToString()); statusController.HandleError(t.Exception.InnerException.Message, toggleControls); }, TaskContinuationOptions.OnlyOnFaulted);
+        }
+
+        private IEnumerable<Item> LoadItems(bool offline, IEnumerable<Character> chars)
+        {
+            bool downloadOnlyMyLeagues = (Settings.UserSettings.ContainsKey("DownloadOnlyMyLeagues") &&
+                bool.TryParse(Settings.UserSettings["DownloadOnlyMyLeagues"], out downloadOnlyMyLeagues) &&
+                downloadOnlyMyLeagues &&
+                Settings.Lists.ContainsKey("MyLeagues") &&
+                Settings.Lists["MyLeagues"].Count > 0
+                );
+
+            if (downloadOnlyMyLeagues && ApplicationState.Characters.Count == 0)
+                throw new Exception("No characters found in the leagues specified. Check spelling or try setting DownloadOnlyMyLeagues to false in settings");
+
+            foreach (var character in chars) {
+                if (character.League == "Void")
+                    continue;
+
+                if (downloadOnlyMyLeagues && !Settings.Lists["MyLeagues"].Contains(character.League))
+                    continue;
+
+                ApplicationState.Characters.Add(character);
+
+                foreach (var item in LoadCharacterInventoryItems(character, offline)) {
+                    yield return item;
+                }
+
+                foreach (var item in LoadStashItems(character)) {
+                    yield return item;
+                }
+            }
         }
 
         private static void updateCharactersByLeague(List<Character> chars)
@@ -214,25 +225,26 @@ namespace Procurement.ViewModel
             view.txtPassword.IsEnabled = !view.txtPassword.IsEnabled;
         }
 
-        private void loadStash(Character character)
+        private IEnumerable<Item> LoadStashItems(Character character)
         {
             if (ApplicationState.Leagues.Contains(character.League))
-                return;
+                return Enumerable.Empty<Item>();
 
             ApplicationState.CurrentLeague = character.League;
             ApplicationState.Stash[character.League] = ApplicationState.Model.GetStash(character.League);
-            ApplicationState.Model.GetImages(ApplicationState.Stash[character.League]);
             ApplicationState.Leagues.Add(character.League);
+
+            return ApplicationState.Stash[character.League].Get<Item>();
         }
 
-        private void loadCharacterInventory(Character character, bool offline)
+        private IEnumerable<Item> LoadCharacterInventoryItems(Character character, bool offline)
         {
-            bool success = false;
+            bool success;
 
             if (!offline)
                 statusController.DisplayMessage((string.Format("Loading {0}'s inventory...", character.Name)));
 
-            List<Item> inventory = null;
+            List<Item> inventory;
             try
             {
                 inventory = ApplicationState.Model.GetInventory(character.Name);
@@ -244,10 +256,9 @@ namespace Procurement.ViewModel
                 success = false;
             }
 
-            var inv = inventory.Where(i => i.inventoryId != "MainInventory");
             updateStatus(success, offline);
 
-            ApplicationState.Model.GetImages(inventory);
+            return inventory.Where(i => i.inventoryId != "MainInventory");
         }
 
         private void updateStatus(bool success, bool offline)
