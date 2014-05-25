@@ -9,7 +9,7 @@ namespace Procurement.Utility
 {
     internal class VersionChecker
     {
-        private const string VERSION_URL = @"https://raw.githubusercontent.com/Stickymaddness/Procurement/master/lastest-release.txt";
+        private const string VERSION_URL = @"https://raw.githubusercontent.com/Stickymaddness/Procurement/master/latest-release.txt";
         public static void CheckForUpdates()
         {
             try
