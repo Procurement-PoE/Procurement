@@ -32,3 +32,5 @@ Procurement/obj/x86/Debug/View/StashView.g.i.cs
 Procurement/obj/x86/Debug/View/TradingView.g.i.cs
 Procurement.v12.suo
 Procurement/Procurement.csproj.user
+**/bin/Debug/
+**/bin/Release/
