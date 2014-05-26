@@ -52,7 +52,7 @@ namespace Procurement.Controls
             Image i = vm.getImage();
             itemImage = i;
 
-            UIElement socket = vm.getSocket();
+            UIElement socket = vm.GetSocket();
 
             this.MainGrid.Children.Add(i);
 
