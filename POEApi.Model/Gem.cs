@@ -10,6 +10,8 @@ namespace POEApi.Model
         public int Socket { get; set; }
         public string Color { get; set; }
 
+        public int Level { get; set; }
+
         public Gem(JSONProxy.Item item) : base(item)
         {
             this.Properties = ProxyMapper.GetProperties(item.Properties);
@@ -18,8 +20,20 @@ namespace POEApi.Model
             this.Socket = item.Socket;
             this.Color = item.Color;
             this.Requirements = ProxyMapper.GetRequirements(item.Requirements);
+            this.Level = getLevel();
 
             this.UniqueIDHash = base.getHash();
+        }
+
+        private int getLevel()
+        {
+            int level;
+            var levelProperty = Properties.Find(p => p.Name == "Level").Values[0].Item1;
+
+            if (!int.TryParse(levelProperty, out level))
+                return 1;
+            
+            return level;
         }
 
         protected override int getConcreteHash()
