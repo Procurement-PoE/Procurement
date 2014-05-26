@@ -14,7 +14,7 @@ namespace POEApi.Model
 
         public int GetHashCode(Item obj)
         {
-            return obj.GetHashCode();
+            return obj.IconURL.GetHashCode();
         }
     }
 }

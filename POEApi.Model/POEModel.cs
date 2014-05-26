@@ -209,7 +209,7 @@ namespace POEApi.Model
                 getImageWithEvents("Tab Icon " + item.i, item.srcC);
         }
 
-        public void GetImages(List<Item> items)
+        public void GetImages(IEnumerable<Item> items)
         {
             foreach (var item in items.Distinct(new ImageComparer()))
                 getImageWithEvents(item);
