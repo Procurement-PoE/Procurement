@@ -168,10 +168,8 @@ namespace Procurement.ViewModel
                 Settings.Lists["MyLeagues"].Count > 0
                 );
 
-            if (downloadOnlyMyLeagues && ApplicationState.Characters.Count == 0)
-                throw new Exception("No characters found in the leagues specified. Check spelling or try setting DownloadOnlyMyLeagues to false in settings");
-
-            foreach (var character in chars) {
+            foreach (var character in chars)
+            {
                 if (character.League == "Void")
                     continue;
 
@@ -180,14 +178,19 @@ namespace Procurement.ViewModel
 
                 ApplicationState.Characters.Add(character);
 
-                foreach (var item in LoadCharacterInventoryItems(character, offline)) {
+                foreach (var item in LoadCharacterInventoryItems(character, offline))
+                {
                     yield return item;
                 }
 
-                foreach (var item in LoadStashItems(character)) {
+                foreach (var item in LoadStashItems(character))
+                {
                     yield return item;
                 }
             }
+
+            if (downloadOnlyMyLeagues && ApplicationState.Characters.Count == 0)
+                throw new Exception("No characters found in the leagues specified. Check spelling or try setting DownloadOnlyMyLeagues to false in settings.");
         }
 
         private static void updateCharactersByLeague(List<Character> chars)
