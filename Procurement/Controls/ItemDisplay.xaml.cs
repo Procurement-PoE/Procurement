@@ -52,12 +52,10 @@ namespace Procurement.Controls
             Image i = vm.getImage();
             itemImage = i;
 
-            UIElement socket = vm.GetSocket();
-
             this.MainGrid.Children.Add(i);
 
-            if (socket != null)
-                doSocketOnHover(socket, i);
+            if (vm.HasSocket)
+                BindSocketPopup(vm, i);
 
             this.Height = i.Height;
             this.Width = i.Width;
@@ -95,18 +93,22 @@ namespace Procurement.Controls
             this.MainGrid.Children.Add(socket);
         }
 
-        private void doSocketOnHover(UIElement socket, Image i)
+        private void BindSocketPopup(ItemDisplayViewModel vm, Image i)
         {
             NonTopMostPopup popup = new NonTopMostPopup();
             popup.PopupAnimation = PopupAnimation.Fade;
             popup.StaysOpen = true;
-            popup.Child = socket;
+            
             popup.Placement = PlacementMode.Center;
             popup.PlacementTarget = i;
             popup.AllowsTransparency = true;
             i.MouseEnter += (o, ev) =>
             {
                 closeOthersButNot(popup);
+
+                if (popup.Child == null)
+                    popup.Child = vm.GetSocket();
+
                 popup.IsOpen = true;
             };
 

@@ -21,6 +21,17 @@ namespace Procurement.ViewModel
     public class ItemDisplayViewModel
     {
         public Item Item { get; set; }
+
+        public bool HasSocket
+        {
+            get
+            {
+                var gear = Item as Gear;
+
+                return gear != null && gear.Sockets.Count > 0;
+            }
+        }
+        
         public ItemDisplayViewModel(Item item)
         {
             this.Item = item;
@@ -34,27 +45,25 @@ namespace Procurement.ViewModel
                 Stretch = Stretch.None
             };
 
-            var itemhover = new ItemHover() { DataContext = ItemHoverViewModelFactory.Create(Item) };
-
             Popup popup = new Popup();
             popup.AllowsTransparency = true;
             popup.PopupAnimation = PopupAnimation.Fade;
             popup.StaysOpen = true;
-            popup.Child = itemhover;
             popup.PlacementTarget = img;
-            img.MouseEnter += (o, e) => { popup.IsOpen = true; };
+            img.MouseEnter += (o, e) => {
+                if (popup.Child == null) {
+                    popup.Child = new ItemHover { DataContext = ItemHoverViewModelFactory.Create(Item) };;
+                }
+
+                popup.IsOpen = true;
+            };
             img.MouseLeave += (o, e) => { popup.IsOpen = false; };
             return img;
         }
 
         public UIElement GetSocket()
         {
-            Gear gear = Item as Gear;
-            if (gear == null)
-                return null;
-
-            if (gear.Sockets.Count == 0)
-                return null;
+            var gear = (Gear) Item; 
 
             Grid masterpiece = new Grid();
 
@@ -208,14 +217,17 @@ namespace Procurement.ViewModel
 
         private Image getMouseOverImage(Image img, Item item)
         {
-            var itemhover = new ItemHover() { DataContext = ItemHoverViewModelFactory.Create(item)};
-
             Popup popup = new Popup();
+            popup.AllowsTransparency = true;
             popup.PopupAnimation = PopupAnimation.Fade;
             popup.StaysOpen = true;
-            popup.Child = itemhover;
             popup.PlacementTarget = img;
-            img.MouseEnter += (o, e) => { popup.IsOpen = true; };
+            img.MouseEnter += (o, e) => {
+                if (popup.Child == null) {
+                    popup.Child = new ItemHover { DataContext = ItemHoverViewModelFactory.Create(item) };
+                }
+                popup.IsOpen = true;
+            };
             img.MouseLeave += (o, e) => { popup.IsOpen = false; };
 
             return img;
