@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace Procurement.ViewModel.Cache
@@ -27,14 +26,14 @@ namespace Procurement.ViewModel.Cache
         {
             get
             {
-                BitmapImage image;
+                BitmapImage bitmap;
 
-                if (_cache.TryGetValue(imageUrl, out image))
+                if (_cache.TryGetValue(imageUrl, out bitmap))
                 {
-                    return image;
+                    return bitmap;
                 }
 
-                var bitmap = CreateBitmapImage(_imageRetriveFunc(imageUrl));
+                bitmap = CreateBitmapImage(_imageRetriveFunc(imageUrl));
 
                 _cache[imageUrl] = bitmap;
 
@@ -42,7 +41,7 @@ namespace Procurement.ViewModel.Cache
             }
         }
 
-        public ImageSource GetByLocalUrl(string url)
+        public BitmapImage GetByLocalUrl(string url)
         {
             BitmapImage bitmap;
 
