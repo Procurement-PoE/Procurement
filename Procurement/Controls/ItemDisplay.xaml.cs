@@ -25,7 +25,9 @@ namespace Procurement.Controls
 
         public ItemDisplay()
         {
-            InitializeComponent();
+            MainGrid = new Grid();
+            AddChild(MainGrid);
+
             expressionDarkGrid = expressionDarkGrid ?? Application.LoadComponent(new Uri("/Procurement;component/Controls/ExpressionDarkGrid.xaml", UriKind.RelativeOrAbsolute)) as ResourceDictionary;
 
             this.Loaded += new RoutedEventHandler(ItemDisplay_Loaded);
