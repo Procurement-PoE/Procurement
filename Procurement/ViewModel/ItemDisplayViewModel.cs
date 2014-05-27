@@ -7,6 +7,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using POEApi.Model;
 using Procurement.Controls;
+using Procurement.Utility;
 
 namespace Procurement.ViewModel
 {
@@ -199,7 +200,7 @@ namespace Procurement.ViewModel
 
             var url = string.Format(socketFormat, color);
 
-            var img = new Image
+            var img = new AlphaHittestedImage
             {
                 Stretch = Stretch.None,
                 Source = ApplicationState.BitmapCache.GetByLocalUrl(url)

@@ -104,7 +104,8 @@ namespace Procurement.Controls
                 if (socket == null)
                     socket = vm.GetSocket();
 
-                MainGrid.Children.Add(socket);
+                if (!MainGrid.Children.Contains(socket))
+                    MainGrid.Children.Add(socket);
             };
             
             MainGrid.MouseLeave += (o, ev) => MainGrid.Children.Remove(socket);
