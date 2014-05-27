@@ -20,6 +20,8 @@ namespace Procurement.ViewModel
 
     public class ItemDisplayViewModel
     {
+        public static ItemHover ItemHover = new ItemHover();
+
         public Item Item { get; set; }
 
         public bool HasSocket
@@ -45,22 +47,7 @@ namespace Procurement.ViewModel
                 Stretch = Stretch.None
             };
 
-            Popup popup = new Popup();
-            popup.AllowsTransparency = true;
-            popup.PopupAnimation = PopupAnimation.Fade;
-            popup.StaysOpen = true;
-            popup.PlacementTarget = img;
-
-            img.MouseEnter += (o, e) =>
-            {
-                if (popup.Child == null)
-                {
-                    popup.Child = new ItemHover { DataContext = ItemHoverViewModelFactory.Create(Item) }; ;
-                }
-
-                popup.IsOpen = true;
-            };
-            img.MouseLeave += (o, e) => { popup.IsOpen = false; };
+            CreateItemPopup(img, Item);
 
             return img;
         }
@@ -129,7 +116,7 @@ namespace Procurement.ViewModel
                     Image img = GetSocket(socket, suffix);
                     img.SetValue(Grid.RowProperty, currentSocketPosition.Item2);
                     img.SetValue(Grid.ColumnProperty, currentSocketPosition.Item1);
-                    getMouseOverImage(img, getSocketItemAt(currentSocketPosition, socket, i, gear));
+                    CreateItemPopup(img, getSocketItemAt(currentSocketPosition, socket, i, gear));
                     masterpiece.Children.Add(img);
                 }
 
@@ -221,23 +208,32 @@ namespace Procurement.ViewModel
             return img;
         }
 
-        private Image getMouseOverImage(Image img, Item item)
+        private void CreateItemPopup(UIElement target, Item item)
         {
-            Popup popup = new Popup();
-            popup.AllowsTransparency = true;
-            popup.PopupAnimation = PopupAnimation.Fade;
-            popup.StaysOpen = true;
-            popup.PlacementTarget = img;
-            
-            img.MouseEnter += (o, e) => {
-                if (popup.Child == null) {
-                    popup.Child = new ItemHover { DataContext = ItemHoverViewModelFactory.Create(item) };
-                }
+            var popup = new Popup
+            {
+                AllowsTransparency = true,
+                PopupAnimation = PopupAnimation.Fade,
+                StaysOpen = true,
+                PlacementTarget = target
+            };
+
+            // Use a grid as child to be able to disconnect the hover control properly. 
+            var grid = new Grid();
+            popup.Child = grid;
+
+            target.MouseEnter += (o, e) =>
+            {
+                ItemHover.DataContext = ItemHoverViewModelFactory.Create(item);
+                grid.Children.Add(ItemHover);
+
                 popup.IsOpen = true;
             };
-            img.MouseLeave += (o, e) => { popup.IsOpen = false; };
-
-            return img;
+            target.MouseLeave += (o, e) =>
+            {
+                popup.IsOpen = false;
+                grid.Children.Clear();
+            };
         }
 
         public IEnumerable<Tuple<int, int>> getSocketTree(int W, int H)

@@ -25,7 +25,7 @@ namespace Procurement.View
             DependencyPropertyChangedEventArgs args)
         {
             RichTextBox rtb = (RichTextBox)obj;
-            rtb.Document = (FlowDocument)args.NewValue;
+            rtb.Document = args.NewValue as FlowDocument ?? new FlowDocument();
         }
     }
 }
