@@ -97,32 +97,17 @@ namespace Procurement.Controls
 
         private void BindSocketPopup(ItemDisplayViewModel vm, Image i)
         {
-            NonTopMostPopup popup = new NonTopMostPopup();
-            popup.PopupAnimation = PopupAnimation.Fade;
-            popup.StaysOpen = true;
+            UIElement socket = null;
+
+            MainGrid.MouseEnter += (o, ev) =>
+            {
+                if (socket == null)
+                    socket = vm.GetSocket();
+
+                MainGrid.Children.Add(socket);
+            };
             
-            popup.Placement = PlacementMode.Center;
-            popup.PlacementTarget = i;
-            popup.AllowsTransparency = true;
-            i.MouseEnter += (o, ev) =>
-            {
-                closeOthersButNot(popup);
-
-                if (popup.Child == null)
-                    popup.Child = vm.GetSocket();
-
-                popup.IsOpen = true;
-            };
-
-            i.MouseLeave += (o, ev) =>
-            {
-                Rect rect = System.Windows.Media.VisualTreeHelper.GetDescendantBounds(i);
-                if (!rect.Contains(ev.GetPosition(o as IInputElement)))
-                    popup.IsOpen = false;
-            };
-
-            this.MainGrid.Children.Add(popup);
-            annoyed.Add(popup);
+            MainGrid.MouseLeave += (o, ev) => MainGrid.Children.Remove(socket);
         }
 
         private ContextMenu getContextMenu()

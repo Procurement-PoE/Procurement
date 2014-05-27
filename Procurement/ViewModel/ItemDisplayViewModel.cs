@@ -50,14 +50,18 @@ namespace Procurement.ViewModel
             popup.PopupAnimation = PopupAnimation.Fade;
             popup.StaysOpen = true;
             popup.PlacementTarget = img;
-            img.MouseEnter += (o, e) => {
-                if (popup.Child == null) {
-                    popup.Child = new ItemHover { DataContext = ItemHoverViewModelFactory.Create(Item) };;
+
+            img.MouseEnter += (o, e) =>
+            {
+                if (popup.Child == null)
+                {
+                    popup.Child = new ItemHover { DataContext = ItemHoverViewModelFactory.Create(Item) }; ;
                 }
 
                 popup.IsOpen = true;
             };
             img.MouseLeave += (o, e) => { popup.IsOpen = false; };
+
             return img;
         }
 
@@ -103,6 +107,7 @@ namespace Procurement.ViewModel
                         Image img = getLink(currentSocketPosition, link);
                         img.SetValue(Grid.RowProperty, link.Item2);
                         img.SetValue(Grid.ColumnProperty, link.Item1);
+                        img.IsHitTestVisible = false;
                         masterpiece.Children.Add(img);
                     }
                 }
@@ -112,6 +117,7 @@ namespace Procurement.ViewModel
                     Image img = GetSocket(socket, string.Empty);
                     img.SetValue(Grid.RowProperty, currentSocketPosition.Item2);
                     img.SetValue(Grid.ColumnProperty, currentSocketPosition.Item1);
+                    img.IsHitTestVisible = false;
                     masterpiece.Children.Add(img);
                 }
                 else
@@ -129,7 +135,7 @@ namespace Procurement.ViewModel
 
                 currentGroup = socket.Group;
             }
-            
+
             return masterpiece;
         }
 
@@ -222,6 +228,7 @@ namespace Procurement.ViewModel
             popup.PopupAnimation = PopupAnimation.Fade;
             popup.StaysOpen = true;
             popup.PlacementTarget = img;
+            
             img.MouseEnter += (o, e) => {
                 if (popup.Child == null) {
                     popup.Child = new ItemHover { DataContext = ItemHoverViewModelFactory.Create(item) };
