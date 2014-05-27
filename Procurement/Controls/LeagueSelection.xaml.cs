@@ -20,7 +20,6 @@ namespace Procurement.Controls
 
             string league = cb.SelectedItem.ToString();
             ApplicationState.CurrentLeague = league;
-            ApplicationState.CurrentCharacter = ApplicationState.Characters.First(c => c.League == ApplicationState.CurrentLeague);
             ScreenController.Instance.UpdateTrading();
         }
     }
