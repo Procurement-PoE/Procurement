@@ -57,7 +57,7 @@ namespace Procurement.Controls
             this.MainGrid.Children.Add(i);
 
             if (vm.HasSocket)
-                BindSocketPopup(vm, i);
+                BindSocketPopup(vm);
 
             this.Height = i.Height;
             this.Width = i.Width;
@@ -95,7 +95,7 @@ namespace Procurement.Controls
             this.MainGrid.Children.Add(socket);
         }
 
-        private void BindSocketPopup(ItemDisplayViewModel vm, Image i)
+        private void BindSocketPopup(ItemDisplayViewModel vm)
         {
             UIElement socket = null;
 
