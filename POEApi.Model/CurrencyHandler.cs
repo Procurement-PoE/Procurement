@@ -12,10 +12,10 @@ namespace POEApi.Model
 
             CurrencyRatio ratio = Settings.CurrencyRatios[type];
 
-            if (ratio.ChaosAmount < ratio.OrbAmount)
-                return ratio.ChaosAmount / ratio.OrbAmount;
+            if (ratio.OrbAmount == 1)
+                return ratio.OrbAmount * ratio.ChaosAmount;
 
-            return ratio.OrbAmount * ratio.ChaosAmount;
+            return ratio.ChaosAmount / ratio.OrbAmount;
         }
 
         public static double GetTotal(OrbType target, IEnumerable<Currency> currency)
