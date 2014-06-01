@@ -115,7 +115,9 @@ namespace Procurement.ViewModel
             {
                 SecureString password = formChanged ? this.view.txtPassword.SecurePassword : Settings.UserSettings["AccountPassword"].Decrypt();
                 ApplicationState.Model.Authenticate(Email, password, offline, useSession);
-                saveSettings(password);
+
+                if (formChanged)
+                    saveSettings(password);
 
                 if (!offline)
                 {
