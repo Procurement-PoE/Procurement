@@ -32,17 +32,27 @@ namespace Procurement.Controls
         {
             if (initialized == false && Stash == null)
                 refresh();
+
             FilterResults = Filter.Count() == 0 ? -1 : 0;
+            
             foreach (var item in Stash)
-            {
-                borderByLocation[Tuple.Create<int, int>(item.X, item.Y)].BorderBrush = Brushes.Transparent;
-                if (search(item))
-                {
-                    FilterResults++;
-                    borderByLocation[Tuple.Create<int, int>(item.X, item.Y)].BorderBrush = Brushes.Red;
-                }
-            }
+                updateResult(borderByLocation[Tuple.Create<int, int>(item.X, item.Y)], search(item));
+
             this.UpdateLayout();
+        }
+
+        private void updateResult(Border border, bool isResult)
+        {
+            if (isResult)
+            {
+                FilterResults++;
+                border.BorderBrush = Brushes.Yellow;
+                border.Background = Brushes.Black;
+                return;
+            }
+
+            border.BorderBrush = Brushes.Transparent;
+            border.Background = Brushes.Transparent;
         }
 
         public void RefreshTab()
@@ -146,7 +156,7 @@ namespace Procurement.Controls
         {
             Border b = new Border();
             b.BorderBrush = Brushes.Transparent;
-            b.BorderThickness = new Thickness(1);
+            b.BorderThickness = new Thickness(2);
             return b;
         }
 
