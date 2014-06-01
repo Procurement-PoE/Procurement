@@ -36,7 +36,7 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 {SupportGems}
 [/spoiler]
 [spoiler="          Leveled Gems          "]
-{LeveledGems}
+{Level2Gems}{Level3Gems}{Level4Gems}{Level5Gems}{Level6Gems}{Level7Gems}{Level8Gems}{Level9Gems}{Level10Gems}{Level11Gems}{Level12Gems}{Level13Gems}{Level14Gems}{Level15Gems}{Level16Gems}{Level17Gems}{Level18Gems}{Level19Gems}{Level20Gems}
 [/spoiler]
 [/spoiler]
 [spoiler="          Dual Res Gear          "]

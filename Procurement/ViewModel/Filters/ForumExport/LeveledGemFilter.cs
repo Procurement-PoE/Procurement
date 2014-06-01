@@ -1,10 +1,19 @@
 ﻿using System;
+using System.Linq;
 using POEApi.Model;
+using System.Collections.Generic;
 
 namespace Procurement.ViewModel.Filters
 {
     internal class LeveledGemFilter : IFilter
     {
+        private int level;
+
+        public LeveledGemFilter(int level)
+        {
+            this.level = level;
+        }
+
         public FilterGroup Group
         {
             get { return FilterGroup.Gems; }
@@ -17,12 +26,12 @@ namespace Procurement.ViewModel.Filters
 
         public string Keyword
         {
-            get { return "Leveled Gems"; }
+            get { return (this.level == 0) ? "Leveled Gems" : "Level " + level.ToString() + " Gems"; }
         }
 
         public string Help
         {
-            get { return "Leveled Gems"; }
+            get { return (this.level == 0) ? "Leveled Gems" : "Level " + level.ToString() + " Gems"; }
         }
 
         public bool Applicable(POEApi.Model.Item item)
@@ -31,14 +40,7 @@ namespace Procurement.ViewModel.Filters
             if (gem == null)
                 return false;
 
-            try
-            {
-                return gem.Properties[1].Values[0].Item1 != "1";
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            return gem.Level == this.level;
         }
     }
 }
