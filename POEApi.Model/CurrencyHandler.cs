@@ -1,21 +1,40 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace POEApi.Model
 {
     internal class CurrencyHandler
     {
-        internal static double GetChaosValue(OrbType type)
+        private static Dictionary<OrbType, double> ratioCache;
+
+        static CurrencyHandler()
+        {
+            ratioCache = new Dictionary<OrbType, double>();
+
+            foreach (var type in Enum.GetValues(typeof(OrbType)).Cast<OrbType>())
+                ratioCache[type] = getRatio(type);
+        }
+
+        private static double getRatio(OrbType type)
         {
             if (!Settings.CurrencyRatios.ContainsKey(type))
                 return 0;
 
-            CurrencyRatio ratio = Settings.CurrencyRatios[type];
+            return calculateRatio(Settings.CurrencyRatios[type]);
+        }
 
+        private static double calculateRatio(CurrencyRatio ratio)
+        {
             if (ratio.OrbAmount == 1)
                 return ratio.OrbAmount * ratio.ChaosAmount;
 
             return ratio.ChaosAmount / ratio.OrbAmount;
+        }
+        
+        internal static double GetChaosValue(OrbType type)
+        {
+            return ratioCache[type];
         }
 
         public static double GetTotal(OrbType target, IEnumerable<Currency> currency)
