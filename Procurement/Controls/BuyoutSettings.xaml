@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="Procurement.Controls.BuyoutSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Border Grid.Column="0" BorderBrush="#FF76591B" BorderThickness="2" Background="Black">
+        <Grid Width="950">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Content="Buyout Settings" Foreground="#FFAB9066" FontSize="14" FontWeight="Bold" Margin="0, 10, 0, 0"/>
+            
+            <CheckBox Grid.Row="1" Foreground="#FFAB9066" IsChecked="{Binding EmbedBuyouts}" Content="Embed Buyouts" HorizontalAlignment="Left" Margin="0,2,0,0" />
+
+            <CheckBox Grid.Row="2" Foreground="#FFAB9066" IsChecked="{Binding BuyoutItemsOnlyVisibleInBuyoutsTag}" Content="Buyouts items only visible in buyouts tag" HorizontalAlignment="Left" Margin="0,2,0,0" />
+
+            <CheckBox Grid.Row="3" Foreground="#FFAB9066" IsChecked="{Binding OnlyDisplayBuyouts}" Content="Only display items with buyout" HorizontalAlignment="Left" Margin="0,2,0,0" />
+
+        </Grid>
+    </Border>
+</UserControl>

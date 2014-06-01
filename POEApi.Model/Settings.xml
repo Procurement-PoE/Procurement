@@ -58,6 +58,7 @@
     <Setting name="CurrencyDistributionMetric" value="Chaos" />
     <Setting name="EmbedBuyouts" value="True" />
     <Setting name="BuyoutItemsOnlyVisibleInBuyoutsTag" value="False" />
+    <Setting name="OnlyDisplayBuyouts" value="false" />
     <Setting name="CheckForUpdates" value="True" />
   </UserSettings>
   <ProxySettings>

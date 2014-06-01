@@ -21,6 +21,11 @@ namespace Procurement.ViewModel.ForumExportVisitors
             get { return Settings.UserSettings.GetEntry("EmbedBuyouts").ToLower() == "true"; }
         }
 
+        protected virtual bool onlyDisplayBuyouts
+        {
+            get { return Settings.UserSettings.GetEntry("OnlyDisplayBuyouts").ToLower() == "true"; }
+        }
+
         public abstract string Visit(IEnumerable<Item> items, string current);
         
         protected string runFilter<T>(IEnumerable<Item> items) where T : IFilter, new()
@@ -42,11 +47,17 @@ namespace Procurement.ViewModel.ForumExportVisitors
             string tabName = ApplicationState.Stash[ApplicationState.CurrentLeague].GetTabNameByInventoryId(item.inventoryId);
             bool isBuyoutItem = Settings.TabsBuyouts.ContainsKey(tabName) || Settings.Buyouts.ContainsKey(item.UniqueIDHash);
 
-            if (isBuyoutItem && buyoutItemsOnlyVisibleInBuyoutsTag)
+            if (onlyDisplayBuyouts && !isBuyoutItem)
                 return string.Empty;
+            
+            if (isBuyoutItem)
+            {
+                if (buyoutItemsOnlyVisibleInBuyoutsTag)
+                    return string.Empty;
 
-            if (isBuyoutItem && embedBuyouts)
-                return string.Format("\n[linkItem location=\"{0}\" league=\"{1}\" x=\"{2}\" y=\"{3}\"]\n~b/o {4}\n", item.inventoryId, ApplicationState.CurrentLeague, item.X, item.Y, getBuyout<T>(item, tabName));
+                if (embedBuyouts)
+                    return string.Format("\n[linkItem location=\"{0}\" league=\"{1}\" x=\"{2}\" y=\"{3}\"]\n~b/o {4}\n", item.inventoryId, ApplicationState.CurrentLeague, item.X, item.Y, getBuyout<T>(item, tabName));
+            }
 
             return string.Format("[linkItem location=\"{0}\" league=\"{1}\" x=\"{2}\" y=\"{3}\"]", item.inventoryId, ApplicationState.CurrentLeague, item.X, item.Y);
         }
