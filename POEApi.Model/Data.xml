@@ -14,6 +14,7 @@
       <Item name="Prismatic Ring"/>
       <Item name="Amethyst Ring"/>
       <Item name="Two-Stone Ring"/>
+      <Item name="Unset Ring"/>
     </GearBaseType>
     <GearBaseType name="Amulet">
       <Item name="Paua Amulet"/>
@@ -613,6 +614,15 @@
       <Item name="Conductive Quiver"/>
       <Item name="Heavy Quiver"/>
       <Item name="Light Quiver"/>
+
+      <Item name="Serrated Arrow Quiver"/>
+      <Item name="Two-Point Arrow Quiver"/>
+      <Item name="Sharktooth Arrow Quiver"/>
+      <Item name="Blunt Arrow Quiver"/>
+      <Item name="Fire Arrow Quiver"/>
+      <Item name="Broadhead Arrow Quiver"/>
+      <Item name="Penetrating Arrow Quiver"/>
+      <Item name="Spike-Point Arrow Quiver"/>
     </GearBaseType>
     <GearBaseType name="Sceptre">
       <Item name="Driftwood Sceptre"/>
