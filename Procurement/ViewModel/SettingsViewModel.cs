@@ -142,12 +142,12 @@ namespace Procurement.ViewModel
         {
             this.view = view;
             this.Leagues = ApplicationState.Leagues;
-            this.CurrentLeague = Settings.UserSettings["FavoriteLeague"];
+            this.currentLeague = Settings.UserSettings["FavoriteLeague"];
             refreshCharacters();
-            this.CurrentCharacter = Settings.UserSettings["FavoriteCharacter"];
-            this.CompactMode = Convert.ToBoolean(Settings.UserSettings["CompactMode"]);
-            this.DownloadOnlyMyLeagues = Convert.ToBoolean(Settings.UserSettings["DownloadOnlyMyLeagues"]);
-            this.DownloadOnlyMyCharacters = Convert.ToBoolean(Settings.UserSettings["DownloadOnlyMyCharacters"]);
+            this.currentCharacter = Settings.UserSettings["FavoriteCharacter"];
+            this.compactMode = Convert.ToBoolean(Settings.UserSettings["CompactMode"]);
+            this.downloadOnlyMyLeagues = Convert.ToBoolean(Settings.UserSettings["DownloadOnlyMyLeagues"]);
+            this.downloadOnlyMyCharacters = Convert.ToBoolean(Settings.UserSettings["DownloadOnlyMyCharacters"]);
 
             stashTabs = getAllTabs();
         }
