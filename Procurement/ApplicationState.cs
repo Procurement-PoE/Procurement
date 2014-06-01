@@ -4,6 +4,7 @@ using System.Linq;
 using POEApi.Model;
 using System.Runtime.InteropServices;
 using System;
+using Procurement.ViewModel.Cache;
 
 namespace Procurement
 {
@@ -17,6 +18,12 @@ namespace Procurement
         public static List<string> Leagues = new List<string>();
         public static System.Drawing.Text.PrivateFontCollection FontCollection = new System.Drawing.Text.PrivateFontCollection();
         private static Character currentCharacter = null;
+        public static BitmapCache BitmapCache { get; private set; }
+
+        static ApplicationState()
+        {
+            BitmapCache = new BitmapCache(imageUrl => Model.GetImage(imageUrl));
+        }
 
         public static Character CurrentCharacter
         {

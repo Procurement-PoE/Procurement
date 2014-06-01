@@ -226,6 +226,11 @@ namespace POEApi.Model
             transport.GetImage(url);
             onImageLoaded(POEEventState.AfterEvent, name);
         }
+
+        public Stream GetImage(string url)
+        {
+            return transport.GetImage(url);
+        }
         
         public Stream GetImage(Item item)
         {

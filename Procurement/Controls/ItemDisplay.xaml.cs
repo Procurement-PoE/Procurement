@@ -25,7 +25,9 @@ namespace Procurement.Controls
 
         public ItemDisplay()
         {
-            InitializeComponent();
+            MainGrid = new Grid();
+            AddChild(MainGrid);
+
             expressionDarkGrid = expressionDarkGrid ?? Application.LoadComponent(new Uri("/Procurement;component/Controls/ExpressionDarkGrid.xaml", UriKind.RelativeOrAbsolute)) as ResourceDictionary;
 
             this.Loaded += new RoutedEventHandler(ItemDisplay_Loaded);
@@ -52,12 +54,10 @@ namespace Procurement.Controls
             Image i = vm.getImage();
             itemImage = i;
 
-            UIElement socket = vm.getSocket();
-
             this.MainGrid.Children.Add(i);
 
-            if (socket != null)
-                doSocketOnHover(socket, i);
+            if (vm.HasSocket)
+                BindSocketPopup(vm);
 
             this.Height = i.Height;
             this.Width = i.Width;
@@ -95,30 +95,20 @@ namespace Procurement.Controls
             this.MainGrid.Children.Add(socket);
         }
 
-        private void doSocketOnHover(UIElement socket, Image i)
+        private void BindSocketPopup(ItemDisplayViewModel vm)
         {
-            NonTopMostPopup popup = new NonTopMostPopup();
-            popup.PopupAnimation = PopupAnimation.Fade;
-            popup.StaysOpen = true;
-            popup.Child = socket;
-            popup.Placement = PlacementMode.Center;
-            popup.PlacementTarget = i;
-            popup.AllowsTransparency = true;
-            i.MouseEnter += (o, ev) =>
-            {
-                closeOthersButNot(popup);
-                popup.IsOpen = true;
-            };
+            UIElement socket = null;
 
-            i.MouseLeave += (o, ev) =>
+            MainGrid.MouseEnter += (o, ev) =>
             {
-                Rect rect = System.Windows.Media.VisualTreeHelper.GetDescendantBounds(i);
-                if (!rect.Contains(ev.GetPosition(o as IInputElement)))
-                    popup.IsOpen = false;
-            };
+                if (socket == null)
+                    socket = vm.GetSocket();
 
-            this.MainGrid.Children.Add(popup);
-            annoyed.Add(popup);
+                if (!MainGrid.Children.Contains(socket))
+                    MainGrid.Children.Add(socket);
+            };
+            
+            MainGrid.MouseLeave += (o, ev) => MainGrid.Children.Remove(socket);
         }
 
         private ContextMenu getContextMenu()
