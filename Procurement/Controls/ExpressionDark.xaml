@@ -1531,7 +1531,7 @@
                 </DoubleAnimationUsingKeyFrames>
             </Storyboard>
         </ControlTemplate.Resources>
-        <Grid>
+        <Grid x:Name="grid">
             <Border x:Name="Border" Opacity="1" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2,2,2,2" Background="{TemplateBinding Background}">
                 <Grid>
                     <Border BorderThickness="1">
@@ -1568,9 +1568,8 @@
 
             </MultiTrigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Background" TargetName="Border" Value="{DynamicResource DisabledBackgroundBrush}" />
-                <Setter Property="BorderBrush" TargetName="Border" Value="{DynamicResource DisabledBorderBrush}" />
                 <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}" />
+                <Setter Property="Opacity" TargetName="grid" Value="0.5" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>

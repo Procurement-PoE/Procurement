@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemTradeInfo.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Currency.cs" />
     <Compile Include="CurrencyHandler.cs" />

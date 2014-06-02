@@ -35,7 +35,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public bool Applicable(Item item)
         {
-            return Settings.Buyouts.ContainsKey(item.UniqueIDHash) && Settings.Buyouts[item.UniqueIDHash].ToLower() == buyoutValue.ToLower();
+            return Settings.Buyouts.ContainsKey(item.UniqueIDHash) && Settings.Buyouts[item.UniqueIDHash].Buyout.ToLower() == buyoutValue.ToLower();
         }
     }
 }

@@ -75,16 +75,21 @@ namespace Procurement.Controls
                 return;
 
             MenuItem setBuyout = new MenuItem();
-            string buyoutValue = string.Empty;
+            string pricingInfo = string.Empty;
 
             if (Settings.Buyouts.ContainsKey(item.UniqueIDHash))
-                buyoutValue = Settings.Buyouts[item.UniqueIDHash];
+            {
+                pricingInfo = Settings.Buyouts[item.UniqueIDHash].Buyout;
+             
+                if (pricingInfo == string.Empty)
+                    pricingInfo = Settings.Buyouts[item.UniqueIDHash].Price;
+            }
 
             if (textblock != null)
                 this.MainGrid.Children.Remove(textblock);
 
             textblock = new TextBlock();
-            textblock.Text = buyoutValue;
+            textblock.Text = pricingInfo;
             textblock.IsHitTestVisible = false;
             textblock.Margin = new Thickness(1, 1, 0, 0);
             this.MainGrid.Children.Add(textblock);
@@ -107,7 +112,7 @@ namespace Procurement.Controls
                 if (!MainGrid.Children.Contains(socket))
                     MainGrid.Children.Add(socket);
             };
-            
+
             MainGrid.MouseLeave += (o, ev) => MainGrid.Children.Remove(socket);
         }
 
@@ -117,8 +122,8 @@ namespace Procurement.Controls
             Item item = vm.Item;
 
             ContextMenu menu = new ContextMenu();
-            menu.Background = Brushes.Black;         
-            
+            menu.Background = Brushes.Black;
+
             menu.Resources = expressionDarkGrid;
 
             if (!(item is Currency))
@@ -128,14 +133,10 @@ namespace Procurement.Controls
                 var buyoutControl = new SetBuyoutView();
 
                 if (Settings.Buyouts.ContainsKey(item.UniqueIDHash))
-                {
-                    var price = Settings.Buyouts[item.UniqueIDHash].Split(' ');
-                    buyoutControl.SetValue(price[0], CurrencyAbbreviationMap.Instance.FromAbbreviation(price[1]));
-                }
+                    buyoutControl.SetBuyoutInfo(Settings.Buyouts[item.UniqueIDHash]);
 
                 setBuyout.Header = buyoutControl;
-                buyoutControl.SaveClicked += new SetBuyoutView.BuyoutHandler(buyoutView_SaveClicked);
-                buyoutControl.RemoveClicked += new SetBuyoutView.BuyoutHandler(buyoutControl_RemoveClicked);
+                buyoutControl.Update += buyoutControl_Update;
                 buyoutControl.SaveImageClicked += buyoutControl_SaveImageClicked;
                 menu.Items.Add(setBuyout);
             }
@@ -143,31 +144,42 @@ namespace Procurement.Controls
             return menu;
         }
 
+        void buyoutControl_Update(ItemTradeInfo info)
+        {
+            updateBuyout(info);
+            Settings.SaveBuyouts();
+
+            resyncText();
+            itemImage.ContextMenu.IsOpen = false;
+        }
+
+        private void updateBuyout(ItemTradeInfo info)
+        {
+            ItemDisplayViewModel vm = this.DataContext as ItemDisplayViewModel;
+            Item item = vm.Item;
+
+            if (info.IsEmpty)
+            {
+                Settings.Buyouts.Remove(item.UniqueIDHash);
+                return;
+            }
+
+            Settings.Buyouts[item.UniqueIDHash] = info;
+        }
+
         void buyoutControl_SaveImageClicked()
         {
             ItemHoverRenderer.SaveToDisk((this.DataContext as ItemDisplayViewModel).Item, Dispatcher);
         }
 
-        void buyoutControl_RemoveClicked(string amount, string orbType)
-        {
-            ItemDisplayViewModel vm = this.DataContext as ItemDisplayViewModel;
-            Item item = vm.Item;
-
-            Settings.Buyouts.Remove(item.UniqueIDHash);
-            Settings.Save();
-
-            resyncText();
-        }
-
         void buyoutView_SaveClicked(string amount, string orbType)
         {
             var abbreviation = CurrencyAbbreviationMap.Instance.FromCurrency(orbType);
-                       
+
             ItemDisplayViewModel vm = this.DataContext as ItemDisplayViewModel;
             Item item = vm.Item;
 
-            Settings.Buyouts[item.UniqueIDHash] = string.Format("{0} {1}", amount, abbreviation);
-
+            Settings.Buyouts[item.UniqueIDHash].Buyout = string.Format("{0} {1}", amount, abbreviation);
             Settings.SaveBuyouts();
 
             resyncText();

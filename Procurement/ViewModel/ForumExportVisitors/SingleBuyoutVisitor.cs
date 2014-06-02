@@ -12,7 +12,7 @@ namespace Procurement.ViewModel.ForumExportVisitors
         private Dictionary<string, IFilter> tokens;
         public SingleBuyoutVisitor()
         {
-            tokens = Settings.Buyouts.Keys.GroupBy(k => Settings.Buyouts[k])
+            tokens = Settings.Buyouts.Keys.GroupBy(k => Settings.Buyouts[k].Buyout)
                                           .ToDictionary(g => string.Concat("{", g.Key.ToLower(), "}"), g => (IFilter)new BuyoutFilter(g.Key.ToLower()));
         }
         public override string Visit(IEnumerable<POEApi.Model.Item> items, string current)

@@ -18,7 +18,7 @@ namespace POEApi.Model
         public static Dictionary<string, string> UserSettings { get; private set; }
         public static Dictionary<string, string> ProxySettings { get; private set; }
         public static Dictionary<string, List<string>> Lists { get; private set; }
-        public static Dictionary<int, string> Buyouts { get; private set; }
+        public static Dictionary<int, ItemTradeInfo> Buyouts { get; private set; }
         public static Dictionary<string, string> TabsBuyouts { get; private set; }
         public static List<string> PopularGems { get; private set; }
         private static XElement settingsFile;
@@ -53,10 +53,10 @@ namespace POEApi.Model
             try
             {
                 buyoutFile = XElement.Load(BUYOUT_LOCATION);
-                Buyouts = new Dictionary<int, string>();
+                Buyouts = new Dictionary<int, ItemTradeInfo>();
 
                 if (buyoutFile.Element("ItemBuyouts") != null)
-                    Buyouts = buyoutFile.Element("ItemBuyouts").Elements("Item").ToDictionary(list => (int)list.Attribute("id"), list => list.Attribute("value").Value);
+                    Buyouts = loadItemBuyouts();
 
                 TabsBuyouts = new Dictionary<string, string>();
                 if (buyoutFile.Element("TabBuyouts") != null)
@@ -67,6 +67,17 @@ namespace POEApi.Model
                 Logger.Log("Error loading Buyouts: " + ex.ToString());
                 throw ex;
             }
+        }
+
+        private static Dictionary<int, ItemTradeInfo> loadItemBuyouts()
+        {            
+            var items = buyoutFile.Element("ItemBuyouts").Elements("Item");
+            var legacyBuyouts = items.Where(i => i.Attribute("value") != null).Any();
+
+            if (legacyBuyouts)
+                return items.ToDictionary(list => (int)list.Attribute("id"), list => new ItemTradeInfo(list.Attribute("value").Value, string.Empty, string.Empty));
+
+            return items.ToDictionary(list => (int)list.Attribute("id"), list => new ItemTradeInfo(list.Attribute("BuyoutValue").Value, list.Attribute("PriceValue").Value, list.Attribute("CurrentOfferValue").Value));
         }
 
         private static void loadGearTypeData()
@@ -131,8 +142,8 @@ namespace POEApi.Model
             buyoutFile.Element("ItemBuyouts").RemoveNodes();
 
             foreach (int key in Buyouts.Keys)
-            {              
-                XElement buyout = new XElement("Item", new XAttribute("id", key), new XAttribute("value", Buyouts[key]));
+            {
+                XElement buyout = new XElement("Item", new XAttribute("id", key), new XAttribute("BuyoutValue", Buyouts[key].Buyout), new XAttribute("PriceValue", Buyouts[key].Price), new XAttribute("CurrentOfferValue", Buyouts[key].CurrentOffer));
                 buyoutFile.Element("ItemBuyouts").Add(buyout);
             }
 

@@ -26,7 +26,8 @@ namespace Procurement.ViewModel.ForumExportVisitors
 
         public override string Visit(IEnumerable<POEApi.Model.Item> items, string current)
         {
-            tokens = Settings.Buyouts.Keys.GroupBy(k => Settings.Buyouts[k])
+            tokens = Settings.Buyouts.Keys.Where(k => Settings.Buyouts[k].Buyout != string.Empty)
+                                          .GroupBy(k => Settings.Buyouts[k].Buyout)
                                           .ToDictionary(g => string.Concat(g.Key.ToLower()), g => (IFilter)new BuyoutFilter(g.Key.ToLower()));
 
             string updated = current;
