@@ -9,7 +9,6 @@ namespace Procurement.ViewModel.ForumExportVisitors
 {
     internal class MultipleBuyoutVisitor : VisitorBase
     {
-        private Dictionary<string, IFilter> tokens;
         private const string TOKEN = "{Buyouts}";
 
         protected override bool buyoutItemsOnlyVisibleInBuyoutsTag
@@ -30,13 +29,19 @@ namespace Procurement.ViewModel.ForumExportVisitors
             StringBuilder builder = new StringBuilder();
 
             Dictionary<string, List<Item>> buyouts = buildBuyoutDictionary();
+            Dictionary<string, List<Item>> pricedItems = buildPriceDictionary();
 
             foreach (var item in sortedItems)
             {
-                if (Settings.Buyouts.ContainsKey(item.UniqueIDHash))
+                if (Settings.Buyouts.ContainsKey(item.UniqueIDHash) && !string.IsNullOrEmpty(Settings.Buyouts[item.UniqueIDHash].Buyout))
                 {
                     buyouts[Settings.Buyouts[item.UniqueIDHash].Buyout].Add(item);
                     continue;
+                }
+
+                if (Settings.Buyouts.ContainsKey(item.UniqueIDHash) && !string.IsNullOrEmpty(Settings.Buyouts[item.UniqueIDHash].Price))
+                {
+                    pricedItems[Settings.Buyouts[item.UniqueIDHash].Price].Add(item);
                 }
 
                 var itemBuyoutKey = ApplicationState.Stash[ApplicationState.CurrentLeague].GetTabNameByInventoryId(item.inventoryId);
@@ -47,9 +52,16 @@ namespace Procurement.ViewModel.ForumExportVisitors
 
             Dictionary<string, BuyoutFilter> filters = buyouts.Keys.ToDictionary(k => k, k => new BuyoutFilter(k));
 
-            foreach (var set in buyouts)
+            foreach (var set in buyouts.Where(b => b.Value.Count() != 0))
             {
                 builder.AppendLine(string.Format("[spoiler=\"          ~b/o {0}          \"]", set.Key));
+                builder.AppendLine(runFilter(filters[set.Key], set.Value));
+                builder.AppendLine("[/spoiler]");
+            }
+
+            foreach (var set in pricedItems.Where(b => b.Value.Count() != 0))
+            {
+                builder.AppendLine(string.Format("[spoiler=\"          ~price {0}          \"]", set.Key));
                 builder.AppendLine(runFilter(filters[set.Key], set.Value));
                 builder.AppendLine("[/spoiler]");
             }
@@ -70,6 +82,18 @@ namespace Procurement.ViewModel.ForumExportVisitors
                 buyouts.Add(key, new List<Item>());
 
             return buyouts;
+        }
+
+        private Dictionary<string, List<Item>> buildPriceDictionary()
+        {
+            Dictionary<string, List<Item>> pricedItems = new Dictionary<string, List<Item>>();
+
+            var itemBuyouts = Settings.Buyouts.Where(b => b.Value.Buyout != string.Empty).Select(b => b.Value.Buyout);
+
+            foreach (var key in itemBuyouts.Distinct())
+                pricedItems.Add(key, new List<Item>());
+
+            return pricedItems;
         }
     }
 }
