@@ -35,7 +35,10 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public bool Applicable(Item item)
         {
-            return Settings.Buyouts.ContainsKey(item.UniqueIDHash) && Settings.Buyouts[item.UniqueIDHash].Buyout.ToLower() == buyoutValue.ToLower();
+            var itemBuyout = Settings.Buyouts.ContainsKey(item.UniqueIDHash) && Settings.Buyouts[item.UniqueIDHash].Buyout.ToLower() == buyoutValue.ToLower();
+            var tabBuyout = Settings.TabsBuyouts.ContainsKey(ApplicationState.Stash[ApplicationState.CurrentLeague].GetTabNameByInventoryId(item.inventoryId));
+
+            return itemBuyout || tabBuyout;
         }
     }
 }

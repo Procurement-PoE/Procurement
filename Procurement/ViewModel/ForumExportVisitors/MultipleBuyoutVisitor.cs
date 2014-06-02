@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using POEApi.Model;
 using Procurement.ViewModel.Filters;
-using System.Linq;
-using POEApi.Model;
 using Procurement.ViewModel.Filters.ForumExport;
+using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 namespace Procurement.ViewModel.ForumExportVisitors
 {
@@ -24,21 +22,35 @@ namespace Procurement.ViewModel.ForumExportVisitors
             get { return false; }
         }
 
-        public override string Visit(IEnumerable<POEApi.Model.Item> items, string current)
+        public override string Visit(IEnumerable<Item> items, string current)
         {
-            tokens = Settings.Buyouts.Keys.Where(k => Settings.Buyouts[k].Buyout != string.Empty)
-                                          .GroupBy(k => Settings.Buyouts[k].Buyout)
-                                          .ToDictionary(g => string.Concat(g.Key.ToLower()), g => (IFilter)new BuyoutFilter(g.Key.ToLower()));
-
             string updated = current;
-            var sorted = items.OrderBy(i => i.H).ThenBy(i => i.IconURL);
+            var sortedItems = items.OrderBy(i => i.H).ThenBy(i => i.IconURL);
 
             StringBuilder builder = new StringBuilder();
 
-            foreach (var token in tokens.OrderBy(t => t.Key, new NaiveNumberTextComparer()))
+            Dictionary<string, List<Item>> buyouts = buildBuyoutDictionary();
+
+            foreach (var item in sortedItems)
             {
-                builder.AppendLine(string.Format("[spoiler=\"          ~b/o {0}          \"]", token.Key));
-                builder.AppendLine(runFilter(token.Value, sorted));
+                if (Settings.Buyouts.ContainsKey(item.UniqueIDHash))
+                {
+                    buyouts[Settings.Buyouts[item.UniqueIDHash].Buyout].Add(item);
+                    continue;
+                }
+
+                var itemBuyoutKey = ApplicationState.Stash[ApplicationState.CurrentLeague].GetTabNameByInventoryId(item.inventoryId);
+
+                if (Settings.TabsBuyouts.ContainsKey(itemBuyoutKey))
+                    buyouts[Settings.TabsBuyouts[itemBuyoutKey]].Add(item);
+            }
+
+            Dictionary<string, BuyoutFilter> filters = buyouts.Keys.ToDictionary(k => k, k => new BuyoutFilter(k));
+
+            foreach (var set in buyouts)
+            {
+                builder.AppendLine(string.Format("[spoiler=\"          ~b/o {0}          \"]", set.Key));
+                builder.AppendLine(runFilter(filters[set.Key], set.Value));
                 builder.AppendLine("[/spoiler]");
             }
 
@@ -47,31 +59,17 @@ namespace Procurement.ViewModel.ForumExportVisitors
             return updated;
         }
 
-        private class NaiveNumberTextComparer : IComparer<string>
+        private Dictionary<string, List<Item>> buildBuyoutDictionary()
         {
-            private const string regex = @"^(?<number>[0-9]{1,})\s{0,}(?<currency>[a-zA-Z]{1,})";
-            private Tuple<double, string> getParts(string x)
-            {
-                Match m = Regex.Match(x, regex);
-                string number = m.Groups["number"].Value;
-                string text = m.Groups["currency"].Value;
+            Dictionary<string, List<Item>> buyouts = new Dictionary<string, List<Item>>();
 
-                return new Tuple<double, string>(Convert.ToDouble(number), text);
-            }
+            var tabBuyouts = Settings.TabsBuyouts.Values;
+            var itemBuyouts = Settings.Buyouts.Where(b => b.Value.Buyout != string.Empty).Select(b => b.Value.Buyout);
 
-            public int Compare(string x, string y)
-            {
-                if (!(Regex.IsMatch(x, regex) && Regex.IsMatch(y, regex)))
-                    return x.CompareTo(y);
+            foreach (var key in tabBuyouts.Union(itemBuyouts).Distinct())
+                buyouts.Add(key, new List<Item>());
 
-                var xPair = getParts(x);
-                var yPair = getParts(y);
-
-                if (xPair.Item2 == yPair.Item2)
-                    return xPair.Item1.CompareTo(yPair.Item1);
-
-                return xPair.Item2.CompareTo(yPair.Item2);
-            }
+            return buyouts;
         }
     }
 }
