@@ -79,7 +79,7 @@ namespace Procurement.ViewModel.ForumExportVisitors
             foreach (var key in tabBuyouts.Union(itemBuyouts).Distinct())
                 buyouts.Add(key, new List<Item>());
 
-            return buyouts;
+            return buyouts.OrderBy(b => b.Key.Split(' ')[1]).ToDictionary(x => x.Key, y => y.Value);
         }
 
         private Dictionary<string, List<Item>> buildPriceDictionary()
@@ -91,7 +91,7 @@ namespace Procurement.ViewModel.ForumExportVisitors
             foreach (var key in itemBuyouts.Distinct())
                 pricedItems.Add(key, new List<Item>());
 
-            return pricedItems;
+            return pricedItems.OrderBy(b => b.Key.Split(' ')[1]).ToDictionary(x => x.Key, y => y.Value);
         }
     }
 }
