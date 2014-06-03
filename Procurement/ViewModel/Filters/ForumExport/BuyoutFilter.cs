@@ -35,10 +35,21 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public bool Applicable(Item item)
         {
-            var itemBuyout = Settings.Buyouts.ContainsKey(item.UniqueIDHash) && Settings.Buyouts[item.UniqueIDHash].Buyout.ToLower() == buyoutValue.ToLower();
-            var tabBuyout = Settings.TabsBuyouts.ContainsKey(ApplicationState.Stash[ApplicationState.CurrentLeague].GetTabNameByInventoryId(item.inventoryId));
+            bool isItemBuyout = false;
+            bool isItemPriced = false;
+            bool isTabBuyout = false;
 
-            return itemBuyout || tabBuyout;
+            if (Settings.Buyouts.ContainsKey(item.UniqueIDHash))
+            {
+                var itemInfo = Settings.Buyouts[item.UniqueIDHash];
+
+                isItemBuyout = itemInfo.Buyout.ToLower() == buyoutValue.ToLower();
+                isItemPriced = itemInfo.Price.ToLower() == buyoutValue.ToLower();
+            }
+
+            isTabBuyout = Settings.TabsBuyouts.ContainsKey(ApplicationState.Stash[ApplicationState.CurrentLeague].GetTabNameByInventoryId(item.inventoryId));
+
+            return isItemBuyout || isItemPriced  || isTabBuyout;
         }
     }
 }
