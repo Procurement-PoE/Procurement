@@ -50,7 +50,7 @@ namespace Procurement.ViewModel.ForumExportVisitors
                     buyouts[Settings.TabsBuyouts[itemBuyoutKey]].Add(item);
             }
 
-            Dictionary<string, BuyoutFilter> filters = buyouts.Keys.ToDictionary(k => k, k => new BuyoutFilter(k));
+            Dictionary<string, BuyoutFilter> filters = buyouts.Keys.Union(pricedItems.Keys).Distinct().ToDictionary(k => k, k => new BuyoutFilter(k));
 
             foreach (var set in buyouts.Where(b => b.Value.Count() != 0))
             {
@@ -88,7 +88,7 @@ namespace Procurement.ViewModel.ForumExportVisitors
         {
             Dictionary<string, List<Item>> pricedItems = new Dictionary<string, List<Item>>();
 
-            var itemBuyouts = Settings.Buyouts.Where(b => b.Value.Buyout != string.Empty).Select(b => b.Value.Buyout);
+            var itemBuyouts = Settings.Buyouts.Where(b => b.Value.Price != string.Empty).Select(b => b.Value.Price);
 
             foreach (var key in itemBuyouts.Distinct())
                 pricedItems.Add(key, new List<Item>());
