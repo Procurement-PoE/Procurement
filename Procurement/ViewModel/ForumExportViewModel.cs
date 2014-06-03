@@ -75,7 +75,7 @@ namespace Procurement.ViewModel
             if (Settings.Lists.ContainsKey("AdditionalTemplates"))
                 AvailableTemplates.AddRange(Settings.Lists["AdditionalTemplates"]);
 
-            CurrentTemplate = "ForumExportTemplate.txt";
+            currentTemplate = "ForumExportTemplate.txt";
         }
 
         private void copy(object parameter)
