@@ -1,9 +1,8 @@
-﻿using POEApi.Model;
-using Procurement.ViewModel.Filters;
-using Procurement.ViewModel.Filters.ForumExport;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 using System.Collections.Generic;
+using POEApi.Model;
+using Procurement.ViewModel.Filters.ForumExport;
 
 namespace Procurement.ViewModel.ForumExportVisitors
 {
@@ -52,23 +51,22 @@ namespace Procurement.ViewModel.ForumExportVisitors
 
             Dictionary<string, BuyoutFilter> filters = buyouts.Keys.Union(pricedItems.Keys).Distinct().ToDictionary(k => k, k => new BuyoutFilter(k));
 
-            foreach (var set in buyouts.Where(b => b.Value.Count() != 0))
-            {
-                builder.AppendLine(string.Format("[spoiler=\"          ~b/o {0}          \"]", set.Key));
-                builder.AppendLine(runFilter(filters[set.Key], set.Value));
-                builder.AppendLine("[/spoiler]");
-            }
-
-            foreach (var set in pricedItems.Where(b => b.Value.Count() != 0))
-            {
-                builder.AppendLine(string.Format("[spoiler=\"          ~price {0}          \"]", set.Key));
-                builder.AppendLine(runFilter(filters[set.Key], set.Value));
-                builder.AppendLine("[/spoiler]");
-            }
+            buildSpoilers(builder, buyouts, filters, "~b/o");
+            buildSpoilers(builder, pricedItems, filters, "~price");
 
             updated = updated.Replace(TOKEN, builder.ToString());
 
             return updated;
+        }
+
+        private void buildSpoilers(StringBuilder builder, Dictionary<string, List<Item>> items, Dictionary<string, BuyoutFilter> filters, string header)
+        {
+            foreach (var set in items.Where(b => b.Value.Count() != 0))
+            {
+                builder.AppendLine(string.Format("[spoiler=\"          {0} {1}          \"]", header, set.Key));
+                builder.AppendLine(runFilter(filters[set.Key], set.Value));
+                builder.AppendLine("[/spoiler]");
+            }
         }
 
         private Dictionary<string, List<Item>> buildBuyoutDictionary()
