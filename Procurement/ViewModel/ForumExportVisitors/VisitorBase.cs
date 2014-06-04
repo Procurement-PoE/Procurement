@@ -57,7 +57,7 @@ namespace Procurement.ViewModel.ForumExportVisitors
         private string appendAdditionalInfo(Item item, string tabName)
         {
             if (!Settings.Buyouts.ContainsKey(item.UniqueIDHash))
-                return string.Format("\n~b/o{0}\n", Settings.TabsBuyouts[tabName]);
+                return string.Format("\n~b/o {0}\n", Settings.TabsBuyouts[tabName]);
 
             var buyoutInfo = Settings.Buyouts[item.UniqueIDHash];
             StringBuilder sb = new StringBuilder();
