@@ -21,12 +21,12 @@ namespace Procurement.ViewModel.Filters
             get { return false; }
         }
 
-        public string Keyword
+        public virtual string Keyword
         {
             get { return "Category Gems"; }
         }
 
-        public string Help
+        public virtual string Help
         {
             get { return "Category Gems"; }
         }
