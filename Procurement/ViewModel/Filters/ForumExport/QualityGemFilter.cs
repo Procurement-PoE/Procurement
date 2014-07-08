@@ -4,6 +4,18 @@ namespace Procurement.ViewModel.Filters
 {
     internal class QualityGemFilter : IFilter
     {
+        private readonly int quality;
+
+        public QualityGemFilter()
+        {
+            this.quality = 0;
+        }
+
+        public QualityGemFilter(int quality)
+        {
+            this.quality = quality;
+        }
+        
         public FilterGroup Group
         {
             get { return FilterGroup.Gems; }
@@ -30,7 +42,10 @@ namespace Procurement.ViewModel.Filters
             if (gem == null)
                 return false;
 
-            return gem.IsQuality;
+            if (quality == 0)
+                return gem.IsQuality;
+
+            return gem.Quality == quality;
         }
     }
 }

@@ -18,7 +18,18 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 [/spoiler]
 [spoiler="          Gems          "]
 [spoiler="          Quality Gems          "]
-{QualityGems}
+[spoiler="          Quality Gems 1-5      "]
+{Quality1Gems}{Quality2Gems}{Quality3Gems}{Quality4Gems}{Quality5Gems}
+[/spoiler]
+[spoiler="          Quality Gems 5-10     "]
+{Quality6Gems}{Quality7Gems}{Quality8Gems}{Quality9Gems}{Quality10Gems}
+[/spoiler]
+[spoiler="          Quality Gems 10-15    "]
+{Quality11Gems}{Quality12Gems}{Quality13Gems}{Quality14Gems}{Quality15Gems}
+[/spoiler]
+[spoiler="          Quality Gems 15-20    "]
+{Quality16Gems}{Quality17Gems}{Quality18Gems}{Quality19Gems}{Quality20Gems}
+[/spoiler]
 [/spoiler]
 [spoiler="          Drop Only Gems          "]
 {DropOnlyGems}
