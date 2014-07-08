@@ -50,7 +50,7 @@ namespace Procurement
 
                 currentLeague = value;
                 Characters = Model.GetCharacters().Where(c => c.League == value).ToList();
-                CurrentCharacter = Characters.First();
+                CurrentCharacter = Characters.FirstOrDefault();
                 if (LeagueChanged != null)
                     LeagueChanged(Model, new PropertyChangedEventArgs("CurrentLeague"));
             }
@@ -69,7 +69,7 @@ namespace Procurement
         public static void SetDefaults()
         {
             string favoriteLeague = Settings.UserSettings["FavoriteLeague"];
-            if (!string.IsNullOrEmpty(favoriteLeague))
+            if (!string.IsNullOrEmpty(favoriteLeague) && ApplicationState.Leagues.Contains(favoriteLeague))
                 CurrentLeague = favoriteLeague;
 
             string defaultCharacter = Settings.UserSettings["FavoriteCharacter"];
@@ -79,8 +79,10 @@ namespace Procurement
                 return;
             }
 
-            CurrentCharacter = Characters.First();
-            CurrentLeague = CurrentCharacter.League;
+            CurrentCharacter = Characters.FirstOrDefault();
+
+            if (CurrentCharacter != null)
+                CurrentLeague = CurrentCharacter.League;
         }
 
         public static void InitializeFont(byte[] fontBytes)
