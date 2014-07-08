@@ -13,6 +13,7 @@ using POEApi.Model;
 using POEApi.Model.Events;
 using Procurement.View;
 using Procurement.Utility;
+using System.Windows;
 
 namespace Procurement.ViewModel
 {
@@ -104,6 +105,13 @@ namespace Procurement.ViewModel
         {
             toggleControls();
 
+            if (string.IsNullOrEmpty(Email))
+            {
+                MessageBox.Show(string.Format("{0} is required!", useSession ? "Alias" : "Email"), "Error logging in", MessageBoxButton.OK, MessageBoxImage.Stop);
+                toggleControls();
+                return;
+            }
+            
             if (!offline)
             {
                 ApplicationState.Model.StashLoading += model_StashLoading;
