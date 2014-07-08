@@ -1,6 +1,7 @@
 ﻿using POEApi.Infrastructure;
 using POEApi.Model;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
 using System.Windows;
@@ -22,6 +23,10 @@ namespace Procurement.Utility
                     client.DownloadStringAsync(new Uri(VERSION_URL));
                     client.DownloadStringCompleted += client_DownloadStringCompleted;
                 }
+            }
+            catch (KeyNotFoundException kex)
+            {
+                MessageBox.Show("Unable to check for updates as the CheckForUpdates setting is missing from your settings file.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             catch (Exception ex)
             {
