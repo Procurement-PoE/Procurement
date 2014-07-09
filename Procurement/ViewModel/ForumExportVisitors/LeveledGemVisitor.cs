@@ -13,6 +13,7 @@ namespace Procurement.ViewModel.ForumExportVisitors
         public LeveledGemVisitor()
         {
             tokens = new Dictionary<string, IFilter>();
+            tokens.Add("{LeveledGems}", new LeveledGemFilter(0));
             tokens.Add("{Level1Gems}", new LeveledGemFilter(1));
             tokens.Add("{Level2Gems}", new LeveledGemFilter(2));
             tokens.Add("{Level3Gems}", new LeveledGemFilter(3));

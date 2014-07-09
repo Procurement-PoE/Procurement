@@ -7,7 +7,12 @@ namespace Procurement.ViewModel.Filters
 {
     internal class LeveledGemFilter : IFilter
     {
-        private int level;
+        private readonly int level;
+
+        public LeveledGemFilter()
+        {
+            level = 0;
+        }
 
         public LeveledGemFilter(int level)
         {
@@ -39,6 +44,9 @@ namespace Procurement.ViewModel.Filters
             Gem gem = item as Gem;
             if (gem == null)
                 return false;
+
+            if (this.level == 0)
+                return gem.Level > 0;
 
             return gem.Level == this.level;
         }
