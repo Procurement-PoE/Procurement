@@ -112,7 +112,7 @@
                                                         </Image>
                                                     </RepeatButton>
 
-                                                    <ScrollContentPresenter Grid.Column="1" Content="{TemplateBinding ScrollViewer.Content}"  />
+                                                    <ScrollContentPresenter Grid.Column="1" Content="{TemplateBinding ScrollViewer.Content}" MouseWheel="ScrollContentPresenter_MouseWheel"/>
                                                     <RepeatButton Grid.Column="2" Command="ScrollBar.LineRightCommand" Background="Transparent" Style="{StaticResource TabScrollerRepeatButtonStyle}">
                                                         <Image>
                                                             <Image.Style>

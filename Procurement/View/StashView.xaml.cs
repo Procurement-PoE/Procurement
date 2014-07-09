@@ -34,5 +34,19 @@ namespace Procurement.View
 
             vm.SetCategoryFilter(cb.Content.ToString(), cb.IsChecked);
         }
+
+        private void ScrollContentPresenter_MouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
+        {
+            var scroller = (sender as ScrollContentPresenter);
+            if (e.Delta > 0)
+            {
+                scroller.LineRight();
+                scroller.LineRight();
+                return;
+            }
+
+            scroller.LineLeft();
+            scroller.LineLeft();
+        }
     }
 }
