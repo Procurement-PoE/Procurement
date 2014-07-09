@@ -172,11 +172,10 @@ namespace Procurement.ViewModel
         private IEnumerable<Item> LoadItems(bool offline, IEnumerable<Character> chars)
         {
             bool downloadOnlyMyLeagues = (Settings.UserSettings.ContainsKey("DownloadOnlyMyLeagues") &&
-                bool.TryParse(Settings.UserSettings["DownloadOnlyMyLeagues"], out downloadOnlyMyLeagues) &&
-                downloadOnlyMyLeagues &&
-                Settings.Lists.ContainsKey("MyLeagues") &&
-                Settings.Lists["MyLeagues"].Count > 0
-                );
+                                          bool.TryParse(Settings.UserSettings["DownloadOnlyMyLeagues"], out downloadOnlyMyLeagues) &&
+                                          downloadOnlyMyLeagues &&
+                                          Settings.Lists.ContainsKey("MyLeagues") &&
+                                          Settings.Lists["MyLeagues"].Count > 0);
 
             foreach (var character in chars)
             {
@@ -186,17 +185,11 @@ namespace Procurement.ViewModel
                 if (downloadOnlyMyLeagues && !Settings.Lists["MyLeagues"].Contains(character.League))
                     continue;
 
-                ApplicationState.Characters.Add(character);
-
                 foreach (var item in LoadCharacterInventoryItems(character, offline))
-                {
                     yield return item;
-                }
 
                 foreach (var item in LoadStashItems(character))
-                {
                     yield return item;
-                }
             }
 
             if (downloadOnlyMyLeagues && ApplicationState.Characters.Count == 0)
