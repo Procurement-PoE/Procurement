@@ -61,6 +61,7 @@
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
+                    <EventSetter Event="MouseWheel" Handler="test" />
                 </Style>
 
                 <ControlTemplate x:Key="TabControlControlTemplate1" TargetType="{x:Type TabControl}">
@@ -112,7 +113,7 @@
                                                         </Image>
                                                     </RepeatButton>
 
-                                                    <ScrollContentPresenter Grid.Column="1" Content="{TemplateBinding ScrollViewer.Content}" MouseWheel="ScrollContentPresenter_MouseWheel"/>
+                                                    <ScrollContentPresenter Grid.Column="1" Content="{TemplateBinding ScrollViewer.Content}" />
                                                     <RepeatButton Grid.Column="2" Command="ScrollBar.LineRightCommand" Background="Transparent" Style="{StaticResource TabScrollerRepeatButtonStyle}">
                                                         <Image>
                                                             <Image.Style>
