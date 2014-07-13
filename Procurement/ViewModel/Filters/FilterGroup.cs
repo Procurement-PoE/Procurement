@@ -12,6 +12,7 @@
         Damage,
         Attacks,
         Level,
-        Crit
+        Crit,
+        CharacterAttributes
     };
 }
