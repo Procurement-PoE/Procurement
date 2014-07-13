@@ -1,5 +1,6 @@
 ﻿using POEApi.Model;
 using Procurement.ViewModel;
+using System;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,7 +24,7 @@ namespace Procurement.Controls
         public void Save_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
             var vm = (this.DataContext as SetBuyoutViewModel);
-            Update(new ItemTradeInfo(vm.BuyoutInfo.GetSaveText(), vm.PriceInfo.GetSaveText(), vm.OfferInfo.GetSaveText()));
+            Update(new ItemTradeInfo(vm.BuyoutInfo.GetSaveText(), vm.PriceInfo.GetSaveText(), vm.OfferInfo.GetSaveText(), vm.Notes));
         }
         private void RemoveBuyout_Click(object sender, RoutedEventArgs e)
         {
@@ -38,6 +39,16 @@ namespace Procurement.Controls
         public void SetBuyoutInfo(ItemTradeInfo buyoutInfo)
         {
             (this.DataContext as SetBuyoutViewModel).SetBuyoutInfo(buyoutInfo);
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Enter)
+                return;
+
+            this.Notes.Text += Environment.NewLine;
+            this.Notes.CaretIndex = this.Notes.Text.Length;
+            e.Handled = true;
         }
     }
 }

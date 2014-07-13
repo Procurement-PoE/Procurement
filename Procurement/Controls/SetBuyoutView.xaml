@@ -13,6 +13,8 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -47,8 +49,12 @@
             <Button Content="-"  Height="25" Width="20" Command="{Binding Path=PriceInfo.DecreaseValue}" IsEnabled="{Binding PriceInfo.Enabled, Mode=TwoWay}"/>
         </StackPanel>
         <ComboBox Grid.Column="2" Grid.Row="2" Height="25" IsEnabled="{Binding PriceInfo.Enabled, Mode=TwoWay}" ItemsSource="{Binding OrbTypes}" SelectedItem="{Binding PriceInfo.Orb}" />
+
+
+        <TextBlock Grid.Row="3" Foreground="#FFAB9066" Text="Notes:" />
+        <TextBox x:Name="Notes" Grid.Row="4" Grid.ColumnSpan="3" Text="{Binding Notes}" VerticalScrollBarVisibility="Auto" KeyDown="TextBox_KeyDown"/>
         
-        <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+        <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="160" />
                 <ColumnDefinition Width="10" />
@@ -56,7 +62,7 @@
             </Grid.ColumnDefinitions>
 
             <Button Content="Save" Grid.Column="0" Height="25" Width="150" Click="Save_Clicked"/>
-        <Button Content="Save Image" Grid.Column="2" Height="25" Width="150" Click="SaveImage_Click" HorizontalAlignment="Left" />
+            <Button Content="Save Image" Grid.Column="2" Height="25" Width="150" Click="SaveImage_Click" HorizontalAlignment="Left" />
         </Grid>        
     </Grid>
 </UserControl>

@@ -75,9 +75,17 @@ namespace POEApi.Model
             var legacyBuyouts = items.Where(i => i.Attribute("value") != null).Any();
 
             if (legacyBuyouts)
-                return items.ToDictionary(list => (int)list.Attribute("id"), list => new ItemTradeInfo(list.Attribute("value").Value, string.Empty, string.Empty));
+                return items.ToDictionary(list => (int)list.Attribute("id"), list => new ItemTradeInfo(list.Attribute("value").Value, string.Empty, string.Empty, string.Empty));
 
-            return items.ToDictionary(list => (int)list.Attribute("id"), list => new ItemTradeInfo(list.Attribute("BuyoutValue").Value, list.Attribute("PriceValue").Value, list.Attribute("CurrentOfferValue").Value));
+            return items.ToDictionary(list => (int)list.Attribute("id"), list => new ItemTradeInfo(tryGetValue(list, "BuyoutValue"), tryGetValue(list, "PriceValue"), tryGetValue(list, "CurrentOfferValue"), tryGetValue(list, "Notes")));
+        }
+
+        private static string tryGetValue(XElement list, string key)
+        {
+            if (list.Attribute(key) == null)
+                return string.Empty;
+
+            return list.Attribute(key).Value;
         }
 
         private static void loadGearTypeData()
@@ -143,7 +151,7 @@ namespace POEApi.Model
 
             foreach (int key in Buyouts.Keys)
             {
-                XElement buyout = new XElement("Item", new XAttribute("id", key), new XAttribute("BuyoutValue", Buyouts[key].Buyout), new XAttribute("PriceValue", Buyouts[key].Price), new XAttribute("CurrentOfferValue", Buyouts[key].CurrentOffer));
+                XElement buyout = new XElement("Item", new XAttribute("id", key), new XAttribute("BuyoutValue", Buyouts[key].Buyout), new XAttribute("PriceValue", Buyouts[key].Price), new XAttribute("CurrentOfferValue", Buyouts[key].CurrentOffer), new XAttribute("Notes", Buyouts[key].Notes));
                 buyoutFile.Element("ItemBuyouts").Add(buyout);
             }
 

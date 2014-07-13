@@ -1,10 +1,13 @@
 ﻿using POEApi.Model;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Procurement.ViewModel
 {
-    public class SetBuyoutViewModel
+    public class SetBuyoutViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        
         private static List<string> orbTypes = new List<string>()
         {
             "Chaos Orb",
@@ -47,12 +50,20 @@ namespace Procurement.ViewModel
             set { priceInfo = value; }
         }
 
+        private string notes;
+        public string Notes
+        {
+            get { return notes; }
+            set { notes = value; }
+        }
+
         public SetBuyoutViewModel()
         {
             
             buyoutInfo = new PricingInfo();
             offerInfo = new PricingInfo();
             priceInfo = new PricingInfo();
+            Notes = string.Empty;
         }
 
         public void SetBuyoutInfo(ItemTradeInfo info)
@@ -60,6 +71,7 @@ namespace Procurement.ViewModel
             buyoutInfo.Update(info.Buyout);
             offerInfo.Update(info.CurrentOffer);
             priceInfo.Update(info.Price);
-        }
+            Notes = info.Notes;
+        }        
     }
 }
