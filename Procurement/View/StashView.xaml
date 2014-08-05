@@ -248,12 +248,11 @@
                             </ScrollViewer>
                         </Border>
                     </TabItem>
-                    <TabItem Header="Gems" Height="22" Margin="0,0,-4,0" Width="91" Style="{StaticResource NonImages}">
+                    <TabItem Header="Gems" Height="22" Margin="-1,0,2,0" Width="91" Style="{StaticResource NonImages}">
                         <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0">
                             <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="455">
                                 <Grid>
-                                    <StackPanel>
-                                        <ItemsControl ItemsSource="{Binding GetGems}">
+                                    <ItemsControl ItemsSource="{Binding GemDistribution}">
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <Grid Height="Auto">
@@ -264,7 +263,7 @@
                                                                     <Run Foreground="#FFAB9066" Text="{Binding Key, Mode=OneWay}"></Run>
                                                                 </Bold>
                                                                     <Run Foreground="#FFAB9066" Text=": "></Run>
-                                                                    <Run Foreground="#FFAB9066" Text="{Binding Value, Mode=OneWay, StringFormat=0.00}"></Run>
+                                                                    <Run Foreground="#FFAB9066" Text="{Binding Value, Mode=OneWay, StringFormat=0}"></Run>
                                                                 </Paragraph>
                                                             </FlowDocument>
                                                         </RichTextBox>
@@ -272,7 +271,6 @@
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
                                     </ItemsControl>
-                                    </StackPanel>
                                 </Grid>
                             </ScrollViewer>
                         </Border>
