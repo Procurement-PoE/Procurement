@@ -48,7 +48,7 @@
              <ColumnDefinition Width="370" />
             <ColumnDefinition Width="32*" />
         </Grid.ColumnDefinitions>
-        
+
         <TabControl Background="Transparent" Width="600" BorderBrush="Transparent" VerticalAlignment="Top" x:Name="tabControl" HorizontalAlignment="Left" Template="{DynamicResource TabControlControlTemplate1}" Style="{Binding /}" Grid.ColumnSpan="2" Margin="4,3,0,0">
                 <TabControl.Resources>
                 <Style x:Key="TabScrollerRepeatButtonStyle" TargetType="{x:Type RepeatButton}">
@@ -101,7 +101,7 @@
                                                     <RepeatButton Grid.Column="0" Command="ScrollBar.LineLeftCommand" Background="Transparent" Style="{StaticResource TabScrollerRepeatButtonStyle}">
                                                         <Image>
                                                             <Image.Style>
-                                                                <Style TargetType="{x:Type Image}">                                                                    
+                                                                <Style TargetType="{x:Type Image}">
                                                                     <Setter Property="Source" Value="/Procurement;component/Images/TabControl/leftbutton.png"/>
                                                                     <Style.Triggers>
                                                                         <Trigger Property="IsMouseOver" Value="True">
@@ -128,7 +128,7 @@
                                                             </Image.Style>
                                                         </Image>
                                                     </RepeatButton>
-                                                    <Button Grid.Column="3" Command="{Binding GetTabs}" Background="{StaticResource TabControlNormalBorderBrush}" Foreground="#E5C690" CommandParameter="{Binding RelativeSource={RelativeSource Self} }"> 
+                                                    <Button Grid.Column="3" Command="{Binding GetTabs}" Background="{StaticResource TabControlNormalBorderBrush}" Foreground="#E5C690" CommandParameter="{Binding RelativeSource={RelativeSource Self} }">
                                                         <Grid>
                                                             <Image>
                                                                 <Image.Style>
@@ -157,7 +157,7 @@
             </TabControl.Resources>
             </TabControl>
 
-        <Grid Grid.Column="2" VerticalAlignment="Top">  
+        <Grid Grid.Column="2" VerticalAlignment="Top">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -222,35 +222,64 @@
                     <TabItem Header="Advanced Search" Style="{StaticResource NonImages}">
                         <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0">
                             <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="455">
-                            <Grid>
-                                <StackPanel>
-                                    <CheckBox Content="None" Foreground="#FFAB9066" Background="Black" Checked="CheckBox_Checked" />
-                                    <ItemsControl ItemsSource="{Binding AvailableCategories}">
-                                        <ItemsControl.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <StackPanel Orientation="Vertical"/>
-                                            </ItemsPanelTemplate>
-                                        </ItemsControl.ItemsPanel>
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <CheckBox Content="{Binding Key}" Foreground="#FFAB9066" Background="Black" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked">
-                                                    <CheckBox.ToolTip>
-                                                        <Border Background="Black" BorderBrush="#FFAB9066" BorderThickness="1">
-                                                            <TextBlock Text="{Binding Value}" Foreground="#FFAB9066" />
-                                                        </Border>
-                                                    </CheckBox.ToolTip>
-                                                </CheckBox>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </StackPanel>
-                            </Grid>
+                                <Grid>
+                                    <StackPanel>
+                                        <CheckBox Content="None" Foreground="#FFAB9066" Background="Black" Checked="CheckBox_Checked" />
+                                        <ItemsControl ItemsSource="{Binding AvailableCategories}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Vertical"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <CheckBox Content="{Binding Key}" Foreground="#FFAB9066" Background="Black" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked">
+                                                        <CheckBox.ToolTip>
+                                                            <Border Background="Black" BorderBrush="#FFAB9066" BorderThickness="1">
+                                                                <TextBlock Text="{Binding Value}" Foreground="#FFAB9066" />
+                                                            </Border>
+                                                        </CheckBox.ToolTip>
+                                                    </CheckBox>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </Grid>
                             </ScrollViewer>
                         </Border>
                     </TabItem>
-                    
+                    <TabItem Header="Gems" Height="22" Margin="0,0,-4,0" Width="91" Style="{StaticResource NonImages}">
+                        <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0">
+                            <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="455">
+                                <Grid>
+                                    <StackPanel>
+                                        <ItemsControl ItemsSource="{Binding GetGems}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid Height="Auto">
+                                                    <RichTextBox Background="Black" BorderBrush="Transparent" IsReadOnly="True" SelectionBrush="Transparent">
+                                                        <FlowDocument>
+                                                            <Paragraph>
+                                                                <Bold>
+                                                                    <Run Foreground="#FFAB9066" Text="{Binding Key, Mode=OneWay}"></Run>
+                                                                </Bold>
+                                                                    <Run Foreground="#FFAB9066" Text=": "></Run>
+                                                                    <Run Foreground="#FFAB9066" Text="{Binding Value, Mode=OneWay, StringFormat=0.00}"></Run>
+                                                                </Paragraph>
+                                                            </FlowDocument>
+                                                        </RichTextBox>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                    </StackPanel>
+                                </Grid>
+                            </ScrollViewer>
+                        </Border>
+                    </TabItem>
+
                 </TabControl>
-                
+
             </Grid>
         </Grid>
     </Grid>
