@@ -55,7 +55,7 @@
     <Gem name="Shockwave Totem" />
     <Gem name="Sweep" />
     <Gem name="Vitality" />
-    <Gem name="Warlords Mark" />
+    <Gem name="Warlord's Mark" />
     <Gem name="Animate Weapon" />
     <Gem name="Arctic Armour" />
     <Gem name="Barrage" />
@@ -188,7 +188,7 @@
     <Gem name="Cast when Stunned" />
     <Gem name="Chance to Ignite" />
     <Gem name="Concentrated Effect" />
-    <Gem name="Curse on Hit" />
+    <Gem name="Curse On Hit" />
     <Gem name="Elemental Proliferation" />
     <Gem name="Enlighten" />
     <Gem name="Faster Casting" />
@@ -205,4 +205,4 @@
     <Gem name="Remote Mine" />
     <Gem name="Spell Echo" />
   </Gems>
-"</Data>
+</Data>
