@@ -8,6 +8,9 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 [spoiler="          5-Links          "]
 {5Link}
 [/spoiler]
+[spoiler="          6-Links          "]
+{6Link}
+[/spoiler]
 [spoiler="          Maps          "]
 [spoiler="          66-69          "]
 {66Maps}{67Maps}{68Maps}{69Maps}
@@ -105,6 +108,17 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 {RareWand}
 {RareSceptre}
 {RareStaff}
+[/spoiler]
+[/spoiler]
+[spoiler="          Flasks          "]
+[spoiler="          Normal          "]
+{NormalFlask}
+[/spoiler]
+[spoiler="          Magic          "]
+{MagicFlask}
+[/spoiler]
+[spoiler="          Unique          "]
+{UniqueFlask} 
 [/spoiler]
 [/spoiler]
 
