@@ -1,6 +1,6 @@
 ﻿namespace Procurement.ViewModel.Filters
 {
-    public class LightningResistance : StatFilter
+    public class LightningResistance : OrStatFilter
     {
         public override  FilterGroup Group
         {
@@ -8,8 +8,7 @@
         }
 
         public LightningResistance()
-            : base("Lightning Resistance", "Lightning Resistance", "to Lightning Resistance")
+            : base("Lightning Resistance", "Lightning Resistance", "to Lightning Resistance", "to Cold and Lightning Resistances", "to Fire and Lightning Resistances")
         { }
     }
 }
-

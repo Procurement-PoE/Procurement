@@ -1,6 +1,6 @@
 ﻿namespace Procurement.ViewModel.Filters
 {
-    internal class ColdResistance : StatFilter
+    internal class ColdResistance : OrStatFilter
     {
         public override FilterGroup Group
         {
@@ -8,7 +8,7 @@
         }
 
         public ColdResistance()
-            : base("Cold Resistance", "Cold Resistance", "to Cold Resistance")
+            : base("Cold Resistance", "Cold Resistance", "to Cold Resistance", "to Fire and Cold Resistances", "to Cold and Lightning Resistances")
         { }
     }
 }

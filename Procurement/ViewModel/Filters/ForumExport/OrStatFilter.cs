@@ -1,16 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using POEApi.Model;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using POEApi.Model;
 
 namespace Procurement.ViewModel.Filters
 {
-    public abstract class StatFilter : StatFilterBase, IFilter
+    public abstract class OrStatFilter : StatFilterBase, IFilter
     {
         public abstract FilterGroup Group { get; }
 
-        public StatFilter(string keyword, string help, params string[] stats)
-            : base(keyword, help, stats)
+        public OrStatFilter(string keyword, string help, params string[] stats) 
+            : base (keyword, help, stats)
         { }
 
         public bool Applicable(POEApi.Model.Item item)
@@ -31,10 +31,12 @@ namespace Procurement.ViewModel.Filters
             foreach (string stat in all)
             {
                 Regex result = pool.Find(s => s.IsMatch(stat));
-                pool.Remove(result);
+
+                if (result != null)
+                    return true;
             }
 
-            return pool.Count == 0;
+            return false;
         }
-   }
+    }
 }
