@@ -13,7 +13,6 @@ namespace POEApi.Model
         private const string SAVE_LOCATION = "Settings.xml";
         private const string DATA_LOCATION = "Data.xml";
         private const string BUYOUT_LOCATION = "Buyouts.xml";
-        private const string GEM_LOCATION = "Gem.xml";
 
         public static Dictionary<OrbType, CurrencyRatio> CurrencyRatios { get; private set; }
         public static Dictionary<string, string> UserSettings { get; private set; }
@@ -26,7 +25,6 @@ namespace POEApi.Model
         private static XElement buyoutFile;
 
         public static Dictionary<GearType, List<string>> GearBaseTypes { get; private set; }
-        public static Dictionary<string, int> GemTable { get; private set; }
 
         static Settings()
         {
@@ -48,7 +46,6 @@ namespace POEApi.Model
                 PopularGems = settingsFile.Element("PopularGems").Elements("Gem").Select(e => e.Attribute("name").Value).ToList();
 
             loadGearTypeData();
-            loadGemList();
         }
 
         private static void loadBuyouts()
@@ -103,20 +100,6 @@ namespace POEApi.Model
                                                             .ToDictionary(g => (GearType)Enum.Parse(typeof(GearType), g.Attribute("name").Value), g => g.Elements("Item")
                                                             .Select(e => e.Attribute("name").Value)
                                                             .ToList());
-        }
-
-        private static void loadGemList()
-        {
-            XElement gemDoc = XElement.Load(GEM_LOCATION);
-            GemTable = new Dictionary<string, int>();
-            List<string> gemList = new List<string>();
-
-            if (gemDoc.Element("Gems") == null)
-                return;
-
-            gemList = gemDoc.Element("Gems").Elements("Gem").Select(e => e.Attribute("name").Value).ToList();
-            foreach (string gem in gemList)
-                GemTable[gem] = 0;
         }
 
         private static double getChaosAmount(XElement orb)
