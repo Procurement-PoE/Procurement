@@ -18,10 +18,10 @@
                         <RowDefinition Height="485"/>
                         <RowDefinition Height="25"/>
                         <RowDefinition />
-                    </Grid.RowDefinitions>                    
-                    <Image Grid.Row="0" Source="/Procurement;component/Images/sticky%20and%20thetdev.png" Width="504" Height="483"/>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Source="/Procurement;component/Images/Sir%20Marauder%20bw.jpg" Width="504" Height="483"/>
                     <Label Grid.Row="1" Content="Created By :" Foreground="#FFAB9066" FontSize="12" FontWeight="Bold"/>
-                    <Label Grid.Row="1" Content="Stickymaddness and TheTDev             " Foreground="#FFAB9066" FontSize="22" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="60,19,60,6" Grid.RowSpan="2" />
+                    <Label Grid.Row="1" Content="                      Stickymaddness             " Foreground="#FFAB9066" FontSize="22" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="60,19,60,6" Grid.RowSpan="2" />
                 </Grid>
                 <Grid Grid.Column="2" VerticalAlignment="Top" Margin="30,0,6,0">
                     <Grid.RowDefinitions>
@@ -36,11 +36,11 @@
                     <StackPanel Grid.Row="2" >
                         <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" FontSize="14" Text="This open source software is provided free of charge!" />
                         <TextBlock />
-                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" FontSize="14" Text="For the latest updates, bug reports or feature requests, please visit : http://code.google.com/p/procurement/!" />
+                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" FontSize="14" Text="For the latest updates, bug reports or feature requests, please visit : https://github.com/Stickymaddness/Procurement" />
                     </StackPanel>
                     
                     <StackPanel Grid.Row="3">
-                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" FontSize="14" Text="Please consider supporting the project" />
+                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" FontSize="14" Text="If you'd like to buy me a beer, you can do so here:" />
 
                         <Button Grid.Column="3" Grid.Row="1"  Name="DonateButton" HorizontalAlignment="Left" Click="DonateButton_Click" Height="47" Width="147" Margin="0,15,0,0">
                             <Image>

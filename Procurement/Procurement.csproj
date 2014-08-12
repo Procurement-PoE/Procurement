@@ -653,6 +653,9 @@
     <Resource Include="Images\Sockets\green-socketed-white.png" />
     <Resource Include="Images\Sockets\red-socketed-white.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Sir Marauder bw.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
