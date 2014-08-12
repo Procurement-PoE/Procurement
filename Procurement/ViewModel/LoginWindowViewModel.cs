@@ -111,7 +111,7 @@ namespace Procurement.ViewModel
                 toggleControls();
                 return;
             }
-            
+
             if (!offline)
             {
                 ApplicationState.Model.StashLoading += model_StashLoading;
@@ -155,7 +155,7 @@ namespace Procurement.ViewModel
                 var items = LoadItems(offline, chars).ToList();
 
                 ApplicationState.Model.GetImages(items);
-                
+
                 ApplicationState.SetDefaults();
 
                 if (!offline)
@@ -185,10 +185,10 @@ namespace Procurement.ViewModel
                 if (downloadOnlyMyLeagues && !Settings.Lists["MyLeagues"].Contains(character.League))
                     continue;
 
-                foreach (var item in LoadCharacterInventoryItems(character, offline))
+                foreach (var item in LoadStashItems(character))
                     yield return item;
 
-                foreach (var item in LoadStashItems(character))
+                foreach (var item in LoadCharacterInventoryItems(character, offline).Where(i => i.inventoryId != "MainInventory"))
                     yield return item;
             }
 
@@ -262,9 +262,10 @@ namespace Procurement.ViewModel
                 success = false;
             }
 
+            CharacterTabInjector.Inject(character, inventory);
             updateStatus(success, offline);
 
-            return inventory.Where(i => i.inventoryId != "MainInventory");
+            return inventory;
         }
 
         private void updateStatus(bool success, bool offline)

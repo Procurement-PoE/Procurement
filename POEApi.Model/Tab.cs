@@ -2,6 +2,7 @@
 {
     public class Tab
     {
+        public bool IsFakeTab { get; set; }
         public string Name { get; set; }
         public int i { get; set; }
         public Colour Colour { get; set; }

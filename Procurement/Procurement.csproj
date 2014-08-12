@@ -140,6 +140,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utility\AlphaHittestedImage.cs" />
+    <Compile Include="Utility\CharacterTabInjector.cs" />
     <Compile Include="Utility\ItemHoverRenderer.cs" />
     <Compile Include="Utility\StashHelper.cs" />
     <Compile Include="Utility\VersionChecker.cs" />

@@ -32,6 +32,12 @@ namespace POEApi.Model
             items.AddRange(stash.items);
         }
 
+        public void AddCharacterTab(Tab tab, List<Item> characterItems)
+        {
+            items.AddRange(characterItems);
+            Tabs.Add(tab);
+        }
+        
         public void RefreshTab(POEModel currentModel, string currentLeague, int tabId)
         {
             string inventId = ProxyMapper.STASH + (tabId + 1).ToString();
@@ -59,8 +65,9 @@ namespace POEApi.Model
 
         private void buildItemsByTab()
         {
-            itemsByTab = Tabs.Select(t => ProxyMapper.STASH + (t.i + 1))
-                             .ToDictionary(kvp => kvp, kvp => items.Where(i => i.inventoryId == kvp).ToList());
+            var tabs = Tabs.Select(t => ProxyMapper.STASH + (t.i + 1));
+            
+            itemsByTab = tabs.ToDictionary(kvp => kvp, kvp => items.Where(i => i.inventoryId == kvp).ToList());
         }
 
         private void refreshItemsByTabTab(int tabId)

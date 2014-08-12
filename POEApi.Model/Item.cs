@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace POEApi.Model
@@ -19,7 +20,7 @@ namespace POEApi.Model
         Unique
     }
 
-    public abstract class Item
+    public abstract class Item : ICloneable
     {
         public bool Verified { get; private set; }
         public bool Identified { get; private set; }
@@ -30,9 +31,9 @@ namespace POEApi.Model
         public string Name { get; private set; }
         public string TypeLine { get; private set; }
         public string DescrText { get; private set; }
-        public int X { get; private set; }
-        public int Y { get; private set; }
-        public string inventoryId { get; private set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+        public string inventoryId { get; set; }
         public string SecDescrText { get; private set; }
         public List<string> Explicitmods { get; set; }
         public ItemType ItemType { get; set; }
@@ -42,7 +43,6 @@ namespace POEApi.Model
         public int UniqueIDHash { get; set; }
         public bool Corrupted { get; private set; }
         public List<string> Microtransactions { get; set; }
-
 
         protected Item(JSONProxy.Item item)
         {
@@ -101,6 +101,11 @@ namespace POEApi.Model
                 return (Rarity)item.frameType;
 
             return Rarity.Normal;
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }
