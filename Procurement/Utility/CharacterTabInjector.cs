@@ -20,9 +20,10 @@ namespace Procurement.Utility
             foreach (var item in inventory)
             {
                 var clone = item.Clone() as Item;
-                clone.inventoryId = "Stash" + inventoryID;
+                clone.InventoryId = "Stash" + inventoryID;
+                clone.Character = character.Name;
 
-                if (item.inventoryId != "MainInventory")
+                if (item.InventoryId != "MainInventory")
                     UpdatePosition(item, clone);
 
                 characterItems.Add(clone);
@@ -44,7 +45,7 @@ namespace Procurement.Utility
 
         private static void UpdatePosition(Item item, Item clone)
         {
-            switch (item.inventoryId)
+            switch (item.InventoryId)
             {
                 case "Flask":
                     clone.Y = 5;
@@ -98,7 +99,7 @@ namespace Procurement.Utility
                     clone.Y = 8;
                     break;
                 default:
-                    Logger.Log(string.Format("Unknown character inventoryId '{0}' found for {1}" + item.inventoryId, item.TypeLine));
+                    Logger.Log(string.Format("Unknown character inventoryId '{0}' found for {1}" + item.InventoryId, item.TypeLine));
                     break;
             }
         }

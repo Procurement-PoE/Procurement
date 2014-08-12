@@ -42,16 +42,32 @@ namespace Procurement.ViewModel.ForumExportVisitors
 
         protected string getLinkItem<T>(T item) where T : Item
         {
-            string tabName = ApplicationState.Stash[ApplicationState.CurrentLeague].GetTabNameByInventoryId(item.inventoryId);
+            string tabName = ApplicationState.Stash[ApplicationState.CurrentLeague].GetTabNameByInventoryId(item.InventoryId);
             bool isBuyoutItem = Settings.TabsBuyouts.ContainsKey(tabName) || Settings.Buyouts.ContainsKey(item.UniqueIDHash);
 
             if ((onlyDisplayBuyouts && !isBuyoutItem) || (isBuyoutItem && buyoutItemsOnlyVisibleInBuyoutsTag))
                 return string.Empty;
 
             if (!(embedBuyouts && isBuyoutItem))
-                return string.Format("[linkItem location=\"{0}\" league=\"{1}\" x=\"{2}\" y=\"{3}\"]", item.inventoryId, ApplicationState.CurrentLeague, item.X, item.Y);
+                return getNonBuyoutString(item);
 
-            return string.Format("\n[linkItem location=\"{0}\" league=\"{1}\" x=\"{2}\" y=\"{3}\"]{4}", item.inventoryId, ApplicationState.CurrentLeague, item.X, item.Y, appendAdditionalInfo(item, tabName));
+            return getBuyoutString<T>(item, tabName);
+        }
+
+        private string getBuyoutString<T>(T item, string tabName) where T : Item
+        {
+            if (item.Character != string.Empty)
+                return string.Format("\n[linkItem location=\"{0}\" character=\"{1}\" x=\"{2}\" y=\"{3}\"]{4}", item.TradeInventoryId, item.Character, item.TradeX, item.TradeY, appendAdditionalInfo(item, tabName));
+            
+            return string.Format("\n[linkItem location=\"{0}\" league=\"{1}\" x=\"{2}\" y=\"{3}\"]{4}", item.TradeInventoryId, ApplicationState.CurrentLeague, item.TradeX, item.TradeY, appendAdditionalInfo(item, tabName));
+        }
+
+        private static string getNonBuyoutString(Item item)
+        {
+            if (item.Character != string.Empty)
+                return string.Format("[linkItem location=\"{0}\" character=\"{1}\" x=\"{2}\" y=\"{3}\"]", item.TradeInventoryId, item.Character, item.TradeX, item.TradeY);
+            
+            return string.Format("[linkItem location=\"{0}\" league=\"{1}\" x=\"{2}\" y=\"{3}\"]", item.TradeInventoryId, ApplicationState.CurrentLeague, item.TradeX, item.TradeY);
         }
 
         private string appendAdditionalInfo(Item item, string tabName)

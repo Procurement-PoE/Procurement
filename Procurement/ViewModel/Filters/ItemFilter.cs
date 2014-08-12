@@ -36,7 +36,7 @@ namespace Procurement.ViewModel.Filters
 
         public bool Applicable(POEApi.Model.Item item)
         {
-            return (item.inventoryId == source.inventoryId &&
+            return (item.InventoryId == source.InventoryId &&
                     item.X == source.X &&
                     item.Y == source.Y);
         }

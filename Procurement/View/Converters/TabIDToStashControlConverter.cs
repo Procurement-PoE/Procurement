@@ -42,7 +42,7 @@ namespace Procurement.View
             if (cache.ContainsKey(key))
                 return cache[key];
 
-            int inventoryId = int.Parse(item.inventoryId.Replace("Stash", "")) - 1;
+            int inventoryId = int.Parse(item.InventoryId.Replace("Stash", "")) - 1;
             Grid g = new Grid();
 
             StashControl control = new StashControl() { TabNumber = inventoryId };
@@ -66,7 +66,7 @@ namespace Procurement.View
 
         private string getKey(Item item)
         {
-            return string.Concat(item.inventoryId, ":", item.X, ":", item.Y, ":", ApplicationState.CurrentLeague);
+            return string.Concat(item.InventoryId, ":", item.X, ":", item.Y, ":", ApplicationState.CurrentLeague);
                     
         }
 

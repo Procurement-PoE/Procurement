@@ -91,13 +91,8 @@ namespace Procurement.ViewModel
 
         private void updateForLeague()
         {
-            var space = ApplicationState.Stash[ApplicationState.CurrentLeague].CalculateFreeSpace();
-            space.Remove("All");
-            var betterSpace = space.ToDictionary(k => int.Parse(k.Key.Replace("Stash", "")) - 1, k => k.Value); ;
-
-            var tabs = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs.Where(t => t.IsFakeTab == false);
-
-            StashItems = tabs.Where(t => betterSpace.ContainsKey(t.i)).Select(t => new TabInfo() { AvailableSpace = betterSpace[t.i], Name = t.Name, Url = t.srcC, ID = t.i }).ToList();
+            var tabs = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs;
+            StashItems = tabs.Select(t => new TabInfo() { Name = t.Name, Url = t.srcC, ID = t.i }).ToList();
             StashItems.ForEach(s => s.FixName());
         }
 

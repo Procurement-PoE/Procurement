@@ -43,7 +43,7 @@ namespace Procurement.ViewModel.ForumExportVisitors
                     pricedItems[Settings.Buyouts[item.UniqueIDHash].Price].Add(item);
                 }
 
-                var itemBuyoutKey = ApplicationState.Stash[ApplicationState.CurrentLeague].GetTabNameByInventoryId(item.inventoryId);
+                var itemBuyoutKey = ApplicationState.Stash[ApplicationState.CurrentLeague].GetTabNameByInventoryId(item.InventoryId);
 
                 if (Settings.TabsBuyouts.ContainsKey(itemBuyoutKey))
                     buyouts[Settings.TabsBuyouts[itemBuyoutKey]].Add(item);

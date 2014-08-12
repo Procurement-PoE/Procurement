@@ -188,7 +188,7 @@ namespace Procurement.ViewModel
                 foreach (var item in LoadStashItems(character))
                     yield return item;
 
-                foreach (var item in LoadCharacterInventoryItems(character, offline).Where(i => i.inventoryId != "MainInventory"))
+                foreach (var item in LoadCharacterInventoryItems(character, offline).Where(i => i.InventoryId != "MainInventory"))
                     yield return item;
             }
 

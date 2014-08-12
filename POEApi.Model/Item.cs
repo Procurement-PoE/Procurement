@@ -33,7 +33,7 @@ namespace POEApi.Model
         public string DescrText { get; private set; }
         public int X { get; set; }
         public int Y { get; set; }
-        public string inventoryId { get; set; }
+        public string InventoryId { get; set; }
         public string SecDescrText { get; private set; }
         public List<string> Explicitmods { get; set; }
         public ItemType ItemType { get; set; }
@@ -43,6 +43,11 @@ namespace POEApi.Model
         public int UniqueIDHash { get; set; }
         public bool Corrupted { get; private set; }
         public List<string> Microtransactions { get; set; }
+
+        public int TradeX { get; set; }
+        public int TradeY { get; set; }
+        public string TradeInventoryId { get; set; }
+        public string Character { get; set; }
 
         protected Item(JSONProxy.Item item)
         {
@@ -57,10 +62,11 @@ namespace POEApi.Model
             this.DescrText = item.DescrText;
             this.X = item.X;
             this.Y = item.Y;
-            this.inventoryId = item.InventoryId;
+            this.InventoryId = item.InventoryId;
             this.SecDescrText = item.SecDescrText;
             this.Explicitmods = item.ExplicitMods;
             this.ItemType = Model.ItemType.UnSet;
+
             if (item.Properties != null)
             {
                 this.Properties = item.Properties.Select(p => new Property(p)).ToList();
@@ -74,6 +80,11 @@ namespace POEApi.Model
 
             this.Corrupted = item.Corrupted;
             this.Microtransactions = item.CosmeticMods == null ? new List<string>() : item.CosmeticMods;
+
+            this.TradeX = this.X;
+            this.TradeY = this.Y;
+            this.TradeInventoryId = this.InventoryId;
+            this.Character = string.Empty;
         }
 
         protected abstract int getConcreteHash();

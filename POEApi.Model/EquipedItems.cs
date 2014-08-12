@@ -45,13 +45,13 @@ namespace POEApi.Model
 
         private void setProperty(Item item)
         {
-            string target = item.inventoryId;
+            string target = item.InventoryId;
 
-            if (propertyMapping.ContainsKey(item.inventoryId))
-                target = propertyMapping[item.inventoryId];
+            if (propertyMapping.ContainsKey(item.InventoryId))
+                target = propertyMapping[item.InventoryId];
 
-            if (item.inventoryId == "Flask")
-                target = item.inventoryId + item.X;
+            if (item.InventoryId == "Flask")
+                target = item.InventoryId + item.X;
 
             properties[target].SetValue(this, item, null);
         }
