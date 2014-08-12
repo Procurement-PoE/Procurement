@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using POEApi.Model;
-using System.Collections.Generic;
+﻿using POEApi.Model;
 
 namespace Procurement.ViewModel.Filters
 {
@@ -10,9 +7,8 @@ namespace Procurement.ViewModel.Filters
         private readonly int level;
 
         public LeveledGemFilter()
-        {
-            level = 0;
-        }
+            : this(0)
+        { }
 
         public LeveledGemFilter(int level)
         {
@@ -46,7 +42,7 @@ namespace Procurement.ViewModel.Filters
                 return false;
 
             if (this.level == 0)
-                return gem.Level > 0;
+                return gem.Level > 1;
 
             return gem.Level == this.level;
         }
