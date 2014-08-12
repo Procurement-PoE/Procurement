@@ -202,9 +202,11 @@ namespace Procurement.ViewModel
         {
             Button selector = o as Button;
             ScrollViewer scrollViewer = selector.TemplatedParent as ScrollViewer;
+            scrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
             TabControl tabControl = scrollViewer.TemplatedParent as TabControl;
 
             selector.ContextMenu = getContextMenu(selector, tabControl);
+            selector.ContextMenu.Height = 550;
             selector.ContextMenu.IsOpen = true;
         }
 
