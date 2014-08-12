@@ -589,9 +589,6 @@
     <Resource Include="Images\buttons\btn_selected_exit.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\sticky and thetdev.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Avatars\duelist.png" />
   </ItemGroup>
   <ItemGroup>
