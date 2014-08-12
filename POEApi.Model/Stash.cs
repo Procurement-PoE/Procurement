@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -99,6 +99,11 @@ namespace POEApi.Model
         public Dictionary<OrbType, double> GetTotalCurrencyCount()
         {
             return CurrencyHandler.GetTotalCurrencyCount(Get<Currency>());
+        }
+
+        public SortedDictionary<string, int> GetTotalGemDistribution()
+        {
+            return GemHandler.GetGemDistribution(Get<Gem>());
         }
 
         public Dictionary<string, List<Gear>> GetDuplicateRares()

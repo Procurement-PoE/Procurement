@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -118,6 +118,14 @@ namespace Procurement.ViewModel
             }
         }
 
+        public SortedDictionary<string, int> GemDistribution
+        {
+            get
+            {
+                return ApplicationState.Stash[ApplicationState.CurrentLeague].GetTotalGemDistribution();
+            }
+        }
+
         public List<string> AvailableItems { get; private set; }
 
 
@@ -187,6 +195,7 @@ namespace Procurement.ViewModel
             raisePropertyChanged("AvailableItems");
             raisePropertyChanged("Total");
             raisePropertyChanged("TotalDistibution");
+            raisePropertyChanged("GemDistribution");
         }
 
         public void GetTabList(object o)
