@@ -12,6 +12,8 @@ using Procurement.Controls;
 using Procurement.Utility;
 using Procurement.View;
 using Procurement.ViewModel.Filters;
+using System.Text;
+using POEApi.Infrastructure;
 
 namespace Procurement.ViewModel
 {
@@ -152,7 +154,24 @@ namespace Procurement.ViewModel
 
         private void getAvailableItems()
         {
-            AvailableItems = ApplicationState.Stash[ApplicationState.CurrentLeague].Get<Item>().SelectMany(i => getSearchTerms(i)).Distinct().ToList();
+            try
+            {
+                AvailableItems = ApplicationState.Stash[ApplicationState.CurrentLeague].Get<Item>().SelectMany(i => getSearchTerms(i)).Distinct().ToList();
+            }
+            catch (KeyNotFoundException kex)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine();
+                sb.AppendLine(string.Format("Error: attempted to get items for the non existant league '{0}'", ApplicationState.CurrentLeague));
+                sb.AppendLine("Current leagues are:");
+                foreach (var item in ApplicationState.Leagues)
+                    sb.AppendLine(item);
+                sb.AppendLine();
+                sb.AppendLine("Exception details : ");
+                sb.AppendLine(kex.ToString());
+
+                Logger.Log(sb.ToString());
+            }
         }
         private IEnumerable<string> getSearchTerms(Item item)
         {
