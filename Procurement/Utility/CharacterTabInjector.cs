@@ -26,7 +26,8 @@ namespace Procurement.Utility
                 if (item.InventoryId != "MainInventory")
                     UpdatePosition(item, clone);
 
-                characterItems.Add(clone);
+                if (item.InventoryId != "Map")
+                    characterItems.Add(clone);
             }
 
             Tab characterTab = new Tab
