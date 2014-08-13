@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using POEApi.Infrastructure;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -40,20 +42,30 @@ namespace POEApi.Model
             propertyMapping.Add("BodyArmour", "Armour");
 
             foreach (var item in items)
-                setProperty(item);
+                if (item.InventoryId != "Map")
+                    setProperty(item);
         }   
 
         private void setProperty(Item item)
         {
-            string target = item.InventoryId;
+            try
+            {
+                string target = item.InventoryId;
 
-            if (propertyMapping.ContainsKey(item.InventoryId))
-                target = propertyMapping[item.InventoryId];
+                if (propertyMapping.ContainsKey(item.InventoryId))
+                    target = propertyMapping[item.InventoryId];
 
-            if (item.InventoryId == "Flask")
-                target = item.InventoryId + item.X;
+                if (item.InventoryId == "Flask")
+                    target = item.InventoryId + item.X;
 
-            properties[target].SetValue(this, item, null);
+                properties[target].SetValue(this, item, null);
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Error in EquipedItems.setProperty : " + ex);
+                Logger.Log("Target property : " + item.InventoryId);
+
+            }
         }
 
         public Dictionary<string, Item> GetItems()
