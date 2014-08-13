@@ -99,7 +99,7 @@ namespace Procurement.Utility
                     clone.Y = 8;
                     break;
                 default:
-                    Logger.Log(string.Format("Unknown character inventoryId '{0}' found for {1}" + item.InventoryId, item.TypeLine));
+                    Logger.Log(string.Format("Unknown character inventoryId '{0}' found for {1}", clone.InventoryId, clone.TypeLine));
                     break;
             }
         }
