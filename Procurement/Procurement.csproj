@@ -153,11 +153,13 @@
     <Compile Include="ViewModel\DisplayModeStrategy\NamePlusValueStrategy.cs" />
     <Compile Include="ViewModel\DisplayModeStrategy\StringFormatStrategy.cs" />
     <Compile Include="ViewModel\DisplayModeStrategy\ValuesPlusNameStrategy.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\EnergyShieldFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\IncreasedPhysicalDamageFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ManaFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ManaRegenFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CharacterAttributeFilters.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\OrStatFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\PhysicalDamageFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\StatFilterBase.cs" />
     <Compile Include="ViewModel\PricingInfo.cs" />
     <Compile Include="ViewModel\SetBuyoutViewModel.cs" />

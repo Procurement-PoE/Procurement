@@ -21,9 +21,11 @@ namespace Procurement.ViewModel.ForumExportVisitors
             tokens.Add("{GlobalCritChance}", new GlobalCritChanceFilter());
             tokens.Add("{GlobalCritMultiplier}", new GlobalCritMultiplierFilter());
             tokens.Add("{SpellDamage}", new SpellDamageFilter());
+            tokens.Add("{PhysicalDamage}", new PhysicalDamageFilter());
             tokens.Add("{IncreasedPhysicalDamage}",new IncreasedPhysicalDamageFilter());
             tokens.Add("{Mana}", new ManaFilter());
             tokens.Add("{ManaRegen}", new ManaRegenFilter());
+            tokens.Add("{EnergyShield}", new EnergyShieldFilter());
         }
         public override string Visit(IEnumerable<Item> items, string current)
         {
