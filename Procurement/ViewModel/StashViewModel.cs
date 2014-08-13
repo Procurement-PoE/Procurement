@@ -171,6 +171,8 @@ namespace Procurement.ViewModel
                 sb.AppendLine(kex.ToString());
 
                 Logger.Log(sb.ToString());
+
+                MessageBox.Show(string.Format("Error getting items for {0} league, are you sure your league settings are correct?", ApplicationState.CurrentLeague), "Error loading items", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private IEnumerable<string> getSearchTerms(Item item)
