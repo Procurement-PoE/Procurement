@@ -21,6 +21,7 @@ namespace Procurement.ViewModel.ForumExportVisitors
             tokens.Add("{GlobalCritChance}", new GlobalCritChanceFilter());
             tokens.Add("{GlobalCritMultiplier}", new GlobalCritMultiplierFilter());
             tokens.Add("{SpellDamage}", new SpellDamageFilter());
+            tokens.Add("{IncreasedPhysicalDamage}",new IncreasedPhysicalDamageFilter());
             tokens.Add("{Mana}", new ManaFilter());
             tokens.Add("{ManaRegen}", new ManaRegenFilter());
         }
