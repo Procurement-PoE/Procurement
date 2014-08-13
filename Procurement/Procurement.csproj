@@ -161,6 +161,10 @@
     <Compile Include="ViewModel\Filters\ForumExport\OrStatFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\PhysicalDamageFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\StatFilterBase.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\TypeLineFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\VaalFragmentFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\VaalUberFragmentFilter.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\TypeLineVisitor.cs" />
     <Compile Include="ViewModel\PricingInfo.cs" />
     <Compile Include="ViewModel\SetBuyoutViewModel.cs" />
     <Compile Include="ViewModel\TabInfo.cs" />

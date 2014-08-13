@@ -13,6 +13,7 @@
         Attacks,
         Level,
         Crit,
-        CharacterAttributes
+        CharacterAttributes,
+        VaalFragments
     };
 }
