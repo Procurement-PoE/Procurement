@@ -50,31 +50,9 @@ namespace Procurement.ViewModel
             }
         }
 
-        public bool UseSession
-        {
-            get { return useSession; }
-            set
-            {
-                useSession = value;
-                Settings.UserSettings["UseSessionID"] = value.ToString();
-                updateButtonLabels(useSession);
-            }
-        }
-
-        private void updateButtonLabels(bool useSession)
-        {
-            if (this.view == null)
-                return;
-
-            this.view.lblEmail.Content = useSession ? "Alias" : "Email";
-            this.view.lblPassword.Content = useSession ? "Session ID" : "Password";
-        }
-
         public LoginWindowViewModel(UserControl view)
         {
             this.view = view as LoginView;
-
-            UseSession = Settings.UserSettings.ContainsKey("UseSessionID") ? bool.Parse(Settings.UserSettings["UseSessionID"]) : false;
 
             Email = Settings.UserSettings["AccountLogin"];
             this.formChanged = string.IsNullOrEmpty(Settings.UserSettings["AccountPassword"]);

@@ -18,14 +18,13 @@ namespace POEApi.Transport
         private string proxyUser;
         private string proxyPassword;
         private string proxyDomain;
-        
+
         private enum HttpMethod { GET, POST }
 
-        private const string loginURL = @"https://www.pathofexile.com/login";
-        private const string characterURL = @"http://www.pathofexile.com/character-window/get-characters";
-        private const string stashURL = @"http://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}";
-        private const string inventoryURL = @"http://www.pathofexile.com/character-window/get-items?character={0}";
-        private const string hashRegEx = "name=\\\"hash\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
+        private const string loginURL = @"http://web.poe.garena.com/login";
+        private const string characterURL = @"http://web.poe.garena.com/character-window/get-characters";
+        private const string stashURL = @"http://web.poe.garena.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}";
+        private const string inventoryURL = @"http://web.poe.garena.com/character-window/get-items?character={0}";
 
         public event ThottledEventHandler Throttled;
 
@@ -51,45 +50,14 @@ namespace POEApi.Transport
                 Throttled(this, e);
         }
 
-        public bool Authenticate(string email, SecureString password, bool useSessionID)
+        public bool Authenticate(string email, SecureString ggcookie)
         {
-            if (useSessionID)
-            {
-                credentialCookies.Add(new System.Net.Cookie("PHPSESSID", password.UnWrap(), "/", "www.pathofexile.com"));
-                HttpWebRequest confirmAuth = getHttpRequest(HttpMethod.GET, loginURL);
-                HttpWebResponse confirmAuthResponse = (HttpWebResponse)confirmAuth.GetResponse();
+            credentialCookies.Add(new System.Net.Cookie("ggsession", ggcookie.UnWrap(), "/", ".garena.com"));
+            HttpWebRequest confirmAuth = getHttpRequest(HttpMethod.GET, loginURL);
+            HttpWebResponse confirmAuthResponse = (HttpWebResponse)confirmAuth.GetResponse();
 
-                if (confirmAuthResponse.ResponseUri.ToString() == loginURL)
-                    throw new LogonFailedException();
-                return true;
-            }
-
-            HttpWebRequest getHash = getHttpRequest(HttpMethod.GET, loginURL);
-            HttpWebResponse hashResponse = (HttpWebResponse)getHash.GetResponse();
-            string loginResponse = Encoding.Default.GetString(getMemoryStreamFromResponse(hashResponse).ToArray());
-            string hashValue = Regex.Match(loginResponse, hashRegEx).Groups["hash"].Value;
-
-            HttpWebRequest request = getHttpRequest(HttpMethod.POST, loginURL);
-            request.AllowAutoRedirect = false;
-
-            StringBuilder data = new StringBuilder();
-            data.Append("login_email=" + Uri.EscapeDataString(email));
-            data.Append("&login_password=" + Uri.EscapeDataString(password.UnWrap()));
-            data.Append("&hash=" + hashValue);
-
-            byte[] byteData = UTF8Encoding.UTF8.GetBytes(data.ToString());
-
-            request.ContentLength = byteData.Length;
-
-            Stream postStream = request.GetRequestStream();
-            postStream.Write(byteData, 0, byteData.Length);
-
-            HttpWebResponse response;
-            response = (HttpWebResponse)request.GetResponse();
-
-            //If we didn't get a redirect, your gonna have a bad time.
-            if (response.StatusCode != HttpStatusCode.Found)
-                throw new LogonFailedException(this.email);
+            if (confirmAuthResponse.ResponseUri.ToString() == loginURL)
+                throw new LogonFailedException();
 
             return true;
         }
@@ -97,9 +65,9 @@ namespace POEApi.Transport
         private HttpWebRequest getHttpRequest(HttpMethod method, string url)
         {
             HttpWebRequest request = (HttpWebRequest)RequestThrottle.Instance.Create(url);
-            
+
             request.CookieContainer = credentialCookies;
-            request.UserAgent = "User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E; .NET CLR 1.1.4322)";           
+            request.UserAgent = "User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E; .NET CLR 1.1.4322)";
             request.Method = method.ToString();
             if (useProxy)
                 request.Proxy = processProxySettings();
