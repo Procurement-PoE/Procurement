@@ -22,6 +22,7 @@
         Spell,
         Totem,
         Trap,
-        Support
+        Support,
+        Vaal
     }
 }
