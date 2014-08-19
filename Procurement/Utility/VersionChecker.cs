@@ -13,6 +13,8 @@ namespace Procurement.Utility
         private const string VERSION_URL = @"https://raw.githubusercontent.com/Stickymaddness/Procurement/master/latest-release.txt";
         public static void CheckForUpdates()
         {
+#if DEBUG
+#else
             try
             {
                 if (bool.Parse(Settings.UserSettings["CheckForUpdates"]) == false)
@@ -32,6 +34,7 @@ namespace Procurement.Utility
             {
                 handleException(ex);
             }
+#endif
         }
 
         private static void client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
