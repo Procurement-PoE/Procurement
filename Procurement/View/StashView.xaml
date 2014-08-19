@@ -61,7 +61,6 @@
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
-                    <EventSetter Event="MouseWheel" Handler="test" />
                 </Style>
 
                 <ControlTemplate x:Key="TabControlControlTemplate1" TargetType="{x:Type TabControl}">
