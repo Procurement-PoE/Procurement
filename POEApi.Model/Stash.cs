@@ -1,3 +1,4 @@
+using POEApi.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,12 +38,36 @@ namespace POEApi.Model
             items.AddRange(characterItems);
             Tabs.Add(tab);
         }
-        
+
         public void RefreshTab(POEModel currentModel, string currentLeague, int tabId)
         {
-            string inventId = ProxyMapper.STASH + (tabId + 1).ToString();
-            items.RemoveAll(i => i.InventoryId == inventId);
-            Add(currentModel.GetStash(tabId, currentLeague, true));
+            try
+            {
+                string inventId = ProxyMapper.STASH + (tabId + 1).ToString();
+                items.RemoveAll(i => i.InventoryId == inventId);
+
+                if (Tabs[tabId].IsFakeTab)
+                {
+                    refreshCharacterTab(currentModel, tabId);
+                    return;
+                }
+
+                Add(currentModel.GetStash(tabId, currentLeague, true));
+                refreshItemsByTabTab(tabId);
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Error refreshing tab: " + ex.ToString());
+            }
+        }
+
+        private void refreshCharacterTab(POEModel currentModel, int tabId)
+        {
+            var characterName = Tabs[tabId].Name;
+            var characterItems = currentModel.GetInventory(characterName, true);
+            var characterStashItems = CharacterStashBuilder.GetCharacterStashItems(characterName, characterItems, tabId + 1);
+
+            items.AddRange(characterStashItems);
             refreshItemsByTabTab(tabId);
         }
 
@@ -66,7 +91,7 @@ namespace POEApi.Model
         private void buildItemsByTab()
         {
             var tabs = Tabs.Select(t => ProxyMapper.STASH + (t.i + 1));
-            
+
             itemsByTab = tabs.ToDictionary(kvp => kvp, kvp => items.Where(i => i.InventoryId == kvp).ToList());
         }
 

@@ -175,7 +175,7 @@ namespace POEApi.Model
             return characters.Select(c => new Character(c)).ToList();
         }
 
-        public List<Item> GetInventory(string characterName)
+        public List<Item> GetInventory(string characterName, bool forceRefresh)
         {
             try
             {
@@ -185,7 +185,7 @@ namespace POEApi.Model
                 DataContractJsonSerializer serialiser = new DataContractJsonSerializer(typeof(JSONProxy.Inventory));
                 JSONProxy.Inventory item;
 
-                using (Stream stream = transport.GetInventory(characterName))
+                using (Stream stream = transport.GetInventory(characterName, forceRefresh))
                     item = (JSONProxy.Inventory)serialiser.ReadObject(stream);
 
                 if (item.Items == null)

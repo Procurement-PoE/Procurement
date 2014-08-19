@@ -11,7 +11,7 @@ namespace POEApi.Transport
         Stream GetStash(int index, string league, bool refresh);
         Stream GetImage(string url);
         Stream GetCharacters();
-        Stream GetInventory(string characterName);
+        Stream GetInventory(string characterName, bool forceRefresh);
         event ThottledEventHandler Throttled;
     }
 }

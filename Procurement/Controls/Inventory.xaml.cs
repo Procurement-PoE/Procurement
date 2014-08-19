@@ -40,7 +40,7 @@ namespace Procurement.Controls
 
         private void refresh()
         {
-            this.Invent = ApplicationState.Model.GetInventory(Character).Where(i => i.InventoryId == "MainInventory").ToList();
+            this.Invent = ApplicationState.Model.GetInventory(Character, false).Where(i => i.InventoryId == "MainInventory").ToList();
             inventByLocation = Invent.ToDictionary(item => new Tuple<int, int>(item.X, item.Y));
             render();
         }

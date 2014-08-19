@@ -84,10 +84,13 @@ namespace POEApi.Transport
             return userCacheService.Get(key);
         }
 
-        public Stream GetInventory(string characterName)
+        public Stream GetInventory(string characterName, bool forceRefresh)
         {
+            if (forceRefresh && userCacheService.Exists(characterName))
+                userCacheService.Remove(characterName);
+            
             if (!userCacheService.Exists(characterName))
-                userCacheService.Set(characterName, innerTranport.GetInventory(characterName));
+                userCacheService.Set(characterName, innerTranport.GetInventory(characterName, forceRefresh));
 
             return userCacheService.Get(characterName);
         }

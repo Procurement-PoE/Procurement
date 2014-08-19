@@ -146,7 +146,7 @@ namespace POEApi.Transport
             return new MemoryStream(client.DownloadData(url));
         }
 
-        public Stream GetInventory(string characterName)
+        public Stream GetInventory(string characterName, bool forceRefresh)
         {
             HttpWebRequest request = getHttpRequest(HttpMethod.GET, string.Format(inventoryURL, characterName));
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();

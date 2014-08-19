@@ -253,7 +253,7 @@ namespace Procurement.ViewModel
             List<Item> inventory;
             try
             {
-                inventory = ApplicationState.Model.GetInventory(character.Name);
+                inventory = ApplicationState.Model.GetInventory(character.Name, false);
                 success = true;
             }
             catch (WebException)
