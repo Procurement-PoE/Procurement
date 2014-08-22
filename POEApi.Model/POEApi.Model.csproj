@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CharacterStashBuilder.cs" />
+    <Compile Include="Decoration.cs" />
     <Compile Include="GemHandler.cs" />
     <Compile Include="ItemTradeInfo.cs" />
     <Compile Include="Character.cs" />
