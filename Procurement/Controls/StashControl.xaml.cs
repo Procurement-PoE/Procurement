@@ -9,6 +9,8 @@ using System.Windows.Media;
 using POEApi.Model;
 using Procurement.ViewModel;
 using Procurement.ViewModel.Filters;
+using System.Diagnostics;
+using POEApi.Infrastructure;
 
 namespace Procurement.Controls
 {
@@ -34,7 +36,7 @@ namespace Procurement.Controls
                 refresh();
 
             FilterResults = Filter.Count() == 0 ? -1 : 0;
-            
+
             foreach (var item in Stash)
                 updateResult(borderByLocation[Tuple.Create<int, int>(item.X, item.Y)], search(item));
 
@@ -69,6 +71,7 @@ namespace Procurement.Controls
             InitializeComponent();
             this.Loaded += new RoutedEventHandler(StashControl_Loaded);
             ApplicationState.LeagueChanged += new System.ComponentModel.PropertyChangedEventHandler(ApplicationState_LeagueChanged);
+            stashByLocation = new Dictionary<Tuple<int, int>, Item>();
         }
 
         void ApplicationState_LeagueChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -84,12 +87,30 @@ namespace Procurement.Controls
             refresh();
         }
 
+        Dictionary<string, Item> test = new Dictionary<string, Item>();
+
         private void refresh()
         {
             this.Stash = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(TabNumber);
-            stashByLocation = Stash.ToDictionary(item => new Tuple<int, int>(item.X, item.Y));
-            borderByLocation = new Dictionary<Tuple<int, int>, Border>();
+            updateStashByLocation();
             render();
+        }
+
+        private void updateStashByLocation()
+        {
+
+            stashByLocation.Clear();
+
+
+            foreach (var item in this.Stash)
+            {
+                var key = Tuple.Create<int, int>(item.X, item.Y);
+
+                if (stashByLocation.ContainsKey(key))
+                    continue;
+
+                stashByLocation.Add(key, item);
+            }
         }
 
         private void render()
@@ -99,6 +120,8 @@ namespace Procurement.Controls
             grid.ColumnDefinitions.Clear();
             grid.RowDefinitions.Clear();
             grid.Children.Clear();
+
+            borderByLocation = new Dictionary<Tuple<int, int>, Border>();
 
             for (int i = 0; i < columns; i++)
             {
@@ -110,7 +133,7 @@ namespace Procurement.Controls
 
                     Grid childGrid = new Grid();
                     childGrid.Margin = new Thickness(1);
-                    
+
                     Tuple<int, int> currentKey = new Tuple<int, int>(i, j);
 
                     if (!stashByLocation.ContainsKey(currentKey))
@@ -168,7 +191,7 @@ namespace Procurement.Controls
                 childGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#21007F"));
 
 
-            
+
             childGrid.Background.Opacity = 0.3;
         }
 
