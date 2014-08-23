@@ -110,7 +110,11 @@ namespace Procurement.ViewModel
             
             Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId = this.threadId;
             Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle = this.threadTitle;
-            Settings.SaveShopSettings();
+
+            if (Settings.SaveShopSettings())
+                MessageBox.Show("Shop settings saved", "Settings saved", MessageBoxButton.OK, MessageBoxImage.Information);
+            else
+                MessageBox.Show("Unable to save shop settings, error logged to debuginfo.log", "Error", MessageBoxButton.OK, MessageBoxImage.Error);            
         }
 
         private DelegateCommand saveCommand;

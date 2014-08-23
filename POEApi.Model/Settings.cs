@@ -194,7 +194,7 @@ namespace POEApi.Model
             }
         }
 
-        public static void SaveShopSettings()
+        public static bool SaveShopSettings()
         {
             try
             {
@@ -210,10 +210,12 @@ namespace POEApi.Model
                 }
 
                 settingsFile.Save(SAVE_LOCATION);
+                return true;
             }
             catch (Exception ex)
             {
                 Logger.Log("Unable to save shop settings: " + ex.ToString());
+                return false;
             }
         }
     }

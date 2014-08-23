@@ -101,7 +101,7 @@ namespace Procurement.ViewModel
 
         private void bumpThread(object obj)
         {
-            if (!settingsValid())
+            if (!settingsValid(false))
                 return;
 
             var confirmation = MessageBox.Show("Are you sure you want to bump your thread? By clicking yes you grant permission for Procurement to bump your forum thread using the account you logged in with, and confirm that you are only bumping within the allowed time interval as per forum rules.", "Confirm shop update", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -119,7 +119,7 @@ namespace Procurement.ViewModel
 
         private void postToThread(object obj)
         {
-            if (!settingsValid())
+            if (!settingsValid(true))
                 return;
 
             var confirmation = MessageBox.Show("Are you sure you want to update your shop? By clicking yes you grant permission for Procurement to update your forum thread using the account you logged in with.", "Confirm shop update", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -138,7 +138,7 @@ namespace Procurement.ViewModel
                 MessageBox.Show("Error updating shop, details logged to debuginfo.log", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        private bool settingsValid()
+        private bool settingsValid(bool isUpdate)
         {
             if (!Settings.ShopSettings.ContainsKey(ApplicationState.CurrentLeague) || string.IsNullOrEmpty(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId) || string.IsNullOrEmpty(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle))
             {
@@ -146,7 +146,7 @@ namespace Procurement.ViewModel
                 return false;
             }
 
-            if (selected.Count() == 0)
+            if (isUpdate && selected.Count() == 0)
             {
                 MessageBox.Show("You need to select at least one tab to update your shop!", "No tabs selected", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return false;
