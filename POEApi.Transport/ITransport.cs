@@ -13,5 +13,7 @@ namespace POEApi.Transport
         Stream GetCharacters();
         Stream GetInventory(string characterName, bool forceRefresh);
         event ThottledEventHandler Throttled;
+        bool UpdateThread(string threadID, string threadTitle, string threadText);
+        bool BumpThread(string threadID);
     }
 }

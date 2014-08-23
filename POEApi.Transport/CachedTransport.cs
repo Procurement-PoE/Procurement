@@ -94,5 +94,15 @@ namespace POEApi.Transport
 
             return userCacheService.Get(characterName);
         }
+
+        public bool UpdateThread(string threadID, string threadTitle, string threadText)
+        {
+            return innerTranport.UpdateThread(threadID, threadTitle, threadText);
+        }
+
+        public bool BumpThread(string threadID)
+        {
+            return innerTranport.BumpThread(threadID);
+        }
     }
 }

@@ -26,6 +26,10 @@ namespace POEApi.Transport
         private const string stashURL = @"http://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}";
         private const string inventoryURL = @"http://www.pathofexile.com/character-window/get-items?character={0}";
         private const string hashRegEx = "name=\\\"hash\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
+        
+        private const string threadHashEx = "name=\\\"forum_thread\\\" value=\\\"(?<forum_thread>[a-zA-Z0-9]{1,})\\\"";
+        private const string updateShopURL = @"http://www.pathofexile.com/forum/edit-thread/{0}";
+        private const string bumpShopURL = @"http://www.pathofexile.com/forum/post-reply/{0}";
 
         public event ThottledEventHandler Throttled;
 
@@ -161,6 +165,74 @@ namespace POEApi.Transport
             RequestThrottle.Instance.Complete();
 
             return new MemoryStream(buffer);
+        }
+
+        public bool UpdateThread(string threadID, string threadTitle, string threadText)
+        {
+            try
+            {
+                string threadHash = getThreadHash(threadID);
+
+                StringBuilder data = new StringBuilder();
+                data.Append("title=" + Uri.EscapeDataString(threadTitle));
+                data.Append("&content=" + Uri.EscapeDataString(threadText));
+                data.Append("&forum_thread=" + threadHash);
+
+                postToForum(data.ToString(), string.Format(updateShopURL, threadID));
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Error updating shop thread: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool BumpThread(string threadID)
+        {
+            try
+            {
+                string threadHash = getThreadHash(threadID);
+
+                StringBuilder data = new StringBuilder();
+                data.Append("&content=" + Uri.EscapeDataString("Thread bumped with [url=\"https://code.google.com/p/procurement/\"]Procurement[/url]"));
+                data.Append("&forum_thread=" + threadHash);
+
+                postToForum(data.ToString(), string.Format(bumpShopURL, threadID));
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Error bumping shop thread: " + ex.ToString());
+                return false;
+            }
+        }
+
+        private void postToForum(string data, string url)
+        {
+            HttpWebRequest request = getHttpRequest(HttpMethod.POST, url);
+            request.AllowAutoRedirect = false;
+
+            byte[] byteData = UTF8Encoding.UTF8.GetBytes(data);
+
+            request.ContentLength = byteData.Length;
+
+            Stream postStream = request.GetRequestStream();
+            postStream.Write(byteData, 0, byteData.Length);
+
+            HttpWebResponse response;
+            response = (HttpWebResponse)request.GetResponse();
+        }
+
+        private string getThreadHash(string shopID)
+        {
+            HttpWebRequest getHash = getHttpRequest(HttpMethod.GET, string.Format(updateShopURL, shopID));
+            HttpWebResponse hashResponse = (HttpWebResponse)getHash.GetResponse();
+            string hashRepsonse = Encoding.Default.GetString(getMemoryStreamFromResponse(hashResponse).ToArray());
+            string hashValue = Regex.Match(hashRepsonse, threadHashEx).Groups["forum_thread"].Value;
+            return hashValue;
         }
     }
 }

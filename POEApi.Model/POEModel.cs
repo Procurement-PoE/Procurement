@@ -274,6 +274,11 @@ namespace POEApi.Model
             onImageLoaded(POEEventState.AfterEvent, tab.Name);
         }
 
+        public bool UpdateThread(string threadID, string threadTitle, string threadText)
+        {
+            return transport.UpdateThread(threadID, threadTitle, threadText);
+        }
+
         private static string GetItemName(Item item)
         {
             if (item.Name != string.Empty)
