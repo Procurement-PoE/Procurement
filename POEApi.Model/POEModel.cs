@@ -101,34 +101,10 @@ namespace POEApi.Model
             }
 
             onStashLoaded(POEEventState.AfterEvent, index, proxy.NumTabs);
-
-            if (isDuplicateDataTab(proxy, index))
-                return new Stash(new JSONProxy.Stash());       
-            
+           
             return new Stash(proxy);
         }
         
-        private bool isDuplicateDataTab(JSONProxy.Stash proxy, int index)
-        {
-            try
-            {
-                if (proxy.Items.Count() == 0)
-                    return false;
-
-                var id = index + 1;
-
-                if (proxy.Items.First().InventoryId != "Stash" + id)
-                    return true;
-
-                return false;
-            }
-            catch (Exception ex)
-            {
-                Logger.Log("Error in isDuplicateDataTab: " + ex.ToString());
-                return false;
-            }
-        }
-
         private void logNullStash(Stream stream, string errorPrefix)
         {
             try
@@ -182,8 +158,25 @@ namespace POEApi.Model
 
         private Stash getAllTabs(string league, Stash stash)
         {
+            List<Tab> hiddenTabs = new List<Tab>();
+
             for (int i = 1; i < stash.NumberOfTabs; i++)
-                stash.Add(GetStash(i, league, false));
+                if (!stash.Tabs[i].Hidden)
+                    stash.Add(GetStash(i, league, false));
+                else
+                    hiddenTabs.Add(stash.Tabs[i]);
+
+            if (stash.Tabs[0].Hidden)
+            {
+                stash.Tabs.Remove(stash.Tabs[0]);
+                --stash.NumberOfTabs;
+            }
+
+            foreach (var tab in hiddenTabs)
+            {
+                stash.Tabs.Remove(tab);
+                --stash.NumberOfTabs;
+            }
 
             return stash;
         }

@@ -30,6 +30,8 @@ namespace Procurement.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private CharacterTabInjector characterInjector;
+
         protected void OnPropertyChanged(string property)
         {
             if (PropertyChanged != null)
@@ -83,6 +85,8 @@ namespace Procurement.ViewModel
                 this.view.txtPassword.Password = string.Empty.PadLeft(8); //For the visuals
 
             this.view.txtPassword.PasswordChanged += new System.Windows.RoutedEventHandler(txtPassword_PasswordChanged);
+
+            characterInjector = new CharacterTabInjector();
 
             statusController = new StatusController(this.view.StatusBox);
 
@@ -194,6 +198,9 @@ namespace Procurement.ViewModel
 
             if (downloadOnlyMyLeagues && ApplicationState.Characters.Count == 0)
                 throw new Exception("No characters found in the leagues specified. Check spelling or try setting DownloadOnlyMyLeagues to false in settings.");
+
+
+            characterInjector.Inject();
         }
 
         private static void updateCharactersByLeague(List<Character> chars)
@@ -262,7 +269,7 @@ namespace Procurement.ViewModel
                 success = false;
             }
 
-            CharacterTabInjector.Inject(character, inventory);
+            characterInjector.Add(character, inventory);
             updateStatus(success, offline);
 
             return inventory;
