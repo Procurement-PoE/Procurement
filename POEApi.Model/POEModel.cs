@@ -102,7 +102,31 @@ namespace POEApi.Model
 
             onStashLoaded(POEEventState.AfterEvent, index, proxy.NumTabs);
 
+            if (isDuplicateDataTab(proxy, index))
+                return new Stash(new JSONProxy.Stash());       
+            
             return new Stash(proxy);
+        }
+        
+        private bool isDuplicateDataTab(JSONProxy.Stash proxy, int index)
+        {
+            try
+            {
+                if (proxy.Items.Count() == 0)
+                    return false;
+
+                var id = index + 1;
+
+                if (proxy.Items.First().InventoryId != "Stash" + id)
+                    return true;
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Error in isDuplicateDataTab: " + ex.ToString());
+                return false;
+            }
         }
 
         private void logNullStash(Stream stream, string errorPrefix)
