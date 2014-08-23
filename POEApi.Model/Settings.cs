@@ -20,6 +20,7 @@ namespace POEApi.Model
         public static Dictionary<string, List<string>> Lists { get; private set; }
         public static Dictionary<int, ItemTradeInfo> Buyouts { get; private set; }
         public static Dictionary<string, string> TabsBuyouts { get; private set; }
+        public static Dictionary<string, ShopSetting> ShopSettings { get; private set; }
         public static List<string> PopularGems { get; private set; }
         private static XElement settingsFile;
         private static XElement buyoutFile;
@@ -46,6 +47,7 @@ namespace POEApi.Model
                 PopularGems = settingsFile.Element("PopularGems").Elements("Gem").Select(e => e.Attribute("name").Value).ToList();
 
             loadGearTypeData();
+            loadShopSettings();
         }
 
         private static void loadBuyouts()
@@ -78,6 +80,16 @@ namespace POEApi.Model
                 return items.ToDictionary(list => (int)list.Attribute("id"), list => new ItemTradeInfo(list.Attribute("value").Value, string.Empty, string.Empty, string.Empty));
 
             return items.ToDictionary(list => (int)list.Attribute("id"), list => new ItemTradeInfo(tryGetValue(list, "BuyoutValue"), tryGetValue(list, "PriceValue"), tryGetValue(list, "CurrentOfferValue"), tryGetValue(list, "Notes")));
+        }
+
+        private static void loadShopSettings()
+        {
+            ShopSettings = settingsFile.Elements("ShopSettings").Descendants().ToDictionary(shop => shop.Attribute("League").Value, shop => createShopSetting(shop));
+        }
+
+        private static ShopSetting createShopSetting(XElement shop)
+        {
+            return new ShopSetting { ThreadId = shop.Attribute("ThreadId").Value, ThreadTitle = shop.Attribute("ThreadTitle").Value };
         }
 
         private static string tryGetValue(XElement list, string key)
@@ -179,6 +191,29 @@ namespace POEApi.Model
 
                 foreach (var listValue in Settings.Lists[listKey])
                     original.Add(new XElement("Item", new XAttribute("value", listValue)));
+            }
+        }
+
+        public static void SaveShopSettings()
+        {
+            try
+            {
+                if (!settingsFile.Elements("ShopSettings").Any())
+                    settingsFile.Add(new XElement("ShopSettings"));
+
+                settingsFile.Element("ShopSettings").RemoveNodes();
+
+                foreach (var shop in ShopSettings)
+                {
+                    XElement buyout = new XElement("Shop", new XAttribute("League", shop.Key), new XAttribute("ThreadId", shop.Value.ThreadId), new XAttribute("ThreadTitle", shop.Value.ThreadTitle));
+                    settingsFile.Element("ShopSettings").Add(buyout);
+                }
+
+                settingsFile.Save(SAVE_LOCATION);
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Unable to save shop settings: " + ex.ToString());
             }
         }
     }

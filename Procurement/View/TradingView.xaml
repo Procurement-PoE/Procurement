@@ -48,7 +48,7 @@
             <TabItem Header="Forum Template" Style="{StaticResource NonImages}">
                 <poe:ForumTemplate />
             </TabItem>
-            <TabItem Header="Buyout Settings" Style="{StaticResource NonImages}">
+            <TabItem Header="Trade Settings" Style="{StaticResource NonImages}">
                 <poe:BuyoutSettings />
             </TabItem>
         </TabControl>

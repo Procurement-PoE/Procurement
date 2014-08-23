@@ -26,8 +26,10 @@ namespace POEApi.Transport
         private const string stashURL = @"http://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}";
         private const string inventoryURL = @"http://www.pathofexile.com/character-window/get-items?character={0}";
         private const string hashRegEx = "name=\\\"hash\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
-        
-        private const string threadHashEx = "name=\\\"forum_thread\\\" value=\\\"(?<forum_thread>[a-zA-Z0-9]{1,})\\\"";
+
+        private const string updateThreadHashEx = "name=\\\"forum_thread\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
+        private const string bumpThreadHashEx = "name=\\\"forum_post\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";      
+
         private const string updateShopURL = @"http://www.pathofexile.com/forum/edit-thread/{0}";
         private const string bumpShopURL = @"http://www.pathofexile.com/forum/post-reply/{0}";
 
@@ -171,7 +173,7 @@ namespace POEApi.Transport
         {
             try
             {
-                string threadHash = getThreadHash(threadID);
+                string threadHash = getThreadHash(string.Format(updateShopURL, threadID), updateThreadHashEx);
 
                 StringBuilder data = new StringBuilder();
                 data.Append("title=" + Uri.EscapeDataString(threadTitle));
@@ -193,13 +195,15 @@ namespace POEApi.Transport
         {
             try
             {
-                string threadHash = getThreadHash(threadID);
+                string threadHash = getThreadHash(string.Format(bumpShopURL, threadID), bumpThreadHashEx);
 
                 StringBuilder data = new StringBuilder();
-                data.Append("&content=" + Uri.EscapeDataString("Thread bumped with [url=\"https://code.google.com/p/procurement/\"]Procurement[/url]"));
-                data.Append("&forum_thread=" + threadHash);
+                data.Append("forum_post=" + threadHash);
+                data.Append("&content=" + Uri.EscapeDataString("[url=https://code.google.com/p/procurement/]Bumped with Procurement![/url]"));
+                data.Append("&post_submit=" + Uri.EscapeDataString("Submit"));
 
-                postToForum(data.ToString(), string.Format(bumpShopURL, threadID));
+                var response = postToForum(data.ToString(), string.Format(bumpShopURL, threadID));
+                var htmlResponse = Encoding.Default.GetString(getMemoryStreamFromResponse(response).ToArray());
 
                 return true;
             }
@@ -210,10 +214,10 @@ namespace POEApi.Transport
             }
         }
 
-        private void postToForum(string data, string url)
+        private HttpWebResponse postToForum(string data, string url)
         {
             HttpWebRequest request = getHttpRequest(HttpMethod.POST, url);
-            request.AllowAutoRedirect = false;
+            request.AllowAutoRedirect = true;
 
             byte[] byteData = UTF8Encoding.UTF8.GetBytes(data);
 
@@ -224,14 +228,16 @@ namespace POEApi.Transport
 
             HttpWebResponse response;
             response = (HttpWebResponse)request.GetResponse();
+
+            return response;
         }
 
-        private string getThreadHash(string shopID)
+        private string getThreadHash(string url, string regex)
         {
-            HttpWebRequest getHash = getHttpRequest(HttpMethod.GET, string.Format(updateShopURL, shopID));
+            HttpWebRequest getHash = getHttpRequest(HttpMethod.GET, url);
             HttpWebResponse hashResponse = (HttpWebResponse)getHash.GetResponse();
             string hashRepsonse = Encoding.Default.GetString(getMemoryStreamFromResponse(hashResponse).ToArray());
-            string hashValue = Regex.Match(hashRepsonse, threadHashEx).Groups["forum_thread"].Value;
+            string hashValue = Regex.Match(hashRepsonse, regex).Groups["hash"].Value;
             return hashValue;
         }
     }

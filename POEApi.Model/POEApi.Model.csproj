@@ -72,6 +72,7 @@
     <Compile Include="ProxyMapper.cs" />
     <Compile Include="Requirement.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="ShopSetting.cs" />
     <Compile Include="Socket.cs" />
     <Compile Include="StackInfo.cs" />
     <Compile Include="Stash.cs" />

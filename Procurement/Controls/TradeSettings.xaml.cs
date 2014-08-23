@@ -8,7 +8,7 @@ namespace Procurement.Controls
         public BuyoutSettings()
         {
             InitializeComponent();
-            this.DataContext = new BuyoutSettingsViewModel();
+            this.DataContext = new TradeSettingsViewModel();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Windows;
 
 namespace Procurement.ViewModel
 {
-    public class BuyoutSettingsViewModel : INotifyPropertyChanged
+    public class TradeSettingsViewModel : INotifyPropertyChanged
     {
         private const string EMBED_BUYOUTS = "EmbedBuyouts";
         private const string BUYOUT_TAG_ONLY = "BuyoutItemsOnlyVisibleInBuyoutsTag";
@@ -64,11 +64,61 @@ namespace Procurement.ViewModel
             }
         }
 
-        public BuyoutSettingsViewModel()
+        private string threadId;
+        public string ThreadId
+        {
+            get { return threadId; }
+            set
+            {
+                threadId = value;
+                if (PropertyChanged != null)
+                    PropertyChanged(this, new PropertyChangedEventArgs("ThreadId"));
+            }
+        }
+
+        private string threadTitle;
+        public string ThreadTitle
+        {
+            get { return threadTitle; }
+            set
+            {
+                threadTitle = value;
+                if (PropertyChanged != null)
+                    PropertyChanged(this, new PropertyChangedEventArgs("ThreadTitle"));
+            }
+        }
+
+        public TradeSettingsViewModel()
         {
             this.embedBuyouts = getSetting(EMBED_BUYOUTS);
             this.buyoutItemsOnlyVisibleInBuyoutsTag = getSetting(BUYOUT_TAG_ONLY);
             this.onlyDisplayBuyouts = getSetting(ONLY_DISPLAY_BUYOUTS);
+
+            saveCommand = new DelegateCommand(saveShopSettings);
+
+            if (!Settings.ShopSettings.ContainsKey(ApplicationState.CurrentLeague))
+                return;
+
+            this.threadId = Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId;
+            this.threadTitle = Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle;
+        }
+
+        private void saveShopSettings(object obj)
+        {
+            if (!Settings.ShopSettings.ContainsKey(ApplicationState.CurrentLeague))
+                Settings.ShopSettings.Add(ApplicationState.CurrentLeague, new ShopSetting());
+            
+            Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId = this.threadId;
+            Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle = this.threadTitle;
+            Settings.SaveShopSettings();
+        }
+
+        private DelegateCommand saveCommand;
+
+        public DelegateCommand SaveCommand
+        {
+            get { return saveCommand; }
+            set { saveCommand = value; }
         }
 
         private bool getSetting(string key)

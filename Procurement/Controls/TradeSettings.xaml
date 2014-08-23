@@ -12,6 +12,9 @@
                 <RowDefinition Height="25" />
                 <RowDefinition Height="25" />
                 <RowDefinition Height="25" />
+                <RowDefinition Height="28" />
+                <RowDefinition Height="28" />
+                <RowDefinition Height="28" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -23,6 +26,26 @@
 
             <CheckBox Grid.Row="3" Foreground="#FFAB9066" IsChecked="{Binding OnlyDisplayBuyouts}" Content="Only display items with buyout" HorizontalAlignment="Left" Margin="0,2,0,0" />
 
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Content="Thread Id" Foreground="#FFAB9066" FontSize="12" />
+                <TextBox Height="22" Width="120" Grid.Column="1" Text="{Binding ThreadId}"  HorizontalAlignment="Left"  />
+            </Grid>
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="800"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Content="Thread Title" Foreground="#FFAB9066" FontSize="12" />
+                <TextBox Height="22" Width="720" Grid.Column="1" Text="{Binding ThreadTitle}"  HorizontalAlignment="Left" />
+            </Grid>
+
+            <Button Grid.Row="6" Content="Save Thread Settings" Height="22" Width="120" Style="{Binding}" HorizontalAlignment="Left" Margin="10,0,0,0" Command="{Binding SaveCommand}"/>
         </Grid>
     </Border>
 </UserControl>

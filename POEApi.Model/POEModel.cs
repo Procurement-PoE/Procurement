@@ -279,6 +279,11 @@ namespace POEApi.Model
             return transport.UpdateThread(threadID, threadTitle, threadText);
         }
 
+        public bool BumpThread(string threadId)
+        {
+            return transport.BumpThread(threadId);
+        }
+
         private static string GetItemName(Item item)
         {
             if (item.Name != string.Empty)
