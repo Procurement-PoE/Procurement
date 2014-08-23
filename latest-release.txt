@@ -1,1 +1,1 @@
-Procurement 1.7.2,https://github.com/Stickymaddness/Procurement/releases/tag/1.7.2
+Procurement 1.8.0,https://github.com/Stickymaddness/Procurement/releases/tag/1.8.0
