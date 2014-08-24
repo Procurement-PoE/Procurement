@@ -203,7 +203,6 @@ namespace POEApi.Transport
                 data.Append("&post_submit=" + Uri.EscapeDataString("Submit"));
 
                 var response = postToForum(data.ToString(), string.Format(bumpShopURL, threadID));
-                var htmlResponse = Encoding.Default.GetString(getMemoryStreamFromResponse(response).ToArray());
 
                 return true;
             }
