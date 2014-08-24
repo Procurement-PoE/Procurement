@@ -28,6 +28,11 @@ namespace POEApi.Model
             this.Tabs = ProxyMapper.GetTabs(proxy.Tabs);
         }
 
+        public void ClearItems()
+        {
+            items.Clear();
+        }
+
         public void Add(Stash stash)
         {
             items.AddRange(stash.items);

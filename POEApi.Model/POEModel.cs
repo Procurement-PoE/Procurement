@@ -130,6 +130,9 @@ namespace POEApi.Model
 
             Stash stash = GetStash(0, league, false);
 
+            if (stash.Tabs[0].Hidden)
+                stash.ClearItems();
+
             List<Tab> skippedTabs = new List<Tab>();
 
             if (!onlyMyTabs)
