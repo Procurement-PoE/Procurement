@@ -55,7 +55,7 @@ namespace POEApi.Model
             this.Identified = item.Identified;
             this.W = item.W;
             this.H = item.H;
-            this.IconURL = item.Icon;
+            this.IconURL = getIconUrl(item.Icon);
             this.League = item.League;
             this.Name = item.Name;
             this.TypeLine = item.TypeLine;
@@ -85,6 +85,15 @@ namespace POEApi.Model
             this.TradeY = this.Y;
             this.TradeInventoryId = this.InventoryId;
             this.Character = string.Empty;
+        }
+
+        private string getIconUrl(string url)
+        {
+            Uri uri;
+            if (Uri.TryCreate(url, UriKind.Absolute, out uri))
+                return url;
+
+            return "http://webcdn.pathofexile.com" + url;
         }
 
         protected abstract int getConcreteHash();

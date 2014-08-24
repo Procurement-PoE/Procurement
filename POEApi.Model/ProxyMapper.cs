@@ -111,7 +111,7 @@ namespace POEApi.Model
         {
             try
             {
-                return tabs.Select(t => new Tab() { Colour = new Colour() { b = t.colour.b, g = t.colour.g, r = t.colour.r }, i = t.i, Name = t.n, srcR = t.srcR, srcC = t.srcC, srcL = t.srcL, Hidden = t.hidden }).ToList();
+                return tabs.Select(t => new Tab(t)).ToList();
             }
             catch (Exception ex)
             {
