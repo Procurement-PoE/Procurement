@@ -12,6 +12,10 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 {6Link}
 [/spoiler]
 [spoiler="          Maps          "]
+[spoiler="          Vaal Fragments          "]
+{VaalFragments}
+{VaalUberFragments}
+[/spoiler]
 [spoiler="          66-69          "]
 {66Maps}{67Maps}{68Maps}{69Maps}
 [/spoiler]
