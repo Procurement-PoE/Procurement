@@ -101,10 +101,10 @@ namespace POEApi.Model
             }
 
             onStashLoaded(POEEventState.AfterEvent, index, proxy.NumTabs);
-           
+
             return new Stash(proxy);
         }
-        
+
         private void logNullStash(Stream stream, string errorPrefix)
         {
             try
@@ -120,43 +120,51 @@ namespace POEApi.Model
                 Logger.Log(ex);
             }
 
-            throw new Exception(@"Downloading stash, details logged to DebugLog.log, please open a ticket at https://code.google.com/p/procurement/issues/list");
+            throw new Exception(@"Downloading stash, details logged to DebugLog.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues or https://code.google.com/p/procurement/issues/list");
         }
 
         public Stash GetStash(string league)
         {
-            var myTabs = Settings.Lists["MyTabs"];
-            bool onlyMyTabs = myTabs.Count != 0;
-
-            Stash stash = GetStash(0, league, false);
-
-            if (stash.Tabs[0].Hidden)
-                stash.ClearItems();
-
-            List<Tab> skippedTabs = new List<Tab>();
-
-            if (!onlyMyTabs)
-                return getAllTabs(league, stash);
-
-            int tabCount = 0;
-
-            for (int i = 1; i < stash.NumberOfTabs; i++)
+            try
             {
-                if (myTabs.Contains(stash.Tabs[i].Name))
+                var myTabs = Settings.Lists["MyTabs"];
+                bool onlyMyTabs = myTabs.Count != 0;
+
+                Stash stash = GetStash(0, league, false);
+
+                if (stash.Tabs[0].Hidden)
+                    stash.ClearItems();
+
+                List<Tab> skippedTabs = new List<Tab>();
+
+                if (!onlyMyTabs)
+                    return getAllTabs(league, stash);
+
+                int tabCount = 0;
+
+                for (int i = 1; i < stash.NumberOfTabs; i++)
                 {
-                    stash.Add(GetStash(i, league, false));
-                    ++tabCount;
+                    if (myTabs.Contains(stash.Tabs[i].Name))
+                    {
+                        stash.Add(GetStash(i, league, false));
+                        ++tabCount;
+                    }
+                    else
+                        skippedTabs.Add(stash.Tabs[i]);
                 }
-                else
-                    skippedTabs.Add(stash.Tabs[i]);
+
+                foreach (var tab in skippedTabs)
+                    stash.Tabs.Remove(tab);
+
+                stash.NumberOfTabs = tabCount + 1;
+
+                return stash;
             }
-
-            foreach (var tab in skippedTabs)
-                stash.Tabs.Remove(tab);
-
-            stash.NumberOfTabs = tabCount + 1;
-
-            return stash;
+            catch (Exception ex)
+            {
+                Logger.Log(string.Format("Error downloading stash for {0}, exception details: {1}", league, ex.ToString()));
+                throw new Exception(@"Downloading stash for " + league + ", details logged to DebugLog.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues or https://code.google.com/p/procurement/issues/list");
+            }
         }
 
         private Stash getAllTabs(string league, Stash stash)
@@ -237,7 +245,15 @@ namespace POEApi.Model
 
         private void getImageWithEvents(Item item)
         {
-            getImageWithEvents(GetItemName(item), item.IconURL);
+            try
+            {
+                getImageWithEvents(GetItemName(item), item.IconURL);
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(string.Format("Error downloading image for : {0}, exception details: {1}", item.IconURL, ex.ToString()));
+                throw;
+            }
         }
 
         private void getImageWithEvents(string name, string url)
@@ -251,7 +267,7 @@ namespace POEApi.Model
         {
             return transport.GetImage(url);
         }
-        
+
         public Stream GetImage(Item item)
         {
             onImageLoaded(POEEventState.BeforeEvent, GetItemName(item));
@@ -290,7 +306,7 @@ namespace POEApi.Model
 
         public Dictionary<string, decimal> CalculateFreeSpace(Stash stash)
         {
-            return stash.CalculateFreeSpace();   
+            return stash.CalculateFreeSpace();
         }
 
         private void onStashLoaded(POEEventState state, int index, int numberOfTabs)
