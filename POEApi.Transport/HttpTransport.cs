@@ -18,7 +18,7 @@ namespace POEApi.Transport
         private string proxyUser;
         private string proxyPassword;
         private string proxyDomain;
-        
+
         private enum HttpMethod { GET, POST }
 
         private const string loginURL = @"https://www.pathofexile.com/login";
@@ -28,7 +28,7 @@ namespace POEApi.Transport
         private const string hashRegEx = "name=\\\"hash\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
 
         private const string updateThreadHashEx = "name=\\\"forum_thread\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
-        private const string bumpThreadHashEx = "name=\\\"forum_post\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";      
+        private const string bumpThreadHashEx = "name=\\\"forum_post\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
 
         private const string updateShopURL = @"http://www.pathofexile.com/forum/edit-thread/{0}";
         private const string bumpShopURL = @"http://www.pathofexile.com/forum/post-reply/{0}";
@@ -103,16 +103,23 @@ namespace POEApi.Transport
         private HttpWebRequest getHttpRequest(HttpMethod method, string url)
         {
             HttpWebRequest request = (HttpWebRequest)RequestThrottle.Instance.Create(url);
-            
+
             request.CookieContainer = credentialCookies;
-            request.UserAgent = "User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E; .NET CLR 1.1.4322)";           
+            request.UserAgent = "User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E; .NET CLR 1.1.4322)";
             request.Method = method.ToString();
-            if (useProxy)
-                request.Proxy = processProxySettings();
+            request.Proxy = getProxySettings();
 
             request.ContentType = "application/x-www-form-urlencoded";
 
             return request;
+        }
+
+        private IWebProxy getProxySettings()
+        {
+            if (useProxy)
+                return processProxySettings();
+
+            return null;
         }
 
         public WebProxy processProxySettings()
@@ -235,9 +242,13 @@ namespace POEApi.Transport
         {
             HttpWebRequest getHash = getHttpRequest(HttpMethod.GET, url);
             HttpWebResponse hashResponse = (HttpWebResponse)getHash.GetResponse();
-            string hashRepsonse = Encoding.Default.GetString(getMemoryStreamFromResponse(hashResponse).ToArray());
-            string hashValue = Regex.Match(hashRepsonse, regex).Groups["hash"].Value;
-            return hashValue;
+
+            using (StreamReader reader = new StreamReader(hashResponse.GetResponseStream()))
+            {
+                string hashRepsonse = reader.ReadToEnd();
+                string hashValue = Regex.Match(hashRepsonse, regex).Groups["hash"].Value;
+                return hashValue;
+            }
         }
     }
 }
