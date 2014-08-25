@@ -17,7 +17,7 @@ namespace Procurement
             Logger.Log("Application Version: " + ApplicationState.Version);
             Logger.Log(getEnvironementDetails());
             Logger.Log(e.Exception.ToString());
-            MessageBox.Show("There was an unhandled error - Sorry! Please send the debuginfo.log to one of the developers. For quickest response please log a ticket on our google code page at http://code.google.com/p/procurement/issues");
+            MessageBox.Show("There was an unhandled error - Sorry! Please create a ticket on github https://github.com/Stickymaddness/Procurement/issues or google code http://code.google.com/p/procurement/issues. If the crash occured after Procurement was done downloading, zip and include your .tab files.");           
         }
 
         private string getEnvironementDetails()
@@ -27,6 +27,7 @@ namespace Procurement
             {
                 builder.AppendLine("CurrentCulture: " + System.Threading.Thread.CurrentThread.CurrentCulture.ToString());
                 builder.AppendLine("CurrentUICulture: " + System.Threading.Thread.CurrentThread.CurrentUICulture.ToString());
+                builder.AppendLine("Operating System: " + Environment.OSVersion.ToString());
             }
             catch (Exception ex)
             {
