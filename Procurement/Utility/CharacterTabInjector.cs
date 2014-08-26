@@ -1,6 +1,8 @@
-﻿using POEApi.Infrastructure;
+﻿using System.Linq;
+using POEApi.Infrastructure;
 using POEApi.Model;
 using System.Collections.Generic;
+using System;
 
 namespace Procurement.Utility
 {
@@ -43,7 +45,8 @@ namespace Procurement.Utility
         private void inject(Character character, IEnumerable<Item> inventory)
         {
             ApplicationState.Stash[character.League].NumberOfTabs++;
-            var tabID = ApplicationState.Stash[character.League].NumberOfTabs;
+
+            var tabID = getTabID(character);
             var inventoryID = tabID + 1;
 
             List<Item> characterItems = CharacterStashBuilder.GetCharacterStashItems(character.Name, inventory, inventoryID);
@@ -60,6 +63,19 @@ namespace Procurement.Utility
             };
 
             ApplicationState.Stash[character.League].AddCharacterTab(characterTab, characterItems);
+        }
+
+        private static int getTabID(Character character)
+        {
+            try
+            {
+                return ApplicationState.Stash[character.League].Tabs.OrderByDescending(t => t.i).First().i + 1;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(string.Format("Error getting tabId for character {0} in league '{1}', exception details: {2}", character.Name, character.League, ex.ToString()));
+                return ApplicationState.Stash[character.League].NumberOfTabs;
+            }
         }
     }
 }
