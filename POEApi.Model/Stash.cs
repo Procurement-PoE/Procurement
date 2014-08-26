@@ -2,6 +2,7 @@ using POEApi.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace POEApi.Model
 {
@@ -95,9 +96,24 @@ namespace POEApi.Model
 
         private void buildItemsByTab()
         {
-            var tabs = Tabs.Select(t => ProxyMapper.STASH + (t.i + 1));
+            try
+            {
+                var tabs = Tabs.Select(t => ProxyMapper.STASH + (t.i + 1));
+                itemsByTab = tabs.ToDictionary(kvp => kvp, kvp => items.Where(i => i.InventoryId == kvp).ToList());
+            }
+            catch (Exception ex)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("Error building items by tab. Tab data:");
 
-            itemsByTab = tabs.ToDictionary(kvp => kvp, kvp => items.Where(i => i.InventoryId == kvp).ToList());
+                foreach (var tab in Tabs)
+                    sb.AppendLine(string.Format("i = {0}, hidden = {1}, fake = {2}", tab.i, tab.Hidden, tab.IsFakeTab));
+
+                sb.AppendLine("End of tab data");
+                Logger.Log(sb.ToString());
+
+                throw new Exception("Error building stash from downloaded tabs, please log a ticket at http://code.google.com/p/procurement/issues and include all your .bin files");                
+            }
         }
 
         private void refreshItemsByTabTab(int tabId)
