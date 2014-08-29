@@ -40,6 +40,8 @@ namespace Procurement.Controls
             {
                 itemImage.ContextMenu = getContextMenu();
                 contexted = true;
+                ItemDisplayViewModel vm = this.DataContext as ItemDisplayViewModel;
+                System.Windows.Clipboard.SetText(vm.Item.ToString());
             }
         }
 
