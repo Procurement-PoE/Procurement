@@ -135,6 +135,7 @@ namespace POEApi.Model
         {
             return this.MemberwiseClone();
         }
+
         public override String ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -143,14 +144,11 @@ namespace POEApi.Model
                 sb.AppendLine("Rarity: " + getRarityString(this.ItemRarity));
                 sb.AppendLine(this.Name);
                 sb.AppendLine(this.TypeLine);
-                //sometimes the "typename is empty" -> amulets
 
+                //sometimes the "typename is empty" -> amulets
                 if (this.Properties != null && this.Properties.Count > 0)
                 {
                     sb.AppendLine("--------");
-
- 
-
                     //When a flask, use different string, count-1 because the last property seems to be always "chargesleft"
                     if (this.GearType == Model.GearType.Flask)
                     {
@@ -203,7 +201,6 @@ namespace POEApi.Model
                 //sb.AppendLine("Itemlevel: " );
                 //sb.AppendLine("--------");
                 if (this.Explicitmods != null && this.Explicitmods.Count > 0)
-
                 {
                     sb.AppendLine("--------");
                     for (int i = 0; i < this.Explicitmods.Count; i++)
@@ -230,10 +227,7 @@ namespace POEApi.Model
         public static String getSocketString(List<Socket> sockets)
         {
             StringBuilder sb = new StringBuilder();
-            var groupsockets = sockets
-                .GroupBy(u => u.Group)
-                .Select(grp => grp.ToList())
-                .ToList();
+            var groupsockets = sockets.GroupBy(u => u.Group).Select(grp => grp.ToList()).ToList();
             foreach (var group in groupsockets)
             {
                 foreach (var socket in group)

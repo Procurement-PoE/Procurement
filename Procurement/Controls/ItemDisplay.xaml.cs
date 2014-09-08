@@ -11,6 +11,8 @@ using POEApi.Model;
 using Procurement.ViewModel;
 using POEApi.Infrastructure;
 using Procurement.Utility;
+using PWXApi;
+using System.Diagnostics;
 
 namespace Procurement.Controls
 {
@@ -40,8 +42,6 @@ namespace Procurement.Controls
             {
                 itemImage.ContextMenu = getContextMenu();
                 contexted = true;
-                ItemDisplayViewModel vm = this.DataContext as ItemDisplayViewModel;
-                System.Windows.Clipboard.SetText(vm.Item.ToString());
             }
         }
 
@@ -132,7 +132,7 @@ namespace Procurement.Controls
             {
                 MenuItem setBuyout = new MenuItem();
 
-                var buyoutControl = new SetBuyoutView();
+                var buyoutControl = new SetBuyoutView(item);
 
                 if (Settings.Buyouts.ContainsKey(item.UniqueIDHash))
                     buyoutControl.SetBuyoutInfo(Settings.Buyouts[item.UniqueIDHash]);

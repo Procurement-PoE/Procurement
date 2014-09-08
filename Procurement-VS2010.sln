@@ -9,7 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POEApi.Infrastructure", "PO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Procurement", "Procurement\Procurement.csproj", "{9369113D-A68F-4FE9-B301-D00C5176666A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWXApi", "PWXApi\PWXApi.csproj", "{46AD2C36-6CEE-4D3A-BFD7-AE4E3B8A82B7}"
+EndProject
 Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -59,6 +65,16 @@ Global
 		{9369113D-A68F-4FE9-B301-D00C5176666A}.Release|Mixed Platforms.Build.0 = Release|x86
 		{9369113D-A68F-4FE9-B301-D00C5176666A}.Release|x86.ActiveCfg = Release|x86
 		{9369113D-A68F-4FE9-B301-D00C5176666A}.Release|x86.Build.0 = Release|x86
+		{46AD2C36-6CEE-4D3A-BFD7-AE4E3B8A82B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46AD2C36-6CEE-4D3A-BFD7-AE4E3B8A82B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46AD2C36-6CEE-4D3A-BFD7-AE4E3B8A82B7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{46AD2C36-6CEE-4D3A-BFD7-AE4E3B8A82B7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{46AD2C36-6CEE-4D3A-BFD7-AE4E3B8A82B7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{46AD2C36-6CEE-4D3A-BFD7-AE4E3B8A82B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46AD2C36-6CEE-4D3A-BFD7-AE4E3B8A82B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46AD2C36-6CEE-4D3A-BFD7-AE4E3B8A82B7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{46AD2C36-6CEE-4D3A-BFD7-AE4E3B8A82B7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{46AD2C36-6CEE-4D3A-BFD7-AE4E3B8A82B7}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
