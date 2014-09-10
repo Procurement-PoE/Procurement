@@ -5,15 +5,19 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using PWXApi;
+using System.Drawing;
 
 namespace Procurement.Controls
 {
     public partial class SetBuyoutView : UserControl
     {
-        public SetBuyoutView()
+        private Item theItem;
+        public SetBuyoutView(Item item)
         {
             InitializeComponent();
             this.DataContext = new SetBuyoutViewModel();
+            this.theItem = item;
         }
 
         public event PricingInfoHandler Update;
@@ -50,5 +54,24 @@ namespace Procurement.Controls
             this.Notes.CaretIndex = this.Notes.Text.Length;
             e.Handled = true;
         }
+
+        private void GetPrice_Click(object sender, RoutedEventArgs e)
+        {
+            ToolTip tt = (ToolTip)((Button)sender).ToolTip;
+            tt.Content = (new PriceQuery(this.theItem, true, true)).getResultString();
+            tt.IsOpen = true;
+        }
+
+        private void GetPrice_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (((Button)sender).ToolTip != null)
+                ((ToolTip)((Button)sender).ToolTip).IsOpen = false;
+        }
+
+        private void CopyItemdata_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Clipboard.SetText(this.theItem.ToString());
+        }
+
     }
 }

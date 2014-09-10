@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace POEApi.Model
 {
@@ -36,13 +37,17 @@ namespace POEApi.Model
         public string InventoryId { get; set; }
         public string SecDescrText { get; private set; }
         public List<string> Explicitmods { get; set; }
+        public List<Requirement> Requirements { get; set; }
+        public List<Socket> Sockets { get; set; }
         public ItemType ItemType { get; set; }
+        public Rarity ItemRarity { get; private set; }
         public List<Property> Properties { get; set; }
         public bool IsQuality { get; private set; }
         public int Quality { get; private set; }
         public int UniqueIDHash { get; set; }
         public bool Corrupted { get; private set; }
         public List<string> Microtransactions { get; set; }
+        public GearType GearType { get; set; }
 
         public int TradeX { get; set; }
         public int TradeY { get; set; }
@@ -66,6 +71,9 @@ namespace POEApi.Model
             this.SecDescrText = item.SecDescrText;
             this.Explicitmods = item.ExplicitMods;
             this.ItemType = Model.ItemType.UnSet;
+            this.ItemRarity = getRarity(item);
+            this.Requirements = ProxyMapper.GetRequirements(item.Requirements);
+            this.Sockets = item.Sockets.Select(proxy => new Socket(proxy)).ToList();
 
             if (item.Properties != null)
             {
@@ -126,6 +134,111 @@ namespace POEApi.Model
         public object Clone()
         {
             return this.MemberwiseClone();
+        }
+
+        public override String ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            if ((this.ItemType == Model.ItemType.Gear || this.ItemType == Model.ItemType.Gem) && this.GearType != null)
+            {
+                sb.AppendLine("Rarity: " + getRarityString(this.ItemRarity));
+                sb.AppendLine(this.Name);
+                sb.AppendLine(this.TypeLine);
+
+                //sometimes the "typename is empty" -> amulets
+                if (this.Properties != null && this.Properties.Count > 0)
+                {
+                    sb.AppendLine("--------");
+                    //When a flask, use different string, count-1 because the last property seems to be always "chargesleft"
+                    if (this.GearType == Model.GearType.Flask)
+                    {
+                        for (int i = 0; i < this.Properties.Count - 1; i++)
+                        {
+                            if (this.Properties[i].Name.Equals("Quality"))
+                            {
+                                sb.Append(this.Properties[i].Name + ": " + this.Properties[i].Values[0].Item1);
+                            }
+                            else
+                            {
+                                sb.Append(String.Format(this.Properties[i].Name.Replace("%0", "{0}").Replace("%1", "{1}"), this.Properties[i].Values[0].Item1, this.Properties[i].Values[1].Item1));
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < this.Properties.Count; i++)
+                        {
+                            if (this.Properties[i].Values.Count > 0)
+                            {
+                                sb.Append(this.Properties[i].Name + ": " + this.Properties[i].Values[0].Item1);
+                                if (this.Properties[i].Values[0].Item2 > 0)
+                                    sb.AppendLine(" (augmented)");
+                                else
+                                    sb.AppendLine();
+                            }
+                            else
+                                sb.AppendLine(this.Properties[i].Name);
+                        }
+                    }
+                }
+
+                if (this.Requirements != null && this.Requirements.Count > 0)
+                {
+                    sb.AppendLine("--------");
+                    sb.AppendLine("Requirements:");
+                    for (int i = 0; i < this.Requirements.Count; i++)
+                    {
+                        sb.AppendLine(this.Requirements[i].Name + ": " + this.Requirements[i].Value);
+                    }
+                }
+
+                if (this.Sockets != null && this.Sockets.Count > 0)
+                {
+                    sb.AppendLine("Sockets:");
+                    sb.AppendLine("--------");
+                    sb.AppendLine(Item.getSocketString(this.Sockets));
+                }
+                //sb.AppendLine("Itemlevel: " );
+                //sb.AppendLine("--------");
+                if (this.Explicitmods != null && this.Explicitmods.Count > 0)
+                {
+                    sb.AppendLine("--------");
+                    for (int i = 0; i < this.Explicitmods.Count; i++)
+                    {
+                        sb.AppendLine(this.Explicitmods[i]);
+                    }
+                }
+            }
+            else
+                sb.AppendLine(this.TypeLine);
+            return sb.ToString();
+        }
+        public String getRarityString(Rarity rarity)
+        {
+            switch (rarity)
+            {
+                case Rarity.Normal: return "Normal";
+                case Rarity.Magic: return "Magic";
+                case Rarity.Rare: return "Rare";
+                case Rarity.Unique: return "Unique";
+                default: return "Normal";
+            }
+        }
+        public static String getSocketString(List<Socket> sockets)
+        {
+            StringBuilder sb = new StringBuilder();
+            var groupsockets = sockets.GroupBy(u => u.Group).Select(grp => grp.ToList()).ToList();
+            foreach (var group in groupsockets)
+            {
+                foreach (var socket in group)
+                {
+                    sb.Append(Socket.encodeSocketChar(socket.Attribute) + "-");
+                }
+                sb.Length--;
+                sb.Append(" ");
+            }
+
+            return sb.ToString();
         }
     }
 }

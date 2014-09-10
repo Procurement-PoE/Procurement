@@ -130,7 +130,7 @@ namespace Procurement.Controls
             {
                 MenuItem setBuyout = new MenuItem();
 
-                var buyoutControl = new SetBuyoutView();
+                var buyoutControl = new SetBuyoutView(item);
 
                 if (Settings.Buyouts.ContainsKey(item.UniqueIDHash))
                     buyoutControl.SetBuyoutInfo(Settings.Buyouts[item.UniqueIDHash]);

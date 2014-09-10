@@ -498,6 +498,10 @@
       <Project>{9841DD07-224D-4534-B9D1-F934C1D7BC73}</Project>
       <Name>POEApi.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PWXApi\PWXApi.csproj">
+      <Project>{46AD2C36-6CEE-4D3A-BFD7-AE4E3B8A82B7}</Project>
+      <Name>PWXApi</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
