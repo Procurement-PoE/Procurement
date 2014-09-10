@@ -11,8 +11,6 @@ using POEApi.Model;
 using Procurement.ViewModel;
 using POEApi.Infrastructure;
 using Procurement.Utility;
-using PWXApi;
-using System.Diagnostics;
 
 namespace Procurement.Controls
 {
