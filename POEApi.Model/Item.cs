@@ -57,7 +57,7 @@ namespace POEApi.Model
             this.H = item.H;
             this.IconURL = getIconUrl(item.Icon);
             this.League = item.League;
-            this.Name = item.Name;
+            this.Name = String.IsNullOrEmpty(item.Name) ? item.TypeLine : item.Name; //maps and gems do not have name elements
             this.TypeLine = item.TypeLine;
             this.DescrText = item.DescrText;
             this.X = item.X;
