@@ -228,15 +228,6 @@ namespace POEApi.Model
             }
         }
 
-        public void GetImages(Stash stash)
-        {
-            foreach (var item in stash.Get<Item>().Distinct(new ImageComparer()))
-                getImageWithEvents(item);
-
-            foreach (var item in stash.Tabs)
-                getImageWithEvents("Tab Icon " + item.i, item.srcC);
-        }
-
         public void GetImages(IEnumerable<Item> items)
         {
             foreach (var item in items.Distinct(new ImageComparer()))
@@ -268,15 +259,6 @@ namespace POEApi.Model
             return transport.GetImage(url);
         }
 
-        public Stream GetImage(Item item)
-        {
-            onImageLoaded(POEEventState.BeforeEvent, GetItemName(item));
-            Stream ret = transport.GetImage(item.IconURL);
-            onImageLoaded(POEEventState.AfterEvent, GetItemName(item));
-
-            return ret;
-        }
-
         public IEnumerable<Stream> GetImage(Tab tab)
         {
             onImageLoaded(POEEventState.BeforeEvent, tab.Name);
@@ -302,11 +284,6 @@ namespace POEApi.Model
                 return item.Name;
 
             return item.TypeLine;
-        }
-
-        public Dictionary<string, decimal> CalculateFreeSpace(Stash stash)
-        {
-            return stash.CalculateFreeSpace();
         }
 
         private void onStashLoaded(POEEventState state, int index, int numberOfTabs)
