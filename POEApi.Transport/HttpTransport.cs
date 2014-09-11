@@ -207,7 +207,7 @@ namespace POEApi.Transport
 
                 StringBuilder data = new StringBuilder();
                 data.Append("forum_post=" + threadHash);
-                data.Append("&content=" + Uri.EscapeDataString("[url=https://code.google.com/p/procurement/]Bumped with Procurement! (Testing)[/url]"));
+                data.Append("&content=" + Uri.EscapeDataString("[url=https://code.google.com/p/procurement/]Bumped with Procurement![/url]"));
                 data.Append("&post_submit=" + Uri.EscapeDataString("Submit"));
 
                 var response = postToForum(data.ToString(), string.Format(bumpShopURL, threadID));
