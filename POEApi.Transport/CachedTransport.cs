@@ -100,9 +100,9 @@ namespace POEApi.Transport
             return innerTranport.UpdateThread(threadID, threadTitle, threadText);
         }
 
-        public bool BumpThread(string threadID)
+        public bool BumpThread(string threadID, string threadTitle)
         {
-            return innerTranport.BumpThread(threadID);
+            return innerTranport.BumpThread(threadID, threadTitle);
         }
     }
 }

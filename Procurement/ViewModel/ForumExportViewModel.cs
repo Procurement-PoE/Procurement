@@ -11,6 +11,8 @@ using Procurement.Controls;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
+using POEApi.Infrastructure;
 
 namespace Procurement.ViewModel
 {
@@ -109,12 +111,28 @@ namespace Procurement.ViewModel
             if (confirmation != MessageBoxResult.Yes)
                 return;
 
-            var threadBumped = ApplicationState.Model.BumpThread(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId);
+            Task.Factory.StartNew(() =>
+                {
+                    try
+                    {
+                        var threadBumped = ApplicationState.Model.BumpThread(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId, Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle);
 
-            if (threadBumped)
-                MessageBox.Show("Shop thread successfully bumped!", "Thread bumped", MessageBoxButton.OK, MessageBoxImage.Information);
-            else
-                MessageBox.Show("Error bumping shop thread, details logged to debuginfo.log", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        if (threadBumped)
+                            MessageBox.Show("Shop thread successfully bumped!", "Thread bumped", MessageBoxButton.OK, MessageBoxImage.Information);
+                        else
+                            MessageBox.Show("Error bumping shop thread, details logged to debuginfo.log", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        if (ex is ForumThreadException)
+                        {
+                            MessageBox.Show("The thread title supplied in your settings does not match the title of the thread Procurement tried to bump with the threadId in your settings. Check that your settings are correct", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+
+                        throw;
+                    }
+                });
         }
 
         private void postToThread(object obj)

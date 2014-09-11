@@ -29,6 +29,7 @@ namespace POEApi.Transport
 
         private const string updateThreadHashEx = "name=\\\"forum_thread\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
         private const string bumpThreadHashEx = "name=\\\"forum_post\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
+        private const string titleRegex = @"\<title\b[^>]*\>\s*(?<Title>[\s\S]*?)\</title\>";
 
         private const string updateShopURL = @"http://www.pathofexile.com/forum/edit-thread/{0}";
         private const string bumpShopURL = @"http://www.pathofexile.com/forum/post-reply/{0}";
@@ -198,15 +199,15 @@ namespace POEApi.Transport
             }
         }
 
-        public bool BumpThread(string threadID)
+        public bool BumpThread(string threadID, string threadTitle)
         {
             try
             {
-                string threadHash = getThreadHash(string.Format(bumpShopURL, threadID), bumpThreadHashEx);
+                string threadHash = validateAndGetHash(string.Format(bumpShopURL, threadID), threadTitle, bumpThreadHashEx);
 
                 StringBuilder data = new StringBuilder();
                 data.Append("forum_post=" + threadHash);
-                data.Append("&content=" + Uri.EscapeDataString("[url=https://code.google.com/p/procurement/]Bumped with Procurement![/url]"));
+                data.Append("&content=" + Uri.EscapeDataString("[url=https://code.google.com/p/procurement/]Bumped with Procurement! (Testing)[/url]"));
                 data.Append("&post_submit=" + Uri.EscapeDataString("Submit"));
 
                 var response = postToForum(data.ToString(), string.Format(bumpShopURL, threadID));
@@ -215,6 +216,9 @@ namespace POEApi.Transport
             }
             catch (Exception ex)
             {
+                if (ex is ForumThreadException)
+                    throw;
+
                 Logger.Log("Error bumping shop thread: " + ex.ToString());
                 return false;
             }
@@ -238,16 +242,33 @@ namespace POEApi.Transport
             return response;
         }
 
+        private string validateAndGetHash(string url, string threadTitle, string hashRegex)
+        {
+            string html = downloadPageData(url);
+
+            var title = Regex.Match(html, titleRegex).Groups["Title"].Value;
+
+            if (!title.ToLower().Contains(threadTitle.ToLower()))
+                throw new ForumThreadException();
+
+            return Regex.Match(html, hashRegex).Groups["hash"].Value;
+        }
+
         private string getThreadHash(string url, string regex)
         {
-            HttpWebRequest getHash = getHttpRequest(HttpMethod.GET, url);
-            HttpWebResponse hashResponse = (HttpWebResponse)getHash.GetResponse();
+            string html = downloadPageData(url);
+
+            return Regex.Match(html, regex).Groups["hash"].Value;
+        }
+
+        private string downloadPageData(string url)
+        {
+            HttpWebRequest getHashRequest = getHttpRequest(HttpMethod.GET, url);
+            HttpWebResponse hashResponse = (HttpWebResponse)getHashRequest.GetResponse();
 
             using (StreamReader reader = new StreamReader(hashResponse.GetResponseStream()))
             {
-                string hashRepsonse = reader.ReadToEnd();
-                string hashValue = Regex.Match(hashRepsonse, regex).Groups["hash"].Value;
-                return hashValue;
+                return reader.ReadToEnd();
             }
         }
     }
