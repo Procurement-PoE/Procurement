@@ -176,6 +176,29 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
 
+                    <ItemsControl ItemsSource="{Binding CraftedMods}"
+                                  Padding="10 0 10 5"
+                                  Visibility="{Binding HasCraftedMods,
+                                                       Converter={StaticResource bc},
+                                                       ConverterParameter=CollapseWhenFalse}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
+                                               Foreground="#b4b4ff"
+                                               Text="{Binding}"
+                                               TextAlignment="Center"
+                                               TextWrapping="Wrap" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
                     <Border Margin="0 0 0 5"
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"

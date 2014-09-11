@@ -44,6 +44,8 @@ namespace POEApi.Model
         public bool Corrupted { get; private set; }
         public List<string> Microtransactions { get; set; }
 
+        public List<string> CraftedMods { get; set; }
+
         public int TradeX { get; set; }
         public int TradeY { get; set; }
         public string TradeInventoryId { get; set; }
@@ -66,6 +68,7 @@ namespace POEApi.Model
             this.SecDescrText = item.SecDescrText;
             this.Explicitmods = item.ExplicitMods;
             this.ItemType = Model.ItemType.UnSet;
+            this.CraftedMods = item.CraftedMods;
 
             if (item.Properties != null)
             {

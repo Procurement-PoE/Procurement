@@ -87,7 +87,7 @@ namespace POEApi.Model.JSONProxy
 
         [DataMember(Name = "frameType")]
         public int frameType { get; set; }
-        
+
         [DataMember(Name = "x")]
         public int X { get; set; }
 
@@ -104,8 +104,8 @@ namespace POEApi.Model.JSONProxy
         public List<Socket> Sockets { get; set; }
 
         [DataMember(Name = "additionalProperties")]
-        public List<AdditionalProperty> additionalProperties { get; set; }        
-        
+        public List<AdditionalProperty> additionalProperties { get; set; }
+
         [DataMember(Name = "secDescrText")]
         public string SecDescrText { get; set; }
 
@@ -132,6 +132,9 @@ namespace POEApi.Model.JSONProxy
 
         [DataMember(Name = "cosmeticMods")]
         public List<string> CosmeticMods { get; set; }
+
+        [DataMember(Name = "craftedMods")]
+        public List<string> CraftedMods { get; set; }
     }
 
     [DataContract]
