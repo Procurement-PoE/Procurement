@@ -122,15 +122,9 @@ namespace Procurement.ViewModel
                         else
                             MessageBox.Show("Error bumping shop thread, details logged to debuginfo.log", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                    catch (Exception ex)
+                    catch (ForumThreadException)
                     {
-                        if (ex is ForumThreadException)
-                        {
-                            MessageBox.Show("The thread title supplied in your settings does not match the title of the thread Procurement tried to bump with the threadId in your settings. Check that your settings are correct", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                            return;
-                        }
-
-                        throw;
+                        MessageBox.Show("The thread title supplied in your settings does not match the title of the thread Procurement tried to bump with the threadId in your settings. Check that your settings are correct", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 });
         }
@@ -148,12 +142,16 @@ namespace Procurement.ViewModel
             if (!text.Contains("[url=https://code.google.com/p/procurement/][img]http://i.imgur.com/ZHBMImo.png[/img][/url]"))
                 text += Environment.NewLine + Environment.NewLine + "[url=https://code.google.com/p/procurement/][img]http://i.imgur.com/ZHBMImo.png[/img][/url]";
 
-            var shopUpdated = ApplicationState.Model.UpdateThread(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId, Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle, text);
 
-            if (shopUpdated)
-                MessageBox.Show("Shop successfully updated!", "Shop updated", MessageBoxButton.OK, MessageBoxImage.Information);
-            else
-                MessageBox.Show("Error updating shop, details logged to debuginfo.log", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            Task.Factory.StartNew(() =>
+              {
+                  var shopUpdated = ApplicationState.Model.UpdateThread(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId, Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle, text);
+
+                  if (shopUpdated)
+                      MessageBox.Show("Shop successfully updated!", "Shop updated", MessageBoxButton.OK, MessageBoxImage.Information);
+                  else
+                      MessageBox.Show("Error updating shop, details logged to debuginfo.log", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+              });
         }
 
         private bool settingsValid(bool isUpdate)
