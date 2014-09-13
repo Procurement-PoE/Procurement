@@ -42,7 +42,7 @@
                         <ColumnDefinition Width="228*" />
                     </Grid.ColumnDefinitions>
                     
-                    <Button Grid.Column="0" Name="LoginButton" Width="85" Height="28" HorizontalAlignment="Left" Click="Login_Click">
+                    <Button Grid.Column="0" Name="LoginButton" Width="85" Height="28" HorizontalAlignment="Left" Click="Login_Click" IsDefault="True">
                         <Image>
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">
