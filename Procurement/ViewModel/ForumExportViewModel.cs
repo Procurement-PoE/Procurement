@@ -1,23 +1,24 @@
-﻿using System;
+﻿using POEApi.Infrastructure;
+using POEApi.Model;
+using Procurement.Controls;
+using Procurement.Utility;
+using Procurement.ViewModel.ForumExportVisitors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using POEApi.Model;
-using System.Windows.Input;
-using System.Windows;
-using Procurement.ViewModel.ForumExportVisitors;
-using System.Reflection;
-using Procurement.Controls;
-using System.Text.RegularExpressions;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using POEApi.Infrastructure;
+using System.Windows;
 
 namespace Procurement.ViewModel
 {
     public class ForumExportViewModel : INotifyPropertyChanged
     {
+        private ExportPreferenceManager preferenceManager;
         private List<TabInfo> stashItems;
         private List<int> selected = new List<int>();
         private string text;
@@ -81,11 +82,14 @@ namespace Procurement.ViewModel
             }
         }
 
+
         public ForumExportViewModel()
         {
             copyCommand = new DelegateCommand(copy);
             postToThreadCommand = new DelegateCommand(postToThread);
             bumpThreadCommand = new DelegateCommand(bumpThread);
+
+            preferenceManager = new ExportPreferenceManager();
 
             updateForLeague();
 
@@ -99,6 +103,31 @@ namespace Procurement.ViewModel
                 AvailableTemplates.AddRange(Settings.Lists["AdditionalTemplates"]);
 
             currentTemplate = "ForumExportTemplate.txt";
+
+            setSelectedTabs();
+            registerTabEvents();
+        }
+
+        private void registerTabEvents()
+        {
+            foreach (var tab in StashItems)
+                tab.PropertyChanged += tabSelectionChanged;
+        }
+
+        private void deregisterTabEvents()
+        {
+            foreach (var tab in StashItems)
+                tab.PropertyChanged -= tabSelectionChanged;
+        }
+
+        private void tabSelectionChanged(object sender, PropertyChangedEventArgs e)
+        {
+            preferenceManager.UpdateTabSelection(sender as TabInfo);
+        }
+
+        private void setSelectedTabs()
+        {
+            preferenceManager.SetSelectedTabs(StashItems);
         }
 
         private void bumpThread(object obj)
@@ -187,7 +216,12 @@ namespace Procurement.ViewModel
 
         void ApplicationState_LeagueChanged(object sender, PropertyChangedEventArgs e)
         {
+            deregisterTabEvents();
+
             updateForLeague();
+
+            setSelectedTabs();
+            registerTabEvents();
         }
 
         private void updateForLeague()
