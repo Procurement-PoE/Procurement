@@ -25,8 +25,11 @@ namespace Procurement.ViewModel
         public bool IsCorrupted { get; private set; }
         public List<string> Microtransactions { get; private set; }
         public bool HasMicrotransactions { get; private set; }
-        public List<string> CraftedMods { get; private set; }
+
+        public List<string> CraftedMods { get; set; }
+
         public bool HasCraftedMods { get; private set; }
+
 
         public ItemHoverViewModel(Item item)
         {
@@ -38,13 +41,9 @@ namespace Procurement.ViewModel
             this.Properties = item.Properties;
 
             this.Requirements = new List<Requirement>();
-            this.HasRequirements =  Requirements != null && Requirements.Count > 0;
-
             this.ExplicitMods = item.Explicitmods;
-            this.HasExplicitMods = ExplicitMods != null && ExplicitMods.Count > 0;
 
             this.ImplicitMods = new List<string>();
-            this.HasImplicitMods =  ImplicitMods != null && ImplicitMods.Count > 0; 
 
             this.DescriptionText = item.DescrText;
 
@@ -54,10 +53,18 @@ namespace Procurement.ViewModel
             this.HasMicrotransactions = item.Microtransactions.Count > 0;
 
             this.CraftedMods = item.CraftedMods;
-            this.HasCraftedMods = CraftedMods != null && CraftedMods.Count > 0;
 
             SecondaryDescriptionText = item.SecDescrText;
+            setTypeSpecificProperties(item);
 
+            this.HasExplicitMods = ExplicitMods != null && ExplicitMods.Count > 0;
+            this.HasImplicitMods = ImplicitMods != null && ImplicitMods.Count > 0; 
+            this.HasCraftedMods = CraftedMods != null && CraftedMods.Count > 0;
+            this.HasRequirements = Requirements != null && Requirements.Count > 0;
+        }
+
+        private void setTypeSpecificProperties(Item item)
+        {
             var gear = item as Gear;
 
             if (gear != null)
