@@ -33,7 +33,7 @@ namespace Procurement.Utility
             loadPreferences();
         }
 
-        internal void SetSelectedTabs(List<TabInfo> tabs)
+        internal List<int> SetTabsAndGetsSelected(List<TabInfo> tabs)
         {
             try
             {
@@ -41,10 +41,12 @@ namespace Procurement.Utility
                     if (selectedTabs.Contains(tab.ID))
                         tab.IsChecked = true;
 
+                return selectedTabs;
             }
             catch (Exception ex)
             {
-                Logger.Log("Error setting selected tabs: " + ex.ToString());
+                Logger.Log("Error setting selected tabs: " + ex.ToString());                
+                return new List<int>();
             }
         }
 

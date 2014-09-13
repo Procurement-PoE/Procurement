@@ -127,7 +127,8 @@ namespace Procurement.ViewModel
 
         private void setSelectedTabs()
         {
-            preferenceManager.SetSelectedTabs(StashItems);
+            selected = preferenceManager.SetTabsAndGetsSelected(StashItems);
+            updateText();
         }
 
         private void bumpThread(object obj)
@@ -206,7 +207,6 @@ namespace Procurement.ViewModel
 
             return true;
         }
-
 
         private void copy(object parameter)
         {
