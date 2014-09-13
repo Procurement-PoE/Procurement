@@ -309,6 +309,7 @@ namespace Procurement.ViewModel
             StashControl stash = source.Tag as StashControl;
             stash.RefreshTab();
             ScreenController.Instance.InvalidateRecipeScreen();
+            ScreenController.Instance.UpdateTrading();
         }
 
 
