@@ -29,6 +29,7 @@ namespace POEApi.Model
         {
             int level;
             var levelProperty = Properties.Find(p => p.Name == "Level").Values[0].Item1;
+            levelProperty = levelProperty.Split(' ')[0]; //fixes "20 (MAX)"
 
             if (!int.TryParse(levelProperty, out level))
                 return 1;
