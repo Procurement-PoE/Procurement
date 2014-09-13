@@ -52,7 +52,7 @@ namespace POEApi.Model
                 string inventId = ProxyMapper.STASH + (tabId + 1).ToString();
                 items.RemoveAll(i => i.InventoryId == inventId);
 
-                if (Tabs[tabId].IsFakeTab)
+                if (Tabs.First(t => t.i == tabId).IsFakeTab)
                 {
                     refreshCharacterTab(currentModel, tabId);
                     return;
@@ -69,7 +69,9 @@ namespace POEApi.Model
 
         private void refreshCharacterTab(POEModel currentModel, int tabId)
         {
-            var characterName = Tabs[tabId].Name;
+            var charTab = Tabs.First(t => t.i == tabId);
+
+            var characterName = charTab.Name;
             var characterItems = currentModel.GetInventory(characterName, true);
             var characterStashItems = CharacterStashBuilder.GetCharacterStashItems(characterName, characterItems, tabId + 1);
 
@@ -112,7 +114,7 @@ namespace POEApi.Model
                 sb.AppendLine("End of tab data");
                 Logger.Log(sb.ToString());
 
-                throw new Exception("Error building stash from downloaded tabs, please log a ticket at http://code.google.com/p/procurement/issues and include all your .bin files");                
+                throw new Exception("Error building stash from downloaded tabs, please log a ticket at http://code.google.com/p/procurement/issues and include all your .bin files");
             }
         }
 
