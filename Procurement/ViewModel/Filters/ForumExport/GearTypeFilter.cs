@@ -3,21 +3,22 @@ using System.Linq;
 using POEApi.Model;
 
 namespace Procurement.ViewModel.Filters
-{
+{  
     public class GearTypeFilter : IFilter
     {
         public FilterGroup Group
         {
-            get { return FilterGroup.Default; }
+            get { return FilterGroup.GearTypes; }
         }
 
         private GearType gearType;
-        public GearTypeFilter(GearType gearType)
+        public GearTypeFilter(GearType gearType, string keyword)
         {
             this.gearType = gearType;
+            this.Keyword = keyword;
         }
 
-        public string Keyword { get { return gearType.ToString() + " gear"; } }
+        public string Keyword { get; set; }
         public string Help { get { return "Returns All " + gearType.ToString() + " gear"; } }
 
         public bool Applicable(Item item)
@@ -33,7 +34,5 @@ namespace Procurement.ViewModel.Filters
         {
             get { return true; }
         }
-
-
     }
 }

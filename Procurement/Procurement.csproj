@@ -146,6 +146,7 @@
     <Compile Include="Utility\StashHelper.cs" />
     <Compile Include="Utility\VersionChecker.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CraftedModFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\GearSearchFilters.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\LifeLeech.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\MovementSpeed.cs" />
     <Compile Include="ViewModel\TradeSettingsViewModel.cs" />

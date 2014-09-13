@@ -13,7 +13,7 @@ namespace Procurement.ViewModel.ForumExportVisitors
         {
             var tokensSource = from rarity in Enum.GetNames(typeof(Rarity))
                                from gearType in Enum.GetNames(typeof(GearType))
-                               select new KeyValuePair<string, IFilter>(string.Concat("{", rarity, gearType, "}"), new AndFilter(new RarityFilter(getEnum<Rarity>(rarity)), new GearTypeFilter(getEnum<GearType>(gearType))));
+                               select new KeyValuePair<string, IFilter>(string.Concat("{", rarity, gearType, "}"), new AndFilter(new RarityFilter(getEnum<Rarity>(rarity)), new GearTypeFilter(getEnum<GearType>(gearType), string.Empty)));
 
             tokens = tokensSource.ToDictionary(i => i.Key, i => i.Value);
             tokens.Add("{NormalGear}", new NormalRarity());

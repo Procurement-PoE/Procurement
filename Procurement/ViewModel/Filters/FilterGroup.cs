@@ -14,6 +14,7 @@
         Level,
         Crit,
         CharacterAttributes,
-        VaalFragments
+        VaalFragments,
+        GearTypes
     };
 }
