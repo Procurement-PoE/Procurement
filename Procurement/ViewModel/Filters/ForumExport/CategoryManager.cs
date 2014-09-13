@@ -50,6 +50,7 @@ namespace Procurement.ViewModel.Filters
                                                   .OrderBy(t => t.Name)
                                                   .Select(t => Activator.CreateInstance(t) as IFilter)
                                                   .OrderBy(i => i.Group)
+                                                  .ThenBy(i => i.Keyword)
                                                   .ToList();
         }
 
