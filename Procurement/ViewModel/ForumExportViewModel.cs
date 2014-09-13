@@ -233,9 +233,9 @@ namespace Procurement.ViewModel
 
         public void update(int key, bool isChecked, bool shouldUpdate)
         {
-            if (isChecked)
+            if (isChecked && !selected.Contains(key))
                 selected.Add(key);
-            else
+            else if (!isChecked)
                 selected.Remove(key);
 
             if (shouldUpdate)
