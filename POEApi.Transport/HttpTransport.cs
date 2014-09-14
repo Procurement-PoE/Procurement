@@ -106,8 +106,6 @@ namespace POEApi.Transport
 
         private HttpWebRequest getHttpRequest(HttpMethod method, string url)
         {
-            ServicePointManager.Expect100Continue = false;
-
             HttpWebRequest request = (HttpWebRequest)RequestThrottle.Instance.Create(url);
 
             request.CookieContainer = credentialCookies;
