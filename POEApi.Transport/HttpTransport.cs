@@ -98,9 +98,6 @@ namespace POEApi.Transport
             if (response.StatusCode != HttpStatusCode.Found)
                 throw new LogonFailedException(this.email);
 
-            hashResponse.Close();
-            response.Close();
-
             return true;
         }
 
@@ -140,9 +137,8 @@ namespace POEApi.Transport
             HttpWebRequest request = getHttpRequest(HttpMethod.GET, string.Format(stashURL, league, index));
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
-            return getMemoryStreamAndClose(response);
+            return getMemoryStreamFromResponse(response);
         }
-
 
         public Stream GetStash(int index, string league)
         {
@@ -154,16 +150,14 @@ namespace POEApi.Transport
             HttpWebRequest request = getHttpRequest(HttpMethod.GET, characterURL);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
-            return getMemoryStreamAndClose(response);
+            return getMemoryStreamFromResponse(response);
         }
 
         public Stream GetImage(string url)
         {
-            using (WebClient client = new WebClient())
-            {
-                client.Proxy = processProxySettings();
-                return new MemoryStream(client.DownloadData(url));
-            }
+            WebClient client = new WebClient();
+            client.Proxy = processProxySettings();
+            return new MemoryStream(client.DownloadData(url));
         }
 
         public Stream GetInventory(string characterName, bool forceRefresh)
@@ -171,17 +165,9 @@ namespace POEApi.Transport
             HttpWebRequest request = getHttpRequest(HttpMethod.GET, string.Format(inventoryURL, characterName));
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
-            return getMemoryStreamAndClose(response);
+            return getMemoryStreamFromResponse(response);
         }
 
-        private Stream getMemoryStreamAndClose(HttpWebResponse response)
-        {
-            var memStream = getMemoryStreamFromResponse(response);
-            response.Close();
-
-            return memStream;
-        }
-        
         private MemoryStream getMemoryStreamFromResponse(HttpWebResponse response)
         {
             StreamReader reader = new StreamReader(response.GetResponseStream());
