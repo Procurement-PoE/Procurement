@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using POEApi.Model;
 using System.Text.RegularExpressions;
+using POEApi.Infrastructure;
 
 namespace Procurement.ViewModel.ForumExportVisitors
 {
@@ -18,20 +19,27 @@ namespace Procurement.ViewModel.ForumExportVisitors
 
             foreach (int location in tokenLocations)
             {
-                var nameToken = getToken(location, current);
-                Regex replacer = new Regex(nameToken.Item2);
-                var tabs = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs.FindAll(t => t.Name == nameToken.Item1);
-                if (tabs == null)
+                try
                 {
-                    current = replacer.Replace(current, string.Empty, 1, location);
-                    continue;
+                    var nameToken = getToken(location, current);
+                    Regex replacer = new Regex(nameToken.Item2);
+                    var tabs = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs.FindAll(t => t.Name == nameToken.Item1);
+                    if (tabs == null)
+                    {
+                        current = replacer.Replace(current, string.Empty, 1, location);
+                        continue;
+                    }
+
+                    string sItems = "";
+                    foreach (Tab tab in tabs)
+                        sItems = sItems + getItems(ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(tab.i).OrderBy(i => i.H).ThenBy(i => i.IconURL));
+
+                    current = current.Replace(nameToken.Item2, sItems);
                 }
-
-                string sItems = "";
-                foreach (Tab tab in tabs)
-                    sItems  = sItems + getItems(ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(tab.i).OrderBy(i => i.H).ThenBy(i => i.IconURL));
-
-                current = current.Replace(nameToken.Item2, sItems);
+                catch (Exception ex)
+                {
+                    Logger.Log("Error in StashVisitor.Visit: " + ex.ToString());
+                }
             }
 
             return current;
@@ -61,16 +69,25 @@ namespace Procurement.ViewModel.ForumExportVisitors
         private List<int> getTokenLocations(string current)
         {
             List<int> tokenLocations = new List<int>();
+            List<string> addedTabs = new List<string>();
 
             int index = current.IndexOf(TOKENSTART, 0);
 
             while (index > -1)
             {
-                tokenLocations.Add(index);
+                var tabName = getToken(index, current).Item1;
+
+                if (!addedTabs.Contains(tabName))
+                {
+                    tokenLocations.Add(index);
+                    addedTabs.Add(tabName);
+                }
+
                 index = current.IndexOf(TOKENSTART, (index + 1));
             }
 
             tokenLocations.Reverse();
+
             return tokenLocations;
         }
     }
