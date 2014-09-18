@@ -25,9 +25,11 @@ namespace Procurement
             StringBuilder builder = new StringBuilder();
             try
             {
+                builder.AppendLine();
                 builder.AppendLine("CurrentCulture: " + System.Threading.Thread.CurrentThread.CurrentCulture.ToString());
                 builder.AppendLine("CurrentUICulture: " + System.Threading.Thread.CurrentThread.CurrentUICulture.ToString());
                 builder.AppendLine("Operating System: " + Environment.OSVersion.ToString());
+                builder.AppendLine("Current League: " + ApplicationState.CurrentLeague);
             }
             catch (Exception ex)
             {
