@@ -81,11 +81,30 @@ namespace POEApi.Model
 
         public List<Item> GetItemsByTab(int tabId)
         {
-            if (itemsByTab == null)
-                buildItemsByTab();
+            try
+            {
+                if (itemsByTab == null)
+                    buildItemsByTab();
 
-            ++tabId;
-            return itemsByTab[ProxyMapper.STASH + tabId.ToString()];
+                ++tabId;
+                return itemsByTab[ProxyMapper.STASH + tabId.ToString()];
+            }
+            catch (Exception ex)
+            {
+                StringBuilder sb = new StringBuilder();
+
+                sb.AppendLine();
+                sb.AppendLine("Exception attempting to get items by tab for tabId : " + tabId);
+                sb.AppendLine("Current TabIds:");
+
+                foreach (var key in itemsByTab.Keys)
+                    sb.AppendLine(key);
+
+                sb.AppendLine("End of TabIds.");
+                sb.AppendLine("Exception Details: " + ex.ToString());
+
+                return new List<Item>();
+            }
         }
 
         public string GetTabNameByInventoryId(string inventoryID)
