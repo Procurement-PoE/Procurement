@@ -36,7 +36,7 @@
       <Item name="Gladiator Helmet"/>
       <Item name="Reaver Helmet"/>
       <Item name="Siege Helmet"/>
-      <Item name="Samnite Helmet"/>
+      <Item name="Samite Helmet"/>
       <Item name="Ezomyte Burgonet"/>
       <Item name="Royal Burgonet"/>
       <Item name="Eternal Burgonet"/>
@@ -71,7 +71,7 @@
       <Item name="Fencer Helm"/>
       <Item name="Lacquered Helmet"/>
       <Item name="Fluted Bascinet"/>
-      <Item name="Pig Faced Bascinet"/>
+      <Item name="Pig-Faced Bascinet"/>
       <Item name="Nightmare Bascinet"/>
       <Item name="Sallet"/>
 
@@ -434,7 +434,7 @@
       <Item name="Mesh Boots"/>
       <Item name="Riveted Boots"/>
       <Item name="Zealot Boots"/>
-      <Item name="Soldier's Boots"/>
+      <Item name="Soldier Boots"/>
       <Item name="Legion Boots"/>
       <Item name="Crusader Boots"/>
 
@@ -713,7 +713,7 @@
       <Item name="Pecoraro"/>
       <Item name="Spiraled Foil"/>
       <Item name="Vaal Rapier"/>
-      <Item name="Jeweled Foil"/>
+      <Item name="Jewelled Foil"/>
       <Item name="Harpy Rapier"/>
 
       <Item name="Corroded Blade"/>
@@ -821,14 +821,14 @@
       <Item name="Driftwood Spiked Shield"/>
       <Item name="Alloyed Spike Shield"/>
       <Item name="Burnished Spike Shield"/>
-      <Item name="Ornate Spike Shield"/>
+      <Item name="Ornate Spiked Shield"/>
       <Item name="Redwood Spiked Shield"/>
       <Item name="Compound Spiked Shield"/>
       <Item name="Polished Spiked Shield"/>
       <Item name="Sovereign Spiked Shield"/>
       <Item name="Alder Spike Shield"/>
       <Item name="Ezomyte Spiked Shield"/>
-      <Item name="Mirrored Spike Shield"/>
+      <Item name="Mirrored Spiked Shield"/>
       <Item name="Supreme Spiked Shield"/>
     </GearBaseType>
     <GearBaseType name="Wand">
