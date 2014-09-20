@@ -103,6 +103,8 @@ namespace POEApi.Model
                 sb.AppendLine("End of TabIds.");
                 sb.AppendLine("Exception Details: " + ex.ToString());
 
+                Logger.Log(sb.ToString());
+
                 return new List<Item>();
             }
         }
