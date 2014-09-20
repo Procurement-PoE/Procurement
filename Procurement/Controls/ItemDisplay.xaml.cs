@@ -71,16 +71,13 @@ namespace Procurement.Controls
             ItemDisplayViewModel vm = this.DataContext as ItemDisplayViewModel;
             Item item = vm.Item;
 
-            if ((item is Currency))
-                return;
-
             MenuItem setBuyout = new MenuItem();
             string pricingInfo = string.Empty;
 
             if (Settings.Buyouts.ContainsKey(item.UniqueIDHash))
             {
                 pricingInfo = Settings.Buyouts[item.UniqueIDHash].Buyout;
-             
+
                 if (pricingInfo == string.Empty)
                     pricingInfo = Settings.Buyouts[item.UniqueIDHash].Price;
             }
@@ -90,6 +87,10 @@ namespace Procurement.Controls
 
             textblock = new TextBlock();
             textblock.Text = pricingInfo;
+
+            if (item is Currency)
+                textblock.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
+
             textblock.IsHitTestVisible = false;
             textblock.Margin = new Thickness(1, 1, 0, 0);
             this.MainGrid.Children.Add(textblock);
@@ -126,20 +127,17 @@ namespace Procurement.Controls
 
             menu.Resources = expressionDarkGrid;
 
-            if (!(item is Currency))
-            {
-                MenuItem setBuyout = new MenuItem();
+            MenuItem setBuyout = new MenuItem();
 
-                var buyoutControl = new SetBuyoutView();
+            var buyoutControl = new SetBuyoutView();
 
-                if (Settings.Buyouts.ContainsKey(item.UniqueIDHash))
-                    buyoutControl.SetBuyoutInfo(Settings.Buyouts[item.UniqueIDHash]);
+            if (Settings.Buyouts.ContainsKey(item.UniqueIDHash))
+                buyoutControl.SetBuyoutInfo(Settings.Buyouts[item.UniqueIDHash]);
 
-                setBuyout.Header = buyoutControl;
-                buyoutControl.Update += buyoutControl_Update;
-                buyoutControl.SaveImageClicked += buyoutControl_SaveImageClicked;
-                menu.Items.Add(setBuyout);
-            }
+            setBuyout.Header = buyoutControl;
+            buyoutControl.Update += buyoutControl_Update;
+            buyoutControl.SaveImageClicked += buyoutControl_SaveImageClicked;
+            menu.Items.Add(setBuyout);
 
             return menu;
         }

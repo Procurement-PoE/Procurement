@@ -17,7 +17,18 @@
 
         protected override int getConcreteHash()
         {
-            return 0;
+            var anonomousType = new
+            {
+                f = this.IconURL,
+                f2 = this.Name,
+                f3 = this.TypeLine,
+                f4 = this.DescrText,
+                f5 = this.X,
+                f6 = this.Y,
+                f7 = this.InventoryId
+            };
+
+            return anonomousType.GetHashCode();
         }
     }
 }

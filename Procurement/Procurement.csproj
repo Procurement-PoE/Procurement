@@ -146,9 +146,11 @@
     <Compile Include="Utility\StashHelper.cs" />
     <Compile Include="Utility\VersionChecker.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CraftedModFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\CurrencyFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GearSearchFilters.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\LifeLeech.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\MovementSpeed.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\CurrencyVisitor.cs" />
     <Compile Include="ViewModel\TradeSettingsViewModel.cs" />
     <Compile Include="ViewModel\Cache\BitmapCache.cs" />
     <Compile Include="ViewModel\DelegateCommand.cs" />
