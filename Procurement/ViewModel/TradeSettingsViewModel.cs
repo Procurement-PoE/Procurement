@@ -129,7 +129,7 @@ namespace Procurement.ViewModel
         {
             try
             {
-                Convert.ToBoolean(Settings.UserSettings[key]);
+                return Convert.ToBoolean(Settings.UserSettings[key]);
             }
             catch (Exception)
             {
