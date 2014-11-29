@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Reflection;
 
 namespace POEApi.Infrastructure
@@ -9,6 +10,10 @@ namespace POEApi.Infrastructure
 
         private string getFullPath(string key)
         {
+            // Percent-encode any characters in the key name that aren't valid in filenames
+            key = Path.GetInvalidFileNameChars()
+                .Aggregate(key, (current, c) => current.Replace(c.ToString(), "%" + ((int)c).ToString("X2")));
+
             if (Path.GetExtension(key) != string.Empty)
                 return Path.Combine(location, key);
 
