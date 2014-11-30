@@ -44,6 +44,13 @@ namespace Procurement.ViewModel.Filters.ForumExport
         { }
     }
 
+    class BeltFilter : GearTypeFilter
+    {
+        public BeltFilter()
+            : base(GearType.Belt, "Belts")
+        { }
+    }
+
     class AxeFilter : GearTypeFilter
     {
         public AxeFilter()
