@@ -145,6 +145,7 @@
     <Compile Include="Utility\ItemHoverRenderer.cs" />
     <Compile Include="Utility\StashHelper.cs" />
     <Compile Include="Utility\VersionChecker.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\AccurayFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CraftedModFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CurrencyFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GearSearchFilters.cs" />
