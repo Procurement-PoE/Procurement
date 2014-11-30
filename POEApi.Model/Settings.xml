@@ -77,8 +77,6 @@
     <List name="MyLeagues">
       <Item value="Standard" />
       <Item value="Hardcore" />
-      <Item value="Beyond" />
-      <Item value="Rampage" />
     </List>
     <List name="MyTabs">
       <!--If you only want Procurement to download specific tabs list them here, eg :-->
