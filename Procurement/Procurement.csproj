@@ -150,6 +150,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\CurrencyFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GearSearchFilters.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\LifeLeech.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\ManaLeechFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\MovementSpeed.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixLink.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\CurrencyVisitor.cs" />
