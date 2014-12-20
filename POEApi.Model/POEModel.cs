@@ -120,7 +120,7 @@ namespace POEApi.Model
                 Logger.Log(ex);
             }
 
-            throw new Exception(@"Downloading stash, details logged to DebugLog.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues");
+            throw new Exception(@"Downloading stash, details logged to DebugInfo.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues");
         }
 
         public Stash GetStash(string league)
@@ -163,7 +163,7 @@ namespace POEApi.Model
             catch (Exception ex)
             {
                 Logger.Log(string.Format("Error downloading stash for {0}, exception details: {1}", league, ex.ToString()));
-                throw new Exception(@"Downloading stash for " + league + ", details logged to DebugLog.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues");
+                throw new Exception(@"Downloading stash for " + league + ", details logged to DebugInfo.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues");
             }
         }
 
