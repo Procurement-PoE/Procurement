@@ -21,9 +21,15 @@ namespace Procurement.ViewModel.Filters
             initializeUserCategories();
         }
 
-        public static Dictionary<string, string> GetAvailableCategories()
+        public static List<AdvancedSearchCategory> GetAvailableCategories()
         {
-            return categories.ToDictionary(k => k.Key, k => string.Join(Environment.NewLine, k.Value.Select(filter => filter.Help)));
+            List<AdvancedSearchCategory> advancedSearchCategories = new List<AdvancedSearchCategory>();
+            foreach (var category in categories)
+            {
+                advancedSearchCategories.Add(new AdvancedSearchCategory(category.Key, string.Join(Environment.NewLine, category.Value.Select(filter => filter.Help))));
+            }
+
+            return advancedSearchCategories;
         }
 
         public static IEnumerable<IFilter> GetCategory(string category)
