@@ -223,7 +223,7 @@
                             <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="455">
                                 <Grid>
                                     <StackPanel>
-                                        <CheckBox Content="None" Foreground="#FFAB9066" Background="Black" Checked="CheckBox_Checked" />
+                                        <CheckBox Content="None" Foreground="#FFAB9066" Checked="CheckBox_Checked" />
                                         <ItemsControl ItemsSource="{Binding AvailableCategories}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
@@ -232,7 +232,7 @@
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
-                                                    <CheckBox Content="{Binding Key}" Foreground="#FFAB9066" Background="Black" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked">
+                                                    <CheckBox Content="{Binding Key}" Foreground="#FFAB9066" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked">
                                                         <CheckBox.ToolTip>
                                                             <Border Background="Black" BorderBrush="#FFAB9066" BorderThickness="1">
                                                                 <TextBlock Text="{Binding Value}" Foreground="#FFAB9066" />
