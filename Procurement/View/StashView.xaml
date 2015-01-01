@@ -43,14 +43,14 @@
     </UserControl.Resources>
     <Grid x:Name="ViewContent" Width="1012">
         <Grid.ColumnDefinitions>
-             <ColumnDefinition Width="600" />
-             <ColumnDefinition Width="10" />
-             <ColumnDefinition Width="370" />
+            <ColumnDefinition Width="600" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="370" />
             <ColumnDefinition Width="32*" />
         </Grid.ColumnDefinitions>
 
         <TabControl Background="Transparent" Width="600" BorderBrush="Transparent" VerticalAlignment="Top" x:Name="tabControl" HorizontalAlignment="Left" Template="{DynamicResource TabControlControlTemplate1}" Style="{Binding /}" Grid.ColumnSpan="2" Margin="4,3,0,0">
-                <TabControl.Resources>
+            <TabControl.Resources>
                 <Style x:Key="TabScrollerRepeatButtonStyle" TargetType="{x:Type RepeatButton}">
                     <Setter Property="Template">
                         <Setter.Value>
@@ -154,7 +154,7 @@
                     </Grid>
                 </ControlTemplate>
             </TabControl.Resources>
-            </TabControl>
+        </TabControl>
 
         <Grid Grid.Column="2" VerticalAlignment="Top">
             <Grid>
@@ -164,11 +164,11 @@
                 </Grid.RowDefinitions>
                 <Border Grid.Row="0" BorderBrush="#FF76591B" BorderThickness="2" Background="Black" Margin="0,15,0,0">
                     <Grid Margin="5,5,5,5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="55"/>
-                        <RowDefinition Height="25"/>
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="55"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
                         <poe:LeagueSelection Grid.Row="0" Width="320" Height="55" VerticalAlignment="Top" HorizontalAlignment="Left" />
                         <Grid Grid.Row="2">
                             <StackPanel Orientation="Horizontal" Background="Black" >
@@ -234,7 +234,7 @@
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
-                                                    <CheckBox Content="{Binding Key}" Foreground="#FFAB9066" Background="Black" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked" IsChecked="{Binding IsChecked}" Visibility="{Binding IsVisibleString}">
+                                                    <CheckBox Content="{Binding Key}" Foreground="#FFAB9066" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked" IsChecked="{Binding IsChecked}" Visibility="{Binding IsVisibleString}">
                                                         <CheckBox.ToolTip>
                                                             <Border Background="Black" BorderBrush="#FFAB9066" BorderThickness="1">
                                                                 <TextBlock Text="{Binding Value}" Foreground="#FFAB9066" />
@@ -263,22 +263,20 @@
                                                                 <Bold>
                                                                     <Run Foreground="#FFAB9066" Text="{Binding Key, Mode=OneWay}"></Run>
                                                                 </Bold>
-                                                                    <Run Foreground="#FFAB9066" Text=": "></Run>
-                                                                    <Run Foreground="#FFAB9066" Text="{Binding Value, Mode=OneWay, StringFormat=0}"></Run>
-                                                                </Paragraph>
-                                                            </FlowDocument>
-                                                        </RichTextBox>
-                                                    </Grid>
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
+                                                                <Run Foreground="#FFAB9066" Text=": "></Run>
+                                                                <Run Foreground="#FFAB9066" Text="{Binding Value, Mode=OneWay, StringFormat=0}"></Run>
+                                                            </Paragraph>
+                                                        </FlowDocument>
+                                                    </RichTextBox>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
                                     </ItemsControl>
                                 </Grid>
                             </ScrollViewer>
                         </Border>
                     </TabItem>
-
                 </TabControl>
-
             </Grid>
         </Grid>
     </Grid>
