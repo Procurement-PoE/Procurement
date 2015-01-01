@@ -228,7 +228,7 @@
                                 <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="417">
                                     <Grid>
                                         <StackPanel>
-                                            <CheckBox Content="None" Foreground="#FFAB9066" Background="Black" Checked="CheckBox_Checked" />
+                                            <CheckBox Content="None" Foreground="#FFAB9066" Checked="CheckBox_Checked" />
                                             <ItemsControl ItemsSource="{Binding AvailableCategories}" Name="AdvancedSearchItemControl">
                                                 <ItemsControl.ItemsPanel>
                                                     <ItemsPanelTemplate>
