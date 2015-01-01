@@ -92,7 +92,7 @@ namespace Procurement.ViewModel
 
         public ICommand GetTabs { get; set; }
 
-        public Dictionary<string, string> AvailableCategories { get; private set; }
+        public List<AdvancedSearchCategory> AvailableCategories { get; private set; }
 
         public List<string> Leagues
         {

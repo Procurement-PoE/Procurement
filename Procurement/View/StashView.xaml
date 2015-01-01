@@ -223,8 +223,10 @@
                             <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="455">
                                 <Grid>
                                     <StackPanel>
+                                        <Label Content="Filter :" Foreground="#FFAB9066"/>
+                                        <TextBox Name="AdvancedSearchFilter" Foreground="#FFAB9066" Background="Black" KeyUp="AdvancedSearchFilter_KeyUp"></TextBox>
                                         <CheckBox Content="None" Foreground="#FFAB9066" Background="Black" Checked="CheckBox_Checked" />
-                                        <ItemsControl ItemsSource="{Binding AvailableCategories}">
+                                        <ItemsControl ItemsSource="{Binding AvailableCategories}" Name="AdvancedSearchItemControl">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <StackPanel Orientation="Vertical"/>
@@ -232,7 +234,7 @@
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
-                                                    <CheckBox Content="{Binding Key}" Foreground="#FFAB9066" Background="Black" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked">
+                                                    <CheckBox Content="{Binding Key}" Foreground="#FFAB9066" Background="Black" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked" IsChecked="{Binding IsChecked}" Visibility="{Binding IsVisibleString}">
                                                         <CheckBox.ToolTip>
                                                             <Border Background="Black" BorderBrush="#FFAB9066" BorderThickness="1">
                                                                 <TextBlock Text="{Binding Value}" Foreground="#FFAB9066" />
