@@ -11,20 +11,20 @@ namespace POEApi.Model
             { new AmuletRunner() },
             { new BeltRunner() },
             { new FlaskRunner() },
-            { new MapRunner() },
             { new GloveRunner() },
             { new BootRunner() },
             { new AxeRunner() },
             { new ClawRunner() },
             { new BowRunner() },
             { new DaggerRunner() },
+            { new ShieldRunner() },
             { new MaceRunner() },
             { new QuiverRunner() },
             { new SceptreRunner() },
             { new StaffRunner() },
             { new SwordRunner() },
-            { new ShieldRunner() },
             { new WandRunner() },
+            { new MapRunner() },
             { new ChestRunner() } //Must always be last!
         };
 
