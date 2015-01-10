@@ -170,6 +170,19 @@ namespace POEApi.Model
             buyoutFile.Save(BUYOUT_LOCATION);
         }
 
+        public static void SaveTabBuyouts()
+        {
+            buyoutFile.Element("TabBuyouts").RemoveNodes();
+
+            foreach (var item in TabsBuyouts)
+            {
+                XElement tabBuyout = new XElement("Item", new XAttribute("id", item.Key), new XAttribute("value", item.Value));
+                buyoutFile.Element("TabBuyouts").Add(tabBuyout);
+            }
+
+            buyoutFile.Save(BUYOUT_LOCATION);
+        }
+
         public static void SaveLists()
         {
             updateLists();

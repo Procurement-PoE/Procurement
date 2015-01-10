@@ -14,25 +14,26 @@ using Procurement.View;
 using Procurement.ViewModel.Filters;
 using System.Text;
 using POEApi.Infrastructure;
+using System.Windows.Controls.Primitives;
 
 namespace Procurement.ViewModel
 {
     public class StashViewModel : INotifyPropertyChanged
     {
-        private class WhatsInTheBox
+        private class TabContent
         {
             public int Index { get; set; }
             public TabItem TabItem { get; set; }
             public StashControl Stash { get; set; }
-            public WhatsInTheBox(int index, TabItem tabItem, StashControl stash)
+            public TabContent(int index, TabItem tabItem, StashControl stash)
             {
                 this.Index = index;
                 this.TabItem = tabItem;
                 this.Stash = stash;
-            }           
+            }
         }
 
-        private List<WhatsInTheBox> tabsAndContent;
+        private List<TabContent> tabsAndContent;
         private StashView stashView;
         private List<IFilter> categoryFilter;
         private TabItem selectedTab { get; set; }
@@ -44,8 +45,8 @@ namespace Procurement.ViewModel
         public string Filter
         {
             get { return filter; }
-            set 
-            { 
+            set
+            {
                 filter = value;
                 processFilter();
             }
@@ -111,12 +112,12 @@ namespace Procurement.ViewModel
 
         public Dictionary<OrbType, double> TotalDistibution
         {
-            get 
+            get
             {
                 if (currencyDistributionUsesCount)
                     return ApplicationState.Stash[ApplicationState.CurrentLeague].GetTotalCurrencyCount();
 
-                return ApplicationState.Stash[ApplicationState.CurrentLeague].GetTotalCurrencyDistribution(configuredOrbType); 
+                return ApplicationState.Stash[ApplicationState.CurrentLeague].GetTotalCurrencyDistribution(configuredOrbType);
             }
         }
 
@@ -136,7 +137,7 @@ namespace Procurement.ViewModel
             this.stashView = stashView;
             categoryFilter = new List<IFilter>();
             AvailableCategories = CategoryManager.GetAvailableCategories();
-            tabsAndContent = new List<WhatsInTheBox>();
+            tabsAndContent = new List<TabContent>();
             stashView.Loaded += new System.Windows.RoutedEventHandler(stashView_Loaded);
             GetTabs = new DelegateCommand(GetTabList);
             ApplicationState.LeagueChanged += new PropertyChangedEventHandler(ApplicationState_LeagueChanged);
@@ -196,7 +197,7 @@ namespace Procurement.ViewModel
             Image i = item.Header as Image;
             CroppedBitmap bm = (CroppedBitmap)i.Source;
             Tab tab = (Tab)i.Tag;
-            item.Header =  StashHelper.GenerateTabImage(tab, true);
+            item.Header = StashHelper.GenerateTabImage(tab, true);
         }
 
         private void unselectPreviousTab(TabItem selectedTab)
@@ -241,7 +242,7 @@ namespace Procurement.ViewModel
             {
                 MenuItem menuItem = new MenuItem();
                 menuItem.Tag = item;
-                menuItem.Header = item.Tag.ToString(); //((item.Header as TextBlock).Inlines.FirstInline as Run).Text;
+                menuItem.Header = item.Tag.ToString();
                 menuItem.Click += (o, e) => { closeAndSelect(menu, menuItem); };
                 menu.Items.Add(menuItem);
             }
@@ -277,21 +278,34 @@ namespace Procurement.ViewModel
                 item.Content = itemStash;
                 itemStash.TabNumber = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs[i - 1].i;
 
-                if (!ApplicationState.Model.Offline)
-                {
-                    ContextMenu contextMenu = new ContextMenu();
-                    MenuItem refresh = new MenuItem() { Header = "Refresh" };
-                    refresh.Tag = itemStash;
-                    refresh.Click += new RoutedEventHandler(refresh_Click);
-                    contextMenu.Items.Add(refresh);
-                    item.ContextMenu = contextMenu;
-                }
+                addContextMenu(item, itemStash);
 
                 stashView.tabControl.Items.Add(item);
-                tabsAndContent.Add(new WhatsInTheBox(i - 1, item, itemStash));
+                tabsAndContent.Add(new TabContent(i - 1, item, itemStash));
             }
 
             stashView.Loaded -= new System.Windows.RoutedEventHandler(stashView_Loaded);
+        }
+
+        private void addContextMenu(TabItem item, StashControl itemStash)
+        {
+            ContextMenu contextMenu = new ContextMenu();
+
+            if (!ApplicationState.Model.Offline)
+                contextMenu.Items.Add(getMenuItem(itemStash, "Refresh", refresh_Click));
+            
+            contextMenu.Items.Add(getMenuItem(itemStash, "Set Tabwide Buyout", setTabBuyout_Click));
+
+            item.ContextMenu = contextMenu;
+        }
+
+        private MenuItem getMenuItem(StashControl itemStash, string header, RoutedEventHandler handler)
+        {
+            MenuItem menuItem = new MenuItem() { Header = header };
+            menuItem.Tag = itemStash;
+            menuItem.Click += new RoutedEventHandler(handler);
+
+            return menuItem;
         }
 
         private static List<IFilter> getUserFilter(string filter)
@@ -303,15 +317,56 @@ namespace Procurement.ViewModel
             return new List<IFilter>() { searchCriteria };
         }
 
+        void setTabBuyout_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                StashControl stash = getStash(sender);
+
+                var tabName = ApplicationState.Stash[ApplicationState.CurrentLeague].GetTabNameByTabId(stash.TabNumber);
+
+                var pricingInfo = new PricingInfo();
+
+                if (Settings.TabsBuyouts.ContainsKey(tabName))
+                    pricingInfo.Update(Settings.TabsBuyouts[tabName]);
+
+                SetTabBuyoutView buyoutView = new SetTabBuyoutView(pricingInfo, tabName);
+                buyoutView.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                buyoutView.Update += buyoutView_Update;
+                buyoutView.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Exception in setTabBuyout_Click: " + ex.ToString());
+                MessageBox.Show("Error setting tabwide buyout, error details logged to DebugInfo.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues", "Error setting tabwide buyout", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        void buyoutView_Update(PricingInfo buyoutInfo, string tabName)
+        {
+            if (buyoutInfo.Enabled)
+                Settings.TabsBuyouts[tabName] = buyoutInfo.GetSaveText();
+            else
+                Settings.TabsBuyouts.Remove(tabName);
+
+            Settings.SaveTabBuyouts();
+        }
+
         void refresh_Click(object sender, RoutedEventArgs e)
         {
-            MenuItem source = sender as MenuItem;
-            StashControl stash = source.Tag as StashControl;
+            StashControl stash = getStash(sender);
             stash.RefreshTab();
             ScreenController.Instance.InvalidateRecipeScreen();
             ScreenController.Instance.UpdateTrading();
         }
 
+        private static StashControl getStash(object sender)
+        {
+            MenuItem source = sender as MenuItem;
+            StashControl stash = source.Tag as StashControl;
+
+            return stash;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

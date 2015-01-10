@@ -14,6 +14,7 @@ namespace POEApi.Model
         public List<Tab> Tabs { get; set; }
         private Dictionary<string, List<Item>> itemsByTab;
         private Dictionary<string, string> tabNameByInventoryId;
+        private Dictionary<int, string> tabNameByTabId;
 
         internal Stash(JSONProxy.Stash proxy)
         {
@@ -27,6 +28,8 @@ namespace POEApi.Model
             items = proxy.Items.Select(item => ItemFactory.Get(item)).ToList();
             this.NumberOfTabs = proxy.NumTabs;
             this.Tabs = ProxyMapper.GetTabs(proxy.Tabs);
+
+            tabNameByTabId = Tabs.Where(t => t.IsFakeTab == false).ToDictionary(t => t.i, t => t.Name);
         }
 
         public void ClearItems()
@@ -109,6 +112,11 @@ namespace POEApi.Model
             }
         }
 
+        public string GetTabNameByTabId(int tabID)
+        {
+            return tabNameByTabId[tabID];
+        }
+
         public string GetTabNameByInventoryId(string inventoryID)
         {
             if (tabNameByInventoryId == null)
@@ -155,12 +163,6 @@ namespace POEApi.Model
         {
             return items.OfType<T>().ToList();
         }
-        public List<T> Get<T>(Func<T, bool> match) where T : Item
-        {
-            return items.OfType<T>()
-                        .Where(match)
-                        .ToList();
-        }
 
         public double GetTotal(OrbType target)
         {
@@ -180,29 +182,6 @@ namespace POEApi.Model
         public SortedDictionary<string, int> GetTotalGemDistribution()
         {
             return GemHandler.GetGemDistribution(Get<Gem>());
-        }
-
-        public Dictionary<string, List<Gear>> GetDuplicateRares()
-        {
-            return Get<Gear>().Where(g => g.Rarity == Rarity.Rare && g.Name != string.Empty)
-                              .GroupBy(g => g.Name)
-                              .Where(g => g.Count() > 1)
-                              .Select(g => g.ToList()).ToDictionary(d => d.First().Name);
-        }
-
-        public Dictionary<string, decimal> CalculateFreeSpace()
-        {
-            Dictionary<string, decimal> freeSpace = new Dictionary<string, decimal>();
-            decimal totalSpace = NumberOfTabs * tabSize;
-            freeSpace.Add("All", (items.Sum(i => (i.W * i.H)) / totalSpace) * 100);
-
-            foreach (var group in items.GroupBy(item => item.InventoryId))
-            {
-                decimal sum = group.Sum(i => (i.W * i.H));
-                freeSpace.Add(group.Key, (sum / tabSize) * 100);
-            }
-
-            return freeSpace;
         }
     }
 }

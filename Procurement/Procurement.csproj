@@ -94,6 +94,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ApplicationState.cs" />
+    <Compile Include="Controls\SetTabBuyoutView.xaml.cs">
+      <DependentUpon>SetTabBuyoutView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TradeSettings.xaml.cs">
       <DependentUpon>TradeSettings.xaml</DependentUpon>
     </Compile>
@@ -129,7 +132,6 @@
     <Compile Include="Controls\LeagueSelection.xaml.cs">
       <DependentUpon>LeagueSelection.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\NonTopMostPopup.cs" />
     <Compile Include="Controls\RecipeResults.xaml.cs">
       <DependentUpon>RecipeResults.xaml</DependentUpon>
     </Compile>
@@ -161,6 +163,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\SixRedSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SocketColourFilter.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\CurrencyVisitor.cs" />
+    <Compile Include="ViewModel\SetTabBuyoutViewModel.cs" />
     <Compile Include="ViewModel\TradeSettingsViewModel.cs" />
     <Compile Include="ViewModel\Cache\BitmapCache.cs" />
     <Compile Include="ViewModel\DelegateCommand.cs" />
@@ -393,6 +396,10 @@
     <Resource Include="Resources\fontin-smallcaps-webfont.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\SetTabBuyoutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\TradeSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
