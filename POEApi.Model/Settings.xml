@@ -60,6 +60,8 @@
     <Setting name="BuyoutItemsOnlyVisibleInBuyoutsTag" value="False" />
     <Setting name="OnlyDisplayBuyouts" value="false" />
     <Setting name="CheckForUpdates" value="True" />
+    <Setting name="PoeTradeRefreshEnabled" value="false" />
+    <Setting name="PoeTradeRefreshUrl" value="" />
   </UserSettings>
   <ProxySettings>
     <Setting name="Enabled" value="False" />

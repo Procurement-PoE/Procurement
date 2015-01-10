@@ -1,9 +1,9 @@
 ﻿using POEApi.Model;
+using Procurement.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
-using Procurement.Utility;
 
 namespace Procurement.ViewModel
 {
@@ -12,6 +12,7 @@ namespace Procurement.ViewModel
         private const string EMBED_BUYOUTS = "EmbedBuyouts";
         private const string BUYOUT_TAG_ONLY = "BuyoutItemsOnlyVisibleInBuyoutsTag";
         private const string ONLY_DISPLAY_BUYOUTS = "OnlyDisplayBuyouts";
+        private const string POE_TRADE_REFRESH = "PoeTradeRefreshEnabled";
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void onPropertyChanged(string name)
@@ -19,6 +20,8 @@ namespace Procurement.ViewModel
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
+
+        public bool LoggedIn { get { return !ApplicationState.Model.Offline; } }
 
         private bool embedBuyouts;
         public bool EmbedBuyouts
@@ -65,6 +68,26 @@ namespace Procurement.ViewModel
             }
         }
 
+        private bool poeTradeRefreshEnabled;
+            public bool PoeTradeRefreshEnabled
+        {
+            get { return poeTradeRefreshEnabled; }
+            set
+            {
+                poeTradeRefreshEnabled = value;
+                if (PropertyChanged != null)
+                    PropertyChanged(this, new PropertyChangedEventArgs(POE_TRADE_REFRESH));
+
+                Settings.UserSettings[POE_TRADE_REFRESH] = Convert.ToString(value);
+                Settings.Save();
+
+                if (value)
+                    PoeTradeOnlineHelper.Instance.Start();
+                else
+                    PoeTradeOnlineHelper.Instance.Stop(); 
+            }
+        }
+
         private string threadId;
         public string ThreadId
         {
@@ -89,23 +112,12 @@ namespace Procurement.ViewModel
             }
         }
 
-        private string poeTradeURL;
-        public string PoeTradeURL
-        {
-            get { return poeTradeURL; }
-            set
-            {
-                poeTradeURL = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("PoeTradeURL"));
-            }
-        }
-
         public TradeSettingsViewModel()
         {
             this.embedBuyouts = getSetting(EMBED_BUYOUTS);
             this.buyoutItemsOnlyVisibleInBuyoutsTag = getSetting(BUYOUT_TAG_ONLY);
             this.onlyDisplayBuyouts = getSetting(ONLY_DISPLAY_BUYOUTS);
+            this.poeTradeRefreshEnabled = getSetting(POE_TRADE_REFRESH);
 
             saveCommand = new DelegateCommand(saveShopSettings);
 
@@ -114,25 +126,20 @@ namespace Procurement.ViewModel
 
             this.threadId = Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId;
             this.threadTitle = Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle;
-            this.poeTradeURL = Settings.ShopSettings[ApplicationState.CurrentLeague].PoeTradeURL;
         }
 
         private void saveShopSettings(object obj)
         {
             if (!Settings.ShopSettings.ContainsKey(ApplicationState.CurrentLeague))
                 Settings.ShopSettings.Add(ApplicationState.CurrentLeague, new ShopSetting());
-            
+
             Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId = this.threadId;
             Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle = this.threadTitle;
-            Settings.ShopSettings[ApplicationState.CurrentLeague].PoeTradeURL = this.poeTradeURL;
-
-            //Notify about the update in case the URL changed
-            PoeTradeOnlineHelper.Instance.RegisterForOnlineRefresh(Settings.ShopSettings[ApplicationState.CurrentLeague]);
 
             if (Settings.SaveShopSettings())
                 MessageBox.Show("Shop settings saved", "Settings saved", MessageBoxButton.OK, MessageBoxImage.Information);
             else
-                MessageBox.Show("Unable to save shop settings, error logged to debuginfo.log", "Error", MessageBoxButton.OK, MessageBoxImage.Error);            
+                MessageBox.Show("Unable to save shop settings, error logged to debuginfo.log", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private DelegateCommand saveCommand;

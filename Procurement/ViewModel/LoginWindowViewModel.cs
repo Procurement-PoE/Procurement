@@ -98,7 +98,6 @@ namespace Procurement.ViewModel
             statusController.DisplayMessage(ApplicationState.Version + " Initialized.\r");
 
             VersionChecker.CheckForUpdates();
-            PoeTradeOnlineHelper.Instance.RegisterForOnlineRefresh(Settings.ShopSettings.Values.ToList());
         }
 
         void txtPassword_PasswordChanged(object sender, System.Windows.RoutedEventArgs e)
@@ -164,7 +163,10 @@ namespace Procurement.ViewModel
                 ApplicationState.SetDefaults();
 
                 if (!offline)
+                {
                     statusController.DisplayMessage("\nDone!");
+                    PoeTradeOnlineHelper.Instance.Start();
+                }
 
                 ApplicationState.Model.Authenticating -= model_Authenticating;
                 ApplicationState.Model.StashLoading -= model_StashLoading;
