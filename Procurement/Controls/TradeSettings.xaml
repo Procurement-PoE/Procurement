@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="800">
     <Border Grid.Column="0" BorderBrush="#FF76591B" BorderThickness="2" Background="Black">
         <Grid Width="950">
             <Grid.RowDefinitions>
@@ -13,6 +13,8 @@
                 <RowDefinition Height="25" />
                 <RowDefinition Height="25" />
                 <RowDefinition Height="28" />
+                <RowDefinition Height="28" />
+                <RowDefinition Height="45" />
                 <RowDefinition Height="28" />
                 <RowDefinition Height="28" />
                 <RowDefinition Height="*" />
@@ -25,27 +27,40 @@
             <CheckBox Grid.Row="2" Foreground="#FFAB9066" IsChecked="{Binding BuyoutItemsOnlyVisibleInBuyoutsTag}" Content="Buyouts items only visible in buyouts tag" HorizontalAlignment="Left" Margin="0,2,0,0" />
 
             <CheckBox Grid.Row="3" Foreground="#FFAB9066" IsChecked="{Binding OnlyDisplayBuyouts}" Content="Only display items with buyout" HorizontalAlignment="Left" Margin="0,2,0,0" />
-
+    
             <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Column="0" Content="Thread Id" Foreground="#FFAB9066" FontSize="12" />
-                <TextBox Height="22" Width="120" Grid.Column="1" Text="{Binding ThreadId}"  HorizontalAlignment="Left"  />
+                <TextBox Height="22" Width="100" Grid.Column="1" Text="{Binding ThreadId}"  HorizontalAlignment="Left"  />
             </Grid>
             <Grid Grid.Row="5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="800"/>
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Column="0" Content="Thread Title" Foreground="#FFAB9066" FontSize="12" />
                 <TextBox Height="22" Width="720" Grid.Column="1" Text="{Binding ThreadTitle}"  HorizontalAlignment="Left" />
             </Grid>
+            <Label Grid.Row="6" Foreground="#FFAB9066" FontSize="12" Margin="0, 0, 0, 0">
+                <TextBlock>
+                    Enter your personal poe.trade URL and Procurement will automatically refresh your online status for you as long as it remains open.<LineBreak/>You can get your URL by sending a PM to 'poexyzis' on the game forums. (<Hyperlink Click="Hyperlink_Click">http://www.pathofexile.com/private-messages/compose/to/poexyzis</Hyperlink>)
+                </TextBlock>
+            </Label>
+            <Grid Grid.Row="7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="800"/>
+                </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="6" Content="Save Thread Settings" Height="22" Width="120" Style="{Binding}" HorizontalAlignment="Left" Margin="10,0,0,0" Command="{Binding SaveCommand}"/>
+                <Label Grid.Column="0" Content="Poe.trade URL" Foreground="#FFAB9066" FontSize="12" />
+                <TextBox Height="22" Width="720" Grid.Column="1" Text="{Binding PoeTradeURL}"  HorizontalAlignment="Left" />
+            </Grid>
+            <Button Grid.Row="8" Content="Save Thread Settings" Style="{Binding}" Height="22" Width="120" HorizontalAlignment="Left" Margin="10,0,0,0" Command="{Binding SaveCommand}"/>
         </Grid>
     </Border>
 </UserControl>

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
+using Procurement.Utility;
 
 namespace Procurement.ViewModel
 {
@@ -88,6 +89,18 @@ namespace Procurement.ViewModel
             }
         }
 
+        private string poeTradeURL;
+        public string PoeTradeURL
+        {
+            get { return poeTradeURL; }
+            set
+            {
+                poeTradeURL = value;
+                if (PropertyChanged != null)
+                    PropertyChanged(this, new PropertyChangedEventArgs("PoeTradeURL"));
+            }
+        }
+
         public TradeSettingsViewModel()
         {
             this.embedBuyouts = getSetting(EMBED_BUYOUTS);
@@ -101,6 +114,7 @@ namespace Procurement.ViewModel
 
             this.threadId = Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId;
             this.threadTitle = Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle;
+            this.poeTradeURL = Settings.ShopSettings[ApplicationState.CurrentLeague].PoeTradeURL;
         }
 
         private void saveShopSettings(object obj)
@@ -110,6 +124,10 @@ namespace Procurement.ViewModel
             
             Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId = this.threadId;
             Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle = this.threadTitle;
+            Settings.ShopSettings[ApplicationState.CurrentLeague].PoeTradeURL = this.poeTradeURL;
+
+            //Notify about the update in case the URL changed
+            PoeTradeOnlineHelper.Instance.RegisterForOnlineRefresh(Settings.ShopSettings[ApplicationState.CurrentLeague]);
 
             if (Settings.SaveShopSettings())
                 MessageBox.Show("Shop settings saved", "Settings saved", MessageBoxButton.OK, MessageBoxImage.Information);

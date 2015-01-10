@@ -145,6 +145,7 @@
     <Compile Include="Utility\CharacterTabInjector.cs" />
     <Compile Include="Utility\ExportPreferenceManager.cs" />
     <Compile Include="Utility\ItemHoverRenderer.cs" />
+    <Compile Include="Utility\PoeTradeOnlineHelper.cs" />
     <Compile Include="Utility\StashHelper.cs" />
     <Compile Include="Utility\VersionChecker.cs" />
     <Compile Include="ViewModel\AdvancedSearchCategory.cs" />

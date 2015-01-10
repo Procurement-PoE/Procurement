@@ -89,7 +89,13 @@ namespace POEApi.Model
 
         private static ShopSetting createShopSetting(XElement shop)
         {
-            return new ShopSetting { ThreadId = shop.Attribute("ThreadId").Value, ThreadTitle = shop.Attribute("ThreadTitle").Value };
+            string s = (string)shop.Attribute("PoeTradeURL");
+            if (s == null)
+            {
+                //Compatibility with old file without this attribute
+                s = "";
+            }
+            return new ShopSetting { ThreadId = shop.Attribute("ThreadId").Value, ThreadTitle = shop.Attribute("ThreadTitle").Value, PoeTradeURL = s};
         }
 
         private static string tryGetValue(XElement list, string key)
@@ -218,7 +224,10 @@ namespace POEApi.Model
 
                 foreach (var shop in ShopSettings)
                 {
-                    XElement buyout = new XElement("Shop", new XAttribute("League", shop.Key), new XAttribute("ThreadId", shop.Value.ThreadId), new XAttribute("ThreadTitle", shop.Value.ThreadTitle));
+                    XElement buyout = new XElement("Shop", new XAttribute("League", shop.Key), 
+                        new XAttribute("ThreadId", shop.Value.ThreadId), 
+                        new XAttribute("ThreadTitle", shop.Value.ThreadTitle) , 
+                        new XAttribute("PoeTradeURL", shop.Value.PoeTradeURL));
                     settingsFile.Element("ShopSettings").Add(buyout);
                 }
 

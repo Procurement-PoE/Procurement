@@ -98,6 +98,7 @@ namespace Procurement.ViewModel
             statusController.DisplayMessage(ApplicationState.Version + " Initialized.\r");
 
             VersionChecker.CheckForUpdates();
+            PoeTradeOnlineHelper.Instance.RegisterForOnlineRefresh(Settings.ShopSettings.Values.ToList());
         }
 
         void txtPassword_PasswordChanged(object sender, System.Windows.RoutedEventArgs e)
