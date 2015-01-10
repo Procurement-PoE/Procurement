@@ -21,7 +21,7 @@ namespace Procurement.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
-        public bool LoggedIn { get { return !ApplicationState.Model.Offline; } }
+        public bool LoggedIn { get { return true; } }
 
         private bool embedBuyouts;
         public bool EmbedBuyouts
@@ -69,7 +69,7 @@ namespace Procurement.ViewModel
         }
 
         private bool poeTradeRefreshEnabled;
-            public bool PoeTradeRefreshEnabled
+        public bool PoeTradeRefreshEnabled
         {
             get { return poeTradeRefreshEnabled; }
             set
@@ -79,12 +79,20 @@ namespace Procurement.ViewModel
                     PropertyChanged(this, new PropertyChangedEventArgs(POE_TRADE_REFRESH));
 
                 Settings.UserSettings[POE_TRADE_REFRESH] = Convert.ToString(value);
-                Settings.Save();
+            }
+        }
 
-                if (value)
-                    PoeTradeOnlineHelper.Instance.Start();
-                else
-                    PoeTradeOnlineHelper.Instance.Stop(); 
+        private string poeTradeRefreshUrl;
+        public string PoeTradeRefreshUrl
+        {
+            get { return poeTradeRefreshUrl;  }
+            set
+            {
+                poeTradeRefreshUrl = value;
+                Settings.UserSettings["PoeTradeRefreshUrl"] = value;
+
+                if (PropertyChanged != null)
+                    PropertyChanged(this, new PropertyChangedEventArgs("PoeTradeRefreshUrl"));
             }
         }
 
@@ -120,12 +128,23 @@ namespace Procurement.ViewModel
             this.poeTradeRefreshEnabled = getSetting(POE_TRADE_REFRESH);
 
             saveCommand = new DelegateCommand(saveShopSettings);
+            saveRefreshCommand = new DelegateCommand(saveRefreshSettings);
 
             if (!Settings.ShopSettings.ContainsKey(ApplicationState.CurrentLeague))
                 return;
 
             this.threadId = Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId;
             this.threadTitle = Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle;
+        }
+
+        private void saveRefreshSettings(object obj)
+        {
+            Settings.Save();
+
+            if (poeTradeRefreshEnabled)
+                PoeTradeOnlineHelper.Instance.Start();
+            else
+                PoeTradeOnlineHelper.Instance.Stop();
         }
 
         private void saveShopSettings(object obj)
@@ -143,11 +162,17 @@ namespace Procurement.ViewModel
         }
 
         private DelegateCommand saveCommand;
-
         public DelegateCommand SaveCommand
         {
             get { return saveCommand; }
             set { saveCommand = value; }
+        }
+
+        private DelegateCommand saveRefreshCommand;
+        public DelegateCommand SaveRefreshCommand
+        {
+            get { return saveRefreshCommand; }
+            set { saveRefreshCommand = value; }
         }
 
         private bool getSetting(string key)

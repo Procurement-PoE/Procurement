@@ -18,6 +18,7 @@
                 <RowDefinition Height="45" />
                 <RowDefinition Height="25" />
                 <RowDefinition Height="30" />
+                <RowDefinition Height="35" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -62,11 +63,13 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Column="0" Content="Poe.trade URL" Foreground="#FFAB9066" FontSize="12" />
-                <TextBox Height="22" Width="720" Grid.Column="1" Text="{Binding PoeTradeURL}" IsEnabled="{Binding LoggedIn}" HorizontalAlignment="Left" />
+                <TextBox Height="22" Width="720" Grid.Column="1" Text="{Binding PoeTradeRefreshUrl}" IsEnabled="{Binding LoggedIn}" HorizontalAlignment="Left" />
             </Grid>
             
             <CheckBox Grid.Row="9" Foreground="#FFAB9066" IsChecked="{Binding PoeTradeRefreshEnabled}" IsEnabled="{Binding LoggedIn}" Content="Enable automatic poe.trade online refresh" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,2,0,0" />
 
+            <Button Grid.Row="10" Content="Save Poe.Trade Settings" Style="{Binding}" Height="22" Width="145" HorizontalAlignment="Left" Margin="10,0,0,0" Command="{Binding SaveRefreshCommand}" VerticalAlignment="Bottom"/>
+            
         </Grid>
     </Border>
 </UserControl>
