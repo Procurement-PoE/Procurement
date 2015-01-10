@@ -68,7 +68,7 @@
             
             <CheckBox Grid.Row="9" Foreground="#FFAB9066" IsChecked="{Binding PoeTradeRefreshEnabled}" IsEnabled="{Binding LoggedIn}" Content="Enable automatic poe.trade online refresh" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,2,0,0" />
 
-            <Button Grid.Row="10" Content="Save Poe.Trade Settings" Style="{Binding}" Height="22" Width="145" HorizontalAlignment="Left" Margin="10,0,0,0" Command="{Binding SaveRefreshCommand}" VerticalAlignment="Bottom"/>
+            <Button Grid.Row="10" Content="Save Poe.Trade Settings" Style="{Binding}" IsEnabled="{Binding LoggedIn}" Height="22" Width="145" HorizontalAlignment="Left" Margin="10,0,0,0" Command="{Binding SaveRefreshCommand}" VerticalAlignment="Bottom"/>
             
         </Grid>
     </Border>
