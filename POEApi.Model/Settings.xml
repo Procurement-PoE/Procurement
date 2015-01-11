@@ -72,8 +72,8 @@
   <ShopSettings>
     <Shop League="Standard" ThreadId="" ThreadTitle="" />
     <Shop League="Hardcore" ThreadId="" ThreadTitle="" />
-    <Shop League="Beyond" ThreadId="" ThreadTitle="" />
-    <Shop League="Rampage" ThreadId="" ThreadTitle="" />
+    <Shop League="Bloodlines" ThreadId="" ThreadTitle="" />
+    <Shop League="Torment" ThreadId="" ThreadTitle="" />
   </ShopSettings>
   <Lists>
     <List name="MyLeagues">
