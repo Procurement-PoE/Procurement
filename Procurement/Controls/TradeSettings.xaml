@@ -53,7 +53,7 @@
 
             <Label Grid.Row="7" Foreground="#FFAB9066" FontSize="12" Margin="0, 0, 0, 0">
                 <TextBlock>
-                    Enter your personal poe.trade URL and Procurement will automatically refresh your online status for you as long as it remains open.<LineBreak/>You can get your URL by sending a PM to 'poexyzis' on the game forums. (<Hyperlink Click="Hyperlink_Click">http://www.pathofexile.com/private-messages/compose/to/poexyzis</Hyperlink>)
+                    Enter your personal poe.trade URL and Procurement will automatically refresh your online status for you as long as it remains open. Online mode only.<LineBreak/>You can get your URL by sending a PM to 'poexyzis' on the game forums. (<Hyperlink Click="Hyperlink_Click">http://www.pathofexile.com/private-messages/compose/to/poexyzis</Hyperlink>)
                 </TextBlock>
             </Label>
             <Grid Grid.Row="8">

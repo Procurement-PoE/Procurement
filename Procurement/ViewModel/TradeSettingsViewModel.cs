@@ -135,6 +135,7 @@ namespace Procurement.ViewModel
 
             this.threadId = Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId;
             this.threadTitle = Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle;
+            this.poeTradeRefreshUrl = Settings.UserSettings["PoeTradeRefreshUrl"];
         }
 
         private void saveRefreshSettings(object obj)
