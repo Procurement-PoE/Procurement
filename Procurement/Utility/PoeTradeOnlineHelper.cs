@@ -18,18 +18,18 @@ namespace Procurement.Utility
         private System.Timers.Timer refreshTimer;
         private Uri refreshUri;
 
-		[DllImport("user32.dll")]
-		private static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
+        [DllImport("user32.dll")]
+        private static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
 
-		[StructLayout(LayoutKind.Sequential)]
-		private struct LASTINPUTINFO
-		{
-			public static readonly int SizeOf = Marshal.SizeOf(typeof(LASTINPUTINFO));
-			[MarshalAs(UnmanagedType.U4)]
-			public UInt32 cbSize;
-			[MarshalAs(UnmanagedType.U4)]
-			public UInt32 dwTime;
-		}
+        [StructLayout(LayoutKind.Sequential)]
+        private struct LASTINPUTINFO
+        {
+            public static readonly int SizeOf = Marshal.SizeOf(typeof(LASTINPUTINFO));
+            [MarshalAs(UnmanagedType.U4)]
+            public UInt32 cbSize;
+            [MarshalAs(UnmanagedType.U4)]
+            public UInt32 dwTime;
+        }
 
         private PoeTradeOnlineHelper()
         {
@@ -53,12 +53,12 @@ namespace Procurement.Utility
         {
             try
             {
-				Func<Process, bool> IsPoE = (c => c.MainWindowTitle.Contains("Path of Exile") || c.ProcessName.Contains("PathOfExile"));
-				if(GetIdleTime() >= TimeSpan.FromMinutes(10) || !Process.GetProcesses().Any(IsPoE))
-				{
-					// User is AFK or PoE is not running.
-					return;
-				}
+                Func<Process, bool> IsPoE = (c => c.MainWindowTitle.Contains("Path of Exile") || c.ProcessName.Contains("PathOfExile"));
+                if(GetIdleTime() >= TimeSpan.FromMinutes(10) || !Process.GetProcesses().Any(IsPoE))
+                {
+                    // User is AFK or PoE is not running.
+                    return;
+                }
                 using (var client = new WebClient())
                 {
                     var data = new NameValueCollection();
@@ -71,16 +71,16 @@ namespace Procurement.Utility
             }
         }
 
-		private TimeSpan GetIdleTime()
-		{
-			var inputInfo = new LASTINPUTINFO() {
-				cbSize = (uint)Marshal.SizeOf(typeof(LASTINPUTINFO)),
-				dwTime = 0
-			};
-			GetLastInputInfo(ref inputInfo);
-			// Allow for TickCount wrap-around.
-			return TimeSpan.FromTicks(unchecked(Environment.TickCount - inputInfo.dwTime));
-		}
+        private TimeSpan GetIdleTime()
+        {
+            var inputInfo = new LASTINPUTINFO() {
+                cbSize = (uint)Marshal.SizeOf(typeof(LASTINPUTINFO)),
+                dwTime = 0
+            };
+            GetLastInputInfo(ref inputInfo);
+            // Allow for TickCount wrap-around.
+            return TimeSpan.FromTicks(unchecked(Environment.TickCount - inputInfo.dwTime));
+        }
 
         internal void Start()
         {
