@@ -79,7 +79,7 @@ namespace Procurement.Utility
             };
             GetLastInputInfo(ref inputInfo);
             // Allow for TickCount wrap-around.
-            return TimeSpan.FromTicks(unchecked(Environment.TickCount - inputInfo.dwTime));
+            return TimeSpan.FromMilliseconds(unchecked(Environment.TickCount - inputInfo.dwTime));
         }
 
         internal void Start()
