@@ -50,16 +50,24 @@ namespace Procurement.Utility
         }
 
         private bool currentlyOnline;
+        private DateTime lastOnlineTime;
         private void RefreshOnlineStatus()
         {
             try
             {
+                // Trigger the online signal again when we are about to expire with poe.trade
+                var timeSinceLastOnline = DateTime.Now - lastOnlineTime;
+                if (timeSinceLastOnline.Minutes > 55)
+                {
+                    currentlyOnline = false;
+                }
+
                 Func<Process, bool> IsPoE = (c => c.MainWindowTitle.Contains("Path of Exile") || c.ProcessName.Contains("PathOfExile"));
                 var idleTime = GetIdleTime();
 
                 if (idleTime >= TimeSpan.FromMinutes(10) || !Process.GetProcesses().Any(IsPoE))
                 {
-                    // Prevent from spamming poe.xyz
+                    // Prevent from spamming poe.trade
                     if (currentlyOnline)
                     {
                         using (var client = new WebClient())
@@ -82,6 +90,7 @@ namespace Procurement.Utility
                         var data = new NameValueCollection();
                         client.UploadValuesAsync(refreshUri, "POST", data);
                         currentlyOnline = true;
+                        lastOnlineTime = DateTime.Now;
                     }
                 }
             }
