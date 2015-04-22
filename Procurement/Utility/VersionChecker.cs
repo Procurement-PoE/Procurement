@@ -41,9 +41,14 @@ namespace Procurement.Utility
         {
             try
             {
-                var updateInfo = e.Result.Split(',');
+                string[] updateInfo = e.Result.Split(',');
 
-                if (updateInfo[0] == ApplicationState.Version || MessageBox.Show("A new version of Procurement is available! Would you like to download now? (Opens in browser)", "Update Available", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+                //extract only version substring like "1.9.0"
+                updateInfo[0] = updateInfo[0].Replace("Procurement ", "");
+                Version curr_ver = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                Version new_ver = new Version(updateInfo[0]);
+
+                if (curr_ver>=new_ver || MessageBox.Show("A new version of Procurement is available! Would you like to download now? (Opens in browser)", "Update Available", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
                     return;
 
                 Process.Start(updateInfo[1]);

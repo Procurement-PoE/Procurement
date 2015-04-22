@@ -355,7 +355,7 @@ namespace Procurement.ViewModel
         void refresh_Click(object sender, RoutedEventArgs e)
         {
             StashControl stash = getStash(sender);
-            stash.RefreshTab();
+            stash.RefreshTab(Settings.UserSettings["AccountName"]);
             ScreenController.Instance.InvalidateRecipeScreen();
             ScreenController.Instance.UpdateTrading();
         }

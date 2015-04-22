@@ -57,9 +57,9 @@ namespace Procurement.Controls
             border.Background = Brushes.Transparent;
         }
 
-        public void RefreshTab()
+        public void RefreshTab(string accname)
         {
-            ApplicationState.Stash[ApplicationState.CurrentLeague].RefreshTab(ApplicationState.Model, ApplicationState.CurrentLeague, TabNumber);
+            ApplicationState.Stash[ApplicationState.CurrentLeague].RefreshTab(ApplicationState.Model, ApplicationState.CurrentLeague, TabNumber, accname);
             refresh();
         }
 

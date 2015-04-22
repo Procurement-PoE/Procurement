@@ -19,7 +19,7 @@
                         <RowDefinition Height="25"/>
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <Image Grid.Row="0" Source="/Procurement;component/Images/Sir%20Marauder%20bw.jpg" Width="504" Height="483"/>
+                    <Image Grid.Row="0" Source="/Procurement;component/Images/Sir%20medved%20about.png" Width="504" Height="483"/>
                     <Label Grid.Row="1" Content="Created By :" Foreground="#FFAB9066" FontSize="12" FontWeight="Bold"/>
                     <Label Grid.Row="1" Content="                      Stickymaddness             " Foreground="#FFAB9066" FontSize="22" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="60,19,60,6" Grid.RowSpan="2" />
                 </Grid>

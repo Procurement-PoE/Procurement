@@ -35,7 +35,7 @@ namespace POEApi.Transport
             return innerTranport.Authenticate(email, password, useSessionID);
         }
 
-        public Stream GetStash(int index, string league, bool refresh)
+        public Stream GetStash(int index, string league, bool refresh, string accname)
         {
             string key = string.Format("{0}-{1}-{2}", league, stashKey, index);
 
@@ -43,14 +43,14 @@ namespace POEApi.Transport
                 userCacheService.Remove(key);
 
             if (!userCacheService.Exists(key))
-                userCacheService.Set(key, innerTranport.GetStash(index, league));
+                userCacheService.Set(key, innerTranport.GetStash(index, league,accname));
 
             return userCacheService.Get(key);
         }
 
-        public Stream GetStash(int index, string league)
+        public Stream GetStash(int index, string league, string accname)
         {
-            return GetStash(index, league, false);
+            return GetStash(index, league, false,accname);
         }
 
         public Stream GetImage(string url)
@@ -84,13 +84,13 @@ namespace POEApi.Transport
             return userCacheService.Get(key);
         }
 
-        public Stream GetInventory(string characterName, bool forceRefresh)
+        public Stream GetInventory(string characterName, bool forceRefresh, string accname)
         {
             if (forceRefresh && userCacheService.Exists(characterName))
                 userCacheService.Remove(characterName);
             
             if (!userCacheService.Exists(characterName))
-                userCacheService.Set(characterName, innerTranport.GetInventory(characterName, forceRefresh));
+                userCacheService.Set(characterName, innerTranport.GetInventory(characterName, forceRefresh,accname));
 
             return userCacheService.Get(characterName);
         }
