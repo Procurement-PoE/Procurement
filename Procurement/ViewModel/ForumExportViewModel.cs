@@ -169,8 +169,8 @@ namespace Procurement.ViewModel
             if (confirmation != MessageBoxResult.Yes)
                 return;
 
-            if (!text.Contains("[url=https://code.google.com/p/procurement/][img]http://i.imgur.com/ZHBMImo.png[/img][/url]"))
-                text += Environment.NewLine + Environment.NewLine + "[url=https://code.google.com/p/procurement/][img]http://i.imgur.com/ZHBMImo.png[/img][/url]";
+            if (!text.Contains("[url=https://github.com/Stickymaddness/Procurement/][img]http://i.imgur.com/ZHBMImo.png[/img][/url]"))
+                text += Environment.NewLine + Environment.NewLine + "[url=https://github.com/Stickymaddness/Procurement/][img]http://i.imgur.com/ZHBMImo.png[/img][/url]";
 
 
             Task.Factory.StartNew(() =>

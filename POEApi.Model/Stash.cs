@@ -143,7 +143,7 @@ namespace POEApi.Model
                 sb.AppendLine("End of tab data");
                 Logger.Log(sb.ToString());
 
-                throw new Exception("Error building stash from downloaded tabs, please log a ticket at http://code.google.com/p/procurement/issues and include all your .bin files");
+                throw new Exception("Error building stash from downloaded tabs, please log a ticket at https://github.com/Stickymaddness/Procurement/ and include all your .bin files");
             }
         }
 
