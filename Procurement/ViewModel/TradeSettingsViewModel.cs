@@ -21,7 +21,7 @@ namespace Procurement.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
-        public bool LoggedIn { get { return ApplicationState.Model.Offline; } }
+        public bool LoggedIn { get { return !ApplicationState.Model.Offline; } }
 
         private bool embedBuyouts;
         public bool EmbedBuyouts
