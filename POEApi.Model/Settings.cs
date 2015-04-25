@@ -141,8 +141,8 @@ namespace POEApi.Model
             foreach (OrbType key in CurrencyRatios.Keys)
             {
                 XElement update = settingsFile.Elements("Ratios").Descendants().First(x => x.Attribute("type").Value == key.ToString());
-                update.Attribute("OrbAmount").SetValue(CurrencyRatios[key].OrbAmount.ToString());
-                update.Attribute("ChaosAmount").SetValue(CurrencyRatios[key].ChaosAmount.ToString());
+                update.Attribute("OrbAmount").SetValue(CurrencyRatios[key].OrbAmount.ToString(CultureInfo.InvariantCulture));
+                update.Attribute("ChaosAmount").SetValue(CurrencyRatios[key].ChaosAmount.ToString(CultureInfo.InvariantCulture));
             }
             
             updateLists();
