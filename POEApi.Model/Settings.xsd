@@ -34,6 +34,7 @@
             <xs:sequence>
               <xs:element name="AccountLogin" type="AccountLogin" minOccurs="1" maxOccurs="1" />
               <xs:element name="AccountPassword" type="AccountPassword" minOccurs="1" maxOccurs="1" />
+              <xs:element name="AccountName" type="AccountName" minOccurs="1" maxOccurs="1" />
               <xs:element name="UseSessionID" type="UseSessionID" minOccurs="1" maxOccurs="1" />
               <xs:element name="FavoriteLeague" type="FavoriteLeague" minOccurs="1" maxOccurs="1" />
               <xs:element name="FavoriteCharacter" type="FavoriteCharacter" minOccurs="1" maxOccurs="1" />
@@ -92,6 +93,10 @@
   </xs:complexType>
   <xs:complexType name="AccountPassword">
     <xs:attribute name="name" fixed="AccountPassword" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="AccountName">
+    <xs:attribute name="name" fixed="AccountName" type="xs:string" use="required"/>
     <xs:attribute name="value" type="xs:string" use="required"/>
   </xs:complexType>
   <xs:complexType name="UseSessionID">

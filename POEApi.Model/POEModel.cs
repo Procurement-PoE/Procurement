@@ -123,7 +123,7 @@ namespace POEApi.Model
             throw new Exception(@"Downloading stash, details logged to DebugInfo.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues");
         }
 
-        public Stash GetStash(string league)
+        public Stash GetStash(string league, string accountName)
         {
             try
             {
@@ -203,7 +203,7 @@ namespace POEApi.Model
             return characters.Select(c => new Character(c)).ToList();
         }
 
-        public List<Item> GetInventory(string characterName, bool forceRefresh)
+        public List<Item> GetInventory(string characterName, bool forceRefresh, string accountName)
         {
             try
             {
@@ -213,7 +213,7 @@ namespace POEApi.Model
                 DataContractJsonSerializer serialiser = new DataContractJsonSerializer(typeof(JSONProxy.Inventory));
                 JSONProxy.Inventory item;
 
-                using (Stream stream = transport.GetInventory(characterName, forceRefresh))
+                using (Stream stream = transport.GetInventory(characterName, forceRefresh, accountName))
                     item = (JSONProxy.Inventory)serialiser.ReadObject(stream);
 
                 if (item.Items == null)

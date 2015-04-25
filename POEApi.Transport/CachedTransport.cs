@@ -76,7 +76,7 @@ namespace POEApi.Transport
 
         public Stream GetCharacters()
         {
-            string key ="characterdata";
+            string key = "characterdata";
 
             if (!userCacheService.Exists(key))
                 userCacheService.Set(key, innerTranport.GetCharacters());
@@ -84,13 +84,13 @@ namespace POEApi.Transport
             return userCacheService.Get(key);
         }
 
-        public Stream GetInventory(string characterName, bool forceRefresh)
+        public Stream GetInventory(string characterName, bool forceRefresh, string accountName)
         {
             if (forceRefresh && userCacheService.Exists(characterName))
                 userCacheService.Remove(characterName);
-            
+
             if (!userCacheService.Exists(characterName))
-                userCacheService.Set(characterName, innerTranport.GetInventory(characterName, forceRefresh));
+                userCacheService.Set(characterName, innerTranport.GetInventory(characterName, forceRefresh, accountName));
 
             return userCacheService.Get(characterName);
         }

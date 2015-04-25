@@ -24,7 +24,7 @@ namespace POEApi.Transport
         private const string loginURL = @"https://www.pathofexile.com/login";
         private const string characterURL = @"http://www.pathofexile.com/character-window/get-characters";
         private const string stashURL = @"http://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}";
-        private const string inventoryURL = @"http://www.pathofexile.com/character-window/get-items?character={0}";
+        private const string inventoryURL = @"http://www.pathofexile.com/character-window/get-items?character={0}&accountName={1}";
         private const string hashRegEx = "name=\\\"hash\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
 
         private const string updateThreadHashEx = "name=\\\"forum_thread\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
@@ -160,9 +160,9 @@ namespace POEApi.Transport
             return new MemoryStream(client.DownloadData(url));
         }
 
-        public Stream GetInventory(string characterName, bool forceRefresh)
+        public Stream GetInventory(string characterName, bool forceRefresh, string accountName)
         {
-            HttpWebRequest request = getHttpRequest(HttpMethod.GET, string.Format(inventoryURL, characterName));
+            HttpWebRequest request = getHttpRequest(HttpMethod.GET, string.Format(inventoryURL, characterName, accountName));
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             return getMemoryStreamFromResponse(response);

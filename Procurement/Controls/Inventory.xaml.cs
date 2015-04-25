@@ -35,12 +35,12 @@ namespace Procurement.Controls
             if (initialized)
                 return;
 
-            refresh();
+            refresh(Settings.UserSettings["AccountName"]);
         }
 
-        private void refresh()
+        private void refresh(string accountName)
         {
-            this.Invent = ApplicationState.Model.GetInventory(Character, false).Where(i => i.InventoryId == "MainInventory").ToList();
+            this.Invent = ApplicationState.Model.GetInventory(Character, false, accountName).Where(i => i.InventoryId == "MainInventory").ToList();
             inventByLocation = Invent.ToDictionary(item => new Tuple<int, int>(item.X, item.Y));
             render();
         }
@@ -52,7 +52,7 @@ namespace Procurement.Controls
                 return;
 
             instance.initialized = false;
-            instance.refresh();
+            instance.refresh(Settings.UserSettings["AccountName"]);
         }
 
         private bool initialized = false;
