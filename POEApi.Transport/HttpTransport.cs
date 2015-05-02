@@ -123,9 +123,9 @@ namespace POEApi.Transport
             return null;
         }
 
-        public WebProxy processProxySettings()
+        public IWebProxy processProxySettings()
         {
-            System.Net.WebProxy proxy = (WebProxy)System.Net.WebRequest.GetSystemWebProxy();
+            System.Net.IWebProxy proxy = System.Net.WebRequest.GetSystemWebProxy();
             System.Net.NetworkCredential credentials = new System.Net.NetworkCredential(proxyUser, proxyPassword, proxyDomain);
             proxy.Credentials = credentials;
 
