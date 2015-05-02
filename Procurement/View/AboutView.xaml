@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
              Height="630" Width="1012">
     <Grid x:Name="ViewContent" Width="990">
         <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="5, 15, 0, 0" Height="600">
@@ -17,11 +16,13 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="485"/>
                         <RowDefinition Height="25"/>
-                        <RowDefinition />
+                        <RowDefinition Height="38*" />
+                        <RowDefinition Height="48*" />
                     </Grid.RowDefinitions>
                     <Image Grid.Row="0" Source="/Procurement;component/Images/Sir%20medved%20about.png" Width="504" Height="483"/>
                     <Label Grid.Row="1" Content="Created By :" Foreground="#FFAB9066" FontSize="12" FontWeight="Bold"/>
-                    <Label Grid.Row="1" Content="                      Stickymaddness             " Foreground="#FFAB9066" FontSize="22" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="60,19,60,6" Grid.RowSpan="2" />
+                    <Label Grid.Row="1" Content="                      Stickymaddness             " Foreground="#FFAB9066" FontSize="22" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="60,19,60,3" Grid.RowSpan="2" />
+                    <Label Grid.Row="3" Content="                     &amp; Medvedttn             " Foreground="#FFAB9066" FontSize="22" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="60,0,60,6" />
                 </Grid>
                 <Grid Grid.Column="2" VerticalAlignment="Top" Margin="30,0,6,0">
                     <Grid.RowDefinitions>
@@ -36,19 +37,19 @@
                     <StackPanel Grid.Row="2" >
                         <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" FontSize="14" Text="This open source software is provided free of charge!" />
                         <TextBlock />
-                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" FontSize="14" Text="For the latest updates, bug reports or feature requests, please visit : https://github.com/Stickymaddness/Procurement" />
+                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" FontSize="14" Text="For the latest updates, bug reports or feature requests, please visit : https://github.com/medvedttn/Procurement" />
                     </StackPanel>
                     
                     <StackPanel Grid.Row="3">
-                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" FontSize="14" Text="If you'd like to buy me a beer, you can do so here:" />
+                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" FontSize="14" Text="If you'd like to buy me a beer, you can do so here:" Visibility="Hidden" />
 
-                        <Button Grid.Column="3" Grid.Row="1"  Name="DonateButton" HorizontalAlignment="Left" Click="DonateButton_Click" Height="47" Width="147" Margin="0,15,0,0">
-                            <Image>
+                        <Button Grid.Column="3" Grid.Row="1"  Name="DonateButton" HorizontalAlignment="Left" Click="DonateButton_Click" Height="47" Width="147" Margin="0,15,0,0" IsEnabled="False">
+                            <Image Visibility="Hidden">
                                 <Image.Style>
                                     <Style TargetType="{x:Type Image}">
                                         <Setter Property="Source" Value="/Procurement;component/Images/buttons/donate.png"/>
                                         <Style.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
+                                            <Trigger Property="IsMouseOver" Value="False">
                                                 <Setter Property="Source" Value="/Procurement;component/Images/buttons/donate-hover.png"/>
                                             </Trigger>
                                         </Style.Triggers>

@@ -7,6 +7,7 @@
         <xs:element ref="PopularGems" minOccurs="1" maxOccurs="1" />
         <xs:element ref="UserSettings" minOccurs="1" maxOccurs="1" />
         <xs:element ref="ProxySettings" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="ShopSettings" minOccurs="1" maxOccurs="1" />
         <xs:element ref="Lists" minOccurs="1" maxOccurs="1" />
       </xs:sequence>
     </xs:complexType>
@@ -61,6 +62,21 @@
               <xs:element name="Username" type="Username" minOccurs="1" maxOccurs="1" />
               <xs:element name="Password" type="Password" minOccurs="1" maxOccurs="1" />
               <xs:element name="Domain" type="Domain" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShopSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Shop">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="League" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="ThreadId" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="ThreadTitle" type="xs:string" minOccurs="1" maxOccurs="1" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

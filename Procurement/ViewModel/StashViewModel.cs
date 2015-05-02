@@ -338,7 +338,7 @@ namespace Procurement.ViewModel
             catch (Exception ex)
             {
                 Logger.Log("Exception in setTabBuyout_Click: " + ex.ToString());
-                MessageBox.Show("Error setting tabwide buyout, error details logged to DebugInfo.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues", "Error setting tabwide buyout", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Error setting tabwide buyout, error details logged to DebugInfo.log, please open a ticket at https://github.com/medvedttn/Procurement/issues", "Error setting tabwide buyout", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

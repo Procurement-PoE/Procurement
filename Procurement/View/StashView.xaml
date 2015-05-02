@@ -5,7 +5,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:poe="clr-namespace:Procurement.Controls"
              xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
-             mc:Ignorable="d" 
              Height="630" Width="1012">
     <UserControl.Resources>
         <SolidColorBrush x:Key="TabControlNormalBorderBrush" Color="#AA9072" />

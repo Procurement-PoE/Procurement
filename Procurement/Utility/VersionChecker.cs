@@ -10,7 +10,7 @@ namespace Procurement.Utility
 {
     internal class VersionChecker
     {
-        private const string VERSION_URL = @"https://raw.githubusercontent.com/Stickymaddness/Procurement/master/latest-release.txt";
+        private const string VERSION_URL = @"https://raw.githubusercontent.com/medvedttn/Procurement/master/latest-release.txt";
         public static void CheckForUpdates()
         {
 #if DEBUG
@@ -48,7 +48,7 @@ namespace Procurement.Utility
                 Version curr_ver = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
                 Version new_ver = new Version(updateInfo[0]);
 
-                if (curr_ver>=new_ver || MessageBox.Show("A new version of Procurement is available! Would you like to download now? (Opens in browser)", "Update Available", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+                if (curr_ver>=new_ver || MessageBox.Show("A new version of Procurement Medved Edition is available! Would you like to download now? (Opens in browser)", "Update Available", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
                     return;
 
                 Process.Start(updateInfo[1]);

@@ -1,7 +1,5 @@
-Modified version.
-![Procurement](http://i.imgur.com/ssqviwb.png)
-
-<a href="https://sites.google.com/site/poeprocurement/"><img src="http://i.imgur.com/n7je9iK.png"></img></a>
+Medved Edition version.
+![Procurement](http://i.imgur.com/sDC9pzE.jpg)
 
 Path Of Exile Character &amp; Stash Management Tool
 
@@ -16,5 +14,3 @@ Procurement is a Windows application for the online game Path Of Exile, that log
 * Breakdown of your currency with Chaos total (Ratios configurable)
 * Everything is cached and can be viewed offline after you've logged in once
 * Single tab refreshing (if logged in) 
-
-

@@ -17,7 +17,7 @@ namespace Procurement
             Logger.Log("Application Version: " + ApplicationState.Version);
             Logger.Log(getEnvironementDetails());
             Logger.Log(e.Exception.ToString());
-            MessageBox.Show("There was an unhandled error - Sorry! Please create a ticket on github https://github.com/Stickymaddness/Procurement/issues. If the crash occured after Procurement was done downloading, zip and include your .tab files.");           
+            MessageBox.Show("There was an unhandled error - Sorry! Please create a ticket on github https://github.com/medvedttn/Procurement/issues. If the crash occured after Procurement was done downloading, zip and include your .tab files.");           
         }
 
         private string getEnvironementDetails()

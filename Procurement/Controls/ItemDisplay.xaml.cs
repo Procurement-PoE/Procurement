@@ -154,9 +154,10 @@ namespace Procurement.Controls
         private void updateBuyout(ItemTradeInfo info)
         {
             ItemDisplayViewModel vm = this.DataContext as ItemDisplayViewModel;
+            vm.Item.IsSelectedManually = info.IsManualSelected;
             Item item = vm.Item;
 
-            if (info.IsEmpty)
+            if (info.IsEmpty && !info.IsManualSelected)
             {
                 Settings.Buyouts.Remove(item.UniqueIDHash);
                 return;

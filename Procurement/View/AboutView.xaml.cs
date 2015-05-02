@@ -7,7 +7,7 @@ namespace Procurement.View
         public AboutView()
         {
             InitializeComponent();
-            this.Version.Content = ApplicationState.Version;
+            this.Version.Content = ApplicationState.Version+" (Medved Edition)";
         }
 
         public new Grid Content
@@ -17,7 +17,7 @@ namespace Procurement.View
 
         private void DonateButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://sites.google.com/site/poeprocurement/");            
+            //System.Diagnostics.Process.Start("https://github.com/medvedttn/Procurement/");            
         }
     }
 }

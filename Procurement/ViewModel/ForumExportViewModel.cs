@@ -169,8 +169,8 @@ namespace Procurement.ViewModel
             if (confirmation != MessageBoxResult.Yes)
                 return;
 
-            if (!text.Contains("[url=https://code.google.com/p/procurement/][img]http://i.imgur.com/ZHBMImo.png[/img][/url]"))
-                text += Environment.NewLine + Environment.NewLine + "[url=https://code.google.com/p/procurement/][img]http://i.imgur.com/ZHBMImo.png[/img][/url]";
+            if (!text.Contains("[url=https://github.com/medvedttn/Procurement][img]http://i.imgur.com/f1bzioI.png[/img][/url]"))
+                text += Environment.NewLine + Environment.NewLine + "[url=https://github.com/medvedttn/Procurement][img]http://i.imgur.com/f1bzioI.png[/img][/url]";
 
 
             Task.Factory.StartNew(() =>
@@ -226,6 +226,17 @@ namespace Procurement.ViewModel
 
         private void updateForLeague()
         {
+            if (!ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs.Exists(tab_item => tab_item.Name == "Manually Selected Tab"))
+            {
+                //add new virtual manual selection tab
+                Tab ManuallySelectedTab = new Tab();
+                ManuallySelectedTab.Hidden = true;
+                ManuallySelectedTab.i = 999;
+                ManuallySelectedTab.IsFakeTab = true;
+                ManuallySelectedTab.Name = "Manually Selected Tab";
+                ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs.Add(ManuallySelectedTab);
+            }
+
             var tabs = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs;
             StashItems = tabs.Select(t => new TabInfo() { Name = t.Name, Url = t.srcC, ID = t.i }).ToList();
             StashItems.ForEach(s => s.FixName());

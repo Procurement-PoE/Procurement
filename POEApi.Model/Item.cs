@@ -51,6 +51,8 @@ namespace POEApi.Model
         public string TradeInventoryId { get; set; }
         public string Character { get; set; }
 
+        public bool IsSelectedManually { get; set; }
+
         protected Item(JSONProxy.Item item)
         {
             this.Verified = item.Verified;
@@ -88,6 +90,8 @@ namespace POEApi.Model
             this.TradeY = this.Y;
             this.TradeInventoryId = this.InventoryId;
             this.Character = string.Empty;
+
+            this.IsSelectedManually = false;
         }
 
         private string getIconUrl(string url)

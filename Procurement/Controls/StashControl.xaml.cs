@@ -92,8 +92,13 @@ namespace Procurement.Controls
         private void refresh()
         {
             this.Stash = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(TabNumber);
-            updateStashByLocation();
-            render();
+            
+            //do not display items in vurtual manual selection tab
+            if (!(TabNumber == 999))
+            {
+                updateStashByLocation();
+                render();
+            }
         }
 
         private void updateStashByLocation()

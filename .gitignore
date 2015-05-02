@@ -1,10 +1,10 @@
 POEApi.Infrastructure/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 POEApi.Model/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 POEApi.Transport/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
-Procurement.suo
-Procurement.v12.suo
-Procurement.v11.suo
 Procurement/Procurement.csproj.user
 **/bin/Debug/
 **/bin/Release/
 **/obj/
+Procurement_Medved_logo.png
+
+*.suo

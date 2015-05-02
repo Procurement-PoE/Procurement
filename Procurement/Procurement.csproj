@@ -380,19 +380,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
     <AppDesigner Include="Properties\" />
     <Resource Include="Resources\fontin-regular-webfont.ttf" />
     <Resource Include="Resources\fontin-smallcaps-webfont.ttf" />
@@ -574,7 +565,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\mainscreen.png" />
-    <Resource Include="Images\Sir Marauder.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Sockets\blue-socketed.png" />
@@ -684,9 +674,6 @@
     <Resource Include="Images\Sockets\red-socketed-white.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Sir Marauder bw.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Sockets\white-socketed-white.png" />
   </ItemGroup>
   <ItemGroup>
@@ -694,6 +681,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Sir medved about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\medved-relax.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

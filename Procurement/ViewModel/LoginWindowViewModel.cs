@@ -110,7 +110,7 @@ namespace Procurement.ViewModel
             ApplicationState.InitializeFont(Properties.Resources.fontin_regular_webfont);
             ApplicationState.InitializeFont(Properties.Resources.fontin_smallcaps_webfont);
 
-            statusController.DisplayMessage(ApplicationState.Version + " Initialized.\r");
+            statusController.DisplayMessage(ApplicationState.Version + " Medved Edition Initialized.\r");
 
             VersionChecker.CheckForUpdates();
         }

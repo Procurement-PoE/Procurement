@@ -8,7 +8,7 @@
             <ColumnDefinition Width="65*"/>
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Column="0" Width="282" Height="577" Source="/Procurement;component/Images/Sir Medved.png" />
+        <Image Grid.Column="0" Width="282" Height="577" Source="/Procurement;component/Images/Sir Medved.png" VerticalAlignment="Bottom" />
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>

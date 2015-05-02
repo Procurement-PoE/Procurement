@@ -57,12 +57,20 @@ namespace Procurement.ViewModel
             set { notes = value; }
         }
 
+        private bool ismanualselected;
+        public bool IsManualSelected
+        {
+            get { return ismanualselected; }
+            set { ismanualselected = value; }
+        }
+
         public SetBuyoutViewModel()
         {
             
             buyoutInfo = new PricingInfo();
             offerInfo = new PricingInfo();
             priceInfo = new PricingInfo();
+            ismanualselected = false;
             Notes = string.Empty;
         }
 
@@ -71,6 +79,7 @@ namespace Procurement.ViewModel
             buyoutInfo.Update(info.Buyout);
             offerInfo.Update(info.CurrentOffer);
             priceInfo.Update(info.Price);
+            ismanualselected = info.IsManualSelected;
             Notes = info.Notes;
         }        
     }

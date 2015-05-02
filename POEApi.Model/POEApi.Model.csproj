@@ -93,6 +93,7 @@
   <ItemGroup>
     <Content Include="Buyouts.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Data.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -12,7 +12,7 @@ namespace POEApi.Model
     {
         private const string SAVE_LOCATION = "Settings.xml";
         private const string DATA_LOCATION = "Data.xml";
-        private const string BUYOUT_LOCATION = "Buyouts.xml";
+        internal const string BUYOUT_LOCATION = "Buyouts.xml";
 
         public static Dictionary<OrbType, CurrencyRatio> CurrencyRatios { get; private set; }
         public static Dictionary<string, string> UserSettings { get; private set; }
@@ -77,9 +77,9 @@ namespace POEApi.Model
             var legacyBuyouts = items.Where(i => i.Attribute("value") != null).Any();
 
             if (legacyBuyouts)
-                return items.ToDictionary(list => (int)list.Attribute("id"), list => new ItemTradeInfo(list.Attribute("value").Value, string.Empty, string.Empty, string.Empty));
+                return items.ToDictionary(list => (int)list.Attribute("id"), list => new ItemTradeInfo(list.Attribute("value").Value, string.Empty, string.Empty, string.Empty, false));
 
-            return items.ToDictionary(list => (int)list.Attribute("id"), list => new ItemTradeInfo(tryGetValue(list, "BuyoutValue"), tryGetValue(list, "PriceValue"), tryGetValue(list, "CurrentOfferValue"), tryGetValue(list, "Notes")));
+            return items.ToDictionary(list => (int)list.Attribute("id"), list => new ItemTradeInfo(tryGetValue(list, "BuyoutValue"), tryGetValue(list, "PriceValue"), tryGetValue(list, "CurrentOfferValue"), tryGetValue(list, "Notes"), bool.Parse(tryGetValue(list, "IsManuallySelected"))));
         }
 
         private static void loadShopSettings()
@@ -95,7 +95,16 @@ namespace POEApi.Model
         private static string tryGetValue(XElement list, string key)
         {
             if (list.Attribute(key) == null)
-                return string.Empty;
+            {
+                if (key == "IsManuallySelected")
+                {
+                    return "False";
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
 
             return list.Attribute(key).Value;
         }
@@ -141,8 +150,8 @@ namespace POEApi.Model
             foreach (OrbType key in CurrencyRatios.Keys)
             {
                 XElement update = settingsFile.Elements("Ratios").Descendants().First(x => x.Attribute("type").Value == key.ToString());
-                update.Attribute("OrbAmount").SetValue(CurrencyRatios[key].OrbAmount.ToString());
-                update.Attribute("ChaosAmount").SetValue(CurrencyRatios[key].ChaosAmount.ToString());
+                update.Attribute("OrbAmount").SetValue(CurrencyRatios[key].OrbAmount.ToString(CultureInfo.InvariantCulture));
+                update.Attribute("ChaosAmount").SetValue(CurrencyRatios[key].ChaosAmount.ToString(CultureInfo.InvariantCulture));
             }
             
             updateLists();
@@ -163,7 +172,7 @@ namespace POEApi.Model
 
             foreach (int key in Buyouts.Keys)
             {
-                XElement buyout = new XElement("Item", new XAttribute("id", key), new XAttribute("BuyoutValue", Buyouts[key].Buyout), new XAttribute("PriceValue", Buyouts[key].Price), new XAttribute("CurrentOfferValue", Buyouts[key].CurrentOffer), new XAttribute("Notes", Buyouts[key].Notes));
+                XElement buyout = new XElement("Item", new XAttribute("id", key), new XAttribute("BuyoutValue", Buyouts[key].Buyout), new XAttribute("PriceValue", Buyouts[key].Price), new XAttribute("CurrentOfferValue", Buyouts[key].CurrentOffer), new XAttribute("Notes", Buyouts[key].Notes), new XAttribute("IsManuallySelected", Buyouts[key].IsManualSelected));
                 buyoutFile.Element("ItemBuyouts").Add(buyout);
             }
 
