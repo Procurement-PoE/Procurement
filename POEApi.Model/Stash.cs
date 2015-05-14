@@ -58,11 +58,11 @@ namespace POEApi.Model
 
                 if (Tabs.First(t => t.i == tabId).IsFakeTab)
                 {
-                    refreshCharacterTab(currentModel, tabId, accname);
+                    refreshCharacterTab(currentModel, tabId);
                     return;
                 }
 
-                Add(currentModel.GetStash(tabId, currentLeague, true, accname));
+                Add(currentModel.GetStash(tabId, currentLeague, true));
                 refreshItemsByTabTab(tabId);
             }
             catch (Exception ex)
@@ -71,12 +71,12 @@ namespace POEApi.Model
             }
         }
 
-        private void refreshCharacterTab(POEModel currentModel, int tabId, string accname)
+        private void refreshCharacterTab(POEModel currentModel, int tabId)
         {
             var charTab = Tabs.First(t => t.i == tabId);
 
             var characterName = charTab.Name;
-            var characterItems = currentModel.GetInventory(characterName, true, accname);
+            var characterItems = currentModel.GetInventory(characterName, true);
             var characterStashItems = CharacterStashBuilder.GetCharacterStashItems(characterName, characterItems, tabId + 1);
 
             items.AddRange(characterStashItems);

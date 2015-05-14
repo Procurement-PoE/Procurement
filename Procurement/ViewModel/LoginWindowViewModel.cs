@@ -52,20 +52,6 @@ namespace Procurement.ViewModel
             }
         }
 
-        private string accname;
-        public string AccName
-        {
-            get { return accname; }
-            set
-            {
-                if (value != accname)
-                {
-                    accname = value;
-                    OnPropertyChanged("AccName");
-                }
-            }
-        }
-
         public bool UseSession
         {
             get { return useSession; }
@@ -93,7 +79,6 @@ namespace Procurement.ViewModel
             UseSession = Settings.UserSettings.ContainsKey("UseSessionID") ? bool.Parse(Settings.UserSettings["UseSessionID"]) : false;
 
             Email = Settings.UserSettings["AccountLogin"];
-            AccName = Settings.UserSettings["AccountName"];
             this.formChanged = string.IsNullOrEmpty(Settings.UserSettings["AccountPassword"]);
 
             if (!this.formChanged)
@@ -127,13 +112,6 @@ namespace Procurement.ViewModel
             if (string.IsNullOrEmpty(Email))
             {
                 MessageBox.Show(string.Format("{0} is required!", useSession ? "Alias" : "Email"), "Error logging in", MessageBoxButton.OK, MessageBoxImage.Stop);
-                toggleControls();
-                return;
-            }
-
-            if (string.IsNullOrEmpty(AccName))
-            {
-                MessageBox.Show("Account name is required!", "Error logging in", MessageBoxButton.OK, MessageBoxImage.Stop);
                 toggleControls();
                 return;
             }
@@ -251,7 +229,6 @@ namespace Procurement.ViewModel
 
             Settings.UserSettings["AccountLogin"] = Email;
             Settings.UserSettings["AccountPassword"] = password.Encrypt();
-            Settings.UserSettings["AccountName"] = AccName;
             Settings.UserSettings["UseSessionID"] = useSession.ToString();
             Settings.Save();
         }
@@ -262,7 +239,6 @@ namespace Procurement.ViewModel
             view.OfflineButton.IsEnabled = !view.OfflineButton.IsEnabled;
             view.txtLogin.IsEnabled = !view.txtLogin.IsEnabled;
             view.txtPassword.IsEnabled = !view.txtPassword.IsEnabled;
-            view.txtAccName.IsEnabled = !view.txtAccName.IsEnabled;
         }
 
         private IEnumerable<Item> LoadStashItems(Character character)
@@ -271,7 +247,7 @@ namespace Procurement.ViewModel
                 return Enumerable.Empty<Item>();
 
             ApplicationState.CurrentLeague = character.League;
-            ApplicationState.Stash[character.League] = ApplicationState.Model.GetStash(character.League, AccName);
+            ApplicationState.Stash[character.League] = ApplicationState.Model.GetStash(character.League);
             ApplicationState.Leagues.Add(character.League);
 
             return ApplicationState.Stash[character.League].Get<Item>();
@@ -287,7 +263,7 @@ namespace Procurement.ViewModel
             List<Item> inventory;
             try
             {
-                inventory = ApplicationState.Model.GetInventory(character.Name, false, AccName);
+                inventory = ApplicationState.Model.GetInventory(character.Name, false);
                 success = true;
             }
             catch (WebException)
@@ -326,6 +302,7 @@ namespace Procurement.ViewModel
         void model_Authenticating(POEModel sender, AuthenticateEventArgs e)
         {
             update("Authenticating " + e.Email, e);
+            if (e.State == POEEventState.AfterEvent) update("Logged as " + e.AccName, new POEEventArgs(POEEventState.BeforeEvent));
         }
 
         void model_Throttled(object sender, ThottledEventArgs e)

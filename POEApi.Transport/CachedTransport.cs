@@ -30,9 +30,9 @@ namespace POEApi.Transport
                 Throttled(sender, e);
         }
 
-        public bool Authenticate(string email, SecureString password, bool useSessionID)
+        public string Authenticate(string email, SecureString password, bool useSessionID, string curr_accname)
         {
-            return innerTranport.Authenticate(email, password, useSessionID);
+            return innerTranport.Authenticate(email, password, useSessionID, curr_accname);
         }
 
         public Stream GetStash(int index, string league, bool refresh, string accname)

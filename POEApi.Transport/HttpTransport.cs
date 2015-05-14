@@ -6,6 +6,7 @@ using POEApi.Infrastructure;
 using System.Security;
 using POEApi.Infrastructure.Events;
 using System.Text.RegularExpressions;
+using System.Xml.Linq;
 
 namespace POEApi.Transport
 {
@@ -34,6 +35,8 @@ namespace POEApi.Transport
         private const string updateShopURL = @"http://www.pathofexile.com/forum/edit-thread/{0}";
         private const string bumpShopURL = @"http://www.pathofexile.com/forum/post-reply/{0}";
 
+        private const string myAccountURL = @"http://www.pathofexile.com/my-account";
+
         public event ThottledEventHandler Throttled;
 
         public HttpTransport(string login)
@@ -58,7 +61,7 @@ namespace POEApi.Transport
                 Throttled(this, e);
         }
 
-        public bool Authenticate(string email, SecureString password, bool useSessionID)
+        public string Authenticate(string email, SecureString password, bool useSessionID, string current_accname)
         {
             if (useSessionID)
             {
@@ -68,7 +71,7 @@ namespace POEApi.Transport
 
                 if (confirmAuthResponse.ResponseUri.ToString() == loginURL)
                     throw new LogonFailedException();
-                return true;
+                return "<SessionID used>";
             }
 
             HttpWebRequest getHash = getHttpRequest(HttpMethod.GET, loginURL);
@@ -98,7 +101,39 @@ namespace POEApi.Transport
             if (response.StatusCode != HttpStatusCode.Found)
                 throw new LogonFailedException(this.email);
 
-            return true;
+            if (String.IsNullOrEmpty(current_accname) || current_accname.Length < 1)
+            {
+                //Get PHPSESSID cookie
+                string resp_session_id = response.Cookies["PHPSESSID"].Value;
+                credentialCookies.Add(new System.Net.Cookie("PHPSESSID", resp_session_id, "/", "www.pathofexile.com"));
+
+                //get my-account web page
+                HttpWebRequest req_acc_page = getHttpRequest(HttpMethod.GET, myAccountURL);
+                response = (HttpWebResponse)req_acc_page.GetResponse();
+
+                //get my-account HTML text
+                StreamReader http_resp = new StreamReader(response.GetResponseStream());
+                string s_http_resp = http_resp.ReadToEnd();
+
+                //extract account name from HTML text
+                //<span class="profile-link" ><a href="/account/view-profile/accname">accname</a></span>
+                string regexp_pattern = @"\<a href=""/account/view-profile/.*?\>(?<accname>.+?)\<\/a\>";
+
+                Regex regexp = new Regex(regexp_pattern, RegexOptions.ExplicitCapture);
+                MatchCollection matches = regexp.Matches(s_http_resp);
+
+                if (matches.Count > 0)
+                {
+                    //return AccountName
+                    return matches[0].Groups["accname"].Value;
+                }
+                
+                return "";
+            }
+            else
+            {
+                return current_accname;
+            }
         }
 
         private HttpWebRequest getHttpRequest(HttpMethod method, string url)
