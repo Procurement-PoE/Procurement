@@ -92,6 +92,8 @@ namespace POEApi.Model
             this.Character = string.Empty;
 
             this.IsSelectedManually = false;
+
+            //TODO : get itemlvl from JSON (currently not returned by JSON)
         }
 
         private string getIconUrl(string url)

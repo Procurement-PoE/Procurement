@@ -3,6 +3,8 @@ Medved Edition version.
 
 Path Of Exile Character &amp; Stash Management Tool
 
+Bears friendly :-)
+
 Procurement is a Windows application for the online game Path Of Exile, that logs in to the forum and downloads your characters/stash. From there you can:
 
 * Search/filter your stash/tabs for gear/items
@@ -14,3 +16,6 @@ Procurement is a Windows application for the online game Path Of Exile, that log
 * Breakdown of your currency with Chaos total (Ratios configurable)
 * Everything is cached and can be viewed offline after you've logged in once
 * Single tab refreshing (if logged in) 
+
+* Manual item selection by one to sell from any tab
+* Copy item data as text (press Ctrl+C on item)

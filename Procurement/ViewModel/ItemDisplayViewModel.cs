@@ -228,14 +228,211 @@ namespace Procurement.ViewModel
                 ItemHover.DataContext = ItemHoverViewModelFactory.Create(item);
                 grid.Children.Add(ItemHover);
 
+                //allow keyboard input for selected item
+                target.Focusable = true;
+                target.Focus();
+
                 popup.IsOpen = true;
             };
+
             target.MouseLeave += (o, e) =>
             {
                 popup.IsOpen = false;
                 grid.Children.Clear();
             };
+
+            target.KeyDown += (o, e) =>
+            {
+                if (e.Key == System.Windows.Input.Key.C && e.KeyboardDevice.Modifiers == System.Windows.Input.ModifierKeys.Control)
+                {
+                    //user press CTRL+C
+                    string text_item = ItemToText(item);
+                    if (text_item != "")
+                    {
+                        Clipboard.SetText(text_item, TextDataFormat.UnicodeText);
+                    }
+                }
+                
+                //TODO: weapon DPS calculator on hover with SHIFT
+            };
         }
+
+        public string ItemToText(Item item)
+        {
+            string result_text = "";
+            
+            //TODO: add "(augmented)" text?
+
+            try
+            {
+                Gear item_gear = null;
+
+                if (item.ItemType == ItemType.Gear)
+                {
+                    item_gear = item as Gear;
+                    result_text += AddTextNewLine("Rarity: " + GetItemRarity(item));
+                }
+
+                if (item.Name.Length > 0) result_text += AddTextNewLine(item.Name);//name first line
+                result_text += AddTextNewLine(item.TypeLine);//name second line
+
+                //Property block
+                if (item.Properties != null && item.Properties.Count > 0)
+                {
+                    result_text += AddTextNewLine("--------");
+                    
+                    foreach (Property curr_prop in item.Properties)
+                    {
+                        if (curr_prop.Values.Count > 0)
+                        {
+                            result_text += AddTextNewLine(curr_prop.Name + ": " + curr_prop.Values[0].Item1);
+                        }
+                        else
+                        {
+                            result_text += AddTextNewLine(curr_prop.Name);//item main type, e.g. Bow
+                        }
+                    }
+                }
+
+                //Requirements block
+                if (item_gear != null)
+                {
+                    if (item_gear.Requirements != null && item_gear.Requirements.Count > 0)
+                    {
+                        result_text += AddTextNewLine("--------");
+                        result_text += AddTextNewLine("Requirements:");
+
+                        foreach (Requirement curr_req in item_gear.Requirements)
+                        {
+                            result_text += AddTextNewLine(curr_req.Name + ": " + curr_req.Value);
+                        }
+                    }
+                }
+
+                //Sockets block
+                if (item_gear != null)
+                {
+                    if (item_gear.Sockets != null && item_gear.Sockets.Count > 0)
+                    {
+                        string socket_text = "";
+                        for (int i=0;i<item_gear.Sockets.Count;i++)
+                        {
+                            Socket curr_socket = item_gear.Sockets[i];
+
+                            if (i!=item_gear.Sockets.Count-1 && curr_socket.Group == item_gear.Sockets[i + 1].Group)
+                            {
+                                //current socket and next socket are linked
+                                socket_text += curr_socket.Attribute + "-";
+                            }
+                            else
+                            {
+                                //not linked or last socket
+                                socket_text += curr_socket.Attribute + " ";
+                            }
+                        }
+                        
+                        socket_text = socket_text.Trim();
+
+                        //make replace for colors D(ex)->G(reen), Str->Red, Int->Blue
+                        socket_text = socket_text.Replace("D", "G").Replace("S", "R").Replace("I", "B");
+
+                        result_text += AddTextNewLine("--------");
+                        result_text += AddTextNewLine("Sockets: " + socket_text);
+                    }
+                }
+
+                //Itemlvl block
+                //TODO: get ilvl when will be added to JSON responce
+
+                //Implicit mods block
+                if (item_gear != null)
+                {
+                    if (item_gear.Implicitmods != null && item_gear.Implicitmods.Count > 0)
+                    {
+                        result_text += AddTextNewLine("--------");
+
+                        foreach (string curr_impl_mod in item_gear.Implicitmods)
+                        {
+                            result_text += AddTextNewLine(curr_impl_mod);
+                        }
+                    }
+                }
+
+                //Explicit mods block
+                if (item.Explicitmods != null && item.Explicitmods.Count > 0)
+                {
+                    result_text += AddTextNewLine("--------");
+
+                    foreach (string curr_expl_mod in item.Explicitmods)
+                    {
+                        result_text += AddTextNewLine(curr_expl_mod);
+                    }
+                }
+
+                //Crafted mods at last of mods block
+                if (item.CraftedMods != null && item.CraftedMods.Count > 0)
+                {
+                    foreach (string curr_crafted_mod in item.CraftedMods)
+                    {
+                        result_text += AddTextNewLine(curr_crafted_mod);
+                    }
+                }
+
+                //Flav text
+                if (item_gear != null)
+                {
+                    if (item_gear.FlavourText != null && item_gear.FlavourText.Count > 0)
+                    {
+                        result_text += AddTextNewLine("--------");
+
+                        foreach (string curr_flav_text in item_gear.FlavourText)
+                        {
+                            result_text += curr_flav_text;
+                        }
+                    }
+                }
+
+                //Corrupted block
+                if (item.Corrupted)
+                {
+                    result_text += AddTextNewLine("--------");
+                    result_text += AddTextNewLine("Corrupted");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Can't convert item to text copy! Error: " + ex.Message, "Item to text error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return "";
+            }
+
+            return result_text;
+        }
+
+        public string AddTextNewLine(string text)
+        {
+            return text + Environment.NewLine;
+        }
+
+        public string GetItemRarity(Item item)
+        {
+            Gear gear = item as Gear;
+            Nullable<Rarity> r = null;
+
+            if (gear != null)
+                r = gear.Rarity;
+
+            Map map = item as Map;
+            if (map != null)
+                r = map.Rarity;
+
+            if (r != null)
+            {
+                return r.ToString();
+            }
+
+            return "Normal";
+        }
+
 
         public IEnumerable<Tuple<int, int>> getSocketTree(int W, int H)
         {

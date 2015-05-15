@@ -6,5 +6,5 @@ Procurement/Procurement.csproj.user
 **/bin/Release/
 **/obj/
 Procurement_Medved_logo.png
-
+VSSetup/
 *.suo

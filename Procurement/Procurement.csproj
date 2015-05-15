@@ -686,6 +686,11 @@
     <Resource Include="Images\medved-relax.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if "Release"=="$(ConfigurationName)" (
+signtool sign /sha1 f194df8d074ad7b3f6be51762b65cab6eb8e5291 /v /t "http://timestamp.globalsign.com/scripts/timestamp.dll" "$(TargetPath)"
+)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
