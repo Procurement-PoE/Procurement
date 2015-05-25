@@ -9,6 +9,7 @@ using System.Security;
 using System;
 using POEApi.Infrastructure.Events;
 using System.Runtime.Serialization;
+using System.Xml;
 
 namespace POEApi.Model
 {
@@ -85,18 +86,19 @@ namespace POEApi.Model
 
             onStashLoaded(POEEventState.BeforeEvent, index, -1);
 
-            using (Stream stream = transport.GetStash(index, league, forceRefresh))
+            byte[] data = (transport.GetStash(index, league, forceRefresh) as MemoryStream).ToArray();
+            using (XmlDictionaryReader reader = JsonReaderWriterFactory.CreateJsonReader(data, XmlDictionaryReaderQuotas.Max))
             {
                 try
                 {
-                    proxy = (JSONProxy.Stash)serialiser.ReadObject(stream);
+                    proxy = (JSONProxy.Stash)serialiser.ReadObject(reader);
                     if (proxy == null)
-                        logNullStash(stream, "Proxy was null");
+                        logNullStash(data, "Proxy was null");
                 }
                 catch (Exception ex)
                 {
                     Logger.Log(ex);
-                    logNullStash(stream, "JSON Serialization Failed");
+                    logNullStash(data, "JSON Serialization Failed");
                 }
             }
 
@@ -105,14 +107,12 @@ namespace POEApi.Model
             return new Stash(proxy);
         }
 
-        private void logNullStash(Stream stream, string errorPrefix)
+        private void logNullStash(byte[] data, string errorPrefix)
         {
             try
             {
-                MemoryStream ms = stream as MemoryStream;
-                ms.Seek(0, SeekOrigin.Begin);
                 Logger.Log(errorPrefix + ": base64 bytes:");
-                Logger.Log(Convert.ToBase64String(ms.ToArray()));
+                Logger.Log(Convert.ToBase64String(data));
                 Logger.Log("END");
             }
             catch (Exception ex)
@@ -197,8 +197,8 @@ namespace POEApi.Model
             DataContractJsonSerializer serialiser = new DataContractJsonSerializer(typeof(List<JSONProxy.Character>));
             List<JSONProxy.Character> characters;
 
-            using (Stream stream = transport.GetCharacters())
-                characters = (List<JSONProxy.Character>)serialiser.ReadObject(stream);
+            using (XmlDictionaryReader reader = JsonReaderWriterFactory.CreateJsonReader((transport.GetCharacters() as MemoryStream).ToArray(), XmlDictionaryReaderQuotas.Max))
+                characters = (List<JSONProxy.Character>)serialiser.ReadObject(reader);
 
             return characters.Select(c => new Character(c)).ToList();
         }
@@ -213,8 +213,8 @@ namespace POEApi.Model
                 DataContractJsonSerializer serialiser = new DataContractJsonSerializer(typeof(JSONProxy.Inventory));
                 JSONProxy.Inventory item;
 
-                using (Stream stream = transport.GetInventory(characterName, forceRefresh, accountName))
-                    item = (JSONProxy.Inventory)serialiser.ReadObject(stream);
+                using (XmlDictionaryReader reader = JsonReaderWriterFactory.CreateJsonReader((transport.GetInventory(characterName, forceRefresh, accountName) as MemoryStream).ToArray(), XmlDictionaryReaderQuotas.Max))
+                    item = (JSONProxy.Inventory)serialiser.ReadObject(reader);
 
                 if (item.Items == null)
                     return new List<Item>();
