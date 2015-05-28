@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DecorationItemTypeText" xml:space="preserve">
+    <value>right click this item then left click a location on the ground to create the object.</value>
+  </data>
+  <data name="MapText" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="MapDescText" xml:space="preserve">
+    <value>Travel to this Map</value>
+  </data>
+  <data name="StackSizeText" xml:space="preserve">
+    <value>Stack Size</value>
+  </data>
+  <data name="QualityText" xml:space="preserve">
+    <value>Quality</value>
+  </data>
+  <data name="OrbTypeChaos" xml:space="preserve">
+    <value>Chaos</value>
+  </data>
+  <data name="OrbTypeDivine" xml:space="preserve">
+    <value>Divine</value>
+  </data>
+  <data name="OrbTypeRegal" xml:space="preserve">
+    <value>Regal</value>
+  </data>
+  <data name="OrbTypeAugmentation" xml:space="preserve">
+    <value>Augmentation</value>
+  </data>
+  <data name="OrbTypeOrbOfAlchemy" xml:space="preserve">
+    <value>Orb of Alchemy</value>
+  </data>
+  <data name="OrbTypeAlchemyShard" xml:space="preserve">
+    <value>Alchemy Shard</value>
+  </data>
+  <data name="OrbTypeChromatic" xml:space="preserve">
+    <value>Chromatic</value>
+  </data>
+  <data name="OrbTypeTransmutation" xml:space="preserve">
+    <value>Transmutation</value>
+  </data>
+  <data name="OrbTypeScouring" xml:space="preserve">
+    <value>Scouring</value>
+  </data>
+  <data name="OrbTypeGlassblower" xml:space="preserve">
+    <value>Glassblower</value>
+  </data>
+  <data name="OrbTypeCartographer" xml:space="preserve">
+    <value>Cartographer</value>
+  </data>
+  <data name="OrbTypeGemcutterPrism" xml:space="preserve">
+    <value>Gemcutter's Prism</value>
+  </data>
+  <data name="OrbTypeAlteration" xml:space="preserve">
+    <value>Alteration</value>
+  </data>
+  <data name="OrbTypeChance" xml:space="preserve">
+    <value>Chance</value>
+  </data>
+  <data name="OrbTypeRegret" xml:space="preserve">
+    <value>Regret</value>
+  </data>
+  <data name="OrbTypeExalted" xml:space="preserve">
+    <value>Exalted</value>
+  </data>
+  <data name="OrbTypeArmourerScrap" xml:space="preserve">
+    <value>Armourer's Scrap</value>
+  </data>
+  <data name="OrbTypeBlessed" xml:space="preserve">
+    <value>Blessed</value>
+  </data>
+  <data name="OrbTypeBlacksmithWhetstone" xml:space="preserve">
+    <value>Blacksmith's Whetstone</value>
+  </data>
+  <data name="OrbTypeScrollFragment" xml:space="preserve">
+    <value>Scroll Fragment</value>
+  </data>
+  <data name="OrbTypeJewellerOrb" xml:space="preserve">
+    <value>Jeweller's Orb</value>
+  </data>
+  <data name="OrbTypeScrollOfWisdom" xml:space="preserve">
+    <value>Scroll of Wisdom</value>
+  </data>
+  <data name="OrbTypeOrbOfFusing" xml:space="preserve">
+    <value>Orb of Fusing</value>
+  </data>
+  <data name="OrbTypePortalScroll" xml:space="preserve">
+    <value>Portal Scroll</value>
+  </data>
+  <data name="OrbTypeAlbinoRhoaFeather" xml:space="preserve">
+    <value>Albino Rhoa Feather</value>
+  </data>
+  <data name="OrbTypeMirror" xml:space="preserve">
+    <value>Mirror</value>
+  </data>
+  <data name="OrbTypeEternalOrb" xml:space="preserve">
+    <value>Eternal Orb</value>
+  </data>
+  <data name="OrbTypeImprint" xml:space="preserve">
+    <value>Imprint</value>
+  </data>
+  <data name="OrbTypeVaalOrb" xml:space="preserve">
+    <value>Vaal Orb</value>
+  </data>
+  <data name="LevelText" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="MapLevelText" xml:space="preserve">
+    <value>Map Level</value>
+  </data>
+  <data name="GearTypeHelmet" xml:space="preserve">
+    <value>Helmet</value>
+  </data>
+  <data name="GearTypeCirclet" xml:space="preserve">
+    <value>Circlet</value>
+  </data>
+  <data name="GearTypeCap" xml:space="preserve">
+    <value>Cap</value>
+  </data>
+  <data name="GearTypeMask" xml:space="preserve">
+    <value>Mask</value>
+  </data>
+  <data name="GearTypeChainCoif" xml:space="preserve">
+    <value>Chain Coif</value>
+  </data>
+  <data name="GearTypeCasque" xml:space="preserve">
+    <value>Casque</value>
+  </data>
+  <data name="GearTypeHood" xml:space="preserve">
+    <value>Hood</value>
+  </data>
+  <data name="GearTypeRingmailCoif" xml:space="preserve">
+    <value>Ringmail Coif</value>
+  </data>
+  <data name="GearTypeChainmailCoif" xml:space="preserve">
+    <value>Chainmail Coif</value>
+  </data>
+  <data name="GearTypeRingCoif" xml:space="preserve">
+    <value>Ring Coif</value>
+  </data>
+  <data name="GearTypeCrown" xml:space="preserve">
+    <value>Crown</value>
+  </data>
+  <data name="GearTypeBurgonet" xml:space="preserve">
+    <value>Burgonet</value>
+  </data>
+  <data name="GearTypeBascinet" xml:space="preserve">
+    <value>Bascinet</value>
+  </data>
+  <data name="GearTypePelt" xml:space="preserve">
+    <value>Pelt</value>
+  </data>
+  <data name="GearTypeBelt" xml:space="preserve">
+    <value>Belt</value>
+  </data>
+  <data name="GearTypeSash" xml:space="preserve">
+    <value>Sash</value>
+  </data>
+  <data name="GearTypeFlask" xml:space="preserve">
+    <value>Flask</value>
+  </data>
+  <data name="GearTypeGlove" xml:space="preserve">
+    <value>Glove</value>
+  </data>
+  <data name="GearTypeMitts" xml:space="preserve">
+    <value>Mitts</value>
+  </data>
+  <data name="GearTypeGauntlets" xml:space="preserve">
+    <value>Gauntlets</value>
+  </data>
+  <data name="GearTypeGreaves" xml:space="preserve">
+    <value>Greaves</value>
+  </data>
+  <data name="GearTypeSlippers" xml:space="preserve">
+    <value>Slippers</value>
+  </data>
+  <data name="GearTypeBoots" xml:space="preserve">
+    <value>Boots</value>
+  </data>
+  <data name="GearTypeShoes" xml:space="preserve">
+    <value>Shoes</value>
+  </data>
+  <data name="GearTypeQuiver" xml:space="preserve">
+    <value>Quiver</value>
+  </data>
+  <data name="GearTypeAmulet" xml:space="preserve">
+    <value>Amulet</value>
+  </data>
+  <data name="GearTypeRing" xml:space="preserve">
+    <value>Ring</value>
+  </data>
+  <data name="GearTypeRingmail" xml:space="preserve">
+    <value>Ringmail</value>
+  </data>
+  <data name="WeaponTypeAxe" xml:space="preserve">
+    <value>Axe</value>
+  </data>
+  <data name="WeaponTypeChopper" xml:space="preserve">
+    <value>Chopper</value>
+  </data>
+  <data name="WeaponTypeSplitter" xml:space="preserve">
+    <value>Splitter</value>
+  </data>
+  <data name="WeaponTypeLabrys" xml:space="preserve">
+    <value>Labrys</value>
+  </data>
+  <data name="WeaponTypeTomahawk" xml:space="preserve">
+    <value>Tomahawk</value>
+  </data>
+  <data name="WeaponTypeHatchet" xml:space="preserve">
+    <value>Hatchet</value>
+  </data>
+  <data name="WeaponTypePoleaxe" xml:space="preserve">
+    <value>Poleaxe</value>
+  </data>
+  <data name="WeaponTypeWoodsplitter" xml:space="preserve">
+    <value>Woodsplitter</value>
+  </data>
+  <data name="WeaponTypeCleaver" xml:space="preserve">
+    <value>Cleaver</value>
+  </data>
+  <data name="WeaponTypeFist" xml:space="preserve">
+    <value>Fist</value>
+  </data>
+  <data name="WeaponTypeAwl" xml:space="preserve">
+    <value>Awl</value>
+  </data>
+  <data name="WeaponTypePaw" xml:space="preserve">
+    <value>Paw</value>
+  </data>
+  <data name="WeaponTypeBlinder" xml:space="preserve">
+    <value>Blinder</value>
+  </data>
+  <data name="WeaponTypeRipper" xml:space="preserve">
+    <value>Ripper</value>
+  </data>
+  <data name="WeaponTypeStabber" xml:space="preserve">
+    <value>Stabber</value>
+  </data>
+  <data name="WeaponTypeClaw" xml:space="preserve">
+    <value>Claw</value>
+  </data>
+  <data name="WeaponTypeGouger" xml:space="preserve">
+    <value>Gouger</value>
+  </data>
+  <data name="WeaponTypeBow" xml:space="preserve">
+    <value>Bow</value>
+  </data>
+  <data name="WeaponTypeDagger" xml:space="preserve">
+    <value>Dagger</value>
+  </data>
+  <data name="WeaponTypeShank" xml:space="preserve">
+    <value>Shank</value>
+  </data>
+  <data name="WeaponTypeKnife" xml:space="preserve">
+    <value>Knife</value>
+  </data>
+  <data name="WeaponTypeStiletto" xml:space="preserve">
+    <value>Stiletto</value>
+  </data>
+  <data name="WeaponTypeSkean" xml:space="preserve">
+    <value>Skean</value>
+  </data>
+  <data name="WeaponTypePoignard" xml:space="preserve">
+    <value>Poignard</value>
+  </data>
+  <data name="WeaponTypeAmbusher" xml:space="preserve">
+    <value>Ambusher</value>
+  </data>
+  <data name="WeaponTypeBootBlade" xml:space="preserve">
+    <value>Boot Blade</value>
+  </data>
+  <data name="WeaponTypeKris" xml:space="preserve">
+    <value>Kris</value>
+  </data>
+  <data name="WeaponTypeClub" xml:space="preserve">
+    <value>Club</value>
+  </data>
+  <data name="WeaponTypeTenderizer" xml:space="preserve">
+    <value>Tenderizer</value>
+  </data>
+  <data name="WeaponTypeMace" xml:space="preserve">
+    <value>Mace</value>
+  </data>
+  <data name="WeaponTypeHammer" xml:space="preserve">
+    <value>Hammer</value>
+  </data>
+  <data name="WeaponTypeMaul" xml:space="preserve">
+    <value>Maul</value>
+  </data>
+  <data name="WeaponTypeMallet" xml:space="preserve">
+    <value>Mallet</value>
+  </data>
+  <data name="WeaponTypeBreaker" xml:space="preserve">
+    <value>Breaker</value>
+  </data>
+  <data name="WeaponTypeGavel" xml:space="preserve">
+    <value>Gavel</value>
+  </data>
+  <data name="WeaponTypePernarch" xml:space="preserve">
+    <value>Pernarch</value>
+  </data>
+  <data name="WeaponTypeSteelhead" xml:space="preserve">
+    <value>Steelhead</value>
+  </data>
+  <data name="WeaponTypePiledriver" xml:space="preserve">
+    <value>Piledriver</value>
+  </data>
+  <data name="WeaponTypeBladedMace" xml:space="preserve">
+    <value>Bladed Mace</value>
+  </data>
+  <data name="WeaponTypeSceptre" xml:space="preserve">
+    <value>Sceptre</value>
+  </data>
+  <data name="WeaponTypeFetish" xml:space="preserve">
+    <value>Fetish</value>
+  </data>
+  <data name="WeaponTypeSekhem" xml:space="preserve">
+    <value>Sekhem</value>
+  </data>
+  <data name="WeaponTypeStaff" xml:space="preserve">
+    <value>Staff</value>
+  </data>
+  <data name="WeaponTypeGnarledBranch" xml:space="preserve">
+    <value>Gnarled Branch</value>
+  </data>
+  <data name="WeaponTypeQuarterstaff" xml:space="preserve">
+    <value>Quarterstaff</value>
+  </data>
+  <data name="WeaponTypeLathi" xml:space="preserve">
+    <value>Lathi</value>
+  </data>
+  <data name="WeaponTypeShield" xml:space="preserve">
+    <value>Shield</value>
+  </data>
+  <data name="WeaponTypeSpikedBundle" xml:space="preserve">
+    <value>Spiked Bundle</value>
+  </data>
+  <data name="WeaponTypeBuckler" xml:space="preserve">
+    <value>Buckler</value>
+  </data>
+  <data name="WeaponTypeWand" xml:space="preserve">
+    <value>Wand</value>
+  </data>
+  <data name="WeaponTypeHorn" xml:space="preserve">
+    <value>Horn</value>
+  </data>
+</root>

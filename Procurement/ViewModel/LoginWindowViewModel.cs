@@ -27,7 +27,7 @@ namespace Procurement.ViewModel
         public delegate void LoginCompleted();
         private bool formChanged = false;
         private bool useSession;
-
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         private CharacterTabInjector characterInjector;
@@ -52,6 +52,19 @@ namespace Procurement.ViewModel
             }
         }
 
+        private static string serverType;
+        public static string ServerType
+        {
+            get { return serverType; }
+            set
+            {
+                if (value != serverType)
+                {
+                    serverType = value;
+                }
+            }
+        }
+
         public bool UseSession
         {
             get { return useSession; }
@@ -68,8 +81,11 @@ namespace Procurement.ViewModel
             if (this.view == null)
                 return;
 
-            this.view.lblEmail.Content = useSession ? "Alias" : "Email";
-            this.view.lblPassword.Content = useSession ? "Session ID" : "Password";
+            if (((ContentControl)this.view.cmbRealmType.SelectedValue).Content.ToString() == "International")
+            {
+                this.view.lblEmail.Content = useSession ? "Alias" : "Email";
+                this.view.lblPassword.Content = useSession ? "Session ID" : "Password";
+            }
         }
 
         public LoginWindowViewModel(UserControl view)
@@ -79,6 +95,7 @@ namespace Procurement.ViewModel
             UseSession = Settings.UserSettings.ContainsKey("UseSessionID") ? bool.Parse(Settings.UserSettings["UseSessionID"]) : false;
 
             Email = Settings.UserSettings["AccountLogin"];
+            ServerType = ((ContentControl)this.view.cmbRealmType.SelectedValue).Content.ToString();
             this.formChanged = string.IsNullOrEmpty(Settings.UserSettings["AccountPassword"]);
 
             if (!this.formChanged)
@@ -105,13 +122,20 @@ namespace Procurement.ViewModel
             this.formChanged = true;
         }
 
-        public void Login(bool offline)
+        public void Login(bool offline, string server_type)
         {
             toggleControls();
 
-            if (string.IsNullOrEmpty(Email))
+            if (string.IsNullOrEmpty(Email) && server_type=="International")
             {
                 MessageBox.Show(string.Format("{0} is required!", useSession ? "Alias" : "Email"), "Error logging in", MessageBoxButton.OK, MessageBoxImage.Stop);
+                toggleControls();
+                return;
+            }
+
+            if (this.view.txtPassword.SecurePassword.Length<1)
+            {
+                MessageBox.Show(string.Format("{0} is required!", ServerType=="International" ? "Password" : "Session ID"), "Error logging in", MessageBoxButton.OK, MessageBoxImage.Stop);
                 toggleControls();
                 return;
             }
@@ -126,7 +150,7 @@ namespace Procurement.ViewModel
             Task.Factory.StartNew(() =>
             {
                 SecureString password = formChanged ? this.view.txtPassword.SecurePassword : Settings.UserSettings["AccountPassword"].Decrypt();
-                ApplicationState.Model.Authenticate(Email, password, offline, useSession);
+                ApplicationState.Model.Authenticate(Email, password, offline, useSession, server_type);
 
                 if (formChanged)
                     saveSettings(password);
@@ -239,6 +263,7 @@ namespace Procurement.ViewModel
             view.OfflineButton.IsEnabled = !view.OfflineButton.IsEnabled;
             view.txtLogin.IsEnabled = !view.txtLogin.IsEnabled;
             view.txtPassword.IsEnabled = !view.txtPassword.IsEnabled;
+            view.cmbRealmType.IsEnabled = !view.cmbRealmType.IsEnabled;
         }
 
         private IEnumerable<Item> LoadStashItems(Character character)

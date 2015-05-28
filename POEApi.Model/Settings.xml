@@ -42,10 +42,32 @@
     <Gem name="Elemental Hit" />
     <Gem name="Elemental Proliferation" />
     <Gem name="Elemental Weakness" />
-    <Gem name="Multistrike" />
     <Gem name="Temporal Chains" />
     <Gem name="Faster Casting" />
   </PopularGems>
+  <PopularGems_RU>
+    <Gem name="Произнесение заклинаний при получении урона" />
+    <Gem name="Произнесение заклинаний при критическом ударе" />
+    <Gem name="Магия крови" />
+    <Gem name="Количество предметов" />
+    <Gem name="Здоровье за удар" />
+    <Gem name="Вытягивание жизни" />
+    <Gem name="Град ударов" />
+    <Gem name="Меньший расход маны" />
+    <Gem name="Колдующий тотем" />
+    <Gem name="Цепь" />
+    <Gem name="Ускорение атак" />
+    <Gem name="Много дополнительных снарядов" />
+    <Gem name="Дополнительные снаряды" />
+    <Gem name="Дополнительный урон хаосом" />
+    <Gem name="Редкость предметов" />
+    <Gem name="Средоточение" />
+    <Gem name="Удар стихий" />
+    <Gem name="Разгул стихий" />
+    <Gem name="Уязвимость к стихиям" />
+    <Gem name="Путы времени" />
+    <Gem name="Ускоренное произнесение заклинаний" />
+  </PopularGems_RU>
   <UserSettings>
     <Setting name="AccountLogin" value="" />
     <Setting name="AccountPassword" value="" />

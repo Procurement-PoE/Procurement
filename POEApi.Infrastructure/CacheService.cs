@@ -26,6 +26,7 @@ namespace POEApi.Infrastructure
 
         public CacheService(string email)
         {
+            if (email == "") email = "NoEmail";
             location = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), email);
             if (!Directory.Exists(location))
                 Directory.CreateDirectory(location);

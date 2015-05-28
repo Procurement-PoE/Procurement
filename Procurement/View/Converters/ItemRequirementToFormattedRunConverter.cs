@@ -44,7 +44,14 @@ namespace Procurement.View
                 paragraph.Inlines.AddRange(runs);
             }
 
-            paragraph.Inlines.InsertBefore(paragraph.Inlines.FirstInline, new Run("Requires ") { Foreground = Brushes.Gray });
+            if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                paragraph.Inlines.InsertBefore(paragraph.Inlines.FirstInline, new Run("Требует ") { Foreground = Brushes.Gray });
+            }
+            else
+            {
+                paragraph.Inlines.InsertBefore(paragraph.Inlines.FirstInline, new Run("Requires ") { Foreground = Brushes.Gray });
+            }
 
             return new FlowDocument(paragraph);
         }

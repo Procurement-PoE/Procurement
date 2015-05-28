@@ -43,7 +43,7 @@
                         <ColumnDefinition Width="150"/>
                         <ColumnDefinition Width="228*" />
                     </Grid.ColumnDefinitions>
-                    
+
                     <Button Grid.Column="0" Name="LoginButton" Width="85" Height="28" HorizontalAlignment="Left" Click="Login_Click" IsDefault="True">
                         <Image>
                             <Image.Style>
@@ -58,7 +58,7 @@
                             </Image.Style>
                         </Image>
                     </Button>
-                    
+
                     <Button Grid.Column="1" Name="OfflineButton" Width="85" Height="28" HorizontalAlignment="Left" Click="Offline_Click">
                         <Image>
                             <Image.Style>
@@ -74,10 +74,21 @@
                         </Image>
                     </Button>
 
-                    <CheckBox Name="useSession" Content="Use SessionID" Grid.Column="2" HorizontalAlignment="Left" Margin="25,9,0,0" Height="15" VerticalAlignment="Top" IsChecked="{Binding UseSession}" Foreground="#FFAB9066" FontSize="12" FontWeight="Bold"/>
+                    
+                    <!--<ResourceDictionary Source="..\Controls\ExpressionDark.xaml">
+                    </ResourceDictionary>-->
 
                 </Grid>
-                
+                <Grid Grid.Column="1" Height="59" HorizontalAlignment="Left" Margin="181,9,0,0" Name="grid1" VerticalAlignment="Top" Width="149" Grid.Row="4" Grid.RowSpan="2">
+                    <Grid.Resources>
+                        <ResourceDictionary Source="..\Controls\ExpressionDark.xaml"/>
+                    </Grid.Resources>
+                    <CheckBox Name="useSession" Content="Use SessionID" HorizontalAlignment="Left" Margin="25,-1,0,0" Height="25" VerticalAlignment="Top" IsChecked="{Binding UseSession}" Foreground="#FFAB9066" FontSize="12" FontWeight="Bold"/>
+                    <ComboBox Name="cmbRealmType" ItemsSource="{Binding}" Foreground="#FFAB9066" Margin="24,30,16,7" SelectionChanged="cmbRealmType_SelectionChanged">
+                        <ComboBoxItem Content="International" IsSelected="True"/>
+                        <ComboBoxItem Content="Garena (RU)" />
+                    </ComboBox>
+                </Grid>
             </Grid>
 
             <Grid Grid.Row="1">
@@ -86,5 +97,8 @@
         </Grid>
 
     </Grid>
+    <UserControl.Resources>
+    <!--<ResourceDictionary Source="..\Controls\ExpressionDark.xaml" />-->
+    </UserControl.Resources>
 </UserControl>
 

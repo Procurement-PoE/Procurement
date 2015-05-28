@@ -1,5 +1,5 @@
 Medved Edition version.
-![Procurement](http://i.imgur.com/sDC9pzE.jpg)
+![Procurement](http://i.imgur.com/N694amk.png)
 
 Path Of Exile Character &amp; Stash Management Tool
 
@@ -19,3 +19,5 @@ Procurement is a Windows application for the online game Path Of Exile, that log
 
 * Manual item selection by one to sell from any tab
 * Copy item data as text (press Ctrl+C on item)
+* Support Garena+ RU (CIS version)
+

@@ -3,50 +3,55 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using POEApi.Infrastructure;
+using System.Resources;
 
 namespace POEApi.Model
 {
     internal class ProxyMapper
     {
-        internal const string STACKSIZE = "Stack Size";
+        internal static string STACKSIZE;
         internal const string STASH = "Stash";
-        public const string QUALITY = "Quality";
+        public static string QUALITY;
         private static Regex qualityRx = new Regex("[+]{1}(?<quality>[0-9]{1,2}).*");
-
-        #region   Orb Types  
-        private static Dictionary<string, OrbType> orbMap = new Dictionary<string, OrbType>()           
+        private static Dictionary<string, OrbType> orbMap;
+  
+        static ProxyMapper()
         {
-            { "Chaos", OrbType.Chaos },
-            { "Divine", OrbType.Divine },
-            { "Regal", OrbType.Regal },
-            { "Augmentation", OrbType.Augmentation },
-            { "Orb of Alchemy", OrbType.Alchemy },
-            { "Alchemy Shard", OrbType.AlchemyShard },
-            { "Chromatic", OrbType.Chromatic },
-            { "Transmutation", OrbType.Transmutation },
-            { "Scouring", OrbType.Scouring },
-            { "Glassblower",OrbType.GlassblowersBauble },
-            { "Cartographer", OrbType.Chisel },
-            { "Gemcutter's Prism", OrbType.GemCutterPrism },
-            { "Alteration", OrbType.Alteration },
-            { "Chance", OrbType.Chance },
-            { "Regret", OrbType.Regret },
-            { "Exalted", OrbType.Exalted },
-            { "Armourer's Scrap", OrbType.ArmourersScrap },
-            { "Blessed", OrbType.Blessed},
-            { "Blacksmith's Whetstone", OrbType.BlacksmithsWhetstone },
-            { "Scroll Fragment", OrbType.ScrollFragment },
-            { "Jeweller's Orb", OrbType.JewelersOrb },
-            { "Scroll of Wisdom", OrbType.ScrollofWisdom },
-            { "Orb of Fusing", OrbType.Fusing },
-            { "Portal Scroll", OrbType.PortalScroll },
-            { "Albino Rhoa Feather", OrbType.AlbinaRhoaFeather},
-            { "Mirror", OrbType.Mirror },
-            { "Eternal Orb", OrbType.Eternal},
-            { "Imprint", OrbType.Imprint },
-            { "Vaal Orb", OrbType.VaalOrb }
+            STACKSIZE = POEApi.Model.ServerTypeRes.StackSizeText;
+            QUALITY = POEApi.Model.ServerTypeRes.QualityText;
+            orbMap = new Dictionary<string, OrbType>()
+        {
+            { POEApi.Model.ServerTypeRes.OrbTypeChaos, OrbType.Chaos },
+            { POEApi.Model.ServerTypeRes.OrbTypeDivine, OrbType.Divine },
+            { POEApi.Model.ServerTypeRes.OrbTypeRegal, OrbType.Regal },
+            { POEApi.Model.ServerTypeRes.OrbTypeAugmentation, OrbType.Augmentation },
+            { POEApi.Model.ServerTypeRes.OrbTypeOrbOfAlchemy, OrbType.Alchemy },
+            { POEApi.Model.ServerTypeRes.OrbTypeAlchemyShard, OrbType.AlchemyShard },
+            { POEApi.Model.ServerTypeRes.OrbTypeChromatic, OrbType.Chromatic },
+            { POEApi.Model.ServerTypeRes.OrbTypeTransmutation, OrbType.Transmutation },
+            { POEApi.Model.ServerTypeRes.OrbTypeScouring, OrbType.Scouring },
+            { POEApi.Model.ServerTypeRes.OrbTypeGlassblower,OrbType.GlassblowersBauble },
+            { POEApi.Model.ServerTypeRes.OrbTypeCartographer, OrbType.Chisel },
+            { POEApi.Model.ServerTypeRes.OrbTypeGemcutterPrism, OrbType.GemCutterPrism },
+            { POEApi.Model.ServerTypeRes.OrbTypeAlteration, OrbType.Alteration },
+            { POEApi.Model.ServerTypeRes.OrbTypeChance, OrbType.Chance },
+            { POEApi.Model.ServerTypeRes.OrbTypeRegret, OrbType.Regret },
+            { POEApi.Model.ServerTypeRes.OrbTypeExalted, OrbType.Exalted },
+            { POEApi.Model.ServerTypeRes.OrbTypeArmourerScrap, OrbType.ArmourersScrap },
+            { POEApi.Model.ServerTypeRes.OrbTypeBlessed, OrbType.Blessed},
+            { POEApi.Model.ServerTypeRes.OrbTypeBlacksmithWhetstone, OrbType.BlacksmithsWhetstone },
+            { POEApi.Model.ServerTypeRes.OrbTypeScrollFragment, OrbType.ScrollFragment },
+            { POEApi.Model.ServerTypeRes.OrbTypeJewellerOrb, OrbType.JewelersOrb },
+            { POEApi.Model.ServerTypeRes.OrbTypeScrollOfWisdom, OrbType.ScrollofWisdom },
+            { POEApi.Model.ServerTypeRes.OrbTypeOrbOfFusing, OrbType.Fusing },
+            { POEApi.Model.ServerTypeRes.OrbTypePortalScroll, OrbType.PortalScroll },
+            { POEApi.Model.ServerTypeRes.OrbTypeAlbinoRhoaFeather, OrbType.AlbinaRhoaFeather},
+            { POEApi.Model.ServerTypeRes.OrbTypeMirror, OrbType.Mirror },
+            { POEApi.Model.ServerTypeRes.OrbTypeEternalOrb, OrbType.Eternal},
+            { POEApi.Model.ServerTypeRes.OrbTypeImprint, OrbType.Imprint },
+            { POEApi.Model.ServerTypeRes.OrbTypeVaalOrb, OrbType.VaalOrb }
         };
-        #endregion
+        }
 
         private static string getPropertyByName(List<JSONProxy.Property> properties, string name)
         {

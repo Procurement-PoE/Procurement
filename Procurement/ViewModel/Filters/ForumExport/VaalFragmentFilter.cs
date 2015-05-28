@@ -9,7 +9,12 @@ namespace Procurement.ViewModel.Filters
     {
         public VaalFragmentFilter()
             : base("Sacrifice at Dusk", "Sacrifice at Midnight", "Sacrifice at Noon", "Sacrifice at Dawn")
-        { }
+        {
+            if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                this.keywords = new string[] { "Жертва на закате", "Жертва в полночь", "Жертва в полдень", "Жертва на рассвете" };
+            }
+        }
         public override bool CanFormCategory
         {
             get { return true; }
@@ -17,12 +22,32 @@ namespace Procurement.ViewModel.Filters
 
         public override string Keyword
         {
-            get { return "Vaal Fragments"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Фрагменты Ваал";
+                }
+                else
+                {
+                    return "Vaal Fragments";
+                }
+            }
         }
 
         public override string Help
         {
-            get { return "Vaal Fragments"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Фрагменты Ваал";
+                }
+                else
+                {
+                    return "Vaal Fragments";
+                }
+            }
         }
 
         public override FilterGroup Group

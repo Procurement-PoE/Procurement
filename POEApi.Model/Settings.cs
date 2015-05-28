@@ -12,6 +12,7 @@ namespace POEApi.Model
     {
         private const string SAVE_LOCATION = "Settings.xml";
         private const string DATA_LOCATION = "Data.xml";
+        private const string DATA_LOCATION_RU = "Data_RU.xml";
         internal const string BUYOUT_LOCATION = "Buyouts.xml";
 
         public static Dictionary<OrbType, CurrencyRatio> CurrencyRatios { get; private set; }
@@ -42,10 +43,7 @@ namespace POEApi.Model
 
             loadBuyouts();
 
-            PopularGems = new List<string>();
-            if (settingsFile.Element("PopularGems") != null)
-                PopularGems = settingsFile.Element("PopularGems").Elements("Gem").Select(e => e.Attribute("name").Value).ToList();
-
+            loadPopularGemsSettings();
             loadGearTypeData();
             loadShopSettings();
         }
@@ -109,9 +107,18 @@ namespace POEApi.Model
             return list.Attribute(key).Value;
         }
 
-        private static void loadGearTypeData()
+        internal static void loadGearTypeData()
         {
-            XElement dataDoc = XElement.Load(DATA_LOCATION);
+            XElement dataDoc;
+            if (POEModel.ServerType == "Garena (RU)")
+            {
+                dataDoc = XElement.Load(DATA_LOCATION_RU);
+            }
+            else
+            {
+                dataDoc = XElement.Load(DATA_LOCATION);
+            }
+            
             GearBaseTypes = new Dictionary<GearType, List<string>>();
 
             if (dataDoc.Element("GearBaseTypes") == null)
@@ -121,6 +128,21 @@ namespace POEApi.Model
                                                             .ToDictionary(g => (GearType)Enum.Parse(typeof(GearType), g.Attribute("name").Value), g => g.Elements("Item")
                                                             .Select(e => e.Attribute("name").Value)
                                                             .ToList());
+        }
+
+        internal static void loadPopularGemsSettings()
+        {
+            PopularGems = new List<string>();
+            if (POEModel.ServerType == "Garena (RU)")
+            {
+                if (settingsFile.Element("PopularGems_RU") != null)
+                    PopularGems = settingsFile.Element("PopularGems_RU").Elements("Gem").Select(e => e.Attribute("name").Value).ToList();
+            }
+            else
+            {
+                if (settingsFile.Element("PopularGems") != null)
+                    PopularGems = settingsFile.Element("PopularGems").Elements("Gem").Select(e => e.Attribute("name").Value).ToList();
+            }
         }
 
         private static double getChaosAmount(XElement orb)

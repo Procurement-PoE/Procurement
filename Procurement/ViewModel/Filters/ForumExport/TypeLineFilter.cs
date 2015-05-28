@@ -4,7 +4,7 @@ namespace Procurement.ViewModel.Filters
 {
     public abstract class TypeLineFilter : IFilter
     {
-        private IEnumerable<string> keywords;
+        internal IEnumerable<string> keywords;
 
         public abstract bool CanFormCategory { get; }
         public abstract string Keyword { get; }

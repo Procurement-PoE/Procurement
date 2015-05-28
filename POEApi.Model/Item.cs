@@ -75,11 +75,13 @@ namespace POEApi.Model
             if (item.Properties != null)
             {
                 this.Properties = item.Properties.Select(p => new Property(p)).ToList();
-
-                if (this.Properties.Any(p => p.Name == "Quality"))
+                
                 {
-                    this.IsQuality = true;
-                    this.Quality = ProxyMapper.GetQuality(item.Properties);
+                    if (this.Properties.Any(p => p.Name == POEApi.Model.ServerTypeRes.QualityText))
+                    {
+                        this.IsQuality = true;
+                        this.Quality = ProxyMapper.GetQuality(item.Properties);
+                    }
                 }
             }
 

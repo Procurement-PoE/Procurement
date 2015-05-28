@@ -342,7 +342,6 @@ namespace Procurement.ViewModel
                 }
 
                 //Itemlvl block
-                //TODO: get ilvl when will be added to JSON responce
 
                 //Implicit mods block
                 if (item_gear != null)

@@ -37,6 +37,15 @@ namespace POEApi.Transport
 
         private const string myAccountURL = @"http://www.pathofexile.com/my-account";
 
+        //Garena+ RU strings
+        private const string loginURL_ru = @"https://web.poe.garena.ru/login";
+        private const string myAccountURL_ru = @"http://web.poe.garena.ru/my-account";
+        private const string characterURL_ru = @"http://web.poe.garena.ru/character-window/get-characters";
+        private const string stashURL_ru = @"http://web.poe.garena.ru/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}";
+        private const string inventoryURL_ru = @"http://web.poe.garena.ru/character-window/get-items?character={0}";
+        private const string updateShopURL_ru = @"http://web.poe.garena.ru/forum/edit-thread/{0}";
+        private const string bumpShopURL_ru = @"http://web.poe.garena.ru/forum/post-reply/{0}";
+
         public event ThottledEventHandler Throttled;
 
         public HttpTransport(string login)
@@ -61,7 +70,7 @@ namespace POEApi.Transport
                 Throttled(this, e);
         }
 
-        public string Authenticate(string email, SecureString password, bool useSessionID, string current_accname)
+        public string Authenticate(string email, SecureString password, bool useSessionID, string current_accname, string server_type)
         {
             if (useSessionID)
             {
@@ -70,6 +79,17 @@ namespace POEApi.Transport
                 HttpWebResponse confirmAuthResponse = (HttpWebResponse)confirmAuth.GetResponse();
 
                 if (confirmAuthResponse.ResponseUri.ToString() == loginURL)
+                    throw new LogonFailedException();
+                return "<SessionID used>";
+            }
+
+            if (server_type=="Garena (RU)")
+            {
+                credentialCookies.Add(new System.Net.Cookie("PHPSESSID", password.UnWrap(), "/", "web.poe.garena.ru"));
+                HttpWebRequest confirmAuth = getHttpRequest(HttpMethod.GET, loginURL_ru);
+                HttpWebResponse confirmAuthResponse = (HttpWebResponse)confirmAuth.GetResponse();
+
+                if (confirmAuthResponse.ResponseUri.ToString() != getServerTypeURLmyaccount(server_type))
                     throw new LogonFailedException();
                 return "<SessionID used>";
             }
@@ -167,22 +187,26 @@ namespace POEApi.Transport
             return proxy;
         }
 
-        public Stream GetStash(int index, string league, bool refresh, string accname)
+        public Stream GetStash(int index, string league, bool refresh, string accname, string server_type)
         {
-            HttpWebRequest request = getHttpRequest(HttpMethod.GET, string.Format(stashURL, league, index, accname));
+            string active_url = getServerTypeURLstash(server_type);
+
+            HttpWebRequest request = getHttpRequest(HttpMethod.GET, string.Format(active_url, league, index, accname));
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             return getMemoryStreamFromResponse(response);
         }
 
-        public Stream GetStash(int index, string league, string accname)
+        public Stream GetStash(int index, string league, string accname, string server_type)
         {
-            return GetStash(index, league, false, accname);
+            return GetStash(index, league, false, accname, server_type);
         }
 
-        public Stream GetCharacters()
+        public Stream GetCharacters(string server_type)
         {
-            HttpWebRequest request = getHttpRequest(HttpMethod.GET, characterURL);
+            string active_url=getServerTypeURLcharacter(server_type);
+
+            HttpWebRequest request = getHttpRequest(HttpMethod.GET, active_url);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             return getMemoryStreamFromResponse(response);
@@ -195,9 +219,11 @@ namespace POEApi.Transport
             return new MemoryStream(client.DownloadData(url));
         }
 
-        public Stream GetInventory(string characterName, bool forceRefresh, string accname)
+        public Stream GetInventory(string characterName, bool forceRefresh, string accname, string server_type)
         {
-            HttpWebRequest request = getHttpRequest(HttpMethod.GET, string.Format(inventoryURL, characterName, accname));
+            string active_url = getServerTypeURLinventory(server_type);
+
+            HttpWebRequest request = getHttpRequest(HttpMethod.GET, string.Format(active_url, characterName, accname));
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             return getMemoryStreamFromResponse(response);
@@ -205,25 +231,38 @@ namespace POEApi.Transport
 
         private MemoryStream getMemoryStreamFromResponse(HttpWebResponse response)
         {
-            StreamReader reader = new StreamReader(response.GetResponseStream());
+            StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
             byte[] buffer = reader.ReadAllBytes();
+
+//            array("\U0430"=>"а", "\U0431"=>"б", "\U0432"=>"в",
+//"\U0433"=>"г", "\U0434"=>"д", "\U0435"=>"е", "\U0451"=>"ё", "\U0436"=>"ж", "\U0437"=>"з", "\U0438"=>"и",
+//"\U0439"=>"й", "\U043A"=>"к", "\U043B"=>"л", "\U043C"=>"м", "\U043D"=>"н", "\U043E"=>"о", "\U043F"=>"п",
+//"\U0440"=>"р", "\U0441"=>"с", "\U0442"=>"т", "\U0443"=>"у", "\U0444"=>"ф", "\U0445"=>"х", "\U0446"=>"ц",
+//"\U0447"=>"ч", "\U0448"=>"ш", "\U0449"=>"щ", "\U044A"=>"ъ", "\U044B"=>"ы", "\U044C"=>"ь", "\U044D"=>"э",
+//"\U044E"=>"ю", "\U044F"=>"я", "\U0410"=>"А", "\U0411"=>"Б", "\U0412"=>"В", "\U0413"=>"Г", "\U0414"=>"Д",
+//"\U0415"=>"Е", "\U0401"=>"Ё", "\U0416"=>"Ж", "\U0417"=>"З", "\U0418"=>"И", "\U0419"=>"Й", "\U041A"=>"К",
+//"\U041B"=>"Л", "\U041C"=>"М", "\U041D"=>"Н", "\U041E"=>"О", "\U041F"=>"П", "\U0420"=>"Р", "\U0421"=>"С",
+//"\U0422"=>"Т", "\U0423"=>"У", "\U0424"=>"Ф", "\U0425"=>"Х", "\U0426"=>"Ц", "\U0427"=>"Ч", "\U0428"=>"Ш",
+//"\U0429"=>"Щ", "\U042A"=>"Ъ", "\U042B"=>"Ы", "\U042C"=>"Ь", "\U042D"=>"Э", "\U042E"=>"Ю", "\U042F"=>"Я")
+
             RequestThrottle.Instance.Complete();
 
             return new MemoryStream(buffer);
         }
 
-        public bool UpdateThread(string threadID, string threadTitle, string threadText)
+        public bool UpdateThread(string threadID, string threadTitle, string threadText, string server_type)
         {
             try
             {
-                string threadHash = getThreadHash(string.Format(updateShopURL, threadID), updateThreadHashEx);
+                string active_url = getServerTypeURLupdateshop(server_type);
+                string threadHash = getThreadHash(string.Format(active_url, threadID), updateThreadHashEx);
 
                 StringBuilder data = new StringBuilder();
                 data.Append("title=" + Uri.EscapeDataString(threadTitle));
                 data.Append("&content=" + Uri.EscapeDataString(threadText));
                 data.Append("&forum_thread=" + threadHash);
 
-                postToForum(data.ToString(), string.Format(updateShopURL, threadID));
+                postToForum(data.ToString(), string.Format(active_url, threadID));
 
                 return true;
             }
@@ -234,18 +273,19 @@ namespace POEApi.Transport
             }
         }
 
-        public bool BumpThread(string threadID, string threadTitle)
+        public bool BumpThread(string threadID, string threadTitle, string server_type)
         {
             try
             {
-                string threadHash = validateAndGetHash(string.Format(bumpShopURL, threadID), threadTitle, bumpThreadHashEx);
+                string active_url = getServerTypeURLbumpshop(server_type);
+                string threadHash = validateAndGetHash(string.Format(active_url, threadID), threadTitle, bumpThreadHashEx);
 
                 StringBuilder data = new StringBuilder();
                 data.Append("forum_post=" + threadHash);
-                data.Append("&content=" + Uri.EscapeDataString("[url=https://github.com/medvedttn/Procurement/]Bumped with Procurement![/url]"));
+                data.Append("&content=" + Uri.EscapeDataString("[url=https://github.com/medvedttn/Procurement/]Bumped with Procurement Medved Edition![/url]"));
                 data.Append("&post_submit=" + Uri.EscapeDataString("Submit"));
 
-                var response = postToForum(data.ToString(), string.Format(bumpShopURL, threadID));
+                var response = postToForum(data.ToString(), string.Format(active_url, threadID));
 
                 return true;
             }
@@ -305,6 +345,111 @@ namespace POEApi.Transport
             {
                 return reader.ReadToEnd();
             }
+        }
+
+        private string getServerTypeURLcharacter(string server_type)
+        {
+            string active_url = "";
+            if (server_type == "International")
+            {
+                active_url = characterURL;
+            }
+            else if (server_type == "Garena (RU)")
+            {
+                active_url = characterURL_ru;
+            }
+
+            return active_url;
+        }
+
+        private string getServerTypeURLinventory(string server_type)
+        {
+            string active_url = "";
+            if (server_type == "International")
+            {
+                active_url = inventoryURL;
+            }
+            else if (server_type == "Garena (RU)")
+            {
+                active_url = inventoryURL_ru;
+            }
+
+            return active_url;
+        }
+
+        private string getServerTypeURLstash(string server_type)
+        {
+            string active_url = "";
+            if (server_type == "International")
+            {
+                active_url = stashURL;
+            }
+            else if (server_type == "Garena (RU)")
+            {
+                active_url = stashURL_ru;
+            }
+
+            return active_url;
+        }
+
+        private string getServerTypeURLlogin(string server_type)
+        {
+            string active_url = "";
+            if (server_type == "International")
+            {
+                active_url = loginURL;
+            }
+            else if (server_type == "Garena (RU)")
+            {
+                active_url = loginURL_ru;
+            }
+
+            return active_url;
+        }
+
+        private string getServerTypeURLmyaccount(string server_type)
+        {
+            string active_url = "";
+            if (server_type == "International")
+            {
+                active_url = myAccountURL;
+            }
+            else if (server_type == "Garena (RU)")
+            {
+                active_url = myAccountURL_ru;
+            }
+
+            return active_url;
+        }
+
+        private string getServerTypeURLbumpshop(string server_type)
+        {
+            string active_url = "";
+            if (server_type == "International")
+            {
+                active_url = bumpShopURL;
+            }
+            else if (server_type == "Garena (RU)")
+            {
+                active_url = bumpShopURL_ru;
+            }
+
+            return active_url;
+        }
+
+        private string getServerTypeURLupdateshop(string server_type)
+        {
+            string active_url = "";
+            if (server_type == "International")
+            {
+                active_url = updateShopURL;
+            }
+            else if (server_type == "Garena (RU)")
+            {
+                active_url = updateShopURL_ru;
+            }
+
+            return active_url;
         }
     }
 }
