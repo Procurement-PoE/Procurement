@@ -28,7 +28,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
- <xs:element name="UserSettings">
+  <xs:element name="UserSettings">
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Setting">
@@ -47,12 +47,13 @@
               <xs:element name="EmbedBuyouts" type="EmbedBuyouts" minOccurs="1" maxOccurs="1" />
               <xs:element name="BuyoutItemsOnlyVisibleInBuyoutsTag" type="BuyoutItemsOnlyVisibleInBuyoutsTag" minOccurs="1" maxOccurs="1" />
               <xs:element name="CheckForUpdates" type="CheckForUpdates" minOccurs="1" maxOccurs="1" />
+              <xs:element name="SeverType" type="ServerType" minOccurs="0" maxOccurs="1" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
     </xs:complexType>
-  </xs:element> 
+  </xs:element>
   <xs:element name="ProxySettings">
     <xs:complexType>
       <xs:sequence>
@@ -182,6 +183,10 @@
   <xs:complexType name="Domain">
     <xs:attribute name="name" fixed="Domain" type="xs:string" use="required"/>
     <xs:attribute name="value" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="ServerType">
+    <xs:attribute name="name" fixed="ServerType" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="optional"/>
   </xs:complexType>
 
   <xs:element name="Item">

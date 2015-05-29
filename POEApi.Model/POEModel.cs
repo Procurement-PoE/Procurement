@@ -47,13 +47,19 @@ namespace POEApi.Model
             transport = getTransport(email);
             cacheService = new CacheService(email);
             Offline = offline;
+            ServerType = server_type;
 
-            if (offline)
-                return true;
+            Settings.UserSettings["ServerType"] = ServerType;
+            Settings.Save();
+
+            if (offline) return true;
+            
+            //do not show email from International server on Garena login process
+            if (ServerType != "International" && email != "") email = "";
 
             transport.Throttled += new ThottledEventHandler(instance_Throttled);
             onAuthenticate(POEEventState.BeforeEvent, email, "");
-
+            
             AccountName = transport.Authenticate(email, password, useSessionID, Settings.UserSettings["AccountName"], server_type);
             
             onAuthenticate(POEEventState.AfterEvent, email, AccountName);
@@ -68,7 +74,7 @@ namespace POEApi.Model
                 throw new LogonFailedException("Account name from HTML page is empty! You can enter AccountName directly in settings file.");
             }
 
-            ServerType = server_type;
+            
             POEApi.Model.Settings.loadGearTypeData();
             POEApi.Model.Settings.loadPopularGemsSettings();
 

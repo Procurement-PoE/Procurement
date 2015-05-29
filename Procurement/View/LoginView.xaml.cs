@@ -3,6 +3,8 @@ using System.Windows.Controls;
 using Procurement.ViewModel;
 using System.Windows.Media;
 using System;
+using POEApi.Model;
+using System.Linq;
 
 namespace Procurement.View
 {
@@ -40,6 +42,7 @@ namespace Procurement.View
                     useSession.IsEnabled = false;
                     lblEmail.IsEnabled = false;
                     txtLogin.IsEnabled = false;
+                    txtLogin.Text = "";
                     lblPassword.Content = "SessionID";
                 }
                 else
@@ -54,6 +57,14 @@ namespace Procurement.View
 	        {
                 cmbRealmType.SelectedIndex = 0;
 	        }
+        }
+
+        private void cmbRealmType_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrEmpty(Settings.UserSettings["ServerType"]) && Settings.UserSettings["ServerType"] != "")
+            {
+                cmbRealmType.SelectedItem = cmbRealmType.Items.Cast<ComboBoxItem>().FirstOrDefault(cmbi => cmbi.Content.ToString() == Settings.UserSettings["ServerType"]);
+            }
         }
     }
 }

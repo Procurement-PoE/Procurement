@@ -327,10 +327,11 @@
       <Item name="Карта окрестностей"/>
 
       <Item name="Карта верфи"/>
-      <Item name="Shrine Map"/>
+      <Item name="Карта святыни"/>
 
       <Item name="Карта подворья"/>
       <Item name="Карта дворца"/>
+      <Item name="Карта храма ваал"/>
     </GearBaseType>
     <GearBaseType name="Gloves">
       <Item name="Железные рукавицы"/>

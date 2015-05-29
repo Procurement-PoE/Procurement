@@ -85,6 +85,7 @@
     <Setting name="CheckForUpdates" value="True" />
     <Setting name="PoeTradeRefreshEnabled" value="false" />
     <Setting name="PoeTradeRefreshUrl" value="" />
+    <Setting name="ServerType" value="" />
   </UserSettings>
   <ProxySettings>
     <Setting name="Enabled" value="False" />

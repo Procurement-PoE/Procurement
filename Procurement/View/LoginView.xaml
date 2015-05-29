@@ -84,7 +84,7 @@
                         <ResourceDictionary Source="..\Controls\ExpressionDark.xaml"/>
                     </Grid.Resources>
                     <CheckBox Name="useSession" Content="Use SessionID" HorizontalAlignment="Left" Margin="25,-1,0,0" Height="25" VerticalAlignment="Top" IsChecked="{Binding UseSession}" Foreground="#FFAB9066" FontSize="12" FontWeight="Bold"/>
-                    <ComboBox Name="cmbRealmType" ItemsSource="{Binding}" Foreground="#FFAB9066" Margin="24,30,16,7" SelectionChanged="cmbRealmType_SelectionChanged">
+                    <ComboBox Name="cmbRealmType" ItemsSource="{Binding}" Foreground="#FFAB9066" Margin="24,30,16,7" SelectionChanged="cmbRealmType_SelectionChanged" Loaded="cmbRealmType_Loaded">
                         <ComboBoxItem Content="International" IsSelected="True"/>
                         <ComboBoxItem Content="Garena (RU)" />
                     </ComboBox>
