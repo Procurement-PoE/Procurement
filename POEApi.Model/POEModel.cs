@@ -49,6 +49,15 @@ namespace POEApi.Model
             Offline = offline;
             ServerType = server_type;
 
+            if (ServerType == "Garena (RU)")
+            {
+                POEApi.Model.ServerTypeRes.Culture = System.Globalization.CultureInfo.CreateSpecificCulture("ru-RU");
+            }
+            else
+            {
+                POEApi.Model.ServerTypeRes.Culture = System.Globalization.CultureInfo.InvariantCulture;
+            }
+
             Settings.UserSettings["ServerType"] = ServerType;
             Settings.Save();
 
@@ -78,14 +87,7 @@ namespace POEApi.Model
             POEApi.Model.Settings.loadGearTypeData();
             POEApi.Model.Settings.loadPopularGemsSettings();
 
-            if (ServerType == "Garena (RU)")
-            {
-                POEApi.Model.ServerTypeRes.Culture = System.Globalization.CultureInfo.CreateSpecificCulture("ru-RU");
-            }
-            else
-            {
-                POEApi.Model.ServerTypeRes.Culture = System.Globalization.CultureInfo.InvariantCulture;
-            }
+            
             return true;
         }
 

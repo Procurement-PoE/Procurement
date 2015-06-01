@@ -1,1 +1,1 @@
-Procurement 1.9.3.2,https://github.com/medvedttn/Procurement/releases/tag/1.9.3.2beta
+Procurement 1.9.3.3,https://github.com/medvedttn/Procurement/releases/tag/1.9.3.3beta
