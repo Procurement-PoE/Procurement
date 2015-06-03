@@ -4,7 +4,13 @@
     {
         public ManaRegenFilter()
             : base("increased Mana Regeneration Rate")
-        { }
+        {
+            if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                this.keyword = "повышение скорости регенерации маны";
+            }
+        }
+
         public override bool CanFormCategory
         {
             get { return false; }

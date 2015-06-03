@@ -34,12 +34,12 @@ namespace POEApi.Model
         {
             // First, check the general types, to see if there is an easy match.
             foreach (var type in generalTypes)
-                if (item.TypeLine.Contains(type))
+                if (item.TypeLine.ToLower().Contains(type.ToLower()))
                     return true;
 
             // Second, check all known types.
             foreach (var type in compatibleTypes)
-                if (item.TypeLine.Contains(type))
+                if (item.TypeLine.ToLower().Contains(type.ToLower()))
                     return true;
 
             return false;
@@ -51,7 +51,7 @@ namespace POEApi.Model
                 return null;
 
             foreach (var type in compatibleTypes)
-                if (item.TypeLine.Contains(type))
+                if (item.TypeLine.ToLower().Contains(type.ToLower()))
                     return type;
 
             return null;
@@ -68,7 +68,7 @@ namespace POEApi.Model
 
         public override bool IsCompatibleType(Gear item)
         {
-            if (item.TypeLine.Contains(POEApi.Model.ServerTypeRes.GearTypeRing) && !incompatibleTypes.Any(t => item.TypeLine.Contains(t)))
+            if (item.TypeLine.ToLower().Contains(POEApi.Model.ServerTypeRes.GearTypeRing.ToLower()) && !incompatibleTypes.Any(t => item.TypeLine.Contains(t)))
                 return true;
 
             return false;
@@ -292,25 +292,24 @@ namespace POEApi.Model
             : base(GearType.Sword, Settings.GearBaseTypes[GearType.Sword])
         {
             generalTypes.AddRange(new List<string>() {
-                "Sword", 
-                "sword", 
-                "Sabre", 
-                "Dusk Blade", 
-                "Cutlass", 
-                "Baselard", 
-                "Gladius", 
-                "Variscite Blade", 
-                "Vaal Blade", 
-                "Midnight Blade", 
-                "Corroded Blade",
-                "Highland Blade",
-                "Ezomyte Blade", 
-                "Rusted Spike", 
-                "Rapier", 
-                "Foil", 
-                "Pecoraro", 
-                "Estoc", 
-                "Twilight Blade" 
+                POEApi.Model.ServerTypeRes.WeaponTypeSword, 
+                POEApi.Model.ServerTypeRes.WeaponTypeSabre, 
+                POEApi.Model.ServerTypeRes.WeaponTypeDuskBlade, 
+                POEApi.Model.ServerTypeRes.WeaponTypeCutlass, 
+                POEApi.Model.ServerTypeRes.WeaponTypeBaselard, 
+                POEApi.Model.ServerTypeRes.WeaponTypeGladius, 
+                POEApi.Model.ServerTypeRes.WeaponTypeVarisciteBlade, 
+                POEApi.Model.ServerTypeRes.WeaponTypeVaalBlade, 
+                POEApi.Model.ServerTypeRes.WeaponTypeMidnightBlade, 
+                POEApi.Model.ServerTypeRes.WeaponTypeCorrodedBlade,
+                POEApi.Model.ServerTypeRes.WeaponTypeHighlandBlade,
+                POEApi.Model.ServerTypeRes.WeaponTypeEzomyteBlade, 
+                POEApi.Model.ServerTypeRes.WeaponTypeRustedSpike, 
+                POEApi.Model.ServerTypeRes.WeaponTypeRapier, 
+                POEApi.Model.ServerTypeRes.WeaponTypeFoil, 
+                POEApi.Model.ServerTypeRes.WeaponTypePecoraro, 
+                POEApi.Model.ServerTypeRes.WeaponTypeEstoc, 
+                POEApi.Model.ServerTypeRes.WeaponTypeTwilightBlade 
             });
         }
     }

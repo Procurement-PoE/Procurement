@@ -5,6 +5,8 @@ namespace Procurement.ViewModel.Filters.ForumExport
     {
         public OneHandedFilter()
             : base("One")
-        { }
+        { 
+            //TODO: RU strings "Одноручная(ый,ое)"
+        }
     }
 }

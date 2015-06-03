@@ -462,4 +462,58 @@
   <data name="WeaponTypeHorn" xml:space="preserve">
     <value>Horn</value>
   </data>
+  <data name="WeaponTypeSword" xml:space="preserve">
+    <value>Sword</value>
+  </data>
+  <data name="WeaponTypeSabre" xml:space="preserve">
+    <value>Sabre</value>
+  </data>
+  <data name="WeaponTypeDuskBlade" xml:space="preserve">
+    <value>Dusk Blade</value>
+  </data>
+  <data name="WeaponTypeCutlass" xml:space="preserve">
+    <value>Cutlass</value>
+  </data>
+  <data name="WeaponTypeBaselard" xml:space="preserve">
+    <value>Baselard</value>
+  </data>
+  <data name="WeaponTypeGladius" xml:space="preserve">
+    <value>Gladius</value>
+  </data>
+  <data name="WeaponTypeVarisciteBlade" xml:space="preserve">
+    <value>Variscite Blade</value>
+  </data>
+  <data name="WeaponTypeVaalBlade" xml:space="preserve">
+    <value>Vaal Blade</value>
+  </data>
+  <data name="WeaponTypeMidnightBlade" xml:space="preserve">
+    <value>Midnight Blade</value>
+  </data>
+  <data name="WeaponTypeCorrodedBlade" xml:space="preserve">
+    <value>Corroded Blade</value>
+  </data>
+  <data name="WeaponTypeHighlandBlade" xml:space="preserve">
+    <value>Highland Blade</value>
+  </data>
+  <data name="WeaponTypeEzomyteBlade" xml:space="preserve">
+    <value>Ezomyte Blade</value>
+  </data>
+  <data name="WeaponTypeRustedSpike" xml:space="preserve">
+    <value>Rusted Spike</value>
+  </data>
+  <data name="WeaponTypeRapier" xml:space="preserve">
+    <value>Rapier</value>
+  </data>
+  <data name="WeaponTypeFoil" xml:space="preserve">
+    <value>Foil</value>
+  </data>
+  <data name="WeaponTypePecoraro" xml:space="preserve">
+    <value>Pecoraro</value>
+  </data>
+  <data name="WeaponTypeEstoc" xml:space="preserve">
+    <value>Estoc</value>
+  </data>
+  <data name="WeaponTypeTwilightBlade" xml:space="preserve">
+    <value>Twilight Blade</value>
+  </data>
 </root>

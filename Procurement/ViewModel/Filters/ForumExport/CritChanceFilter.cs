@@ -9,7 +9,12 @@ namespace Procurement.ViewModel.Filters.ForumExport
     {
         public CritChanceFilter()
             : base("increased Critical Strike Chance")
-        { }
+        {
+            if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                this.keyword = "повышение шанса критического удара";
+            }
+        }
 
         public override bool CanFormCategory
         {

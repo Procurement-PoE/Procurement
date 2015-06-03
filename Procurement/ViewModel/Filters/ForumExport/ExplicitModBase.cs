@@ -6,7 +6,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
 {
     public abstract class ExplicitModBase : IFilter
     {
-        private readonly string keyword;
+        internal string keyword;
         public ExplicitModBase(string keyword)
         {
             this.keyword = keyword;

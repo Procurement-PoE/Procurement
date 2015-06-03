@@ -4,7 +4,12 @@
     {
         public EnergyShieldFilter()
             : base("Energy Shield")
-        { }
+        {
+            if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                this.keyword = "энергетического щита";
+            }
+        }
 
         public override bool CanFormCategory
         {

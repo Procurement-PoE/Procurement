@@ -4,7 +4,12 @@
     {
         public AuraGemsFilter()
             : base("aura")
-        { }
+        {
+            if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                this.filter = "аура";
+            }
+        }
 
         public override string Keyword
         {

@@ -28,7 +28,7 @@ namespace Procurement.View
 
         private void Offline_Click(object sender, RoutedEventArgs e)
         {
-            (this.DataContext as LoginWindowViewModel).Login(true,"");
+            (this.DataContext as LoginWindowViewModel).Login(true, ((ComboBoxItem)cmbRealmType.SelectedItem).Content.ToString());
         }
 
         private void cmbRealmType_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -39,10 +39,11 @@ namespace Procurement.View
                 if (LoginWindowViewModel.ServerType != "International")
                 {
                     //Garena servers
+                    useSession.IsChecked = false;
                     useSession.IsEnabled = false;
                     lblEmail.IsEnabled = false;
+                    txtLogin.Text = "NoEmail";
                     txtLogin.IsEnabled = false;
-                    txtLogin.Text = "";
                     lblPassword.Content = "SessionID";
                 }
                 else
@@ -50,6 +51,7 @@ namespace Procurement.View
                     useSession.IsEnabled = true;
                     lblEmail.IsEnabled = true;
                     txtLogin.IsEnabled = true;
+                    txtLogin.Text = "";
                     lblPassword.Content = "Password";
                 }
             }

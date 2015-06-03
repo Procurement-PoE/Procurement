@@ -222,4 +222,91 @@
   <data name="LevelText" xml:space="preserve">
     <value>Уровень</value>
   </data>
+  <data name="MapLevelText" xml:space="preserve">
+    <value>Уровень карты</value>
+  </data>
+  <data name="GearTypeAmulet" xml:space="preserve">
+    <value>Амулет</value>
+  </data>
+  <data name="GearTypeBascinet" xml:space="preserve">
+    <value>Бацинет</value>
+  </data>
+  <data name="GearTypeBelt" xml:space="preserve">
+    <value>Пояс</value>
+  </data>
+  <data name="GearTypeBoots" xml:space="preserve">
+    <value>Ботинки</value>
+  </data>
+  <data name="GearTypeBurgonet" xml:space="preserve">
+    <value>Полный Шлем</value>
+  </data>
+  <data name="GearTypeCap" xml:space="preserve">
+    <value>Шапка</value>
+  </data>
+  <data name="GearTypeCasque" xml:space="preserve">
+    <value>Каска</value>
+  </data>
+  <data name="GearTypeChainCoif" xml:space="preserve">
+    <value>Chain Coif</value>
+  </data>
+  <data name="GearTypeChainmailCoif" xml:space="preserve">
+    <value>Chainmail Coif</value>
+  </data>
+  <data name="GearTypeCirclet" xml:space="preserve">
+    <value>Диадема</value>
+  </data>
+  <data name="GearTypeCrown" xml:space="preserve">
+    <value>Корона</value>
+  </data>
+  <data name="GearTypeFlask" xml:space="preserve">
+    <value>Флакон</value>
+  </data>
+  <data name="GearTypeGauntlets" xml:space="preserve">
+    <value>Перчатки</value>
+  </data>
+  <data name="GearTypeGlove" xml:space="preserve">
+    <value>Перчатки</value>
+  </data>
+  <data name="GearTypeGreaves" xml:space="preserve">
+    <value>Поножи</value>
+  </data>
+  <data name="GearTypeHelmet" xml:space="preserve">
+    <value>Шлем</value>
+  </data>
+  <data name="GearTypeHood" xml:space="preserve">
+    <value>Капюшон</value>
+  </data>
+  <data name="GearTypeMask" xml:space="preserve">
+    <value>Маска</value>
+  </data>
+  <data name="GearTypeMitts" xml:space="preserve">
+    <value>Перчатки</value>
+  </data>
+  <data name="GearTypePelt" xml:space="preserve">
+    <value>Морда</value>
+  </data>
+  <data name="GearTypeQuiver" xml:space="preserve">
+    <value>Колчан</value>
+  </data>
+  <data name="GearTypeRing" xml:space="preserve">
+    <value>Кольцо</value>
+  </data>
+  <data name="GearTypeRingCoif" xml:space="preserve">
+    <value>Ring Coif</value>
+  </data>
+  <data name="GearTypeRingmail" xml:space="preserve">
+    <value>Байдана</value>
+  </data>
+  <data name="GearTypeRingmailCoif" xml:space="preserve">
+    <value>Ringmail Coif</value>
+  </data>
+  <data name="GearTypeSash" xml:space="preserve">
+    <value>Кушак</value>
+  </data>
+  <data name="GearTypeShoes" xml:space="preserve">
+    <value>Башмаки</value>
+  </data>
+  <data name="GearTypeSlippers" xml:space="preserve">
+    <value>тапочки</value>
+  </data>
 </root>

@@ -126,7 +126,7 @@ namespace Procurement.ViewModel
         {
             toggleControls();
 
-            if (string.IsNullOrEmpty(Email) && server_type=="International")
+            if ((string.IsNullOrEmpty(Email) || Email.ToLower() == "noemail") && server_type == "International")
             {
                 MessageBox.Show(string.Format("{0} is required!", useSession ? "Alias" : "Email"), "Error logging in", MessageBoxButton.OK, MessageBoxImage.Stop);
                 toggleControls();

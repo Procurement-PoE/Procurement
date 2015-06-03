@@ -32,8 +32,14 @@ namespace Procurement.ViewModel.Filters.ForumExport
             Gem gem = item as Gem;
             if (gem == null)
                 return false;
-
-            return item.Properties[0].Name.Contains("Support");
+            if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                return item.Properties[0].Name.Contains("Поддержка");
+            }
+            else
+            {
+                return item.Properties[0].Name.Contains("Support");
+            }
         }
     }
 }

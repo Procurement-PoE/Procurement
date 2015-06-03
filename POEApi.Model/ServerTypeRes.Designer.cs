@@ -664,6 +664,15 @@ namespace POEApi.Model {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Baselard.
+        /// </summary>
+        internal static string WeaponTypeBaselard {
+            get {
+                return ResourceManager.GetString("WeaponTypeBaselard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bladed Mace.
         /// </summary>
         internal static string WeaponTypeBladedMace {
@@ -754,11 +763,56 @@ namespace POEApi.Model {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Corroded Blade.
+        /// </summary>
+        internal static string WeaponTypeCorrodedBlade {
+            get {
+                return ResourceManager.GetString("WeaponTypeCorrodedBlade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cutlass.
+        /// </summary>
+        internal static string WeaponTypeCutlass {
+            get {
+                return ResourceManager.GetString("WeaponTypeCutlass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dagger.
         /// </summary>
         internal static string WeaponTypeDagger {
             get {
                 return ResourceManager.GetString("WeaponTypeDagger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dusk Blade.
+        /// </summary>
+        internal static string WeaponTypeDuskBlade {
+            get {
+                return ResourceManager.GetString("WeaponTypeDuskBlade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estoc.
+        /// </summary>
+        internal static string WeaponTypeEstoc {
+            get {
+                return ResourceManager.GetString("WeaponTypeEstoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ezomyte Blade.
+        /// </summary>
+        internal static string WeaponTypeEzomyteBlade {
+            get {
+                return ResourceManager.GetString("WeaponTypeEzomyteBlade", resourceCulture);
             }
         }
         
@@ -781,11 +835,29 @@ namespace POEApi.Model {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Foil.
+        /// </summary>
+        internal static string WeaponTypeFoil {
+            get {
+                return ResourceManager.GetString("WeaponTypeFoil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gavel.
         /// </summary>
         internal static string WeaponTypeGavel {
             get {
                 return ResourceManager.GetString("WeaponTypeGavel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gladius.
+        /// </summary>
+        internal static string WeaponTypeGladius {
+            get {
+                return ResourceManager.GetString("WeaponTypeGladius", resourceCulture);
             }
         }
         
@@ -822,6 +894,15 @@ namespace POEApi.Model {
         internal static string WeaponTypeHatchet {
             get {
                 return ResourceManager.GetString("WeaponTypeHatchet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highland Blade.
+        /// </summary>
+        internal static string WeaponTypeHighlandBlade {
+            get {
+                return ResourceManager.GetString("WeaponTypeHighlandBlade", resourceCulture);
             }
         }
         
@@ -898,11 +979,29 @@ namespace POEApi.Model {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Midnight Blade.
+        /// </summary>
+        internal static string WeaponTypeMidnightBlade {
+            get {
+                return ResourceManager.GetString("WeaponTypeMidnightBlade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Paw.
         /// </summary>
         internal static string WeaponTypePaw {
             get {
                 return ResourceManager.GetString("WeaponTypePaw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pecoraro.
+        /// </summary>
+        internal static string WeaponTypePecoraro {
+            get {
+                return ResourceManager.GetString("WeaponTypePecoraro", resourceCulture);
             }
         }
         
@@ -952,11 +1051,38 @@ namespace POEApi.Model {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rapier.
+        /// </summary>
+        internal static string WeaponTypeRapier {
+            get {
+                return ResourceManager.GetString("WeaponTypeRapier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ripper.
         /// </summary>
         internal static string WeaponTypeRipper {
             get {
                 return ResourceManager.GetString("WeaponTypeRipper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rusted Spike.
+        /// </summary>
+        internal static string WeaponTypeRustedSpike {
+            get {
+                return ResourceManager.GetString("WeaponTypeRustedSpike", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sabre.
+        /// </summary>
+        internal static string WeaponTypeSabre {
+            get {
+                return ResourceManager.GetString("WeaponTypeSabre", resourceCulture);
             }
         }
         
@@ -1060,6 +1186,15 @@ namespace POEApi.Model {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sword.
+        /// </summary>
+        internal static string WeaponTypeSword {
+            get {
+                return ResourceManager.GetString("WeaponTypeSword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tenderizer.
         /// </summary>
         internal static string WeaponTypeTenderizer {
@@ -1074,6 +1209,33 @@ namespace POEApi.Model {
         internal static string WeaponTypeTomahawk {
             get {
                 return ResourceManager.GetString("WeaponTypeTomahawk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twilight Blade.
+        /// </summary>
+        internal static string WeaponTypeTwilightBlade {
+            get {
+                return ResourceManager.GetString("WeaponTypeTwilightBlade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vaal Blade.
+        /// </summary>
+        internal static string WeaponTypeVaalBlade {
+            get {
+                return ResourceManager.GetString("WeaponTypeVaalBlade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Variscite Blade.
+        /// </summary>
+        internal static string WeaponTypeVarisciteBlade {
+            get {
+                return ResourceManager.GetString("WeaponTypeVarisciteBlade", resourceCulture);
             }
         }
         

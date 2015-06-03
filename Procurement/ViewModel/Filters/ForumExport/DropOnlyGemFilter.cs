@@ -19,11 +19,22 @@ namespace Procurement.ViewModel.Filters
         {
             //From http://en.pathofexilewiki.com/wiki/Drop_Only_Gems
             dropOnly = new List<string>();
-            dropOnly.Add("Empower");
-            dropOnly.Add("Portal");
-            dropOnly.Add("Reduced Duration");
-            dropOnly.Add("Slower Projectiles");
-            dropOnly.Add("Enhance");
+            if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                dropOnly.Add("Усилитель");
+                dropOnly.Add("Портал");
+                dropOnly.Add("Сокращение");
+                dropOnly.Add("Замедленные снаряды");
+                dropOnly.Add("Улучшитель");
+            }
+            else
+            {
+                dropOnly.Add("Empower");
+                dropOnly.Add("Portal");
+                dropOnly.Add("Reduced Duration");
+                dropOnly.Add("Slower Projectiles");
+                dropOnly.Add("Enhance");
+            }
         }
 
         public bool CanFormCategory

@@ -9,7 +9,12 @@ namespace Procurement.ViewModel.Filters.ForumExport
     {
         public GlobalCritMultiplierFilter()
             : base("increased Global Critical Strike Multiplier")
-        { }
+        {
+            if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                this.keyword = "увеличение глобального множителя критического удара";
+            }
+        }
 
         public override bool CanFormCategory
         {

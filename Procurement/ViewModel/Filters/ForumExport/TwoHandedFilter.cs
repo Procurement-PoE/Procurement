@@ -9,6 +9,8 @@ namespace Procurement.ViewModel.Filters.ForumExport
     {
         public TwoHandedFilter()
             : base("Two")
-        { }
+        {
+            //TODO: RU strings "Двуручная(ый,ое)"
+        }
     }
 }

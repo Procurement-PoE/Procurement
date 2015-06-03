@@ -61,6 +61,9 @@ namespace POEApi.Model
             Settings.UserSettings["ServerType"] = ServerType;
             Settings.Save();
 
+            POEApi.Model.Settings.loadGearTypeData();
+            POEApi.Model.Settings.loadPopularGemsSettings();
+
             if (offline) return true;
             
             //do not show email from International server on Garena login process
@@ -82,11 +85,6 @@ namespace POEApi.Model
             {
                 throw new LogonFailedException("Account name from HTML page is empty! You can enter AccountName directly in settings file.");
             }
-
-            
-            POEApi.Model.Settings.loadGearTypeData();
-            POEApi.Model.Settings.loadPopularGemsSettings();
-
             
             return true;
         }

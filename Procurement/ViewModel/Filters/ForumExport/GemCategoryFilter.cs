@@ -6,7 +6,7 @@ namespace Procurement.ViewModel.Filters
 {
     internal class GemCategoryFilter : IFilter
     {
-        private string filter;
+        internal string filter;
         public GemCategoryFilter(string filter)
         {
             this.filter = filter;

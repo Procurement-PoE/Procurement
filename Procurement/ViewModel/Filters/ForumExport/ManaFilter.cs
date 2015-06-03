@@ -4,7 +4,13 @@
     {
         public ManaFilter()
             : base("to maximum Mana")
-        { }
+        {
+            if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                this.keyword = "к максимуму маны";
+                //TODO: new mana filter for "повышение максимума маны"
+            }
+        }
 
         public override bool CanFormCategory
         {

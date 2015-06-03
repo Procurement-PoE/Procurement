@@ -40,6 +40,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
             if (gear.Properties == null)
                 return false;
 
+            //TODO: RU strings "Одноручн","Двуручн"
             return gear.Properties.Any(p => p.Name.Contains(string.Concat(handed, " ", "Handed")));
         }
     }

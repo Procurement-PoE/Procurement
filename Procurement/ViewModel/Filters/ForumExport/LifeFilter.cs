@@ -1,5 +1,7 @@
 ﻿using POEApi.Model;
 using System;
+using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace Procurement.ViewModel.Filters.ForumExport
 {
@@ -7,7 +9,12 @@ namespace Procurement.ViewModel.Filters.ForumExport
     {
         public LifeFilter()
             : base("to maximum Life")
-        { }
+        {
+            if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                this.keyword = "к максимуму здоровья";
+            }
+        }
 
         public override bool CanFormCategory
         {
