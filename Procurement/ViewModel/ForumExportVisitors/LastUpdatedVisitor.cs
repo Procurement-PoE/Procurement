@@ -10,7 +10,14 @@ namespace Procurement.ViewModel.ForumExportVisitors
 
         public string Visit(IEnumerable<Item> items, string current)
         {
-            return current.Replace(TOKEN, DateTime.Now.ToString("f", System.Globalization.CultureInfo.CreateSpecificCulture("en-US")));
+            if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                return current.Replace(TOKEN, DateTime.Now.ToString("f", System.Globalization.CultureInfo.CreateSpecificCulture("ru-RU")));
+            }
+            else
+            {
+                return current.Replace(TOKEN, DateTime.Now.ToString("f", System.Globalization.CultureInfo.CreateSpecificCulture("en-US")));
+            }
         }
     }
 }

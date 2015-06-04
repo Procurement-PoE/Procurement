@@ -309,4 +309,7 @@
   <data name="GearTypeSlippers" xml:space="preserve">
     <value>тапочки</value>
   </data>
+  <data name="CurrencyTypeShardText" xml:space="preserve">
+    <value>Осколок</value>
+  </data>
 </root>

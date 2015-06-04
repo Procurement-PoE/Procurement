@@ -20,7 +20,7 @@
                         <RowDefinition Height="48*" />
                     </Grid.RowDefinitions>
                     <Image Grid.Row="0" Source="/Procurement;component/Images/Sir%20medved%20about.png" Width="504" Height="483"/>
-                    <Label Grid.Row="1" Content="Created By :" Foreground="#FFAB9066" FontSize="12" FontWeight="Bold"/>
+                    <Label Name="lblCreatedBy" Grid.Row="1" Content="Created By :" Foreground="#FFAB9066" FontSize="12" FontWeight="Bold"/>
                     <Label Grid.Row="1" Content="                      Stickymaddness             " Foreground="#FFAB9066" FontSize="22" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="60,19,60,3" Grid.RowSpan="2" />
                     <Label Grid.Row="3" Content="                     &amp; Medvedttn             " Foreground="#FFAB9066" FontSize="22" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="60,0,60,6" />
                 </Grid>
@@ -35,9 +35,9 @@
                     
                     <Label x:Name="Version" Grid.Row="0" Foreground="#FFAB9066" FontSize="18" FontWeight="UltraBold"/>
                     <StackPanel Grid.Row="2" >
-                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" FontSize="14" Text="This open source software is provided free of charge!" />
+                        <TextBlock Name="txtOpenSource" Foreground="#FFAB9066" TextWrapping="Wrap" FontSize="14" Text="This open source software is provided free of charge!" />
                         <TextBlock />
-                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" FontSize="14" Text="For the latest updates, bug reports or feature requests, please visit : https://github.com/medvedttn/Procurement" />
+                        <TextBlock Name="txtForTheLatestUpdates" Foreground="#FFAB9066" TextWrapping="Wrap" FontSize="14" Text="For the latest updates, bug reports or feature requests, please visit : https://github.com/medvedttn/Procurement" />
                     </StackPanel>
                     
                     <StackPanel Grid.Row="3">
@@ -62,13 +62,13 @@
                     </StackPanel>
                     
                     <StackPanel Grid.Row="4" VerticalAlignment="Bottom">
-                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" Text="Legal :" FontSize="11" />
+                        <TextBlock Name="txtLegal" Foreground="#FFAB9066" TextWrapping="Wrap" Text="Legal :" FontSize="11" />
                         <TextBlock />
-                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" Text="Path Of Exile, the Path Of Exile logo and all related artwork used in this application are Copyright © Grinding Gear Games. For further information please visit:                     http://www.pathofexile.com" FontSize="11" />
+                        <TextBlock Name="txtCopyrights" Foreground="#FFAB9066" TextWrapping="Wrap" Text="Path Of Exile, the Path Of Exile logo and all related artwork used in this application are Copyright © Grinding Gear Games. For further information please visit:                     http://www.pathofexile.com" FontSize="11" />
                         <TextBlock FontSize="11" />
-                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" Text="This work is licensed under Artistic License 2.0." />
+                        <TextBlock Name="txtLicensed" Foreground="#FFAB9066" TextWrapping="Wrap" Text="This work is licensed under Artistic License 2.0." />
                         <TextBlock />
-                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" Text="This software is provided *AS IS* and the authors disclaim all warranties with regard to this software including all implied warranties of merchantability and fitness. In no event shall the authors be liable for any special, direct, indirect or consequential damages or any damage whatsoever resulting from loss of use, data or profits, whether in action of contract, negligence or other tortious action, arising out of or in connection with the use or performance of this software." FontSize="11" />
+                        <TextBlock Name="txtAsIs" Foreground="#FFAB9066" TextWrapping="Wrap" Text="This software is provided *AS IS* and the authors disclaim all warranties with regard to this software including all implied warranties of merchantability and fitness. In no event shall the authors be liable for any special, direct, indirect or consequential damages or any damage whatsoever resulting from loss of use, data or profits, whether in action of contract, negligence or other tortious action, arising out of or in connection with the use or performance of this software." FontSize="11" />
                     </StackPanel>
                 </Grid>
             </Grid>

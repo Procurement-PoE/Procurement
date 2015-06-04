@@ -14,6 +14,16 @@ namespace Procurement.Controls
         {
             InitializeComponent();
             this.DataContext = new SetBuyoutViewModel();
+            if (ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                chkBuyout.Content = "Цена";
+                chkOffer.Content = "Ставка";
+                chkPrice.Content = "Нач.цена";
+                chkManualSelection.Content = "Выбран вручную";
+                txtNotes.Text = "Примечания:";
+                btnSave.Content = "Сохранить";
+                btnSaveImage.Content = "Сохранить изображение";
+            }
         }
 
         public event PricingInfoHandler Update;

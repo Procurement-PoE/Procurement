@@ -45,6 +45,12 @@ namespace Procurement.View
                     txtLogin.Text = "NoEmail";
                     txtLogin.IsEnabled = false;
                     lblPassword.Content = "SessionID";
+
+                    //RU GUI
+                    lblEmail.Content = "Эл.почта";
+                    lblPassword.Content = "Идентификатор сессии";
+                    //TODO: img RU buttons LoginButton.Content = "Войти";
+                    //OfflineButton.Content = "Оффлайн";
                 }
                 else
                 {

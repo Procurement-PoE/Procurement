@@ -9,6 +9,12 @@ namespace Procurement.View
         {
             InitializeComponent();
             this.DataContext = new TradingViewModel();
+            if (ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                tabForumExport.Header = "Экспорт на форум";
+                tabForumTemplate.Header = "Шаблон форума";
+                tabTradeSettings.Header = "Настройки торговли";
+            }
         }
 
         public new Grid Content

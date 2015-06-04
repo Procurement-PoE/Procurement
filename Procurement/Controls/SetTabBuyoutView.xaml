@@ -12,21 +12,21 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="134" />
+            <ColumnDefinition Width="66" />
             <ColumnDefinition Width="120" />
         </Grid.ColumnDefinitions>
 
         <!--Buyouts-->
-        <CheckBox Content="Tab Buyout" Grid.Row="0" Foreground="#FFAB9066" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="{Binding BuyoutInfo.Enabled, Mode=TwoWay}"/>
-        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0">
-            <TextBox  x:Name="BuyoutValue" Height="25" Width="50" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}" Text="{Binding BuyoutInfo.Value}"/>
-            <Button Content="+"  Height="25" Width="20" Command="{Binding Path=BuyoutInfo.IncreaseValue}" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}"/>
-            <Button Content="-"  Height="25" Width="20" Command="{Binding Path=BuyoutInfo.DecreaseValue}" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}"/>
+        <CheckBox Name="chkTabBuyout" Content="Tab Buyout" Foreground="#FFAB9066" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="{Binding BuyoutInfo.Enabled, Mode=TwoWay}" Margin="0,12" />
+        <StackPanel Orientation="Horizontal" Grid.Column="1">
+            <TextBox  x:Name="BuyoutValue" Height="25" Width="30" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}" Text="{Binding BuyoutInfo.Value}"/>
+            <Button Content="+"  Height="25" Width="18" Command="{Binding Path=BuyoutInfo.IncreaseValue}" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}" HorizontalContentAlignment="Center"/>
+            <Button Content="-"  Height="25" Width="18" Command="{Binding Path=BuyoutInfo.DecreaseValue}" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}" HorizontalContentAlignment="Center" />
         </StackPanel>
         <ComboBox Grid.Column="2" Grid.Row="0" Height="25" x:Name="OrbType" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}" ItemsSource="{Binding OrbTypes}" SelectedItem="{Binding BuyoutInfo.Orb}" />
 
-        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+        <Grid Grid.Row="1" Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="160" />
                 <ColumnDefinition Width="10" />

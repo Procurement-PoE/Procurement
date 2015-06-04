@@ -53,7 +53,7 @@ namespace POEApi.Model
 
         public static Dictionary<OrbType, double> GetTotalCurrencyDistribution(OrbType target, IEnumerable<Currency> currency)
         {
-            return currency.Where(o => !o.TypeLine.Contains("Shard"))
+            return currency.Where(o => !o.TypeLine.Contains(POEApi.Model.ServerTypeRes.CurrencyTypeShardText))
                            .GroupBy(orb => orb.Type)
                            .Where(group => GetTotal(target, group) > 0)
                            .Select(grp => new { Key = grp.Key, Value = GetTotal(target, grp) })
@@ -63,7 +63,7 @@ namespace POEApi.Model
 
         public static Dictionary<OrbType, double> GetTotalCurrencyCount(IEnumerable<Currency> currency)
         {
-            return currency.Where(o => !o.TypeLine.Contains("Shard"))
+            return currency.Where(o => !o.TypeLine.Contains(POEApi.Model.ServerTypeRes.CurrencyTypeShardText))
                            .GroupBy(orb => orb.Type)
                            .Select(grp => new { Key = grp.Key, Value = (double)grp.Sum(c => c.StackInfo.Amount) })
                            .OrderByDescending(at => at.Value)

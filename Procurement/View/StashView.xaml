@@ -171,7 +171,7 @@
                         <poe:LeagueSelection Grid.Row="0" Width="320" Height="55" VerticalAlignment="Top" HorizontalAlignment="Left" />
                         <Grid Grid.Row="2">
                             <StackPanel Orientation="Horizontal" Background="Black" >
-                                <Label Content="Search :" Foreground="#FFAB9066"/>
+                                <Label Name="lblSearch" Content="Search :" Foreground="#FFAB9066"/>
                                 <toolkit:AutoCompleteBox x:Name="autoComplete" MinimumPopulateDelay="100" MinimumPrefixLength="2" FilterMode="Contains" Background="Black" Width="270" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderBrush="#FF76591B" Foreground="#FFAB9066" ItemsSource="{Binding AvailableItems}" />
                             </StackPanel>
                         </Grid>
@@ -179,7 +179,7 @@
                 </Border>
 
                 <TabControl Grid.Row="1" Grid.Column="2" >
-                    <TabItem Header="Currency Breakdown    " Style="{StaticResource NonImages}">
+                    <TabItem Name="tabCurrencyBreakdown" Header="Currency Breakdown    " Style="{StaticResource NonImages}">
                         <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0">
                             <Grid Margin="5,5,5,5">
                                 <Grid.RowDefinitions>
@@ -188,7 +188,7 @@
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
 
-                                <Label Content="Currency Breakdown" Grid.Row="0"  Foreground="#FFAB9066" FontSize="14" FontWeight="Bold"/>
+                                <Label Name="lblCurrBreakdown" Content="Currency Breakdown" Grid.Row="0"  Foreground="#FFAB9066" FontSize="14" FontWeight="Bold"/>
                                 <Label Grid.Row="1" Content="{Binding Total}" Foreground="#FFAB9066"/>
                                 <ItemsControl Grid.Row="2" ItemsSource="{Binding TotalDistibution}">
                                     <ItemsControl.ItemsPanel>
@@ -217,17 +217,17 @@
                             </Grid>
                         </Border>
                     </TabItem>
-                    <TabItem Header="Advanced Search" Style="{StaticResource NonImages}">
+                    <TabItem Name="tabAdvSearch" Header="Advanced Search" Style="{StaticResource NonImages}">
                         <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal" Background="Black" Margin="0, 5, 0, 8">
-                                    <Label Content="Filter :" Foreground="#FFAB9066"/>
+                                    <Label Name="lblFilter" Content="Filter :" Foreground="#FFAB9066"/>
                                     <TextBox Name="AdvancedSearchFilter" Width="270" Height="23" Foreground="#FFAB9066" Background="Black" KeyUp="AdvancedSearchFilter_KeyUp"></TextBox>
                                 </StackPanel>
                                 <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="417">
                                     <Grid>
                                         <StackPanel>
-                                            <CheckBox Content="None" Foreground="#FFAB9066" Checked="CheckBox_Checked" />
+                                            <CheckBox Name="chkNone" Content="None" Foreground="#FFAB9066" Checked="CheckBox_Checked" />
                                             <ItemsControl ItemsSource="{Binding AvailableCategories}" Name="AdvancedSearchItemControl">
                                                 <ItemsControl.ItemsPanel>
                                                     <ItemsPanelTemplate>
@@ -252,7 +252,7 @@
                             </StackPanel>
                         </Border>
                     </TabItem>
-                    <TabItem Header="Gems" Height="22" Margin="-1,0,2,0" Width="91" Style="{StaticResource NonImages}">
+                    <TabItem Name="tabGems" Header="Gems" Height="22" Margin="-1,0,2,0" Width="91" Style="{StaticResource NonImages}">
                         <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0">
                             <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="455">
                                 <Grid>

@@ -9,6 +9,10 @@ namespace Procurement.Controls
         public LeagueSelection()
         {
             InitializeComponent();
+            if (ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                lblLeagueSelection.Content = "Выберите лигу:";
+            }
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

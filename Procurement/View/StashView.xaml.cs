@@ -9,6 +9,15 @@ namespace Procurement.View
         {
             InitializeComponent();
             this.DataContext = new StashViewModel(this);
+            if (ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                lblSearch.Content = "Поиск:";
+                lblFilter.Content = "Фильтр:";
+                lblCurrBreakdown.Content = "Итого по сферам";
+                tabCurrencyBreakdown.Header = "Итого сфер";
+                tabAdvSearch.Header = "Расширенный поиск";
+                tabGems.Header = "Камни";
+            }
         }
 
         public new Grid Content

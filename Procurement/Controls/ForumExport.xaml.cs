@@ -12,6 +12,14 @@ namespace Procurement.Controls
         {
             InitializeComponent();
             this.DataContext = new ForumExportViewModel();
+            if (ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                lblStashTabs.Content = "Вкладки сундука";
+                chkSelectAll.Content = "Выбрать все";
+                btnCopyToClipboard.Content = "Копировать в буфер";
+                btnUpdateForum.Content = "Обновить тему";
+                btnBumpForum.Content = "Апнуть тему";
+            }
         }
 
         void checkBox_Checked(object sender, RoutedEventArgs e)

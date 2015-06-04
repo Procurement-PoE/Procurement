@@ -9,6 +9,12 @@ namespace Procurement.View
         {
             InitializeComponent();
             this.DataContext = new InventoryViewModel(this);
+            if (ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                lblCharSelection.Content = "Выбор персонажа:";
+                tabGear.Header = "Экипировка";
+                tabInventory.Header = "Инвертарь";
+            }
         }
 
         public new Grid Content

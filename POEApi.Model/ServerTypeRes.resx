@@ -516,4 +516,7 @@
   <data name="WeaponTypeTwilightBlade" xml:space="preserve">
     <value>Twilight Blade</value>
   </data>
+  <data name="CurrencyTypeShardText" xml:space="preserve">
+    <value>Shard</value>
+  </data>
 </root>

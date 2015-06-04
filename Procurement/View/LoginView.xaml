@@ -30,8 +30,8 @@
                     <RowDefinition Height="10*" />
                 </Grid.RowDefinitions>
 
-                <Label x:Name="lblEmail" Content="Email" FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top" Margin="0,12,0,0"></Label>
-                <Label x:Name="lblPassword" Content="Password" FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top" Margin="0,47,0,0" Grid.RowSpan="2"></Label>
+                <Label x:Name="lblEmail" Content="Email" FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top" Margin="0,12,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"></Label>
+                <Label x:Name="lblPassword" Content="Password" FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top" Margin="0,47,0,0" Grid.RowSpan="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
 
                 <TextBox Name="txtLogin" Text="{Binding Email}" Grid.Column="1" Height="22" Width="330" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black" BorderBrush="#FF76591B" Foreground="#FFAB9066" SelectionBrush="#FFCABE9F" Margin="0,17,0,0"></TextBox>
                 <PasswordBox Name="txtPassword" Grid.Column="1" Height="22" Width="330" Background="Black" BorderBrush="#FF76591B" HorizontalAlignment="Left" VerticalAlignment="Top"  Foreground="#FFAB9066" SelectionBrush="#FFCABE9F" Margin="0,13,0,0" Grid.RowSpan="2" Grid.Row="1" />
@@ -83,7 +83,7 @@
                     <Grid.Resources>
                         <ResourceDictionary Source="..\Controls\ExpressionDark.xaml"/>
                     </Grid.Resources>
-                    <CheckBox Name="useSession" Content="Use SessionID" HorizontalAlignment="Left" Margin="25,-1,0,0" Height="25" VerticalAlignment="Top" IsChecked="{Binding UseSession}" Foreground="#FFAB9066" FontSize="12" FontWeight="Bold"/>
+                    <CheckBox Name="useSession" Content="Use SessionID" ToolTip="Only for International server" HorizontalAlignment="Left" Margin="25,-1,0,0" Height="25" VerticalAlignment="Top" IsChecked="{Binding UseSession}" Foreground="#FFAB9066" FontSize="12" FontWeight="Bold"/>
                     <ComboBox Name="cmbRealmType" ItemsSource="{Binding}" Foreground="#FFAB9066" Margin="24,30,16,7" SelectionChanged="cmbRealmType_SelectionChanged" Loaded="cmbRealmType_Loaded">
                         <ComboBoxItem Content="International" IsSelected="True"/>
                         <ComboBoxItem Content="Garena (RU)" />

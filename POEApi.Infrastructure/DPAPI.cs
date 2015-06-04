@@ -45,6 +45,8 @@ namespace POEApi.Infrastructure
         public static SecureString Decrypt(this string cipher)
         {
             if (cipher == null) throw new ArgumentNullException("cipher");
+            //allow empty pass in Offline
+            if (cipher == "") return new SecureString();
 
             byte[] saltInclusive = Convert.FromBase64String(cipher);
             MemoryStream ms;
@@ -64,6 +66,9 @@ namespace POEApi.Infrastructure
             SecureString secured = new SecureString();
 
             int count = Encoding.Unicode.GetCharCount(decrypted);
+            //allow empty pass in Offline
+            if (count == 0) return secured;
+
             int bc = decrypted.Length / count;
 
             for (int i = 0; i < count; i++)

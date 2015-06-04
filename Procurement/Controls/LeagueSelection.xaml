@@ -17,7 +17,7 @@
         <Grid.Background>
             <SolidColorBrush Color="Black" Opacity="0.8" />
         </Grid.Background>
-        <Label Content="League Selection:" Grid.Row="0"  Foreground="#FFAB9066" FontSize="14" FontWeight="Bold"/>
+        <Label Name="lblLeagueSelection" Content="League Selection:" Grid.Row="0"  Foreground="#FFAB9066" FontSize="14" FontWeight="Bold"/>
         <ComboBox ItemsSource="{Binding Leagues}" Grid.Row="1" Foreground="#FFAB9066" SelectionChanged="ComboBox_SelectionChanged" SelectedItem="{Binding CurrentLeague, Mode=OneTime}" />
     </Grid>
 </UserControl>

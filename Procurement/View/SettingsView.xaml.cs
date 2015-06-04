@@ -11,6 +11,21 @@ namespace Procurement.View
         {
             InitializeComponent();
             this.DataContext = new SettingsViewModel(this);
+            if (ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                lblUserSettings.Content = "Настройки пользователя";
+                lblFavLeague.Content = "Избранная лига";
+                lblFavChar.Content = "Избранный персонаж";
+                lblCompactMode.Content = "Компактный режим";
+                lblCurrencyRatios.Content = "Курсы обмена:";
+                lblCharsAndLeague.Content = "Персонажи и лиги";
+                lblExcludeTabsFromRecResults.Content = "Исключить вкладки для рецептов крафта";
+                chkDownloadOnlySelectedChars.Content = "Загружать только выбранных персонажей";
+                chkDownloadOnlySelectedLeagues.Content = "Загружать только выбранные лиги";
+                CurrencyGrid.Columns[0].Header = "Имя";
+                CurrencyGrid.Columns[1].Header = "Кол-во сфер";
+                CurrencyGrid.Columns[2].Header = "Сфер хаоса";
+            }
         }
 
         public new Grid Content

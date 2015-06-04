@@ -61,6 +61,15 @@ namespace POEApi.Model {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shard.
+        /// </summary>
+        internal static string CurrencyTypeShardText {
+            get {
+                return ResourceManager.GetString("CurrencyTypeShardText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to right click this item then left click a location on the ground to create the object..
         /// </summary>
         internal static string DecorationItemTypeText {

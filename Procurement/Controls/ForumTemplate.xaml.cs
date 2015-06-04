@@ -10,8 +10,11 @@ namespace Procurement.Controls
         {
             InitializeComponent();
             this.DataContext = new ForumTemplateViewModel();
+            if (ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                btnSaveAllChanges.Content = "Сохранить изменения";
+            }
             TemplateText.AcceptsReturn = true;
-            //DataObject.AddPastingHandler(TemplateText, new DataObjectPastingEventHandler(OnPaste));
         }
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)

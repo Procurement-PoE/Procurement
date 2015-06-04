@@ -133,7 +133,7 @@ namespace Procurement.ViewModel
                 return;
             }
 
-            if (this.view.txtPassword.SecurePassword.Length<1)
+            if (this.view.txtPassword.SecurePassword.Length<1 && !offline)
             {
                 MessageBox.Show(string.Format("{0} is required!", ServerType=="International" ? "Password" : "Session ID"), "Error logging in", MessageBoxButton.OK, MessageBoxImage.Stop);
                 toggleControls();

@@ -45,10 +45,10 @@
         </Grid.ColumnDefinitions>
         <Border Grid.Column="0" BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="25, 15, 0, 0">
             <TabControl Grid.Column="1" VerticalAlignment="Top" Background="Transparent"  Margin="8,8,8,8">
-                <TabItem Header="Equipped Gear">
+                <TabItem Name="tabGear" Header="Equipped Gear">
                     <poe:Equipped Character="{Binding Character}" />
                 </TabItem>
-                <TabItem Header="Inventory">
+                <TabItem Name="tabInventory" Header="Inventory">
                     <poe:Inventory Character="{Binding Character}" />
                 </TabItem>
             </TabControl>
@@ -63,7 +63,7 @@
                         <RowDefinition />
                         <RowDefinition />
                     </Grid.RowDefinitions>                             
-                    <Label Content="Character Selection" Grid.Row="0"  Foreground="#FFAB9066" FontSize="14" FontWeight="Bold"/>
+                    <Label Name="lblCharSelection" Content="Character Selection" Grid.Row="0"  Foreground="#FFAB9066" FontSize="14" FontWeight="Bold"/>
                     <ScrollViewer Grid.Row="1" HorizontalAlignment="Left" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Height="543">
                         <poe:CharacterSelector Characters="{Binding Characters}" Margin="5,5,5,5" />
                     </ScrollViewer>

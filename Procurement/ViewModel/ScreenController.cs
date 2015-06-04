@@ -21,6 +21,7 @@ namespace Procurement.ViewModel
 
         public DelegateCommand MenuButtonCommand { get; set; }
 
+        //TODO: RU GUI
         private const string STASH_VIEW = "StashView";
         private const string RECIPE_VIEW = "Recipes";
         private const string TRADING_VIEW = "Trading";

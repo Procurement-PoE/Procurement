@@ -22,36 +22,38 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Content="Buyout Settings" Foreground="#FFAB9066" FontSize="14" FontWeight="Bold" Margin="0, 10, 0, 0"/>
+            <Label Name="lblBuyoutSettings" Grid.Row="0" Content="Buyout Settings" Foreground="#FFAB9066" FontSize="14" FontWeight="Bold" Margin="0, 10, 0, 0"/>
             
-            <CheckBox Grid.Row="1" Foreground="#FFAB9066" IsChecked="{Binding EmbedBuyouts}" Content="Embed Buyouts" HorizontalAlignment="Left" Margin="0,2,0,0" />
+            <CheckBox Name="chkEmbedBuyouts" Grid.Row="1" Foreground="#FFAB9066" IsChecked="{Binding EmbedBuyouts}" Content="Embed Buyouts" HorizontalAlignment="Left" Margin="0,2,0,0" />
 
-            <CheckBox Grid.Row="2" Foreground="#FFAB9066" IsChecked="{Binding BuyoutItemsOnlyVisibleInBuyoutsTag}" Content="Buyouts items only visible in buyouts tag" HorizontalAlignment="Left" Margin="0,2,0,0" />
+            <CheckBox Name="chkBuyoutsTag" Grid.Row="2" Foreground="#FFAB9066" IsChecked="{Binding BuyoutItemsOnlyVisibleInBuyoutsTag}" Content="Buyouts items only visible in buyouts tag" HorizontalAlignment="Left" Margin="0,2,0,0" />
 
-            <CheckBox Grid.Row="3" Foreground="#FFAB9066" IsChecked="{Binding OnlyDisplayBuyouts}" Content="Only display items with buyout" HorizontalAlignment="Left" Margin="0,2,0,0" />
+            <CheckBox Name="chkOnlyDisplayWithBuyout" Grid.Row="3" Foreground="#FFAB9066" IsChecked="{Binding OnlyDisplayBuyouts}" Content="Only display items with buyout" HorizontalAlignment="Left" Margin="0,2,0,0" />
     
             <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="171"/>
                     <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="679*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Content="Thread Id" Foreground="#FFAB9066" FontSize="12" />
-                <TextBox Height="22" Width="100" Grid.Column="1" Text="{Binding ThreadId}"  HorizontalAlignment="Left"  />
+                <Label Name="lblThreadID" Content="Thread Id" Foreground="#FFAB9066" FontSize="12" Margin="0,0,7,0" />
+                <TextBox Height="22" Width="100" Text="{Binding ThreadId}"  HorizontalAlignment="Left" Margin="0,3" Grid.Column="1" />
             </Grid>
             <Grid Grid.Row="5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="800"/>
+                    <ColumnDefinition Width="171"/>
+                    <ColumnDefinition Width="729"/>
+                    <ColumnDefinition Width="50*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Content="Thread Title" Foreground="#FFAB9066" FontSize="12" />
-                <TextBox Height="22" Width="720" Grid.Column="1" Text="{Binding ThreadTitle}"  HorizontalAlignment="Left" />
+                <Label Name="lblThreadTitle" Content="Thread Title" Foreground="#FFAB9066" FontSize="12" Margin="0,0,7,0" />
+                <TextBox Height="22" Width="627" Text="{Binding ThreadTitle}"  HorizontalAlignment="Left" Margin="0,3,0,0" Grid.Column="1" />
             </Grid>
 
-            <Button Grid.Row="6" Content="Save Thread Settings" Style="{Binding}" Height="22" Width="120" HorizontalAlignment="Left" Margin="10,0,0,0" Command="{Binding SaveCommand}"/>
+            <Button Name="btnSaveThreadSettings" Grid.Row="6" Content="Save Thread Settings" Style="{Binding}" Height="22" Width="Auto" HorizontalAlignment="Left" Margin="10,0,0,0" Command="{Binding SaveCommand}"/>
 
-            <Label Grid.Row="7" Foreground="#FFAB9066" FontSize="12" Margin="0, 0, 0, 0">
+            <Label Name="lblEnterPersonalURL" Grid.Row="7" Foreground="#FFAB9066" FontSize="12" Margin="0, 0, 0, 0">
                 <TextBlock>
                     Enter your personal poe.trade URL and Procurement will automatically refresh your online status for you as long as it remains open. Online mode only.<LineBreak/>You can get your URL by sending a PM to 'poexyzis' on the game forums. (<Hyperlink Click="Hyperlink_Click">http://www.pathofexile.com/private-messages/compose/to/poexyzis</Hyperlink>)
                 </TextBlock>
@@ -62,13 +64,13 @@
                     <ColumnDefinition Width="800"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Content="Poe.trade URL" Foreground="#FFAB9066" FontSize="12" />
-                <TextBox Height="22" Width="720" Grid.Column="1" Text="{Binding PoeTradeRefreshUrl}" IsEnabled="{Binding LoggedIn}" HorizontalAlignment="Left" />
+                <Label Name="lblPoeTradeURL" Grid.Column="0" Content="Poe.trade URL" Foreground="#FFAB9066" FontSize="12" />
+                <TextBox Name="txtPoeTradeURL" Height="22" Width="720" Grid.Column="1" Text="{Binding PoeTradeRefreshUrl}" IsEnabled="{Binding LoggedIn}" HorizontalAlignment="Left" />
             </Grid>
             
-            <CheckBox Grid.Row="9" Foreground="#FFAB9066" IsChecked="{Binding PoeTradeRefreshEnabled}" IsEnabled="{Binding LoggedIn}" Content="Enable automatic poe.trade online refresh" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,2,0,0" />
+            <CheckBox Name="chkEnableAutoOnlineRefresh" Grid.Row="9" Foreground="#FFAB9066" IsChecked="{Binding PoeTradeRefreshEnabled}" IsEnabled="{Binding LoggedIn}" Content="Enable automatic poe.trade online refresh" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,2,0,0" />
 
-            <Button Grid.Row="10" Content="Save Poe.Trade Settings" Style="{Binding}" IsEnabled="{Binding LoggedIn}" Height="22" Width="145" HorizontalAlignment="Left" Margin="10,0,0,0" Command="{Binding SaveRefreshCommand}" VerticalAlignment="Bottom"/>
+            <Button Name="btnSavePoeTradeSettings" Grid.Row="10" Content="Save Poe.Trade Settings" Style="{Binding}" IsEnabled="{Binding LoggedIn}" Height="22" Width="Auto" HorizontalAlignment="Left" Margin="10,0,0,0" Command="{Binding SaveRefreshCommand}" VerticalAlignment="Bottom"/>
             
         </Grid>
     </Border>

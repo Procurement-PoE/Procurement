@@ -107,7 +107,7 @@ namespace Procurement.ViewModel
 
         public string Total
         {
-            get { return "Total " + configuredOrbType.ToString() + " in Orbs : " + ApplicationState.Stash[ApplicationState.CurrentLeague].GetTotal(configuredOrbType).ToString(); }
+            get { return "Total " + configuredOrbType.ToString() + " in Orbs : " + ApplicationState.Stash[ApplicationState.CurrentLeague].GetTotal(configuredOrbType).ToString("F2", new System.Globalization.CultureInfo("en-US")); }
         }
 
         public Dictionary<OrbType, double> TotalDistibution
@@ -293,7 +293,7 @@ namespace Procurement.ViewModel
 
             if (!ApplicationState.Model.Offline)
                 contextMenu.Items.Add(getMenuItem(itemStash, "Refresh", refresh_Click));
-            
+            //todo: ru
             contextMenu.Items.Add(getMenuItem(itemStash, "Set Tabwide Buyout", setTabBuyout_Click));
 
             item.ContextMenu = contextMenu;
