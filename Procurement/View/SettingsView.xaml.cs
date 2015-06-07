@@ -11,7 +11,7 @@ namespace Procurement.View
         {
             InitializeComponent();
             this.DataContext = new SettingsViewModel(this);
-            if (ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            if (LoginWindowViewModel.ServerType == "Garena (RU)")
             {
                 lblUserSettings.Content = "Настройки пользователя";
                 lblFavLeague.Content = "Избранная лига";
@@ -25,6 +25,8 @@ namespace Procurement.View
                 CurrencyGrid.Columns[0].Header = "Имя";
                 CurrencyGrid.Columns[1].Header = "Кол-во сфер";
                 CurrencyGrid.Columns[2].Header = "Сфер хаоса";
+
+                Procurement.View.LoginView.ChangeImageStyle(AboutButton.Content as Image, LoginWindowViewModel.ServerType);
             }
         }
 

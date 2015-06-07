@@ -18,7 +18,17 @@
 
         public override string Keyword
         {
-            get { return "Energy Shield"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Энергетический щит";
+                }
+                else
+                {
+                    return "Energy Shield";
+                }
+            }
         }
 
         public override string Help

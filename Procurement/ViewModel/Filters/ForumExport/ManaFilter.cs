@@ -19,7 +19,17 @@
 
         public override string Keyword
         {
-            get { return "Maximum Mana"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Максимум к мане";
+                }
+                else
+                {
+                    return "Maximum Mana";
+                }
+            }
         }
 
         public override string Help

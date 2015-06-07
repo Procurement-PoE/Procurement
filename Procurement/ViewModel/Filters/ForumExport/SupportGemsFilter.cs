@@ -19,7 +19,17 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public string Keyword
         {
-            get { return "Support Gems"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Камни поддержки";
+                }
+                else
+                {
+                    return "Support Gems";
+                }
+            }
         }
 
         public string Help

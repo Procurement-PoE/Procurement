@@ -21,7 +21,6 @@ namespace Procurement.ViewModel
 
         public DelegateCommand MenuButtonCommand { get; set; }
 
-        //TODO: RU GUI
         private const string STASH_VIEW = "StashView";
         private const string RECIPE_VIEW = "Recipes";
         private const string TRADING_VIEW = "Trading";
@@ -110,6 +109,13 @@ namespace Procurement.ViewModel
             new Action(() =>
             {
                 mainView.Buttons.Visibility = Visibility.Visible;
+                
+                //Translate GUI main buttons
+                Procurement.View.LoginView.ChangeImageStyle(mainView.btnStash.Content as Image, LoginWindowViewModel.ServerType);
+                Procurement.View.LoginView.ChangeImageStyle(mainView.btnInventory.Content as Image, LoginWindowViewModel.ServerType);
+                Procurement.View.LoginView.ChangeImageStyle(mainView.btnTrading.Content as Image, LoginWindowViewModel.ServerType);
+                Procurement.View.LoginView.ChangeImageStyle(mainView.btnSettings.Content as Image, LoginWindowViewModel.ServerType);
+                Procurement.View.LoginView.ChangeImageStyle(mainView.btnRecipes.Content as Image, LoginWindowViewModel.ServerType);
             }));
         }
 

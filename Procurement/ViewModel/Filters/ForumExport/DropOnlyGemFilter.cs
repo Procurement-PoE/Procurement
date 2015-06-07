@@ -44,7 +44,17 @@ namespace Procurement.ViewModel.Filters
 
         public string Keyword
         {
-            get { return "Drop Only Gems"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Камни только с монстров";
+                }
+                else
+                {
+                    return "Drop Only Gems";
+                }
+            }
         }
 
         public string Help

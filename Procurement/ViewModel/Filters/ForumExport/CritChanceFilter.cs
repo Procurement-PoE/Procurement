@@ -23,7 +23,17 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public override string Keyword
         {
-            get { return "Crit Chance"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Шанс критического удара";
+                }
+                else
+                {
+                    return "Crit Chance";
+                }
+            }
         }
 
         public override string Help

@@ -49,7 +49,7 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <Button Grid.Column="1" Grid.Row="2" Width="120" Height="42" HorizontalAlignment="Left" Command="{Binding MenuButtonCommand}" CommandParameter="StashView">
+                    <Button Name="btnStash" Grid.Column="1" Grid.Row="2" Width="120" Height="42" HorizontalAlignment="Left" Command="{Binding MenuButtonCommand}" CommandParameter="StashView">
                         <Image>
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">
@@ -64,7 +64,7 @@
                         </Image>
                     </Button>
 
-                    <Button Grid.Column="2" Grid.Row="2" Width="120" Height="42" HorizontalAlignment="Left" Command="{Binding MenuButtonCommand}" CommandParameter="Inventory">
+                    <Button Name="btnInventory" Grid.Column="2" Grid.Row="2" Width="120" Height="42" HorizontalAlignment="Left" Command="{Binding MenuButtonCommand}" CommandParameter="Inventory">
                         <Image>
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">
@@ -79,7 +79,7 @@
                         </Image>
                     </Button>
 
-                    <Button Grid.Column="3" Grid.Row="2" Width="120" Height="42" HorizontalAlignment="Left" Command="{Binding MenuButtonCommand}" CommandParameter="Trading">
+                    <Button Name="btnTrading" Grid.Column="3" Grid.Row="2" Width="120" Height="42" HorizontalAlignment="Left" Command="{Binding MenuButtonCommand}" CommandParameter="Trading">
                         <Image>
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">
@@ -94,7 +94,7 @@
                         </Image>
                     </Button>
 
-                    <Button Grid.Column="4" Grid.Row="2" Width="120" Height="42" HorizontalAlignment="Left" Command="{Binding MenuButtonCommand}" CommandParameter="Settings">
+                    <Button Name="btnSettings" Grid.Column="4" Grid.Row="2" Width="120" Height="42" HorizontalAlignment="Left" Command="{Binding MenuButtonCommand}" CommandParameter="Settings">
                         <Image>
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">
@@ -109,7 +109,7 @@
                         </Image>
                     </Button>
 
-                    <Button Grid.Column="5" Grid.Row="2" Width="120" Height="42" HorizontalAlignment="Left" Command="{Binding MenuButtonCommand}" CommandParameter="Recipes">
+                    <Button Name="btnRecipes" Grid.Column="5" Grid.Row="2" Width="120" Height="42" HorizontalAlignment="Left" Command="{Binding MenuButtonCommand}" CommandParameter="Recipes">
                         <Image>
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">
@@ -138,7 +138,7 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <Button Grid.Column="0" Grid.Row="2" Width="49" Height="42" HorizontalAlignment="Left" Click="minimize_Click" >
+                    <Button Name="btnMinimize" Grid.Column="0" Grid.Row="2" Width="49" Height="42" HorizontalAlignment="Left" Click="minimize_Click" >
                         <Image>
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">
@@ -153,7 +153,7 @@
                         </Image>
                     </Button>
 
-                    <Button Grid.Column="1" Grid.Row="2" Width="49" Height="42" HorizontalAlignment="Left" Click="exit_Click">
+                    <Button Name="btnExit" Grid.Column="1" Grid.Row="2" Width="49" Height="42" HorizontalAlignment="Left" Click="exit_Click">
                         <Image>
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">

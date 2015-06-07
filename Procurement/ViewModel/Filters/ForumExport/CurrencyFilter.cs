@@ -12,7 +12,17 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public string Keyword
         {
-            get { return "Currency"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Валюта";
+                }
+                else
+                {
+                    return "Currency";
+                }
+            }
         }
 
         public string Help

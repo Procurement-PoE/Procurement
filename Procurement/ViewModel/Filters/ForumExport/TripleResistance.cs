@@ -18,7 +18,17 @@ namespace Procurement.ViewModel.Filters
 
         public string Keyword
         {
-            get { return "Triple Resists"; }
+            get 
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Сопротивление тройное";
+                }
+                else
+                {
+                    return "Triple Resists";
+                }
+            }
         }
 
         public string Help

@@ -23,7 +23,17 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public override string Keyword
         {
-            get { return "Global Crit Multiplier"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Глобальный множитель критического удара";
+                }
+                else
+                {
+                    return "Global Crit Multiplier";
+                }
+            }
         }
 
         public override string Help

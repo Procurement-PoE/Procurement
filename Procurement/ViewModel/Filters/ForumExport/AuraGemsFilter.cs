@@ -13,7 +13,17 @@
 
         public override string Keyword
         {
-            get { return "Aura Gems"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Камни аур";
+                }
+                else
+                {
+                    return "Aura Gems";
+                }
+            }
         }
 
         public override string Help

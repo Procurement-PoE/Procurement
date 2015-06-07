@@ -290,11 +290,15 @@ namespace Procurement.ViewModel
         private void addContextMenu(TabItem item, StashControl itemStash)
         {
             ContextMenu contextMenu = new ContextMenu();
+            string strRefresh = "Refresh";
+            string strRefresh_ru = "Обновить";
+            string strSetTabBuyout = "Set Tabwide Buyout";
+            string strSetTabBuyout_ru = "Установить цену на вкладку";
 
             if (!ApplicationState.Model.Offline)
-                contextMenu.Items.Add(getMenuItem(itemStash, "Refresh", refresh_Click));
-            //todo: ru
-            contextMenu.Items.Add(getMenuItem(itemStash, "Set Tabwide Buyout", setTabBuyout_Click));
+                contextMenu.Items.Add(getMenuItem(itemStash, LoginWindowViewModel.ServerType=="Garena (RU)" ? strRefresh_ru : strRefresh, refresh_Click));
+            
+            contextMenu.Items.Add(getMenuItem(itemStash, LoginWindowViewModel.ServerType == "Garena (RU)" ? strSetTabBuyout_ru : strSetTabBuyout, setTabBuyout_Click));
 
             item.ContextMenu = contextMenu;
         }

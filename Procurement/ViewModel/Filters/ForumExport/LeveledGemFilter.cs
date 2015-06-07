@@ -27,7 +27,17 @@ namespace Procurement.ViewModel.Filters
 
         public string Keyword
         {
-            get { return (this.level == 0) ? "Leveled Gems" : "Level " + level.ToString() + " Gems"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return (this.level == 0) ? "Камни с уровнем" : "Камни " + level.ToString() + " уровня";
+                }
+                else
+                {
+                    return (this.level == 0) ? "Leveled Gems" : "Level " + level.ToString() + " Gems";
+                }
+            }
         }
 
         public string Help

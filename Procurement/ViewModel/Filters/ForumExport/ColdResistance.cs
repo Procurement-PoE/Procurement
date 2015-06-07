@@ -17,6 +17,7 @@ namespace Procurement.ViewModel.Filters
             if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
             {
                 string[] stats_ru = { "к сопротивлению холоду", "к сопротивлению огню и холоду", "к сопротивлению холоду и молнии" };
+                this.keyword = "Сопротивление к холоду";
                 this.stats = stats_ru.Select(stat => new Regex(stat, RegexOptions.Singleline | RegexOptions.IgnoreCase)).ToList();
             }
         }

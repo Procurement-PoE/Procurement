@@ -16,6 +16,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
             if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
             {
                 string[] stats_ru = { "Добавляет \\d+\\-\\d+ к урону от огня" };
+                this.keyword = "Урон от огня";
                 this.stats = stats_ru.Select(stat => new Regex(stat, RegexOptions.Singleline | RegexOptions.IgnoreCase)).ToList();
             }
         }

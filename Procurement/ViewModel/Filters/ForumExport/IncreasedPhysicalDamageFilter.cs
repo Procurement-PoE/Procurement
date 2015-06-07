@@ -24,7 +24,17 @@ namespace Procurement.ViewModel.Filters
 
         public override string Keyword
         {
-            get { return "Increased Physical Damage"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Увеличенный физический урон";
+                }
+                else
+                {
+                    return "Increased Physical Damage";
+                }
+            }
         }
 
         public override string Help

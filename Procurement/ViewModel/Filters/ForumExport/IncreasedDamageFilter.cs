@@ -23,6 +23,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
             if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
             {
                 string[] stats_ru = { "увеличение урона от холода" };
+                this.keyword = "Увеличение урона от холода";
                 this.stats = stats_ru.Select(stat => new Regex(stat, RegexOptions.Singleline | RegexOptions.IgnoreCase)).ToList();
             }
         }
@@ -36,6 +37,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
             if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
             {
                 string[] stats_ru = { "увеличение урона от огня" };
+                this.keyword = "Увеличение урона от огня";
                 this.stats = stats_ru.Select(stat => new Regex(stat, RegexOptions.Singleline | RegexOptions.IgnoreCase)).ToList();
             }
         }
@@ -49,6 +51,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
             if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
             {
                 string[] stats_ru = { "увеличение урона от молнии" };
+                this.keyword = "Увеличение урона от молнии";
                 this.stats = stats_ru.Select(stat => new Regex(stat, RegexOptions.Singleline | RegexOptions.IgnoreCase)).ToList();
             }
         }

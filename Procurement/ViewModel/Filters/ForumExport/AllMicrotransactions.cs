@@ -12,7 +12,17 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public string Keyword
         {
-            get { return "All microtransactions"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Украшательства";
+                }
+                else
+                {
+                    return "All microtransactions";
+                }
+            }
         }
 
         public string Help

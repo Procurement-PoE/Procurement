@@ -48,9 +48,10 @@ namespace Procurement.View
 
                     //RU GUI
                     lblEmail.Content = "Эл.почта";
-                    lblPassword.Content = "Идентификатор сессии";
-                    //TODO: img RU buttons LoginButton.Content = "Войти";
-                    //OfflineButton.Content = "Оффлайн";
+                    lblPassword.Content = "ID сессии";
+
+                    ChangeImageStyle(LoginButton.Content as Image, LoginWindowViewModel.ServerType);
+                    ChangeImageStyle(OfflineButton.Content as Image, LoginWindowViewModel.ServerType);
                 }
                 else
                 {
@@ -58,7 +59,15 @@ namespace Procurement.View
                     lblEmail.IsEnabled = true;
                     txtLogin.IsEnabled = true;
                     txtLogin.Text = "";
+                    lblEmail.Content = "Email";
                     lblPassword.Content = "Password";
+                    ChangeImageStyle(LoginButton.Content as Image, LoginWindowViewModel.ServerType);
+                    ChangeImageStyle(OfflineButton.Content as Image, LoginWindowViewModel.ServerType);
+                    //Style en_buttons = new Style(typeof(Image), (LoginButton.Content as Image).Style);
+                    //en_buttons.Setters.Add(new Setter(Image.SourceProperty, new ImageSourceConverter().ConvertFromString("pack://application:,,,/Procurement;component/Images/buttons/btn_login.png")));
+                    //en_buttons.Triggers.Add(new Trigger() { Value = true, Property = Image.IsMouseOverProperty });
+                    //(en_buttons.Triggers[0] as Trigger).Setters.Add(new Setter(Image.SourceProperty, new ImageSourceConverter().ConvertFromString("pack://application:,,,/Procurement;component/Images/buttons/btn_login_hover.png")));
+                    //(LoginButton.Content as Image).Style = en_buttons;
                 }
             }
             else
@@ -72,6 +81,34 @@ namespace Procurement.View
             if (!String.IsNullOrEmpty(Settings.UserSettings["ServerType"]) && Settings.UserSettings["ServerType"] != "")
             {
                 cmbRealmType.SelectedItem = cmbRealmType.Items.Cast<ComboBoxItem>().FirstOrDefault(cmbi => cmbi.Content.ToString() == Settings.UserSettings["ServerType"]);
+            }
+
+            ChangeImageStyle(LoginButton.Content as Image, LoginWindowViewModel.ServerType);
+            ChangeImageStyle(OfflineButton.Content as Image, LoginWindowViewModel.ServerType);
+        }
+
+        internal static void ChangeImageStyle(Image button_img, string server_type)
+        {
+            Style new_style = new Style(typeof(Image), button_img.Style);
+
+            new_style.Triggers.Add(new Trigger() { Value = true, Property = Image.IsMouseOverProperty });
+            if (server_type == "Garena (RU)")
+            {
+                if (!button_img.Source.ToString().Contains("/buttons_ru/"))
+                {
+                    new_style.Setters.Add(new Setter(Image.SourceProperty, new ImageSourceConverter().ConvertFromString(button_img.Source.ToString().Replace("/buttons/", "/buttons_ru/"))));
+                    (new_style.Triggers[0] as Trigger).Setters.Add(new Setter(Image.SourceProperty, new ImageSourceConverter().ConvertFromString(((button_img.Style.Triggers[0] as Trigger).Setters[0] as Setter).Value.ToString().Replace("/buttons/", "/buttons_ru/"))));
+                    button_img.Style = new_style;
+                }
+            }
+            else
+            {
+                if (!button_img.Source.ToString().Contains("/buttons/"))
+                {
+                    new_style.Setters.Add(new Setter(Image.SourceProperty, new ImageSourceConverter().ConvertFromString(button_img.Source.ToString().Replace("/buttons_ru/", "/buttons/"))));
+                    (new_style.Triggers[0] as Trigger).Setters.Add(new Setter(Image.SourceProperty, new ImageSourceConverter().ConvertFromString(((button_img.Style.Triggers[0] as Trigger).Setters[0] as Setter).Value.ToString().Replace("/buttons_ru/", "/buttons/"))));
+                    button_img.Style = new_style;
+                }
             }
         }
     }

@@ -33,8 +33,8 @@
                 <ColumnDefinition Width="160" />
             </Grid.ColumnDefinitions>
 
-            <Button Content="Save" Grid.Column="0" Height="25" Width="150" Click="Save_Clicked"/>
-            <Button Content="Cancel" Grid.Column="2" Height="25" Width="150" Click="Cancel_Click" HorizontalAlignment="Left" />
+            <Button Name="btnSave" Content="Save" Grid.Column="0" Height="25" Width="150" Click="Save_Clicked"/>
+            <Button Name="btnCancel" Content="Cancel" Grid.Column="2" Height="25" Width="150" Click="Cancel_Click" HorizontalAlignment="Left" />
 
             </Grid>
     </Grid>

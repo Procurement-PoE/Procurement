@@ -23,7 +23,17 @@ namespace Procurement.ViewModel.Filters
 
         public string Keyword
         {
-            get { return "Popular Gems"; }
+            get 
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Популярные камни";
+                }
+                else
+                {
+                    return "Popular Gems";
+                }
+            }
         }
 
         public string Help

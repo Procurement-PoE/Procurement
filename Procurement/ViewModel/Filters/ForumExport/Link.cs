@@ -18,7 +18,20 @@ namespace Procurement.ViewModel.Filters
             this.links = links;
         }
 
-        public string Keyword { get { return links.ToString() + " Linked"; } }
+        public string Keyword
+        {
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return links.ToString() + "-связ.";
+                }
+                else
+                {
+                    return links.ToString() + " Linked";
+                }
+            }
+        }
         public string Help { get { return "Returns All " + links.ToString() + " Linked items, regardless of rarity"; } }
 
         public bool Applicable(Item item)

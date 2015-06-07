@@ -11,7 +11,17 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public string Keyword
         {
-            get { return "All gems"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Камни";
+                }
+                else
+                {
+                    return "All gems";
+                }
+            }
         }
 
         public string Help

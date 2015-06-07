@@ -23,7 +23,17 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public override string Keyword
         {
-            get { return "Maximum Life"; }
+            get 
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Максимум к здоровью";
+                }
+                else
+                {
+                    return "Maximum Life";
+                }
+            }
         }
 
         public override string Help

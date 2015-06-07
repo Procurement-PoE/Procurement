@@ -24,7 +24,17 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public override string Keyword
         {
-            get { return "Spell Damage"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Урон от чар";
+                }
+                else
+                {
+                    return "Spell Damage";
+                }
+            }
         }
 
         public override string Help

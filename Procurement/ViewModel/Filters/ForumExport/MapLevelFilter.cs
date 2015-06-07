@@ -16,7 +16,17 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public string Keyword
         {
-            get { return "Map Level"; }
+            get 
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Уровень карты";
+                }
+                else
+                {
+                    return "Map Level";
+                }
+            }
         }
 
         public string Help

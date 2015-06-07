@@ -34,7 +34,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
                     default:
                         break;
                 }
-                this.keyword = "Increased " + keyword + " gem level";
+                this.keyword = "Бонус " + stats_ru[0];
                 this.help="Items that increases the level of " + keyword + " gems";
                 this.stats = stats_ru.Select(stat => new Regex(stat, RegexOptions.Singleline | RegexOptions.IgnoreCase)).ToList();
             }
@@ -54,6 +54,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
             if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
             {
                 string[] stats_ru = { "к уровню размещённых камней" };
+                this.keyword = "Бонус к уровню всех размещенных камней";
                 this.stats = stats_ru.Select(stat => new Regex(stat, RegexOptions.Singleline | RegexOptions.IgnoreCase)).ToList();
             }
         }

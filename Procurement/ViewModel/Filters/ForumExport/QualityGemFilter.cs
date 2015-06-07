@@ -29,7 +29,17 @@ namespace Procurement.ViewModel.Filters
 
         public string Keyword
         {
-            get { return "Quality Gems"; }
+            get 
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Камни с качеством";
+                }
+                else
+                {
+                    return "Quality Gems";
+                }
+            }
         }
 
         public string Help

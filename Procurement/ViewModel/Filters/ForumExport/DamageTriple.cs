@@ -27,7 +27,18 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public string Keyword
         {
-            get { return "Triple Elemental Damage"; }
+            get
+            {
+
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Урон от трех стихий";
+                }
+                else
+                {
+                    return "Triple Elemental Damage";
+                }
+            }
         }
 
         public string Help

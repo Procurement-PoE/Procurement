@@ -19,7 +19,17 @@
 
         public override string Keyword
         {
-            get { return "Life regen"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Регенерация здоровья";
+                }
+                else
+                {
+                    return "Life regen";
+                }
+            }
         }
 
         public override string Help

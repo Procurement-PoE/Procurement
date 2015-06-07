@@ -13,7 +13,17 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public string Keyword
         {
-            get { return "6 Red Sockets"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "6 красных сокетов";
+                }
+                else
+                {
+                    return "6 Red Sockets";
+                }
+            }
         }
 
         public string Help

@@ -13,7 +13,7 @@ namespace Procurement.View
             {
                 lblCharSelection.Content = "Выбор персонажа:";
                 tabGear.Header = "Экипировка";
-                tabInventory.Header = "Инвертарь";
+                tabInventory.Header = "Инвентарь";
             }
         }
 

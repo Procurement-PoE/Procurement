@@ -15,7 +15,17 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public string Keyword
         {
-            get { return "Crafted Mods"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Скрафченные моды";
+                }
+                else
+                {
+                    return "Crafted Mods";
+                }
+            }
         }
 
         public string Help

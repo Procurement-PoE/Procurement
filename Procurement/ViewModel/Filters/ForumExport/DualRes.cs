@@ -19,7 +19,17 @@ namespace Procurement.ViewModel.Filters
 
         public string Keyword
         {
-            get { return "Dual Resists"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Сопротивление двойное";
+                }
+                else
+                {
+                    return "Dual Resists";
+                }
+            }
         }
 
         public string Help

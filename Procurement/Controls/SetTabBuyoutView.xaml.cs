@@ -26,6 +26,8 @@ namespace Procurement.Controls
             if (ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
             {
                 this.chkTabBuyout.Content = "Цена вкладки";
+                this.btnSave.Content = "Сохранить";
+                this.btnCancel.Content = "Отмена";
             }
         }
 

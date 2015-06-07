@@ -542,9 +542,6 @@
     <Resource Include="Images\stash-grid.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\inventory.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\buttons\btn_about.png" />
     <Resource Include="Images\buttons\btn_contacts.png" />
     <Resource Include="Images\buttons\btn_inventory.png" />
@@ -687,6 +684,33 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\buttons\btn_login_ru.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\inventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\buttons_ru\about-button-hover.png" />
+    <Resource Include="Images\buttons_ru\about-button.png" />
+    <Resource Include="Images\buttons_ru\btn_close.png" />
+    <Resource Include="Images\buttons_ru\btn_close_hover.png" />
+    <Resource Include="Images\buttons_ru\btn_inventory.png" />
+    <Resource Include="Images\buttons_ru\btn_login.png" />
+    <Resource Include="Images\buttons_ru\btn_login_hover.png" />
+    <Resource Include="Images\buttons_ru\btn_min.png" />
+    <Resource Include="Images\buttons_ru\btn_min_hover.png" />
+    <Resource Include="Images\buttons_ru\btn_offline.png" />
+    <Resource Include="Images\buttons_ru\btn_offline_hover.png" />
+    <Resource Include="Images\buttons_ru\btn_recipes.png" />
+    <Resource Include="Images\buttons_ru\btn_recipes_hover.png" />
+    <Resource Include="Images\buttons_ru\btn_selected_settings.png" />
+    <Resource Include="Images\buttons_ru\btn_selected_trading.png" />
+    <Resource Include="Images\buttons_ru\btn_select_inventory.png" />
+    <Resource Include="Images\buttons_ru\btn_select_stash.png" />
+    <Resource Include="Images\buttons_ru\btn_settings.png" />
+    <Resource Include="Images\buttons_ru\btn_stash.png" />
+    <Resource Include="Images\buttons_ru\btn_trading.png" />
+    <Resource Include="Images\buttons_ru\donate-hover.png" />
+    <Resource Include="Images\buttons_ru\donate.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

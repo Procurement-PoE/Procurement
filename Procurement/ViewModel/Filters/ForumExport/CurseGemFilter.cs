@@ -14,7 +14,17 @@
 
         public override string Keyword
         {
-            get { return "Curse Gems"; }
+            get
+            {
+                if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+                {
+                    return "Камни проклятий";
+                }
+                else
+                {
+                    return "Curse Gems";
+                }
+            }
         }
 
         public override string Help
