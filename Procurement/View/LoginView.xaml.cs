@@ -52,6 +52,8 @@ namespace Procurement.View
 
                     ChangeImageStyle(LoginButton.Content as Image, LoginWindowViewModel.ServerType);
                     ChangeImageStyle(OfflineButton.Content as Image, LoginWindowViewModel.ServerType);
+                    
+                    Procurement.MessagesRes.Culture = System.Globalization.CultureInfo.CreateSpecificCulture("ru-RU");
                 }
                 else
                 {
@@ -63,11 +65,7 @@ namespace Procurement.View
                     lblPassword.Content = "Password";
                     ChangeImageStyle(LoginButton.Content as Image, LoginWindowViewModel.ServerType);
                     ChangeImageStyle(OfflineButton.Content as Image, LoginWindowViewModel.ServerType);
-                    //Style en_buttons = new Style(typeof(Image), (LoginButton.Content as Image).Style);
-                    //en_buttons.Setters.Add(new Setter(Image.SourceProperty, new ImageSourceConverter().ConvertFromString("pack://application:,,,/Procurement;component/Images/buttons/btn_login.png")));
-                    //en_buttons.Triggers.Add(new Trigger() { Value = true, Property = Image.IsMouseOverProperty });
-                    //(en_buttons.Triggers[0] as Trigger).Setters.Add(new Setter(Image.SourceProperty, new ImageSourceConverter().ConvertFromString("pack://application:,,,/Procurement;component/Images/buttons/btn_login_hover.png")));
-                    //(LoginButton.Content as Image).Style = en_buttons;
+                    Procurement.MessagesRes.Culture = System.Globalization.CultureInfo.InvariantCulture;
                 }
             }
             else

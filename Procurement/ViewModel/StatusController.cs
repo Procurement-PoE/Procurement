@@ -52,7 +52,7 @@ namespace Procurement.ViewModel
 
                 text = new Run();
                 text.Foreground = Brushes.Red;
-                text.Text = "Error";
+                text.Text = Procurement.MessagesRes.Error;
                 ((Paragraph)statusBox.Document.Blocks.LastBlock).Inlines.Add(text);
 
                 text = new Run();

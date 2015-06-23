@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AreYouSureYouWantToBumpYourThread" xml:space="preserve">
+    <value>Вы хотите поднять свою тему? Нажимая ДА, вы даете разрешение Procurement поднять Вашу тему с текущим аккаунтом и подверждаете, что поднимаете тему на форуме не чаще 1 раза в час согласно правилам форума.</value>
+  </data>
+  <data name="ConfirmShopUpdate" xml:space="preserve">
+    <value>Подтвердите обновление темы</value>
+  </data>
+  <data name="ShopThreadSuccessfullyBumped" xml:space="preserve">
+    <value>Тема на форуме поднята!</value>
+  </data>
+  <data name="ThreadBumped" xml:space="preserve">
+    <value>Тема поднята</value>
+  </data>
+  <data name="ErrorBumpingShopThreadDetailsLoggedToDebuginfoLog" xml:space="preserve">
+    <value>Ошибка при поднятии темы, подробности в файле debuginfo.log</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="TheThreadTitleSuppliedInYourSettingsDoesNotMatch" xml:space="preserve">
+    <value>Название темы в настройках не совпадает с названием темы на форуме. Проверьте Ваши настройки темы</value>
+  </data>
+  <data name="AreYouSureYouWantToUpdateYourShop" xml:space="preserve">
+    <value>Вы хотите обновить свою тему? Нажимая ДА, вы даете разрешение Procurement обновить Вашу тему с текущим аккаунтом.</value>
+  </data>
+  <data name="ShopSuccessfullyUpdated" xml:space="preserve">
+    <value>Тема на форуме обновлена!</value>
+  </data>
+  <data name="ShopUpdated" xml:space="preserve">
+    <value>Тема обновлена</value>
+  </data>
+  <data name="ErrorUpdatingShopDetailsLoggedToDebuginfoLog" xml:space="preserve">
+    <value>Ошибка обновления темы, подробности в файле debuginfo.log</value>
+  </data>
+  <data name="NoShopSettingsFoundForCurrentLeague" xml:space="preserve">
+    <value>Не найдены настройки торговли для текущей лиги, установите идентификатор и название темы в настройках торговли.</value>
+  </data>
+  <data name="SettingsNotFound" xml:space="preserve">
+    <value>Не найдены настройки!</value>
+  </data>
+  <data name="YouNeedToSelectAtLeastOneTabToUpdateYourShop" xml:space="preserve">
+    <value>Вы должны выбрать хотя бы одну вкладку для обновления темы!</value>
+  </data>
+  <data name="NoTabsSelected" xml:space="preserve">
+    <value>Не выбраны вкладки</value>
+  </data>
+  <data name="InvalidThreadIdTheThreadIdIsTheNumber" xml:space="preserve">
+    <value>Некорректный идентификатор темы, идентификатор темы это число в конце Вашего URL адреса, т.е.: 12345 в http://web.poe.garena.ru/forum/view-thread/12345</value>
+  </data>
+  <data name="InvalidThreadId" xml:space="preserve">
+    <value>Некорректный идентификатор темы!</value>
+  </data>
+  <data name="ShopTextIs0CharactersWhichExceedsThe50000CharacterLimit" xml:space="preserve">
+    <value>В тексте темы {0} символов, что превышает предел в 50,000 на одно сообщение форума!</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Предупреждение</value>
+  </data>
+  <data name="CanTConvertItemToTextCopyError" xml:space="preserve">
+    <value>Невозможно преобразовать предмет в текстовое описание! Ошибка: </value>
+  </data>
+  <data name="ItemToTextError" xml:space="preserve">
+    <value>Ошибка создания текстового описания предмета</value>
+  </data>
+  <data name="IsRequiredPassword" xml:space="preserve">
+    <value>{0} не задан!</value>
+  </data>
+  <data name="ErrorLoggingIn" xml:space="preserve">
+    <value>Ошибка входа</value>
+  </data>
+  <data name="LoadingCharacters" xml:space="preserve">
+    <value>Загрузка персонажей...</value>
+  </data>
+  <data name="LoadingProcurementInOfflineMode" xml:space="preserve">
+    <value>Загрузка Procurement в оффлайн режиме...</value>
+  </data>
+  <data name="FailedToLoadCharacters" xml:space="preserve">
+    <value>Ошибка загрузки персонажей</value>
+  </data>
+  <data name="DoneLoading" xml:space="preserve">
+    <value>
+Готово!</value>
+  </data>
+  <data name="NoCharactersFoundInTheLeaguesSpecified" xml:space="preserve">
+    <value>Не найдены персонажи в заданных лигах. Проверьте названия лиг или установите настройку  DownloadOnlyMyLeagues=false.</value>
+  </data>
+  <data name="Loading0SInventory" xml:space="preserve">
+    <value>Загрузка инвентаря {0}...</value>
+  </data>
+  <data name="LoadingStashTab1" xml:space="preserve">
+    <value>Загрузка </value>
+  </data>
+  <data name="LoadingStashTab2" xml:space="preserve">
+    <value> вкладки сундука</value>
+  </data>
+  <data name="LoadingImageFor" xml:space="preserve">
+    <value>Загрузка изображения для </value>
+  </data>
+  <data name="Authenticating" xml:space="preserve">
+    <value>Аутентификация </value>
+  </data>
+  <data name="LoggedAsAuth" xml:space="preserve">
+    <value>Аккаунт </value>
+  </data>
+  <data name="GGGServerRequestLimitHitThrottlingActivated" xml:space="preserve">
+    <value>Превышен предел подключений к серверу GGG, включена задержка. Ожидайте {0} сек</value>
+  </data>
+  <data name="ErrorAttemptedToGetItemsForTheNonExistantLeague0" xml:space="preserve">
+    <value>Ошибка: лига не существует '{0}'</value>
+  </data>
+  <data name="CurrentLeaguesAre" xml:space="preserve">
+    <value>Текущие лиги:</value>
+  </data>
+  <data name="ExceptionDetails" xml:space="preserve">
+    <value>Подробности ошибки : </value>
+  </data>
+  <data name="ErrorGettingItemsFor0LeagueAreYouSureYourLeagueSettings" xml:space="preserve">
+    <value>Ошибка получения предметов для лиги {0}, проверьте настройки лиг.</value>
+  </data>
+  <data name="ErrorLoadingItems" xml:space="preserve">
+    <value>Ошибка загрузки предметов</value>
+  </data>
+  <data name="ExceptionInSetTabBuyoutClick" xml:space="preserve">
+    <value>Ошибка в обработчике setTabBuyout_Click: </value>
+  </data>
+  <data name="ErrorSettingTabwideBuyoutErrorDetailsLoggedToDebugInfo" xml:space="preserve">
+    <value>Ошибка установки цены вкладки, детали в файле DebugInfo.log, откройте сообщение о проблеме на https://github.com/medvedttn/Procurement/issues</value>
+  </data>
+  <data name="ErrorSettingTabwideBuyout" xml:space="preserve">
+    <value>Ошибка установки цены вкладки</value>
+  </data>
+  <data name="ShopSettingsSaved" xml:space="preserve">
+    <value>Настройки торговли сохранены</value>
+  </data>
+  <data name="SettingsSaved" xml:space="preserve">
+    <value>Настройки сохранены</value>
+  </data>
+  <data name="UnableToSaveShopSettingsErrorLoggedToDebuginfoLog" xml:space="preserve">
+    <value>Ошибка сохранения настроек торговли, подробности в файле debuginfo.log</value>
+  </data>
+  <data name="UnableToLoad0SettingItIsEitherMissingFromSettingsXml" xml:space="preserve">
+    <value>Невозможно загрузить настройку {0}.
+
+Она либо отсутствует в файле settings.xml или некорректно установлена. Для {0} загружено значение по умолчанию, в дальнейшем рекомендуем исправить файл settings.xml или заменить его из установки программы.</value>
+  </data>
+  <data name="UnableToLoadSetting" xml:space="preserve">
+    <value>Ошибка загрузки настройки</value>
+  </data>
+  <data name="ErrorSettingSelectedTabs" xml:space="preserve">
+    <value>Ошибка установки выбранных вкладок: </value>
+  </data>
+  <data name="ErrorUpdatingTabSelection" xml:space="preserve">
+    <value>Ошибка обновления вкладок: </value>
+  </data>
+  <data name="ErrorSavingTabPreferences" xml:space="preserve">
+    <value>Ошибка сохранения настроек вкладок: </value>
+  </data>
+  <data name="ErrorLoadingTabPreferences" xml:space="preserve">
+    <value>Ошибка загрузки настроек вкладок: </value>
+  </data>
+  <data name="ImageSaved" xml:space="preserve">
+    <value>Изображение </value>
+  </data>
+  <data name="ImageSaved2" xml:space="preserve">
+    <value> сохранено</value>
+  </data>
+  <data name="UnableToSaveHoverImageToDisk" xml:space="preserve">
+    <value>Ошибка сохраниния всплывающего изображения на диск : </value>
+  </data>
+  <data name="ErrorSavingImageErrorLoggedToDebugInfoLog" xml:space="preserve">
+    <value>Ошибка сохранения изображения, подробности в файле DebugInfo.log</value>
+  </data>
+  <data name="ANewVersionOfProcurementMedvedEditionIsAvailable" xml:space="preserve">
+    <value>Доступна новая версия Procurement Medved Edition! Загрузить ее сейчас(ссылка откроется в браузере)?</value>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>Доступно обновление</value>
+  </data>
+  <data name="ErrorCheckingForUpdatesDetailsLoggedToDebugInfoLog" xml:space="preserve">
+    <value>Ошибка проверки обновлений, подробности в файле DebugInfo.log</value>
+  </data>
+</root>

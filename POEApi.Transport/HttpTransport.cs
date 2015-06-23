@@ -79,7 +79,7 @@ namespace POEApi.Transport
                 HttpWebResponse confirmAuthResponse = (HttpWebResponse)confirmAuth.GetResponse();
 
                 if (confirmAuthResponse.ResponseUri.ToString() == loginURL)
-                    throw new LogonFailedException();
+                    throw new LogonFailedException(server_type);
                 return "<SessionID used>";
             }
 
@@ -90,8 +90,8 @@ namespace POEApi.Transport
                 HttpWebResponse confirmAuthResponse = (HttpWebResponse)confirmAuth.GetResponse();
 
                 if (confirmAuthResponse.ResponseUri.ToString() != getServerTypeURLmyaccount(server_type))
-                    throw new LogonFailedException();
-                return "<SessionID used>";
+                    throw new LogonFailedException(server_type);
+                return "<SessionID используется>";
             }
 
             HttpWebRequest getHash = getHttpRequest(HttpMethod.GET, loginURL);
@@ -119,7 +119,7 @@ namespace POEApi.Transport
 
             //If we didn't get a redirect, your gonna have a bad time.
             if (response.StatusCode != HttpStatusCode.Found)
-                throw new LogonFailedException(this.email);
+                throw new LogonFailedException(this.email,server_type);
 
             if (String.IsNullOrEmpty(current_accname) || current_accname.Length < 1)
             {

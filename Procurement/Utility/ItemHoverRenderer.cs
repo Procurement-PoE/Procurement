@@ -55,12 +55,12 @@ namespace Procurement.Utility
                     encoder.Save(fileStream);
                 }
 
-                MessageBox.Show("Image saved", item.Name + " saved", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(Procurement.MessagesRes.ImageSaved, item.Name + Procurement.MessagesRes.ImageSaved2, MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                Logger.Log("Unable to save hover-image to disk : " + ex.ToString());
-                MessageBox.Show("Error saving image, error logged to DebugInfo.log", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Logger.Log(Procurement.MessagesRes.UnableToSaveHoverImageToDisk + ex.ToString());
+                MessageBox.Show(Procurement.MessagesRes.ErrorSavingImageErrorLoggedToDebugInfoLog, Procurement.MessagesRes.Error, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

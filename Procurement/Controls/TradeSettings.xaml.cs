@@ -21,6 +21,8 @@ namespace Procurement.Controls
                 chkEnableAutoOnlineRefresh.Content = "Автоматическое обновление онлайн статуса";
                 btnSavePoeTradeSettings.Content = "Сохранить настройки онлайн статуса";
                 btnSaveThreadSettings.Content = "Сохранить настройки форума";
+
+                //PoE online trade currently not supported on RU
                 chkEnableAutoOnlineRefresh.Visibility = System.Windows.Visibility.Hidden;
                 lblEnterPersonalURL.Visibility = System.Windows.Visibility.Hidden;
                 lblPoeTradeURL.Visibility = System.Windows.Visibility.Hidden;

@@ -400,7 +400,7 @@ namespace Procurement.ViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Can't convert item to text copy! Error: " + ex.Message, "Item to text error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(Procurement.MessagesRes.CanTConvertItemToTextCopyError + ex.Message, Procurement.MessagesRes.ItemToTextError, MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return "";
             }
 

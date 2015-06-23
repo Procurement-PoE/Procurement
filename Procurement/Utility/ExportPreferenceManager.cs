@@ -45,7 +45,7 @@ namespace Procurement.Utility
             }
             catch (Exception ex)
             {
-                Logger.Log("Error setting selected tabs: " + ex.ToString());                
+                Logger.Log(Procurement.MessagesRes.ErrorSettingSelectedTabs + ex.ToString());                
                 return new List<int>();
             }
         }
@@ -64,7 +64,7 @@ namespace Procurement.Utility
             }
             catch (Exception ex)
             {
-                Logger.Log("Error updating tab selection: " + ex.ToString());
+                Logger.Log(Procurement.MessagesRes.ErrorUpdatingTabSelection + ex.ToString());
             }
         }
 
@@ -82,7 +82,7 @@ namespace Procurement.Utility
             }
             catch (Exception ex)
             {
-                Logger.Log("Error saving tab preferences: " + ex.ToString());
+                Logger.Log(Procurement.MessagesRes.ErrorSavingTabPreferences + ex.ToString());
             }
         }
 
@@ -114,7 +114,7 @@ namespace Procurement.Utility
             }
             catch (Exception ex)
             {
-                Logger.Log("Error loading tab preferences: " + ex.ToString());
+                Logger.Log(Procurement.MessagesRes.ErrorLoadingTabPreferences + ex.ToString());
             }
         }
     }

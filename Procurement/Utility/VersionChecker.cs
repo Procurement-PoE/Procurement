@@ -28,7 +28,7 @@ namespace Procurement.Utility
             }
             catch (KeyNotFoundException kex)
             {
-                MessageBox.Show("Unable to check for updates as the CheckForUpdates setting is missing from your settings file.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Unable to check for updates as the CheckForUpdates setting is missing from your settings file.", Procurement.MessagesRes.Error, MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             catch (Exception ex)
             {
@@ -48,7 +48,7 @@ namespace Procurement.Utility
                 Version curr_ver = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
                 Version new_ver = new Version(updateInfo[0]);
 
-                if (curr_ver>=new_ver || MessageBox.Show("A new version of Procurement Medved Edition is available! Would you like to download now? (Opens in browser)", "Update Available", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+                if (curr_ver>=new_ver || MessageBox.Show(Procurement.MessagesRes.ANewVersionOfProcurementMedvedEditionIsAvailable, Procurement.MessagesRes.UpdateAvailable, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
                     return;
 
                 Process.Start(updateInfo[1]);
@@ -62,7 +62,7 @@ namespace Procurement.Utility
         private static void handleException(Exception ex)
         {
             Logger.Log(ex.ToString());
-            MessageBox.Show("Error checking for updates, details logged to DebugInfo.log", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(Procurement.MessagesRes.ErrorCheckingForUpdatesDetailsLoggedToDebugInfoLog, Procurement.MessagesRes.Error, MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

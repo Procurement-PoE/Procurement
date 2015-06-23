@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AreYouSureYouWantToBumpYourThread" xml:space="preserve">
+    <value>Are you sure you want to bump your thread? By clicking yes you grant permission for Procurement to bump your forum thread using the account you logged in with, and confirm that you are only bumping within the allowed time interval as per forum rules.</value>
+  </data>
+  <data name="ConfirmShopUpdate" xml:space="preserve">
+    <value>Confirm shop update</value>
+  </data>
+  <data name="ShopThreadSuccessfullyBumped" xml:space="preserve">
+    <value>Shop thread successfully bumped!</value>
+  </data>
+  <data name="ThreadBumped" xml:space="preserve">
+    <value>Thread bumped</value>
+  </data>
+  <data name="ErrorBumpingShopThreadDetailsLoggedToDebuginfoLog" xml:space="preserve">
+    <value>Error bumping shop thread, details logged to debuginfo.log</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="TheThreadTitleSuppliedInYourSettingsDoesNotMatch" xml:space="preserve">
+    <value>The thread title supplied in your settings does not match the title of the thread Procurement tried to bump with the threadId in your settings. Check that your settings are correct</value>
+  </data>
+  <data name="AreYouSureYouWantToUpdateYourShop" xml:space="preserve">
+    <value>Are you sure you want to update your shop? By clicking yes you grant permission for Procurement to update your forum thread using the account you logged in with.</value>
+  </data>
+  <data name="ShopSuccessfullyUpdated" xml:space="preserve">
+    <value>Shop successfully updated!</value>
+  </data>
+  <data name="ShopUpdated" xml:space="preserve">
+    <value>Shop updated</value>
+  </data>
+  <data name="ErrorUpdatingShopDetailsLoggedToDebuginfoLog" xml:space="preserve">
+    <value>Error updating shop, details logged to debuginfo.log</value>
+  </data>
+  <data name="NoShopSettingsFoundForCurrentLeague" xml:space="preserve">
+    <value>No shop settings found for current league, please configure your ThreadId and ThreadTitle under the TradeSettings tab</value>
+  </data>
+  <data name="SettingsNotFound" xml:space="preserve">
+    <value>Settings not found!</value>
+  </data>
+  <data name="YouNeedToSelectAtLeastOneTabToUpdateYourShop" xml:space="preserve">
+    <value>You need to select at least one tab to update your shop!</value>
+  </data>
+  <data name="NoTabsSelected" xml:space="preserve">
+    <value>No tabs selected</value>
+  </data>
+  <data name="InvalidThreadIdTheThreadIdIsTheNumber" xml:space="preserve">
+    <value>Invalid ThreadId, the ThreadId is the number at the end of the url of your shop, eg: the 12345 in http://www.pathofexile.com/forum/view-thread/12345</value>
+  </data>
+  <data name="InvalidThreadId" xml:space="preserve">
+    <value>Invalid ThreadId!</value>
+  </data>
+  <data name="ShopTextIs0CharactersWhichExceedsThe50000CharacterLimit" xml:space="preserve">
+    <value>Shop text is {0} characters, which exceeds the 50,000 character limit on the pathofexile.com forum!</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="CanTConvertItemToTextCopyError" xml:space="preserve">
+    <value>Can't convert item to text copy! Error: </value>
+  </data>
+  <data name="ItemToTextError" xml:space="preserve">
+    <value>Item to text error</value>
+  </data>
+  <data name="IsRequiredPassword" xml:space="preserve">
+    <value>{0} is required!</value>
+  </data>
+  <data name="ErrorLoggingIn" xml:space="preserve">
+    <value>Error logging in</value>
+  </data>
+  <data name="LoadingCharacters" xml:space="preserve">
+    <value>Loading characters...</value>
+  </data>
+  <data name="LoadingProcurementInOfflineMode" xml:space="preserve">
+    <value>Loading Procurement in offline mode...</value>
+  </data>
+  <data name="FailedToLoadCharacters" xml:space="preserve">
+    <value>Failed to load characters</value>
+  </data>
+  <data name="DoneLoading" xml:space="preserve">
+    <value>
+Done!</value>
+  </data>
+  <data name="NoCharactersFoundInTheLeaguesSpecified" xml:space="preserve">
+    <value>No characters found in the leagues specified. Check spelling or try setting DownloadOnlyMyLeagues to false in settings.</value>
+  </data>
+  <data name="Loading0SInventory" xml:space="preserve">
+    <value>Loading {0}'s inventory...</value>
+  </data>
+  <data name="LoadingStashTab1" xml:space="preserve">
+    <value>Loading </value>
+  </data>
+  <data name="LoadingStashTab2" xml:space="preserve">
+    <value> Stash Tab </value>
+  </data>
+  <data name="LoadingImageFor" xml:space="preserve">
+    <value>Loading Image For </value>
+  </data>
+  <data name="Authenticating" xml:space="preserve">
+    <value>Authenticating </value>
+  </data>
+  <data name="LoggedAsAuth" xml:space="preserve">
+    <value>Logged as </value>
+  </data>
+  <data name="GGGServerRequestLimitHitThrottlingActivated" xml:space="preserve">
+    <value>GGG Server request limit hit, throttling activated. Please wait {0} seconds</value>
+  </data>
+  <data name="ErrorAttemptedToGetItemsForTheNonExistantLeague0" xml:space="preserve">
+    <value>Error: attempted to get items for the non existant league '{0}'</value>
+  </data>
+  <data name="CurrentLeaguesAre" xml:space="preserve">
+    <value>Current leagues are:</value>
+  </data>
+  <data name="ExceptionDetails" xml:space="preserve">
+    <value>Exception details : </value>
+  </data>
+  <data name="ErrorGettingItemsFor0LeagueAreYouSureYourLeagueSettings" xml:space="preserve">
+    <value>Error getting items for {0} league, are you sure your league settings are correct?</value>
+  </data>
+  <data name="ErrorLoadingItems" xml:space="preserve">
+    <value>Error loading items</value>
+  </data>
+  <data name="ExceptionInSetTabBuyoutClick" xml:space="preserve">
+    <value>Exception in setTabBuyout_Click: </value>
+  </data>
+  <data name="ErrorSettingTabwideBuyoutErrorDetailsLoggedToDebugInfo" xml:space="preserve">
+    <value>Error setting tabwide buyout, error details logged to DebugInfo.log, please open a ticket at https://github.com/medvedttn/Procurement/issues</value>
+  </data>
+  <data name="ErrorSettingTabwideBuyout" xml:space="preserve">
+    <value>Error setting tabwide buyout</value>
+  </data>
+  <data name="ShopSettingsSaved" xml:space="preserve">
+    <value>Shop settings saved</value>
+  </data>
+  <data name="SettingsSaved" xml:space="preserve">
+    <value>Settings saved</value>
+  </data>
+  <data name="UnableToSaveShopSettingsErrorLoggedToDebuginfoLog" xml:space="preserve">
+    <value>Unable to save shop settings, error logged to debuginfo.log</value>
+  </data>
+  <data name="UnableToLoad0SettingItIsEitherMissingFromSettingsXml" xml:space="preserve">
+    <value>Unable to load {0} setting.
+
+It is either missing from settings.xml or incorrectly configured. The default setting for {0} has been loaded, but it is strongly advised that you fix your settings.xml or replace it with a default one.</value>
+  </data>
+  <data name="UnableToLoadSetting" xml:space="preserve">
+    <value>Unable to load setting</value>
+  </data>
+  <data name="ErrorSettingSelectedTabs" xml:space="preserve">
+    <value>Error setting selected tabs: </value>
+  </data>
+  <data name="ErrorUpdatingTabSelection" xml:space="preserve">
+    <value>Error updating tab selection: </value>
+  </data>
+  <data name="ErrorSavingTabPreferences" xml:space="preserve">
+    <value>Error saving tab preferences: </value>
+  </data>
+  <data name="ErrorLoadingTabPreferences" xml:space="preserve">
+    <value>Error loading tab preferences: </value>
+  </data>
+  <data name="ImageSaved" xml:space="preserve">
+    <value>Image saved</value>
+  </data>
+  <data name="ImageSaved2" xml:space="preserve">
+    <value> saved</value>
+  </data>
+  <data name="UnableToSaveHoverImageToDisk" xml:space="preserve">
+    <value>Unable to save hover-image to disk : </value>
+  </data>
+  <data name="ErrorSavingImageErrorLoggedToDebugInfoLog" xml:space="preserve">
+    <value>Error saving image, error logged to DebugInfo.log</value>
+  </data>
+  <data name="ANewVersionOfProcurementMedvedEditionIsAvailable" xml:space="preserve">
+    <value>A new version of Procurement Medved Edition is available! Would you like to download now? (Opens in browser)</value>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>Update Available</value>
+  </data>
+  <data name="ErrorCheckingForUpdatesDetailsLoggedToDebugInfoLog" xml:space="preserve">
+    <value>Error checking for updates, details logged to DebugInfo.log</value>
+  </data>
+</root>

@@ -136,7 +136,7 @@ namespace Procurement.ViewModel
             if (!settingsValid(false))
                 return;
 
-            var confirmation = MessageBox.Show("Are you sure you want to bump your thread? By clicking yes you grant permission for Procurement to bump your forum thread using the account you logged in with, and confirm that you are only bumping within the allowed time interval as per forum rules.", "Confirm shop update", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var confirmation = MessageBox.Show(Procurement.MessagesRes.AreYouSureYouWantToBumpYourThread, Procurement.MessagesRes.ConfirmShopUpdate, MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (confirmation != MessageBoxResult.Yes)
                 return;
@@ -148,13 +148,13 @@ namespace Procurement.ViewModel
                         var threadBumped = ApplicationState.Model.BumpThread(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId, Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle);
 
                         if (threadBumped)
-                            MessageBox.Show("Shop thread successfully bumped!", "Thread bumped", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show(Procurement.MessagesRes.ShopThreadSuccessfullyBumped, Procurement.MessagesRes.ThreadBumped, MessageBoxButton.OK, MessageBoxImage.Information);
                         else
-                            MessageBox.Show("Error bumping shop thread, details logged to debuginfo.log", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show(Procurement.MessagesRes.ErrorBumpingShopThreadDetailsLoggedToDebuginfoLog, Procurement.MessagesRes.Error, MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     catch (ForumThreadException)
                     {
-                        MessageBox.Show("The thread title supplied in your settings does not match the title of the thread Procurement tried to bump with the threadId in your settings. Check that your settings are correct", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(Procurement.MessagesRes.TheThreadTitleSuppliedInYourSettingsDoesNotMatch, Procurement.MessagesRes.Error, MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 });
         }
@@ -164,7 +164,7 @@ namespace Procurement.ViewModel
             if (!settingsValid(true))
                 return;
 
-            var confirmation = MessageBox.Show("Are you sure you want to update your shop? By clicking yes you grant permission for Procurement to update your forum thread using the account you logged in with.", "Confirm shop update", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var confirmation = MessageBox.Show(Procurement.MessagesRes.AreYouSureYouWantToUpdateYourShop, Procurement.MessagesRes.ConfirmShopUpdate, MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (confirmation != MessageBoxResult.Yes)
                 return;
@@ -178,9 +178,9 @@ namespace Procurement.ViewModel
                   var shopUpdated = ApplicationState.Model.UpdateThread(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId, Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle, text);
 
                   if (shopUpdated)
-                      MessageBox.Show("Shop successfully updated!", "Shop updated", MessageBoxButton.OK, MessageBoxImage.Information);
+                      MessageBox.Show(Procurement.MessagesRes.ShopSuccessfullyUpdated, Procurement.MessagesRes.ShopUpdated, MessageBoxButton.OK, MessageBoxImage.Information);
                   else
-                      MessageBox.Show("Error updating shop, details logged to debuginfo.log", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                      MessageBox.Show(Procurement.MessagesRes.ErrorUpdatingShopDetailsLoggedToDebuginfoLog, Procurement.MessagesRes.Error, MessageBoxButton.OK, MessageBoxImage.Error);
               });
         }
 
@@ -188,20 +188,20 @@ namespace Procurement.ViewModel
         {
             if (!Settings.ShopSettings.ContainsKey(ApplicationState.CurrentLeague) || string.IsNullOrEmpty(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId) || string.IsNullOrEmpty(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle))
             {
-                MessageBox.Show("No shop settings found for current league, please configure your ThreadId and ThreadTitle under the TradeSettings tab", "Settings not found!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Procurement.MessagesRes.NoShopSettingsFoundForCurrentLeague, Procurement.MessagesRes.SettingsNotFound, MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
             if (isUpdate && selected.Count() == 0)
             {
-                MessageBox.Show("You need to select at least one tab to update your shop!", "No tabs selected", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(Procurement.MessagesRes.YouNeedToSelectAtLeastOneTabToUpdateYourShop, Procurement.MessagesRes.NoTabsSelected, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return false;
             }
 
             int threadId;
             if (!int.TryParse(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId, out threadId))
             {
-                MessageBox.Show("Invalid ThreadId, the ThreadId is the number at the end of the url of your shop, eg: the 12345 in http://www.pathofexile.com/forum/view-thread/12345", "Invalid ThreadId!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Procurement.MessagesRes.InvalidThreadIdTheThreadIdIsTheNumber, Procurement.MessagesRes.InvalidThreadId, MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
@@ -260,7 +260,7 @@ namespace Procurement.ViewModel
 
             var count = Text.Count();
             if (count > 50000)
-                MessageBox.Show(string.Format("Shop text is {0} characters, which exceeds the 50,000 character limit on the pathofexile.com forum!", count), "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(string.Format(Procurement.MessagesRes.ShopTextIs0CharactersWhichExceedsThe50000CharacterLimit, count), Procurement.MessagesRes.Warning, MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
         private string getFinal(IEnumerable<Item> items)

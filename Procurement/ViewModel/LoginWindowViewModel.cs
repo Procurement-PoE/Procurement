@@ -128,14 +128,14 @@ namespace Procurement.ViewModel
 
             if ((string.IsNullOrEmpty(Email) || Email.ToLower() == "noemail") && server_type == "International")
             {
-                MessageBox.Show(string.Format("{0} is required!", useSession ? "Alias" : "Email"), "Error logging in", MessageBoxButton.OK, MessageBoxImage.Stop);
+                MessageBox.Show(string.Format("{0} is required!", useSession ? "Alias" : "Email"), Procurement.MessagesRes.ErrorLoggingIn, MessageBoxButton.OK, MessageBoxImage.Stop);
                 toggleControls();
                 return;
             }
 
             if (this.view.txtPassword.SecurePassword.Length<1 && !offline)
             {
-                MessageBox.Show(string.Format("{0} is required!", ServerType=="International" ? "Password" : "Session ID"), "Error logging in", MessageBoxButton.OK, MessageBoxImage.Stop);
+                MessageBox.Show(string.Format(Procurement.MessagesRes.IsRequiredPassword, ServerType=="International" ? "Password" : "Session ID"), Procurement.MessagesRes.ErrorLoggingIn, MessageBoxButton.OK, MessageBoxImage.Stop);
                 toggleControls();
                 return;
             }
@@ -158,11 +158,11 @@ namespace Procurement.ViewModel
                 if (!offline)
                 {
                     ApplicationState.Model.ForceRefresh();
-                    statusController.DisplayMessage("Loading characters...");
+                    statusController.DisplayMessage(Procurement.MessagesRes.LoadingCharacters);
                 }
                 else
                 {
-                    statusController.DisplayMessage("Loading Procurement in offline mode...");
+                    statusController.DisplayMessage(Procurement.MessagesRes.LoadingProcurementInOfflineMode);
                 }
 
                 List<Character> chars;
@@ -174,7 +174,7 @@ namespace Procurement.ViewModel
                 {
                     Logger.Log(wex);
                     statusController.NotOK();
-                    throw new Exception("Failed to load characters", wex.InnerException);
+                    throw new Exception(Procurement.MessagesRes.FailedToLoadCharacters, wex.InnerException);
                 }
                 statusController.Ok();
 
@@ -188,7 +188,7 @@ namespace Procurement.ViewModel
 
                 if (!offline)
                 {
-                    statusController.DisplayMessage("\nDone!");
+                    statusController.DisplayMessage(Procurement.MessagesRes.DoneLoading);
                     PoeTradeOnlineHelper.Instance.Start();
                 }
 
@@ -224,7 +224,7 @@ namespace Procurement.ViewModel
             }
 
             if (downloadOnlyMyLeagues && ApplicationState.Characters.Count == 0)
-                throw new Exception("No characters found in the leagues specified. Check spelling or try setting DownloadOnlyMyLeagues to false in settings.");
+                throw new Exception(Procurement.MessagesRes.NoCharactersFoundInTheLeaguesSpecified);
 
 
             characterInjector.Inject();
@@ -283,7 +283,7 @@ namespace Procurement.ViewModel
             bool success;
 
             if (!offline)
-                statusController.DisplayMessage((string.Format("Loading {0}'s inventory...", character.Name)));
+                statusController.DisplayMessage((string.Format(Procurement.MessagesRes.Loading0SInventory, character.Name)));
 
             List<Item> inventory;
             try
@@ -316,24 +316,24 @@ namespace Procurement.ViewModel
 
         void model_StashLoading(POEModel sender, StashLoadedEventArgs e)
         {
-            update("Loading " + ApplicationState.CurrentLeague + " Stash Tab " + (e.StashID + 1) + "...", e);
+            update(Procurement.MessagesRes.LoadingStashTab1 + ApplicationState.CurrentLeague + Procurement.MessagesRes.LoadingStashTab2 + (e.StashID + 1) + "...", e);
         }
 
         void model_ImageLoading(POEModel sender, ImageLoadedEventArgs e)
         {
-            update("Loading Image For " + e.URL, e);
+            update(Procurement.MessagesRes.LoadingImageFor + e.URL, e);
         }
 
         void model_Authenticating(POEModel sender, AuthenticateEventArgs e)
         {
-            update("Authenticating " + e.Email, e);
-            if (e.State == POEEventState.AfterEvent) update("Logged as " + e.AccName, new POEEventArgs(POEEventState.BeforeEvent));
+            update(Procurement.MessagesRes.Authenticating + e.Email, e);
+            if (e.State == POEEventState.AfterEvent) update(Procurement.MessagesRes.LoggedAsAuth + e.AccName, new POEEventArgs(POEEventState.BeforeEvent));
         }
 
         void model_Throttled(object sender, ThottledEventArgs e)
         {
             if (e.WaitTime.TotalSeconds > 4)
-                update(string.Format("GGG Server request limit hit, throttling activated. Please wait {0} seconds", e.WaitTime.Seconds), new POEEventArgs(POEEventState.BeforeEvent));
+                update(string.Format(Procurement.MessagesRes.GGGServerRequestLimitHitThrottlingActivated, e.WaitTime.Seconds), new POEEventArgs(POEEventState.BeforeEvent));
         }
 
         private void update(string message, POEEventArgs e)
