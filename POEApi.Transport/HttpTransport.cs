@@ -23,28 +23,28 @@ namespace POEApi.Transport
         private enum HttpMethod { GET, POST }
 
         private const string loginURL = @"https://www.pathofexile.com/login";
-        private const string characterURL = @"http://www.pathofexile.com/character-window/get-characters";
-        private const string stashURL = @"http://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}&accountName={2}";
-        private const string inventoryURL = @"http://www.pathofexile.com/character-window/get-items?character={0}&accountName={1}";
+        private const string characterURL = @"https://www.pathofexile.com/character-window/get-characters";
+        private const string stashURL = @"https://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}&accountName={2}";
+        private const string inventoryURL = @"https://www.pathofexile.com/character-window/get-items?character={0}&accountName={1}";
         private const string hashRegEx = "name=\\\"hash\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
 
         private const string updateThreadHashEx = "name=\\\"forum_thread\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
         private const string bumpThreadHashEx = "name=\\\"forum_post\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
         private const string titleRegex = @"\<title\b[^>]*\>\s*(?<Title>[\s\S]*?)\</title\>";
 
-        private const string updateShopURL = @"http://www.pathofexile.com/forum/edit-thread/{0}";
-        private const string bumpShopURL = @"http://www.pathofexile.com/forum/post-reply/{0}";
+        private const string updateShopURL = @"https://www.pathofexile.com/forum/edit-thread/{0}";
+        private const string bumpShopURL = @"https://www.pathofexile.com/forum/post-reply/{0}";
 
-        private const string myAccountURL = @"http://www.pathofexile.com/my-account";
+        private const string myAccountURL = @"https://www.pathofexile.com/my-account";
 
         //Garena+ RU strings
         private const string loginURL_ru = @"https://web.poe.garena.ru/login";
-        private const string myAccountURL_ru = @"http://web.poe.garena.ru/my-account";
-        private const string characterURL_ru = @"http://web.poe.garena.ru/character-window/get-characters";
-        private const string stashURL_ru = @"http://web.poe.garena.ru/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}";
-        private const string inventoryURL_ru = @"http://web.poe.garena.ru/character-window/get-items?character={0}";
-        private const string updateShopURL_ru = @"http://web.poe.garena.ru/forum/edit-thread/{0}";
-        private const string bumpShopURL_ru = @"http://web.poe.garena.ru/forum/post-reply/{0}";
+        private const string myAccountURL_ru = @"https://web.poe.garena.ru/my-account";
+        private const string characterURL_ru = @"https://web.poe.garena.ru/character-window/get-characters";
+        private const string stashURL_ru = @"https://web.poe.garena.ru/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}";
+        private const string inventoryURL_ru = @"https://web.poe.garena.ru/character-window/get-items?character={0}";
+        private const string updateShopURL_ru = @"https://web.poe.garena.ru/forum/edit-thread/{0}";
+        private const string bumpShopURL_ru = @"https://web.poe.garena.ru/forum/post-reply/{0}";
 
         public event ThottledEventHandler Throttled;
 
@@ -100,12 +100,13 @@ namespace POEApi.Transport
             string hashValue = Regex.Match(loginResponse, hashRegEx).Groups["hash"].Value;
 
             HttpWebRequest request = getHttpRequest(HttpMethod.POST, loginURL);
-            request.AllowAutoRedirect = false;
+            request.AllowAutoRedirect = true;//allow 2 seq redirects to myaccount page - Status 302->Status 301->Status 200(OK)
 
             StringBuilder data = new StringBuilder();
             data.Append("login_email=" + Uri.EscapeDataString(email));
             data.Append("&login_password=" + Uri.EscapeDataString(password.UnWrap()));
             data.Append("&hash=" + hashValue);
+            data.Append("&login=Login");
 
             byte[] byteData = UTF8Encoding.UTF8.GetBytes(data.ToString());
 
@@ -118,19 +119,11 @@ namespace POEApi.Transport
             response = (HttpWebResponse)request.GetResponse();
 
             //If we didn't get a redirect, your gonna have a bad time.
-            if (response.StatusCode != HttpStatusCode.Found)
+            if (response.ResponseUri.AbsoluteUri != myAccountURL)
                 throw new LogonFailedException(this.email,server_type);
 
             if (String.IsNullOrEmpty(current_accname) || current_accname.Length < 1)
             {
-                //Get PHPSESSID cookie
-                string resp_session_id = response.Cookies["PHPSESSID"].Value;
-                credentialCookies.Add(new System.Net.Cookie("PHPSESSID", resp_session_id, "/", "www.pathofexile.com"));
-
-                //get my-account web page
-                HttpWebRequest req_acc_page = getHttpRequest(HttpMethod.GET, myAccountURL);
-                response = (HttpWebResponse)req_acc_page.GetResponse();
-
                 //get my-account HTML text
                 StreamReader http_resp = new StreamReader(response.GetResponseStream());
                 string s_http_resp = http_resp.ReadToEnd();
@@ -166,6 +159,8 @@ namespace POEApi.Transport
             request.Proxy = getProxySettings();
             request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
             request.ContentType = "application/x-www-form-urlencoded";
+            request.Timeout = 10000;
+            request.ReadWriteTimeout = 10000;
 
             return request;
         }
@@ -191,7 +186,16 @@ namespace POEApi.Transport
         {
             string active_url = getServerTypeURLstash(server_type);
 
-            HttpWebRequest request = getHttpRequest(HttpMethod.GET, string.Format(active_url, league, index, accname));
+            HttpWebRequest request=null;
+            if (accname.Contains("<SessionID"))
+            {
+                //accountName parameter not used with SessionID
+                request = getHttpRequest(HttpMethod.GET, string.Format(active_url.Replace("&accountName={2}",""), league, index, ""));
+            }
+            else
+            {
+                request = getHttpRequest(HttpMethod.GET, string.Format(active_url, league, index, accname));
+            }
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             return getMemoryStreamFromResponse(response);
@@ -223,7 +227,17 @@ namespace POEApi.Transport
         {
             string active_url = getServerTypeURLinventory(server_type);
 
-            HttpWebRequest request = getHttpRequest(HttpMethod.GET, string.Format(active_url, characterName, accname));
+            //TODO: !!!fix return "false" from responce
+            HttpWebRequest request=null;
+            if (accname.Contains("<SessionID"))
+            {
+                //accountName parameter not used with SessionID
+                request = getHttpRequest(HttpMethod.GET, string.Format(active_url.Replace("&accountName={1}", ""), characterName, ""));
+            }
+            else
+            {
+                request = getHttpRequest(HttpMethod.GET, string.Format(active_url, characterName, accname));
+            }
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             return getMemoryStreamFromResponse(response);

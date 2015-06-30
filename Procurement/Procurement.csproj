@@ -146,6 +146,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MessagesRes.resx</DependentUpon>
     </Compile>
+    <Compile Include="MessagesRes.ru-RU.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessagesRes.ru-RU.resx</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Utility\AlphaHittestedImage.cs" />
     <Compile Include="Utility\CharacterTabInjector.cs" />
@@ -696,9 +701,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\medved-relax.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\buttons\btn_login_ru.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\inventory.png" />

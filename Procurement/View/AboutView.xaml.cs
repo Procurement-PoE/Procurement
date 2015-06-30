@@ -15,7 +15,7 @@ namespace Procurement.View
                 txtForTheLatestUpdates.Text = "Для загрузки последних версий ПО, сообщений об ошибках и предложениях: https://github.com/medvedttn/Procurement";
                 txtLegal.Text = "Авторские права:";
                 txtLicensed.Text = "Тип лицензии Artistic License 2.0";
-                txtCopyrights.Text = "Торговые знаки принадлежат соответствующим правообладателям. Все права защищены. © Grinding Gear Games.© Garena Online.\r\nhttp://www.pathofexile.com, https://web.poe.garena.ru";
+                txtCopyrights.Text = "Торговые знаки принадлежат соответствующим правообладателям. Все права защищены. © Grinding Gear Games.© Garena Online.\r\nhttps://www.pathofexile.com, https://web.poe.garena.ru";
                 txtAsIs.Text =
 "ДАННОЕ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ АВТОРОМ НА УСЛОВИЯХ «КАК ЕСТЬ» "+
 "БЕЗ ПРЯМЫХ И ПОДРАЗУМЕВАЕМЫХ ГАРАНТИЙ, ВКЛЮЧАЯ, СРЕДИ ПРОЧЕГО, "+

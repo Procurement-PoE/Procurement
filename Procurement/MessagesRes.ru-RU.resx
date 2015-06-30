@@ -163,7 +163,7 @@
     <value>Не выбраны вкладки</value>
   </data>
   <data name="InvalidThreadIdTheThreadIdIsTheNumber" xml:space="preserve">
-    <value>Некорректный идентификатор темы, идентификатор темы это число в конце Вашего URL адреса, т.е.: 12345 в http://web.poe.garena.ru/forum/view-thread/12345</value>
+    <value>Некорректный идентификатор темы, идентификатор темы это число в конце Вашего URL адреса, т.е.: 12345 в https://web.poe.garena.ru/forum/view-thread/12345</value>
   </data>
   <data name="InvalidThreadId" xml:space="preserve">
     <value>Некорректный идентификатор темы!</value>
