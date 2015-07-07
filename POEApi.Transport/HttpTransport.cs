@@ -195,7 +195,6 @@ namespace POEApi.Transport
             }
             request.KeepAlive = true;
             request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
-            request.Host = "www.pathofexile.com";
             request.AllowAutoRedirect = false;
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
@@ -214,7 +213,6 @@ namespace POEApi.Transport
             HttpWebRequest request = getHttpRequest(HttpMethod.GET, active_url);
             request.KeepAlive = true;
             request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
-            request.Host = "www.pathofexile.com";
             request.AllowAutoRedirect = false;
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
@@ -247,7 +245,6 @@ namespace POEApi.Transport
             }
             request.KeepAlive = true;
             request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
-            request.Host = "www.pathofexile.com";
             request.AllowAutoRedirect = false;
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
@@ -378,7 +375,6 @@ namespace POEApi.Transport
             getHashRequest.Timeout = 60000;
             getHashRequest.KeepAlive = true;
             getHashRequest.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
-            getHashRequest.Host = "www.pathofexile.com";
             HttpWebResponse hashResponse = (HttpWebResponse)getHashRequest.GetResponse();
 
             using (StreamReader reader = new StreamReader(hashResponse.GetResponseStream()))
