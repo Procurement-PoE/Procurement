@@ -118,34 +118,30 @@ namespace POEApi.Transport
             HttpWebResponse response;
             response = (HttpWebResponse)request.GetResponse();
 
-            //If we didn't get a redirect, your gonna have a bad time.
+            //If we didn't get a my-account page, your gonna have a bad time.
             if (response.ResponseUri.AbsoluteUri != myAccountURL)
                 throw new LogonFailedException(this.email,server_type);
 
-            if (String.IsNullOrEmpty(current_accname) || current_accname.Length < 1)
+            //get my-account HTML text
+            StreamReader http_resp = new StreamReader(response.GetResponseStream());
+            string s_http_resp = http_resp.ReadToEnd();
+            http_resp.Close();
+
+            //extract account name from HTML text
+            //<span class="profile-link" ><a href="/account/view-profile/accname">accname</a></span>
+            string regexp_pattern = @"\<a href=""/account/view-profile/.*?\>(?<accname>.+?)\<\/a\>";
+
+            Regex regexp = new Regex(regexp_pattern, RegexOptions.ExplicitCapture);
+            MatchCollection matches = regexp.Matches(s_http_resp);
+
+            if (matches.Count > 0)
             {
-                //get my-account HTML text
-                StreamReader http_resp = new StreamReader(response.GetResponseStream());
-                string s_http_resp = http_resp.ReadToEnd();
-
-                //extract account name from HTML text
-                //<span class="profile-link" ><a href="/account/view-profile/accname">accname</a></span>
-                string regexp_pattern = @"\<a href=""/account/view-profile/.*?\>(?<accname>.+?)\<\/a\>";
-
-                Regex regexp = new Regex(regexp_pattern, RegexOptions.ExplicitCapture);
-                MatchCollection matches = regexp.Matches(s_http_resp);
-
-                if (matches.Count > 0)
-                {
-                    //return AccountName
-                    return matches[0].Groups["accname"].Value;
-                }
-                
-                return "";
+                //return AccountName
+                return matches[0].Groups["accname"].Value;
             }
             else
             {
-                return current_accname;
+                return "";
             }
         }
 
@@ -154,13 +150,14 @@ namespace POEApi.Transport
             HttpWebRequest request = (HttpWebRequest)RequestThrottle.Instance.Create(url);
 
             request.CookieContainer = credentialCookies;
-            request.UserAgent = "User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E; .NET CLR 1.1.4322)";
+            request.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0";
             request.Method = method.ToString();
             request.Proxy = getProxySettings();
+            
             request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.Timeout = 10000;
-            request.ReadWriteTimeout = 10000;
+            if (method.ToString()=="POST") request.ContentType = "application/x-www-form-urlencoded";
+            request.Timeout = 30000;
+            request.ReadWriteTimeout = 30000;
 
             return request;
         }
@@ -196,6 +193,10 @@ namespace POEApi.Transport
             {
                 request = getHttpRequest(HttpMethod.GET, string.Format(active_url, league, index, accname));
             }
+            request.KeepAlive = true;
+            request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
+            request.Host = "www.pathofexile.com";
+            request.AllowAutoRedirect = false;
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             return getMemoryStreamFromResponse(response);
@@ -211,6 +212,10 @@ namespace POEApi.Transport
             string active_url=getServerTypeURLcharacter(server_type);
 
             HttpWebRequest request = getHttpRequest(HttpMethod.GET, active_url);
+            request.KeepAlive = true;
+            request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
+            request.Host = "www.pathofexile.com";
+            request.AllowAutoRedirect = false;
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             return getMemoryStreamFromResponse(response);
@@ -218,16 +223,18 @@ namespace POEApi.Transport
 
         public Stream GetImage(string url)
         {
-            WebClient client = new WebClient();
-            client.Proxy = processProxySettings();
-            return new MemoryStream(client.DownloadData(url));
+            using (WebClient client = new WebClient())
+            {
+                client.Proxy = processProxySettings();
+
+                return new MemoryStream(client.DownloadData(url));
+            }
         }
 
         public Stream GetInventory(string characterName, bool forceRefresh, string accname, string server_type)
         {
             string active_url = getServerTypeURLinventory(server_type);
 
-            //TODO: !!!fix return "false" from responce
             HttpWebRequest request=null;
             if (accname.Contains("<SessionID"))
             {
@@ -238,6 +245,10 @@ namespace POEApi.Transport
             {
                 request = getHttpRequest(HttpMethod.GET, string.Format(active_url, characterName, accname));
             }
+            request.KeepAlive = true;
+            request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
+            request.Host = "www.pathofexile.com";
+            request.AllowAutoRedirect = false;
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             return getMemoryStreamFromResponse(response);
@@ -249,6 +260,8 @@ namespace POEApi.Transport
             byte[] buffer = reader.ReadAllBytes();
 
             RequestThrottle.Instance.Complete();
+            response.Close();
+            reader.Close();
 
             return new MemoryStream(buffer);
         }
@@ -265,9 +278,17 @@ namespace POEApi.Transport
                 data.Append("&content=" + Uri.EscapeDataString(threadText));
                 data.Append("&forum_thread=" + threadHash);
 
-                postToForum(data.ToString(), string.Format(active_url, threadID));
+                HttpStatusCode update_status = postToForum(data.ToString(), string.Format(active_url, threadID));
 
-                return true;
+                if (update_status == HttpStatusCode.OK)
+                {
+                    return true;
+                }
+                else
+                {
+                    Logger.Log("Error updating shop thread - status not OK: " + update_status.ToString());
+                    return false;
+                }
             }
             catch (Exception ex)
             {
@@ -288,9 +309,17 @@ namespace POEApi.Transport
                 data.Append("&content=" + Uri.EscapeDataString("[url=https://github.com/medvedttn/Procurement/]Bumped with Procurement Medved Edition![/url]"));
                 data.Append("&post_submit=" + Uri.EscapeDataString("Submit"));
 
-                var response = postToForum(data.ToString(), string.Format(active_url, threadID));
+                HttpStatusCode bump_response = postToForum(data.ToString(), string.Format(active_url, threadID));
 
-                return true;
+                if (bump_response == HttpStatusCode.OK)
+                {
+                    return true;
+                }
+                else
+                {
+                    Logger.Log("Error bumping shop thread - status not OK: " + bump_response.ToString());
+                    return false;
+                }
             }
             catch (Exception ex)
             {
@@ -302,10 +331,11 @@ namespace POEApi.Transport
             }
         }
 
-        private HttpWebResponse postToForum(string data, string url)
+        private HttpStatusCode postToForum(string data, string url)
         {
             HttpWebRequest request = getHttpRequest(HttpMethod.POST, url);
             request.AllowAutoRedirect = true;
+            request.Timeout = 60000;
 
             byte[] byteData = UTF8Encoding.UTF8.GetBytes(data);
 
@@ -316,8 +346,11 @@ namespace POEApi.Transport
 
             HttpWebResponse response;
             response = (HttpWebResponse)request.GetResponse();
+            HttpStatusCode update_status = response.StatusCode;
 
-            return response;
+            postStream.Close();
+            response.Close();
+            return update_status;
         }
 
         private string validateAndGetHash(string url, string threadTitle, string hashRegex)
@@ -342,6 +375,10 @@ namespace POEApi.Transport
         private string downloadPageData(string url)
         {
             HttpWebRequest getHashRequest = getHttpRequest(HttpMethod.GET, url);
+            getHashRequest.Timeout = 60000;
+            getHashRequest.KeepAlive = true;
+            getHashRequest.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
+            getHashRequest.Host = "www.pathofexile.com";
             HttpWebResponse hashResponse = (HttpWebResponse)getHashRequest.GetResponse();
 
             using (StreamReader reader = new StreamReader(hashResponse.GetResponseStream()))
