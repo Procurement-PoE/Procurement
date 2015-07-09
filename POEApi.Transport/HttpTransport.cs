@@ -31,8 +31,8 @@ namespace POEApi.Transport
         private const string bumpThreadHashEx = "name=\\\"forum_post\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
         private const string titleRegex = @"\<title\b[^>]*\>\s*(?<Title>[\s\S]*?)\</title\>";
 
-        private const string updateShopURL = @"http://www.pathofexile.com/forum/edit-thread/{0}";
-        private const string bumpShopURL = @"http://www.pathofexile.com/forum/post-reply/{0}";
+        private const string updateShopURL = @"https://www.pathofexile.com/forum/edit-thread/{0}";
+        private const string bumpShopURL = @"https://www.pathofexile.com/forum/post-reply/{0}";
 
         public event ThottledEventHandler Throttled;
 
