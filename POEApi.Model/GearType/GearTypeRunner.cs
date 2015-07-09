@@ -47,7 +47,7 @@ namespace POEApi.Model
 
         public override string GetBaseType(Gear item)
         {
-            if (incompatibleTypes != null && incompatibleTypes.Any(t => item.TypeLine.Contains(t)))
+            if (incompatibleTypes != null && incompatibleTypes.Any(t => item.TypeLine.ToLower().Contains(t.ToLower())))
                 return null;
 
             foreach (var type in compatibleTypes)

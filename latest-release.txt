@@ -1,1 +1,1 @@
-Procurement 1.9.6.1,https://github.com/medvedttn/Procurement/releases/tag/1.9.6.1
+Procurement 1.9.7,https://github.com/medvedttn/Procurement/releases/tag/1.9.7

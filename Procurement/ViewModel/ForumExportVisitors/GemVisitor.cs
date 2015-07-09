@@ -13,12 +13,25 @@ namespace Procurement.ViewModel.ForumExportVisitors
         public GemVisitor()
         {
             tokens = new Dictionary<string, IFilter>();
-            tokens.AddRange(from cat1 in Enum.GetNames(typeof(GemCategory))
-                            from cat2 in Enum.GetNames(typeof(GemCategory))
-                            select new KeyValuePair<string, IFilter>(string.Concat("{", cat1, cat2, "Gems}"), new AndFilter(new GemCategoryFilter(cat1), new GemCategoryFilter(cat2))));
+            if (Procurement.ViewModel.LoginWindowViewModel.ServerType == "Garena (RU)")
+            {
+                tokens.AddRange(from cat1 in Enum.GetNames(typeof(GemCategory))
+                                from cat2 in Enum.GetNames(typeof(GemCategory))
+                                select new KeyValuePair<string, IFilter>(string.Concat("{", cat1, cat2, "Gems}"), 
+                                    new AndFilter(new GemCategoryFilter(Enum.GetName(typeof(GemCategory_RU), Enum.Parse(typeof(GemCategory), cat1, true))), new GemCategoryFilter(Enum.GetName(typeof(GemCategory_RU), Enum.Parse(typeof(GemCategory), cat2,true))))));
 
-            tokens.AddRange(from cat1 in Enum.GetNames(typeof(GemCategory))
-                            select new KeyValuePair<string, IFilter>(string.Concat("{", cat1, "Gems}"), new GemCategoryFilter(cat1)));
+                tokens.AddRange(from cat1 in Enum.GetNames(typeof(GemCategory))
+                                select new KeyValuePair<string, IFilter>(string.Concat("{", cat1, "Gems}"), new GemCategoryFilter(Enum.GetName(typeof(GemCategory_RU), Enum.Parse(typeof(GemCategory),cat1,true)))));
+            }
+            else
+            {
+                tokens.AddRange(from cat1 in Enum.GetNames(typeof(GemCategory))
+                                from cat2 in Enum.GetNames(typeof(GemCategory))
+                                select new KeyValuePair<string, IFilter>(string.Concat("{", cat1, cat2, "Gems}"), new AndFilter(new GemCategoryFilter(cat1), new GemCategoryFilter(cat2))));
+
+                tokens.AddRange(from cat1 in Enum.GetNames(typeof(GemCategory))
+                                select new KeyValuePair<string, IFilter>(string.Concat("{", cat1, "Gems}"), new GemCategoryFilter(cat1)));
+            }
             
         }
         public override string Visit(IEnumerable<Item> items, string current)

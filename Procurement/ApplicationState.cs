@@ -10,7 +10,7 @@ namespace Procurement
 {
     public static class ApplicationState
     {
-        public static string Version = "Procurement 1.9.6.1";
+        public static string Version = "Procurement 1.9.7";
         public static POEModel Model = new POEModel();
         public static Dictionary<string, Stash> Stash = new Dictionary<string, Stash>();
         public static Dictionary<string, Item> Inventory = new Dictionary<string, Item>();
