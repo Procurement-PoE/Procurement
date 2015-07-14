@@ -127,6 +127,23 @@ namespace POEApi.Model
         }
     }
 
+    public class DivinationCardRunner : GearTypeRunnerBase
+    {
+        public DivinationCardRunner()
+            : base(GearType.DivinationCard, Settings.GearBaseTypes[GearType.DivinationCard])
+        {
+        }
+    }
+
+    public class JewelRunner : GearTypeRunnerBase
+    {
+        public JewelRunner()
+            : base(GearType.Jewel, new List<string>())
+        {
+            generalTypes.Add("Jewel");
+        }
+    }
+
     public class GloveRunner : GearTypeRunnerBase
     {
         public GloveRunner()

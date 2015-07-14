@@ -2,6 +2,12 @@
 
 Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 
+[spoiler="          Divination Card          "]
+{DivinationCard}
+[/spoiler]
+[spoiler="          Jewels          "]
+{NormalJewel}{MagicJewel}{RareJewel}{UniqueJewel}
+[/spoiler]
 [spoiler="          Uniques          "]
 {Uniques}
 [/spoiler]

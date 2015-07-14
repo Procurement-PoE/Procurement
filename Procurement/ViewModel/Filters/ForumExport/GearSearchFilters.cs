@@ -135,4 +135,22 @@ namespace Procurement.ViewModel.Filters.ForumExport
             : base(GearType.Flask, "Flasks")
         { }
     }
+
+    class DivinationCardFilter : GearTypeFilter
+    {
+        public DivinationCardFilter()
+            : base(GearType.DivinationCard, "Divination Cards")
+        {
+
+        }
+    }
+
+    class JewelFilter : GearTypeFilter
+    {
+        public JewelFilter()
+            : base(GearType.Jewel, "Jewels")
+        {
+
+        }
+    }
 }

@@ -14,9 +14,16 @@ namespace Procurement.ViewModel.ForumExportVisitors
             var tokensSource = from rarity in Enum.GetNames(typeof(Rarity))
                                from gearType in Enum.GetNames(typeof(GearType))
                                select new KeyValuePair<string, IFilter>(string.Concat("{", rarity, gearType, "}"), new AndFilter(new RarityFilter(getEnum<Rarity>(rarity)), new GearTypeFilter(getEnum<GearType>(gearType), string.Empty)));
-
+            
             tokens = tokensSource.ToDictionary(i => i.Key, i => i.Value);
             tokens.Add("{NormalGear}", new NormalRarity());
+
+            //Shitty temp hack
+            tokens.Remove("{NormalDivinationCard}");
+            tokens.Remove("{MagicDivinationCard}");
+            tokens.Remove("{RareDivinationCard}");
+            tokens.Remove("{UniqueDivinationCard}");
+            tokens.Add("{DivinationCard}", new GearTypeFilter(GearType.DivinationCard, string.Empty));
         }
         public override string Visit(IEnumerable<Item> items, string current)
         {

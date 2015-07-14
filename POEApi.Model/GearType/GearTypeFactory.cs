@@ -25,6 +25,8 @@ namespace POEApi.Model
             { new SwordRunner() },
             { new WandRunner() },
             { new MapRunner() },
+            { new DivinationCardRunner() },
+            { new JewelRunner() },
             { new ChestRunner() } //Must always be last!
         };
 

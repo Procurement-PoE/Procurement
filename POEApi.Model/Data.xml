@@ -850,5 +850,58 @@
       <Item name="Tornado Wand"/>
       <Item name="Prophecy Wand"/>
     </GearBaseType>
+
+    <GearBaseType name="DivinationCard">
+      <Item name="Abandoned Wealth"/>
+      <Item name="The Avenger"/>
+      <Item name="The Battle Born"/>
+      <Item name="Birth of the Three"/>
+      <Item name="The Brittle Emperor"/>
+      <Item name="The Carrion Crow"/>
+      <Item name="The Cataclysm"/>
+      <Item name="The Celestial Justicar"/>
+      <Item name="The Chains that Bind"/>
+      <Item name="Chaotic Disposition"/>
+      <Item name="Coveted Possession"/>
+      <Item name="The Dark Mage"/>
+      <Item name="The Doctor"/>
+      <Item name="The Drunken Aristocrat"/>
+      <Item name="Emperor's Luck"/>
+      <Item name="The Explorer"/>
+      <Item name="The Feast"/>
+      <Item name="The Fiend"/>
+      <Item name="The Gambler"/>
+      <Item name="The Gemcutter"/>
+      <Item name="Gemcutter's Promise"/>
+      <Item name="The Gladiator"/>
+      <Item name="The Hermit"/>
+      <Item name="The Hoarder"/>
+      <Item name="Hope"/>
+      <Item name="The Hunger"/>
+      <Item name="Humility"/>
+      <Item name="The Incantation"/>
+      <Item name="The Inventor"/>
+      <Item name="Jack in the Box"/>
+      <Item name="The King's Heart"/>
+      <Item name="Lantador's Lost Love"/>
+      <Item name="The Lover"/>
+      <Item name="Lucky Connections"/>
+      <Item name="The Metalsmith's Gift"/>
+      <Item name="The Pact"/>
+      <Item name="The Poet"/>
+      <Item name="Rain of Chaos"/>
+      <Item name="The Road to Power"/>
+      <Item name="The Scarred Meadow"/>
+      <Item name="The Scholar"/>
+      <Item name="The Summoner"/>
+      <Item name="The Sun"/>
+      <Item name="Three Faces in the Dark"/>
+      <Item name="Time-Lost Relic"/>
+      <Item name="The Union"/>
+      <Item name="Vinia's Token"/>
+      <Item name="The Warden"/>
+      <Item name="The Watcher"/>
+      <Item name="The Wind"/>
+    </GearBaseType>
   </GearBaseTypes>
 </Data>
