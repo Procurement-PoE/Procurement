@@ -22,8 +22,8 @@ namespace POEApi.Transport
         private enum HttpMethod { GET, POST }
 
         private const string loginURL = @"https://www.pathofexile.com/login";
-        private const string characterURL = @"http://www.pathofexile.com/character-window/get-characters";
-        private const string stashURL = @"http://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}";
+        private const string characterURL = @"https://www.pathofexile.com/character-window/get-characters";
+        private const string stashURL = @"https://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}";
         private const string inventoryURL = @"http://www.pathofexile.com/character-window/get-items?character={0}&accountName={1}";
         private const string hashRegEx = "name=\\\"hash\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
 
