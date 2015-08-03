@@ -128,6 +128,7 @@ namespace Procurement.Controls
             menu.Resources = expressionDarkGrid;
 
             MenuItem setBuyout = new MenuItem();
+            setBuyout.StaysOpenOnClick = true;
 
             var buyoutControl = new SetBuyoutView();
 
