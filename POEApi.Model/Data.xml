@@ -902,6 +902,18 @@
       <Item name="The Warden"/>
       <Item name="The Watcher"/>
       <Item name="The Wind"/>
+      <Item name="The Siren"/>
+      <Item name="The Betrayal"/>
+      <Item name="The Wrath"/>
+      <Item name="The Artist"/>
+      <Item name="Doedre's Madness"/>
+      <Item name="The Encroaching Darkness"/>
+      <Item name="The Flora's Gift"/>
+      <Item name="The King's Blade"/>
+      <Item name="The Last One Standing"/>
+      <Item name="The One With All"/>
+      <Item name="The Pack Leader"/>
+      <Item name="The Spoiled Prince"/>
     </GearBaseType>
   </GearBaseTypes>
 </Data>
