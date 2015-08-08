@@ -258,79 +258,97 @@
     </GearBaseType>
     <GearBaseType name="Map">
       <Item name="Crypt Map"/>
-      <Item name="Dried Lake Map"/>
+      <Item name="The Coward's Trial"/>
+      <Item name="Desert Map"/>
       <Item name="Dunes Map"/>
       <Item name="Dungeon Map"/>
       <Item name="Grotto Map"/>
-      <Item name="Orchard Map"/>
-      <Item name="Overgrown Ruin Map"/>
+      <Item name="Pit Map"/>
       <Item name="Tropical Island Map"/>
-
+      <Item name="Untainted Paradise"/>
       <Item name="Arcade Map"/>
-      <Item name="Arsenal Map"/>
       <Item name="Cemetery Map"/>
+      <Item name="Channel Map"/>
       <Item name="Mountain Ledge Map"/>
+      <Item name="Maelström of Chaos"/>
       <Item name="Sewer Map"/>
       <Item name="Thicket Map"/>
       <Item name="Wharf Map"/>
-
+      <Item name="The Apex of Sacrifice"/>
       <Item name="Ghetto Map"/>
       <Item name="Mud Geyser Map"/>
       <Item name="Museum Map"/>
+      <Item name="Quarry Map"/>
       <Item name="Reef Map"/>
+      <Item name="Mao Kun"/>
       <Item name="Spider Lair Map"/>
-      <Item name="Springs Map"/>
       <Item name="Vaal Pyramid Map"/>
-
-      <Item name="Catacomb Map"/>
+      <Item name="Vaults of Atziri"/>
+      <Item name="Arena Map"/>
       <Item name="Overgrown Shrine Map"/>
+      <Item name="Acton's Nightmare"/>
       <Item name="Promenade Map"/>
+      <Item name="Hall of Grandmasters"/>
+      <Item name="Phantasmagoria Map"/>
       <Item name="Shore Map"/>
       <Item name="Spider Forest Map"/>
       <Item name="Tunnel Map"/>
-
       <Item name="Bog Map"/>
       <Item name="Coves Map"/>
       <Item name="Graveyard Map"/>
       <Item name="Pier Map"/>
       <Item name="Underground Sea Map"/>
       <Item name="Villa Map"/>
-
       <Item name="Arachnid Nest Map"/>
+      <Item name="Catacomb Map"/>
+      <Item name="Olmec's Sanctum"/>
       <Item name="Colonnade Map"/>
       <Item name="Dry Woods Map"/>
       <Item name="Strand Map"/>
+      <Item name="Whakawairua Tuahu"/>
       <Item name="Temple Map"/>
-
+      <Item name="Poorjoy's Asylum"/>
       <Item name="Jungle Valley Map"/>
       <Item name="Labyrinth Map"/>
       <Item name="Mine Map"/>
+      <Item name="Oba's Cursed Trove"/>
       <Item name="Torture Chamber Map"/>
       <Item name="Waste Pool Map"/>
-
       <Item name="Canyon Map"/>
       <Item name="Cells Map"/>
       <Item name="Dark Forest Map"/>
       <Item name="Dry Peninsula Map"/>
-
+      <Item name="Orchard Map"/>
+      <Item name="Arid Lake Map"/>
       <Item name="Gorge Map"/>
-      <Item name="Maze Map"/>
+      <Item name="Malformation Map"/>
       <Item name="Residence Map"/>
       <Item name="Underground River Map"/>
-
       <Item name="Bazaar Map"/>
       <Item name="Necropolis Map"/>
+      <Item name="Death and Taxes"/>
       <Item name="Plateau Map"/>
-
+      <Item name="Volcano Map"/>
       <Item name="Academy Map"/>
       <Item name="Crematorium Map"/>
       <Item name="Precinct Map"/>
-
+      <Item name="Springs Map"/>
+      <Item name="Arsenal Map"/>
+      <Item name="Overgrown Ruin Map"/>
       <Item name="Shipyard Map"/>
-      <Item name="Shrine Map"/>
-
+      <Item name="Village Ruin Map"/>
+      <Item name="The Alluring Abyss"/>
       <Item name="Courtyard Map"/>
+      <Item name="Excavation Map"/>
+      <Item name="Wasteland Map"/>
+      <Item name="Waterways Map"/>
+      <Item name="Maze Map"/>
       <Item name="Palace Map"/>
+      <Item name="Shrine Map"/>
+      <Item name="Vaal Temple Map"/>
+      <Item name="Abyss Map"/>
+      <Item name="Colosseum Map"/>
+      <Item name="Core Map"/>
     </GearBaseType>
     <GearBaseType name="Gloves">
       <Item name="Iron Gauntlets"/>
