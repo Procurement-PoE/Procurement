@@ -56,13 +56,16 @@
         
         <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="160" />
-                <ColumnDefinition Width="10" />
-                <ColumnDefinition Width="160" />
+                <ColumnDefinition Width="110" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="110" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="90" />
             </Grid.ColumnDefinitions>
 
-            <Button Content="Save" Grid.Column="0" Height="25" Width="150" Click="Save_Clicked"/>
-            <Button Content="Save Image" Grid.Column="2" Height="25" Width="150" Click="SaveImage_Click" HorizontalAlignment="Left" />
+            <Button Content="Save" Grid.Column="0" Height="25" Width="110" Click="Save_Clicked"/>
+            <Button Content="Save Image" Grid.Column="2" Height="25" Width="110" Click="SaveImage_Click" HorizontalAlignment="Left" />
+            <Button Content="Timestamp" Grid.Column="4" Height="25" Width="90" Click="Timestamp_Click" HorizontalAlignment="Left" />
         </Grid>        
     </Grid>
 </UserControl>

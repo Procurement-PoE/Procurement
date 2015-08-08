@@ -36,6 +36,11 @@ namespace Procurement.Controls
             SaveImageClicked();
         }
 
+        public void Timestamp_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.Notes.Text += DateTime.Now + Environment.NewLine;
+        }
+
         public void SetBuyoutInfo(ItemTradeInfo buyoutInfo)
         {
             (this.DataContext as SetBuyoutViewModel).SetBuyoutInfo(buyoutInfo);
