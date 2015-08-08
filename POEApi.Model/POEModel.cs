@@ -224,7 +224,7 @@ namespace POEApi.Model
             catch (SerializationException sex)
             {
                 Logger.Log(string.Format("Error reading character data for character '{0}', Exception info: ", characterName, sex.ToString()));
-                throw new Exception(string.Format("Error reading character data for {0}, if you are in offline mode you will need to login and update. If you received this error while logging in, the authenticated session may have expired or bad data has been returned by GGG or a network issue may have occurred - Please try again.", characterName));
+                throw new Exception(string.Format("Error reading character data for {0}, if you are in offline mode you will need to login and update. Make sure that your account name is entered correctly and with the correct casing. If you received this error while logging in, the authenticated session may have expired or bad data has been returned by GGG or a network issue may have occurred - Please try again.", characterName));
             }
         }
 
