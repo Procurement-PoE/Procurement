@@ -492,6 +492,8 @@
       <Item name="Vaal Axe"/>
       <Item name="Despot Axe"/>
       <Item name="Void Axe"/>
+      <Item name="Runic Hatchet"/>
+      <Item name="Fleshripper"/>
     </GearBaseType>
     <GearBaseType name="Claw">
       <Item name="Nailed Fist"/>
@@ -516,6 +518,7 @@
       <Item name="Vaal Claw"/>
       <Item name="Imperial Claw"/>
       <Item name="Terror Claw"/>
+      <Item name="Gemini Claw"/>
     </GearBaseType>
     <GearBaseType name="Bow">
       <Item name="Crude Bow"/>
@@ -540,6 +543,7 @@
       <Item name="Spine Bow"/>
       <Item name="Imperial Bow"/>
       <Item name="Harbinger Bow"/>
+      <Item name="Assassin Bow"/>
     </GearBaseType>
     <GearBaseType name="Dagger">
       <Item name="Glass Shank"/>
@@ -564,6 +568,7 @@
       <Item name="Platinum Kris"/>
       <Item name="Imperial Skean"/>
       <Item name="Demon Dagger"/>
+      <Item name="Sai"/>
     </GearBaseType>
     <GearBaseType name="Mace">
       <Item name="Driftwood Club"/>
@@ -608,6 +613,9 @@
       <Item name="Meatgrinder"/>
       <Item name="Imperial Maul"/>
       <Item name="Terror Maul"/>
+      <Item name="Sambar Sceptre"/>
+      <Item name="Behemoth Mace"/>
+      <Item name="Coronal Maul"/>
     </GearBaseType>
     <GearBaseType name="Quiver">
       <Item name="Rugged Quiver"/>
@@ -669,6 +677,7 @@
       <Item name="Maelström Staff"/>
       <Item name="Imperial Staff"/>
       <Item name="Judgement Staff"/>
+      <Item name="Eclipse Staff"/>
     </GearBaseType>
     <GearBaseType name="Sword">
       <Item name="Rusted Sword"/>
@@ -736,6 +745,9 @@
       <Item name="Vaal Greatsword"/>
       <Item name="Lion Sword"/>
       <Item name="Infernal Sword"/>
+      <Item name="Exquisite Blade"/>
+      <Item name="Tiger Hook"/>
+      <Item name="Dragoon Sword"/>
     </GearBaseType>
     <GearBaseType name="Shield">
       <Item name="Splintered Tower Shield"/>
@@ -849,6 +861,7 @@
       <Item name="Opal Wand"/>
       <Item name="Tornado Wand"/>
       <Item name="Prophecy Wand"/>
+      <Item name="Profane Wand"/>
     </GearBaseType>
 
     <GearBaseType name="DivinationCard">
