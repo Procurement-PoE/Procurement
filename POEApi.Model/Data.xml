@@ -766,6 +766,7 @@
       <Item name="Exquisite Blade"/>
       <Item name="Tiger Hook"/>
       <Item name="Dragoon Sword"/>
+      <Item name="Grappler"/>
     </GearBaseType>
     <GearBaseType name="Shield">
       <Item name="Splintered Tower Shield"/>
