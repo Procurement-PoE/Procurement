@@ -54,6 +54,7 @@
     <Setting name="FavoriteLeague" value="" />
     <Setting name="FavoriteCharacter" value="" />
     <Setting name="CompactMode" value="false" />
+    <Setting name="MinimalMode" value="false" />
     <Setting name="DownloadOnlyMyLeagues" value="false" />
     <Setting name="DownloadOnlyMyCharacters" value="false" />
     <Setting name="CurrencyDistributionMetric" value="Chaos" />

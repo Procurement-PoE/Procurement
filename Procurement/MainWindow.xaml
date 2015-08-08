@@ -20,7 +20,7 @@
             </Grid.Background>            
         </Grid>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" x:Name="MainGrid">
             <Grid.Background>
                 <ImageBrush ImageSource="/Procurement;component/Images/main.png"/>
             </Grid.Background>
@@ -40,7 +40,7 @@
                         <ColumnDefinition Width="108"/>
                         <ColumnDefinition Width="128"/>
                         <ColumnDefinition Width="128"/>
-                        <ColumnDefinition Width="253"/>
+                        <ColumnDefinition Width="253" x:Name="ButtonSpacer"/>
                         <ColumnDefinition Width="129"/>
                         <ColumnDefinition Width="134"/>
                     </Grid.ColumnDefinitions>
@@ -126,7 +126,7 @@
 
 
                 </Grid>
-                <Grid Grid.Column="1" Visibility="Visible">
+                <Grid Grid.Column="1" Visibility="Visible" x:Name="WindowControls">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="61"/>
                         <ColumnDefinition Width="129"/>

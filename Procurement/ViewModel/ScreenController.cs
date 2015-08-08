@@ -37,7 +37,7 @@ namespace Procurement.ViewModel
 
         private ScreenController(MainWindow layout)
         {
-            FullMode = !bool.Parse(Settings.UserSettings["CompactMode"]);
+            FullMode = !bool.Parse(Settings.UserSettings["CompactMode"]) && !bool.Parse(Settings.UserSettings["MinimalMode"]);
             if (FullMode)
             {
                 HeaderHeight = 169;
