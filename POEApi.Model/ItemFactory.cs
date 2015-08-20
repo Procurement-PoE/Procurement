@@ -1,5 +1,6 @@
 ﻿using POEApi.Infrastructure;
 using System;
+using System.Linq;
 
 namespace POEApi.Model
 {
@@ -9,6 +10,9 @@ namespace POEApi.Model
         {
             try
             {
+                item.Name = filterString(item.Name);
+                item.TypeLine = filterString(item.TypeLine);
+
                 if (item.frameType == 4)
                     return new Gem(item);
 
@@ -30,6 +34,17 @@ namespace POEApi.Model
                 Logger.Log(errorMessage);
                 throw new Exception(errorMessage);
             }
+        }
+
+
+        private static string filterString(string json)
+        {
+            var items = json.Split(new string[] { ">>" }, StringSplitOptions.None);
+
+            if (items.Count() == 1)
+                return json;
+
+            return items[3];
         }
     }
 }
