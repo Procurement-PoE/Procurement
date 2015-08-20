@@ -59,7 +59,7 @@ namespace POEApi.Model
             this.H = item.H;
             this.IconURL = getIconUrl(item.Icon);
             this.League = item.League;
-            this.Name = item.Name;
+            this.Name = filterName(item.Name);
             this.TypeLine = item.TypeLine;
             this.DescrText = item.DescrText;
             this.X = item.X;
@@ -88,6 +88,16 @@ namespace POEApi.Model
             this.TradeY = this.Y;
             this.TradeInventoryId = this.InventoryId;
             this.Character = string.Empty;
+        }
+
+        private string filterName(string jsonName)
+        {
+            var items = jsonName.Split(new string[] { ">>" }, StringSplitOptions.None);
+
+            if (items.Count() == 1)
+                return jsonName;
+
+            return items[3];
         }
 
         private string getIconUrl(string url)
