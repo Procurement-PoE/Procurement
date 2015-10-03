@@ -11,7 +11,7 @@ namespace Procurement.ViewModel.ForumExportVisitors
         private Dictionary<string, IFilter> known;
         public MapVisitor()
         {
-            known = Enumerable.Range(66, 100).ToDictionary(i => string.Concat("{", i.ToString(), "Maps", "}"), i => (IFilter)(new MapLevelFilter(i)));
+            known = Enumerable.Range(66, 100).ToDictionary(i => string.Concat("{", i.ToString(), "Maps", "}"), i => (IFilter)(new MapTierFilter(i)));
         }
         public override string Visit(IEnumerable<Item> items, string current)
         {
