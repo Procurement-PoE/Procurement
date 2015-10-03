@@ -5,7 +5,7 @@ namespace POEApi.Model
     public class Map : Item
     {
         public Rarity Rarity { get; private set; }
-        public int MapLevel { get; private set; }
+        public int MapTier { get; private set; }
         public int MapQuantity { get; private set; }
 
         internal Map(JSONProxy.Item item) : base(item)
@@ -13,7 +13,7 @@ namespace POEApi.Model
             this.ItemType = Model.ItemType.Gear;
             this.Properties = ProxyMapper.GetProperties(item.Properties);
             this.Rarity = getRarity(item);
-            this.MapLevel = int.Parse(Properties.Find(p => p.Name == "Map Level").Values[0].Item1);
+            this.MapTier = int.Parse(Properties.Find(p => p.Name == "Map Tier").Values[0].Item1);
 
             this.UniqueIDHash = base.getHash();
         }
@@ -23,7 +23,7 @@ namespace POEApi.Model
             var anonomousType = new
             {
                 f1 = Rarity,
-                f2 = MapLevel,
+                f2 = MapTier,
                 f3 = MapQuantity,
             };
 

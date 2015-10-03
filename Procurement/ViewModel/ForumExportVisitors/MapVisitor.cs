@@ -15,7 +15,7 @@ namespace Procurement.ViewModel.ForumExportVisitors
         }
         public override string Visit(IEnumerable<Item> items, string current)
         {
-            var sorted = items.OfType<Map>().OrderBy(i => i.MapLevel).ThenBy(i => i.MapQuantity).ToList();
+            var sorted = items.OfType<Map>().OrderBy(i => i.MapTier).ThenBy(i => i.MapQuantity).ToList();
             string updated = current;
             foreach (var token in known)
             {

@@ -35,7 +35,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
             if (map == null)
                 return false;
 
-            return map.MapLevel == level;
+            return map.MapTier == level;
         }
     }
 }
