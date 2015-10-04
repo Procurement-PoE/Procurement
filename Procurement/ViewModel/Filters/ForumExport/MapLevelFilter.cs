@@ -21,7 +21,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public string Help
         {
-            get { return "Returns Map of a particular level"; }
+            get { return "Returns Map of a particular tier"; }
         }
 
         public FilterGroup Group
