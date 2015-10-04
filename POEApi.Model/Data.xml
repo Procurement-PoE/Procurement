@@ -946,6 +946,19 @@
       <Item name="The One With All"/>
       <Item name="The Pack Leader"/>
       <Item name="The Spoiled Prince"/>
+      <Item name="Assassin's Favour"/>
+      <Item name="Audacity"/>
+      <Item name="Hunter's Resolve"/>
+      <Item name="Pride Before the Fall"/>
+      <Item name="Scholar of the Seas"/>
+      <Item name="Lantador's Lost Love"/>
+      <Item name="Loyalty"/>
+      <Item name="The Inoculated"/>
+      <Item name="The Tower"/>
+      <Item name="The Vast"/>
+      <Item name="The Twins"/>
+      <Item name="The Catalyst"/>
+      <Item name="The Doppelganger"/>
     </GearBaseType>
   </GearBaseTypes>
 </Data>
