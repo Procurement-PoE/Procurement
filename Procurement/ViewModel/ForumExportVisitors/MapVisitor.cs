@@ -11,11 +11,11 @@ namespace Procurement.ViewModel.ForumExportVisitors
         private Dictionary<string, IFilter> known;
         public MapVisitor()
         {
-            known = Enumerable.Range(66, 100).ToDictionary(i => string.Concat("{", i.ToString(), "Maps", "}"), i => (IFilter)(new MapLevelFilter(i)));
+            known = Enumerable.Range(66, 100).ToDictionary(i => string.Concat("{", i.ToString(), "Maps", "}"), i => (IFilter)(new MapTierFilter(i)));
         }
         public override string Visit(IEnumerable<Item> items, string current)
         {
-            var sorted = items.OfType<Map>().OrderBy(i => i.MapLevel).ThenBy(i => i.MapQuantity).ToList();
+            var sorted = items.OfType<Map>().OrderBy(i => i.MapTier).ThenBy(i => i.MapQuantity).ToList();
             string updated = current;
             foreach (var token in known)
             {
