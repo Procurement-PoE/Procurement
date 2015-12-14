@@ -78,14 +78,14 @@ namespace POEApi.Model
             cacheService.Clear();
         }
 
-        public Stash GetStash(int index, string league, bool forceRefresh)
+        public Stash GetStash(int index, string league, string accountName, bool forceRefresh)
         {
             DataContractJsonSerializer serialiser = new DataContractJsonSerializer(typeof(JSONProxy.Stash));
             JSONProxy.Stash proxy = null;
 
             onStashLoaded(POEEventState.BeforeEvent, index, -1);
 
-            using (Stream stream = transport.GetStash(index, league, Settings.ProxySettings["AccountName"], forceRefresh))
+            using (Stream stream = transport.GetStash(index, league, accountName, forceRefresh))
             {
                 try
                 {
@@ -123,14 +123,14 @@ namespace POEApi.Model
             throw new Exception(@"Downloading stash, details logged to DebugInfo.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues");
         }
 
-        public Stash GetStash(string league)
+        public Stash GetStash(string league, string accountName)
         {
             try
             {
                 var myTabs = Settings.Lists["MyTabs"];
                 bool onlyMyTabs = myTabs.Count != 0;
 
-                Stash stash = GetStash(0, league, false);
+                Stash stash = GetStash(0, league, accountName, false);
 
                 if (stash.Tabs[0].Hidden)
                     stash.ClearItems();
@@ -138,7 +138,7 @@ namespace POEApi.Model
                 List<Tab> skippedTabs = new List<Tab>();
 
                 if (!onlyMyTabs)
-                    return getAllTabs(league, stash);
+                    return getAllTabs(league, accountName, stash);
 
                 int tabCount = 0;
 
@@ -146,7 +146,7 @@ namespace POEApi.Model
                 {
                     if (myTabs.Contains(stash.Tabs[i].Name))
                     {
-                        stash.Add(GetStash(i, league, false));
+                        stash.Add(GetStash(i, league,accountName, false));
                         ++tabCount;
                     }
                     else
@@ -167,13 +167,13 @@ namespace POEApi.Model
             }
         }
 
-        private Stash getAllTabs(string league, Stash stash)
+        private Stash getAllTabs(string league, string accountName, Stash stash)
         {
             List<Tab> hiddenTabs = new List<Tab>();
 
             for (int i = 1; i < stash.NumberOfTabs; i++)
                 if (!stash.Tabs[i].Hidden)
-                    stash.Add(GetStash(i, league, false));
+                    stash.Add(GetStash(i, league, accountName, false));
                 else
                     hiddenTabs.Add(stash.Tabs[i]);
 

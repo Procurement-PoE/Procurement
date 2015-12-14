@@ -61,7 +61,7 @@ namespace POEApi.Model
                     return;
                 }
 
-                Add(currentModel.GetStash(tabId, currentLeague, true));
+                Add(currentModel.GetStash(tabId, currentLeague, accountName, true));
                 refreshItemsByTabTab(tabId);
             }
             catch (Exception ex)
