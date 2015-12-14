@@ -85,7 +85,7 @@ namespace POEApi.Model
 
             onStashLoaded(POEEventState.BeforeEvent, index, -1);
 
-            using (Stream stream = transport.GetStash(index, league, forceRefresh))
+            using (Stream stream = transport.GetStash(index, league, Settings.ProxySettings["AccountName"], forceRefresh))
             {
                 try
                 {
@@ -123,7 +123,7 @@ namespace POEApi.Model
             throw new Exception(@"Downloading stash, details logged to DebugInfo.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues");
         }
 
-        public Stash GetStash(string league, string accountName)
+        public Stash GetStash(string league)
         {
             try
             {
