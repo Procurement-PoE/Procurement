@@ -83,6 +83,15 @@ namespace POEApi.Model
         }
     }
 
+    public class TalismanRunner : GearTypeRunnerBase
+    {
+        public TalismanRunner()
+            : base(GearType.Talisman, new List<string>() { "Talisman" })
+        {
+            generalTypes.Add("Talisman");
+        }
+    }
+
     public class HelmetRunner : GearTypeRunnerBase
     {
         public HelmetRunner()

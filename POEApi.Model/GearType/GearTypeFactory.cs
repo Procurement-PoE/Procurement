@@ -9,6 +9,7 @@ namespace POEApi.Model
             { new HelmetRunner() },
             { new RingRunner() },
             { new AmuletRunner() },
+            { new TalismanRunner() },
             { new BeltRunner() },
             { new FlaskRunner() },
             { new GloveRunner() },

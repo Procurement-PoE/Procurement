@@ -16,6 +16,13 @@ namespace Procurement.ViewModel.Filters.ForumExport
         { }
     }
 
+    class TalismanFilter : GearTypeFilter
+    {
+        public TalismanFilter()
+            : base (GearType.Talisman, "Talisman")
+        { }
+    }
+
     class HelmetFilter : GearTypeFilter
     {
         public HelmetFilter()

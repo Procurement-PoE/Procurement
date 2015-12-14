@@ -8,6 +8,9 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 [spoiler="          Jewels          "]
 {NormalJewel}{MagicJewel}{RareJewel}{UniqueJewel}
 [/spoiler]
+[spoiler="          Talismans          "]
+{NormalTalisman}{MagicTalisman}{RareTalisman}{UniqueTalisman}
+[/spoiler]
 [spoiler="          Uniques          "]
 {Uniques}
 [/spoiler]

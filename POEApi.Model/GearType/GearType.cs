@@ -25,6 +25,7 @@
         Map,
         QuestItem,
         DivinationCard,
-        Jewel
+        Jewel,
+        Talisman
     }
 }
