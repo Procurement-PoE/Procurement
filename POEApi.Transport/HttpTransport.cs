@@ -23,7 +23,7 @@ namespace POEApi.Transport
 
         private const string loginURL = @"https://www.pathofexile.com/login";
         private const string characterURL = @"https://www.pathofexile.com/character-window/get-characters";
-        private const string stashURL = @"https://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}";
+        private const string stashURL = @"https://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}&accountName={2}";
         private const string inventoryURL = @"http://www.pathofexile.com/character-window/get-items?character={0}&accountName={1}";
         private const string hashRegEx = "name=\\\"hash\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
 
@@ -132,17 +132,17 @@ namespace POEApi.Transport
             return proxy;
         }
 
-        public Stream GetStash(int index, string league, bool refresh)
+        public Stream GetStash(int index, string league, string accountName, bool refresh)
         {
-            HttpWebRequest request = getHttpRequest(HttpMethod.GET, string.Format(stashURL, league, index));
+            HttpWebRequest request = getHttpRequest(HttpMethod.GET, string.Format(stashURL, league, index, accountName));
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             return getMemoryStreamFromResponse(response);
         }
 
-        public Stream GetStash(int index, string league)
+        public Stream GetStash(int index, string league, string accountName)
         {
-            return GetStash(index, league, false);
+            return GetStash(index, league, accountName, false);
         }
 
         public Stream GetCharacters()

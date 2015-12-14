@@ -271,7 +271,7 @@ namespace Procurement.ViewModel
                 return Enumerable.Empty<Item>();
 
             ApplicationState.CurrentLeague = character.League;
-            ApplicationState.Stash[character.League] = ApplicationState.Model.GetStash(character.League, AccountName);
+            ApplicationState.Stash[character.League] = ApplicationState.Model.GetStash(character.League);
             ApplicationState.Leagues.Add(character.League);
 
             return ApplicationState.Stash[character.League].Get<Item>();
