@@ -1,4 +1,5 @@
 ﻿using POEApi.Model;
+using System.Linq;
 
 namespace Procurement.ViewModel.Filters.ForumExport
 {
@@ -26,6 +27,10 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public bool Applicable(Item item)
         {
+            Gear gear = item as Gear;
+            if (gear != null && gear.SocketedItems.Any(x => Applicable(x)))
+                return true;
+
             return item is Gem;
         }
     }
