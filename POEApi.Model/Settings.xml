@@ -74,15 +74,15 @@
   <ShopSettings>
     <Shop League="Standard" ThreadId="" ThreadTitle="" />
     <Shop League="Hardcore" ThreadId="" ThreadTitle="" />
-    <Shop League="Bloodlines" ThreadId="" ThreadTitle="" />
-    <Shop League="Torment" ThreadId="" ThreadTitle="" />
+    <Shop League="Talisman" ThreadId="" ThreadTitle="" />
+    <Shop League="Hardcore Talisman" ThreadId="" ThreadTitle="" />
   </ShopSettings>
   <Lists>
     <List name="MyLeagues">
       <Item value="Standard" />
       <Item value="Hardcore" />
-      <Item value="Warbands" />
-      <Item value="Tempest" />
+      <Item value="Talisman" />
+      <Item value="Hardcore Talisman" />
     </List>
     <List name="MyTabs">
       <!--If you only want Procurement to download specific tabs list them here, eg :-->
