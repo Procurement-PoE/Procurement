@@ -48,6 +48,21 @@ namespace POEApi.Model
             Tabs.Add(tab);
         }
 
+        public void RefreshAll(POEModel currentModel, string currentLeague, string accountName)
+        {
+            foreach (var tab in Tabs)
+            {
+                try
+                {
+                    RefreshTab(currentModel, currentLeague, tab.i, accountName);
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log("Error refreshing tab: " + ex.ToString());
+                }
+            }
+        }
+
         public void RefreshTab(POEModel currentModel, string currentLeague, int tabId, string accountName)
         {
             try

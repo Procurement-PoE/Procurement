@@ -16,7 +16,7 @@ namespace Procurement.ViewModel
 
         public double HeaderHeight { get; set; }
         public double FooterHeight { get; set; }
-        public bool ButtonsVisible{ get; set; }
+        public bool ButtonsVisible { get; set; }
         public bool FullMode { get; set; }
 
         public DelegateCommand MenuButtonCommand { get; set; }
@@ -47,7 +47,7 @@ namespace Procurement.ViewModel
             MenuButtonCommand = new DelegateCommand(execute);
             mainView = layout;
             initLogin();
-            
+
         }
 
         public void UpdateTrading()
@@ -65,7 +65,7 @@ namespace Procurement.ViewModel
             if (key == TRADING_VIEW && screens[key] == null)
                 screens[key] = new TradingView();
 
-            
+
             LoadView(screens[key]);
         }
 
@@ -114,13 +114,32 @@ namespace Procurement.ViewModel
 
         public void LoadView(IView view)
         {
-            Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal, 
-                new Action(() => 
+            Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                new Action(() =>
                 {
-                     mainView.MainRegion.Children.Clear();
-                     if (view is StashView)
-                         screens[STASH_VIEW] = new StashView();
-                     mainView.MainRegion.Children.Add(view as UserControl);
+                    mainView.MainRegion.Children.Clear();
+                    if (view is StashView)
+                        screens[STASH_VIEW] = new StashView();
+                    mainView.MainRegion.Children.Add(view as UserControl);
+                }));
+        }
+
+        public void LoadRefreshView()
+        {
+            mainView.Buttons.Visibility = Visibility.Hidden;
+            mainView.MainRegion.Children.Clear();
+            mainView.MainRegion.Children.Add(new RefreshView());
+            (mainView.MainRegion.Children[0] as RefreshView).RefreshAllTabs();
+        }
+
+        public void ReloadStash()
+        {
+            Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                new Action(() =>
+                {
+                    mainView.Buttons.Visibility = Visibility.Visible;
+                    mainView.MainRegion.Children.Clear();
+                    mainView.MainRegion.Children.Add(new StashView());
                 }));
         }
     }

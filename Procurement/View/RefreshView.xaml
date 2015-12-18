@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="Procurement.View.RefreshView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Height="630" Width="1012">
+    <Grid x:Name="ViewContent" Width="990">
+        <RichTextBox Height="600" Name="StatusBox" HorizontalAlignment="Left" Background="Black" BorderBrush="#FF93732D" Focusable="True" Foreground="#FFAB9066" FontFamily="Consolas" BorderThickness="1" IsReadOnly="True" VerticalScrollBarVisibility="Hidden" />
+    </Grid>
+</UserControl>

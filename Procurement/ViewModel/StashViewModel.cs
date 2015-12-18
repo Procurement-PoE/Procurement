@@ -15,6 +15,7 @@ using Procurement.ViewModel.Filters;
 using System.Text;
 using POEApi.Infrastructure;
 using System.Windows.Controls.Primitives;
+using System.Threading.Tasks;
 
 namespace Procurement.ViewModel
 {
@@ -292,7 +293,10 @@ namespace Procurement.ViewModel
             ContextMenu contextMenu = new ContextMenu();
 
             if (!ApplicationState.Model.Offline)
+            {
                 contextMenu.Items.Add(getMenuItem(itemStash, "Refresh", refresh_Click));
+                contextMenu.Items.Add(getMenuItem(itemStash, "Refresh All Tabs", refreshAll_Click));
+            }
             
             contextMenu.Items.Add(getMenuItem(itemStash, "Set Tabwide Buyout", setTabBuyout_Click));
 
@@ -352,10 +356,15 @@ namespace Procurement.ViewModel
             Settings.SaveTabBuyouts();
         }
 
+        void refreshAll_Click(object sender, RoutedEventArgs e)
+        {                  
+            ScreenController.Instance.LoadRefreshView();
+        }
+        
         void refresh_Click(object sender, RoutedEventArgs e)
-        {
+        {                      
             StashControl stash = getStash(sender);
-            stash.RefreshTab(Settings.UserSettings["AccountName"]);
+            stash.RefreshTab(ApplicationState.AccountName);
             ScreenController.Instance.InvalidateRecipeScreen();
             ScreenController.Instance.UpdateTrading();
         }

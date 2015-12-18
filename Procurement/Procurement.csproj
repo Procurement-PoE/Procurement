@@ -358,6 +358,9 @@
     <Compile Include="View\RecipeView.xaml.cs">
       <DependentUpon>RecipeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\RefreshView.xaml.cs">
+      <DependentUpon>RefreshView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -498,6 +501,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RecipeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RefreshView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
