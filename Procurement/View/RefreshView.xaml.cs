@@ -35,7 +35,6 @@ namespace Procurement.View
                     ApplicationState.Stash[ApplicationState.CurrentLeague].RefreshAll(ApplicationState.Model, ApplicationState.CurrentLeague, ApplicationState.AccountName);
                     ApplicationState.Model.StashLoading -= model_StashLoading;
                     ApplicationState.Model.Throttled -= model_Throttled;
-                    throw new Exception("test");
                 }
                 catch (Exception ex)
                 {
