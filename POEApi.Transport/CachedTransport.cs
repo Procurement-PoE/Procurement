@@ -35,6 +35,11 @@ namespace POEApi.Transport
             return innerTranport.Authenticate(email, password, useSessionID);
         }
 
+        public Stream GetAccountName()
+        {
+            return innerTranport.GetAccountName();
+        }
+
         public Stream GetStash(int index, string league, string accountName, bool refresh)
         {
             string key = string.Format("{0}-{1}-{2}", league, stashKey, index);

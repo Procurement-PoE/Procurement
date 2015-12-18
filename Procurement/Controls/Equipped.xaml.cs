@@ -90,7 +90,7 @@ namespace Procurement.Controls
 
         private void render()
         {
-            equipped = new EquipedItems(ApplicationState.Model.GetInventory(Character, false, Settings.UserSettings["AccountName"]).Where(i => i.InventoryId != "MainInventory"));
+            equipped = new EquipedItems(ApplicationState.Model.GetInventory(Character, false, ApplicationState.AccountName).Where(i => i.InventoryId != "MainInventory"));
             davinci.Children.Clear();
             Dictionary<string, Item> itemsAtPosition = equipped.GetItems();
 

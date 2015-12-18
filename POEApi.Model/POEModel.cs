@@ -59,6 +59,32 @@ namespace POEApi.Model
             return true;
         }
 
+        public string GetAccountName()
+        {
+            try
+            {
+                if (Offline)
+                    return string.Empty;
+
+                DataContractJsonSerializer serialiser = new DataContractJsonSerializer(typeof(JSONProxy.Account));
+                JSONProxy.Account account;
+
+                using (Stream stream = transport.GetAccountName())
+                    account = (JSONProxy.Account)serialiser.ReadObject(stream);
+
+                if (account == null || string.IsNullOrEmpty(account.AccountName))
+                    throw new Exception("Null account name received from API");
+
+                return account.AccountName;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(string.Format("Error downloading account name, exception details: {0}", ex.ToString()));
+
+                throw new Exception(@"Error downloading account name, details logged to DebugInfo.log. Please open a ticket at https://github.com/Stickymaddness/Procurement/issues and include your DebugInfo.log");
+            }
+        }
+
         void instance_Throttled(object sender, ThottledEventArgs e)
         {
             if (Throttled != null)
@@ -120,7 +146,7 @@ namespace POEApi.Model
                 Logger.Log(ex);
             }
 
-            throw new Exception(@"Downloading stash, details logged to DebugInfo.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues");
+            throw new Exception(@"Downloading stash, details logged to DebugInfo.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues and include your DebugInfo.log");
         }
 
         public Stash GetStash(string league, string accountName)
@@ -146,7 +172,7 @@ namespace POEApi.Model
                 {
                     if (myTabs.Contains(stash.Tabs[i].Name))
                     {
-                        stash.Add(GetStash(i, league,accountName, false));
+                        stash.Add(GetStash(i, league, accountName, false));
                         ++tabCount;
                     }
                     else
@@ -163,7 +189,7 @@ namespace POEApi.Model
             catch (Exception ex)
             {
                 Logger.Log(string.Format("Error downloading stash for {0}, exception details: {1}", league, ex.ToString()));
-                throw new Exception(@"Downloading stash for " + league + ", details logged to DebugInfo.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues");
+                throw new Exception(@"Downloading stash for " + league + ", details logged to DebugInfo.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues and include your DebugInfo.log");
             }
         }
 
@@ -224,7 +250,7 @@ namespace POEApi.Model
             catch (SerializationException sex)
             {
                 Logger.Log(string.Format("Error reading character data for character '{0}', Exception info: ", characterName, sex.ToString()));
-                throw new Exception(string.Format("Error reading character data for {0}, if you are in offline mode you will need to login and update. Make sure that your account name is entered correctly and with the correct casing. If you received this error while logging in, the authenticated session may have expired or bad data has been returned by GGG or a network issue may have occurred - Please try again.", characterName));
+                throw new Exception(string.Format("Error reading character data for {0}, if you are in offline mode you will need to login and update. If you received this error while logging in, the authenticated session may have expired or bad data has been returned by GGG or a network issue may have occurred - Please try again.", characterName));
             }
         }
 

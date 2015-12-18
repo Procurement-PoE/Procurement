@@ -52,20 +52,6 @@ namespace Procurement.ViewModel
             }
         }
 
-        private string accountName;
-        public string AccountName
-        {
-            get { return accountName; }
-            set
-            {
-                if (value != accountName)
-                {
-                    accountName = value;
-                    OnPropertyChanged("AccountName");
-                }
-            }
-        }
-
         public bool UseSession
         {
             get { return useSession; }
@@ -93,7 +79,6 @@ namespace Procurement.ViewModel
             UseSession = Settings.UserSettings.ContainsKey("UseSessionID") ? bool.Parse(Settings.UserSettings["UseSessionID"]) : false;
 
             Email = Settings.UserSettings["AccountLogin"];
-            AccountName = Settings.UserSettings["AccountName"];
             this.formChanged = string.IsNullOrEmpty(Settings.UserSettings["AccountPassword"]);
 
             if (!this.formChanged)
@@ -131,13 +116,6 @@ namespace Procurement.ViewModel
                 return;
             }
 
-            if (string.IsNullOrEmpty(AccountName))
-            {
-                MessageBox.Show("Account name is required!", "Error logging in", MessageBoxButton.OK, MessageBoxImage.Stop);
-                toggleControls();
-                return;
-            }
-
             if (!offline)
             {
                 ApplicationState.Model.StashLoading += model_StashLoading;
@@ -155,6 +133,9 @@ namespace Procurement.ViewModel
 
                 if (!offline)
                 {
+                    statusController.DisplayMessage("Fetching account name...");
+                    ApplicationState.AccountName = ApplicationState.Model.GetAccountName();
+                    statusController.Ok();
                     ApplicationState.Model.ForceRefresh();
                     statusController.DisplayMessage("Loading characters...");
                 }
@@ -251,7 +232,6 @@ namespace Procurement.ViewModel
 
             Settings.UserSettings["AccountLogin"] = Email;
             Settings.UserSettings["AccountPassword"] = password.Encrypt();
-            Settings.UserSettings["AccountName"] = AccountName;
             Settings.UserSettings["UseSessionID"] = useSession.ToString();
             Settings.Save();
         }
@@ -262,7 +242,6 @@ namespace Procurement.ViewModel
             view.OfflineButton.IsEnabled = !view.OfflineButton.IsEnabled;
             view.txtLogin.IsEnabled = !view.txtLogin.IsEnabled;
             view.txtPassword.IsEnabled = !view.txtPassword.IsEnabled;
-            view.txtAccountName.IsEnabled = !view.txtAccountName.IsEnabled;
         }
 
         private IEnumerable<Item> LoadStashItems(Character character)
@@ -271,7 +250,7 @@ namespace Procurement.ViewModel
                 return Enumerable.Empty<Item>();
 
             ApplicationState.CurrentLeague = character.League;
-            ApplicationState.Stash[character.League] = ApplicationState.Model.GetStash(character.League, accountName);
+            ApplicationState.Stash[character.League] = ApplicationState.Model.GetStash(character.League, ApplicationState.AccountName);
             ApplicationState.Leagues.Add(character.League);
 
             return ApplicationState.Stash[character.League].Get<Item>();
@@ -287,7 +266,7 @@ namespace Procurement.ViewModel
             List<Item> inventory;
             try
             {
-                inventory = ApplicationState.Model.GetInventory(character.Name, false, AccountName);
+                inventory = ApplicationState.Model.GetInventory(character.Name, false, ApplicationState.AccountName);
                 success = true;
             }
             catch (WebException)

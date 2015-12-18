@@ -35,7 +35,7 @@ namespace Procurement.Controls
             if (initialized)
                 return;
 
-            refresh(Settings.UserSettings["AccountName"]);
+            refresh(ApplicationState.AccountName);
         }
 
         private void refresh(string accountName)
@@ -52,7 +52,7 @@ namespace Procurement.Controls
                 return;
 
             instance.initialized = false;
-            instance.refresh(Settings.UserSettings["AccountName"]);
+            instance.refresh(ApplicationState.AccountName);
         }
 
         private bool initialized = false;

@@ -22,6 +22,7 @@ namespace POEApi.Transport
         private enum HttpMethod { GET, POST }
 
         private const string loginURL = @"https://www.pathofexile.com/login";
+        private const string accountNameURL = @"https://www.pathofexile.com/character-window/get-account-name";
         private const string characterURL = @"https://www.pathofexile.com/character-window/get-characters";
         private const string stashURL = @"https://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}&accountName={2}";
         private const string inventoryURL = @"http://www.pathofexile.com/character-window/get-items?character={0}&accountName={1}";
@@ -62,7 +63,7 @@ namespace POEApi.Transport
         {
             if (useSessionID)
             {
-                credentialCookies.Add(new System.Net.Cookie("PHPSESSID", password.UnWrap(), "/", "www.pathofexile.com"));
+                credentialCookies.Add(new System.Net.Cookie("POESESSID", password.UnWrap(), "/", "www.pathofexile.com"));
                 HttpWebRequest confirmAuth = getHttpRequest(HttpMethod.GET, loginURL);
                 HttpWebResponse confirmAuthResponse = (HttpWebResponse)confirmAuth.GetResponse();
 
@@ -148,6 +149,14 @@ namespace POEApi.Transport
         public Stream GetCharacters()
         {
             HttpWebRequest request = getHttpRequest(HttpMethod.GET, characterURL);
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            return getMemoryStreamFromResponse(response);
+        }
+
+        public Stream GetAccountName()
+        {
+            HttpWebRequest request = getHttpRequest(HttpMethod.GET, accountNameURL);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             return getMemoryStreamFromResponse(response);

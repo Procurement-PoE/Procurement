@@ -7,6 +7,7 @@ namespace POEApi.Transport
     public interface ITransport
     {
         bool Authenticate(string email, SecureString password, bool useSessionID);
+        Stream GetAccountName();
         Stream GetStash(int index, string league, string accountName);
         Stream GetStash(int index, string league, string accountName, bool refresh);
         Stream GetImage(string url);

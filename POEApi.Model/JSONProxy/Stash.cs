@@ -161,6 +161,13 @@ namespace POEApi.Model.JSONProxy
     }
 
     [DataContract(Name = "RootObject")]
+    public class Account
+    {
+        [DataMember(Name = "accountName")]
+        public string AccountName { get; set; }
+    }
+
+    [DataContract(Name = "RootObject")]
     public class Character
     {
         [DataMember(Name = "name")]

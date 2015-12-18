@@ -10,7 +10,7 @@
 
         <Image Grid.Column="0" Width="282" Height="577" Source="/Procurement;component/Images/Sir Marauder.png" />
 
-        <Grid Grid.Column="1" Margin="0,40,0,0">
+        <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
@@ -21,31 +21,27 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="18"/>
-                    <RowDefinition Height="40" />
-                    <RowDefinition Height="11"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="130"/>
-                    <RowDefinition Height="10*" />
                 </Grid.RowDefinitions>
 
-                <Label x:Name="lblEmail" Content="Email" FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top" Margin="0,12,0,0"></Label>
-                <Label x:Name="lblPassword" Content="Password" FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top" Margin="0,47,0,0" Grid.RowSpan="2"></Label>
-                <Label x:Name="lblAccountName" Content="Account name" FontFamily="../Resources/#Fontin" FontSize="14" Foreground="#FFAB9066" Margin="0,12,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="2"></Label>
+                <Label x:Name="lblEmail" Content="Email" Grid.Row="1" Grid.Column="0" FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top" ></Label>
+                <Label x:Name="lblPassword" Content="Password" Grid.Row="2" Grid.Column="0" FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top" ></Label>
 
-                <TextBox Name="txtLogin" Text="{Binding Email}" Grid.Column="1" Height="22" Width="330" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black" BorderBrush="#FF76591B" Foreground="#FFAB9066" SelectionBrush="#FFCABE9F" Margin="0,17,0,0"></TextBox>
-                <PasswordBox Name="txtPassword" Grid.Column="1" Height="22" Width="330" Background="Black" BorderBrush="#FF76591B" HorizontalAlignment="Left" VerticalAlignment="Top"  Foreground="#FFAB9066" SelectionBrush="#FFCABE9F" Margin="0,13,0,0" Grid.RowSpan="2" Grid.Row="1" />
-                <TextBox Name="txtAccountName" Text="{Binding AccountName}" Grid.Column="1" Height="22" Width="330" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black" BorderBrush="#FF76591B" Foreground="#FFAB9066" SelectionBrush="#FFCABE9F" Margin="0,17,0,0" Grid.Row="2"></TextBox>
+                <TextBox Name="txtLogin" Text="{Binding Email}" Grid.Row="1" Grid.Column="1" Height="22" Width="330" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black" BorderBrush="#FF76591B" Foreground="#FFAB9066" SelectionBrush="#FFCABE9F"></TextBox>
+                <PasswordBox Name="txtPassword" Grid.Row="2" Grid.Column="1" Height="22" Width="330" Background="Black" BorderBrush="#FF76591B" HorizontalAlignment="Left" VerticalAlignment="Top"  Foreground="#FFAB9066" SelectionBrush="#FFCABE9F"/>
 
-                <Grid Grid.Row="4" Grid.Column="1">
+                <Grid Grid.Row="3" Grid.Column="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="90"/>
                         <ColumnDefinition Width="90"/>
                         <ColumnDefinition Width="150"/>
                         <ColumnDefinition Width="228*" />
                     </Grid.ColumnDefinitions>
-                    
+
                     <Button Grid.Column="0" Name="LoginButton" Width="85" Height="28" HorizontalAlignment="Left" Click="Login_Click" IsDefault="True">
                         <Image>
                             <Image.Style>
@@ -60,7 +56,7 @@
                             </Image.Style>
                         </Image>
                     </Button>
-                    
+
                     <Button Grid.Column="1" Name="OfflineButton" Width="85" Height="28" HorizontalAlignment="Left" Click="Offline_Click">
                         <Image>
                             <Image.Style>
@@ -79,7 +75,7 @@
                     <CheckBox Name="useSession" Content="Use SessionID" Grid.Column="2" HorizontalAlignment="Left" Margin="25,9,0,0" Height="15" VerticalAlignment="Top" IsChecked="{Binding UseSession}" Foreground="#FFAB9066" FontSize="12" FontWeight="Bold"/>
 
                 </Grid>
-                
+
             </Grid>
 
             <Grid Grid.Row="1">
