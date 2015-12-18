@@ -10,7 +10,7 @@ namespace Procurement
 {
     public static class ApplicationState
     {
-        public static string Version = "Procurement 1.9.7";
+        public static string Version = "Procurement 1.9.8-dev";
         public static POEModel Model = new POEModel();
         public static Dictionary<string, Stash> Stash = new Dictionary<string, Stash>();
         public static Dictionary<string, Item> Inventory = new Dictionary<string, Item>();
@@ -19,6 +19,7 @@ namespace Procurement
         public static System.Drawing.Text.PrivateFontCollection FontCollection = new System.Drawing.Text.PrivateFontCollection();
         private static Character currentCharacter = null;
         public static BitmapCache BitmapCache { get; private set; }
+        public static string AccountName { get; set; }
 
         static ApplicationState()
         {
