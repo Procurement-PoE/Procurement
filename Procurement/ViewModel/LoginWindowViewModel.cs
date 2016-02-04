@@ -19,6 +19,8 @@ namespace Procurement.ViewModel
 {
     public class LoginWindowViewModel : INotifyPropertyChanged
     {
+        private static bool authOffLine;
+
         private LoginView view = null;
         private StatusController statusController;
         public event LoginCompleted OnLoginCompleted;
