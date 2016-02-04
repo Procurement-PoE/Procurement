@@ -147,7 +147,7 @@ namespace POEApi.Model
                 var tabs = Tabs.Select(t => ProxyMapper.STASH + (t.i + 1));
                 itemsByTab = tabs.ToDictionary(kvp => kvp, kvp => items.Where(i => i.InventoryId == kvp).ToList());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine("Error building items by tab. Tab data:");
