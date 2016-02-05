@@ -153,12 +153,12 @@ namespace POEApi.Transport
             return getMemoryStreamFromResponse(response);
         }
 
-        public Stream GetAccountName()
+        public StreamReader GetAccountName()
         {
             HttpWebRequest request = getHttpRequest(HttpMethod.GET, accountNameURL);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
-            return getMemoryStreamFromResponse(response);
+            return GetStreamReaderFromResponse(response);
         }
 
         public Stream GetImage(string url)
@@ -183,6 +183,11 @@ namespace POEApi.Transport
             RequestThrottle.Instance.Complete();
 
             return new MemoryStream(buffer);
+        }
+
+        private StreamReader GetStreamReaderFromResponse(HttpWebResponse response)
+        {
+            return new StreamReader(response.GetResponseStream());
         }
 
         public bool UpdateThread(string threadID, string threadTitle, string threadText)

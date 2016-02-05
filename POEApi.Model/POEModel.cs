@@ -9,6 +9,8 @@ using System.Security;
 using System;
 using POEApi.Infrastructure.Events;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using POEApi.Model.JSONProxy;
 
 namespace POEApi.Model
 {
@@ -64,16 +66,23 @@ namespace POEApi.Model
             try
             {
                 if (Offline)
+                {
                     return string.Empty;
+                }
 
-                DataContractJsonSerializer serialiser = new DataContractJsonSerializer(typeof(JSONProxy.Account));
-                JSONProxy.Account account;
+                Account account;
 
-                using (Stream stream = transport.GetAccountName())
-                    account = (JSONProxy.Account)serialiser.ReadObject(stream);
+                using (var stream = transport.GetAccountName())
+                using (var jsonTextReader = new JsonTextReader(stream))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    account = (Account) serializer.Deserialize(jsonTextReader, typeof(Account));
+                }
 
-                if (account == null || string.IsNullOrEmpty(account.AccountName))
+                if (string.IsNullOrEmpty(account?.AccountName))
+                {
                     throw new Exception("Null account name received from API");
+                }
 
                 return account.AccountName;
             }
