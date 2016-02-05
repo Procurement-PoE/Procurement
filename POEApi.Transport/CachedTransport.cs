@@ -35,7 +35,7 @@ namespace POEApi.Transport
             return innerTranport.Authenticate(email, password, useSessionID);
         }
 
-        public Stream GetAccountName()
+        public StreamReader GetAccountName()
         {
             return innerTranport.GetAccountName();
         }
