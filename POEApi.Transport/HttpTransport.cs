@@ -63,7 +63,7 @@ namespace POEApi.Transport
         {
             if (useSessionID)
             {
-                credentialCookies.Add(new System.Net.Cookie("POESESSID", password.UnWrap().Trim(), "/", "www.pathofexile.com"));
+                credentialCookies.Add(new System.Net.Cookie("POESESSID", password.UnWrap(), "/", "www.pathofexile.com"));
                 HttpWebRequest confirmAuth = getHttpRequest(HttpMethod.GET, loginURL);
                 HttpWebResponse confirmAuthResponse = (HttpWebResponse)confirmAuth.GetResponse();
 
