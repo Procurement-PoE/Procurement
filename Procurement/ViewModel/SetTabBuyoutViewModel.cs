@@ -1,12 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace Procurement.ViewModel
 {
     public class SetTabBuyoutViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        
         private static List<string> orbTypes = new List<string>()
         {
             "Chaos Orb",
