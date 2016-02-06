@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TestData\SampleCharacter.json" />
     <None Include="TestData\SampleStash.json" />
   </ItemGroup>
   <ItemGroup>

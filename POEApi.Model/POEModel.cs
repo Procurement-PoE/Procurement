@@ -258,13 +258,7 @@ namespace POEApi.Model
 
         public List<Character> GetCharacters()
         {
-            DataContractJsonSerializer serialiser = new DataContractJsonSerializer(typeof(List<JSONProxy.Character>));
-            List<JSONProxy.Character> characters;
-
-            using (Stream stream = Transport.GetCharacters())
-                characters = (List<JSONProxy.Character>)serialiser.ReadObject(stream);
-
-            return characters.Select(c => new Character(c)).ToList();
+            return GetProperObjectFromTransport<List<Character>>(Transport.GetCharacters());
         }
 
         public List<Item> GetInventory(string characterName, bool forceRefresh, string accountName)
