@@ -1,0 +1,2402 @@
+{
+	"items": [{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Currency\/CurrencyPortal.png?scale=1&stackSize=38&w=1&h=1&v=728696ea10d4fb1e789039debc5d8c3c3",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Portal Scroll",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Stack Size",
+			"values": [["38\/40",
+			0]],
+			"displayMode": 0
+		}],
+		"talismanTier": 0,
+		"explicitMods": ["Creates a portal to town"],
+		"descrText": "Right click on this item to use it.\nShift click to unstack.",
+		"frameType": 5,
+		"x": 0,
+		"y": 0,
+		"inventoryId": "MainInventory",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 2,
+		"icon": "\/gen\/image\/YTozOntpOjI7YTozOntz\/OjE6ImYiO3M6MzA6IkFy\/dC8yREl0ZW1zL0ZsYXNr\/cy9saWZlZmxhc2sxMCI7\/czoyOiJzcCI7ZDowLjYw\/ODUxOTI2OTc3Njg3NjMx\/NDgxNDcyODYzMDE1MzY5\/NTEyMTQwNzUwODg1MDA5\/NzY1NjI1O3M6NToibGV2\/ZWwiO2k6MTt9aToxO2k6\/NDtpOjA7aTo5O30,\/3afd394f30\/Item.png",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [],
+		"name": "",
+		"typeLine": "<<set:MS>><<set:M>><<set:S>>Panicked Divine Life Flask of Staunching",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Quality",
+			"values": [["+6%",
+			1]],
+			"displayMode": 0
+		},
+		{
+			"name": "Recovers %0 Life over %1 Seconds",
+			"values": [["1908",
+			1],
+			["7.00",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Consumes %0 of %1 Charges on use",
+			"values": [["15",
+			0],
+			["45",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Currently has %0 Charges",
+			"values": [["45",
+			0]],
+			"displayMode": 3
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["60",
+			0]],
+			"displayMode": 0
+		}],
+		"talismanTier": 0,
+		"explicitMods": ["25% reduced Amount Recovered",
+		"Instant Recovery when on Low Life",
+		"Immunity to Bleeding during Flask effect",
+		"Removes Bleeding on use"],
+		"descrText": "Right click to drink. Can only hold charges while in belt. Refills as you kill monsters.",
+		"frameType": 1,
+		"x": 1,
+		"y": 0,
+		"inventoryId": "Flask",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Currency\/CurrencyIdentification.png?scale=1&stackSize=34&w=1&h=1&v=1b9b38c45be95c59d8900f91b2afd58b3",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Scroll of Wisdom",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Stack Size",
+			"values": [["34\/40",
+			0]],
+			"displayMode": 0
+		}],
+		"talismanTier": 0,
+		"explicitMods": ["Identifies an item"],
+		"descrText": "Right click this item then left click an unidentified item to apply it.\nShift click to unstack.",
+		"frameType": 5,
+		"x": 0,
+		"y": 1,
+		"inventoryId": "MainInventory",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 2,
+		"icon": "\/gen\/image\/YTozOntpOjI7YTozOntz\/OjE6ImYiO3M6MzA6IkFy\/dC8yREl0ZW1zL0ZsYXNr\/cy9saWZlZmxhc2sxMSI7\/czoyOiJzcCI7ZDowLjYw\/ODUxOTI2OTc3Njg3NjMx\/NDgxNDcyODYzMDE1MzY5\/NTEyMTQwNzUwODg1MDA5\/NzY1NjI1O3M6NToibGV2\/ZWwiO2k6MTt9aToxO2k6\/NDtpOjA7aTo5O30,\/3a8da865e1\/Item.png",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [],
+		"name": "",
+		"typeLine": "<<set:MS>><<set:M>><<set:S>>Surgeon's Eternal Life Flask of Heat",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Quality",
+			"values": [["+13%",
+			1]],
+			"displayMode": 0
+		},
+		{
+			"name": "Recovers %0 Life over %1 Seconds",
+			"values": [["2350",
+			1],
+			["4.00",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Consumes %0 of %1 Charges on use",
+			"values": [["15",
+			0],
+			["45",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Currently has %0 Charges",
+			"values": [["45",
+			0]],
+			"displayMode": 3
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["65",
+			0]],
+			"displayMode": 0
+		}],
+		"talismanTier": 0,
+		"explicitMods": ["20% chance to gain a Flask Charge when you deal a Critical Strike",
+		"Immunity to Freeze and Chill during Flask effect",
+		"Removes Freeze and Chill on use"],
+		"descrText": "Right click to drink. Can only hold charges while in belt. Refills as you kill monsters.",
+		"frameType": 1,
+		"x": 0,
+		"y": 0,
+		"inventoryId": "Flask",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Currency\/CurrencyFlaskQuality.png?scale=1&stackSize=1&w=1&h=1&v=ca8bd0dd43d2adf8b021578a398eb9de3",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Glassblower's Bauble",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Stack Size",
+			"values": [["1\/20",
+			0]],
+			"displayMode": 0
+		}],
+		"talismanTier": 0,
+		"explicitMods": ["Improves the quality of a flask"],
+		"descrText": "Right click this item then left click a flask to apply it. Has greater effect on lower rarity flasks. The maximum quality is 20%.",
+		"frameType": 5,
+		"x": 0,
+		"y": 2,
+		"inventoryId": "MainInventory",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 2,
+		"h": 3,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Weapons\/OneHandWeapons\/OneHandMaces\/OneHandMace7.png?scale=1&w=2&h=3&v=daba395e39ccdbb516aff2e4db5eebbf3",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [{
+			"group": 0,
+			"attr": "S"
+		},
+		{
+			"group": 0,
+			"attr": "S"
+		},
+		{
+			"group": 1,
+			"attr": "S"
+		}],
+		"name": "",
+		"typeLine": "<<set:MS>><<set:M>><<set:S>>Ornate Mace of the Salamander",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "One Handed Mace",
+			"values": [],
+			"displayMode": 0
+		},
+		{
+			"name": "Physical Damage",
+			"values": [["42-53",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Critical Strike Chance",
+			"values": [["5.00%",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Attacks per Second",
+			"values": [["1.20",
+			0]],
+			"displayMode": 0
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["50",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Str",
+			"values": [["161",
+			0]],
+			"displayMode": 1
+		}],
+		"talismanTier": 0,
+		"implicitMods": ["40% increased Stun Duration on Enemies"],
+		"explicitMods": ["+13% to Fire Resistance"],
+		"frameType": 1,
+		"x": 1,
+		"y": 0,
+		"inventoryId": "MainInventory",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 2,
+		"icon": "\/gen\/image\/YTozOntpOjI7YTozOntz\/OjE6ImYiO3M6Mjk6IkFy\/dC8yREl0ZW1zL0ZsYXNr\/cy9tYW5hZmxhc2s5Ijtz\/OjI6InNwIjtkOjAuNjA4\/NTE5MjY5Nzc2ODc2MzE0\/ODE0NzI4NjMwMTUzNjk1\/MTIxNDA3NTA4ODUwMDk3\/NjU2MjU7czo1OiJsZXZl\/bCI7aToxO31pOjE7aTo0\/O2k6MDtpOjk7fQ,,\/b70acc8cc0\/Item.png",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [],
+		"name": "",
+		"typeLine": "<<set:MS>><<set:M>><<set:S>>Perpetual Sanctified Mana Flask of Iron Skin",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Quality",
+			"values": [["+6%",
+			1]],
+			"displayMode": 0
+		},
+		{
+			"name": "Recovers %0 Mana over %1 Seconds",
+			"values": [["1113",
+			1],
+			["14.00",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Consumes %0 of %1 Charges on use",
+			"values": [["10",
+			0],
+			["40",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Currently has %0 Charges",
+			"values": [["40",
+			0]],
+			"displayMode": 3
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["50",
+			0]],
+			"displayMode": 0
+		}],
+		"talismanTier": 0,
+		"explicitMods": ["32% increased Charge Recovery",
+		"99% increased Armour during Flask effect"],
+		"descrText": "Right click to drink. Can only hold charges while in belt. Refills as you kill monsters.",
+		"frameType": 1,
+		"x": 2,
+		"y": 0,
+		"inventoryId": "Flask",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 2,
+		"icon": "\/gen\/image\/YTozOntpOjI7YTozOntz\/OjE6ImYiO3M6MjU6IkFy\/dC8yREl0ZW1zL0ZsYXNr\/cy9zcHJpbnQiO3M6Mjoi\/c3AiO2Q6MC42MDg1MTky\/Njk3NzY4NzYzMTQ4MTQ3\/Mjg2MzAxNTM2OTUxMjE0\/MDc1MDg4NTAwOTc2NTYy\/NTtzOjU6ImxldmVsIjtp\/OjE7fWk6MTtpOjQ7aTow\/O2k6OTt9\/6446837133\/Item.png",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [],
+		"name": "",
+		"typeLine": "<<set:MS>><<set:M>><<set:S>>Surgeon's Quicksilver Flask of Grounding",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Lasts %0 Seconds",
+			"values": [["5.00",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Consumes %0 of %1 Charges on use",
+			"values": [["20",
+			0],
+			["50",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Currently has %0 Charges",
+			"values": [["50",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "",
+			"values": [["40% increased Movement Speed",
+			1]],
+			"displayMode": 0
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["8",
+			0]],
+			"displayMode": 0
+		}],
+		"talismanTier": 0,
+		"explicitMods": ["20% chance to gain a Flask Charge when you deal a Critical Strike",
+		"Immunity to Shock during Flask effect",
+		"Removes Shock on use"],
+		"descrText": "Right click to drink. Can only hold charges while in belt. Refills as you kill monsters.",
+		"frameType": 1,
+		"x": 4,
+		"y": 0,
+		"inventoryId": "Flask",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 3,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Weapons\/OneHandWeapons\/Daggers\/Dagger6.png?scale=1&w=1&h=3&v=da5d507310ebbf4e2c7d2db037af14ca3",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "S"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Gale Sever",
+		"typeLine": "Platinum Kris",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Dagger",
+			"values": [],
+			"displayMode": 0
+		},
+		{
+			"name": "Physical Damage",
+			"values": [["20-81",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Critical Strike Chance",
+			"values": [["7.00%",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Attacks per Second",
+			"values": [["1.20",
+			0]],
+			"displayMode": 0
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["68",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Dex",
+			"values": [["76",
+			0]],
+			"displayMode": 1
+		},
+		{
+			"name": "Int",
+			"values": [["151",
+			0]],
+			"displayMode": 1
+		}],
+		"talismanTier": 0,
+		"implicitMods": ["80% increased Global Critical Strike Chance"],
+		"explicitMods": ["21% increased Spell Damage",
+		"95% increased Critical Strike Chance for Spells",
+		"23% increased Global Critical Strike Multiplier",
+		"+17 to maximum Mana",
+		"+18% to Fire Resistance"],
+		"craftedMods": ["40% increased Spell Damage"],
+		"frameType": 2,
+		"x": 0,
+		"y": 0,
+		"inventoryId": "Weapon",
+		"socketedItems": [{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/VaalGems\/VaalClarity.png?scale=1&w=1&h=1&v=51c020207cf08d7c4e442c494d93458e3",
+			"support": false,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Vaal Clarity",
+			"identified": true,
+			"corrupted": true,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Aura, Vaal, Spell, AoE, Duration",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["19",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Cost",
+				"values": [["0",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Souls Per Use",
+				"values": [["16",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Can Store %0 Use",
+				"values": [["1",
+				0]],
+				"displayMode": 3
+			},
+			{
+				"name": "Cast Time",
+				"values": [["0.60 sec",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["170657865\/212051599",
+				0]],
+				"displayMode": 2,
+				"progress": 0.804794073105
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["68",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Int",
+				"values": [["151",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"secDescrText": "Casts a temporary aura that lets you and your allies cast skills without paying their mana costs.",
+			"explicitMods": ["Base duration is 9.80 seconds",
+			"39% increased Area of Effect radius",
+			"Your and nearby allies' Skills Cost no Mana"],
+			"descrText": "Place into an item socket of the right colour to gain this skill. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 0,
+			"colour": "I",
+			"socketedItems": []
+		}]
+	},
+	{
+		"verified": false,
+		"w": 2,
+		"h": 2,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Armours\/Boots\/BootsStrDex2.png?scale=1&w=2&h=2&v=bdfb39d9a0b60c4ac542bedd8ff06e083",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [{
+			"group": 0,
+			"attr": "S"
+		},
+		{
+			"group": 0,
+			"attr": "D"
+		},
+		{
+			"group": 0,
+			"attr": "S"
+		},
+		{
+			"group": 0,
+			"attr": "D"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Sorrow Tread",
+		"typeLine": "Serpentscale Boots",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Quality",
+			"values": [["+20%",
+			1]],
+			"displayMode": 0
+		},
+		{
+			"name": "Armour",
+			"values": [["79",
+			1]],
+			"displayMode": 0
+		},
+		{
+			"name": "Evasion Rating",
+			"values": [["79",
+			1]],
+			"displayMode": 0
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["64",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Str",
+			"values": [["102",
+			0]],
+			"displayMode": 1
+		},
+		{
+			"name": "Dex",
+			"values": [["99",
+			0]],
+			"displayMode": 1
+		},
+		{
+			"name": "Int",
+			"values": [["61",
+			0]],
+			"displayMode": 1
+		}],
+		"talismanTier": 0,
+		"explicitMods": ["+42 to Dexterity",
+		"+43% to Fire Resistance",
+		"+42% to Cold Resistance",
+		"30% increased Movement Speed"],
+		"craftedMods": ["+45 to maximum Life"],
+		"frameType": 2,
+		"x": 0,
+		"y": 0,
+		"inventoryId": "Boots",
+		"socketedItems": [{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/Support\/BloodMagic.png?scale=1&w=1&h=1&v=cddb11c579c3422bd85a7c989dc60cbc3",
+			"support": true,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Blood Magic",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Support",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["17",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Multiplier",
+				"values": [["203%",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["1\/25964218",
+				0]],
+				"displayMode": 2,
+				"progress": 3.85145426662e-8
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["64",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Str",
+				"values": [["102",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"explicitMods": ["Spend Life instead of Mana for Supported Skills"],
+			"descrText": "This is a Support Gem. It does not grant a bonus to your character, but to skills in sockets connected to it. Place into an item socket connected to a socket containing the Active Skill Gem you wish to augment. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 0,
+			"colour": "S",
+			"socketedItems": []
+		},
+		{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/Support\/FasterAttacks.png?scale=1&w=1&h=1&v=c14203f7b19650861907a30a92e3b6fe3",
+			"support": true,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Faster Attacks",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Attack, Support",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["16",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Multiplier",
+				"values": [["115%",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["14574074\/15256013",
+				0]],
+				"displayMode": 2,
+				"progress": 0.955300331116
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["62",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Dex",
+				"values": [["99",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"explicitMods": ["40% increased Attack Speed"],
+			"descrText": "This is a Support Gem. It does not grant a bonus to your character, but to skills in sockets connected to it. Place into an item socket connected to a socket containing the Active Skill Gem you wish to augment. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 1,
+			"colour": "D",
+			"socketedItems": []
+		},
+		{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/Support\/FortifyGem.png?scale=1&w=1&h=1&v=6a69853aaf7278667bde43531541ef7d3",
+			"support": true,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Fortify",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Attack, Support, Melee",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["16",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Multiplier",
+				"values": [["110%",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["15017240\/15058455",
+				0]],
+				"displayMode": 2,
+				"progress": 0.997263014317
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["62",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Str",
+				"values": [["99",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"explicitMods": ["40% increased Melee Physical Damage",
+			"Grants Fortify on Melee hit",
+			"25% increased Fortify duration"],
+			"descrText": "This is a Support Gem. It does not grant a bonus to your character, but to skills in sockets connected to it. Place into an item socket connected to a socket containing the Active Skill Gem you wish to augment. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 2,
+			"colour": "S",
+			"socketedItems": []
+		},
+		{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/WhirlingBlades.png?scale=1&w=1&h=1&v=e45604e808bc98f512fd4818265cdd7a3",
+			"support": false,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Whirling Blades",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Attack, Movement, Melee",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["17",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Cost",
+				"values": [["15",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["2202291\/29817117",
+				0]],
+				"displayMode": 2,
+				"progress": 0.0738599598408
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["63",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Dex",
+				"values": [["88",
+				0]],
+				"displayMode": 1
+			},
+			{
+				"name": "Int",
+				"values": [["61",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"secDescrText": "Dive through enemies, dealing weapon damage. Only works with daggers, claws and one handed swords.",
+			"explicitMods": ["Deals 96% of Base Attack Damage"],
+			"descrText": "Place into an item socket of the right colour to gain this skill. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 3,
+			"colour": "D",
+			"socketedItems": []
+		}]
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Rings\/Cherufe.png?scale=1&w=1&h=1&v=dd9b8521bfd1c76751ecd8ffd5d0d5d43",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [],
+		"name": "<<set:MS>><<set:M>><<set:S>>Pyre",
+		"typeLine": "Sapphire Ring",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"requirements": [{
+			"name": "Level",
+			"values": [["11",
+			0]],
+			"displayMode": 0
+		}],
+		"talismanTier": 0,
+		"implicitMods": ["+28% to Cold Resistance"],
+		"explicitMods": ["+29% to Fire Resistance",
+		"35% increased Burning Damage",
+		"100% of Cold Damage Converted to Fire Damage",
+		"10% increased Light Radius",
+		"Ignited Enemies you hit are destroyed on Kill"],
+		"flavourText": ["Let winter come. It will only make my fire burn brighter."],
+		"frameType": 3,
+		"x": 0,
+		"y": 0,
+		"inventoryId": "Ring",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 2,
+		"h": 3,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Armours\/BodyArmours\/BodyStrInt3C.png?scale=1&w=2&h=3&v=bbdf9f67046cb1f1c0311066d0f7fada3",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [{
+			"group": 0,
+			"attr": "S"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Rune Ward",
+		"typeLine": "Devout Chainmail",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Quality",
+			"values": [["+20%",
+			1]],
+			"displayMode": 0
+		},
+		{
+			"name": "Armour",
+			"values": [["359",
+			1]],
+			"displayMode": 0
+		},
+		{
+			"name": "Energy Shield",
+			"values": [["105",
+			1]],
+			"displayMode": 0
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["68",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Str",
+			"values": [["105",
+			0]],
+			"displayMode": 1
+		},
+		{
+			"name": "Int",
+			"values": [["142",
+			0]],
+			"displayMode": 1
+		}],
+		"talismanTier": 0,
+		"explicitMods": ["+79 to maximum Life",
+		"+34% to Fire Resistance",
+		"+39% to Cold Resistance",
+		"+33% to Lightning Resistance"],
+		"craftedMods": ["47% increased Armour and Energy Shield"],
+		"frameType": 2,
+		"x": 0,
+		"y": 0,
+		"inventoryId": "BodyArmour",
+		"socketedItems": [{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/Support\/FirePenetration.png?scale=1&w=1&h=1&v=71763309c9c93e038fdf49738e121e443",
+			"support": true,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Fire Penetration",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Fire, Support",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["18",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Multiplier",
+				"values": [["140%",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["32066346\/62460771",
+				0]],
+				"displayMode": 2,
+				"progress": 0.513383746147
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["66",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Str",
+				"values": [["105",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"explicitMods": ["Penetrates 35% Fire Resistance"],
+			"descrText": "This is a Support Gem. It does not grant a bonus to your character, but to skills in sockets connected to it. Place into an item socket connected to a socket containing the Active Skill Gem you wish to augment. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 0,
+			"colour": "S",
+			"socketedItems": []
+		},
+		{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/Support\/FasterCast.png?scale=1&w=1&h=1&v=f70e30cd3755d11a81103b70957e579c3",
+			"support": true,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Faster Casting",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Support, Spell",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["18",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Multiplier",
+				"values": [["120%",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["32473882\/62855887",
+				0]],
+				"displayMode": 2,
+				"progress": 0.516640245914
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["66",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Int",
+				"values": [["105",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"explicitMods": ["37% increased Cast Speed"],
+			"descrText": "This is a Support Gem. It does not grant a bonus to your character, but to skills in sockets connected to it. Place into an item socket connected to a socket containing the Active Skill Gem you wish to augment. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 1,
+			"colour": "I",
+			"socketedItems": []
+		},
+		{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/Support\/Echo.png?scale=1&w=1&h=1&v=8c687a9247eff1393e4fe35d69838f723",
+			"support": true,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Spell Echo",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Spell, Support",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["18",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Multiplier",
+				"values": [["140%",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["6192156\/86794448",
+				0]],
+				"displayMode": 2,
+				"progress": 0.0713427662849
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["68",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Int",
+				"values": [["108",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"explicitMods": ["10% less Damage",
+			"Supported Spells Repeat an additional time",
+			"68% more Cast Speed"],
+			"descrText": "This is a Support Gem. It does not grant a bonus to your character, but to skills in sockets connected to it. Place into an item socket connected to a socket containing the Active Skill Gem you wish to augment. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 2,
+			"colour": "I",
+			"socketedItems": []
+		},
+		{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/Upheaval.png?scale=1&w=1&h=1&v=685973091bb9c51c51c28d8bba0265313",
+			"support": false,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Glacial Cascade",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Spell, AoE, Cold",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["17",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Cost",
+				"values": [["24",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Cast Time",
+				"values": [["0.80 sec",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Critical Strike Chance",
+				"values": [["5.00%",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Damage Effectiveness",
+				"values": [["60%",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["15260674\/26083825",
+				0]],
+				"displayMode": 2,
+				"progress": 0.585062742233
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["64",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Int",
+				"values": [["142",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"secDescrText": "Icicles emerge from the ground in a series of small bursts, each damaging enemies caught in the area.",
+			"explicitMods": ["Deals 83-127 Physical Damage",
+			"Deals 153-231 Cold Damage"],
+			"descrText": "Place into an item socket of the right colour to gain this skill. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 3,
+			"colour": "I",
+			"socketedItems": []
+		},
+		{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/Support\/IncreasedCriticalDamage.png?scale=1&w=1&h=1&v=c801d0c87dd88240ef6ce72d631996eb3",
+			"support": true,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Increased Critical Damage",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Support",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["16",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Multiplier",
+				"values": [["130%",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["14574074\/15256013",
+				0]],
+				"displayMode": 2,
+				"progress": 0.955300331116
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["62",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Int",
+				"values": [["99",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"explicitMods": ["65% increased Critical Strike Multiplier"],
+			"descrText": "This is a Support Gem. It does not grant a bonus to your character, but to skills in sockets connected to it. Place into an item socket connected to a socket containing the Active Skill Gem you wish to augment. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 4,
+			"colour": "I",
+			"socketedItems": []
+		}]
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 2,
+		"icon": "\/gen\/image\/YTozOntpOjI7YTozOntz\/OjE6ImYiO3M6MzM6IkFy\/dC8yREl0ZW1zL0ZsYXNr\/cy9BdHppcmlzUHJvbWlz\/ZSI7czoyOiJzcCI7ZDow\/LjYwODUxOTI2OTc3Njg3\/NjMxNDgxNDcyODYzMDE1\/MzY5NTEyMTQwNzUwODg1\/MDA5NzY1NjI1O3M6NToi\/bGV2ZWwiO2k6MTt9aTox\/O2k6NDtpOjA7aTo5O30,\/50cfe4396b\/Item.png",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [],
+		"name": "<<set:MS>><<set:M>><<set:S>>Atziri's Promise",
+		"typeLine": "Amethyst Flask",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Quality",
+			"values": [["+12%",
+			1]],
+			"displayMode": 0
+		},
+		{
+			"name": "Lasts %0 Seconds",
+			"values": [["3.90",
+			1]],
+			"displayMode": 3
+		},
+		{
+			"name": "Consumes %0 of %1 Charges on use",
+			"values": [["30",
+			0],
+			["60",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Currently has %0 Charges",
+			"values": [["60",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "",
+			"values": [["+35% to Chaos Resistance",
+			1]],
+			"displayMode": 0
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["68",
+			0]],
+			"displayMode": 0
+		}],
+		"talismanTier": 0,
+		"explicitMods": ["2% of Chaos Damage Leeched as Life during Flask effect",
+		"Gain 24% of Physical Damage as Extra Chaos Damage during effect",
+		"Gain 14% of Elemental Damage as Extra Chaos Damage during effect"],
+		"descrText": "Right click to drink. Can only hold charges while in belt. Refills as you kill monsters.",
+		"flavourText": ["\"Death needs not your understanding. It needs only your loyalty.\" \r",
+		"- Atziri, Queen of the Vaal"],
+		"frameType": 3,
+		"x": 3,
+		"y": 0,
+		"inventoryId": "Flask",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 2,
+		"h": 1,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Belts\/BuckledBeltUnique2.png?scale=1&w=2&h=1&v=aae1ffa9f08a009d8da57b99f327ec033",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [],
+		"name": "<<set:MS>><<set:M>><<set:S>>Gloom Tether",
+		"typeLine": "Cloth Belt",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"requirements": [{
+			"name": "Level",
+			"values": [["48",
+			0]],
+			"displayMode": 0
+		}],
+		"talismanTier": 0,
+		"implicitMods": ["24% increased Stun Recovery"],
+		"explicitMods": ["+306 to Armour",
+		"+76 to maximum Life",
+		"+21 to maximum Energy Shield",
+		"+37% to Fire Resistance",
+		"+23% to Lightning Resistance",
+		"18% increased Stun Recovery"],
+		"frameType": 2,
+		"x": 0,
+		"y": 0,
+		"inventoryId": "Belt",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Rings\/Ring7.png?scale=1&w=1&h=1&v=0d73ed3a0f503653328f2593bda615d33",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [],
+		"name": "<<set:MS>><<set:M>><<set:S>>Corpse Finger",
+		"typeLine": "Ruby Ring",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"requirements": [{
+			"name": "Level",
+			"values": [["59",
+			0]],
+			"displayMode": 0
+		}],
+		"talismanTier": 0,
+		"implicitMods": ["+25% to Fire Resistance"],
+		"explicitMods": ["+49 to Dexterity",
+		"Adds 1-2 Cold Damage to Attacks",
+		"+74 to Evasion Rating",
+		"+67 to maximum Life",
+		"+11% to all Elemental Resistances",
+		"+43% to Cold Resistance"],
+		"frameType": 2,
+		"x": 0,
+		"y": 0,
+		"inventoryId": "Ring2",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Amulets\/NewTalisman.png?scale=1&w=1&h=1&v=ad5f0ea8fe142ed1e4c264661f29a8e63",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [],
+		"name": "<<set:MS>><<set:M>><<set:S>>Hypnotic Choker",
+		"typeLine": "Mandible Talisman",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"requirements": [{
+			"name": "Level",
+			"values": [["39",
+			0]],
+			"displayMode": 0
+		}],
+		"talismanTier": 1,
+		"implicitMods": ["9% increased Attack and Cast Speed"],
+		"explicitMods": ["12% increased Fire Damage",
+		"13% increased Cast Speed",
+		"+20 to maximum Energy Shield",
+		"+34% to Lightning Resistance"],
+		"flavourText": ["The First Ones hold us\r",
+		"between two sharpened blades.\r",
+		"That should we stray too far from the path,\r",
+		"we find ourselves severed.\r",
+		"- The Wolven King"],
+		"frameType": 2,
+		"x": 0,
+		"y": 0,
+		"inventoryId": "Amulet",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/FrostBite.png?scale=1&w=1&h=1&v=1db2b5b842a1e21fb7746e4642ca1fed3",
+		"support": false,
+		"league": "Talisman",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Frostbite",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Curse, Spell, AoE, Duration, Cold",
+			"values": [],
+			"displayMode": 0
+		},
+		{
+			"name": "Level",
+			"values": [["1",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Mana Cost",
+			"values": [["24",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Cast Time",
+			"values": [["0.50 sec",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Quality",
+			"values": [["+7%",
+			1]],
+			"displayMode": 0
+		}],
+		"additionalProperties": [{
+			"name": "Experience",
+			"values": [["1\/118383",
+			0]],
+			"displayMode": 2,
+			"progress": 8.4471585069e-6
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["24",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Dex",
+			"values": [["25",
+			0]],
+			"displayMode": 1
+		},
+		{
+			"name": "Int",
+			"values": [["37",
+			0]],
+			"displayMode": 1
+		}],
+		"talismanTier": 0,
+		"secDescrText": "Curses all targets in an area, making them less resistant to cold damage and giving them a chance to be frozen by cold damage.",
+		"explicitMods": ["Base duration is 9.00 seconds",
+		"Cursed enemies lose 25% Cold Resistance",
+		"Cursed enemies have +10% chance to be Frozen by Cold Damage",
+		"Freezes on Cursed enemies have 7% increased Duration"],
+		"descrText": "Place into an item socket of the right colour to gain this skill. Right click to remove from a socket.",
+		"frameType": 4,
+		"x": 0,
+		"y": 3,
+		"inventoryId": "MainInventory",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Maps\/act4maps\/Map56.png?scale=1&w=1&h=1&v=5f9600d4fbe23cf73066a35bd85cf4c93",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Museum Map",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Map Tier",
+			"values": [["3",
+			0]],
+			"displayMode": 0
+		}],
+		"talismanTier": 0,
+		"descrText": "Travel to this Map by using it in the Eternal Laboratory or a personal Map Device. Maps can only be used once.",
+		"frameType": 0,
+		"x": 6,
+		"y": 4,
+		"inventoryId": "MainInventory",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 2,
+		"h": 2,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Armours\/Gloves\/Hellbringer.png?scale=1&w=2&h=2&v=c93c1cd81519577d1b894a7572dc7b083",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "D"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Voidbringer",
+		"typeLine": "Conjurer Gloves",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Quality",
+			"values": [["+20%",
+			1]],
+			"displayMode": 0
+		},
+		{
+			"name": "Energy Shield",
+			"values": [["205",
+			1]],
+			"displayMode": 0
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["68",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Dex",
+			"values": [["87",
+			0]],
+			"displayMode": 1
+		},
+		{
+			"name": "Int",
+			"values": [["146",
+			0]],
+			"displayMode": 1
+		}],
+		"talismanTier": 0,
+		"explicitMods": ["137% increased Critical Strike Chance for Spells",
+		"325% increased Energy Shield",
+		"80% increased Mana Cost of Skills",
+		"+18 Energy Shield gained on Kill",
+		"+1 to Level of Socketed Elemental Gems"],
+		"flavourText": ["Absolute corruption empowers absolutely."],
+		"frameType": 3,
+		"x": 0,
+		"y": 0,
+		"inventoryId": "Gloves",
+		"socketedItems": [{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/HeraldofThunder.png?scale=1&w=1&h=1&v=334856ac3e03a246ce284e3f56e3b20a3",
+			"support": false,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Herald of Thunder",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Cast, AoE, Duration, Lightning",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["18",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Reserved",
+				"values": [["25%",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Cooldown Time",
+				"values": [["1.00 sec",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Cast Time",
+				"values": [["1.00 sec",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Damage Effectiveness",
+				"values": [["120%",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["32948499\/62872274",
+				0]],
+				"displayMode": 2,
+				"progress": 0.524054527283
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["66",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Int",
+				"values": [["146",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"secDescrText": "Channel lightning through your hands, adding lightning damage to spells and attacks. If you kill a shocked enemy, lightning bolts will strike enemies around you for a short duration.",
+			"explicitMods": ["Deals 21-1026 Lightning Damage",
+			"Cannot apply Shock",
+			"Base duration is 6.00 seconds",
+			"Adds 16-66 Lightning Damage to Spells",
+			"Adds 16-66 Lightning Damage to Attacks"],
+			"descrText": "Place into an item socket of the right colour to gain this skill. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 0,
+			"colour": "I",
+			"socketedItems": []
+		},
+		{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/HeraldofIce.png?scale=1&w=1&h=1&v=098e32bf010edc365f1ec453f3477bc73",
+			"support": false,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Herald of Ice",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Cast, AoE, Cold",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["16",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Reserved",
+				"values": [["25%",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Cooldown Time",
+				"values": [["1.00 sec",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Cast Time",
+				"values": [["1.00 sec",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Damage Effectiveness",
+				"values": [["80%",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Quality",
+				"values": [["+7%",
+				1]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["13239285\/15264208",
+				0]],
+				"displayMode": 2,
+				"progress": 0.867341756821
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["62",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Dex",
+				"values": [["87",
+				0]],
+				"displayMode": 1
+			},
+			{
+				"name": "Int",
+				"values": [["60",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"secDescrText": "Channel ice through your hands, adding cold damage to spells and attacks. If you shatter an enemy, they explode and deal AoE cold damage to enemies near them.",
+			"explicitMods": ["Deals 214-321 Cold Damage",
+			"Damage cannot be Reflected",
+			"Adds 28-42 Cold Damage to Spells",
+			"Adds 28-42 Cold Damage to Attacks",
+			"5% increased Cold Damage"],
+			"descrText": "Place into an item socket of the right colour to gain this skill. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 1,
+			"colour": "D",
+			"socketedItems": []
+		},
+		{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/AssassinsMark.png?scale=1&w=1&h=1&v=8c4b5e92ec890630d572e4f48d930ca23",
+			"support": false,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Assassin's Mark",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Curse, Spell, AoE, Duration",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["17",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Cost",
+				"values": [["46",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Cast Time",
+				"values": [["0.50 sec",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["7292279\/26185582",
+				0]],
+				"displayMode": 2,
+				"progress": 0.278484523296
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["64",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Dex",
+				"values": [["62",
+				0]],
+				"displayMode": 1
+			},
+			{
+				"name": "Int",
+				"values": [["90",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"secDescrText": "Curses all targets in an area, making them more vulnerable to Critical Strikes. Killing the cursed targets will grant life and mana, and a chance to gain a power charge.",
+			"explicitMods": ["Base duration is 9.20 seconds",
+			"32% increased Area of Effect radius",
+			"Cursed enemies have a 29% chance to grant a Power Charge when slain",
+			"Cursed enemies have an additional 9% chance to receive a Critical Strike",
+			"Cursed enemies take 38% more extra damage from Critical Strikes",
+			"Cursed enemies grant 24 Life when Killed",
+			"Cursed enemies grant 24 Mana when Killed"],
+			"descrText": "Place into an item socket of the right colour to gain this skill. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 2,
+			"colour": "I",
+			"socketedItems": []
+		},
+		{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/Support\/CurseOnHit.png?scale=1&w=1&h=1&v=05db155f8ee3abfd38be282240134f573",
+			"support": true,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Curse On Hit",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Curse, Trigger, Support",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["18",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["267518\/86794448",
+				0]],
+				"displayMode": 2,
+				"progress": 0.00308220181614
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["68",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Int",
+				"values": [["108",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"explicitMods": ["16% reduced Curse Duration",
+			"Supported Skills apply supported Curses on Hit",
+			"You cannot Cast Supported Curses"],
+			"descrText": "This is a Support Gem. It does not grant a bonus to your character, but to skills in sockets connected to it. Place into an item socket connected to a socket containing the Active Skill Gem you wish to augment. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 3,
+			"colour": "I",
+			"socketedItems": []
+		}]
+	},
+	{
+		"verified": false,
+		"w": 2,
+		"h": 2,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Armours\/Helmets\/HelmetStrInt8.png?scale=1&w=2&h=2&v=59807b6bf308473f389a97b37513c89e3",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [{
+			"group": 0,
+			"attr": "S"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "S"
+		},
+		{
+			"group": 0,
+			"attr": "S"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Ghoul Corona",
+		"typeLine": "Magistrate Crown",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Quality",
+			"values": [["+20%",
+			1]],
+			"displayMode": 0
+		},
+		{
+			"name": "Armour",
+			"values": [["167",
+			1]],
+			"displayMode": 0
+		},
+		{
+			"name": "Energy Shield",
+			"values": [["98",
+			1]],
+			"displayMode": 0
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["58",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Str",
+			"values": [["83",
+			0]],
+			"displayMode": 1
+		},
+		{
+			"name": "Int",
+			"values": [["64",
+			0]],
+			"displayMode": 1
+		}],
+		"talismanTier": 0,
+		"explicitMods": ["+90 to maximum Life",
+		"+48 to maximum Mana",
+		"+41 to maximum Energy Shield",
+		"+34% to Fire Resistance",
+		"+29% to Cold Resistance",
+		"15% increased Stun Recovery"],
+		"frameType": 2,
+		"x": 0,
+		"y": 0,
+		"inventoryId": "Helm",
+		"socketedItems": [{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/ImmortalCall.png?scale=1&w=1&h=1&v=3843ced383e5dca18e076e57e9f678193",
+			"support": false,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Immortal Call",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Spell, Duration",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["2",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Cost",
+				"values": [["22",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Cooldown Time",
+				"values": [["3.00 sec",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Cast Time",
+				"values": [["0.85 sec",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["314394\/314394",
+				0]],
+				"displayMode": 2,
+				"progress": 1
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["36",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Str",
+				"values": [["83",
+				0]],
+				"displayMode": 1
+			}],
+			"nextLevelRequirements": [{
+				"name": "Level",
+				"values": [["38",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Str",
+				"values": [["88",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"secDescrText": "Discharges Endurance Charges, making the character invulnerable to physical damage for a short time, proportional to how many endurance charges were expended.",
+			"explicitMods": ["Base duration is 0.40 seconds",
+			"103% increased Buff Duration Per Endurance Charge"],
+			"descrText": "Place into an item socket of the right colour to gain this skill. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 0,
+			"colour": "S",
+			"socketedItems": []
+		},
+		{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/TempestShield.png?scale=1&w=1&h=1&v=d8d34090b1ed5028a29f130836c7da0e3",
+			"support": false,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Tempest Shield",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Spell, Lightning, Chaining, Duration",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["6",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Cost",
+				"values": [["18",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Cast Time",
+				"values": [["0.50 sec",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Critical Strike Chance",
+				"values": [["6.00%",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Damage Effectiveness",
+				"values": [["60%",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["401344\/401344",
+				0]],
+				"displayMode": 2,
+				"progress": 1
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["34",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Str",
+				"values": [["35",
+				0]],
+				"displayMode": 1
+			},
+			{
+				"name": "Int",
+				"values": [["50",
+				0]],
+				"displayMode": 1
+			}],
+			"nextLevelRequirements": [{
+				"name": "Level",
+				"values": [["37",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Str",
+				"values": [["37",
+				0]],
+				"displayMode": 1
+			},
+			{
+				"name": "Int",
+				"values": [["54",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"secDescrText": "Enchants your shield with the power of storms, which lashes out to deal arcing lightning damage to attackers when you block them. Blocking refreshes the duration of Tempest Shield.",
+			"explicitMods": ["Deals 64-96 Lightning Damage",
+			"Chain +1 Times",
+			"Base duration is 12.00 seconds",
+			"Additional 3% Shield Block Chance"],
+			"descrText": "Place into an item socket of the right colour to gain this skill. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 1,
+			"colour": "I",
+			"socketedItems": []
+		},
+		{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/WarlordsMark.png?scale=1&w=1&h=1&v=4492e7082047ecb230699e4bfb9312c53",
+			"support": false,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Warlord's Mark",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Curse, Spell, AoE, Duration",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["1",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Mana Cost",
+				"values": [["24",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Cast Time",
+				"values": [["0.50 sec",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["118383\/118383",
+				0]],
+				"displayMode": 2,
+				"progress": 1
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["24",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Str",
+				"values": [["58",
+				0]],
+				"displayMode": 1
+			}],
+			"nextLevelRequirements": [{
+				"name": "Level",
+				"values": [["27",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Str",
+				"values": [["64",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"secDescrText": "Curses all targets in an area, making them more vulnerable to stuns. Hitting the cursed targets will leech life and mana, and killing them will result in a chance to gain an endurance charge.",
+			"explicitMods": ["Base duration is 6.00 seconds",
+			"Cursed enemies grant 2% Life Leech when Hit",
+			"Cursed enemies grant 2% Mana Leech when Hit",
+			"Cursed enemies have a 21% chance to grant an Endurance Charge when slain",
+			"Cursed enemies have an additional 11% chance to be Stunned",
+			"Cursed enemies have 21% reduced Stun Recovery"],
+			"descrText": "Place into an item socket of the right colour to gain this skill. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 2,
+			"colour": "S",
+			"socketedItems": []
+		},
+		{
+			"verified": false,
+			"w": 1,
+			"h": 1,
+			"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Gems\/Support\/CastOnDmgTaken.png?scale=1&w=1&h=1&v=e03ceb1a31e457dbfe30e968c76fb0d63",
+			"support": true,
+			"sockets": [],
+			"name": "",
+			"typeLine": "Cast when Damage Taken",
+			"identified": true,
+			"corrupted": false,
+			"lockedToCharacter": false,
+			"properties": [{
+				"name": "Support, Spell, Trigger",
+				"values": [],
+				"displayMode": 0
+			},
+			{
+				"name": "Level",
+				"values": [["1",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Cooldown Time",
+				"values": [["0.25 sec",
+				0]],
+				"displayMode": 0
+			}],
+			"additionalProperties": [{
+				"name": "Experience",
+				"values": [["388734\/388734",
+				0]],
+				"displayMode": 2,
+				"progress": 1
+			}],
+			"requirements": [{
+				"name": "Level",
+				"values": [["38",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Str",
+				"values": [["39",
+				0]],
+				"displayMode": 1
+			},
+			{
+				"name": "Int",
+				"values": [["27",
+				0]],
+				"displayMode": 1
+			}],
+			"nextLevelRequirements": [{
+				"name": "Level",
+				"values": [["40",
+				0]],
+				"displayMode": 0
+			},
+			{
+				"name": "Str",
+				"values": [["41",
+				0]],
+				"displayMode": 1
+			},
+			{
+				"name": "Int",
+				"values": [["29",
+				0]],
+				"displayMode": 1
+			}],
+			"talismanTier": 0,
+			"explicitMods": ["This Gem can only Support Skill Gems requiring Level 38 or lower",
+			"70% less Damage",
+			"You cannot Cast Supported Spells directly",
+			"Casts Supported Spells when you take a total of 528 Damage"],
+			"descrText": "This is a Support Gem. It does not grant a bonus to your character, but to skills in sockets connected to it. Place into an item socket connected to a socket containing the Active Skill Gem you wish to augment. Right click to remove from a socket.",
+			"frameType": 4,
+			"socket": 3,
+			"colour": "S",
+			"socketedItems": []
+		}]
+	},
+	{
+		"verified": false,
+		"w": 2,
+		"h": 2,
+		"icon": "https:\/\/p7p4m6s5.ssl.hwcdn.net\/image\/Art\/2DItems\/Armours\/Shields\/ShieldInt2.png?scale=1&w=2&h=2&v=f61607beff0c7673614474b800a091d93",
+		"support": true,
+		"league": "Talisman",
+		"sockets": [{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Foe Star",
+		"typeLine": "Lacewood Spirit Shield",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Quality",
+			"values": [["+20%",
+			1]],
+			"displayMode": 0
+		},
+		{
+			"name": "Chance to Block",
+			"values": [["24%",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Energy Shield",
+			"values": [["173",
+			1]],
+			"displayMode": 0
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["56",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Int",
+			"values": [["134",
+			0]],
+			"displayMode": 1
+		}],
+		"talismanTier": 0,
+		"implicitMods": ["5% increased Spell Damage"],
+		"explicitMods": ["75% increased Critical Strike Chance for Spells",
+		"+74 to maximum Life",
+		"+48 to maximum Energy Shield",
+		"+9% to Fire Resistance",
+		"+37% to Lightning Resistance"],
+		"craftedMods": ["43% increased Energy Shield"],
+		"frameType": 2,
+		"x": 0,
+		"y": 0,
+		"inventoryId": "Offhand",
+		"socketedItems": []
+	}],
+	"character": {
+		"class": 3,
+		"league": "Talisman"
+	}
+}

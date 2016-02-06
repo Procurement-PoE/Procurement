@@ -16,7 +16,22 @@ namespace POEApi.Model.Tests
         public void TestSetup()
         {
             _mockTransport = new Mock<ITransport>();
-            _model = new POEModel { Transport = _mockTransport.Object };
+            _model = new POEModel {Transport = _mockTransport.Object};
+        }
+
+        [TestMethod]
+        public void GetInventoryTest()
+        {
+            string fakeCharacterInfo = Encoding.UTF8.GetString(Files.SampleInventory);
+
+            using (var stream = GenerateStreamFromString(fakeCharacterInfo))
+            {
+                _mockTransport.Setup(m => m.GetInventory("", false, "")).Returns(stream);
+
+                var inventory = _model.GetInventory("", false, "");
+
+                Assert.IsNotNull(inventory);
+            }
         }
 
         [TestMethod]
