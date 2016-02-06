@@ -55,11 +55,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Files.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Files.resx</DependentUpon>
+    </Compile>
     <Compile Include="PoeModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TestData\SampleStash.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\POEApi.Model\POEApi.Model.csproj">
@@ -70,6 +76,12 @@
       <Project>{5933C062-45EA-4BC3-9AE9-0D6CFC26D505}</Project>
       <Name>POEApi.Transport</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Files.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Files.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
