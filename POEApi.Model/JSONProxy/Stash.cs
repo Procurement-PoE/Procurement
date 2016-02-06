@@ -161,25 +161,6 @@ namespace POEApi.Model.JSONProxy
     }
 
     [DataContract(Name = "RootObject")]
-    public class Character
-    {
-        [DataMember(Name = "name")]
-        public string Name { get; set; }
-
-        [DataMember(Name = "league")]
-        public string League { get; set; }
-
-        [DataMember(Name = "class")]
-        public string Class { get; set; }
-
-        [DataMember(Name = "classId")]
-        public int ClassId { get; set; }
-
-        [DataMember(Name = "level")]
-        public int Level { get; set; }
-    }
-
-    [DataContract(Name = "RootObject")]
     public class Inventory
     {
         [DataMember(Name = "items")]

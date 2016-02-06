@@ -1,0 +1,35 @@
+[{
+	"name": "TFizzle",
+	"league": "Standard",
+	"classId": 4,
+	"class": "Duelist",
+	"level": 53
+},
+{
+	"name": "Tyerael",
+	"league": "Talisman",
+	"classId": 3,
+	"class": "Witch",
+	"level": 80
+},
+{
+	"name": "Ayarfe",
+	"league": "Standard",
+	"classId": 6,
+	"class": "Shadow",
+	"level": 18
+},
+{
+	"name": "Sabibna",
+	"league": "Standard",
+	"classId": 2,
+	"class": "Ranger",
+	"level": 80
+},
+{
+	"name": "DragonSlave",
+	"league": "Standard",
+	"classId": 3,
+	"class": "Witch",
+	"level": 79
+}]

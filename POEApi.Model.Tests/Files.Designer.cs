@@ -63,6 +63,16 @@ namespace POEApi.Model.Tests {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] SampleCharacter {
+            get {
+                object obj = ResourceManager.GetObject("SampleCharacter", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] SampleStash {
             get {
                 object obj = ResourceManager.GetObject("SampleStash", resourceCulture);
