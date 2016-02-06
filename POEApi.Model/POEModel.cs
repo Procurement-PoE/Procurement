@@ -7,6 +7,7 @@ using POEApi.Model.Events;
 using POEApi.Transport;
 using System.Security;
 using System;
+using System.Diagnostics;
 using POEApi.Infrastructure.Events;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
@@ -70,14 +71,7 @@ namespace POEApi.Model
                     return string.Empty;
                 }
 
-                Account account;
-
-                using (var stream = transport.GetAccountName())
-                using (var jsonTextReader = new JsonTextReader(stream))
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-                    account = (Account) serializer.Deserialize(jsonTextReader, typeof(Account));
-                }
+                var account = GetProperObjectFromTransport<Account>(transport.GetAccountName());
 
                 if (string.IsNullOrEmpty(account?.AccountName))
                 {
@@ -92,6 +86,29 @@ namespace POEApi.Model
 
                 throw new Exception(@"Error downloading account name, details logged to DebugInfo.log. Please open a ticket at https://github.com/Stickymaddness/Procurement/issues and include your DebugInfo.log");
             }
+        }
+
+        private T GetProperObjectFromTransport<T>(Stream networkData)
+        {
+            using (var stream = networkData)
+            using (var textReader = new StreamReader(stream))
+            using (var jsonTextReader = new JsonTextReader(textReader))
+            {
+                try
+                {
+                    var serializer = new JsonSerializer();
+                    return (T) serializer.Deserialize(jsonTextReader, typeof (T));
+                }
+                catch
+                {
+                    MemoryStream ms = stream as MemoryStream;
+                    ms.Seek(0, SeekOrigin.Begin);
+                    var text = ms.ToArray().ToString();
+                    Debug.Write(text);
+                }
+            }
+            
+            throw new ApplicationException("Unable to deserialize object");
         }
 
         void instance_Throttled(object sender, ThottledEventArgs e)
