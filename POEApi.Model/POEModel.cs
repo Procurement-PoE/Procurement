@@ -17,7 +17,7 @@ namespace POEApi.Model
 {
     public class POEModel
     {
-        private ITransport transport;
+        public ITransport Transport;
         private CacheService cacheService;
         private bool downOnlyMyCharacters;
 
@@ -42,20 +42,20 @@ namespace POEApi.Model
 
         public bool Authenticate(string email, SecureString password, bool offline, bool useSessionID)
         {
-            if (transport != null)
-                transport.Throttled -= new ThottledEventHandler(instance_Throttled);
+            if (Transport != null)
+                Transport.Throttled -= new ThottledEventHandler(instance_Throttled);
 
-            transport = getTransport(email);
+            Transport = getTransport(email);
             cacheService = new CacheService(email);
             Offline = offline;
 
             if (offline)
                 return true;
 
-            transport.Throttled += new ThottledEventHandler(instance_Throttled);
+            Transport.Throttled += new ThottledEventHandler(instance_Throttled);
             onAuthenticate(POEEventState.BeforeEvent, email);
 
-            transport.Authenticate(email, password, useSessionID);
+            Transport.Authenticate(email, password, useSessionID);
 
             onAuthenticate(POEEventState.AfterEvent, email);
 
@@ -71,7 +71,7 @@ namespace POEApi.Model
                     return string.Empty;
                 }
 
-                var account = GetProperObjectFromTransport<Account>(transport.GetAccountName());
+                var account = GetProperObjectFromTransport<Account>(Transport.GetAccountName());
 
                 if (string.IsNullOrEmpty(account?.AccountName))
                 {
@@ -88,6 +88,12 @@ namespace POEApi.Model
             }
         }
 
+        /// <summary>
+        /// With a stream from the transport and a strong type, parse the json.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="networkData"></param>
+        /// <returns></returns>
         private T GetProperObjectFromTransport<T>(Stream networkData)
         {
             using (var stream = networkData)
@@ -130,14 +136,14 @@ namespace POEApi.Model
             cacheService.Clear();
         }
 
-        public Stash GetStash(int index, string league, string accountName, bool forceRefresh)
+        public Stash GetStash(int index, string league, string accountName, bool forceRefresh = false)
         {
             DataContractJsonSerializer serialiser = new DataContractJsonSerializer(typeof(JSONProxy.Stash));
             JSONProxy.Stash proxy = null;
 
             onStashLoaded(POEEventState.BeforeEvent, index, -1);
 
-            using (Stream stream = transport.GetStash(index, league, accountName, forceRefresh))
+            using (Stream stream = Transport.GetStash(index, league, accountName, forceRefresh))
             {
                 try
                 {
@@ -182,7 +188,7 @@ namespace POEApi.Model
                 var myTabs = Settings.Lists["MyTabs"];
                 bool onlyMyTabs = myTabs.Count != 0;
 
-                Stash stash = GetStash(0, league, accountName, false);
+                Stash stash = GetStash(0, league, accountName);
 
                 if (stash.Tabs[0].Hidden)
                     stash.ClearItems();
@@ -198,7 +204,7 @@ namespace POEApi.Model
                 {
                     if (myTabs.Contains(stash.Tabs[i].Name))
                     {
-                        stash.Add(GetStash(i, league, accountName, false));
+                        stash.Add(GetStash(i, league, accountName));
                         ++tabCount;
                     }
                     else
@@ -224,10 +230,16 @@ namespace POEApi.Model
             List<Tab> hiddenTabs = new List<Tab>();
 
             for (int i = 1; i < stash.NumberOfTabs; i++)
+            {
                 if (!stash.Tabs[i].Hidden)
-                    stash.Add(GetStash(i, league, accountName, false));
+                {
+                    stash.Add(GetStash(i, league, accountName));
+                }
                 else
+                {
                     hiddenTabs.Add(stash.Tabs[i]);
+                }
+            }
 
             if (stash.Tabs[0].Hidden)
             {
@@ -249,7 +261,7 @@ namespace POEApi.Model
             DataContractJsonSerializer serialiser = new DataContractJsonSerializer(typeof(List<JSONProxy.Character>));
             List<JSONProxy.Character> characters;
 
-            using (Stream stream = transport.GetCharacters())
+            using (Stream stream = Transport.GetCharacters())
                 characters = (List<JSONProxy.Character>)serialiser.ReadObject(stream);
 
             return characters.Select(c => new Character(c)).ToList();
@@ -265,7 +277,7 @@ namespace POEApi.Model
                 DataContractJsonSerializer serialiser = new DataContractJsonSerializer(typeof(JSONProxy.Inventory));
                 JSONProxy.Inventory item;
 
-                using (Stream stream = transport.GetInventory(characterName, forceRefresh, accountName))
+                using (Stream stream = Transport.GetInventory(characterName, forceRefresh, accountName))
                     item = (JSONProxy.Inventory)serialiser.ReadObject(stream);
 
                 if (item.Items == null)
@@ -302,32 +314,32 @@ namespace POEApi.Model
         private void getImageWithEvents(string name, string url)
         {
             onImageLoaded(POEEventState.BeforeEvent, name);
-            transport.GetImage(url);
+            Transport.GetImage(url);
             onImageLoaded(POEEventState.AfterEvent, name);
         }
 
         public Stream GetImage(string url)
         {
-            return transport.GetImage(url);
+            return Transport.GetImage(url);
         }
 
         public IEnumerable<Stream> GetImage(Tab tab)
         {
             onImageLoaded(POEEventState.BeforeEvent, tab.Name);
-            yield return transport.GetImage(tab.srcL);
-            yield return transport.GetImage(tab.srcC);
-            yield return transport.GetImage(tab.srcR);
+            yield return Transport.GetImage(tab.srcL);
+            yield return Transport.GetImage(tab.srcC);
+            yield return Transport.GetImage(tab.srcR);
             onImageLoaded(POEEventState.AfterEvent, tab.Name);
         }
 
         public bool UpdateThread(string threadID, string threadTitle, string threadText)
         {
-            return transport.UpdateThread(threadID, threadTitle, threadText);
+            return Transport.UpdateThread(threadID, threadTitle, threadText);
         }
 
         public bool BumpThread(string threadId, string threadTitle)
         {
-            return transport.BumpThread(threadId, threadTitle);
+            return Transport.BumpThread(threadId, threadTitle);
         }
 
         private static string GetItemName(Item item)
