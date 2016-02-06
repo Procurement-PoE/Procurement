@@ -153,12 +153,12 @@ namespace POEApi.Transport
             return getMemoryStreamFromResponse(response);
         }
 
-        public StreamReader GetAccountName()
+        public Stream GetAccountName()
         {
             HttpWebRequest request = getHttpRequest(HttpMethod.GET, accountNameURL);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
-            return GetStreamReaderFromResponse(response);
+            return getMemoryStreamFromResponse(response);
         }
 
         public Stream GetImage(string url)
