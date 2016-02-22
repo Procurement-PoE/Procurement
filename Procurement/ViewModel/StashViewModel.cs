@@ -296,6 +296,13 @@ namespace Procurement.ViewModel
             {
                 contextMenu.Items.Add(getMenuItem(itemStash, "Refresh", refresh_Click));
                 contextMenu.Items.Add(getMenuItem(itemStash, "Refresh All Tabs", refreshAll_Click));
+
+                contextMenu.Items.Add(new Separator());
+
+                contextMenu.Items.Add(getMenuItem(itemStash, "Refresh & Publish", refreshPublish_Click));
+                contextMenu.Items.Add(getMenuItem(itemStash, "Refresh All Tabs & Publish", refreshAllPublish_Click));
+
+                contextMenu.Items.Add(new Separator());
             }
             
             contextMenu.Items.Add(getMenuItem(itemStash, "Set Tabwide Buyout", setTabBuyout_Click));
@@ -354,18 +361,41 @@ namespace Procurement.ViewModel
                 Settings.TabsBuyouts.Remove(tabName);
 
             Settings.SaveTabBuyouts();
+
+            ScreenController.Instance.InvalidateTradingScreen();
+            ScreenController.Instance.UpdateTrading();
         }
 
         void refreshAll_Click(object sender, RoutedEventArgs e)
         {                  
             ScreenController.Instance.LoadRefreshView();
         }
-        
+
+        void refreshPublish_Click(object sender, RoutedEventArgs e)
+        {
+            refreshTab(sender);
+            ForumExportViewModel fev = new ForumExportViewModel();
+            fev.postToThread(null);
+        }
+
+        void refreshAllPublish_Click(object sender, RoutedEventArgs e)
+        {
+            ScreenController.Instance.LoadRefreshView();
+            ForumExportViewModel fev = new ForumExportViewModel();
+            fev.postToThread(null);
+        }
+
         void refresh_Click(object sender, RoutedEventArgs e)
-        {                      
+        {
+            refreshTab(sender);
+        }
+
+        private void refreshTab(object sender)
+        {
             StashControl stash = getStash(sender);
             stash.RefreshTab(ApplicationState.AccountName);
             ScreenController.Instance.InvalidateRecipeScreen();
+            ScreenController.Instance.InvalidateTradingScreen();
             ScreenController.Instance.UpdateTrading();
         }
 
