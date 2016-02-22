@@ -88,6 +88,11 @@ namespace Procurement.ViewModel
             screens[RECIPE_VIEW] = null;
         }
 
+        public void InvalidateTradingScreen()
+        {
+            screens[TRADING_VIEW] = null;
+        }
+
         private void initLogin()
         {
             var loginView = new LoginView();

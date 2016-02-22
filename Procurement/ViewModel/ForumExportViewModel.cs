@@ -159,7 +159,7 @@ namespace Procurement.ViewModel
                 });
         }
 
-        private void postToThread(object obj)
+        public void postToThread(object obj)
         {
             if (!settingsValid(true))
                 return;
