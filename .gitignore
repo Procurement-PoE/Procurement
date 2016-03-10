@@ -8,3 +8,5 @@ Procurement/Procurement.csproj.user
 **/bin/Debug/
 **/bin/Release/
 **/obj/
+
+.vs/
