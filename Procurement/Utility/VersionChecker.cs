@@ -26,7 +26,7 @@ namespace Procurement.Utility
                     client.DownloadStringCompleted += client_DownloadStringCompleted;
                 }
             }
-            catch (KeyNotFoundException kex)
+            catch (KeyNotFoundException)
             {
                 MessageBox.Show("Unable to check for updates as the CheckForUpdates setting is missing from your settings file.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }

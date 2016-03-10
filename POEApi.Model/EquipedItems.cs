@@ -29,8 +29,6 @@ namespace POEApi.Model
         public Item Armour { get; set; }
         public Item Gloves { get; set; }
 
-        private Dictionary<string, Item> mapping;
-
         public EquipedItems(IEnumerable<Item> items)
         {
             propertyMapping = new Dictionary<string, string>();
