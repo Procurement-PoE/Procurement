@@ -44,7 +44,8 @@ namespace POEApi.Model
             { "Mirror", OrbType.Mirror },
             { "Eternal Orb", OrbType.Eternal},
             { "Imprint", OrbType.Imprint },
-            { "Vaal Orb", OrbType.VaalOrb }
+            { "Vaal Orb", OrbType.VaalOrb },
+            { "Perandus Coin", OrbType.PerandusCoin }
         };
         #endregion
 

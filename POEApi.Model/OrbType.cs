@@ -31,6 +31,7 @@
         AlbinaRhoaFeather,
         AlchemyShard,
         Mirror,
-        VaalOrb
+        VaalOrb,
+        PerandusCoin
     }
 }
