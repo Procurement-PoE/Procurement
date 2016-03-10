@@ -959,6 +959,13 @@
       <Item name="The Twins"/>
       <Item name="The Catalyst"/>
       <Item name="The Doppelganger"/>
+      <Item name ="Merciless Armament"/>
+      <Item name="Earth Drinker"/>
+      <Item name="Enlightened"/>
+      <Item name="Her Mask"/>
+      <Item name="Treasure Hunter"/>
+      <Item name="Grave Knowledge"/>
+      <Item name="The Risk"/>           
     </GearBaseType>
   </GearBaseTypes>
 </Data>
