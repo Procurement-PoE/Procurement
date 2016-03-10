@@ -32,6 +32,7 @@
         AlchemyShard,
         Mirror,
         VaalOrb,
-        PerandusCoin
+        PerandusCoin,
+        Unknown
     }
 }

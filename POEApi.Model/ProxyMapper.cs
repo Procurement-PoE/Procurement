@@ -73,9 +73,8 @@ namespace POEApi.Model
             catch (Exception ex)
             {
                 Logger.Log(ex);
-                var message = "ProxyMapper.GetOrbType Failed! ItemType = " + name;
-                Logger.Log(message);
-                throw new Exception(message);
+                Logger.Log("ProxyMapper.GetOrbType Failed! ItemType = " + name);
+                return OrbType.Unknown;
             }
         }
 
