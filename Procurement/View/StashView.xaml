@@ -161,13 +161,14 @@
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="25px" />
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" BorderBrush="#FF76591B" BorderThickness="2" Background="Black" Margin="0,15,0,0">
+                <Border Grid.Row="0" BorderBrush="#FF76591B" BorderThickness="2" Background="Black" Margin="0,10,0,0">
                     <Grid Margin="5,5,5,5">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="55"/>
+                            <RowDefinition Height="5" />
                             <RowDefinition Height="25"/>
-                            <RowDefinition />
                         </Grid.RowDefinitions>
                         <poe:LeagueSelection Grid.Row="0" Width="320" Height="55" VerticalAlignment="Top" HorizontalAlignment="Left" />
                         <Grid Grid.Row="2">
@@ -182,40 +183,42 @@
                 <TabControl Grid.Row="1" Grid.Column="2" >
                     <TabItem Header="Currency Breakdown    " Style="{StaticResource NonImages}">
                         <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0">
-                            <Grid Margin="5,5,5,5">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
+                            <StackPanel>
+                                    <Grid Margin="5,5,5,5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
 
-                                <Label Content="Currency Breakdown" Grid.Row="0"  Foreground="#FFAB9066" FontSize="14" FontWeight="Bold"/>
-                                <Label Grid.Row="1" Content="{Binding Total}" Foreground="#FFAB9066"/>
-                                <ItemsControl Grid.Row="2" ItemsSource="{Binding TotalDistibution}">
-                                    <ItemsControl.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <StackPanel Orientation="Vertical"/>
-                                        </ItemsPanelTemplate>
-                                    </ItemsControl.ItemsPanel>
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <Grid Height="Auto">
-                                                <RichTextBox Background="Black" BorderBrush="Transparent" IsReadOnly="True" SelectionBrush="Transparent">
-                                                    <FlowDocument>
-                                                        <Paragraph>
-                                                            <Bold>
-                                                                <Run Foreground="#FFAB9066" Text="{Binding Key, Mode=OneWay}"></Run>
-                                                            </Bold>
-                                                            <Run Foreground="#FFAB9066" Text=": "></Run>
-                                                            <Run Foreground="#FFAB9066" Text="{Binding Value, Mode=OneWay, StringFormat=0.00}"></Run>
-                                                        </Paragraph>
-                                                    </FlowDocument>
-                                                </RichTextBox>
-                                            </Grid>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
-                            </Grid>
+                                        <Label Content="Currency Breakdown" Grid.Row="0"  Foreground="#FFAB9066" FontSize="14" FontWeight="Bold"/>
+                                        <Label Grid.Row="1" Content="{Binding Total}" Foreground="#FFAB9066"/>
+                                        <ItemsControl Grid.Row="2" ItemsSource="{Binding TotalDistibution}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Vertical"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid Height="Auto">
+                                                        <RichTextBox Background="Black" BorderBrush="Transparent" IsReadOnly="True" SelectionBrush="Transparent">
+                                                            <FlowDocument>
+                                                                <Paragraph>
+                                                                    <Bold>
+                                                                        <Run Foreground="#FFAB9066" Text="{Binding Key, Mode=OneWay}"></Run>
+                                                                    </Bold>
+                                                                    <Run Foreground="#FFAB9066" Text=": "></Run>
+                                                                    <Run Foreground="#FFAB9066" Text="{Binding Value, Mode=OneWay, StringFormat=0.00}"></Run>
+                                                                </Paragraph>
+                                                            </FlowDocument>
+                                                        </RichTextBox>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Grid>
+                            </StackPanel>
                         </Border>
                     </TabItem>
                     <TabItem Header="Advanced Search" Style="{StaticResource NonImages}">
@@ -225,7 +228,7 @@
                                     <Label Content="Filter :" Foreground="#FFAB9066"/>
                                     <TextBox Name="AdvancedSearchFilter" Width="270" Height="23" Foreground="#FFAB9066" Background="Black" KeyUp="AdvancedSearchFilter_KeyUp"></TextBox>
                                 </StackPanel>
-                                <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="417">
+                                <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="416">
                                     <Grid>
                                         <StackPanel>
                                             <CheckBox Content="None" Foreground="#FFAB9066" Checked="CheckBox_Checked" />
@@ -281,6 +284,12 @@
                         </Border>
                     </TabItem>
                 </TabControl>
+
+
+
+                <Grid Grid.Row="2" Grid.Column="2">
+                    <Button Content="Refresh All Tabs" Style="{Binding}" Margin="2,2,2,0" Command="{Binding RefreshCommand}" IsEnabled="{Binding LoggedIn}"/>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
