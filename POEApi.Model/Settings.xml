@@ -74,8 +74,8 @@
   <ShopSettings>
     <Shop League="Standard" ThreadId="" ThreadTitle="" />
     <Shop League="Hardcore" ThreadId="" ThreadTitle="" />
-    <Shop League="Talisman" ThreadId="" ThreadTitle="" />
-    <Shop League="Hardcore Talisman" ThreadId="" ThreadTitle="" />
+    <Shop League="Perandus" ThreadId="" ThreadTitle="" />
+    <Shop League="Hardcore Perandus" ThreadId="" ThreadTitle="" />
   </ShopSettings>
   <Lists>
     <List name="MyLeagues">
