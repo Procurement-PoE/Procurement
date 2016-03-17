@@ -554,10 +554,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\stash-grid.jpg" />
+    <Resource Include="Images\Procurement.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\footer.png" />
+    <Resource Include="Images\header.png" />
+    <Resource Include="Images\main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\equiped.jpg" />
+    <Resource Include="Images\stash-grid.jpg" />
     <Resource Include="Images\inventory.jpg" />
+    <Resource Include="Images\character-background.png" />
+    <Resource Include="Images\mainscreen.png" />
+    <Resource Include="Images\Sir Marauder.png" />
+    <Resource Include="Images\Sir Marauder bw.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\buttons\btn_about.png" />
@@ -572,38 +583,30 @@
     <Resource Include="Images\buttons\btn_settings.png" />
     <Resource Include="Images\buttons\btn_stash.png" />
     <Resource Include="Images\buttons\btn_trading.png" />
-    <Resource Include="Images\Sockets\blue.png" />
-    <Resource Include="Images\Sockets\green.png" />
-    <Resource Include="Images\Sockets\link-horizontal.png" />
-    <Resource Include="Images\Sockets\link-vertical.png" />
-    <Resource Include="Images\Sockets\red.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\mainscreen.png" />
-    <Resource Include="Images\Sir Marauder.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Sockets\blue-socketed.png" />
-    <Resource Include="Images\Sockets\green-socketed.png" />
-    <Resource Include="Images\Sockets\red-socketed.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\buttons\btn_login.png" />
     <Resource Include="Images\buttons\btn_login_hover.png" />
     <Resource Include="Images\buttons\btn_offline.png" />
     <Resource Include="Images\buttons\btn_offline_hover.png" />
+    <Resource Include="Images\buttons\btn_exit.png" />
+    <Resource Include="Images\buttons\btn_selected_exit.png" />
+    <Resource Include="Images\buttons\btn_close.png" />
+    <Resource Include="Images\buttons\btn_close_hover.png" />
+    <Resource Include="Images\buttons\btn_min.png" />
+    <Resource Include="Images\buttons\btn_min_hover.png" />
+    <Resource Include="Images\buttons\btn_recipes.png" />
+    <Resource Include="Images\buttons\btn_recipes_hover.png" />
+    <Resource Include="Images\buttons\donate-hover.png" />
+    <Resource Include="Images\buttons\donate.png" />
+    <Resource Include="Images\buttons\about-button-hover.png" />
+    <Resource Include="Images\buttons\about-button.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\TabControl\leftbutton-hover.png" />
     <Resource Include="Images\TabControl\leftbutton.png" />
     <Resource Include="Images\TabControl\rightbutton.png" />
     <Resource Include="Images\TabControl\rightbutton_hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Procurement.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\TabControl\stash-dropdown.png" />
+    <Resource Include="Images\TabControl\stash-dropdown-hover.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Avatars\templar.png" />
@@ -634,24 +637,9 @@
     <Resource Include="Images\Avatars\trickster.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\character-background.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\TabControl\stash-dropdown-hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\equiped.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\buttons\btn_exit.png" />
-    <Resource Include="Images\buttons\btn_selected_exit.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\ItemHover\ItemHeaderWhiteLeft.png" />
     <Resource Include="Images\ItemHover\ItemHeaderWhiteMiddle.png" />
     <Resource Include="Images\ItemHover\ItemHeaderWhiteRight.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\ItemHover\ItemHeaderCurrencyLeft.png" />
     <Resource Include="Images\ItemHover\ItemHeaderCurrencyMiddle.png" />
     <Resource Include="Images\ItemHover\ItemHeaderCurrencyRight.png" />
@@ -672,41 +660,25 @@
     <Resource Include="Images\ItemHover\ItemHeaderUniqueRight.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\buttons\btn_close.png" />
-    <Resource Include="Images\buttons\btn_close_hover.png" />
-    <Resource Include="Images\buttons\btn_min.png" />
-    <Resource Include="Images\buttons\btn_min_hover.png" />
-    <Resource Include="Images\buttons\btn_recipes.png" />
-    <Resource Include="Images\buttons\btn_recipes_hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\footer.png" />
-    <Resource Include="Images\header.png" />
-    <Resource Include="Images\main.png" />
+    <Resource Include="Images\Sockets\blue.png" />
+    <Resource Include="Images\Sockets\green.png" />
+    <Resource Include="Images\Sockets\red.png" />
+    <Resource Include="Images\Sockets\white.png" />
+    <Resource Include="Images\Sockets\white-socketed.png" />
+    <Resource Include="Images\Sockets\blue-socketed.png" />
+    <Resource Include="Images\Sockets\green-socketed.png" />
+    <Resource Include="Images\Sockets\red-socketed.png" />
+    <Resource Include="Images\Sockets\blue-socketed-white.png" />
+    <Resource Include="Images\Sockets\green-socketed-white.png" />
+    <Resource Include="Images\Sockets\red-socketed-white.png" />
+    <Resource Include="Images\Sockets\white-socketed-white.png" />
+    <Resource Include="Images\Sockets\link-horizontal.png" />
+    <Resource Include="Images\Sockets\link-vertical.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ForumExportTemplate.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <Resource Include="Images\buttons\donate-hover.png" />
-    <Resource Include="Images\buttons\donate.png" />
-    <Resource Include="Images\buttons\about-button-hover.png" />
-    <Resource Include="Images\buttons\about-button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Sockets\white-socketed.png" />
-    <Resource Include="Images\Sockets\white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Sockets\blue-socketed-white.png" />
-    <Resource Include="Images\Sockets\green-socketed-white.png" />
-    <Resource Include="Images\Sockets\red-socketed-white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Sir Marauder bw.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Sockets\white-socketed-white.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
