@@ -15,6 +15,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -594,9 +594,6 @@
     <Resource Include="Images\buttons\btn_offline_hover.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Avatars\templar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\TabControl\leftbutton-hover.png" />
     <Resource Include="Images\TabControl\leftbutton.png" />
     <Resource Include="Images\TabControl\rightbutton.png" />
@@ -609,10 +606,32 @@
     <Resource Include="Images\TabControl\stash-dropdown.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Avatars\templar.png" />
     <Resource Include="Images\Avatars\marauder.png" />
     <Resource Include="Images\Avatars\ranger.png" />
     <Resource Include="Images\Avatars\shadow.png" />
     <Resource Include="Images\Avatars\witch.png" />
+    <Resource Include="Images\Avatars\duelist.png" />
+    <Resource Include="Images\Avatars\scion.png" />
+    <Resource Include="Images\Avatars\ascendant.png" />
+    <Resource Include="Images\Avatars\assassin.png" />
+    <Resource Include="Images\Avatars\berserker.png" />
+    <Resource Include="Images\Avatars\champion.png" />
+    <Resource Include="Images\Avatars\chieftain.png" />
+    <Resource Include="Images\Avatars\deadeye.png" />
+    <Resource Include="Images\Avatars\elementalist.png" />
+    <Resource Include="Images\Avatars\gladiator.png" />
+    <Resource Include="Images\Avatars\guardian.png" />
+    <Resource Include="Images\Avatars\hierophant.png" />
+    <Resource Include="Images\Avatars\inquisitor.png" />
+    <Resource Include="Images\Avatars\juggernaut.png" />
+    <Resource Include="Images\Avatars\necromancer.png" />
+    <Resource Include="Images\Avatars\occultist.png" />
+    <Resource Include="Images\Avatars\pathfinder.png" />
+    <Resource Include="Images\Avatars\raider.png" />
+    <Resource Include="Images\Avatars\saboteur.png" />
+    <Resource Include="Images\Avatars\slayer.png" />
+    <Resource Include="Images\Avatars\trickster.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\character-background.png" />
@@ -626,9 +645,6 @@
   <ItemGroup>
     <Resource Include="Images\buttons\btn_exit.png" />
     <Resource Include="Images\buttons\btn_selected_exit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Avatars\duelist.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\ItemHover\ItemHeaderWhiteLeft.png" />
@@ -682,9 +698,6 @@
     <Resource Include="Images\Sockets\white.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Avatars\scion.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Sockets\blue-socketed-white.png" />
     <Resource Include="Images\Sockets\green-socketed-white.png" />
     <Resource Include="Images\Sockets\red-socketed-white.png" />
@@ -696,7 +709,7 @@
     <Resource Include="Images\Sockets\white-socketed-white.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
