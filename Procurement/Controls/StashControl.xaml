@@ -7,7 +7,7 @@
              d:DesignHeight="592" d:DesignWidth="591" Height="592" Width="591">
     <Grid x:Name="gridOuter">
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/stash-grid.png" />
+            <ImageBrush ImageSource="/Images/stash-grid.jpg" />
         </Grid.Background>
         <Grid x:Name="grid" Margin="11, 11, 11, 12">
         </Grid>

@@ -11,7 +11,7 @@
             <RowDefinition Height="239" />
         </Grid.RowDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="/Images/inventory.bmp" />
+            <ImageBrush ImageSource="/Images/inventory.jpg" />
         </Grid.Background>
         <!--<Border Grid.Row="0" Height="93" ></Border>-->
         <Grid x:Name="grid" Margin="1,0,1,3" Height="236" Width="568" Grid.Row="1">

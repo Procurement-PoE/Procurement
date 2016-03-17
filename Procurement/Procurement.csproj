@@ -554,10 +554,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\stash-grid.png" />
+    <Resource Include="Images\stash-grid.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\inventory.bmp" />
+    <Resource Include="Images\inventory.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\buttons\btn_about.png" />
@@ -640,7 +640,7 @@
     <Resource Include="Images\TabControl\stash-dropdown-hover.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\equiped.png" />
+    <Resource Include="Images\equiped.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\buttons\btn_exit.png" />
