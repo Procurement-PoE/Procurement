@@ -8,7 +8,7 @@
              Focusable="True">
         <Grid x:Name="gridOuter" Height="532" Width="600" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Grid.Background>
-                <ImageBrush ImageSource="/Images/equiped.png" />
+                <ImageBrush ImageSource="/Images/equiped.jpg" />
             </Grid.Background>
             <Button></Button>
             <Canvas x:Name="davinci" Grid.Column="1">
