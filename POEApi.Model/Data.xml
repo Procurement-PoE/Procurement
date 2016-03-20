@@ -965,7 +965,8 @@
       <Item name="Her Mask"/>
       <Item name="Treasure Hunter"/>
       <Item name="Grave Knowledge"/>
-      <Item name="The Risk"/>           
+      <Item name="The Risk"/>
+      <Item name="The Sigil"/>
     </GearBaseType>
   </GearBaseTypes>
 </Data>
