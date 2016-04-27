@@ -38,7 +38,16 @@ namespace Procurement.Controls
             FilterResults = Filter.Count() == 0 ? -1 : 0;
 
             foreach (var item in Stash)
-                updateResult(borderByLocation[Tuple.Create<int, int>(item.X, item.Y)], search(item));
+            {
+                var index = Tuple.Create<int, int>(item.X, item.Y);
+             
+                // Currency tab does not have the standard 12x12 grid
+                // so we have to check each column exists before attempting to access it
+                if (borderByLocation.ContainsKey(index))
+                {
+                    updateResult(borderByLocation[index], search(item));
+                }
+            }
 
             this.UpdateLayout();
         }
