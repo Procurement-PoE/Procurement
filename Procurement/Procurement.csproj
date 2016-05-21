@@ -159,6 +159,8 @@
     <Compile Include="ViewModel\Filters\ForumExport\ManaLeechFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\MapFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\MovementSpeed.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\PercentEnergyShieldFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\PercentLifeFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixBlueSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixGreenSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixLink.cs" />
