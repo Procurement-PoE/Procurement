@@ -25,6 +25,8 @@ namespace Procurement.ViewModel
         public bool IsCorrupted { get; private set; }
         public List<string> Microtransactions { get; private set; }
         public bool HasMicrotransactions { get; private set; }
+        public List<string> EnchantMods { get; private set; }
+        public bool HasEnchantMods { get; private set; }
 
         public List<string> CraftedMods { get; set; }
 
@@ -52,6 +54,8 @@ namespace Procurement.ViewModel
             this.Microtransactions = item.Microtransactions;
             this.HasMicrotransactions = item.Microtransactions.Count > 0;
 
+            this.EnchantMods = item.EnchantMods;
+
             this.CraftedMods = item.CraftedMods;
 
             SecondaryDescriptionText = item.SecDescrText;
@@ -60,6 +64,7 @@ namespace Procurement.ViewModel
             this.HasExplicitMods = ExplicitMods != null && ExplicitMods.Count > 0;
             this.HasImplicitMods = ImplicitMods != null && ImplicitMods.Count > 0; 
             this.HasCraftedMods = CraftedMods != null && CraftedMods.Count > 0;
+            this.HasEnchantMods = item.EnchantMods.Count > 0;
             this.HasRequirements = Requirements != null && Requirements.Count > 0;
         }
 

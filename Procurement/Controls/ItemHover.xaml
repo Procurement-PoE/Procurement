@@ -119,6 +119,37 @@
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
+                            Visibility="{Binding HasEnchantMods,
+                                                 Converter={StaticResource bc},
+                                                 ConverterParameter=CollapseWhenFalse}" />
+                    
+                    <ItemsControl ItemsSource="{Binding EnchantMods}"
+                                  Padding="10 0 10 5"
+                                  Visibility="{Binding HasEnchantMods,
+                                                       Converter={StaticResource bc},
+                                                       ConverterParameter=CollapseWhenFalse}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
+                                               Foreground="#b4b4ff"
+                                               Text="{Binding}"
+                                               TextAlignment="Center"
+                                               TextWrapping="Wrap" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7"
                             Visibility="{Binding HasImplicitMods,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
@@ -168,6 +199,29 @@
                                 <StackPanel>
                                     <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
                                                Foreground="#FF8888FF"
+                                               Text="{Binding}"
+                                               TextAlignment="Center"
+                                               TextWrapping="Wrap" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <ItemsControl ItemsSource="{Binding CraftedMods}"
+                                  Padding="10 0 10 5"
+                                  Visibility="{Binding HasCraftedMods,
+                                                       Converter={StaticResource bc},
+                                                       ConverterParameter=CollapseWhenFalse}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
+                                               Foreground="#b4b4ff"
                                                Text="{Binding}"
                                                TextAlignment="Center"
                                                TextWrapping="Wrap" />
@@ -228,29 +282,6 @@
                                                     Converter={StaticResource VisibilityConverter},
                                                     ConverterParameter=CollapseWhenFalse}" />
 
-                    <ItemsControl ItemsSource="{Binding CraftedMods}"
-                                  Padding="10 0 10 5"
-                                  Visibility="{Binding HasCraftedMods,
-                                                       Converter={StaticResource bc},
-                                                       ConverterParameter=CollapseWhenFalse}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Vertical" />
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
-                                               Foreground="#b4b4ff"
-                                               Text="{Binding}"
-                                               TextAlignment="Center"
-                                               TextWrapping="Wrap" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>                    
-                    
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
                                                Mode=OneWay}"

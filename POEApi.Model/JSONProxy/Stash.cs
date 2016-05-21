@@ -135,6 +135,9 @@ namespace POEApi.Model.JSONProxy
 
         [DataMember(Name = "craftedMods")]
         public List<string> CraftedMods { get; set; }
+
+        [DataMember(Name = "enchantMods")]
+        public List<string> EnchantMods { get; set; }
     }
 
     [DataContract]

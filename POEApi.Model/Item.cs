@@ -43,6 +43,7 @@ namespace POEApi.Model
         public int UniqueIDHash { get; set; }
         public bool Corrupted { get; private set; }
         public List<string> Microtransactions { get; set; }
+        public List<String> EnchantMods { get; set; }
 
         public List<string> CraftedMods { get; set; }
 
@@ -69,6 +70,7 @@ namespace POEApi.Model
             this.Explicitmods = item.ExplicitMods;
             this.ItemType = Model.ItemType.UnSet;
             this.CraftedMods = item.CraftedMods;
+            this.EnchantMods = item.EnchantMods;
 
             if (item.Properties != null)
             {
@@ -83,6 +85,7 @@ namespace POEApi.Model
 
             this.Corrupted = item.Corrupted;
             this.Microtransactions = item.CosmeticMods == null ? new List<string>() : item.CosmeticMods;
+            this.EnchantMods = item.EnchantMods == null ? new List<string>() : item.EnchantMods;
 
             this.TradeX = this.X;
             this.TradeY = this.Y;
