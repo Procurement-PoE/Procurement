@@ -35,7 +35,7 @@ namespace Procurement.Utility
         {
             refreshTimer = new Timer();
             refreshTimer.Elapsed += (s, e) => { RefreshOnlineStatus(); };
-            refreshTimer.Interval = 240000; //4 minutes
+            refreshTimer.Interval = 120000; //2 minutes
         }
 
         public static PoeTradeOnlineHelper Instance
