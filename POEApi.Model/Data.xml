@@ -970,9 +970,11 @@
       <Item name="Blind Venture"/>
       <Item name="Boundless Realms"/>
       <Item name="Bowyer's Dream"/>
+      <Item name="Cartographer's Delight"/>
       <Item name="Death"/>
       <Item name="Destined to Crumble"/>
       <Item name="Dying Anguish"/>
+      <Item name="Emperor of Purity"/>
       <Item name="Gift of the Gemling Queen"/>
       <Item name="Glimmer of Hope"/>
       <Item name="Heterochromia"/>
@@ -981,6 +983,7 @@
       <Item name="Hunter's Reward"/>
       <Item name="Last Hope"/>
       <Item name="Lost Worlds"/>
+      <Item name="Lysah's Respite"/>
       <Item name="Prosperity"/>
       <Item name="Rain Tempter"/>
       <Item name="Rats"/>
@@ -990,6 +993,7 @@
       <Item name="The Body"/>
       <Item name="The Cartographer"/>
       <Item name="The Conduit"/>
+      <Item name="The Cursed King"/>
       <Item name="The Dapper Prodigy"/>
       <Item name="The Demoness"/>
       <Item name="The Devastator"/>
@@ -1000,17 +1004,20 @@
       <Item name="The Fletcher"/>
       <Item name="The Fox"/>
       <Item name="The Gentleman"/>
+      <Item name="The Harvester"/>
       <Item name="The Immortal"/>
       <Item name="The Jester"/>
       <Item name="The Lich"/>
       <Item name="The Lion"/>
       <Item name="The Lord in Black"/>
+      <Item name="The Lunaris Priestess"/>
       <Item name="The Mercenary"/>
       <Item name="The Offering"/>
       <Item name="The Queen"/>
       <Item name="The Rabid Rhoa"/>
       <Item name="The Sephirot"/>
       <Item name="The Soul"/>
+      <item name="The Stormcaller"/>
       <Item name="The Surgeon"/>
       <Item name="The Surveyor"/>
       <Item name="The Survivalist"/>
@@ -1022,6 +1029,7 @@
       <Item name="The Visionary"/>
       <Item name="The Void"/>
       <Item name="The Warlord"/>
+      <Item name="The Web"/>
       <Item name="The Wolf's Shadow"/>
       <Item name="Thunderous Skies"/>
       <Item name="Tranquillity"/>
