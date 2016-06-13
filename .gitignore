@@ -10,3 +10,5 @@ Procurement/Procurement.csproj.user
 **/obj/
 
 .vs/
+
+packages/
