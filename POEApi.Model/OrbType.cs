@@ -33,6 +33,7 @@
         Mirror,
         VaalOrb,
         PerandusCoin,
+        SilverCoin,
         Unknown
     }
 }
