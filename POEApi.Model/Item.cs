@@ -22,6 +22,7 @@ namespace POEApi.Model
 
     public abstract class Item : ICloneable
     {
+        public string Id { get; set; }
         public bool Verified { get; private set; }
         public bool Identified { get; private set; }
         public int W { get; private set; }
@@ -51,6 +52,7 @@ namespace POEApi.Model
         public int TradeY { get; set; }
         public string TradeInventoryId { get; set; }
         public string Character { get; set; }
+        public int ItemLevel { get; set; }
 
         protected Item(JSONProxy.Item item)
         {

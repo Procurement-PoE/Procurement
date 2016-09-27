@@ -49,6 +49,9 @@ namespace POEApi.Model.JSONProxy
     [DataContract]
     public class Item
     {
+        [DataMember(Name = "id")]
+        public string Id { get; set; }
+
         [DataMember(Name = "verified")]
         public bool Verified { get; set; }
 
@@ -138,6 +141,9 @@ namespace POEApi.Model.JSONProxy
 
         [DataMember(Name = "enchantMods")]
         public List<string> EnchantMods { get; set; }
+
+        [DataMember(Name= "ilvl")]
+        public int ItemLevel { get; set; }
     }
 
     [DataContract]
