@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Media.Animation;
+
 using POEApi.Model;
 
 namespace Procurement.ViewModel
@@ -35,6 +37,9 @@ namespace Procurement.ViewModel
         public string ProphecyText { get; set; }
         public string ProphecyDifficultyText { get; set; }
         public List<string> ProphecyFlavour { get; set; }
+        public bool IsGear { get; set; }
+
+        public string ItemLevel { get; set; }
 
         public ItemHoverViewModel(Item item)
         {
@@ -101,6 +106,8 @@ namespace Procurement.ViewModel
 
         private void setGearProperties(Item item, Gear gear)
         {
+            this.IsGear = true;
+            this.ItemLevel = string.Format("Item Level : {0}", item.ItemLevel);
             this.Requirements = gear.Requirements;
             this.ImplicitMods = gear.Implicitmods;
 

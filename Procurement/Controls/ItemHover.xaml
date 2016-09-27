@@ -69,6 +69,20 @@
                 </Border.Background>
                 <StackPanel>
 
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                               HorizontalAlignment="Center"
+                               FontFamily="../Resources/#Fontin SmallCaps"
+                               Foreground="White"
+                               Padding="10 0 10 5"
+                               Text="{Binding ItemLevel}"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               Visibility="{Binding IsGear,
+                               Converter={StaticResource bc},
+                               ConverterParameter=CollapseWhenFalse}" />                    
+                    
                     <ItemsControl ItemsSource="{Binding Properties}" Padding="0 5 0 5">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>

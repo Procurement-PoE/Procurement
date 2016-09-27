@@ -73,6 +73,7 @@ namespace POEApi.Model
             this.ItemType = Model.ItemType.UnSet;
             this.CraftedMods = item.CraftedMods;
             this.EnchantMods = item.EnchantMods;
+            this.ItemLevel = item.ItemLevel;
 
             if (item.Properties != null)
             {
