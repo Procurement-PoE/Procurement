@@ -13,6 +13,9 @@ namespace POEApi.Model
                 item.Name = filterString(item.Name);
                 item.TypeLine = filterString(item.TypeLine);
 
+                if(!string.IsNullOrWhiteSpace(item.ProphecyText))
+                    return new Prophecy(item);
+
                 if (item.frameType == 4)
                     return new Gem(item);
 

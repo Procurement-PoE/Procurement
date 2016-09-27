@@ -24,6 +24,13 @@
             <GradientStop Offset="0.75" Color="#00808080" />
         </LinearGradientBrush>
 
+        <LinearGradientBrush x:Key="ProphecySeperatorBrush" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Offset="0.25" Color="#00808080" />
+            <GradientStop Offset="0.50" Color="#881672" />
+            <GradientStop Offset="0.75" Color="#00808080" />
+        </LinearGradientBrush>
+
+
         <Style TargetType="{x:Type Paragraph}">
             <Setter Property="Margin" Value="0" />
             <Setter Property="TextAlignment" Value="Center" />
@@ -282,6 +289,85 @@
                                                     Converter={StaticResource VisibilityConverter},
                                                     ConverterParameter=CollapseWhenFalse}" />
 
+
+
+
+                    <ItemsControl ItemsSource="{Binding ProphecyFlavour}"
+                                  Padding="10 0 10 5"
+                                  Visibility="{Binding IsProphecy,
+                               Converter={StaticResource bc},
+                               ConverterParameter=CollapseWhenFalse}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
+                                               Foreground="#9E6025"
+                                               Text="{Binding}"
+                                               TextAlignment="Center"
+                                               TextWrapping="Wrap" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource ProphecySeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7"
+                            Visibility="{Binding IsProphecy,
+                               Converter={StaticResource bc},
+                               ConverterParameter=CollapseWhenFalse}" />                    
+                    
+
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                               HorizontalAlignment="Center"
+                               FontFamily="../Resources/#Fontin SmallCaps"
+                               Foreground="White"
+                               Padding="10 0 10 5"
+                               Text="{Binding ProphecyText}"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               Visibility="{Binding IsProphecy,
+                               Converter={StaticResource bc},
+                               ConverterParameter=CollapseWhenFalse}" />
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource ProphecySeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7"
+                            Visibility="{Binding IsProphecy,
+                               Converter={StaticResource bc},
+                               ConverterParameter=CollapseWhenFalse}" />
+
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                               HorizontalAlignment="Center"
+                               FontFamily="../Resources/#Fontin SmallCaps"
+                               Foreground="#FF808080"
+                               Padding="10 0 10 5"
+                               Text="{Binding ProphecyDifficultyText}"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               Visibility="{Binding IsProphecy,
+                               Converter={StaticResource bc},
+                               ConverterParameter=CollapseWhenFalse}" />
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource ProphecySeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7"
+                            Visibility="{Binding IsProphecy,
+                               Converter={StaticResource bc},
+                               ConverterParameter=CollapseWhenFalse}" />
+
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
                                                Mode=OneWay}"
@@ -295,6 +381,7 @@
                                Visibility="{Binding IsCorrupted,
                                Converter={StaticResource bc},
                                ConverterParameter=CollapseWhenFalse}" />
+
                 </StackPanel>
             </Border>
         </DockPanel>

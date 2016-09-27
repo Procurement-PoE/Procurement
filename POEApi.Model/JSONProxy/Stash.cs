@@ -144,6 +144,12 @@ namespace POEApi.Model.JSONProxy
 
         [DataMember(Name= "ilvl")]
         public int ItemLevel { get; set; }
+
+        [DataMember(Name = "prophecyText")]
+        public string ProphecyText { get; set; }
+
+        [DataMember(Name = "prophecyDiffText")]
+        public string ProphecyDifficultyText { get; set; }
     }
 
     [DataContract]

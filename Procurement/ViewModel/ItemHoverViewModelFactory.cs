@@ -41,6 +41,9 @@ namespace Procurement.ViewModel
             if (item is Currency)
                 return new CurrencyItemHoverViewModel(item);
 
+            if (item is Prophecy)
+                return new ProphecyItemHoverViewModel(item);
+
             return new ItemHoverViewModel(item);
         }
     }
@@ -83,6 +86,13 @@ namespace Procurement.ViewModel
     public class CurrencyItemHoverViewModel : ItemHoverViewModel
     {
         public CurrencyItemHoverViewModel(Item item)
+            : base(item)
+        { }
+    }
+
+    public class ProphecyItemHoverViewModel : ItemHoverViewModel
+    {
+        public ProphecyItemHoverViewModel(Item item) 
             : base(item)
         { }
     }

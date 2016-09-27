@@ -163,12 +163,14 @@
     <Compile Include="ViewModel\Filters\ForumExport\MovementSpeed.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\PercentEnergyShieldFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\PercentLifeFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\ProphecyFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixBlueSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixGreenSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixLink.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixRedSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SocketColourFilter.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\CurrencyVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\ProphecyVisitor.cs" />
     <Compile Include="ViewModel\SetTabBuyoutViewModel.cs" />
     <Compile Include="ViewModel\TradeSettingsViewModel.cs" />
     <Compile Include="ViewModel\Cache\BitmapCache.cs" />
@@ -685,6 +687,11 @@
     <EmbeddedResource Include="ForumExportTemplate.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ItemHover\ItemsHeaderProphecyLeft.png" />
+    <Resource Include="Images\ItemHover\ItemsHeaderProphecyMiddle.png" />
+    <Resource Include="Images\ItemHover\ItemsHeaderProphecyRight.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
