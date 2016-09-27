@@ -5,6 +5,9 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 [spoiler="          Prophecies          "]
 {Prophecies}
 [/spoiler]
+[spoiler="          Essences          "]
+{Essence}
+[/spoiler]
 [spoiler="          Divination Card          "]
 {DivinationCard}
 [/spoiler]
