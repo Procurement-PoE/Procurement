@@ -1,71 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using POEApi.Model;
 
 namespace Procurement.ViewModel.Recipes
 {
-    internal class OneChaosRecipe : Recipe
+    internal class RareSetRecipe : Recipe
     {
-        private class MatchedSet
-        {
-            private static Dictionary<string, PropertyInfo> properties;
-            public Gear Amulet { get; set; }
-            public Gear Belt { get; set; }
-            public Gear Helm { get; set; }
-            public Gear RingLeft { get; set; }
-            public Gear RingRight { get; set; }
-            public Gear Weapon { get; set; }
-            public Gear Offhand { get; set; }
-            public Gear Boots { get; set; }
-            public Gear Armour { get; set; }
-            public Gear Gloves { get; set; }
-
-            public MatchedSet()
-            {
-                properties = properties ?? this.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance).ToDictionary(p => p.Name);
-            }
-
-            public decimal Match()
-            {
-                decimal notNull = properties.Values.Count(p => p.GetValue(this, null) != null);
-                return (notNull / properties.Values.Count) * 100;
-            }
-
-            public List<Gear> GetAll()
-            {
-                return properties.Values.Select(p => p.GetValue(this, null))
-                                        .Where(v => v != null)
-                                        .Distinct()
-                                        .Cast<Gear>()
-                                        .ToList();
-            }
-
-            public List<string> GetMissing()
-            {
-                return properties.Values.Select(p => new {name = p.Name, value=p.GetValue(this, null) })
-                                        .Where(at => at.value == null)
-                                        .Select(at => at.name)
-                                        .ToList();
-            }
-        }
+        private readonly int minimumItemLevel;
+        private readonly int maximumItemLevel;
+        private readonly bool itemsIdentified;
+        private readonly string name;
 
         public override string Name
         {
-            get { return "1 Chance/Chaos - Full Rare Set"; }
+            get { return name; }
         }
 
         private List<MatchedSet> sets = new List<MatchedSet>();
         
-        public OneChaosRecipe()
+        public RareSetRecipe(int minimumItemLevel, int maximumItemLevel, bool itemsIdentified, string name)
             : base(80)
-        { }
+        {
+            this.minimumItemLevel = minimumItemLevel;
+            this.maximumItemLevel = maximumItemLevel;
+            this.itemsIdentified = itemsIdentified;
+            this.name = name;
+        }
 
         public override IEnumerable<RecipeResult> Matches(IEnumerable<Item> items)
         {
             List<Gear> allGear = items.OfType<Gear>().ToList();
-            Dictionary<string, List<Gear>> buckets = allGear.Where(g => g.Rarity == Rarity.Rare)
+            Dictionary<string, List<Gear>> buckets = allGear.Where(g => g.Rarity == Rarity.Rare && g.ItemLevel < maximumItemLevel && g.ItemLevel > minimumItemLevel && g.Identified == itemsIdentified)
                                                             .GroupBy(g => g.GearType)
                                                             .ToDictionary(g => g.Key.ToString(), g => g.ToList());
 

@@ -173,6 +173,7 @@
     <Compile Include="ViewModel\ForumExportVisitors\CurrencyVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\EssenceVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\ProphecyVisitor.cs" />
+    <Compile Include="ViewModel\Recipes\MatchedSet.cs" />
     <Compile Include="ViewModel\SetTabBuyoutViewModel.cs" />
     <Compile Include="ViewModel\TradeSettingsViewModel.cs" />
     <Compile Include="ViewModel\Cache\BitmapCache.cs" />
@@ -324,7 +325,7 @@
     <Compile Include="ViewModel\Recipes\GCPRecipe.cs" />
     <Compile Include="ViewModel\Recipes\GlassblowersBaubleRecipe.cs" />
     <Compile Include="ViewModel\Recipes\MinimumQualityRecipe.cs" />
-    <Compile Include="ViewModel\Recipes\OneChaosRecipe.cs" />
+    <Compile Include="ViewModel\Recipes\RareSetRecipe.cs" />
     <Compile Include="ViewModel\Recipes\Recipe.cs" />
     <Compile Include="ViewModel\Recipes\RecipeManager.cs" />
     <Compile Include="ViewModel\Recipes\RecipeResult.cs" />

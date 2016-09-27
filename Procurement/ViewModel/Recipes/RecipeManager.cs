@@ -8,12 +8,17 @@ namespace Procurement.ViewModel.Recipes
 {
     internal class RecipeManager
     {
-        private List<Recipe> known;
+        private readonly List<Recipe> known;
         public RecipeManager()
         {
             known = new List<Recipe>() 
-            { 
-                new OneChaosRecipe(), 
+            {
+                new RareSetRecipe(1, 59, true, "1 Chance - i59- Full Rare Set"),
+                new RareSetRecipe(1, 59, false, "2 Chance - Unidentified i59- Full Rare Set"),
+                new RareSetRecipe(60, 74, true, "1 Chaos - Full Rare Set"),
+                new RareSetRecipe(60, 74, false, "2 Chaos - Full Unidentified Rare Set"),
+                new RareSetRecipe(75, 100, true, "1 Regal - i75+ Full Rare Set"),
+                new RareSetRecipe(75, 100, false, "2 Regal - Unidentified  i75+ Full Rare Set"),
                 new Chromatic(), 
                 new GCPRecipe(), 
                 new ArmourersScrapRecipe(),
