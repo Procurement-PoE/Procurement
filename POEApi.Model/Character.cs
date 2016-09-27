@@ -1,18 +1,22 @@
-﻿namespace POEApi.Model
+﻿using Newtonsoft.Json;
+
+namespace POEApi.Model
 {
     public class Character
     {
+        [JsonProperty("name")]
         public string Name { get; set; }
-        public string League { get; set; }
-        public string Class { get; set; }
-        public int Level { get; set; }
 
-        public Character(JSONProxy.Character character)
-        {
-            this.Name = character.Name;
-            this.League = character.League;
-            this.Class = character.Class;
-            this.Level = character.Level;
-        }
+        [JsonProperty("league")]
+        public string League { get; set; }
+
+        [JsonProperty("class")]
+        public string Class { get; set; }
+
+        [JsonProperty("classId")]
+        public int ClassId { get; set; }
+
+        [JsonProperty("level")]
+        public int Level { get; set; }
     }
 }

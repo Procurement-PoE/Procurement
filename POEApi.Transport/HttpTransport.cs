@@ -63,7 +63,7 @@ namespace POEApi.Transport
         {
             if (useSessionID)
             {
-                credentialCookies.Add(new System.Net.Cookie("POESESSID", password.UnWrap().Trim(), "/", "www.pathofexile.com"));
+                credentialCookies.Add(new System.Net.Cookie("POESESSID", password.UnWrap(), "/", "www.pathofexile.com"));
                 HttpWebRequest confirmAuth = getHttpRequest(HttpMethod.GET, loginURL);
                 HttpWebResponse confirmAuthResponse = (HttpWebResponse)confirmAuth.GetResponse();
 
@@ -124,11 +124,10 @@ namespace POEApi.Transport
             return null;
         }
 
-        public WebProxy processProxySettings()
+        public IWebProxy processProxySettings()
         {
-            System.Net.WebProxy proxy = System.Net.WebProxy.GetDefaultProxy();
-            System.Net.NetworkCredential credentials = new System.Net.NetworkCredential(proxyUser, proxyPassword, proxyDomain);
-            proxy.Credentials = credentials;
+            var proxy = WebRequest.DefaultWebProxy;
+            proxy.Credentials = new NetworkCredential(proxyUser, proxyPassword, proxyDomain);
 
             return proxy;
         }
@@ -184,6 +183,11 @@ namespace POEApi.Transport
             RequestThrottle.Instance.Complete();
 
             return new MemoryStream(buffer);
+        }
+
+        private StreamReader GetStreamReaderFromResponse(HttpWebResponse response)
+        {
+            return new StreamReader(response.GetResponseStream());
         }
 
         public bool UpdateThread(string threadID, string threadTitle, string threadText)

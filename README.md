@@ -16,5 +16,6 @@ Procurement is a Windows application for the online game Path Of Exile, that log
 * Breakdown of your currency with Chaos total (Ratios configurable)
 * Everything is cached and can be viewed offline after you've logged in once
 * Single tab refreshing (if logged in) 
+* Search your stash for vendor recipe components
 
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Procurement.Properties {
+namespace POEApi.Model.Tests {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Procurement.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class Files {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Files() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Procurement.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Procurement.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("POEApi.Model.Tests.Files", typeof(Files).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,11 @@ namespace Procurement.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string AppFont {
-            get {
-                return ResourceManager.GetString("AppFont", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] fontin_regular_webfont {
+        internal static byte[] SampleCharacter {
             get {
-                object obj = ResourceManager.GetObject("fontin_regular_webfont", resourceCulture);
+                object obj = ResourceManager.GetObject("SampleCharacter", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -82,9 +73,19 @@ namespace Procurement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] fontin_smallcaps_webfont {
+        internal static byte[] SampleInventory {
             get {
-                object obj = ResourceManager.GetObject("fontin_smallcaps_webfont", resourceCulture);
+                object obj = ResourceManager.GetObject("SampleInventory", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SampleStash {
+            get {
+                object obj = ResourceManager.GetObject("SampleStash", resourceCulture);
                 return ((byte[])(obj));
             }
         }

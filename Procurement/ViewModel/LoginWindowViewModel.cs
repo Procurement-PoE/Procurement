@@ -6,7 +6,6 @@ using System.Net;
 using System.Security;
 using System.Threading.Tasks;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using POEApi.Infrastructure;
 using POEApi.Infrastructure.Events;
 using POEApi.Model;
@@ -19,8 +18,6 @@ namespace Procurement.ViewModel
 {
     public class LoginWindowViewModel : INotifyPropertyChanged
     {
-        private static bool authOffLine;
-
         private LoginView view = null;
         private StatusController statusController;
         public event LoginCompleted OnLoginCompleted;
