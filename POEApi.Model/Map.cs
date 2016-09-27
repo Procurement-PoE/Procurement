@@ -14,8 +14,6 @@ namespace POEApi.Model
             this.Properties = ProxyMapper.GetProperties(item.Properties);
             this.Rarity = getRarity(item);
             this.MapTier = int.Parse(Properties.Find(p => p.Name == "Map Tier").Values[0].Item1);
-
-            this.UniqueIDHash = base.getHash();
         }
 
         protected override int getConcreteHash()

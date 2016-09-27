@@ -18,7 +18,7 @@ namespace POEApi.Model
         public static Dictionary<string, string> UserSettings { get; private set; }
         public static Dictionary<string, string> ProxySettings { get; private set; }
         public static Dictionary<string, List<string>> Lists { get; private set; }
-        public static Dictionary<int, ItemTradeInfo> Buyouts { get; private set; }
+        public static Dictionary<string, ItemTradeInfo> Buyouts { get; private set; }
         public static Dictionary<string, string> TabsBuyouts { get; private set; }
         public static Dictionary<string, ShopSetting> ShopSettings { get; private set; }
         public static List<string> PopularGems { get; private set; }
@@ -55,7 +55,7 @@ namespace POEApi.Model
             try
             {
                 buyoutFile = XElement.Load(BUYOUT_LOCATION);
-                Buyouts = new Dictionary<int, ItemTradeInfo>();
+                Buyouts = new Dictionary<string, ItemTradeInfo>();
 
                 if (buyoutFile.Element("ItemBuyouts") != null)
                     Buyouts = loadItemBuyouts();
@@ -71,15 +71,15 @@ namespace POEApi.Model
             }
         }
 
-        private static Dictionary<int, ItemTradeInfo> loadItemBuyouts()
+        private static Dictionary<string, ItemTradeInfo> loadItemBuyouts()
         {            
             var items = buyoutFile.Element("ItemBuyouts").Elements("Item");
             var legacyBuyouts = items.Where(i => i.Attribute("value") != null).Any();
 
             if (legacyBuyouts)
-                return items.ToDictionary(list => (int)list.Attribute("id"), list => new ItemTradeInfo(list.Attribute("value").Value, string.Empty, string.Empty, string.Empty));
+                return items.ToDictionary(list => (string)list.Attribute("id"), list => new ItemTradeInfo(list.Attribute("value").Value, string.Empty, string.Empty, string.Empty));
 
-            return items.ToDictionary(list => (int)list.Attribute("id"), list => new ItemTradeInfo(tryGetValue(list, "BuyoutValue"), tryGetValue(list, "PriceValue"), tryGetValue(list, "CurrentOfferValue"), tryGetValue(list, "Notes")));
+            return items.ToDictionary(list => (string)list.Attribute("id"), list => new ItemTradeInfo(tryGetValue(list, "BuyoutValue"), tryGetValue(list, "PriceValue"), tryGetValue(list, "CurrentOfferValue"), tryGetValue(list, "Notes")));
         }
 
         private static void loadShopSettings()
@@ -161,7 +161,7 @@ namespace POEApi.Model
         {
             buyoutFile.Element("ItemBuyouts").RemoveNodes();
 
-            foreach (int key in Buyouts.Keys)
+            foreach (string key in Buyouts.Keys)
             {
                 XElement buyout = new XElement("Item", new XAttribute("id", key), new XAttribute("BuyoutValue", Buyouts[key].Buyout), new XAttribute("PriceValue", Buyouts[key].Price), new XAttribute("CurrentOfferValue", Buyouts[key].CurrentOffer), new XAttribute("Notes", Buyouts[key].Notes));
                 buyoutFile.Element("ItemBuyouts").Add(buyout);

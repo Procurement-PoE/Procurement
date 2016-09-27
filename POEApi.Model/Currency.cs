@@ -11,8 +11,6 @@
             this.Type = ProxyMapper.GetOrbType(item);
             this.ChaosValue = CurrencyHandler.GetChaosValue(this.Type);
             this.StackInfo = ProxyMapper.GetStackInfo(item.Properties);
-
-            this.UniqueIDHash = base.getHash();
         }
 
         protected override int getConcreteHash()

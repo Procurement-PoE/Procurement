@@ -32,15 +32,15 @@ namespace Procurement.ViewModel.ForumExportVisitors
 
             foreach (var item in sortedItems)
             {
-                if (Settings.Buyouts.ContainsKey(item.UniqueIDHash) && !string.IsNullOrEmpty(Settings.Buyouts[item.UniqueIDHash].Buyout))
+                if (Settings.Buyouts.ContainsKey(item.Id) && !string.IsNullOrEmpty(Settings.Buyouts[item.Id].Buyout))
                 {
-                    buyouts[Settings.Buyouts[item.UniqueIDHash].Buyout].Add(item);
+                    buyouts[Settings.Buyouts[item.Id].Buyout].Add(item);
                     continue;
                 }
 
-                if (Settings.Buyouts.ContainsKey(item.UniqueIDHash) && !string.IsNullOrEmpty(Settings.Buyouts[item.UniqueIDHash].Price))
+                if (Settings.Buyouts.ContainsKey(item.Id) && !string.IsNullOrEmpty(Settings.Buyouts[item.Id].Price))
                 {
-                    pricedItems[Settings.Buyouts[item.UniqueIDHash].Price].Add(item);
+                    pricedItems[Settings.Buyouts[item.Id].Price].Add(item);
                 }
 
                 var itemBuyoutKey = ApplicationState.Stash[ApplicationState.CurrentLeague].GetTabNameByInventoryId(item.InventoryId);

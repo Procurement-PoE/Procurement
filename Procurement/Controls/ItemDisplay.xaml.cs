@@ -74,12 +74,12 @@ namespace Procurement.Controls
             MenuItem setBuyout = new MenuItem();
             string pricingInfo = string.Empty;
 
-            if (Settings.Buyouts.ContainsKey(item.UniqueIDHash))
+            if (Settings.Buyouts.ContainsKey(item.Id))
             {
-                pricingInfo = Settings.Buyouts[item.UniqueIDHash].Buyout;
+                pricingInfo = Settings.Buyouts[item.Id].Buyout;
 
                 if (pricingInfo == string.Empty)
-                    pricingInfo = Settings.Buyouts[item.UniqueIDHash].Price;
+                    pricingInfo = Settings.Buyouts[item.Id].Price;
             }
 
             if (textblock != null)
@@ -132,8 +132,8 @@ namespace Procurement.Controls
 
             var buyoutControl = new SetBuyoutView();
 
-            if (Settings.Buyouts.ContainsKey(item.UniqueIDHash))
-                buyoutControl.SetBuyoutInfo(Settings.Buyouts[item.UniqueIDHash]);
+            if (Settings.Buyouts.ContainsKey(item.Id))
+                buyoutControl.SetBuyoutInfo(Settings.Buyouts[item.Id]);
 
             setBuyout.Header = buyoutControl;
             buyoutControl.Update += buyoutControl_Update;
@@ -159,11 +159,11 @@ namespace Procurement.Controls
 
             if (info.IsEmpty)
             {
-                Settings.Buyouts.Remove(item.UniqueIDHash);
+                Settings.Buyouts.Remove(item.Id);
                 return;
             }
 
-            Settings.Buyouts[item.UniqueIDHash] = info;
+            Settings.Buyouts[item.Id] = info;
         }
 
         void buyoutControl_SaveImageClicked()
@@ -178,7 +178,7 @@ namespace Procurement.Controls
             ItemDisplayViewModel vm = this.DataContext as ItemDisplayViewModel;
             Item item = vm.Item;
 
-            Settings.Buyouts[item.UniqueIDHash].Buyout = string.Format("{0} {1}", amount, abbreviation);
+            Settings.Buyouts[item.Id].Buyout = string.Format("{0} {1}", amount, abbreviation);
             Settings.SaveBuyouts();
 
             resyncText();

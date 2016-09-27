@@ -26,8 +26,6 @@ namespace POEApi.Model
             this.ItemType = Model.ItemType.Gear;
             this.GearType = GearTypeFactory.GetType(this);
             this.BaseType = GearTypeFactory.GetBaseType(this);
-
-            this.UniqueIDHash = base.getHash();
         }
 
         public bool IsLinked(int links)

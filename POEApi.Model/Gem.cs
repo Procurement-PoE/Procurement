@@ -21,8 +21,6 @@ namespace POEApi.Model
             this.Color = item.Color;
             this.Requirements = ProxyMapper.GetRequirements(item.Requirements);
             this.Level = getLevel();
-
-            this.UniqueIDHash = base.getHash();
         }
 
         private int getLevel()

@@ -41,7 +41,6 @@ namespace POEApi.Model
         public List<Property> Properties { get; set; }
         public bool IsQuality { get; private set; }
         public int Quality { get; private set; }
-        public int UniqueIDHash { get; set; }
         public bool Corrupted { get; private set; }
         public List<string> Microtransactions { get; set; }
         public List<String> EnchantMods { get; set; }
@@ -56,6 +55,7 @@ namespace POEApi.Model
 
         protected Item(JSONProxy.Item item)
         {
+            this.Id = item.Id;
             this.Verified = item.Verified;
             this.Identified = item.Identified;
             this.W = item.W;

@@ -39,9 +39,9 @@ namespace Procurement.ViewModel.Filters.ForumExport
             bool isItemPriced = false;
             bool isTabBuyout = false;
 
-            if (Settings.Buyouts.ContainsKey(item.UniqueIDHash))
+            if (Settings.Buyouts.ContainsKey(item.Id))
             {
-                var itemInfo = Settings.Buyouts[item.UniqueIDHash];
+                var itemInfo = Settings.Buyouts[item.Id];
 
                 isItemBuyout = itemInfo.Buyout.ToLower() == buyoutValue.ToLower();
                 isItemPriced = itemInfo.Price.ToLower() == buyoutValue.ToLower();

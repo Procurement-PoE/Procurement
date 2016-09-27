@@ -56,10 +56,10 @@ namespace Procurement.ViewModel.ForumExportVisitors
 
         private static bool hasItemBuyout<T>(T item) where T : Item
         {
-            if (!Settings.Buyouts.ContainsKey(item.UniqueIDHash))
+            if (!Settings.Buyouts.ContainsKey(item.Id))
                 return false;
 
-            var buyoutItem = Settings.Buyouts[item.UniqueIDHash];
+            var buyoutItem = Settings.Buyouts[item.Id];
 
             return !string.IsNullOrEmpty(buyoutItem.Buyout) || !string.IsNullOrEmpty(buyoutItem.Price) || !string.IsNullOrEmpty(buyoutItem.CurrentOffer);
         }
@@ -82,10 +82,10 @@ namespace Procurement.ViewModel.ForumExportVisitors
 
         private string appendAdditionalInfo(Item item, string tabName)
         {
-            if (!Settings.Buyouts.ContainsKey(item.UniqueIDHash))
+            if (!Settings.Buyouts.ContainsKey(item.Id))
                 return string.Format("\n~b/o {0}\n", Settings.TabsBuyouts[tabName]);
 
-            var buyoutInfo = Settings.Buyouts[item.UniqueIDHash];
+            var buyoutInfo = Settings.Buyouts[item.Id];
             StringBuilder sb = new StringBuilder();
 
             if (buyoutInfo.Buyout != string.Empty)
