@@ -57,7 +57,7 @@ namespace Procurement.Utility
             {
                 // Trigger the online signal again when we are about to expire with poe.trade
                 var timeSinceLastOnline = DateTime.Now - lastOnlineTime;
-                if (timeSinceLastOnline.Minutes > 55)
+                if (timeSinceLastOnline.Minutes > 5)
                 {
                     currentlyOnline = false;
                 }
