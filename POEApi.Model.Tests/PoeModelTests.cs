@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -66,6 +67,26 @@ namespace POEApi.Model.Tests
                 Assert.IsNotNull(stash);
 
                 Assert.AreEqual(stash.Tabs.Count, 17);
+            }
+        }
+
+        [TestMethod]
+        public void GetEssenceStashTest()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithEssences);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+
+                Assert.AreEqual(stash.Tabs.Count, 83);
+
+                var items = stash.GetItemsByTab(14);
+
+                Assert.IsTrue(items.Any(x => x is Essence));
             }
         }
 
