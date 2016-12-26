@@ -15,7 +15,7 @@ namespace Procurement.Utility
     {
 
         private static PoeTradeOnlineHelper instance;
-        private System.Timers.Timer refreshTimer;
+        private Timer refreshTimer;
         private Uri refreshUri;
 
         [DllImport("user32.dll")]
@@ -62,7 +62,7 @@ namespace Procurement.Utility
                     currentlyOnline = false;
                 }
 
-                Func<Process, bool> IsPoE = (c => c.MainWindowTitle.Contains("Path of Exile") || c.ProcessName.Contains("PathOfExile"));
+                Func<Process, bool> IsPoE = (c => c.MainWindowTitle.Contains("Path of Exile") || c.ProcessName.Contains("PathOfExile") || c.ProcessName.Contains("PathOfExile_x64"));
                 var idleTime = GetIdleTime();
 
                 if (idleTime >= TimeSpan.FromMinutes(10) || !Process.GetProcesses().Any(IsPoE))
@@ -96,7 +96,7 @@ namespace Procurement.Utility
             }
             catch (Exception ex)
             {
-                Logger.Log("Error refreshing online/offline status in PoeTradeOnlineHelper: " + ex.ToString());
+                Logger.Log("Error refreshing online/offline status in PoeTradeOnlineHelper: " + ex);
             }
         }
 
@@ -129,7 +129,7 @@ namespace Procurement.Utility
             }
             catch (Exception ex)
             {
-                Logger.Log("Error starting PoeTradeOnlineHelper: " + ex.ToString());
+                Logger.Log("Error starting PoeTradeOnlineHelper: " + ex);
                 MessageBox.Show("Error refreshing poe.trade online status, ensure you have a valid url entered.", "Error Starting PoeTradeOnlineHelper", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
