@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace POEApi.Model
+﻿namespace POEApi.Model
 {
     public  class StackableItem : Item
     {
@@ -13,7 +11,7 @@ namespace POEApi.Model
 
         protected override int getConcreteHash()
         {
-            throw new NotImplementedException();
+            return 0;
         }
     }
 }
