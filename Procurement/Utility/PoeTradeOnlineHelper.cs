@@ -18,6 +18,8 @@ namespace Procurement.Utility
         private Timer refreshTimer;
         private Uri refreshUri;
 
+        private const double TWO_MINUTES = 120000;
+
         [DllImport("user32.dll")]
         private static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
 
@@ -35,7 +37,7 @@ namespace Procurement.Utility
         {
             refreshTimer = new Timer();
             refreshTimer.Elapsed += (s, e) => { RefreshOnlineStatus(); };
-            refreshTimer.Interval = 120000; //2 minutes
+            refreshTimer.Interval = TWO_MINUTES;
         }
 
         public static PoeTradeOnlineHelper Instance
@@ -50,53 +52,49 @@ namespace Procurement.Utility
         }
 
         private bool currentlyOnline;
-        private DateTime lastOnlineTime;
         private void RefreshOnlineStatus()
         {
             try
             {
-                // Trigger the online signal again when we are about to expire with poe.trade
-                var timeSinceLastOnline = DateTime.Now - lastOnlineTime;
-                if (timeSinceLastOnline.Minutes > 5)
-                {
-                    currentlyOnline = false;
-                }
-
-                Func<Process, bool> IsPoE = (c => c.MainWindowTitle.Contains("Path of Exile") || c.ProcessName.Contains("PathOfExile") || c.ProcessName.Contains("PathOfExile_x64"));
+                Func<Process, bool> IsPoE = c => c.MainWindowTitle.Contains("Path of Exile") || c.ProcessName.Contains("PathOfExile") || c.ProcessName.Contains("PathOfExile_x64");
                 var idleTime = GetIdleTime();
 
                 if (idleTime >= TimeSpan.FromMinutes(10) || !Process.GetProcesses().Any(IsPoE))
                 {
                     // Prevent from spamming poe.trade
                     if (currentlyOnline)
-                    {
-                        using (var client = new WebClient())
-                        {
-                            var offlineUri = new Uri(refreshUri.OriginalString + "/offline");
-                            var data = new NameValueCollection();
-                            client.UploadValuesAsync(offlineUri, "POST", data);
-                        }
-                    }
+                        SetOffline();
 
                     // User is AFK or PoE is not running.
                     currentlyOnline = false;
                     return;
                 }
 
-                if (!currentlyOnline)
-                {
-                    using (var client = new WebClient())
-                    {
-                        var data = new NameValueCollection();
-                        client.UploadValuesAsync(refreshUri, "POST", data);
-                        currentlyOnline = true;
-                        lastOnlineTime = DateTime.Now;
-                    }
-                }
+                SetOnline();
             }
             catch (Exception ex)
             {
                 Logger.Log("Error refreshing online/offline status in PoeTradeOnlineHelper: " + ex);
+            }
+        }
+
+        private void SetOnline()
+        {
+            using (var client = new WebClient())
+            {
+                var data = new NameValueCollection();
+                client.UploadValuesAsync(refreshUri, "POST", data);
+                currentlyOnline = true;
+            }
+        }
+
+        private void SetOffline()
+        {
+            using (var client = new WebClient())
+            {
+                var offlineUri = new Uri(refreshUri.OriginalString + "/offline");
+                var data = new NameValueCollection();
+                client.UploadValuesAsync(offlineUri, "POST", data);
             }
         }
 
