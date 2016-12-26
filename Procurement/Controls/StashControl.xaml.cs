@@ -96,8 +96,6 @@ namespace Procurement.Controls
             refresh();
         }
 
-        Dictionary<string, Item> test = new Dictionary<string, Item>();
-
         private void refresh()
         {
             this.Stash = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(TabNumber);
