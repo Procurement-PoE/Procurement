@@ -158,9 +158,17 @@ namespace POEApi.Model
             {"Essence of Horror", EssenceType.Horror},
             {"Essence of Delirium", EssenceType.Delirium},
             {"Essence of Hysteria", EssenceType.Hysteria},
-            {"Essence of Corruption", EssenceType.Corruption}
+            {"Remnant of Corruption", EssenceType.RemnantOfCorruption}
         };
 
+        private static readonly Dictionary<string, BreachType> breachMap = new Dictionary<string, BreachType>
+        {
+            {"Chayula", BreachType.Chayula},
+            {"Xoph", BreachType.Xoph},
+            {"Esh", BreachType.Esh},
+            {"Tul", BreachType.Tul},
+            {"Uul-Netol", BreachType.UulNetol}
+        };
 
         private static string getPropertyByName(List<JSONProxy.Property> properties, string name)
         {
@@ -207,6 +215,21 @@ namespace POEApi.Model
                 Logger.Log(ex);
                 Logger.Log("ProxyMapper.GetEssenceType Failed! ItemType = " + name);
                 return EssenceType.Unknown;
+            }
+        }
+
+        public static BreachType GetBreachType(JSONProxy.Item item)
+        {
+            try
+            {
+                return breachMap.First(m => item.TypeLine.Contains(m.Key)).Value;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(ex);
+                Logger.Log("ProxyMapper.GetBreachType Failed! ItemType = " + item.TypeLine);
+                return BreachType.Unknown;
+
             }
         }
 

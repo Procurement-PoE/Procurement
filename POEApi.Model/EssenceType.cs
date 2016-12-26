@@ -106,7 +106,7 @@
         Horror,
         Delirium,
         Hysteria,
-        Corruption,
+        RemnantOfCorruption,
 
         //Must always be last
         Unknown

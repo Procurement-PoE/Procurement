@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BreachBlessing.cs" />
+    <Compile Include="BreachType.cs" />
     <Compile Include="CharacterStashBuilder.cs" />
     <Compile Include="Decoration.cs" />
     <Compile Include="Essence.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Settings.cs" />
     <Compile Include="ShopSetting.cs" />
     <Compile Include="Socket.cs" />
+    <Compile Include="Splinter.cs" />
     <Compile Include="StackableItem.cs" />
     <Compile Include="StackInfo.cs" />
     <Compile Include="Stash.cs" />
