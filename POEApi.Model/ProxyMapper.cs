@@ -11,55 +11,167 @@ namespace POEApi.Model
         internal const string STACKSIZE = "Stack Size";
         internal const string STASH = "Stash";
         public const string QUALITY = "Quality";
-        private static Regex qualityRx = new Regex("[+]{1}(?<quality>[0-9]{1,2}).*");
+        private static readonly Regex qualityRx = new Regex("[+]{1}(?<quality>[0-9]{1,2}).*");
 
         #region   Orb Types  
-        private static Dictionary<string, OrbType> orbMap = new Dictionary<string, OrbType>()           
+
+        private static readonly Dictionary<string, OrbType> orbMap = new Dictionary<string, OrbType>
         {
-            { "Chaos", OrbType.Chaos },
-            { "Divine", OrbType.Divine },
-            { "Regal", OrbType.Regal },
-            { "Augmentation", OrbType.Augmentation },
-            { "Orb of Alchemy", OrbType.Alchemy },
-            { "Alchemy Shard", OrbType.AlchemyShard },
-            { "Chromatic", OrbType.Chromatic },
-            { "Transmutation", OrbType.Transmutation },
-            { "Scouring", OrbType.Scouring },
-            { "Glassblower",OrbType.GlassblowersBauble },
-            { "Cartographer", OrbType.Chisel },
-            { "Gemcutter's Prism", OrbType.GemCutterPrism },
-            { "Alteration", OrbType.Alteration },
-            { "Chance", OrbType.Chance },
-            { "Regret", OrbType.Regret },
-            { "Exalted", OrbType.Exalted },
-            { "Armourer's Scrap", OrbType.ArmourersScrap },
-            { "Blessed", OrbType.Blessed},
-            { "Blacksmith's Whetstone", OrbType.BlacksmithsWhetstone },
-            { "Scroll Fragment", OrbType.ScrollFragment },
-            { "Jeweller's Orb", OrbType.JewelersOrb },
-            { "Scroll of Wisdom", OrbType.ScrollofWisdom },
-            { "Orb of Fusing", OrbType.Fusing },
-            { "Portal Scroll", OrbType.PortalScroll },
-            { "Albino Rhoa Feather", OrbType.AlbinaRhoaFeather},
-            { "Mirror", OrbType.Mirror },
-            { "Eternal Orb", OrbType.Eternal},
-            { "Imprint", OrbType.Imprint },
-            { "Vaal Orb", OrbType.VaalOrb },
-            { "Perandus Coin", OrbType.PerandusCoin },
-            { "Silver Coin", OrbType.SilverCoin }
+            {"Chaos", OrbType.Chaos},
+            {"Divine", OrbType.Divine},
+            {"Regal", OrbType.Regal},
+            {"Augmentation", OrbType.Augmentation},
+            {"Orb of Alchemy", OrbType.Alchemy},
+            {"Alchemy Shard", OrbType.AlchemyShard},
+            {"Chromatic", OrbType.Chromatic},
+            {"Transmutation", OrbType.Transmutation},
+            {"Scouring", OrbType.Scouring},
+            {"Glassblower", OrbType.GlassblowersBauble},
+            {"Cartographer", OrbType.Chisel},
+            {"Gemcutter's Prism", OrbType.GemCutterPrism},
+            {"Alteration", OrbType.Alteration},
+            {"Chance", OrbType.Chance},
+            {"Regret", OrbType.Regret},
+            {"Exalted", OrbType.Exalted},
+            {"Armourer's Scrap", OrbType.ArmourersScrap},
+            {"Blessed", OrbType.Blessed},
+            {"Blacksmith's Whetstone", OrbType.BlacksmithsWhetstone},
+            {"Scroll Fragment", OrbType.ScrollFragment},
+            {"Jeweller's Orb", OrbType.JewelersOrb},
+            {"Scroll of Wisdom", OrbType.ScrollofWisdom},
+            {"Orb of Fusing", OrbType.Fusing},
+            {"Portal Scroll", OrbType.PortalScroll},
+            {"Albino Rhoa Feather", OrbType.AlbinaRhoaFeather},
+            {"Mirror", OrbType.Mirror},
+            {"Eternal Orb", OrbType.Eternal},
+            {"Imprint", OrbType.Imprint},
+            {"Vaal Orb", OrbType.VaalOrb},
+            {"Perandus Coin", OrbType.PerandusCoin},
+            {"Silver Coin", OrbType.SilverCoin}
         };
+
         #endregion
+
+        private static readonly Dictionary<string, EssenceType> essenceMap = new Dictionary<string, EssenceType>
+        {
+            {"Whispering Essence of Greed", EssenceType.WhisperingGreed},
+            {"Whispering Essence of Contempt", EssenceType.WhisperingContempt},
+            {"Whispering Essence of Hatred", EssenceType.WhisperingHatred},
+            {"Whispering Essence of Woe", EssenceType.WhisperingWoe},
+            {"Muttering Essence of Greed", EssenceType.MutteringGreed},
+            {"Muttering Essence of Contempt", EssenceType.MutteringContempt},
+            {"Muttering Essence of Hatred", EssenceType.MutteringHatred},
+            {"Muttering Essence of Woe", EssenceType.MutteringWoe},
+            {"Muttering Essence of Fear", EssenceType.MutteringFear},
+            {"Muttering Essence of Anger", EssenceType.MutteringAnger},
+            {"Muttering Essence of Torment", EssenceType.MutteringTorment},
+            {"Muttering Essence of Sorrow", EssenceType.MutteringSorrow},
+            {"Weeping Essence of Greed", EssenceType.WeepingGreed},
+            {"Weeping Essence of Contempt", EssenceType.WeepingContempt},
+            {"Weeping Essence of Hatred", EssenceType.WeepingHatred},
+            {"Weeping Essence of Woe", EssenceType.WeepingWoe},
+            {"Weeping Essence of Fear", EssenceType.WeepingFear},
+            {"Weeping Essence of Anger", EssenceType.WeepingAnger},
+            {"Weeping Essence of Torment", EssenceType.WeepingTorment},
+            {"Weeping Essence of Sorrow", EssenceType.WeepingSorrow},
+            {"Weeping Essence of Rage", EssenceType.WeepingRage},
+            {"Weeping Essence of Suffering", EssenceType.WeepingSuffering},
+            {"Weeping Essence of Wrath", EssenceType.WeepingWrath},
+            {"Weeping Essence of Doubt", EssenceType.WeepingDoubt},
+            {"Wailing Essence of Greed", EssenceType.WailingGreed},
+            {"Wailing Essence of Contempt", EssenceType.WailingContempt},
+            {"Wailing Essence of Hatred", EssenceType.WailingHatred},
+            {"Wailing Essence of Woe", EssenceType.WailingWoe},
+            {"Wailing Essence of Fear", EssenceType.WailingFear},
+            {"Wailing Essence of Anger", EssenceType.WailingAnger},
+            {"Wailing Essence of Torment", EssenceType.WailingTorment},
+            {"Wailing Essence of Sorrow", EssenceType.WailingSorrow},
+            {"Wailing Essence of Rage", EssenceType.WailingRage},
+            {"Wailing Essence of Suffering", EssenceType.WailingSuffering},
+            {"Wailing Essence of Wrath", EssenceType.WailingWrath},
+            {"Wailing Essence of Doubt", EssenceType.WailingDoubt},
+            {"Wailing Essence of Loathing", EssenceType.WailingLoathing},
+            {"Wailing Essence of Zeal", EssenceType.WailingZeal},
+            {"Wailing Essence of Anguish", EssenceType.WailingAnguish},
+            {"Wailing Essence of Spite", EssenceType.WailingSpite},
+            {"Screaming Essence of Greed", EssenceType.ScreamingGreed},
+            {"Screaming Essence of Contempt", EssenceType.ScreamingContempt},
+            {"Screaming Essence of Hatred", EssenceType.ScreamingHatred},
+            {"Screaming Essence of Woe", EssenceType.ScreamingWoe},
+            {"Screaming Essence of Fear", EssenceType.ScreamingFear},
+            {"Screaming Essence of Anger", EssenceType.ScreamingAnger},
+            {"Screaming Essence of Torment", EssenceType.ScreamingTorment},
+            {"Screaming Essence of Sorrow", EssenceType.ScreamingSorrow},
+            {"Screaming Essence of Rage", EssenceType.ScreamingRage},
+            {"Screaming Essence of Suffering", EssenceType.ScreamingSuffering},
+            {"Screaming Essence of Wrath", EssenceType.ScreamingWrath},
+            {"Screaming Essence of Doubt", EssenceType.ScreamingDoubt},
+            {"Screaming Essence of Loathing", EssenceType.ScreamingLoathing},
+            {"Screaming Essence of Zeal", EssenceType.ScreamingZeal},
+            {"Screaming Essence of Anguish", EssenceType.ScreamingAnguish},
+            {"Screaming Essence of Spite", EssenceType.ScreamingSpite},
+            {"Screaming Essence of Scorn", EssenceType.ScreamingScorn},
+            {"Screaming Essence of Envy", EssenceType.ScreamingEnvy},
+            {"Screaming Essence of Misery", EssenceType.ScreamingMisery},
+            {"Screaming Essence of Dread", EssenceType.ScreamingDread},
+            {"Shrieking Essence of Greed", EssenceType.ShriekingGreed},
+            {"Shrieking Essence of Contempt", EssenceType.ShriekingContempt},
+            {"Shrieking Essence of Hatred", EssenceType.ShriekingHatred},
+            {"Shrieking Essence of Woe", EssenceType.ShriekingWoe},
+            {"Shrieking Essence of Fear", EssenceType.ShriekingFear},
+            {"Shrieking Essence of Anger", EssenceType.ShriekingAnger},
+            {"Shrieking Essence of Torment", EssenceType.ShriekingTorment},
+            {"Shrieking Essence of Sorrow", EssenceType.ShriekingSorrow},
+            {"Shrieking Essence of Rage", EssenceType.ShriekingRage},
+            {"Shrieking Essence of Suffering", EssenceType.ShriekingSuffering},
+            {"Shrieking Essence of Wrath", EssenceType.ShriekingWrath},
+            {"Shrieking Essence of Doubt", EssenceType.ShriekingDoubt},
+            {"Shrieking Essence of Loathing", EssenceType.ShriekingLoathing},
+            {"Shrieking Essence of Zeal", EssenceType.ShriekingZeal},
+            {"Shrieking Essence of Anguish", EssenceType.ShriekingAnguish},
+            {"Shrieking Essence of Spite", EssenceType.ShriekingSpite},
+            {"Shrieking Essence of Scorn", EssenceType.ShriekingScorn},
+            {"Shrieking Essence of Envy", EssenceType.ShriekingEnvy},
+            {"Shrieking Essence of Misery", EssenceType.ShriekingMisery},
+            {"Shrieking Essence of Dread", EssenceType.ShriekingDread},
+            {"Deafening Essence of Greed", EssenceType.DeafeningGreed},
+            {"Deafening Essence of Contempt", EssenceType.DeafeningContempt},
+            {"Deafening Essence of Hatred", EssenceType.DeafeningHatred},
+            {"Deafening Essence of Woe", EssenceType.DeafeningWoe},
+            {"Deafening Essence of Fear", EssenceType.DeafeningFear},
+            {"Deafening Essence of Anger", EssenceType.DeafeningAnger},
+            {"Deafening Essence of Torment", EssenceType.DeafeningTorment},
+            {"Deafening Essence of Sorrow", EssenceType.DeafeningSorrow},
+            {"Deafening Essence of Rage", EssenceType.DeafeningRage},
+            {"Deafening Essence of Suffering", EssenceType.DeafeningSuffering},
+            {"Deafening Essence of Wrath", EssenceType.DeafeningWrath},
+            {"Deafening Essence of Doubt", EssenceType.DeafeningDoubt},
+            {"Deafening Essence of Loathing", EssenceType.DeafeningLoathing},
+            {"Deafening Essence of Zeal", EssenceType.DeafeningZeal},
+            {"Deafening Essence of Anguish", EssenceType.DeafeningAnguish},
+            {"Deafening Essence of Spite", EssenceType.DeafeningSpite},
+            {"Deafening Essence of Scorn", EssenceType.DeafeningScorn},
+            {"Deafening Essence of Envy", EssenceType.DeafeningEnvy},
+            {"Deafening Essence of Misery", EssenceType.DeafeningMisery},
+            {"Deafening Essence of Dread", EssenceType.DeafeningDread},
+            {"Essence of Insanity", EssenceType.Insanity},
+            {"Essence of Horror", EssenceType.Horror},
+            {"Essence of Delirium", EssenceType.Delirium},
+            {"Essence of Hysteria", EssenceType.Hysteria},
+            {"Essence of Corruption", EssenceType.Corruption}
+        };
+
 
         private static string getPropertyByName(List<JSONProxy.Property> properties, string name)
         {
-            JSONProxy.Property prop = properties.Find(p => p.Name == name);
+            var prop = properties.Find(p => p.Name == name);
 
             if (prop == null)
                 return string.Empty;
 
             return (prop.Values[0] as object[])[0].ToString();
         }
-        
+
         internal static OrbType GetOrbType(JSONProxy.Item item)
         {
             return GetOrbType(item.TypeLine);
@@ -79,6 +191,25 @@ namespace POEApi.Model
             }
         }
 
+        internal static EssenceType GetEssenceType(JSONProxy.Item item)
+        {
+            return GetEssenceType(item.TypeLine);
+        }
+
+        internal static EssenceType GetEssenceType(string name)
+        {
+            try
+            {
+                return essenceMap.First(m => name.Contains(m.Key)).Value;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(ex);
+                Logger.Log("ProxyMapper.GetEssenceType Failed! ItemType = " + name);
+                return EssenceType.Unknown;
+            }
+        }
+
         internal static List<Property> GetProperties(List<JSONProxy.Property> properties)
         {
             return properties.Select(p => new Property(p)).ToList();
@@ -94,17 +225,17 @@ namespace POEApi.Model
 
         internal static StackInfo GetStackInfo(List<JSONProxy.Property> list)
         {
-            JSONProxy.Property stackSize = list.Find(p => p.Name == STACKSIZE);
+            var stackSize = list.Find(p => p.Name == STACKSIZE);
             if (stackSize == null)
                 return new StackInfo(1, 1);
 
-            string[] stackInfo = getPropertyByName(list, STACKSIZE).Split('/');
+            var stackInfo = getPropertyByName(list, STACKSIZE).Split('/');
 
             return new StackInfo(Convert.ToInt32(stackInfo[0]), Convert.ToInt32(stackInfo[1]));
         }
 
         internal static int GetQuality(List<JSONProxy.Property> properties)
-        {   
+        {
             return Convert.ToInt32(qualityRx.Match(getPropertyByName(properties, QUALITY)).Groups["quality"].Value);
         }
 
@@ -116,7 +247,7 @@ namespace POEApi.Model
             }
             catch (Exception ex)
             {
-                Logger.Log("Error in ProxyMapper.GetTabs: " + ex.ToString());
+                Logger.Log("Error in ProxyMapper.GetTabs: " + ex);
                 throw;
             }
         }

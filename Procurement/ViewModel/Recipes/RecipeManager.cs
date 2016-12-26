@@ -27,7 +27,8 @@ namespace Procurement.ViewModel.Recipes
                 new CartographersChiselRecipe(),
                 new SameBaseTypeRecipe(),
                 new SameNameRecipe("Chance Orb - 2 Of The Same Name", 2, true),
-                new SameNameRecipe("Alchemy Orb - 3 Of The Same Name", 3, false)
+                new SameNameRecipe("Alchemy Orb - 3 Of The Same Name", 3, false),
+                //Todo: Implement Essence Combination recipe (Exclude Shrieking and "Special" essences
             };
         }
 

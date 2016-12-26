@@ -22,6 +22,9 @@ namespace POEApi.Model
                 if (item.DescrText != null && item.DescrText.ToLower() == "right click this item then left click a location on the ground to create the object.")
                     return new Decoration(item);
 
+                if (item.TypeLine.ToLower().Contains("essence"))
+                    return new Essence(item);
+
                 if (item.frameType == 5)
                     return new Currency(item);
 

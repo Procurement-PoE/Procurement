@@ -34,6 +34,8 @@
         VaalOrb,
         PerandusCoin,
         SilverCoin,
+
+        //Must always be last
         Unknown
     }
 }
