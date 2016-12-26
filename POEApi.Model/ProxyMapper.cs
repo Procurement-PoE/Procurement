@@ -195,6 +195,7 @@ namespace POEApi.Model
             {
                 Logger.Log(ex);
                 Logger.Log("ProxyMapper.GetOrbType Failed! ItemType = " + name);
+
                 return OrbType.Unknown;
             }
         }
@@ -214,6 +215,7 @@ namespace POEApi.Model
             {
                 Logger.Log(ex);
                 Logger.Log("ProxyMapper.GetEssenceType Failed! ItemType = " + name);
+
                 return EssenceType.Unknown;
             }
         }
@@ -228,8 +230,8 @@ namespace POEApi.Model
             {
                 Logger.Log(ex);
                 Logger.Log("ProxyMapper.GetBreachType Failed! ItemType = " + item.TypeLine);
-                return BreachType.Unknown;
 
+                return BreachType.Unknown;
             }
         }
 
