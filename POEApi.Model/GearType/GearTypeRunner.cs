@@ -92,6 +92,22 @@ namespace POEApi.Model
         }
     }
 
+    public class BreachstoneRunner : GearTypeRunnerBase
+    {
+        public BreachstoneRunner()
+            : base(GearType.Breachstone, new List<string>()
+            {
+                "Chayula's Breachstone",
+                "Xoph's Breachstone",
+                "Esh's Breachstone",
+                "Tul's Breachstone",
+                "Uul-Netol's Breachstone"
+            })
+        {
+            generalTypes.Add("Breachstone");
+        }
+    }
+
     public class HelmetRunner : GearTypeRunnerBase
     {
         public HelmetRunner()
