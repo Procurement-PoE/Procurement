@@ -170,6 +170,28 @@ namespace POEApi.Model
             {"Uul-Netol", BreachType.UulNetol}
         };
 
+        private static readonly Dictionary<string, TabType> tabTypeMap = new Dictionary<string, TabType>
+        {
+            {"NormalStash", TabType.Normal},
+            {"PremiumStash", TabType.Premium},
+            {"CurrencyStash", TabType.Currency},
+            {"DivinationCardStash", TabType.DivinationCard},
+            {"EssenceStash", TabType.Essence},
+            {"QuadStash", TabType.Quad}
+        };
+
+        public static TabType GetTabType(string type)
+        {
+            try
+            {
+                return tabTypeMap.First(m => type.Contains(m.Key)).Value;
+            }
+            catch (Exception)
+            {
+                return TabType.Unknown;
+            }
+        }
+
         private static string getPropertyByName(List<JSONProxy.Property> properties, string name)
         {
             var prop = properties.Find(p => p.Name == name);
