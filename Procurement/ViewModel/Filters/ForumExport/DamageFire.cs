@@ -8,7 +8,7 @@
         }
 
         public DamageFire()
-            : base("Adds Fire Damage", "Adds Fire Damage", "Adds \\d+\\-\\d+ Fire Damage")
+            : base("Adds Fire Damage", "Adds Fire Damage", "Adds \\d+ to \\d+ Fire Damage")
         { }
     }
 }
