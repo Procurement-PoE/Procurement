@@ -152,6 +152,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\AccurayFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CraftedModFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CurrencyFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\DamageChaos.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\EnchantModFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\EssenceFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GearSearchFilters.cs" />
