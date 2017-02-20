@@ -17,7 +17,8 @@ namespace POEApi.Model
         Normal,
         Magic,
         Rare,
-        Unique
+        Unique,
+        Relic
     }
 
     public abstract class Item : ICloneable
