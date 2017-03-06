@@ -20,7 +20,7 @@
     <Orb type="JewelersOrb" OrbAmount="10" ChaosAmount="1" />
     <Orb type="Alteration" OrbAmount="20" ChaosAmount="1" />
     <Orb type="Chromatic" OrbAmount="20" ChaosAmount="1" />
-    <Orb type="VaalOrb" OrbAmount="1" ChaosAmount="1" />    "
+    <Orb type="VaalOrb" OrbAmount="1" ChaosAmount="1" />
   </Ratios>
   <PopularGems>
     <Gem name="Cast when Damage Taken" />
@@ -74,15 +74,17 @@
   <ShopSettings>
     <Shop League="Standard" ThreadId="" ThreadTitle="" />
     <Shop League="Hardcore" ThreadId="" ThreadTitle="" />
-    <Shop League="Breach" ThreadId="" ThreadTitle="" />
-    <Shop League="Hardcore Breach" ThreadId="" ThreadTitle="" />
+    <Shop League="Legacy" ThreadId="" ThreadTitle="" />
+    <Shop League="Hardcore Legacy" ThreadId="" ThreadTitle="" />
   </ShopSettings>
   <Lists>
     <List name="MyLeagues">
       <Item value="Standard" />
       <Item value="Hardcore" />
-      <Item value="Breach" />
-      <Item value="Hardcore Breach" />
+      <Item value="Legacy" />
+      <Item value="Hardcore Legacy" />
+      <Item value="SSF Legacy" />
+      <Item value="SSF Hardcore Legacy" />
     </List>
     <List name="MyTabs">
       <!--If you only want Procurement to download specific tabs list them here, eg :-->
