@@ -170,7 +170,27 @@
                             <TextBlock                   Grid.Column="1" Grid.Row="1" FontFamily="../Resources/#Fontin SmallCaps" Text="{Binding TypeLine}" FontSize="18" Foreground="#B54BFF" HorizontalAlignment="Center"/>
                         </Grid>
                     </Border>
-                </DataTemplate>                
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:RelicGearItemHoverViewModel}">
+                    <Border Background="{Binding Item, Converter={StaticResource vc}, ConverterParameter=0.3}" HorizontalAlignment="Stretch" >
+                        <Grid  MinWidth="200" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image HorizontalAlignment="Left" Source="/Images/ItemHover/ItemHeaderRelicLeft.png" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" />
+                            <Image Source="/Images/ItemHover/ItemHeaderRelicMiddle.png" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Stretch="Fill" Canvas.ZIndex="0" />
+                            <Image HorizontalAlignment="Right" Source="/Images/ItemHover/ItemHeaderRelicRight.png" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" />
+                            <TextBlock Margin="0,5,0,0"  Grid.Column="1" Grid.Row="0" FontFamily="../Resources/#Fontin SmallCaps" Text="{Binding Name}" FontSize="18" Foreground="#6AAD6A" Visibility="{Binding HasName, Converter={StaticResource bc}, ConverterParameter=CollapseWhenFalse}" HorizontalAlignment="Center"/>
+                            <TextBlock                   Grid.Column="1" Grid.Row="1" FontFamily="../Resources/#Fontin SmallCaps" Text="{Binding TypeLine}" FontSize="18" Foreground="#6AAD6A" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
             </Style.Resources>
         </Style>
     </UserControl.Resources>

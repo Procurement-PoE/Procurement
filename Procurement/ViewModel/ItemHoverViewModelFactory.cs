@@ -11,7 +11,7 @@ namespace Procurement.ViewModel
         internal static ItemHoverViewModel Create(Item item)
         {
             Gear gear = item as Gear;
-            Nullable<Rarity> r = null;
+            Rarity? r = null;
 
             if (gear != null)
                 r = gear.Rarity;
@@ -24,6 +24,8 @@ namespace Procurement.ViewModel
             {
                 switch (r)
                 {
+                    case Rarity.Relic:
+                        return new RelicGearItemHoverViewModel(item);
                     case Rarity.Unique:
                         return new UniqueGearItemHoverViewModel(item);
                     case Rarity.Rare:
@@ -47,6 +49,14 @@ namespace Procurement.ViewModel
             return new ItemHoverViewModel(item);
         }
     }
+
+    public class RelicGearItemHoverViewModel : ItemHoverViewModel
+    {
+        public RelicGearItemHoverViewModel(Item item)
+            : base(item)
+        { }
+    }
+
 
     public class UniqueGearItemHoverViewModel : ItemHoverViewModel
     {

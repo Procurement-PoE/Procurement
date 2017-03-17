@@ -696,6 +696,11 @@
     <Resource Include="Images\ItemHover\ItemsHeaderProphecyMiddle.png" />
     <Resource Include="Images\ItemHover\ItemsHeaderProphecyRight.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ItemHover\ItemHeaderRelicLeft.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderRelicMiddle.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderRelicRight.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
