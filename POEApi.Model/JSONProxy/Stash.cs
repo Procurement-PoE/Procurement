@@ -150,6 +150,9 @@ namespace POEApi.Model.JSONProxy
 
         [DataMember(Name = "prophecyDiffText")]
         public string ProphecyDifficultyText { get; set; }
+
+        [DataMember(Name = "isRelic")]
+        public bool IsRelic { get; set; }
     }
 
     [DataContract]

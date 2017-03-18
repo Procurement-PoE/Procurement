@@ -17,7 +17,8 @@ namespace POEApi.Model
         Normal,
         Magic,
         Rare,
-        Unique
+        Unique,
+        Relic
     }
 
     public abstract class Item : ICloneable
@@ -126,6 +127,10 @@ namespace POEApi.Model
 
         protected Rarity getRarity(JSONProxy.Item item)
         {
+            //Looks like isRelic is coming across the wire as an additional field but coincidentally 9 was the correct frame type here.
+            if (item.frameType == 9 || item.IsRelic)
+                return Rarity.Relic;
+
             if (item.frameType <= 3)
                 return (Rarity)item.frameType;
 

@@ -75,6 +75,7 @@
     <None Include="TestData\SampleCharacter.json" />
     <None Include="TestData\SampleStash.json" />
     <None Include="TestData\SampleStashWithEssences.json" />
+    <None Include="TestData\SampleStashWithRelic.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\POEApi.Model\POEApi.Model.csproj">

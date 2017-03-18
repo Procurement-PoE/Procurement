@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -89,6 +90,27 @@ namespace POEApi.Model.Tests
                 Assert.IsTrue(items.Any(x => x is Essence));
             }
         }
+
+        [TestMethod]
+        public void GetRelichStashTest()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithRelic);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+
+                Assert.AreEqual(stash.Tabs.Count, 27);
+
+                var items = stash.GetItemsByTab(7);
+
+                Assert.AreEqual(items.OfType<Gear>().Count(x => x.Rarity == Rarity.Relic), 1);
+            }
+        }
+
 
         [TestMethod]
         public void GetAccountNameTest()
