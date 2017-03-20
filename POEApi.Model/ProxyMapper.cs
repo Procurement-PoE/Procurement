@@ -302,15 +302,24 @@ namespace POEApi.Model
 
         public static ChargeInfo GetCharges(List<JSONProxy.Property> list)
         {
-            var chargeSize = list.Find(p => p.Name == CHARGES);
-            if (chargeSize == null)
-                return new ChargeInfo(0, 0);
+            try
+            {
+                var chargeSize = list.Find(p => p.Name == CHARGES);
+                if (chargeSize == null)
+                    return new ChargeInfo(0, 0);
 
-            var qty = (object[]) chargeSize.Values[0];
+                var qty = (object[]) chargeSize.Values[0];
             
-            var max = (object[]) chargeSize.Values[1];
+                var max = (object[]) chargeSize.Values[1];
 
-            return new ChargeInfo(int.Parse(qty[0].ToString()), int.Parse(max[1].ToString()));
+                return new ChargeInfo(int.Parse(qty[0].ToString()), int.Parse(max[1].ToString()));
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Error in ProxyMapper.GetCharges: " + ex);
+            }
+
+            return new ChargeInfo(1,1);
         }
     }
 }
