@@ -108,6 +108,14 @@ namespace POEApi.Model
         }
     }
 
+    public class LeaguestoneRunner : GearTypeRunnerBase
+    {
+        public LeaguestoneRunner() : base(GearType.Leaguestone, new List<string>() { "Leaguestone" })
+        {
+            generalTypes.Add("Leaguestone");
+        }
+    }
+
     public class HelmetRunner : GearTypeRunnerBase
     {
         public HelmetRunner()

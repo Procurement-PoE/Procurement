@@ -5,6 +5,9 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 [spoiler="          BreachStones        "]
 {Breachstone}
 [/spoiler]
+[spoiler="          Leaguestones        "]
+{Leaguestone}
+[/spoiler]
 [spoiler="          Prophecies          "]
 {Prophecies}
 [/spoiler]

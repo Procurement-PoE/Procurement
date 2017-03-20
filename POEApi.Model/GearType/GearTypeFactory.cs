@@ -29,6 +29,7 @@ namespace POEApi.Model
             { new DivinationCardRunner() },
             { new JewelRunner() },
             { new BreachstoneRunner() },
+            { new LeaguestoneRunner() },
             { new ChestRunner() } //Must always be last!
         };
 
