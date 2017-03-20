@@ -63,7 +63,14 @@ namespace POEApi.Transport
         {
             if (useSessionID)
             {
-                credentialCookies.Add(new System.Net.Cookie("POESESSID", password.UnWrap(), "/", "www.pathofexile.com"));
+                //Alot of users are reporting issue with logging in. Trimming their SessionID will hopefully improve the situation.
+                var unwrappedPassword = password.UnWrap();
+                if (!string.IsNullOrEmpty(unwrappedPassword) )
+                {
+                    unwrappedPassword = unwrappedPassword.Trim();
+                }
+
+                credentialCookies.Add(new Cookie("POESESSID", unwrappedPassword, "/", "www.pathofexile.com"));
                 HttpWebRequest confirmAuth = getHttpRequest(HttpMethod.GET, loginURL);
                 HttpWebResponse confirmAuthResponse = (HttpWebResponse)confirmAuth.GetResponse();
 
