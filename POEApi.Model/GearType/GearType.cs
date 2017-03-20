@@ -27,6 +27,7 @@
         DivinationCard,
         Jewel,
         Talisman,
-        Breachstone
+        Breachstone,
+        Leaguestone
     }
 }

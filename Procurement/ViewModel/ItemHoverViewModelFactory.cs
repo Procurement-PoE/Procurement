@@ -20,6 +20,10 @@ namespace Procurement.ViewModel
             if (map != null)
                 r = map.Rarity;
 
+            Leaguestone stone = item as Leaguestone;
+            if (stone != null)
+                r = stone.Rarity;
+
             if (r != null)
             {
                 switch (r)

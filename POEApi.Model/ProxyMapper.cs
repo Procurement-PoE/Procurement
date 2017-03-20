@@ -9,6 +9,7 @@ namespace POEApi.Model
     internal class ProxyMapper
     {
         internal const string STACKSIZE = "Stack Size";
+        internal const string CHARGES = "Currently has %0 of %1 Charges";
         internal const string STASH = "Stash";
         public const string QUALITY = "Quality";
         private static readonly Regex qualityRx = new Regex("[+]{1}(?<quality>[0-9]{1,2}).*");
@@ -297,6 +298,28 @@ namespace POEApi.Model
                 Logger.Log("Error in ProxyMapper.GetTabs: " + ex);
                 throw;
             }
+        }
+
+        public static ChargeInfo GetCharges(List<JSONProxy.Property> list)
+        {
+            try
+            {
+                var chargeSize = list.Find(p => p.Name == CHARGES);
+                if (chargeSize == null)
+                    return new ChargeInfo(0, 0);
+
+                var qty = (object[]) chargeSize.Values[0];
+            
+                var max = (object[]) chargeSize.Values[1];
+
+                return new ChargeInfo(int.Parse(qty[0].ToString()), int.Parse(max[1].ToString()));
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Error in ProxyMapper.GetCharges: " + ex);
+            }
+
+            return new ChargeInfo(1,1);
         }
     }
 }

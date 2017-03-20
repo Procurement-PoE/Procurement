@@ -158,6 +158,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\GearSearchFilters.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GemLevelFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\IncreasedDamageFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\LeagestoneFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\LifeLeech.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ManaLeechFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\MapFilter.cs" />
