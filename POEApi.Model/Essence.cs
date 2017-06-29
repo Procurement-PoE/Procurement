@@ -1,5 +1,8 @@
-﻿namespace POEApi.Model
+﻿using System.Diagnostics;
+
+namespace POEApi.Model
 {
+    [DebuggerDisplay("{TypeLine}")]
     public class Essence : StackableItem
     {
         public EssenceType Type { get; }

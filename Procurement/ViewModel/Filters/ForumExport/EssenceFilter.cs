@@ -38,7 +38,8 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public bool Applicable(Item item)
         {
-            return item.TypeLine.ToLower().Contains("essence");
+            var loweredTypeLine = item.TypeLine.ToLower();
+            return loweredTypeLine.Contains("essence") || loweredTypeLine.Contains("remnant of");
         }
     }
 }

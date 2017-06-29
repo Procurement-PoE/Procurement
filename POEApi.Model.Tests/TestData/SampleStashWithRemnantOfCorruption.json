@@ -1,0 +1,1653 @@
+{
+  "numTabs": 27,
+  "tabs": [{
+      "n": "1",
+      "i": 0,
+      "id": "3bfd05d93c71db20e920c8aa47e8c9078d0a984f002322d55caac5f304b4c8ef",
+      "type": "NormalStash",
+      "hidden": true,
+      "selected": false,
+      "colour": {
+        "r": 124,
+        "g": 84,
+        "b": 54
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+    },
+    {
+      "n": "\u00a3",
+      "i": 1,
+      "id": "b0dcf4e93d1ea3ccd625596c69e29ed5f84d15a0c4a7bb1044b38a25e31cf473",
+      "type": "CurrencyStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 99,
+        "g": 128,
+        "b": 0
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+    },
+    {
+      "n": "\u2663",
+      "i": 2,
+      "id": "4981bf7af1c487210056075a76189a7bbde53a0d5f14c49376fb67a27045e25a",
+      "type": "DivinationCardStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 99,
+        "g": 128,
+        "b": 0
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+    },
+    {
+      "n": "Maps",
+      "i": 3,
+      "id": "59f359d95ab87a3f84512a302c6c4a55575a77aaf279a180d8c73e280599159f",
+      "type": "PremiumStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 191,
+        "g": 0,
+        "b": 0
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi00MjU5ODQwO319fQ,,\/98a058fc32\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi00MjU5ODQwO319fQ,,\/edc7e2c501\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi00MjU5ODQwO319fQ,,\/42ff0bf3e8\/Stash_TabR.png"
+    },
+    {
+      "n": "Chaos Recipe",
+      "i": 4,
+      "id": "127fa9f221fc834b0f896a418da9db4d8efc2c6cc74f6cc1d227e4bad35eec76",
+      "type": "QuadStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 136,
+        "g": 136,
+        "b": 136
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi03ODI5MzY4O319fQ,,\/3e1c96f156\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi03ODI5MzY4O319fQ,,\/9da13bb4dc\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi03ODI5MzY4O319fQ,,\/5ff1e90713\/Stash_TabR.png"
+    },
+    {
+      "n": "Gems",
+      "i": 5,
+      "id": "07006817f1000b86f4128630a0e0acedc81b217f4999240f4be185aca447fbfc",
+      "type": "PremiumStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 255,
+        "g": 170,
+        "b": 0
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0yMjAxNjt9fX0,\/7b4a0c09c6\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0yMjAxNjt9fX0,\/48cdff3a2d\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0yMjAxNjt9fX0,\/2e84ef10af\/Stash_TabR.png"
+    },
+    {
+      "n": "Essences",
+      "i": 6,
+      "id": "5b9165e0aff3faf866cb2c2b0fc32525f9bb18f4edd9f6e610a4fc1800c36b87",
+      "type": "EssenceStash",
+      "hidden": false,
+      "selected": true,
+      "colour": {
+        "r": 0,
+        "g": 191,
+        "b": 0
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xNjcyODMyMDt9fX0,\/3d805e06a6\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xNjcyODMyMDt9fX0,\/3e1a877538\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xNjcyODMyMDt9fX0,\/e93234071f\/Stash_TabR.png"
+    },
+    {
+      "n": "1",
+      "i": 7,
+      "id": "221077a9e33b71f9b733308db9e6bce74ec7cfdba8e59b180a1a6fb6b7bfb89e",
+      "type": "NormalStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 124,
+        "g": 84,
+        "b": 54
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+    },
+    {
+      "n": "2",
+      "i": 8,
+      "id": "99f920affeecfe06e76df3a84928c95b8f012376bf8ecaac6db876bfdf82872e",
+      "type": "NormalStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 124,
+        "g": 84,
+        "b": 54
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+    },
+    {
+      "n": "3",
+      "i": 9,
+      "id": "7d2908f6d62ba61598c86bfb734cde968572b888398aea4fa77d1416ef59a36e",
+      "type": "NormalStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 124,
+        "g": 84,
+        "b": 54
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+    },
+    {
+      "n": "4",
+      "i": 10,
+      "id": "362f0b15e57517242d6fb0ed1acf6e2d7ed7106db47d3c5fc8f59bff4f33f530",
+      "type": "NormalStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 124,
+        "g": 84,
+        "b": 54
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+    },
+    {
+      "n": "5",
+      "i": 11,
+      "id": "02b7cebd1261e58b4375256663454c3008d05c8193f76dc31a4db7b2f25815b0",
+      "type": "NormalStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 124,
+        "g": 84,
+        "b": 54
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+    },
+    {
+      "n": "6",
+      "i": 12,
+      "id": "32fb2025de700607b94f8a6ea5b3c5977c966dba8ac9362ab2ddf712a2db296d",
+      "type": "NormalStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 124,
+        "g": 84,
+        "b": 54
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+    },
+    {
+      "n": "7",
+      "i": 13,
+      "id": "2a417bef254afa706886ff1825ce2ddc152d17dca45d9a87d4bb8bf5c82a5aeb",
+      "type": "NormalStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 124,
+        "g": 84,
+        "b": 54
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+    },
+    {
+      "n": "8",
+      "i": 14,
+      "id": "d6cbe91a3051eeabe7f1dbfba59730492391624607ec1d1489fbe011c5d67dcc",
+      "type": "NormalStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 124,
+        "g": 84,
+        "b": 54
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+    },
+    {
+      "n": "9",
+      "i": 15,
+      "id": "baec6c40c944a8f49129f859036a81d418f83eed2a43e5b02312b00a46e3db1e",
+      "type": "NormalStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 124,
+        "g": 84,
+        "b": 54
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+    },
+    {
+      "n": "10",
+      "i": 16,
+      "id": "2489f4bcf582f30ec5db3e2c967d4264bc5e1a9020631f4d804a9b36d0e732a7",
+      "type": "NormalStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 124,
+        "g": 84,
+        "b": 54
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+    },
+    {
+      "n": "11",
+      "i": 17,
+      "id": "9f05c72fc24331cc0f6bf00ec9d4b86b3ede00299a3c0a3ee7c8fb6b89dba002",
+      "type": "NormalStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 124,
+        "g": 84,
+        "b": 54
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+    },
+    {
+      "n": "12",
+      "i": 18,
+      "id": "b7391ac71b2de8327e6c4ab68155218930186e7ea05b349d0f6f5274447ac015",
+      "type": "NormalStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 124,
+        "g": 84,
+        "b": 54
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+    },
+    {
+      "n": "15",
+      "i": 19,
+      "id": "fcf27d371de185dbe46d77c4112fe0f23946371a822967b2f3b676d28aa0904f",
+      "type": "PremiumStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 99,
+        "g": 128,
+        "b": 0
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+    },
+    {
+      "n": "16",
+      "i": 20,
+      "id": "1f13a4619219fd2d98683ab0c8463a0e46bff8ae81e22b65aad8d34d0672285f",
+      "type": "PremiumStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 99,
+        "g": 128,
+        "b": 0
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+    },
+    {
+      "n": "14",
+      "i": 21,
+      "id": "ddf374a8fef0d723ae957b2e5237da3f6ee2cd4cbfe6e4e9bf135629db4301a8",
+      "type": "PremiumStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 99,
+        "g": 128,
+        "b": 0
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+    },
+    {
+      "n": "17",
+      "i": 22,
+      "id": "e7d50586efe31e792a1d2699f05b0799105d17b098552022780e824d9cd7dc52",
+      "type": "PremiumStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 99,
+        "g": 128,
+        "b": 0
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+    },
+    {
+      "n": "18",
+      "i": 23,
+      "id": "c0e2957e060d551194a52296a84012924e2e20ccc8b9ae87be5d145f6227a2f6",
+      "type": "PremiumStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 99,
+        "g": 128,
+        "b": 0
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+    },
+    {
+      "n": "19",
+      "i": 24,
+      "id": "6e645601454ee0ff975278576ca6005423fca4ed3d8ec918613f0c7fb13bd234",
+      "type": "PremiumStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 99,
+        "g": 128,
+        "b": 0
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+    },
+    {
+      "n": "20",
+      "i": 25,
+      "id": "3c314fb31a4cfd7c21589c0c39d31bb95774126aaa3052e2361e116fbf304f66",
+      "type": "PremiumStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 99,
+        "g": 128,
+        "b": 0
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+    },
+    {
+      "n": "21",
+      "i": 26,
+      "id": "7344d4a99c0d602cc38b776f018c181935a46a8218e68e7b02b3549114ce5339",
+      "type": "PremiumStash",
+      "hidden": false,
+      "selected": false,
+      "colour": {
+        "r": 99,
+        "g": 128,
+        "b": 0
+      },
+      "srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+      "srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+      "srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+    }],
+  "items": [	{
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Essence\/EssenceCorrupt.png?scale=1&stackSize=1&w=1&h=1&v=49220b99e034b4dd3c85702167958b383",
+      "league": "Standard",
+      "id": "85e20acf3144f184c5a255ca97aa03e9854577229ddfa4d8a2d12d0dadd62a34",
+      "sockets": [],
+      "name": "",
+      "typeLine": "Remnant of Corruption",
+      "identified": true,
+      "corrupted": false,
+      "lockedToCharacter": false,
+      "properties": [{
+        "name": "Stack Size",
+        "values": [["1\/9",
+          0]],
+        "displayMode": 0
+      }],
+      "explicitMods": ["Corrupts the Essences trapping a monster, modifying them unpredictably"],
+      "descrText": "Right click this item then left click a monster trapped by Essences to corrupt them. Corrupted Essences cannot be modified again.",
+      "frameType": 5,
+      "stackSize": 1,
+      "maxStackSize": 9,
+      "x": 2,
+      "y": 0,
+      "inventoryId": "Stash7",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Essence\/Woe4.png?scale=1&essence=1&stackSize=1&w=1&h=1&v=26d83392a96b8947d6f97418496197113",
+      "league": "SSF Legacy",
+      "id": "be1d393b5415ced29a0563585a9d3d6b03c8cc5224c8cb46670a1c93fa521d38",
+      "sockets": [],
+      "name": "",
+      "typeLine": "Wailing Essence of Woe",
+      "identified": true,
+      "corrupted": false,
+      "lockedToCharacter": false,
+      "properties": [{
+        "name": "Stack Size",
+        "values": [["1\/9",
+          0]],
+        "displayMode": 0
+      }],
+      "explicitMods": ["Upgrades a normal item to rare with one guaranteed property",
+        "Properties restricted to level 75 and below",
+        "",
+        "One Handed Weapon: (40-49)% increased Spell Damage",
+        "Two Handed Weapon: (60-74)% increased Spell Damage",
+        "Gloves: (18-26) to maximum Energy Shield",
+        "Boots: (18-26) to maximum Energy Shield",
+        "Shield: (30-48) to maximum Energy Shield",
+        "Other Armour: (20-29) to maximum Energy Shield",
+        "Quiver: (26-29)% increased Elemental Damage with Weapons",
+        "Amulet: (11-13)% increased maximum Energy Shield",
+        "Ring: (23-26) to maximum Energy Shield",
+        "Belt: (23-26) to maximum Energy Shield"],
+      "descrText": "Right click this item then left click a normal item to apply it.",
+      "frameType": 5,
+      "stackSize": 1,
+      "maxStackSize": 9,
+      "x": 10,
+      "y": 0,
+      "inventoryId": "Stash7",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Essence\/Fear3.png?scale=1&essence=1&stackSize=2&w=1&h=1&v=89cdd73a4de987ebc1bd4136507f75763",
+      "league": "SSF Legacy",
+      "id": "72fb9098811dfd049e3e8aea7dfd44080415b95c5209f307de47eb52c8861720",
+      "sockets": [],
+      "name": "",
+      "typeLine": "Weeping Essence of Fear",
+      "identified": true,
+      "corrupted": false,
+      "lockedToCharacter": false,
+      "properties": [{
+        "name": "Stack Size",
+        "values": [["2\/9",
+          0]],
+        "displayMode": 0
+      }],
+      "explicitMods": ["Upgrades a normal item to rare with one guaranteed property",
+        "Properties restricted to level 60 and below",
+        "",
+        "One Handed Weapon: Minions deal (11-14)% increased Damage",
+        "Two Handed Weapon: Minions deal (16-21)% increased Damage",
+        "Armour: Minions have (11-14)% increased maximum Life",
+        "Quiver: Minions have (11-14)% increased Movement Speed",
+        "Belt: Minions have (11-14)% increased maximum Life",
+        "Other Jewellery: Minions have (11-14)% increased Movement Speed"],
+      "descrText": "Right click this item then left click a normal item to apply it.",
+      "frameType": 5,
+      "stackSize": 2,
+      "maxStackSize": 9,
+      "x": 47,
+      "y": 0,
+      "inventoryId": "Stash7",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Essence\/Fear5.png?scale=1&essence=1&stackSize=1&w=1&h=1&v=98666642411b25e17b860dfa79499bef3",
+      "league": "SSF Legacy",
+      "id": "3af65f37ec0321530c8a7d268ee18af26bb693fcd1ae88d16aa116c3a4794514",
+      "sockets": [],
+      "name": "",
+      "typeLine": "Screaming Essence of Fear",
+      "identified": true,
+      "corrupted": false,
+      "lockedToCharacter": false,
+      "properties": [{
+        "name": "Stack Size",
+        "values": [["1\/9",
+          0]],
+        "displayMode": 0
+      }],
+      "explicitMods": ["Upgrades a normal item to rare with one guaranteed property",
+        "",
+        "One Handed Weapon: Minions deal (19-22)% increased Damage",
+        "Two Handed Weapon: Minions deal (28-33)% increased Damage",
+        "Armour: Minions have (19-22)% increased maximum Life",
+        "Quiver: Minions have (19-22)% increased Movement Speed",
+        "Belt: Minions have (19-22)% increased maximum Life",
+        "Other Jewellery: Minions have (19-22)% increased Movement Speed"],
+      "descrText": "Right click this item then left click a normal item to apply it.",
+      "frameType": 5,
+      "stackSize": 1,
+      "maxStackSize": 9,
+      "x": 49,
+      "y": 0,
+      "inventoryId": "Stash7",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Essence\/Hatred2.png?scale=1&essence=1&stackSize=2&w=1&h=1&v=c4d6f1c773d20697ab194039c6734f363",
+      "league": "SSF Legacy",
+      "id": "2abf8169b7bf2256f24906f23d50c55feb3d0bea1502fde6250f0e7b344b4e37",
+      "sockets": [],
+      "name": "",
+      "typeLine": "Muttering Essence of Hatred",
+      "identified": true,
+      "corrupted": false,
+      "lockedToCharacter": false,
+      "properties": [{
+        "name": "Stack Size",
+        "values": [["2\/9",
+          0]],
+        "displayMode": 0
+      }],
+      "explicitMods": ["Upgrades a normal item to rare with one guaranteed property",
+        "Properties restricted to level 45 and below",
+        "",
+        "Two Handed Melee Weapon: Adds (10-13) to (19-22) Cold Damage",
+        "Other Weapon: Adds (6-8) to (13-15) Cold Damage",
+        "Armour: (12-17)% to Cold Resistance",
+        "Quiver: (12-17)% to Cold Resistance",
+        "Belt: (12-17)% to Cold Resistance",
+        "Other Jewellery: (10-13)% increased Cold Damage"],
+      "descrText": "Right click this item then left click a normal item to apply it.",
+      "frameType": 5,
+      "stackSize": 2,
+      "maxStackSize": 9,
+      "x": 1,
+      "y": 0,
+      "inventoryId": "Stash7",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Essence\/Sorrow4.png?scale=1&essence=1&stackSize=1&w=1&h=1&v=f5512f122d9c273e57c3eb4e1aa72fec3",
+      "league": "SSF Legacy",
+      "id": "b17a1fe82d9db8b0c9b49d9f84f3858345d67657343ba63c19b1f1fef4ff5f58",
+      "sockets": [],
+      "name": "",
+      "typeLine": "Wailing Essence of Sorrow",
+      "identified": true,
+      "corrupted": false,
+      "lockedToCharacter": false,
+      "properties": [{
+        "name": "Stack Size",
+        "values": [["1\/9",
+          0]],
+        "displayMode": 0
+      }],
+      "explicitMods": ["Upgrades a normal item to rare with one guaranteed property",
+        "Properties restricted to level 75 and below",
+        "",
+        "Weapon: +1 to Level of Socketed Cold Gems",
+        "Other Item: (28-32) to Dexterity"],
+      "descrText": "Right click this item then left click a normal item to apply it.",
+      "frameType": 5,
+      "stackSize": 1,
+      "maxStackSize": 9,
+      "x": 30,
+      "y": 0,
+      "inventoryId": "Stash7",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Essence\/Woe1.png?scale=1&essence=1&stackSize=2&w=1&h=1&v=c2091e476989643b8eb31d5f7ee20f713",
+      "league": "SSF Legacy",
+      "id": "5a242f941d41b3f343ebfccb48bb27e7b915860beae80db2c00370ef884a7ecf",
+      "sockets": [],
+      "name": "",
+      "typeLine": "Whispering Essence of Woe",
+      "identified": true,
+      "corrupted": false,
+      "lockedToCharacter": false,
+      "properties": [{
+        "name": "Stack Size",
+        "values": [["2\/9",
+          0]],
+        "displayMode": 0
+      }],
+      "explicitMods": ["Upgrades a normal item to rare with one guaranteed property",
+        "Properties restricted to level 35 and below",
+        "",
+        "One Handed Weapon: (10-19)% increased Spell Damage",
+        "Two Handed Weapon: (15-29)% increased Spell Damage",
+        "Armour: (3-5) to maximum Energy Shield",
+        "Quiver: (11-15)% increased Elemental Damage with Weapons",
+        "Amulet: (2-4)% increased maximum Energy Shield",
+        "Ring: (1-3) to maximum Energy Shield",
+        "Belt: (1-3) to maximum Energy Shield"],
+      "descrText": "Right click this item then left click a normal item to apply it.",
+      "frameType": 5,
+      "stackSize": 2,
+      "maxStackSize": 9,
+      "x": 7,
+      "y": 0,
+      "inventoryId": "Stash7",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Essence\/Anger2.png?scale=1&essence=1&stackSize=1&w=1&h=1&v=56963b86f3de434e89b427190f3c64663",
+      "league": "SSF Legacy",
+      "id": "8a4889b55684dcc8293edbedd9f0c6ae6faf0fd0b143e9930ae5ea045ef8cb22",
+      "sockets": [],
+      "name": "",
+      "typeLine": "Muttering Essence of Anger",
+      "identified": true,
+      "corrupted": false,
+      "lockedToCharacter": false,
+      "properties": [{
+        "name": "Stack Size",
+        "values": [["1\/9",
+          0]],
+        "displayMode": 0
+      }],
+      "explicitMods": ["Upgrades a normal item to rare with one guaranteed property",
+        "Properties restricted to level 45 and below",
+        "",
+        "Two Handed Melee Weapon: Adds (12-16) to (23-27) Fire Damage",
+        "Other Weapon: Adds (8-10) to (15-18) Fire Damage",
+        "Armour: (12-17)% to Fire Resistance",
+        "Quiver: (12-17)% to Fire Resistance",
+        "Belt: (12-17)% to Fire Resistance",
+        "Other Jewellery: (11-14)% increased Fire Damage"],
+      "descrText": "Right click this item then left click a normal item to apply it.",
+      "frameType": 5,
+      "stackSize": 1,
+      "maxStackSize": 9,
+      "x": 34,
+      "y": 0,
+      "inventoryId": "Stash7",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Essence\/Sorrow3.png?scale=1&essence=1&stackSize=2&w=1&h=1&v=3bb862824c36ee034a3a727a311432f83",
+      "league": "SSF Legacy",
+      "id": "64bb0db49f720dfa15c89031c08dddb29e60857a217cdbe3897a7728a0dc89dc",
+      "sockets": [],
+      "name": "",
+      "typeLine": "Weeping Essence of Sorrow",
+      "identified": true,
+      "corrupted": false,
+      "lockedToCharacter": false,
+      "properties": [{
+        "name": "Stack Size",
+        "values": [["2\/9",
+          0]],
+        "displayMode": 0
+      }],
+      "explicitMods": ["Upgrades a normal item to rare with one guaranteed property",
+        "Properties restricted to level 60 and below",
+        "",
+        "Weapon: +1 to Level of Socketed Cold Gems",
+        "Other Item: (18-22) to Dexterity"],
+      "descrText": "Right click this item then left click a normal item to apply it.",
+      "frameType": 5,
+      "stackSize": 2,
+      "maxStackSize": 9,
+      "x": 29,
+      "y": 0,
+      "inventoryId": "Stash7",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Essence\/Fear4.png?scale=1&essence=1&stackSize=1&w=1&h=1&v=19d61d301f7c14a3e26e4604b3273af53",
+      "league": "SSF Legacy",
+      "id": "2b22065127d58aebf2ae9627e2a591b963564f905943593b2a148b8c07d81df6",
+      "sockets": [],
+      "name": "",
+      "typeLine": "Wailing Essence of Fear",
+      "identified": true,
+      "corrupted": false,
+      "lockedToCharacter": false,
+      "properties": [{
+        "name": "Stack Size",
+        "values": [["1\/9",
+          0]],
+        "displayMode": 0
+      }],
+      "explicitMods": ["Upgrades a normal item to rare with one guaranteed property",
+        "Properties restricted to level 75 and below",
+        "",
+        "One Handed Weapon: Minions deal (15-18)% increased Damage",
+        "Two Handed Weapon: Minions deal (22-27)% increased Damage",
+        "Armour: Minions have (15-18)% increased maximum Life",
+        "Quiver: Minions have (15-18)% increased Movement Speed",
+        "Belt: Minions have (15-18)% increased maximum Life",
+        "Other Jewellery: Minions have (15-18)% increased Movement Speed"],
+      "descrText": "Right click this item then left click a normal item to apply it.",
+      "frameType": 5,
+      "stackSize": 1,
+      "maxStackSize": 9,
+      "x": 48,
+      "y": 0,
+      "inventoryId": "Stash7",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Essence\/Wrath4.png?scale=1&essence=1&stackSize=1&w=1&h=1&v=1b78b631cf91f1d6ec48173183c262573",
+      "league": "SSF Legacy",
+      "id": "d707866805d95b816d8a3ff6d50fa530bd55a6ad804bf3ef74c7fa64e601c6d8",
+      "sockets": [],
+      "name": "",
+      "typeLine": "Wailing Essence of Wrath",
+      "identified": true,
+      "corrupted": false,
+      "lockedToCharacter": false,
+      "properties": [{
+        "name": "Stack Size",
+        "values": [["1\/9",
+          0]],
+        "displayMode": 0
+      }],
+      "explicitMods": ["Upgrades a normal item to rare with one guaranteed property",
+        "Properties restricted to level 75 and below",
+        "",
+        "Two Handed Melee Weapon: Adds (4-11) to (137-145) Lightning Damage",
+        "Other Weapon: Adds (2-7) to (91-96) Lightning Damage",
+        "Armour: (24-29)% to Lightning Resistance",
+        "Quiver: (24-29)% to Lightning Resistance",
+        "Belt: (24-29)% to Lightning Resistance",
+        "Other Jewellery: (13-17)% increased Lightning Damage"],
+      "descrText": "Right click this item then left click a normal item to apply it.",
+      "frameType": 5,
+      "stackSize": 1,
+      "maxStackSize": 9,
+      "x": 63,
+      "y": 0,
+      "inventoryId": "Stash7",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Essence\/Greed3.png?scale=1&essence=1&stackSize=1&w=1&h=1&v=a673402a48dd5d1a6509515f5e249dab3",
+      "league": "SSF Legacy",
+      "id": "e92cbe835097e9c31639a987862331ef60a5bf7b1a6f426d47a25dc15cf58f43",
+      "sockets": [],
+      "name": "",
+      "typeLine": "Weeping Essence of Greed",
+      "identified": true,
+      "corrupted": false,
+      "lockedToCharacter": false,
+      "properties": [{
+        "name": "Stack Size",
+        "values": [["1\/9",
+          0]],
+        "displayMode": 0
+      }],
+      "explicitMods": ["Upgrades a normal item to rare with one guaranteed property",
+        "Properties restricted to level 60 and below",
+        "",
+        "Weapon: (0.7-0.9)% of Physical Attack Damage Leeched as Life",
+        "Armour: (31-45) to maximum Life",
+        "Quiver: (0.7-0.9)% of Physical Attack Damage Leeched as Life",
+        "Belt: (16-19)% increased Flask Life Recovery rate",
+        "Other Jewellery: (3-4) Life Regenerated per second"],
+      "descrText": "Right click this item then left click a normal item to apply it.",
+      "frameType": 5,
+      "stackSize": 1,
+      "maxStackSize": 9,
+      "x": 16,
+      "y": 0,
+      "inventoryId": "Stash7",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Essence\/Torment4.png?scale=1&essence=1&stackSize=1&w=1&h=1&v=a9d3fedc6e36286fbfc6bf32763db2da3",
+      "league": "SSF Legacy",
+      "id": "ed9359f0615bed8cdc9772de4887b0d22d88d203494be28cdfc24b5d7f0c4672",
+      "sockets": [],
+      "name": "",
+      "typeLine": "Wailing Essence of Torment",
+      "identified": true,
+      "corrupted": false,
+      "lockedToCharacter": false,
+      "properties": [{
+        "name": "Stack Size",
+        "values": [["1\/9",
+          0]],
+        "displayMode": 0
+      }],
+      "explicitMods": ["Upgrades a normal item to rare with one guaranteed property",
+        "Properties restricted to level 75 and below",
+        "",
+        "One Handed Weapon: Adds (2-6) to (73-77) Lightning Damage to Spells",
+        "Two Handed Weapon: Adds (3-9) to (109-115) Lightning Damage to Spells",
+        "Gloves: Adds (1-2) to (23-24) Lightning Damage to Attacks",
+        "Body Armour: (6-7)% chance to Avoid Lightning Damage when Hit",
+        "Shield: (6-7)% chance to Avoid Lightning Damage when Hit",
+        "Other Armour: (19-22)% chance to Avoid being Shocked",
+        "Quiver: Adds (1-2) to (23-24) Lightning Damage to Attacks",
+        "Belt: (19-22)% chance to Avoid being Shocked",
+        "Other Jewellery: Adds (1-4) to (40-43) Lightning Damage to Attacks"],
+      "descrText": "Right click this item then left click a normal item to apply it.",
+      "frameType": 5,
+      "stackSize": 1,
+      "maxStackSize": 9,
+      "x": 42,
+      "y": 0,
+      "inventoryId": "Stash7",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Essence\/Contempt1.png?scale=1&essence=1&stackSize=2&w=1&h=1&v=60f8830c2dadd217eb99cee02425f07d3",
+      "league": "SSF Legacy",
+      "id": "dd051066645f2a977b03cc58cd70b247ac14195f925e3c4a698f4de105adb89e",
+      "sockets": [],
+      "name": "",
+      "typeLine": "Whispering Essence of Contempt",
+      "identified": true,
+      "corrupted": false,
+      "lockedToCharacter": false,
+      "properties": [{
+        "name": "Stack Size",
+        "values": [["2\/9",
+          0]],
+        "displayMode": 0
+      }],
+      "explicitMods": ["Upgrades a normal item to rare with one guaranteed property",
+        "Properties restricted to level 35 and below",
+        "",
+        "One Handed Weapon: Adds 1 to (2-3) Physical Damage",
+        "Two Handed Weapon: Adds 2 to (4-5) Physical Damage",
+        "Gloves: Adds 1 to 2 Physical Damage to Attacks",
+        "Other Armour: Reflects (1-4) Physical Damage to Melee Attackers",
+        "Quiver: Adds 1 to 2 Physical Damage to Attacks",
+        "Belt: Reflects (1-4) Physical Damage to Melee Attackers",
+        "Other Jewellery: Adds 1 to 2 Physical Damage to Attacks"],
+      "descrText": "Right click this item then left click a normal item to apply it.",
+      "frameType": 5,
+      "stackSize": 2,
+      "maxStackSize": 9,
+      "x": 21,
+      "y": 0,
+      "inventoryId": "Stash7",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Essence\/Wrath3.png?scale=1&essence=1&stackSize=1&w=1&h=1&v=3870a986ca4f5984a797427c40a4ab413",
+      "league": "SSF Legacy",
+      "id": "d62cf60a52880923910888be67e1d5a16e680cb0650537bdc6d8b7a59c1a2f78",
+      "sockets": [],
+      "name": "",
+      "typeLine": "Weeping Essence of Wrath",
+      "identified": true,
+      "corrupted": false,
+      "lockedToCharacter": false,
+      "properties": [{
+        "name": "Stack Size",
+        "values": [["1\/9",
+          0]],
+        "displayMode": 0
+      }],
+      "explicitMods": ["Upgrades a normal item to rare with one guaranteed property",
+        "Properties restricted to level 60 and below",
+        "",
+        "Two Handed Melee Weapon: Adds (2-7) to (87-92) Lightning Damage",
+        "Other Weapon: Adds (2-5) to (58-61) Lightning Damage",
+        "Armour: (18-23)% to Lightning Resistance",
+        "Quiver: (18-23)% to Lightning Resistance",
+        "Belt: (18-23)% to Lightning Resistance",
+        "Other Jewellery: (8-12)% increased Lightning Damage"],
+      "descrText": "Right click this item then left click a normal item to apply it.",
+      "frameType": 5,
+      "stackSize": 1,
+      "maxStackSize": 9,
+      "x": 62,
+      "y": 0,
+      "inventoryId": "Stash7",
+      "socketedItems": []
+    }],
+  "essenceLayout": {
+    "essences": [{
+        "x": 480,
+        "y": 183,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 408,
+        "y": 183,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 335,
+        "y": 183,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 263,
+        "y": 183,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 190,
+        "y": 183,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 117,
+        "y": 183,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 44,
+        "y": 183,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 480,
+        "y": 256,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 408,
+        "y": 256,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 335,
+        "y": 256,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 263,
+        "y": 256,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 190,
+        "y": 256,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 117,
+        "y": 256,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 44,
+        "y": 256,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 480,
+        "y": 38,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 408,
+        "y": 38,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 335,
+        "y": 38,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 263,
+        "y": 38,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 190,
+        "y": 38,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 117,
+        "y": 38,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 44,
+        "y": 38,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 480,
+        "y": 111,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 408,
+        "y": 111,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 335,
+        "y": 111,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 263,
+        "y": 111,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 190,
+        "y": 111,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 117,
+        "y": 111,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 44,
+        "y": 111,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 408,
+        "y": 547,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 335,
+        "y": 547,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 263,
+        "y": 547,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 190,
+        "y": 547,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 117,
+        "y": 547,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 44,
+        "y": 547,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 408,
+        "y": 402,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 335,
+        "y": 402,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 263,
+        "y": 402,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 190,
+        "y": 402,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 117,
+        "y": 402,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 44,
+        "y": 402,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 408,
+        "y": 474,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 335,
+        "y": 474,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 263,
+        "y": 474,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 190,
+        "y": 474,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 117,
+        "y": 474,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 44,
+        "y": 474,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 408,
+        "y": 329,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 335,
+        "y": 329,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 263,
+        "y": 329,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 190,
+        "y": 329,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 117,
+        "y": 329,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 44,
+        "y": 329,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 335,
+        "y": 692,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 263,
+        "y": 692,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 190,
+        "y": 692,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 117,
+        "y": 692,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 44,
+        "y": 692,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 335,
+        "y": 619,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 263,
+        "y": 619,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 190,
+        "y": 619,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 117,
+        "y": 619,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 44,
+        "y": 618,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 335,
+        "y": 764,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 263,
+        "y": 764,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 190,
+        "y": 764,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 117,
+        "y": 764,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 44,
+        "y": 764,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 335,
+        "y": 837,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 263,
+        "y": 837,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 190,
+        "y": 837,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 117,
+        "y": 837,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 44,
+        "y": 837,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 613,
+        "y": 182,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 685,
+        "y": 182,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 760,
+        "y": 182,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 833,
+        "y": 182,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 613,
+        "y": 38,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 685,
+        "y": 38,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 760,
+        "y": 38,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 833,
+        "y": 38,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 613,
+        "y": 256,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 686,
+        "y": 256,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 760,
+        "y": 256,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 833,
+        "y": 256,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 613,
+        "y": 111,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 686,
+        "y": 111,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 760,
+        "y": 111,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 833,
+        "y": 111,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 686,
+        "y": 474,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 760,
+        "y": 474,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 833,
+        "y": 474,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 686,
+        "y": 547,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 760,
+        "y": 547,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 833,
+        "y": 547,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 686,
+        "y": 329,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 760,
+        "y": 329,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 833,
+        "y": 329,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 686,
+        "y": 402,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 760,
+        "y": 402,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 833,
+        "y": 402,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 833,
+        "y": 838,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 833,
+        "y": 620,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 833,
+        "y": 693,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 833,
+        "y": 765,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 760,
+        "y": 620,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 760,
+        "y": 693,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 760,
+        "y": 765,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 760,
+        "y": 838,
+        "w": 1,
+        "h": 1
+      },
+      {
+        "x": 514,
+        "y": 653,
+        "w": 2,
+        "h": 4
+      }],
+    "scale": 0.608519269777
+  }
+}
