@@ -1,10 +1,9 @@
-﻿using System.IO;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
+﻿using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using POEApi.Transport;
+using static POEApi.Model.Tests.UnitTestHelper;
 
 namespace POEApi.Model.Tests
 {
@@ -125,16 +124,6 @@ namespace POEApi.Model.Tests
 
                 Assert.AreEqual(account, "fakeAccountName");
             }
-        }
-
-        public Stream GenerateStreamFromString(string s)
-        {
-            var stream = new MemoryStream();
-            var writer = new StreamWriter(stream);
-            writer.Write(s);
-            writer.Flush();
-            stream.Position = 0;
-            return stream;
         }
     }
 }

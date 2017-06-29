@@ -68,6 +68,8 @@
     </Compile>
     <Compile Include="PoeModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IFilterTests.cs" />
+    <Compile Include="UnitTestHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -76,6 +78,7 @@
     <None Include="TestData\SampleStash.json" />
     <None Include="TestData\SampleStashWithEssences.json" />
     <None Include="TestData\SampleStashWithRelic.json" />
+    <None Include="TestData\SampleStashWithRemnantOfCorruption.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\POEApi.Model\POEApi.Model.csproj">
@@ -85,6 +88,10 @@
     <ProjectReference Include="..\POEApi.Transport\POEApi.Transport.csproj">
       <Project>{5933C062-45EA-4BC3-9AE9-0D6CFC26D505}</Project>
       <Name>POEApi.Transport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Procurement\Procurement.csproj">
+      <Project>{9369113D-A68F-4FE9-B301-D00C5176666A}</Project>
+      <Name>Procurement</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
