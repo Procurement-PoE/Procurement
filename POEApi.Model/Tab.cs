@@ -2,9 +2,22 @@
 using System.Diagnostics;
 namespace POEApi.Model
 {
+    public enum TabType
+    {
+        Normal,
+        Premium,
+        Currency,
+        DivinationCard,
+        Essence,
+        Quad,
+
+        Unknown,
+    }
+
     public class Tab
     {
         public bool IsFakeTab { get; set; }
+        public TabType Type { get; set; }
         public string Name { get; set; }
         public int i { get; set; }
         public Colour Colour { get; set; }
@@ -25,6 +38,7 @@ namespace POEApi.Model
             srcC = getUrl(t.srcC);
             srcL = getUrl(t.srcL); 
             Hidden = t.hidden;
+            Type = ProxyMapper.GetTabType(t.type);
         }
 
         private string getUrl(string url)

@@ -22,8 +22,11 @@ namespace POEApi.Model
                 if (item.DescrText != null && item.DescrText.ToLower() == "right click this item then left click a location on the ground to create the object.")
                     return new Decoration(item);
 
+                if (item.TypeLine.Contains("Leaguestone"))
+                    return new Leaguestone(item);
+
                 if (item.frameType == 5)
-                    return new Currency(item);
+                    return GetCurrency(item);
 
                 if (item.TypeLine.Contains("Map") && item.DescrText != null && item.DescrText.Contains("Travel to this Map"))
                     return new Map(item);
@@ -33,10 +36,26 @@ namespace POEApi.Model
             catch (Exception ex)
             {
                 Logger.Log(ex);
-                var errorMessage = "ItemFactory unable to instanciate type : " + item.TypeLine;
+                var errorMessage = "ItemFactory unable to instantiate type : " + item.TypeLine;
                 Logger.Log(errorMessage);
                 throw new Exception(errorMessage);
             }
+        }
+
+        private static Item GetCurrency(JSONProxy.Item item)
+        {
+            var typeline = item.TypeLine.ToLower();
+
+            if (typeline.Contains("essence") || typeline.Contains("remnant of"))
+                return new Essence(item);
+
+            if (typeline.Contains("splinter of"))
+                return new Splinter(item);
+
+            if (typeline.Contains("blessing"))
+                return new BreachBlessing(item);
+
+            return new Currency(item);
         }
 
 

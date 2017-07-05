@@ -26,6 +26,8 @@
         QuestItem,
         DivinationCard,
         Jewel,
-        Talisman
+        Talisman,
+        Breachstone,
+        Leaguestone
     }
 }

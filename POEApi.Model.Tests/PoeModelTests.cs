@@ -1,8 +1,9 @@
-﻿using System.IO;
+﻿using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using POEApi.Transport;
+using static POEApi.Model.Tests.UnitTestHelper;
 
 namespace POEApi.Model.Tests
 {
@@ -70,6 +71,47 @@ namespace POEApi.Model.Tests
         }
 
         [TestMethod]
+        public void GetEssenceStashTest()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithEssences);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+
+                Assert.AreEqual(stash.Tabs.Count, 83);
+
+                var items = stash.GetItemsByTab(14);
+
+                Assert.IsTrue(items.Any(x => x is Essence));
+            }
+        }
+
+        [TestMethod]
+        public void GetRelichStashTest()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithRelic);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+
+                Assert.AreEqual(stash.Tabs.Count, 27);
+
+                var items = stash.GetItemsByTab(7);
+
+                Assert.AreEqual(items.OfType<Gear>().Count(x => x.Rarity == Rarity.Relic), 1);
+            }
+        }
+
+
+        [TestMethod]
         public void GetAccountNameTest()
         {
             var fakeAccountNameResponse = "{\"accountName\":\"fakeAccountName\"}";
@@ -82,16 +124,6 @@ namespace POEApi.Model.Tests
 
                 Assert.AreEqual(account, "fakeAccountName");
             }
-        }
-
-        public Stream GenerateStreamFromString(string s)
-        {
-            var stream = new MemoryStream();
-            var writer = new StreamWriter(stream);
-            writer.Write(s);
-            writer.Flush();
-            stream.Position = 0;
-            return stream;
         }
     }
 }

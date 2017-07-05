@@ -26,7 +26,7 @@ namespace Procurement.Controls
 
         public IEnumerable<IFilter> Filter
         {
-            get { return (IEnumerable<IFilter>)GetValue(FilterProperty); }
+            get { return (IEnumerable<IFilter>) GetValue(FilterProperty); }
             set { SetValue(FilterProperty, value); }
         }
 
@@ -40,7 +40,7 @@ namespace Procurement.Controls
             foreach (var item in Stash)
             {
                 var index = Tuple.Create<int, int>(item.X, item.Y);
-             
+
                 // Currency tab does not have the standard 12x12 grid
                 // so we have to check each column exists before attempting to access it
                 if (borderByLocation.ContainsKey(index))
@@ -68,7 +68,8 @@ namespace Procurement.Controls
 
         public void RefreshTab(string accountName)
         {
-            ApplicationState.Stash[ApplicationState.CurrentLeague].RefreshTab(ApplicationState.Model, ApplicationState.CurrentLeague, TabNumber, accountName);
+            ApplicationState.Stash[ApplicationState.CurrentLeague].RefreshTab(ApplicationState.Model,
+                ApplicationState.CurrentLeague, TabNumber, accountName);
             refresh();
         }
 
@@ -79,7 +80,8 @@ namespace Procurement.Controls
         {
             InitializeComponent();
             this.Loaded += new RoutedEventHandler(StashControl_Loaded);
-            ApplicationState.LeagueChanged += new System.ComponentModel.PropertyChangedEventHandler(ApplicationState_LeagueChanged);
+            ApplicationState.LeagueChanged +=
+                new System.ComponentModel.PropertyChangedEventHandler(ApplicationState_LeagueChanged);
             stashByLocation = new Dictionary<Tuple<int, int>, Item>();
         }
 
@@ -96,13 +98,26 @@ namespace Procurement.Controls
             refresh();
         }
 
-        Dictionary<string, Item> test = new Dictionary<string, Item>();
-
         private void refresh()
         {
             this.Stash = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(TabNumber);
+            TabType tabType = GetTabType();
+
             updateStashByLocation();
-            render();
+            render(tabType);
+        }
+
+        private TabType GetTabType()
+        {
+            try
+            {
+                return ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs[TabNumber - 1].Type;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Error in StashControl.GetTabType: " + ex);
+                return TabType.Normal;
+            }
         }
 
         private void updateStashByLocation()
@@ -122,9 +137,18 @@ namespace Procurement.Controls
             }
         }
 
-        private void render()
+        private const int NORMAL_SPACING = 12;
+        private const int QUAD_SPACING = 24;
+
+        private void render(TabType tabType)
         {
-            const int columns = 12, rows = 12;
+            int columns = NORMAL_SPACING, rows = NORMAL_SPACING;
+
+            if (tabType == TabType.Quad)
+            {
+                columns = QUAD_SPACING;
+                rows = QUAD_SPACING;
+            }
 
             grid.ColumnDefinitions.Clear();
             grid.RowDefinitions.Clear();

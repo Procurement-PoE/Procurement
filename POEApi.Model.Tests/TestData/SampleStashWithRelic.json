@@ -1,0 +1,2170 @@
+{
+	"numTabs": 27,
+	"tabs": [{
+		"n": "1",
+		"i": 0,
+		"id": "3bfd05d93c71db20e920c8aa47e8c9078d0a984f002322d55caac5f304b4c8ef",
+		"type": "NormalStash",
+		"hidden": true,
+		"selected": false,
+		"colour": {
+			"r": 124,
+			"g": 84,
+			"b": 54
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+	},
+	{
+		"n": "\u00a3",
+		"i": 1,
+		"id": "b0dcf4e93d1ea3ccd625596c69e29ed5f84d15a0c4a7bb1044b38a25e31cf473",
+		"type": "CurrencyStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 99,
+			"g": 128,
+			"b": 0
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+	},
+	{
+		"n": "\u2663",
+		"i": 2,
+		"id": "4981bf7af1c487210056075a76189a7bbde53a0d5f14c49376fb67a27045e25a",
+		"type": "DivinationCardStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 99,
+			"g": 128,
+			"b": 0
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+	},
+	{
+		"n": "Maps",
+		"i": 3,
+		"id": "59f359d95ab87a3f84512a302c6c4a55575a77aaf279a180d8c73e280599159f",
+		"type": "PremiumStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 191,
+			"g": 0,
+			"b": 0
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi00MjU5ODQwO319fQ,,\/98a058fc32\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi00MjU5ODQwO319fQ,,\/edc7e2c501\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi00MjU5ODQwO319fQ,,\/42ff0bf3e8\/Stash_TabR.png"
+	},
+	{
+		"n": "Chaos Recipe",
+		"i": 4,
+		"id": "127fa9f221fc834b0f896a418da9db4d8efc2c6cc74f6cc1d227e4bad35eec76",
+		"type": "QuadStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 136,
+			"g": 136,
+			"b": 136
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi03ODI5MzY4O319fQ,,\/3e1c96f156\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi03ODI5MzY4O319fQ,,\/9da13bb4dc\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi03ODI5MzY4O319fQ,,\/5ff1e90713\/Stash_TabR.png"
+	},
+	{
+		"n": "Gems",
+		"i": 5,
+		"id": "07006817f1000b86f4128630a0e0acedc81b217f4999240f4be185aca447fbfc",
+		"type": "PremiumStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 255,
+			"g": 170,
+			"b": 0
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0yMjAxNjt9fX0,\/7b4a0c09c6\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0yMjAxNjt9fX0,\/48cdff3a2d\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0yMjAxNjt9fX0,\/2e84ef10af\/Stash_TabR.png"
+	},
+	{
+		"n": "Essences",
+		"i": 6,
+		"id": "5b9165e0aff3faf866cb2c2b0fc32525f9bb18f4edd9f6e610a4fc1800c36b87",
+		"type": "EssenceStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 0,
+			"g": 191,
+			"b": 0
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xNjcyODMyMDt9fX0,\/3d805e06a6\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xNjcyODMyMDt9fX0,\/3e1a877538\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xNjcyODMyMDt9fX0,\/e93234071f\/Stash_TabR.png"
+	},
+	{
+		"n": "1",
+		"i": 7,
+		"id": "221077a9e33b71f9b733308db9e6bce74ec7cfdba8e59b180a1a6fb6b7bfb89e",
+		"type": "NormalStash",
+		"hidden": false,
+		"selected": true,
+		"colour": {
+			"r": 124,
+			"g": 84,
+			"b": 54
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+	},
+	{
+		"n": "2",
+		"i": 8,
+		"id": "99f920affeecfe06e76df3a84928c95b8f012376bf8ecaac6db876bfdf82872e",
+		"type": "NormalStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 124,
+			"g": 84,
+			"b": 54
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+	},
+	{
+		"n": "3",
+		"i": 9,
+		"id": "7d2908f6d62ba61598c86bfb734cde968572b888398aea4fa77d1416ef59a36e",
+		"type": "NormalStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 124,
+			"g": 84,
+			"b": 54
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+	},
+	{
+		"n": "4",
+		"i": 10,
+		"id": "362f0b15e57517242d6fb0ed1acf6e2d7ed7106db47d3c5fc8f59bff4f33f530",
+		"type": "NormalStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 124,
+			"g": 84,
+			"b": 54
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+	},
+	{
+		"n": "5",
+		"i": 11,
+		"id": "02b7cebd1261e58b4375256663454c3008d05c8193f76dc31a4db7b2f25815b0",
+		"type": "NormalStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 124,
+			"g": 84,
+			"b": 54
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+	},
+	{
+		"n": "6",
+		"i": 12,
+		"id": "32fb2025de700607b94f8a6ea5b3c5977c966dba8ac9362ab2ddf712a2db296d",
+		"type": "NormalStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 124,
+			"g": 84,
+			"b": 54
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+	},
+	{
+		"n": "7",
+		"i": 13,
+		"id": "2a417bef254afa706886ff1825ce2ddc152d17dca45d9a87d4bb8bf5c82a5aeb",
+		"type": "NormalStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 124,
+			"g": 84,
+			"b": 54
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+	},
+	{
+		"n": "8",
+		"i": 14,
+		"id": "d6cbe91a3051eeabe7f1dbfba59730492391624607ec1d1489fbe011c5d67dcc",
+		"type": "NormalStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 124,
+			"g": 84,
+			"b": 54
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+	},
+	{
+		"n": "9",
+		"i": 15,
+		"id": "baec6c40c944a8f49129f859036a81d418f83eed2a43e5b02312b00a46e3db1e",
+		"type": "NormalStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 124,
+			"g": 84,
+			"b": 54
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+	},
+	{
+		"n": "10",
+		"i": 16,
+		"id": "2489f4bcf582f30ec5db3e2c967d4264bc5e1a9020631f4d804a9b36d0e732a7",
+		"type": "NormalStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 124,
+			"g": 84,
+			"b": 54
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+	},
+	{
+		"n": "11",
+		"i": 17,
+		"id": "9f05c72fc24331cc0f6bf00ec9d4b86b3ede00299a3c0a3ee7c8fb6b89dba002",
+		"type": "NormalStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 124,
+			"g": 84,
+			"b": 54
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+	},
+	{
+		"n": "12",
+		"i": 18,
+		"id": "b7391ac71b2de8327e6c4ab68155218930186e7ea05b349d0f6f5274447ac015",
+		"type": "NormalStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 124,
+			"g": 84,
+			"b": 54
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/535a40fc8b\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/f159e79054\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/OjgxNDgwMjI7fX19\/21241d0535\/Stash_TabR.png"
+	},
+	{
+		"n": "15",
+		"i": 19,
+		"id": "fcf27d371de185dbe46d77c4112fe0f23946371a822967b2f3b676d28aa0904f",
+		"type": "PremiumStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 99,
+			"g": 128,
+			"b": 0
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+	},
+	{
+		"n": "16",
+		"i": 20,
+		"id": "1f13a4619219fd2d98683ab0c8463a0e46bff8ae81e22b65aad8d34d0672285f",
+		"type": "PremiumStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 99,
+			"g": 128,
+			"b": 0
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+	},
+	{
+		"n": "14",
+		"i": 21,
+		"id": "ddf374a8fef0d723ae957b2e5237da3f6ee2cd4cbfe6e4e9bf135629db4301a8",
+		"type": "PremiumStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 99,
+			"g": 128,
+			"b": 0
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+	},
+	{
+		"n": "17",
+		"i": 22,
+		"id": "e7d50586efe31e792a1d2699f05b0799105d17b098552022780e824d9cd7dc52",
+		"type": "PremiumStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 99,
+			"g": 128,
+			"b": 0
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+	},
+	{
+		"n": "18",
+		"i": 23,
+		"id": "c0e2957e060d551194a52296a84012924e2e20ccc8b9ae87be5d145f6227a2f6",
+		"type": "PremiumStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 99,
+			"g": 128,
+			"b": 0
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+	},
+	{
+		"n": "19",
+		"i": 24,
+		"id": "6e645601454ee0ff975278576ca6005423fca4ed3d8ec918613f0c7fb13bd234",
+		"type": "PremiumStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 99,
+			"g": 128,
+			"b": 0
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+	},
+	{
+		"n": "20",
+		"i": 25,
+		"id": "3c314fb31a4cfd7c21589c0c39d31bb95774126aaa3052e2361e116fbf304f66",
+		"type": "PremiumStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 99,
+			"g": 128,
+			"b": 0
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+	},
+	{
+		"n": "21",
+		"i": 26,
+		"id": "7344d4a99c0d602cc38b776f018c181935a46a8218e68e7b02b3549114ce5339",
+		"type": "PremiumStash",
+		"hidden": false,
+		"selected": false,
+		"colour": {
+			"r": 99,
+			"g": 128,
+			"b": 0
+		},
+		"srcL": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjE7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/c64747b68d\/Stash_TabL.png",
+		"srcC": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjI7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/d6161fcf22\/Stash_TabC.png",
+		"srcR": "https:\/\/web.poecdn.com\/gen\/image\/YTozOntpOjA7aToyNDtp\/OjE7czozMjoiMDJhMTk3\/N2QxZDAzNDQzNmU3NzM5\/ZjgzZDEzYjIwN2YiO2k6\/MjthOjI6e2k6MDtpOjI7\/aToxO2E6Mzp7czoxOiJ0\/IjtpOjM7czoxOiJuIjtz\/OjA6IiI7czoxOiJjIjtp\/Oi0xMDI1NjM4NDt9fX0,\/1185e76da6\/Stash_TabR.png"
+	}],
+	"items": [{
+		"verified": false,
+		"w": 2,
+		"h": 2,
+		"ilvl": 75,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Armours\/Boots\/GoreFrenzy.png?scale=1&w=2&h=2&relic=1&v=7fc50e4d0fd7062267b7733cb67ca6623",
+		"league": "SSF Legacy",
+		"id": "d9c444549883b1ceb8a1285cd1dc566d9a1bae78749265d723f64c3bf96117d9",
+		"sockets": [{
+			"group": 0,
+			"attr": "D"
+		},
+		{
+			"group": 0,
+			"attr": "D"
+		},
+		{
+			"group": 0,
+			"attr": "D"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>The Blood Dance",
+		"typeLine": "Sharkskin Boots",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Evasion Rating",
+			"values": [["126",
+			0]],
+			"displayMode": 0,
+			"type": 17
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["44",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Dex",
+			"values": [["79",
+			0]],
+			"displayMode": 1
+		}],
+		"explicitMods": ["+32 to Dexterity",
+		"20% increased Movement Speed",
+		"2% increased Movement Speed per Frenzy Charge",
+		"3% reduced Attack and Cast Speed per Frenzy Charge",
+		"1% of Life Regenerated per second per Frenzy Charge",
+		"24% chance to gain a Frenzy Charge on Kill",
+		"3% increased Damage against Enemies on Low Life per Frenzy Charge",
+		"Gore Footprints"],
+		"flavourText": ["\"Sharks thrash and swirl \r",
+		"To the pounding drum of their frenzied hearts\r",
+		"As they dance in the waters red.\"\r",
+		"-Lavianga, Guardian of the Karui Way"],
+		"isRelic": true,
+		"frameType": 9,
+		"x": 2,
+		"y": 0,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 44,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Beyond.png?scale=1&w=1&h=1&v=feb2f8d7e6e54fafcf3be744272564003",
+		"league": "SSF Legacy",
+		"id": "8aae4d4b241ca6d4c269ef11cbdc6383726da3f18cb9644a6d09c24438dab0b7",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Beyond Leaguestone",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["5",
+			0],
+			["5",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Can only be used in Areas with Monster Level %0 or below",
+			"values": [["55",
+			0]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Slaying Enemies close together in next Area will attract monsters from Beyond this realm"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 0,
+		"x": 1,
+		"y": 5,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 2,
+		"h": 2,
+		"ilvl": 66,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Armours\/Boots\/BootsStrDex2.png?scale=1&w=2&h=2&v=bdfb39d9a0b60c4ac542bedd8ff06e083",
+		"league": "SSF Legacy",
+		"id": "f70dfe804a9b2d6fb0d344889e20a8c9846d4aa45560ed71fb5534df444dd4ac",
+		"sockets": [{
+			"group": 0,
+			"attr": "S"
+		},
+		{
+			"group": 0,
+			"attr": "S"
+		},
+		{
+			"group": 0,
+			"attr": "S"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Gloom Trail",
+		"typeLine": "Hydrascale Boots",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Armour",
+			"values": [["92",
+			0]],
+			"displayMode": 0,
+			"type": 16
+		},
+		{
+			"name": "Evasion Rating",
+			"values": [["92",
+			0]],
+			"displayMode": 0,
+			"type": 17
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["59",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Str",
+			"values": [["56",
+			0]],
+			"displayMode": 1
+		},
+		{
+			"name": "Dex",
+			"values": [["56",
+			0]],
+			"displayMode": 1
+		}],
+		"explicitMods": ["+20 to Dexterity",
+		"+76 to maximum Life",
+		"12% increased Rarity of Items found",
+		"+7% to Fire Resistance",
+		"25% increased Movement Speed",
+		"18% increased Stun and Block Recovery"],
+		"frameType": 2,
+		"x": 10,
+		"y": 8,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 2,
+		"h": 2,
+		"ilvl": 38,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Armours\/Helmets\/HelmetDexInt6.png?scale=1&w=2&h=2&v=9c7e0a593e6bd3cb4e9c96b7cf0089c93",
+		"league": "SSF Legacy",
+		"id": "523abcd457bd75bfe681e6be83947201c2bca1262811c0efd4745c7671596095",
+		"sockets": [{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "D"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Dire Halo",
+		"typeLine": "Raven Mask",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Evasion Rating",
+			"values": [["139",
+			1]],
+			"displayMode": 0,
+			"type": 17
+		},
+		{
+			"name": "Energy Shield",
+			"values": [["27",
+			0]],
+			"displayMode": 0,
+			"type": 18
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["38",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Dex",
+			"values": [["44",
+			0]],
+			"displayMode": 1
+		},
+		{
+			"name": "Int",
+			"values": [["44",
+			0]],
+			"displayMode": 1
+		}],
+		"explicitMods": ["+25 to Accuracy Rating",
+		"+49 to Evasion Rating",
+		"+35 to maximum Mana",
+		"+21% to Cold Resistance",
+		"10% increased Light Radius"],
+		"frameType": 2,
+		"x": 10,
+		"y": 6,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 68,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Prophecy.png?scale=1&w=1&h=1&v=ec3aac908a0be262b312c01c88545e7f3",
+		"league": "SSF Legacy",
+		"id": "f693fc59021f376588d376c9c53503a9d344303d7a35c2a7a3e809694f7d3474",
+		"sockets": [],
+		"name": "",
+		"typeLine": "<<set:MS>><<set:M>><<set:S>>Pallid Prophecy Leaguestone of Fate",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["5",
+			0],
+			["5",
+			0]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Next Area will contain a Silver Coin"],
+		"explicitMods": ["Next Area will contain Yama the White",
+		"Next Area will be modified by a random Prophecy"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 1,
+		"x": 0,
+		"y": 8,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 68,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Tempest.png?scale=1&w=1&h=1&v=3ebbe0bdb17945df8cc6eadf7d95e8453",
+		"league": "SSF Legacy",
+		"id": "4516aacdf734a39629bfb3c6d503c45f5bc1f47829d2463387477c576813b249",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Tempest Leaguestone",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["5",
+			0],
+			["5",
+			0]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Next Area will have a random Tempest, affecting both Monsters and Players"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 0,
+		"x": 0,
+		"y": 1,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 65,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Ambush.png?scale=1&w=1&h=1&v=9ec2ad71f932312b6baf6528d9646b423",
+		"league": "SSF Legacy",
+		"id": "740e63c754f2023e1118a6dfad3dec162c38aea935254542b36c549c3b555e4e",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Ambush Leaguestone",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["5",
+			0],
+			["5",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Can only be used in Areas with Monster Level %0 or below",
+			"values": [["72",
+			0]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Next Area will contain a Strongbox"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 0,
+		"x": 0,
+		"y": 2,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 3,
+		"ilvl": 69,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Weapons\/OneHandWeapons\/Wands\/Wand3.png?scale=1&w=1&h=3&v=ac9f7eee09f5a8f580151298712f2a9e3",
+		"league": "SSF Legacy",
+		"id": "41d75232f9a88ff95264fe200515718a5d5aa9c412133f7b63606e8a1e5692c3",
+		"sockets": [{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 1,
+			"attr": "I"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Oblivion Cry",
+		"typeLine": "Imbued Wand",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Wand",
+			"values": [],
+			"displayMode": 0
+		},
+		{
+			"name": "Quality",
+			"values": [["+6%",
+			1]],
+			"displayMode": 0,
+			"type": 6
+		},
+		{
+			"name": "Physical Damage",
+			"values": [["25-47",
+			1]],
+			"displayMode": 0,
+			"type": 9
+		},
+		{
+			"name": "Elemental Damage",
+			"values": [["9-17",
+			4]],
+			"displayMode": 0,
+			"type": 10
+		},
+		{
+			"name": "Critical Strike Chance",
+			"values": [["7.00%",
+			0]],
+			"displayMode": 0,
+			"type": 12
+		},
+		{
+			"name": "Attacks per Second",
+			"values": [["1.50",
+			0]],
+			"displayMode": 0,
+			"type": 13
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["59",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Int",
+			"values": [["188",
+			0]],
+			"displayMode": 1
+		}],
+		"implicitMods": ["33% increased Spell Damage"],
+		"explicitMods": ["25% increased Spell Damage",
+		"+16 to Intelligence",
+		"Adds 9 to 17 Fire Damage",
+		"Adds 5 to 77 Lightning Damage to Spells",
+		"31% increased Projectile Speed"],
+		"frameType": 2,
+		"x": 8,
+		"y": 9,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 51,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Beyond.png?scale=1&w=1&h=1&v=feb2f8d7e6e54fafcf3be744272564003",
+		"league": "SSF Legacy",
+		"id": "bc88ff5cc243239b88c7bbf0c7c471f27281dacf97dd3d47c3baf2b8725fea75",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Beyond Leaguestone",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["5",
+			0],
+			["5",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Can only be used in Areas with Monster Level %0 or below",
+			"values": [["60",
+			0]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Slaying Enemies close together in next Area will attract monsters from Beyond this realm"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 0,
+		"x": 1,
+		"y": 4,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 2,
+		"h": 3,
+		"ilvl": 67,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Armours\/BodyArmours\/BodyStr2C.png?scale=1&w=2&h=3&v=6331be7daaf903c16bf775688fe5d8983",
+		"league": "SSF Legacy",
+		"id": "0c900d9f9e9a05c91b933c4a81ab41577f4695e0d5f777368fe26b8d96c08061",
+		"sockets": [{
+			"group": 0,
+			"attr": "S"
+		},
+		{
+			"group": 0,
+			"attr": "S"
+		},
+		{
+			"group": 0,
+			"attr": "S"
+		},
+		{
+			"group": 0,
+			"attr": "S"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 1,
+			"attr": "S"
+		}],
+		"name": "",
+		"typeLine": "Gladiator Plate",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Armour",
+			"values": [["526",
+			0]],
+			"displayMode": 0,
+			"type": 16
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["65",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Str",
+			"values": [["177",
+			0]],
+			"displayMode": 1
+		}],
+		"frameType": 0,
+		"x": 0,
+		"y": 9,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 68,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Nemesis.png?scale=1&w=1&h=1&v=87b7ee788213091c5cafe9d6fe62a99b3",
+		"league": "SSF Legacy",
+		"id": "3814c285e29cce6a4cca513aa978261f3393e535e541a59dbc2c1e05758891dd",
+		"sockets": [],
+		"name": "",
+		"typeLine": "<<set:MS>><<set:M>><<set:S>>Enduring Nemesis Leaguestone of Warding",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["8",
+			0],
+			["8",
+			1]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Next Area will contain additional Rare Monsters",
+		"Rare Monsters in next Area will each have a Nemesis Mod"],
+		"explicitMods": ["+3 to Maximum Charges",
+		"Rare Monsters in next Area will be Hindered, with -40% reduced Movement Speed"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 1,
+		"x": 1,
+		"y": 1,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 67,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Breach.png?scale=1&w=1&h=1&v=89627250f62ad6e444049822192e89903",
+		"league": "SSF Legacy",
+		"id": "4ad0e798ce050f19c01a7d0e45766e84eae14a2841d7aafc98653710c4d7937a",
+		"sockets": [],
+		"name": "",
+		"typeLine": "<<set:MS>><<set:M>><<set:S>>Breach Leaguestone of Empowerment",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["5",
+			0],
+			["5",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Can only be used in Areas with Monster Level %0 or below",
+			"values": [["73",
+			0]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Next Area will contain a Breach"],
+		"explicitMods": ["Players in next Area will deal 73% increased Damage to Breach Monsters",
+		"Players in next Area will take 10% reduced Damage from Breach Monsters"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 1,
+		"x": 0,
+		"y": 6,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 3,
+		"ilvl": 59,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Weapons\/OneHandWeapons\/Wands\/Wand2.png?scale=1&w=1&h=3&v=dd4e9f9ef8b06e3f3e3fa3ba400f8ae83",
+		"league": "SSF Legacy",
+		"id": "8e7314662eddc9cd90542fdd0b9f4b8761e9cbc4e071154007084b3013ccc9e4",
+		"sockets": [{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 1,
+			"attr": "I"
+		},
+		{
+			"group": 2,
+			"attr": "I"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Glyph Scratch",
+		"typeLine": "Demon's Horn",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Wand",
+			"values": [],
+			"displayMode": 0
+		},
+		{
+			"name": "Physical Damage",
+			"values": [["32-59",
+			0]],
+			"displayMode": 0,
+			"type": 9
+		},
+		{
+			"name": "Critical Strike Chance",
+			"values": [["7.00%",
+			0]],
+			"displayMode": 0,
+			"type": 12
+		},
+		{
+			"name": "Attacks per Second",
+			"values": [["1.20",
+			0]],
+			"displayMode": 0,
+			"type": 13
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["56",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Int",
+			"values": [["179",
+			0]],
+			"displayMode": 1
+		}],
+		"implicitMods": ["31% increased Spell Damage"],
+		"explicitMods": ["21% increased Spell Damage",
+		"Adds 22 to 38 Fire Damage to Spells",
+		"+18% to Fire Resistance",
+		"10% increased Projectile Speed"],
+		"frameType": 2,
+		"x": 5,
+		"y": 9,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 3,
+		"ilvl": 56,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Weapons\/OneHandWeapons\/Wands\/Wand6.png?scale=1&w=1&h=3&v=54ba351a078c22737d02dfcec84665853",
+		"league": "SSF Legacy",
+		"id": "a761ed35418999f4c5f8d7342684c848f4391afc6ec97965e662a8b8c17086d7",
+		"sockets": [{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "D"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Hypnotic Bite",
+		"typeLine": "Omen Wand",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Wand",
+			"values": [],
+			"displayMode": 0
+		},
+		{
+			"name": "Physical Damage",
+			"values": [["27-50",
+			0]],
+			"displayMode": 0,
+			"type": 9
+		},
+		{
+			"name": "Critical Strike Chance",
+			"values": [["8.00%",
+			0]],
+			"displayMode": 0,
+			"type": 12
+		},
+		{
+			"name": "Attacks per Second",
+			"values": [["1.20",
+			0]],
+			"displayMode": 0,
+			"type": 13
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["53",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Int",
+			"values": [["200",
+			0]],
+			"displayMode": 1
+		}],
+		"implicitMods": ["27% increased Spell Damage"],
+		"explicitMods": ["+2 to Level of Socketed Chaos Gems",
+		"18% increased Spell Damage",
+		"19% increased Cast Speed",
+		"+2 Life gained for each Enemy hit by Attacks",
+		"+6 Life gained on Kill"],
+		"frameType": 2,
+		"x": 3,
+		"y": 9,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 57,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Maps\/Vaal04.png?scale=1&w=1&h=1&v=72207b7e72a4ed4fafd3e72f7b0b2a933",
+		"league": "SSF Legacy",
+		"id": "a9a97c787e9cb256dfcb8d8e2a96d4410f4f156bcf6ba140f40f2aaf590b9b29",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Sacrifice at Dusk",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"descrText": "Can be used in the Eternal Laboratory or a personal Map Device.",
+		"flavourText": ["The Vaal shall never fear the setting of our sun."],
+		"frameType": 0,
+		"x": 9,
+		"y": 10,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 2,
+		"h": 3,
+		"ilvl": 40,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Armours\/BodyArmours\/BodyDex3C.png?scale=1&w=2&h=3&v=54c1559d59813905d1547099cf4c69503",
+		"league": "SSF Legacy",
+		"id": "892fa1a24368c3c2c44269917e3a28207767b2582b53668766a5e167546ec79a",
+		"sockets": [{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "D"
+		},
+		{
+			"group": 0,
+			"attr": "D"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Blood Coat",
+		"typeLine": "Sun Leather",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Quality",
+			"values": [["+20%",
+			1]],
+			"displayMode": 0,
+			"type": 6
+		},
+		{
+			"name": "Evasion Rating",
+			"values": [["347",
+			1]],
+			"displayMode": 0,
+			"type": 17
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["32",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Dex",
+			"values": [["91",
+			0]],
+			"displayMode": 1
+		}],
+		"explicitMods": ["+21 to Dexterity",
+		"30% increased Evasion Rating",
+		"+34 to maximum Life",
+		"+22% to Fire Resistance",
+		"+19% to Cold Resistance",
+		"10% increased Stun and Block Recovery",
+		"Reflects 4 Physical Damage to Melee Attackers"],
+		"frameType": 2,
+		"x": 8,
+		"y": 1,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 69,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Perandus.png?scale=1&w=1&h=1&v=a9e6f6f44738f7cd1bf956ef8c59dd653",
+		"league": "SSF Legacy",
+		"id": "00b4b58695b24bddfdcb51723dc565b3078b0f67c69bc7d4ebe051541079c35d",
+		"sockets": [],
+		"name": "",
+		"typeLine": "<<set:MS>><<set:M>><<set:S>>Valuable Perandus Leaguestone",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["5",
+			0],
+			["5",
+			0]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Next Area will contain a Perandus Chest",
+		"Next Area will have a 20% chance to contain Cadiro Perandus"],
+		"explicitMods": ["Perandus Chests in the next Area will have 30% more Rarity of Items Dropped",
+		"Perandus Chests in the next Area will have 32% more Quantity of Items Dropped"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 1,
+		"x": 1,
+		"y": 3,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 65,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Warbands.png?scale=1&w=1&h=1&v=957d2508167e2faaeb2d36e609e6bae13",
+		"league": "SSF Legacy",
+		"id": "61e8e8109eb895e8f268e47d6612ab2fa5e41c96a2332d9a74a61eea07e46b9e",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Warbands Leaguestone",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["5",
+			0],
+			["5",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Can only be used in Areas with Monster Level %0 or below",
+			"values": [["72",
+			0]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Next Area will contain at least 1 Warband Pack"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 0,
+		"x": 1,
+		"y": 6,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 53,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Anarchy.png?scale=1&w=1&h=1&v=ba4d4c365afea5f866f75bbf9529abfa3",
+		"league": "SSF Legacy",
+		"id": "0f1fbd1bbb225071d7c68fdea8562133d7c36f993a9203aa58c7f756492397c8",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Anarchy Leaguestone",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["5",
+			0],
+			["5",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Can only be used in Areas with Monster Level %0 or below",
+			"values": [["62",
+			0]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Next Area will contain a Rogue Exile"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 0,
+		"x": 0,
+		"y": 4,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 55,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Prophecy.png?scale=1&w=1&h=1&v=ec3aac908a0be262b312c01c88545e7f3",
+		"league": "SSF Legacy",
+		"id": "9ed45ebaae9502de8af5de43a07eee224aaf9e41dfb66d31cc4044adf62e9447",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Prophecy Leaguestone",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["5",
+			0],
+			["5",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Can only be used in Areas with Monster Level %0 or below",
+			"values": [["64",
+			0]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Next Area will contain a Silver Coin"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 0,
+		"x": 0,
+		"y": 3,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 2,
+		"h": 3,
+		"ilvl": 69,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Armours\/BodyArmours\/BodyDexInt2C.png?scale=1&w=2&h=3&v=a0e589c9975ee5fe5bc4845f9c81a5163",
+		"league": "SSF Legacy",
+		"id": "b113ee04f9089d9ff8f0a8466d1aaadee97d82eb1d223ee0e81037f21f6c06f6",
+		"sockets": [{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "D"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "D"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Horror Cloak",
+		"typeLine": "Sadist Garb",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Quality",
+			"values": [["+8%",
+			1]],
+			"displayMode": 0,
+			"type": 6
+		},
+		{
+			"name": "Evasion Rating",
+			"values": [["328",
+			1]],
+			"displayMode": 0,
+			"type": 17
+		},
+		{
+			"name": "Energy Shield",
+			"values": [["103",
+			1]],
+			"displayMode": 0,
+			"type": 18
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["68",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Dex",
+			"values": [["103",
+			0]],
+			"displayMode": 1
+		},
+		{
+			"name": "Int",
+			"values": [["109",
+			0]],
+			"displayMode": 1
+		}],
+		"explicitMods": ["+28 to Dexterity",
+		"+94 to maximum Life",
+		"+42 to maximum Mana",
+		"+24% to Fire Resistance",
+		"25% increased Stun and Block Recovery"],
+		"frameType": 2,
+		"x": 6,
+		"y": 1,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 67,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Maps\/Vaal02.png?scale=1&w=1&h=1&v=3ead6455599ec6c303f54ba98d6f8eb23",
+		"league": "SSF Legacy",
+		"id": "e5f26212d8233e853811feef24356b1badf4772e1cfe1b2ef1a03a379074b53c",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Sacrifice at Dawn",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"descrText": "Can be used in the Eternal Laboratory or a personal Map Device.",
+		"flavourText": ["Only those who aspire can dare to hope."],
+		"frameType": 0,
+		"x": 10,
+		"y": 11,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 65,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Ambush.png?scale=1&w=1&h=1&v=9ec2ad71f932312b6baf6528d9646b423",
+		"league": "SSF Legacy",
+		"id": "7c019ed86288f46f3189c76b420970cbc4f083eaaf849bb56dbc343b173cb182",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Ambush Leaguestone",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["5",
+			0],
+			["5",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Can only be used in Areas with Monster Level %0 or below",
+			"values": [["72",
+			0]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Next Area will contain a Strongbox"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 0,
+		"x": 1,
+		"y": 2,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 3,
+		"ilvl": 70,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Weapons\/OneHandWeapons\/Wands\/Wand6.png?scale=1&w=1&h=3&v=54ba351a078c22737d02dfcec84665853",
+		"league": "SSF Legacy",
+		"id": "e44aa0741a2ee895a69e4c7d3ddc28f9506efb1e22a13ca23e0c45042f006171",
+		"sockets": [{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 1,
+			"attr": "I"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Golem Needle",
+		"typeLine": "Prophecy Wand",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Wand",
+			"values": [],
+			"displayMode": 0
+		},
+		{
+			"name": "Physical Damage",
+			"values": [["55-103",
+			1]],
+			"displayMode": 0,
+			"type": 9
+		},
+		{
+			"name": "Elemental Damage",
+			"values": [["41-65",
+			4]],
+			"displayMode": 0,
+			"type": 10
+		},
+		{
+			"name": "Critical Strike Chance",
+			"values": [["9.52%",
+			1]],
+			"displayMode": 0,
+			"type": 12
+		},
+		{
+			"name": "Attacks per Second",
+			"values": [["1.26",
+			1]],
+			"displayMode": 0,
+			"type": 13
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["68",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Int",
+			"values": [["245",
+			0]],
+			"displayMode": 1
+		}],
+		"implicitMods": ["36% increased Spell Damage"],
+		"explicitMods": ["90% increased Physical Damage",
+		"Adds 41 to 65 Fire Damage",
+		"Adds 8 to 18 Cold Damage to Spells",
+		"5% increased Attack Speed",
+		"19% increased Critical Strike Chance",
+		"31% increased Projectile Speed"],
+		"frameType": 2,
+		"x": 2,
+		"y": 9,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 3,
+		"ilvl": 63,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Weapons\/OneHandWeapons\/Wands\/Wand4.png?scale=1&w=1&h=3&v=d232fe49263de98034381a39ae61d6753",
+		"league": "SSF Legacy",
+		"id": "ef6a4032de1a724adcb7fdd637ea2f8c1c3e1cad3cbf79281348fea2ae8f8ab3",
+		"sockets": [{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Eagle Spell",
+		"typeLine": "Opal Wand",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Wand",
+			"values": [],
+			"displayMode": 0
+		},
+		{
+			"name": "Physical Damage",
+			"values": [["29-54",
+			0]],
+			"displayMode": 0,
+			"type": 9
+		},
+		{
+			"name": "Critical Strike Chance",
+			"values": [["7.00%",
+			0]],
+			"displayMode": 0,
+			"type": 12
+		},
+		{
+			"name": "Attacks per Second",
+			"values": [["1.30",
+			0]],
+			"displayMode": 0,
+			"type": 13
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["62",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Int",
+			"values": [["212",
+			0]],
+			"displayMode": 1
+		}],
+		"implicitMods": ["40% increased Spell Damage"],
+		"explicitMods": ["24% increased Spell Damage",
+		"+19 to maximum Mana",
+		"+18% to Fire Resistance",
+		"+33% to Cold Resistance",
+		"13% increased Projectile Speed"],
+		"frameType": 2,
+		"x": 7,
+		"y": 9,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 3,
+		"ilvl": 62,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Weapons\/OneHandWeapons\/Wands\/Wand2.png?scale=1&w=1&h=3&v=dd4e9f9ef8b06e3f3e3fa3ba400f8ae83",
+		"league": "SSF Legacy",
+		"id": "fa0c77030dc7379b895e235b3ada27f8fa40442f7560a3501a1f43e8fe4fcdfc",
+		"sockets": [{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 1,
+			"attr": "I"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Honour Branch",
+		"typeLine": "Demon's Horn",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Wand",
+			"values": [],
+			"displayMode": 0
+		},
+		{
+			"name": "Physical Damage",
+			"values": [["44-82",
+			1]],
+			"displayMode": 0,
+			"type": 9
+		},
+		{
+			"name": "Critical Strike Chance",
+			"values": [["7.00%",
+			0]],
+			"displayMode": 0,
+			"type": 12
+		},
+		{
+			"name": "Attacks per Second",
+			"values": [["1.20",
+			0]],
+			"displayMode": 0,
+			"type": 13
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["56",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Int",
+			"values": [["179",
+			0]],
+			"displayMode": 1
+		}],
+		"implicitMods": ["35% increased Spell Damage"],
+		"explicitMods": ["39% increased Physical Damage",
+		"Adds 5 to 76 Lightning Damage to Spells",
+		"+18 to maximum Mana",
+		"27% increased Mana Regeneration Rate",
+		"+58 to Accuracy Rating"],
+		"frameType": 2,
+		"x": 4,
+		"y": 9,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 68,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Maps\/Vaal03.png?scale=1&w=1&h=1&v=ba374d543316349b87de121039c3cc6f3",
+		"league": "SSF Legacy",
+		"id": "54257154ccc0e6581f8af64b8a438c7916f3d40681680ce352707bfccd0b5732",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Sacrifice at Noon",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"descrText": "Can be used in the Eternal Laboratory or a personal Map Device.",
+		"flavourText": ["The light without pales in comparison to the light within."],
+		"frameType": 0,
+		"x": 11,
+		"y": 11,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 3,
+		"ilvl": 57,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Weapons\/OneHandWeapons\/Wands\/Wand6.png?scale=1&w=1&h=3&v=54ba351a078c22737d02dfcec84665853",
+		"league": "SSF Legacy",
+		"id": "3b4b28188ff52856cfc75a58d1063ad8744aa1a73862ba6bcc5a9f74f2ef4e3b",
+		"sockets": [{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 1,
+			"attr": "D"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Rift Call",
+		"typeLine": "Omen Wand",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Wand",
+			"values": [],
+			"displayMode": 0
+		},
+		{
+			"name": "Physical Damage",
+			"values": [["27-50",
+			0]],
+			"displayMode": 0,
+			"type": 9
+		},
+		{
+			"name": "Critical Strike Chance",
+			"values": [["8.00%",
+			0]],
+			"displayMode": 0,
+			"type": 12
+		},
+		{
+			"name": "Attacks per Second",
+			"values": [["1.20",
+			0]],
+			"displayMode": 0,
+			"type": 13
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["53",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Int",
+			"values": [["200",
+			0]],
+			"displayMode": 1
+		}],
+		"implicitMods": ["30% increased Spell Damage"],
+		"explicitMods": ["20% increased Spell Damage",
+		"Adds 11 to 19 Fire Damage to Spells",
+		"34% increased Mana Regeneration Rate",
+		"32% increased Projectile Speed"],
+		"frameType": 2,
+		"x": 6,
+		"y": 9,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 68,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Beyond.png?scale=1&w=1&h=1&v=feb2f8d7e6e54fafcf3be744272564003",
+		"league": "SSF Legacy",
+		"id": "232bf819b846a6094a00b0e197694f916f63b7d972dcf8ce238f7c7b41205f98",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Beyond Leaguestone",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["5",
+			0],
+			["5",
+			0]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Slaying Enemies close together in next Area will attract monsters from Beyond this realm"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 0,
+		"x": 1,
+		"y": 0,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 67,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Perandus.png?scale=1&w=1&h=1&v=a9e6f6f44738f7cd1bf956ef8c59dd653",
+		"league": "SSF Legacy",
+		"id": "adb13fa99dc6991bdc50a8d606c0f8e24ca0fb02c9ec5b759dc97c9b2c5fa42c",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Perandus Leaguestone",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["5",
+			0],
+			["5",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Can only be used in Areas with Monster Level %0 or below",
+			"values": [["73",
+			0]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Next Area will contain a Perandus Chest",
+		"Next Area will have a 20% chance to contain Cadiro Perandus"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 0,
+		"x": 0,
+		"y": 0,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 41,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Maps\/Vaal03.png?scale=1&w=1&h=1&v=ba374d543316349b87de121039c3cc6f3",
+		"league": "SSF Legacy",
+		"id": "bb0bd9f8592299c9fa15514d1b365e5e868bab91da076bcd572203601793b060",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Sacrifice at Noon",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"descrText": "Can be used in the Eternal Laboratory or a personal Map Device.",
+		"flavourText": ["The light without pales in comparison to the light within."],
+		"frameType": 0,
+		"x": 9,
+		"y": 11,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 56,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Domination.png?scale=1&w=1&h=1&v=4bf316471c84ca2d0993d7245ebb1f6d3",
+		"league": "SSF Legacy",
+		"id": "82a3acf31beec5ca2500ffcfd8118e951e840e331afe2f086681803ec3e683d5",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Domination Leaguestone",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["5",
+			0],
+			["5",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Can only be used in Areas with Monster Level %0 or below",
+			"values": [["64",
+			0]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Next Area will contain up to 1 Shrine"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 0,
+		"x": 0,
+		"y": 7,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 2,
+		"h": 3,
+		"ilvl": 55,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Armours\/BodyArmours\/BodyDexInt1C.png?scale=1&w=2&h=3&v=58c31e9c01e3395af3661627cabc0db53",
+		"league": "SSF Legacy",
+		"id": "6dd28ec898b13858bd02edbb8973fd5562ae677edf5c18777b6e440cfdc1bb2d",
+		"sockets": [{
+			"group": 0,
+			"attr": "D"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "D"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Honour Guardian",
+		"typeLine": "Crimson Raiment",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Evasion Rating",
+			"values": [["189",
+			0]],
+			"displayMode": 0,
+			"type": 17
+		},
+		{
+			"name": "Energy Shield",
+			"values": [["64",
+			1]],
+			"displayMode": 0,
+			"type": 18
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["48",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Dex",
+			"values": [["71",
+			0]],
+			"displayMode": 1
+		},
+		{
+			"name": "Int",
+			"values": [["71",
+			0]],
+			"displayMode": 1
+		}],
+		"explicitMods": ["+18 to Dexterity",
+		"+82 to maximum Life",
+		"+9 to maximum Energy Shield",
+		"Reflects 48 Physical Damage to Melee Attackers"],
+		"frameType": 2,
+		"x": 10,
+		"y": 1,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 1,
+		"h": 1,
+		"ilvl": 65,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Currency\/Classic\/Perandus.png?scale=1&w=1&h=1&v=a9e6f6f44738f7cd1bf956ef8c59dd653",
+		"league": "SSF Legacy",
+		"id": "5aba1176b04cf9af38a21a609832baf874dbb431cda9a9bb8042231027cede08",
+		"sockets": [],
+		"name": "",
+		"typeLine": "Perandus Leaguestone",
+		"identified": true,
+		"corrupted": true,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Currently has %0 of %1 Charges",
+			"values": [["5",
+			0],
+			["5",
+			0]],
+			"displayMode": 3
+		},
+		{
+			"name": "Can only be used in Areas with Monster Level %0 or below",
+			"values": [["72",
+			0]],
+			"displayMode": 3
+		}],
+		"implicitMods": ["Next Area will contain a Perandus Chest",
+		"Next Area will have a 20% chance to contain Cadiro Perandus"],
+		"descrText": "Right-click to open your Legacy Panel and place a Leaguestone in an empty slot. It will apply to the next new area you enter.",
+		"frameType": 0,
+		"x": 0,
+		"y": 5,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	},
+	{
+		"verified": false,
+		"w": 2,
+		"h": 2,
+		"ilvl": 42,
+		"icon": "https:\/\/web.poecdn.com\/image\/Art\/2DItems\/Armours\/Boots\/BootsStrInt2.png?scale=1&w=2&h=2&v=9a8ce1f6169c2ad274efc202693b72933",
+		"league": "SSF Legacy",
+		"id": "8a37f554ed5a107db4c1b208944c0268578689aa3501dea145b38566b47a2964",
+		"sockets": [{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "S"
+		},
+		{
+			"group": 0,
+			"attr": "I"
+		},
+		{
+			"group": 0,
+			"attr": "S"
+		}],
+		"name": "<<set:MS>><<set:M>><<set:S>>Victory Urge",
+		"typeLine": "Zealot Boots",
+		"identified": true,
+		"corrupted": false,
+		"lockedToCharacter": false,
+		"properties": [{
+			"name": "Armour",
+			"values": [["63",
+			0]],
+			"displayMode": 0,
+			"type": 16
+		},
+		{
+			"name": "Energy Shield",
+			"values": [["47",
+			1]],
+			"displayMode": 0,
+			"type": 18
+		}],
+		"requirements": [{
+			"name": "Level",
+			"values": [["40",
+			0]],
+			"displayMode": 0
+		},
+		{
+			"name": "Str",
+			"values": [["38",
+			0]],
+			"displayMode": 1
+		},
+		{
+			"name": "Int",
+			"values": [["38",
+			0]],
+			"displayMode": 1
+		}],
+		"explicitMods": ["+63 to maximum Life",
+		"+28 to maximum Energy Shield",
+		"+11% to Cold Resistance",
+		"15% increased Movement Speed",
+		"15% increased Stun and Block Recovery"],
+		"frameType": 2,
+		"x": 10,
+		"y": 4,
+		"inventoryId": "Stash8",
+		"socketedItems": []
+	}]
+}

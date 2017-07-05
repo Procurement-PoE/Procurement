@@ -8,7 +8,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
     internal class GemLevelFilter : StatFilter
     {
         internal GemLevelFilter(string keyword)
-            : base("Increased " + keyword + " gem level", "Items that increases the level of " + keyword + " gems", "to level of " + keyword + " gems")
+            : base("Increased " + keyword + " gem level", "Items that increases the level of " + keyword + " gems", "to level of socketed " + keyword + " gems")
         { }
 
         public override FilterGroup Group
@@ -20,7 +20,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
     internal class AllGemLevelFilter : StatFilter
     {
         public AllGemLevelFilter()
-            : base("Increased all gem level", "Items that increases the level of gems", "to Level of Gems in this item")
+            : base("Increased all gem level", "Items that increases the level of gems", "to Level of Socketed Gems")
         { }
 
         public override FilterGroup Group
@@ -47,6 +47,13 @@ namespace Procurement.ViewModel.Filters.ForumExport
     {
         public LightningGemLevelFilter()
             : base("lightning")
+        { }
+    }
+
+    internal class ChaosGemLevelFilter : GemLevelFilter
+    {
+        public ChaosGemLevelFilter()
+            : base("chaos")
         { }
     }
 

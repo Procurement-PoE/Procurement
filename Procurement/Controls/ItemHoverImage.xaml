@@ -5,14 +5,10 @@
              xmlns:local="clr-namespace:Procurement.Controls"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:v="clr-namespace:Procurement.View"
-             xmlns:vm="clr-namespace:Procurement.ViewModel"
-             d:DesignHeight="150"
-             d:DesignWidth="150"
              mc:Ignorable="d">
 
     <UserControl.Resources>
         <v:VisibilityConverter x:Key="VisibilityConverter" />
-        <v:ItemToColorBrushConverter x:Key="vc" />
         <v:ItemPropertyToFormattedRunConverter x:Key="pc" />
         <v:ItemRequirementToFormattedRunConverter x:Key="rc" />
         <v:ItemExplicitModsToFormattedRunConverter x:Key="ec" />

@@ -1043,6 +1043,21 @@
       <Item name="Turn the Other Cheek"/>
       <Item name="Volatile Power"/>
       <Item name="Wealth and Power"/>
+      <Item name="Call to the First Ones"/>
+      <Item name="Lingering Remnants"/>
+      <Item name="The Coming Storm"/>
+      <Item name="The Forsaken"/>
+      <Item name="The Garish Power"/>
+      <Item name="Mitts"/>
+      <Item name="The Polymath"/>
+      <Item name="The Procupine"/>
+      <Item name="The Saint's Treasure"/>
+      <Item name="The Spark and the Flame"/>
+      <Item name="The Standoff"/>
+      <Item name="The Valley of Steel Boxes"/>
+      <Item name="The Wolven King's Bite"/>
+      <Item name="The Wolverine"/>
+      <Item name="The Wretched"/>
     </GearBaseType>
   </GearBaseTypes>
 </Data>

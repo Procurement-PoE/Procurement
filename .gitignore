@@ -12,3 +12,4 @@ Procurement/Procurement.csproj.user
 .vs/
 
 packages/
+*.user

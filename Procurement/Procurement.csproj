@@ -44,7 +44,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -152,11 +152,13 @@
     <Compile Include="ViewModel\Filters\ForumExport\AccurayFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CraftedModFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CurrencyFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\DamageChaos.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\EnchantModFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\EssenceFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GearSearchFilters.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GemLevelFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\IncreasedDamageFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\LeagestoneFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\LifeLeech.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ManaLeechFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\MapFilter.cs" />
@@ -694,6 +696,11 @@
     <Resource Include="Images\ItemHover\ItemsHeaderProphecyLeft.png" />
     <Resource Include="Images\ItemHover\ItemsHeaderProphecyMiddle.png" />
     <Resource Include="Images\ItemHover\ItemsHeaderProphecyRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ItemHover\ItemHeaderRelicLeft.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderRelicMiddle.png" />
+    <Resource Include="Images\ItemHover\ItemHeaderRelicRight.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -12,7 +12,6 @@
 
     <UserControl.Resources>
         <v:VisibilityConverter x:Key="VisibilityConverter" />
-        <v:ItemToColorBrushConverter x:Key="vc" />
         <v:ItemPropertyToFormattedRunConverter x:Key="pc" />
         <v:ItemRequirementToFormattedRunConverter x:Key="rc" />
         <v:ItemExplicitModsToFormattedRunConverter x:Key="ec" />

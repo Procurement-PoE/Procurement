@@ -8,7 +8,7 @@
         }
 
         public DamageLightning()
-            : base("Adds Lightning Damage", "Adds Lightning Damage", "Adds \\d+\\-\\d+ Lightning Damage")
+            : base("Adds Lightning Damage", "Adds Lightning Damage", "Adds \\d+ to \\d+ Lightning Damage")
         { }
     }
 }

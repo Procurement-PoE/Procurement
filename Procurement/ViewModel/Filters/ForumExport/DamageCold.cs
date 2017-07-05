@@ -8,7 +8,7 @@
         }
 
         public DamageCold()
-            : base("Adds Cold Damage", "Adds Cold Damage", "Adds \\d+\\-\\d+ Cold Damage")
+            : base("Adds Cold Damage", "Adds Cold Damage", "Adds \\d+ to \\d+ Cold Damage")
         { }
     }
 }

@@ -25,7 +25,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -48,8 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BreachBlessing.cs" />
+    <Compile Include="BreachType.cs" />
     <Compile Include="CharacterStashBuilder.cs" />
     <Compile Include="Decoration.cs" />
+    <Compile Include="Essence.cs" />
+    <Compile Include="EssenceType.cs" />
     <Compile Include="GemHandler.cs" />
     <Compile Include="ItemTradeInfo.cs" />
     <Compile Include="Character.cs" />
@@ -70,6 +74,7 @@
     <Compile Include="ItemFactory.cs" />
     <Compile Include="JSONProxy\Account.cs" />
     <Compile Include="JSONProxy\Stash.cs" />
+    <Compile Include="Leaguestone.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="OrbType.cs" />
     <Compile Include="Events\POEEventArgs.cs" />
@@ -82,6 +87,8 @@
     <Compile Include="Settings.cs" />
     <Compile Include="ShopSetting.cs" />
     <Compile Include="Socket.cs" />
+    <Compile Include="Splinter.cs" />
+    <Compile Include="StackableItem.cs" />
     <Compile Include="StackInfo.cs" />
     <Compile Include="Stash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,13 +121,11 @@
   <ItemGroup>
     <Content Include="Settings.xsd">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data.xsd">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
