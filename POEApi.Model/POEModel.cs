@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Json;
 using POEApi.Infrastructure;
 using POEApi.Model.Events;
 using POEApi.Transport;
@@ -9,8 +8,8 @@ using System.Security;
 using System;
 using System.Diagnostics;
 using POEApi.Infrastructure.Events;
-using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using POEApi.Model.JSONProxy;
 
 namespace POEApi.Model
@@ -102,7 +101,7 @@ namespace POEApi.Model
             {
                 try
                 {
-                    var serializer = new JsonSerializer();
+                    var serializer = new JsonSerializer {ContractResolver = new CamelCasePropertyNamesContractResolver()};
                     return (T) serializer.Deserialize(jsonTextReader, typeof (T));
                 }
                 catch
@@ -138,16 +137,15 @@ namespace POEApi.Model
 
         public Stash GetStash(int index, string league, string accountName, bool forceRefresh = false)
         {
-            DataContractJsonSerializer serialiser = new DataContractJsonSerializer(typeof(JSONProxy.Stash));
             JSONProxy.Stash proxy = null;
 
             onStashLoaded(POEEventState.BeforeEvent, index, -1);
 
-            using (Stream stream = Transport.GetStash(index, league, accountName, forceRefresh))
+            using (var stream = Transport.GetStash(index, league, accountName, forceRefresh))
             {
                 try
                 {
-                    proxy = (JSONProxy.Stash)serialiser.ReadObject(stream);
+                    proxy = GetProperObjectFromTransport<JSONProxy.Stash>(stream);
                     if (proxy == null)
                         logNullStash(stream, "Proxy was null");
                 }
@@ -268,18 +266,14 @@ namespace POEApi.Model
                 if (downOnlyMyCharacters && !Settings.Lists["MyCharacters"].Contains(characterName))
                     return new List<Item>();
 
-                DataContractJsonSerializer serialiser = new DataContractJsonSerializer(typeof(JSONProxy.Inventory));
-                JSONProxy.Inventory item;
-
-                using (Stream stream = Transport.GetInventory(characterName, forceRefresh, accountName))
-                    item = (JSONProxy.Inventory)serialiser.ReadObject(stream);
+                Inventory item  = GetProperObjectFromTransport<Inventory>(Transport.GetInventory(characterName, forceRefresh, accountName));
 
                 if (item.Items == null)
                     return new List<Item>();
 
                 return item.Items.Select(i => ItemFactory.Get(i)).ToList();
             }
-            catch (SerializationException sex)
+            catch (Exception sex)
             {
                 Logger.Log(string.Format("Error reading character data for character '{0}', Exception info: ", characterName, sex.ToString()));
                 throw new Exception(string.Format("Error reading character data for {0}, if you are in offline mode you will need to login and update. If you received this error while logging in, the authenticated session may have expired or bad data has been returned by GGG or a network issue may have occurred - Please try again.", characterName));

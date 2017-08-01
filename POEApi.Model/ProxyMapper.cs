@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json.Linq;
 using POEApi.Infrastructure;
 
 namespace POEApi.Model
@@ -200,7 +201,7 @@ namespace POEApi.Model
             if (prop == null)
                 return string.Empty;
 
-            return (prop.Values[0] as object[])[0].ToString();
+            return (prop.Values[0] as JArray)[0].ToString();
         }
 
         internal static OrbType GetOrbType(JSONProxy.Item item)

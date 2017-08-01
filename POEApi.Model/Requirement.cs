@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json.Linq;
 
 namespace POEApi.Model
 {
@@ -12,7 +12,7 @@ namespace POEApi.Model
         {
             this.Name = proxy.Name;
             this.NameFirst = proxy.DisplayMode == 0;
-            this.Value = ((object[])proxy.Value[0])[0].ToString();
+            this.Value = ((JArray)proxy.Values[0])[0].ToString();
         }
     }
 }
