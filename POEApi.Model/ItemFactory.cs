@@ -16,7 +16,7 @@ namespace POEApi.Model
                 if(!string.IsNullOrWhiteSpace(item.ProphecyText))
                     return new Prophecy(item);
 
-                if (item.frameType == 4)
+                if (item.FrameType == 4)
                     return new Gem(item);
 
                 if (item.DescrText != null && item.DescrText.ToLower() == "right click this item then left click a location on the ground to create the object.")
@@ -25,7 +25,7 @@ namespace POEApi.Model
                 if (item.TypeLine.Contains("Leaguestone"))
                     return new Leaguestone(item);
 
-                if (item.frameType == 5)
+                if (item.FrameType == 5)
                     return GetCurrency(item);
 
                 if (item.TypeLine.Contains("Map") && item.DescrText != null && item.DescrText.Contains("Travel to this Map"))
@@ -38,7 +38,7 @@ namespace POEApi.Model
                 Logger.Log(ex);
                 var errorMessage = "ItemFactory unable to instantiate type : " + item.TypeLine;
                 Logger.Log(errorMessage);
-                throw new Exception(errorMessage);
+                throw;
             }
         }
 

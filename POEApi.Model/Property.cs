@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace POEApi.Model
 {
@@ -16,7 +17,7 @@ namespace POEApi.Model
 
             foreach (object value in property.Values)
             {
-                object[] pair = (object[])value;
+                var pair = (JArray) value;
                 Values.Add(new Tuple<string, int>(pair[0].ToString(), int.Parse(pair[1].ToString())));
             }
             

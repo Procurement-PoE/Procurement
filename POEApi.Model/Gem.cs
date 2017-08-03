@@ -18,7 +18,7 @@ namespace POEApi.Model
             this.ItemType = Model.ItemType.Gem;
 
             this.Socket = item.Socket;
-            this.Color = item.Color;
+            this.Color = item.Colour;
             this.Requirements = ProxyMapper.GetRequirements(item.Requirements);
             this.Level = getLevel();
         }

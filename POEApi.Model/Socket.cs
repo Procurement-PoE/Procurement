@@ -7,7 +7,7 @@
 
         internal Socket(JSONProxy.Socket s)
         {
-            this.Attribute = s.Attribute;
+            this.Attribute = s.Attr;
             this.Group = s.Group;
         }
     }
