@@ -164,7 +164,7 @@ namespace Procurement.ViewModel
 
                 if (!offline)
                 {
-                    statusController.DisplayMessage("\nDone!");
+                    statusController.DisplayMessage(Environment.NewLine + "Done!");
                     PoeTradeOnlineHelper.Instance.Start();
                 }
 
