@@ -189,9 +189,9 @@ namespace Procurement.ViewModel
                 if (character.League == "Void")
                     continue;
 
-                if(character.Expired == true)
-                {
-                    statusController.DisplayMessage("\nSkipping character " + character.Name + " because the characters name has expired.\n");
+                if (character.Expired)
+                {                   
+                    statusController.DisplayMessage(Environment.NewLine + "Skipping character " + character.Name + " because the characters name has expired." + Environment.NewLine);
                     continue;
                 }
 

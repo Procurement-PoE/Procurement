@@ -53,6 +53,23 @@ namespace POEApi.Model.Tests
         }
 
         [TestMethod]
+        public void GetExpiredNameCharactersTest()
+        {
+            string fakeCharacterInfo = Encoding.UTF8.GetString(Files.SampleCharacterExpiredName);
+
+            using (var stream = GenerateStreamFromString(fakeCharacterInfo))
+            {
+                _mockTransport.Setup(m => m.GetCharacters()).Returns(stream);
+
+                var characters = _model.GetCharacters();
+
+                Assert.IsNotNull(characters);
+
+                Assert.AreEqual(characters.Count, 2);
+            }
+        }
+
+        [TestMethod]
         public void GetStashTest()
         {
             //Nasty little gotcha See: http://blogs.msdn.com/b/cie/archive/2014/03/19/encountered-unexpected-character-239-error-serializing-json.aspx

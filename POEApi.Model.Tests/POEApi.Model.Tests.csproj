@@ -75,6 +75,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="TestData\SampleInventory.json" />
+    <None Include="TestData\SampleCharacterExpiredName.json" />
     <None Include="TestData\SampleCharacter.json" />
     <None Include="TestData\SampleStash.json" />
     <None Include="TestData\SampleStashWithEssences.json" />
