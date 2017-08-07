@@ -1,0 +1,16 @@
+[{
+    "name": "Kyle",
+    "league": "Standard",
+    "classId": 2,
+    "class": "Ranger",
+    "level": 24,
+    "expired": true
+  },
+{
+	"name": "Jon",
+	"league": "Standard",
+	"classId": 3,
+	"class": "Witch",
+  "level": 63,
+  "expired": true
+}]
