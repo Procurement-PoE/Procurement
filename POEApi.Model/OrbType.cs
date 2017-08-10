@@ -35,6 +35,23 @@
         PerandusCoin,
         SilverCoin,
 
+        AncientOrb,
+        AncientShard,
+        AnnulmentShard,
+        BindingShard,
+        ChaosShard,
+        EngineersOrb,
+        EngineersShard,
+        ExaltedShard,
+        HarbingersOrb,
+        HarbingersShard,
+        HorizonShard,
+        MirrorShard,
+        AnnulmentOrb,
+        BindingOrb,
+        HorizonOrb,
+        RegalShard,
+
         //Must always be last
         Unknown
     }

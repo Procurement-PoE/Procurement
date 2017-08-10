@@ -49,7 +49,23 @@ namespace POEApi.Model
             {"Imprint", OrbType.Imprint},
             {"Vaal Orb", OrbType.VaalOrb},
             {"Perandus Coin", OrbType.PerandusCoin},
-            {"Silver Coin", OrbType.SilverCoin}
+            {"Silver Coin", OrbType.SilverCoin},
+            {"Ancient Orb", OrbType.AncientOrb},
+            {"Ancient Shard", OrbType.AncientShard},
+            {"Annulment Shard", OrbType.AnnulmentShard},
+            {"Binding Shard",OrbType.BindingShard},
+            {"Chaos Shard",OrbType.ChaosShard},
+            {"Engineer's Orb",OrbType.EngineersOrb},
+            {"Engineer's Shard",OrbType.EngineersShard},
+            {"Exalted Shard",OrbType.ExaltedShard},
+            {"Harbinger's Orb",OrbType.HarbingersOrb},
+            {"Harbinger's Shard",OrbType.HarbingersShard},
+            {"Horizon Shard",OrbType.HorizonShard},
+            {"Mirror Shard",OrbType.MirrorShard},
+            {"Orb of Annulment",OrbType.AnnulmentOrb},
+            {"Orb of Binding",OrbType.BindingOrb},
+            {"Orb of Horizons",OrbType.HorizonOrb},
+            {"Regal Shard", OrbType.RegalShard}
         };
 
         #endregion

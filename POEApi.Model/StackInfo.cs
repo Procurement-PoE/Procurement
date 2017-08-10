@@ -1,5 +1,8 @@
-﻿namespace POEApi.Model
+﻿using System.Diagnostics;
+
+namespace POEApi.Model
 {
+    [DebuggerDisplay("{Amount}/{MaxSize}")]
     public class StackInfo
     {
         public int Amount { get; set; }

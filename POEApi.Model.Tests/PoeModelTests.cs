@@ -91,7 +91,7 @@ namespace POEApi.Model.Tests
         }
 
         [TestMethod]
-        public void GetRelichStashTest()
+        public void GetRelicStashTest()
         {
             string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithRelic);
             using (var stream = GenerateStreamFromString(fakeStashInfo))
@@ -123,6 +123,28 @@ namespace POEApi.Model.Tests
                 var account = _model.GetAccountName();
 
                 Assert.AreEqual(account, "fakeAccountName");
+            }
+        }
+
+        [TestMethod]
+        public void GetShardCurrencyStashTest()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleCurrencyTabWithShards);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+
+                Assert.AreEqual(stash.Tabs.Count, 26);
+
+                var items = stash.GetItemsByTab(0);
+
+                Assert.AreEqual(items.OfType<Currency>().Count(x => x.Type == OrbType.EngineersOrb), 1);
+                Assert.AreEqual(items.OfType<Currency>().Count(x => x.Type == OrbType.BindingOrb), 1);
+                Assert.AreEqual(items.OfType<Currency>().Count(x => x.Type == OrbType.BindingShard), 1);
             }
         }
     }
