@@ -70,7 +70,7 @@ namespace POEApi.Transport
                     unwrappedPassword = unwrappedPassword.Trim();
                 }
 
-                credentialCookies.Add(new Cookie("POESESSID", unwrappedPassword, "/", "www.pathofexile.com"));
+                credentialCookies.Add(new Cookie("POESESSID", unwrappedPassword, "/", ".pathofexile.com"));
                 HttpWebRequest confirmAuth = getHttpRequest(HttpMethod.GET, loginURL);
                 HttpWebResponse confirmAuthResponse = (HttpWebResponse)confirmAuth.GetResponse();
 
