@@ -111,7 +111,7 @@ namespace Procurement.Controls
         {
             try
             {
-                return ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs[TabNumber - 1].Type;
+                return ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs[TabNumber].Type;
             }
             catch (Exception ex)
             {
