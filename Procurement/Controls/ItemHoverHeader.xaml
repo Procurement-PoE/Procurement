@@ -171,6 +171,7 @@
                         </Grid>
                     </Border>
                 </DataTemplate>
+                
                 <DataTemplate DataType="{x:Type vm:RelicGearItemHoverViewModel}">
                     <Border Background="{Binding Item, Converter={StaticResource vc}, ConverterParameter=0.3}" HorizontalAlignment="Stretch" >
                         <Grid  MinWidth="200" >

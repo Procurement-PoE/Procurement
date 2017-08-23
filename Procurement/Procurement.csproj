@@ -97,6 +97,7 @@
     <Compile Include="Controls\CurencyStash.xaml.cs">
       <DependentUpon>CurencyStash.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\CurrencyStashViewModel.cs" />
     <Compile Include="Interfaces\IStashControl.cs" />
     <Compile Include="Controls\SetTabBuyoutView.xaml.cs">
       <DependentUpon>SetTabBuyoutView.xaml</DependentUpon>

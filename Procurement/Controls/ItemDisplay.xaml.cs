@@ -56,13 +56,16 @@ namespace Procurement.Controls
                 Image i = vm.getImage();
                 itemImage = i;
 
-                this.MainGrid.Children.Add(i);
+                if (i != null)
+                {
+                    this.MainGrid.Children.Add(i);
 
-                if (vm.HasSocket)
-                    BindSocketPopup(vm);
+                    if (vm.HasSocket)
+                        BindSocketPopup(vm);
 
-                this.Height = i.Height;
-                this.Width = i.Width;
+                    this.Height = i.Height;
+                    this.Width = i.Width;
+                }
             }
             this.Loaded -= new RoutedEventHandler(ItemDisplay_Loaded);
 
@@ -75,6 +78,7 @@ namespace Procurement.Controls
             if (vm != null)
             {
                 Item item = vm.Item;
+                if (item == null) return;
 
                 string pricingInfo = string.Empty;
 

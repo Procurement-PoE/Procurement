@@ -34,7 +34,8 @@
         VaalOrb,
         PerandusCoin,
         SilverCoin,
-
+        TransmutationShard,
+        AlterationShard,
         AncientOrb,
         AncientShard,
         AnnulmentShard,
