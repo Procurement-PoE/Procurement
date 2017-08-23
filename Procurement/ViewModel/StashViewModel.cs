@@ -16,6 +16,7 @@ using System.Text;
 using POEApi.Infrastructure;
 using System.Windows.Controls.Primitives;
 using System.Threading.Tasks;
+using Procurement.Interfaces;
 
 namespace Procurement.ViewModel
 {
@@ -25,8 +26,8 @@ namespace Procurement.ViewModel
         {
             public int Index { get; set; }
             public TabItem TabItem { get; set; }
-            public StashControl Stash { get; set; }
-            public TabContent(int index, TabItem tabItem, StashControl stash)
+            public IStashControl Stash { get; set; }
+            public TabContent(int index, TabItem tabItem, IStashControl stash)
             {
                 this.Index = index;
                 this.TabItem = tabItem;
@@ -60,7 +61,7 @@ namespace Procurement.ViewModel
 
             foreach (var item in tabsAndContent)
             {
-                item.Stash.SetValue(StashControl.FilterProperty, allfilters);
+                item.Stash.Filter = allfilters;
                 item.Stash.ForceUpdate();
                 if (item.Stash.FilterResults == 0)
                 {
@@ -274,36 +275,56 @@ namespace Procurement.ViewModel
             newCurrent.IsSelected = true;
         }
 
-        void stashView_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        void stashView_Loaded(object sender, RoutedEventArgs e)
         {
-            var filter = string.Empty;
-
-            for (int i = 1; i <= ApplicationState.Stash[ApplicationState.CurrentLeague].NumberOfTabs; i++)
+            for (var i = 1; i <= ApplicationState.Stash[ApplicationState.CurrentLeague].NumberOfTabs; i++)
             {
-                TabItem item = new TabItem();
+                var stash = ApplicationState.Stash[ApplicationState.CurrentLeague];
+                var currentTab = stash.Tabs[i - 1];
 
-                item.Header = StashHelper.GenerateTabImage(ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs[i - 1], false);
-                item.Tag = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs[i - 1].Name;
-                item.HorizontalAlignment = HorizontalAlignment.Left;
-                item.VerticalAlignment = VerticalAlignment.Top;
-                item.Background = Brushes.Transparent;
-                item.BorderBrush = Brushes.Transparent;
-                StashControl itemStash = new StashControl();
+                var item = new TabItem
+                {
+                    Header = StashHelper.GenerateTabImage(currentTab, false),
+                    Tag = currentTab.Name,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    Background = Brushes.Transparent,
+                    BorderBrush = Brushes.Transparent
+                };
 
-                itemStash.SetValue(StashControl.FilterProperty, getUserFilter(filter));
-                item.Content = itemStash;
-                itemStash.TabNumber = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs[i - 1].i;
+                switch (currentTab.Type)
+                {
+                    case TabType.Currency:
+                        var currencyStash = new CurencyStash(currentTab.i, getUserFilter(string.Empty));
 
-                addContextMenu(item, itemStash);
+                        item.Content = currencyStash;
+
+                        addContextMenu(item, currencyStash);
+
+                        tabsAndContent.Add(new TabContent(i - 1, item, currencyStash));
+                        break;
+                    default:
+                        var itemStash = new StashControl();
+
+                        itemStash.Filter = getUserFilter(string.Empty);
+                        itemStash.TabNumber = currentTab.i;
+
+                        item.Content = itemStash;
+                        addContextMenu(item, itemStash);
+
+                        tabsAndContent.Add(new TabContent(i - 1, item, itemStash));
+                        break;
+                }
+
 
                 stashView.tabControl.Items.Add(item);
-                tabsAndContent.Add(new TabContent(i - 1, item, itemStash));
+                
             }
 
             stashView.Loaded -= new System.Windows.RoutedEventHandler(stashView_Loaded);
         }
 
-        private void addContextMenu(TabItem item, StashControl itemStash)
+        private void addContextMenu(TabItem item, IStashControl itemStash)
         {
             ContextMenu contextMenu = new ContextMenu();
 
@@ -315,7 +336,7 @@ namespace Procurement.ViewModel
             item.ContextMenu = contextMenu;
         }
 
-        private MenuItem getMenuItem(StashControl itemStash, string header, RoutedEventHandler handler)
+        private MenuItem getMenuItem(IStashControl itemStash, string header, RoutedEventHandler handler)
         {
             MenuItem menuItem = new MenuItem() { Header = header };
             menuItem.Tag = itemStash;
@@ -337,7 +358,7 @@ namespace Procurement.ViewModel
         {
             try
             {
-                StashControl stash = getStash(sender);
+                IStashControl stash = getStash(sender);
 
                 var tabName = ApplicationState.Stash[ApplicationState.CurrentLeague].GetTabNameByTabId(stash.TabNumber);
 
@@ -370,16 +391,16 @@ namespace Procurement.ViewModel
         
         void refresh_Click(object sender, RoutedEventArgs e)
         {                      
-            StashControl stash = getStash(sender);
+            IStashControl stash = getStash(sender);
             stash.RefreshTab(ApplicationState.AccountName);
             ScreenController.Instance.InvalidateRecipeScreen();
             ScreenController.Instance.UpdateTrading();
         }
 
-        private static StashControl getStash(object sender)
+        private static IStashControl getStash(object sender)
         {
             MenuItem source = sender as MenuItem;
-            StashControl stash = source.Tag as StashControl;
+            IStashControl stash = source.Tag as IStashControl;
 
             return stash;
         }

@@ -7,6 +7,7 @@ namespace POEApi.Model
     {
         public Currency(JSONProxy.Item item) : base(item)
         {
+            ItemType = ItemType.Currency;
             Type = ProxyMapper.GetOrbType(item);
             ChaosValue = CurrencyHandler.GetChaosValue(Type);
         }

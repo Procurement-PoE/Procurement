@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Procurement.Controls.CurencyStash"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Procurement.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="592" d:DesignWidth="591" Height="592" Width="591" d:DataContext="{d:DesignInstance local:CurrencyStashViewModel}">
+    <Canvas>
+        <Canvas.Background>
+            <ImageBrush ImageSource="/Images/currencyTab.png" />
+        </Canvas.Background>
+        <local:ItemDisplay Height="57" Canvas.Left="235" Canvas.Top="136" Width="55"  DataContext="{Binding Exalted}"/>
+        <local:ItemDisplay Height="57" Canvas.Left="444" Canvas.Top="104" Width="55" DataContext="{Binding Chaos}"/>
+        <!--<local:ItemDisplay Height="57" Canvas.Left="28" Canvas.Top="23" Width="55"  DataContext="{Binding WisdomScraps}"/>-->
+        <!--<local:ItemDisplay Height="57" Canvas.Left="93" Canvas.Top="23" Width="55"  DataContext="{Binding WisdomScrolls}"/>-->
+        <!--<local:ItemDisplay Height="57" Canvas.Left="157" Canvas.Top="23" Width="55"  DataContext="{Binding TownPortalScrolls}"/>-->
+        <!--<local:ItemDisplay Height="57" Canvas.Left="250" Canvas.Top="23" Width="55"  DataContext="{Binding BlacksmithsWhetstone}"/>-->
+        <!--<local:ItemDisplay Height="57" Canvas.Left="317" Canvas.Top="23" Width="55"  DataContext="{Binding ArmourersScrap}"/>-->
+    </Canvas>
+</UserControl>

@@ -11,22 +11,24 @@ using Procurement.ViewModel;
 using Procurement.ViewModel.Filters;
 using System.Diagnostics;
 using POEApi.Infrastructure;
+using Procurement.Interfaces;
 
 namespace Procurement.Controls
 {
-    public partial class StashControl : UserControl
+    public partial class StashControl : UserControl, IStashControl
     {
         public int TabNumber { get; set; }
+        public int FilterResults { get; set; }
         private bool initialized = false;
 
         private Dictionary<Tuple<int, int>, Item> stashByLocation;
         private Dictionary<Tuple<int, int>, Border> borderByLocation;
         public List<Item> Stash { get; set; }
-        public int FilterResults { get; private set; }
+        //public int FilterResults { get; private set; }
 
-        public IEnumerable<IFilter> Filter
+        public List<IFilter> Filter
         {
-            get { return (IEnumerable<IFilter>) GetValue(FilterProperty); }
+            get { return (List<IFilter>) GetValue(FilterProperty); }
             set { SetValue(FilterProperty, value); }
         }
 
@@ -35,7 +37,7 @@ namespace Procurement.Controls
             if (initialized == false && Stash == null)
                 refresh();
 
-            FilterResults = Filter.Count() == 0 ? -1 : 0;
+            FilterResults = !Filter.Any() ? -1 : 0;
 
             foreach (var item in Stash)
             {
@@ -80,8 +82,7 @@ namespace Procurement.Controls
         {
             InitializeComponent();
             this.Loaded += new RoutedEventHandler(StashControl_Loaded);
-            ApplicationState.LeagueChanged +=
-                new System.ComponentModel.PropertyChangedEventHandler(ApplicationState_LeagueChanged);
+            ApplicationState.LeagueChanged += ApplicationState_LeagueChanged;
             stashByLocation = new Dictionary<Tuple<int, int>, Item>();
         }
 
