@@ -241,7 +241,7 @@ namespace POEApi.Model
         public MaceRunner()
             : base(GearType.Mace, Settings.GearBaseTypes[GearType.Mace])
         {
-            generalTypes.AddRange(new List<string>() { "Club", "Tenderizer", "Mace", "Hammer", "Maul", "Mallet", "Breaker", "Gavel", "Pernarch", "Steelhead", "Piledriver", "Bladed Mace" });
+            generalTypes.AddRange(new List<string>() { "Club", "Tenderizer", "Mace", "Hammer", "Maul", "Mallet", "Breaker", "Gavel", "Pernarch", "Steelhead", "Piledriver", "Bladed Mace", "Morning Star" });
         }
     }
 
