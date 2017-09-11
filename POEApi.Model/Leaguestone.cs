@@ -1,5 +1,8 @@
-﻿namespace POEApi.Model
+﻿using System.Diagnostics;
+
+namespace POEApi.Model
 {
+    [DebuggerDisplay("{TypeLine} Charges: {Charges.ToString()}")]
     public class Leaguestone : Item
     {
         public ChargeInfo Charges { get; }
