@@ -16,7 +16,7 @@
     </UserControl.Resources>
     <Canvas>
         <Canvas.Background>
-            <ImageBrush ImageSource="/Images/currencyTab.png" />
+            <ImageBrush ImageSource="/Images/NewCurrencyTab.png" />
         </Canvas.Background>
 
 
