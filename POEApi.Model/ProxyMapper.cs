@@ -325,11 +325,11 @@ namespace POEApi.Model
                 if (chargeSize == null)
                     return new ChargeInfo(0, 0);
 
-                var qty = (object[]) chargeSize.Values[0];
-            
-                var max = (object[]) chargeSize.Values[1];
+                var qty = chargeSize.Values[0] as JArray;
 
-                return new ChargeInfo(int.Parse(qty[0].ToString()), int.Parse(max[1].ToString()));
+                var max = chargeSize.Values[1] as JArray;
+
+                return new ChargeInfo(int.Parse(qty.First.ToString()), int.Parse(max.First.ToString()));
             }
             catch (Exception ex)
             {
