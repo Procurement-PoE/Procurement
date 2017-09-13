@@ -16,6 +16,7 @@ namespace Procurement.ViewModel
 
         public ItemDisplayViewModel Exalted => GetCurrencyItem(OrbType.Exalted);
         public ItemDisplayViewModel Chaos => GetCurrencyItem(OrbType.Chaos);
+        public ItemDisplayViewModel ChaosShard => GetCurrencyItem(OrbType.ChaosShard);
         public ItemDisplayViewModel ScrollFragment => GetCurrencyItem(OrbType.ScrollFragment);
         public ItemDisplayViewModel WisdomScrolls => GetCurrencyItem(OrbType.ScrollofWisdom);
         public ItemDisplayViewModel TownPortalScrolls => GetCurrencyItem(OrbType.PortalScroll);
@@ -63,6 +64,10 @@ namespace Procurement.ViewModel
         public ItemDisplayViewModel Journey => GetSextant(SextantType.Journeyman);
         public ItemDisplayViewModel Master => GetSextant(SextantType.Master);
 
+        public ItemDisplayViewModel Annulment  => GetCurrencyItem(OrbType.AnnulmentOrb);
+        public ItemDisplayViewModel AnnulmentShard => GetCurrencyItem(OrbType.AnnulmentOrb);
+        public ItemDisplayViewModel ExaltedShard => GetCurrencyItem(OrbType.ExaltedShard);
+        public ItemDisplayViewModel MirrorShard => GetCurrencyItem(OrbType.AnnulmentShard);
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -85,8 +90,7 @@ namespace Procurement.ViewModel
 
             return new ItemDisplayViewModel(null);
         }
-
-
+        
         private ItemDisplayViewModel GetCurrencyItem(OrbType orbType)
         {
             foreach (var item in _stash)
