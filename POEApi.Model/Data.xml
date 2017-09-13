@@ -587,6 +587,7 @@
       <Item name="Imperial Skean"/>
       <Item name="Demon Dagger"/>
       <Item name="Sai"/>
+      <Item name="Trisula"/>
     </GearBaseType>
     <GearBaseType name="Mace">
       <Item name="Driftwood Club"/>
@@ -634,6 +635,7 @@
       <Item name="Sambar Sceptre"/>
       <Item name="Behemoth Mace"/>
       <Item name="Coronal Maul"/>
+      <Item name="Morning Star"/>
     </GearBaseType>
     <GearBaseType name="Quiver">
       <Item name="Rugged Quiver"/>
