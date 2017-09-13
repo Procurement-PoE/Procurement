@@ -106,25 +106,6 @@ namespace POEApi.Model
             return "http://webcdn.pathofexile.com" + url;
         }
 
-        protected abstract int getConcreteHash();
-
-        protected int getHash()
-        {
-            var anonomousType = new
-            {
-                f = this.IconURL,
-                f1 = this.League,
-                f2 = this.Name,
-                f3 = this.TypeLine,
-                f4 = this.DescrText,
-                f5 = this.Explicitmods != null ? string.Join(string.Empty, this.Explicitmods.ToArray()) : string.Empty,
-                f6 = this.Properties != null ? string.Join(string.Empty, this.Properties.Select(p => string.Concat(p.DisplayMode, p.Name, string.Join(string.Empty, p.Values.Select(t => string.Concat(t.Item1, t.Item2)).ToArray()))).ToArray()) : string.Empty,
-                f7 = getConcreteHash()
-            };
-
-            return anonomousType.GetHashCode();
-        }
-
         protected Rarity getRarity(JSONProxy.Item item)
         {
             //Looks like isRelic is coming across the wire as an additional field but coincidentally 9 was the correct frame type here.

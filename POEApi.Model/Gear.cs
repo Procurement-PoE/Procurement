@@ -37,19 +37,5 @@ namespace POEApi.Model
         {
             return Sockets.Count();
         }
-
-        protected override int getConcreteHash()
-        {
-            var anonomousType = new
-            {
-                f1 = Sockets != null ? string.Join(string.Empty, Sockets.Select(s => string.Concat(s.Group, s.Attribute)).ToArray()) : string.Empty,
-                f2 = Implicitmods != null ? string.Join(string.Empty, Implicitmods.ToArray()) : string.Empty,
-                f3 = Rarity.ToString(),
-                f4 = this.Requirements != null ? string.Join(string.Empty, this.Requirements.Select(r => string.Concat(r.Name, r.Value)).ToArray()) : string.Empty,
-                f5 = this.GearType.ToString()
-            };
-
-            return anonomousType.GetHashCode();
-        }
     }
 }
