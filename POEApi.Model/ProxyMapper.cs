@@ -19,26 +19,26 @@ namespace POEApi.Model
 
         private static readonly Dictionary<string, OrbType> orbMap = new Dictionary<string, OrbType>
         {
-            {"Chaos", OrbType.Chaos},
-            {"Divine", OrbType.Divine},
-            {"Regal", OrbType.Regal},
-            {"Augmentation", OrbType.Augmentation},
+            {"Chaos Orb", OrbType.Chaos},
+            {"Divine Orb", OrbType.Divine},
+            {"Regal Orb", OrbType.Regal},
+            {"Orb of Augmentation", OrbType.Augmentation},
             {"Orb of Alchemy", OrbType.Alchemy},
             {"Alchemy Shard", OrbType.AlchemyShard},
-            {"Chromatic", OrbType.Chromatic},
+            {"Chromatic Orb", OrbType.Chromatic},
             {"Orb of Transmutation", OrbType.Transmutation},
             {"Transmutation Shard", OrbType.TransmutationShard},
-            {"Scouring", OrbType.Scouring},
-            {"Glassblower", OrbType.GlassblowersBauble},
-            {"Cartographer", OrbType.Chisel},
+            {"Orb of Scouring", OrbType.Scouring},
+            {"Glassblower's Bauble", OrbType.GlassblowersBauble},
+            {"Cartographer's Chisel", OrbType.Chisel},
             {"Gemcutter's Prism", OrbType.GemCutterPrism},
             {"Orb of Alteration", OrbType.Alteration},
             {"Alteration Shard", OrbType.AlterationShard},
-            {"Chance", OrbType.Chance},
-            {"Regret", OrbType.Regret},
-            {"Exalted", OrbType.Exalted},
+            {"Orb of Chance", OrbType.Chance},
+            {"Orb of Regret", OrbType.Regret},
+            {"Exalted Orb", OrbType.Exalted},
             {"Armourer's Scrap", OrbType.ArmourersScrap},
-            {"Blessed", OrbType.Blessed},
+            {"Blessed Orb", OrbType.Blessed},
             {"Blacksmith's Whetstone", OrbType.BlacksmithsWhetstone},
             {"Scroll Fragment", OrbType.ScrollFragment},
             {"Jeweller's Orb", OrbType.JewelersOrb},
@@ -231,7 +231,7 @@ namespace POEApi.Model
         {
             try
             {
-                return orbMap.First(m => name.Contains(m.Key)).Value;
+                return orbMap.First(m => name.Equals(m.Key, StringComparison.CurrentCultureIgnoreCase)).Value;
             }
             catch (Exception ex)
             {
