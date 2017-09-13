@@ -155,6 +155,9 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 [spoiler="          Currency          "]
 {Currency} 
 [/spoiler]
+[spoiler="          Divine Vessels          "]
+{DivineVessel}
+[/spoiler]
 
 Thanks for visiting!
 
