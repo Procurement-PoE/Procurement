@@ -147,5 +147,27 @@ namespace POEApi.Model.Tests
                 Assert.AreEqual(items.OfType<Currency>().Count(x => x.Type == OrbType.BindingShard), 1);
             }
         }
+
+        [TestMethod]
+        public void GetChargeTest()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithLeagueStoneChargeInfo);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+
+                Assert.AreEqual(stash.Tabs.Count, 361);
+
+                var items = stash.GetItemsByTab(5);
+
+                var leagueStones = items.OfType<Leaguestone>();
+                
+                Assert.IsTrue(leagueStones.All(x => x.Charges.ToString() == "5/5"));
+            }
+        }
     }
 }

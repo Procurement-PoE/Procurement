@@ -25,5 +25,10 @@ namespace POEApi.Model
             this.Charges = charges;
             this.MaxCharges = maxCharges;
         }
+
+        public override string ToString()
+        {
+            return $"{Charges}/{MaxCharges}";
+        }
     }
 }

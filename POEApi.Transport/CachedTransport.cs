@@ -9,6 +9,7 @@ namespace POEApi.Transport
 {
     public class CachedTransport : ITransport
     {
+        public bool Offline { get; }
         private ITransport innerTranport;
         private const string stashKey = "stash";
         private CacheService userCacheService;
@@ -16,8 +17,9 @@ namespace POEApi.Transport
 
         public event ThottledEventHandler Throttled;
 
-        public CachedTransport(string email, ITransport innerTranport)
+        public CachedTransport(string email, ITransport innerTranport, bool offline)
         {
+            Offline = offline;
             userCacheService = new CacheService(email);
             commonCacheService = new CacheService();
             this.innerTranport = innerTranport;
@@ -47,10 +49,13 @@ namespace POEApi.Transport
             if (refresh && userCacheService.Exists(key))
                 userCacheService.Remove(key);
 
-            if (!userCacheService.Exists(key))
+            if (!Offline && !userCacheService.Exists(key))
                 userCacheService.Set(key, innerTranport.GetStash(index, league, accountName));
 
-            return userCacheService.Get(key);
+            if(userCacheService.Exists(key))
+                return userCacheService.Get(key);
+
+            return Stream.Null;
         }
 
         public Stream GetStash(int index, string league, string accountName)
@@ -83,10 +88,13 @@ namespace POEApi.Transport
         {
             string key = "characterdata";
 
-            if (!userCacheService.Exists(key))
+            if (!Offline && !userCacheService.Exists(key))
                 userCacheService.Set(key, innerTranport.GetCharacters());
 
-            return userCacheService.Get(key);
+            if(userCacheService.Exists(key))
+                return userCacheService.Get(key);
+
+            return Stream.Null;
         }
 
         public Stream GetInventory(string characterName, bool forceRefresh, string accountName)
@@ -94,10 +102,13 @@ namespace POEApi.Transport
             if (forceRefresh && userCacheService.Exists(characterName))
                 userCacheService.Remove(characterName);
 
-            if (!userCacheService.Exists(characterName))
+            if (!Offline && !userCacheService.Exists(characterName))
                 userCacheService.Set(characterName, innerTranport.GetInventory(characterName, forceRefresh, accountName));
 
-            return userCacheService.Get(characterName);
+            if(userCacheService.Exists(characterName))
+                return userCacheService.Get(characterName);
+
+            return Stream.Null;
         }
 
         public bool UpdateThread(string threadID, string threadTitle, string threadText)

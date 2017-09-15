@@ -18,9 +18,10 @@ namespace POEApi.Model
 
         internal Stash(JSONProxy.Stash proxy)
         {
-            if (proxy.Items == null)
+            if (proxy?.Items == null)
             {
                 items = new List<Item>();
+                Tabs = new List<Tab>();
                 NumberOfTabs = 0;
                 return;
             }
