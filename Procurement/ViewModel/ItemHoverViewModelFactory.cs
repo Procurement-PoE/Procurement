@@ -24,6 +24,10 @@ namespace Procurement.ViewModel
             if (stone != null)
                 r = stone.Rarity;
 
+            var vessel = item as DivineVessel;
+            if(vessel != null)
+                r = Rarity.Normal;
+
             if (r != null)
             {
                 switch (r)

@@ -8,10 +8,5 @@
         {
             StackInfo = ProxyMapper.GetStackInfo(item.Properties);
         }
-
-        protected override int getConcreteHash()
-        {
-            return 0;
-        }
     }
 }

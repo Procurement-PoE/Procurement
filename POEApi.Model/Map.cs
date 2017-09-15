@@ -15,17 +15,5 @@ namespace POEApi.Model
             this.Rarity = getRarity(item);
             this.MapTier = int.Parse(Properties.Find(p => p.Name == "Map Tier").Values[0].Item1);
         }
-
-        protected override int getConcreteHash()
-        {
-            var anonomousType = new
-            {
-                f1 = Rarity,
-                f2 = MapTier,
-                f3 = MapQuantity,
-            };
-
-            return anonomousType.GetHashCode();
-        }
     }
 }

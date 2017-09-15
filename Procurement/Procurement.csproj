@@ -153,6 +153,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\CraftedModFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CurrencyFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\DamageChaos.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\DivineVesselFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\EnchantModFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\EssenceFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GearSearchFilters.cs" />
@@ -172,6 +173,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\SixRedSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SocketColourFilter.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\CurrencyVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\DivineVesselVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\EssenceVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\ProphecyVisitor.cs" />
     <Compile Include="ViewModel\Recipes\MatchedSet.cs" />
