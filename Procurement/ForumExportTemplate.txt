@@ -159,6 +159,10 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 {DivineVessel}
 [/spoiler]
 
+[spoiler="          Offering of the Goddess          "]
+{Offering}
+[/spoiler]
+
 Thanks for visiting!
 
 [url=https://github.com/Stickymaddness/Procurement/][img]http://i.imgur.com/ZHBMImo.png[/img][/url]

@@ -68,5 +68,27 @@ namespace POEApi.Model.Tests
                 Assert.IsTrue(filter.Applicable(vessel.First()));
             }
         }
+
+        [TestMethod]
+        public void AreOfferingsApplicable()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithDivineVessel);
+            filter = new OfferingFilter();
+
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+
+                var offerings = stash.GetItemsByTab(1).Where(x => x is Offering);
+
+                Assert.AreEqual(3, offerings.Count());
+
+                Assert.IsTrue(offerings.All(filter.Applicable));
+            }
+        }
     }
 }

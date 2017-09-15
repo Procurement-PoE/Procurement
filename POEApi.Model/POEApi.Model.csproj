@@ -76,6 +76,7 @@
     <Compile Include="JSONProxy\Stash.cs" />
     <Compile Include="Leaguestone.cs" />
     <Compile Include="Map.cs" />
+    <Compile Include="Offering.cs" />
     <Compile Include="OrbType.cs" />
     <Compile Include="Events\POEEventArgs.cs" />
     <Compile Include="Events\POEEventState.cs" />
