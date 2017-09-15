@@ -31,8 +31,15 @@ namespace POEApi.Model
                 if (item.TypeLine.Contains("Map") && item.DescrText != null && item.DescrText.Contains("Travel to this Map"))
                     return new Map(item);
 
-                if (item.FrameType == 0 && item.TypeLine == "Divine Vessel")
-                    return new DivineVessel(item);
+                if (item.FrameType == 0)
+                {
+                    if (item.TypeLine == "Divine Vessel")
+                        return new DivineVessel(item);
+
+                    if(item.TypeLine == "Offering to the Goddess")
+                        return new Offering(item);
+                }
+                
 
                 return new Gear(item);
             }

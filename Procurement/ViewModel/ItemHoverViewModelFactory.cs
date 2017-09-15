@@ -28,6 +28,10 @@ namespace Procurement.ViewModel
             if(vessel != null)
                 r = Rarity.Normal;
 
+            var offering = item as Offering;
+            if (offering != null)
+                r = Rarity.Normal;
+
             if (r != null)
             {
                 switch (r)
