@@ -48,7 +48,7 @@ namespace Procurement.ViewModel
             if (item is Gem)
                 return new GemItemHoverViewModel(item);
 
-            if (item is Currency)
+            if (item is Currency || item is Sextant)
                 return new CurrencyItemHoverViewModel(item);
 
             if (item is Prophecy)
@@ -56,6 +56,12 @@ namespace Procurement.ViewModel
 
             return new ItemHoverViewModel(item);
         }
+    }
+
+    public class SextantItemHoverViewModel : ItemHoverViewModel
+    {
+        public SextantItemHoverViewModel(Item item) : base(item)
+        { }
     }
 
     public class RelicGearItemHoverViewModel : ItemHoverViewModel

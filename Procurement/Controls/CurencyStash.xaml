@@ -1,0 +1,146 @@
+﻿<UserControl x:Class="Procurement.Controls.CurencyStash"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Procurement.Controls"
+             xmlns:viewModel="clr-namespace:Procurement.ViewModel"
+             mc:Ignorable="d"
+             d:DesignHeight="592" d:DesignWidth="591" Height="592" Width="591"
+             d:DataContext="{d:DesignInstance viewModel:CurrencyStashViewModel}">
+    <UserControl.Resources>
+        <Style x:Key="SingleCellItemStyle" TargetType="local:ItemDisplay">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="40" />
+        </Style>
+    </UserControl.Resources>
+    <Canvas>
+        <Canvas.Background>
+            <ImageBrush ImageSource="/Images/CurrencyTab.png" />
+        </Canvas.Background>
+
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="18" Canvas.Top="67"
+                           DataContext="{Binding ScrollFragment}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="73" Canvas.Top="67"
+                           DataContext="{Binding WisdomScrolls}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="128" Canvas.Top="67"
+                           DataContext="{Binding TownPortalScrolls}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="313" Canvas.Top="67"
+                           DataContext="{Binding BlacksmithsWhetstone}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="368" Canvas.Top="67"
+                           DataContext="{Binding ArmourersScrap}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="423" Canvas.Top="67"
+                           DataContext="{Binding GlassblowersBauble}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="477" Canvas.Top="67"
+                           DataContext="{Binding GemCuttersPrism}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="533" Canvas.Top="67"
+                           DataContext="{Binding Chisel}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="18" Canvas.Top="139"
+                           DataContext="{Binding Transmutation}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="73" Canvas.Top="139"
+                           DataContext="{Binding Alteration}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="182" Canvas.Top="191"
+                           DataContext="{Binding Augmentation}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="248" Canvas.Top="139"
+                           DataContext="{Binding Exalted}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="302" Canvas.Top="139"
+                           DataContext="{Binding Mirror}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="423" Canvas.Top="139"
+                           DataContext="{Binding Alchemy}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="477" Canvas.Top="139"
+                           DataContext="{Binding Chaos}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="477" Canvas.Top="191"
+                           DataContext="{Binding ChaosShard}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="182" Canvas.Top="139"
+                           DataContext="{Binding Chance}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="18" Canvas.Top="191"
+                           DataContext="{Binding TransmutationShard}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="73" Canvas.Top="191"
+                           DataContext="{Binding AlterationShard}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="368" Canvas.Top="139"
+                           DataContext="{Binding Regal}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="423" Canvas.Top="191"
+                           DataContext="{Binding AlchemyShard}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="533" Canvas.Top="139"
+                           DataContext="{Binding Blessed}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="533" Canvas.Top="191"
+                           DataContext="{Binding Divine}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="73" Canvas.Top="275"
+                           DataContext="{Binding Jewlers}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="128" Canvas.Top="275"
+                           DataContext="{Binding Fuse}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="182" Canvas.Top="275"
+                           DataContext="{Binding Chromatic}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="368" Canvas.Top="275"
+                           DataContext="{Binding Scour}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="423" Canvas.Top="275"
+                           DataContext="{Binding Regret}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="477" Canvas.Top="275"
+                           DataContext="{Binding Vaal}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="128" Canvas.Top="327"
+                           DataContext="{Binding Perandus}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="182" Canvas.Top="327"
+                           DataContext="{Binding Silver}" />
+
+        <local:ItemDisplay Height="160" Canvas.Left="259" Canvas.Top="259" Width="80"
+                           DataContext="{Binding CraftingSection}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="113" Canvas.Top="450"
+                           DataContext="{Binding Slot1}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="167" Canvas.Top="450"
+                           DataContext="{Binding Slot2}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="222" Canvas.Top="450"
+                           DataContext="{Binding Slot3}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="450"
+                           DataContext="{Binding Slot4}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="329" Canvas.Top="450"
+                           DataContext="{Binding Slot5}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="384" Canvas.Top="450"
+                           DataContext="{Binding Slot6}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="440" Canvas.Top="450"
+                           DataContext="{Binding Slot7}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="113" Canvas.Top="504"
+                           DataContext="{Binding Slot8}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="167" Canvas.Top="504"
+                           DataContext="{Binding Slot9}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="222" Canvas.Top="504"
+                           DataContext="{Binding Slot10}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="504"
+                           DataContext="{Binding Slot11}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="329" Canvas.Top="504"
+                           DataContext="{Binding Slot12}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="384" Canvas.Top="504"
+                           DataContext="{Binding Slot13}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="440" Canvas.Top="504"
+                           DataContext="{Binding Slot14}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="368" Canvas.Top="327"
+                           DataContext="{Binding Apprentice}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="423" Canvas.Top="327"
+                           DataContext="{Binding Journey}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="477" Canvas.Top="327"
+                           DataContext="{Binding Master}" />
+        
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="128" Canvas.Top="139"
+                           DataContext="{Binding Annulment}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="128" Canvas.Top="191"
+                           DataContext="{Binding AnnulmentShard}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="248" Canvas.Top="191"
+                           DataContext="{Binding ExaltedShard}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="302" Canvas.Top="191"
+                           DataContext="{Binding MirrorShard}" />
+    </Canvas>
+</UserControl>

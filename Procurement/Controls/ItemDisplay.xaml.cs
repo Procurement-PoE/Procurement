@@ -51,16 +51,22 @@ namespace Procurement.Controls
         void ItemDisplay_Loaded(object sender, RoutedEventArgs e)
         {
             ItemDisplayViewModel vm = this.DataContext as ItemDisplayViewModel;
-            Image i = vm.getImage();
-            itemImage = i;
+            if (vm != null)
+            {
+                Image i = vm.getImage();
+                itemImage = i;
 
-            this.MainGrid.Children.Add(i);
+                if (i != null)
+                {
+                    this.MainGrid.Children.Add(i);
 
-            if (vm.HasSocket)
-                BindSocketPopup(vm);
+                    if (vm.HasSocket)
+                        BindSocketPopup(vm);
 
-            this.Height = i.Height;
-            this.Width = i.Width;
+                    this.Height = i.Height;
+                    this.Width = i.Width;
+                }
+            }
             this.Loaded -= new RoutedEventHandler(ItemDisplay_Loaded);
 
             resyncText();
@@ -69,36 +75,35 @@ namespace Procurement.Controls
         private void resyncText()
         {
             ItemDisplayViewModel vm = this.DataContext as ItemDisplayViewModel;
-            Item item = vm.Item;
-
-            MenuItem setBuyout = new MenuItem();
-            string pricingInfo = string.Empty;
-
-            if (Settings.Buyouts.ContainsKey(item.Id))
+            if (vm != null)
             {
-                pricingInfo = Settings.Buyouts[item.Id].Buyout;
+                Item item = vm.Item;
+                if (item == null) return;
 
-                if (pricingInfo == string.Empty)
-                    pricingInfo = Settings.Buyouts[item.Id].Price;
+                string pricingInfo = string.Empty;
+
+                if (Settings.Buyouts.ContainsKey(item.Id))
+                {
+                    pricingInfo = Settings.Buyouts[item.Id].Buyout;
+
+                    if (pricingInfo == string.Empty)
+                        pricingInfo = Settings.Buyouts[item.Id].Price;
+                }
+
+                if (textblock != null)
+                    this.MainGrid.Children.Remove(textblock);
+
+                textblock = new TextBlock();
+                textblock.Text = pricingInfo;
+
+                if (item is Currency)
+                    textblock.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
+
+
+                textblock.IsHitTestVisible = false;
+                textblock.Margin = new Thickness(1, 1, 0, 0);
+                this.MainGrid.Children.Add(textblock);
             }
-
-            if (textblock != null)
-                this.MainGrid.Children.Remove(textblock);
-
-            textblock = new TextBlock();
-            textblock.Text = pricingInfo;
-
-            if (item is Currency)
-                textblock.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
-
-            textblock.IsHitTestVisible = false;
-            textblock.Margin = new Thickness(1, 1, 0, 0);
-            this.MainGrid.Children.Add(textblock);
-        }
-
-        private void doSocketAlwaysOver(UIElement socket)
-        {
-            this.MainGrid.Children.Add(socket);
         }
 
         private void BindSocketPopup(ItemDisplayViewModel vm)

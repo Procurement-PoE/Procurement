@@ -42,15 +42,20 @@ namespace Procurement.ViewModel
 
         public Image getImage()
         {
-            var img = new Image
+            if (Item != null)
             {
-                Source = ApplicationState.BitmapCache[Item.IconURL],
-                Stretch = Stretch.None
-            };
+                var img = new Image
+                {
+                    Source = ApplicationState.BitmapCache[Item.IconURL],
+                    Stretch = Stretch.None
+                };
 
-            CreateItemPopup(img, Item);
+                CreateItemPopup(img, Item);
 
-            return img;
+                return img;
+            }
+
+            return null;
         }
 
         public UIElement GetSocket()

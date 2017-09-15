@@ -19,24 +19,26 @@ namespace POEApi.Model
 
         private static readonly Dictionary<string, OrbType> orbMap = new Dictionary<string, OrbType>
         {
-            {"Chaos", OrbType.Chaos},
-            {"Divine", OrbType.Divine},
-            {"Regal", OrbType.Regal},
-            {"Augmentation", OrbType.Augmentation},
+            {"Chaos Orb", OrbType.Chaos},
+            {"Divine Orb", OrbType.Divine},
+            {"Regal Orb", OrbType.Regal},
+            {"Orb of Augmentation", OrbType.Augmentation},
             {"Orb of Alchemy", OrbType.Alchemy},
             {"Alchemy Shard", OrbType.AlchemyShard},
-            {"Chromatic", OrbType.Chromatic},
-            {"Transmutation", OrbType.Transmutation},
-            {"Scouring", OrbType.Scouring},
-            {"Glassblower", OrbType.GlassblowersBauble},
-            {"Cartographer", OrbType.Chisel},
+            {"Chromatic Orb", OrbType.Chromatic},
+            {"Orb of Transmutation", OrbType.Transmutation},
+            {"Transmutation Shard", OrbType.TransmutationShard},
+            {"Orb of Scouring", OrbType.Scouring},
+            {"Glassblower's Bauble", OrbType.GlassblowersBauble},
+            {"Cartographer's Chisel", OrbType.Chisel},
             {"Gemcutter's Prism", OrbType.GemCutterPrism},
-            {"Alteration", OrbType.Alteration},
-            {"Chance", OrbType.Chance},
-            {"Regret", OrbType.Regret},
-            {"Exalted", OrbType.Exalted},
+            {"Orb of Alteration", OrbType.Alteration},
+            {"Alteration Shard", OrbType.AlterationShard},
+            {"Orb of Chance", OrbType.Chance},
+            {"Orb of Regret", OrbType.Regret},
+            {"Exalted Orb", OrbType.Exalted},
             {"Armourer's Scrap", OrbType.ArmourersScrap},
-            {"Blessed", OrbType.Blessed},
+            {"Blessed Orb", OrbType.Blessed},
             {"Blacksmith's Whetstone", OrbType.BlacksmithsWhetstone},
             {"Scroll Fragment", OrbType.ScrollFragment},
             {"Jeweller's Orb", OrbType.JewelersOrb},
@@ -53,18 +55,18 @@ namespace POEApi.Model
             {"Ancient Orb", OrbType.AncientOrb},
             {"Ancient Shard", OrbType.AncientShard},
             {"Annulment Shard", OrbType.AnnulmentShard},
-            {"Binding Shard",OrbType.BindingShard},
-            {"Chaos Shard",OrbType.ChaosShard},
-            {"Engineer's Orb",OrbType.EngineersOrb},
-            {"Engineer's Shard",OrbType.EngineersShard},
-            {"Exalted Shard",OrbType.ExaltedShard},
-            {"Harbinger's Orb",OrbType.HarbingersOrb},
-            {"Harbinger's Shard",OrbType.HarbingersShard},
-            {"Horizon Shard",OrbType.HorizonShard},
-            {"Mirror Shard",OrbType.MirrorShard},
-            {"Orb of Annulment",OrbType.AnnulmentOrb},
-            {"Orb of Binding",OrbType.BindingOrb},
-            {"Orb of Horizons",OrbType.HorizonOrb},
+            {"Binding Shard", OrbType.BindingShard},
+            {"Chaos Shard", OrbType.ChaosShard},
+            {"Engineer's Orb", OrbType.EngineersOrb},
+            {"Engineer's Shard", OrbType.EngineersShard},
+            {"Exalted Shard", OrbType.ExaltedShard},
+            {"Harbinger's Orb", OrbType.HarbingersOrb},
+            {"Harbinger's Shard", OrbType.HarbingersShard},
+            {"Horizon Shard", OrbType.HorizonShard},
+            {"Mirror Shard", OrbType.MirrorShard},
+            {"Orb of Annulment", OrbType.AnnulmentOrb},
+            {"Orb of Binding", OrbType.BindingOrb},
+            {"Orb of Horizons", OrbType.HorizonOrb},
             {"Regal Shard", OrbType.RegalShard}
         };
 
@@ -229,7 +231,7 @@ namespace POEApi.Model
         {
             try
             {
-                return orbMap.First(m => name.Contains(m.Key)).Value;
+                return orbMap.First(m => name.Equals(m.Key, StringComparison.CurrentCultureIgnoreCase)).Value;
             }
             catch (Exception ex)
             {
