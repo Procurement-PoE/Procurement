@@ -232,7 +232,7 @@ namespace POEApi.Model
         public DaggerRunner()
             : base(GearType.Dagger, Settings.GearBaseTypes[GearType.Dagger])
         {
-            generalTypes.AddRange(new List<string>() { "Dagger", "Shank", "Knife", "Stiletto", "Skean", "Poignard", "Ambusher", "Boot Blade", "Kris" });
+            generalTypes.AddRange(new List<string>() { "Dagger", "Shank", "Knife", "Stiletto", "Skean", "Poignard", "Ambusher", "Boot Blade", "Kris", "Trisula" });
         }
     }
 
