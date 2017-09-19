@@ -110,6 +110,26 @@ namespace POEApi.Model.Tests
             }
         }
 
+        [TestMethod]
+        public void GetLitheBladeStashTest()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithLitheBlade);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+
+                Assert.AreEqual(stash.Tabs.Count, 39);
+
+                var items = stash.GetItemsByTab(12);
+
+                Assert.AreEqual(items.OfType<Gear>().Count(x => x.TypeLine == "Lithe Blade" && x.GearType == GearType.Sword), 1);
+            }
+        }
+
 
         [TestMethod]
         public void GetAccountNameTest()
