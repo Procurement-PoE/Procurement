@@ -130,6 +130,24 @@ namespace POEApi.Model.Tests
             }
         }
 
+        [TestMethod]
+        public void GetSaintlyChainmailStashTest()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithSaintlyChainmail);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+
+                Assert.AreEqual(stash.Tabs.Count, 39);
+                var items = stash.GetItemsByTab(19);
+
+                Assert.AreEqual(items.OfType<Gear>().Count(x => x.TypeLine == "Saintly Chainmail" && x.GearType == GearType.Chest), 1);
+            }
+        }
 
         [TestMethod]
         public void GetAccountNameTest()

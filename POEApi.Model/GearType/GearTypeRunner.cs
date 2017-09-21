@@ -31,6 +31,9 @@ namespace POEApi.Model
 
         public override bool IsCompatibleType(Gear item)
         {
+            if (incompatibleTypes != null && incompatibleTypes.Any(t => item.TypeLine.Contains(t)))
+                return false;
+            
             // First, check the general types, to see if there is an easy match.
             foreach (var type in generalTypes)
                 if (item.TypeLine.Contains(type))
@@ -129,7 +132,9 @@ namespace POEApi.Model
     {
         public ChestRunner()
             : base(GearType.Chest, Settings.GearBaseTypes[GearType.Chest])
-        { }
+        {
+            generalTypes.AddRange(new List<string>() { "Saintly Chainmail" });
+        }
     }
 
     public class BeltRunner : GearTypeRunnerBase
@@ -233,6 +238,7 @@ namespace POEApi.Model
             : base(GearType.Dagger, Settings.GearBaseTypes[GearType.Dagger])
         {
             generalTypes.AddRange(new List<string>() { "Dagger", "Shank", "Knife", "Stiletto", "Skean", "Poignard", "Ambusher", "Boot Blade", "Kris", "Trisula" });
+            incompatibleTypes = new List<string>() { "Saint" };
         }
     }
 
