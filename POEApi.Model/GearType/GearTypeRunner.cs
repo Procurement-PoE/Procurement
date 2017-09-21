@@ -133,7 +133,7 @@ namespace POEApi.Model
         public ChestRunner()
             : base(GearType.Chest, Settings.GearBaseTypes[GearType.Chest])
         {
-            generalTypes.AddRange(new List<string>() { "Saintly Chainmail" });
+            
         }
     }
 
