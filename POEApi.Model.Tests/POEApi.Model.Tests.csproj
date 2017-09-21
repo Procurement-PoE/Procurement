@@ -80,6 +80,7 @@
     <None Include="TestData\SampleStash.json" />
     <None Include="TestData\SampleStashWithDivineVessel.json" />
     <None Include="TestData\SampleStashWithEssences.json" />
+    <None Include="TestData\SampleStashWithLitheBlade.json" />
     <None Include="TestData\SampleStashWithRelic.json" />
     <None Include="TestData\SampleStashWithRemnantOfCorruption.json" />
     <None Include="TestData\SampleStashWithLeagueStoneChargeInfo.json" />

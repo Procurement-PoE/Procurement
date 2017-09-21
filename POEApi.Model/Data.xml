@@ -769,6 +769,7 @@
       <Item name="Tiger Hook"/>
       <Item name="Dragoon Sword"/>
       <Item name="Grappler"/>
+      <Item name="Lithe Blade"/>
     </GearBaseType>
     <GearBaseType name="Shield">
       <Item name="Splintered Tower Shield"/>
