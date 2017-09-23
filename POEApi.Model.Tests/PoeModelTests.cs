@@ -48,7 +48,7 @@ namespace POEApi.Model.Tests
 
                 Assert.IsNotNull(characters);
 
-                Assert.AreEqual(characters.Count, 5);
+                Assert.AreEqual(5, characters.Count);
             }
         }
 
@@ -66,7 +66,7 @@ namespace POEApi.Model.Tests
 
                 Assert.IsNotNull(stash);
 
-                Assert.AreEqual(stash.Tabs.Count, 17);
+                Assert.AreEqual(17, stash.Tabs.Count);
             }
         }
 
@@ -82,7 +82,7 @@ namespace POEApi.Model.Tests
 
                 Assert.IsNotNull(stash);
 
-                Assert.AreEqual(stash.Tabs.Count, 83);
+                Assert.AreEqual(83, stash.Tabs.Count);
 
                 var items = stash.GetItemsByTab(14);
 
@@ -102,11 +102,11 @@ namespace POEApi.Model.Tests
 
                 Assert.IsNotNull(stash);
 
-                Assert.AreEqual(stash.Tabs.Count, 27);
+                Assert.AreEqual(27, stash.Tabs.Count);
 
                 var items = stash.GetItemsByTab(7);
 
-                Assert.AreEqual(items.OfType<Gear>().Count(x => x.Rarity == Rarity.Relic), 1);
+                Assert.AreEqual(1, items.OfType<Gear>().Count(x => x.Rarity == Rarity.Relic));
             }
         }
 
@@ -122,11 +122,11 @@ namespace POEApi.Model.Tests
 
                 Assert.IsNotNull(stash);
 
-                Assert.AreEqual(stash.Tabs.Count, 39);
+                Assert.AreEqual(39, stash.Tabs.Count);
 
                 var items = stash.GetItemsByTab(12);
 
-                Assert.AreEqual(items.OfType<Gear>().Count(x => x.TypeLine == "Lithe Blade" && x.GearType == GearType.Sword), 1);
+                Assert.AreEqual(1, items.OfType<Gear>().Count(x => x.TypeLine == "Lithe Blade" && x.GearType == GearType.Sword));
             }
         }
 
@@ -142,10 +142,11 @@ namespace POEApi.Model.Tests
 
                 Assert.IsNotNull(stash);
 
-                Assert.AreEqual(stash.Tabs.Count, 39);
+                Assert.AreEqual(39, stash.Tabs.Count);
+
                 var items = stash.GetItemsByTab(19);
 
-                Assert.AreEqual(items.OfType<Gear>().Count(x => x.TypeLine == "Saintly Chainmail" && x.GearType == GearType.Chest), 1);
+                Assert.AreEqual(1, items.OfType<Gear>().Count(x => x.TypeLine == "Saintly Chainmail" && x.GearType == GearType.Chest));
             }
         }
 
@@ -160,7 +161,7 @@ namespace POEApi.Model.Tests
 
                 var account = _model.GetAccountName();
 
-                Assert.AreEqual(account, "fakeAccountName");
+                Assert.AreEqual("fakeAccountName", account);
             }
         }
 
@@ -176,13 +177,13 @@ namespace POEApi.Model.Tests
 
                 Assert.IsNotNull(stash);
 
-                Assert.AreEqual(stash.Tabs.Count, 26);
+                Assert.AreEqual(26, stash.Tabs.Count);
 
                 var items = stash.GetItemsByTab(0);
 
-                Assert.AreEqual(items.OfType<Currency>().Count(x => x.Type == OrbType.EngineersOrb), 1);
-                Assert.AreEqual(items.OfType<Currency>().Count(x => x.Type == OrbType.BindingOrb), 1);
-                Assert.AreEqual(items.OfType<Currency>().Count(x => x.Type == OrbType.BindingShard), 1);
+                Assert.AreEqual(1, items.OfType<Currency>().Count(x => x.Type == OrbType.EngineersOrb));
+                Assert.AreEqual(1, items.OfType<Currency>().Count(x => x.Type == OrbType.BindingOrb));
+                Assert.AreEqual(1, items.OfType<Currency>().Count(x => x.Type == OrbType.BindingShard));
             }
         }
 
@@ -198,7 +199,7 @@ namespace POEApi.Model.Tests
 
                 Assert.IsNotNull(stash);
 
-                Assert.AreEqual(stash.Tabs.Count, 361);
+                Assert.AreEqual(361, stash.Tabs.Count);
 
                 var items = stash.GetItemsByTab(5);
 
