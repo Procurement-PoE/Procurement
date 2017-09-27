@@ -1,0 +1,243 @@
+﻿<UserControl x:Class="Procurement.Controls.EssenceStash"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Procurement.Controls"
+             xmlns:viewModel="clr-namespace:Procurement.ViewModel"
+             mc:Ignorable="d"
+             d:DesignHeight="592" d:DesignWidth="591" Height="592" Width="591"
+             d:DataContext="{d:DesignInstance viewModel:EssenceStashViewModel}">
+    <UserControl.Resources>
+        <Style x:Key="SingleCellItemStyle" TargetType="local:ItemDisplay">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="40" />
+        </Style>
+    </UserControl.Resources>
+    <Canvas>
+        <Canvas.Background>
+            <ImageBrush ImageSource="/Procurement;component/Images/essenceTab.png" />
+        </Canvas.Background>
+
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="304" Canvas.Top="24"
+                           DataContext="{Binding WhisperingGreed}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="304" Canvas.Top="70"
+                           DataContext="{Binding WhisperingContempt}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="304" Canvas.Top="116"
+                           DataContext="{Binding WhisperingHatred}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="304" Canvas.Top="162"
+                           DataContext="{Binding WhisperingWoe}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="258" Canvas.Top="24"
+                           DataContext="{Binding MutteringGreed}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="258" Canvas.Top="70"
+                           DataContext="{Binding MutteringContempt}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="258" Canvas.Top="116"
+                           DataContext="{Binding MutteringHatred}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="258" Canvas.Top="162"
+                           DataContext="{Binding MutteringWoe}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="258" Canvas.Top="208"
+                           DataContext="{Binding MutteringFear}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="258" Canvas.Top="254"
+                           DataContext="{Binding MutteringAnger}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="258" Canvas.Top="300"
+                           DataContext="{Binding MutteringTorment}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="258" Canvas.Top="346"
+                           DataContext="{Binding MutteringSorrow}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="212" Canvas.Top="24"
+                           DataContext="{Binding WeepingGreed}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="212" Canvas.Top="70"
+                           DataContext="{Binding WeepingContempt}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="212" Canvas.Top="116"
+                           DataContext="{Binding WeepingHatred}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="212" Canvas.Top="162"
+                           DataContext="{Binding WeepingWoe}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="212" Canvas.Top="208"
+                           DataContext="{Binding WeepingFear}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="212" Canvas.Top="254"
+                           DataContext="{Binding WeepingAnger}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="212" Canvas.Top="300"
+                           DataContext="{Binding WeepingTorment}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="212" Canvas.Top="346"
+                           DataContext="{Binding WeepingSorrow}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="212" Canvas.Top="392"
+                           DataContext="{Binding WeepingRage}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="212" Canvas.Top="438"
+                           DataContext="{Binding WeepingSuffering}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="212" Canvas.Top="484"
+                           DataContext="{Binding WeepingWrath}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="212" Canvas.Top="530"
+                           DataContext="{Binding WeepingDoubt}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="166" Canvas.Top="24"
+                           DataContext="{Binding WailingGreed}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="166" Canvas.Top="70"
+                           DataContext="{Binding WailingContempt}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="166" Canvas.Top="116"
+                           DataContext="{Binding WailingHatred}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="166" Canvas.Top="162"
+                           DataContext="{Binding WailingWoe}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="166" Canvas.Top="208"
+                           DataContext="{Binding WailingFear}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="166" Canvas.Top="254"
+                           DataContext="{Binding WailingAnger}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="166" Canvas.Top="300"
+                           DataContext="{Binding WailingTorment}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="166" Canvas.Top="346"
+                           DataContext="{Binding WailingSorrow}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="166" Canvas.Top="392"
+                           DataContext="{Binding WailingRage}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="166" Canvas.Top="438"
+                           DataContext="{Binding WailingSuffering}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="166" Canvas.Top="484"
+                           DataContext="{Binding WailingWrath}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="166" Canvas.Top="530"
+                           DataContext="{Binding WailingDoubt}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="388" Canvas.Top="24"
+                           DataContext="{Binding WailingLoathing}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="388" Canvas.Top="70"
+                           DataContext="{Binding WailingZeal}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="388" Canvas.Top="116"
+                           DataContext="{Binding WailingAnguish}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="388" Canvas.Top="162"
+                           DataContext="{Binding WailingSpite}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="120" Canvas.Top="24"
+                           DataContext="{Binding ScreamingGreed}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="120" Canvas.Top="70"
+                           DataContext="{Binding ScreamingContempt}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="120" Canvas.Top="116"
+                           DataContext="{Binding ScreamingHatred}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="120" Canvas.Top="162"
+                           DataContext="{Binding ScreamingWoe}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="120" Canvas.Top="208"
+                           DataContext="{Binding ScreamingFear}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="120" Canvas.Top="254"
+                           DataContext="{Binding ScreamingAnger}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="120" Canvas.Top="300"
+                           DataContext="{Binding ScreamingTorment}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="120" Canvas.Top="346"
+                           DataContext="{Binding ScreamingSorrow}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="120" Canvas.Top="392"
+                           DataContext="{Binding ScreamingRage}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="120" Canvas.Top="438"
+                           DataContext="{Binding ScreamingSuffering}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="120" Canvas.Top="484"
+                           DataContext="{Binding ScreamingWrath}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="120" Canvas.Top="530"
+                           DataContext="{Binding ScreamingDoubt}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="434" Canvas.Top="24"
+                           DataContext="{Binding ScreamingLoathing}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="434" Canvas.Top="70"
+                           DataContext="{Binding ScreamingZeal}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="434" Canvas.Top="116"
+                           DataContext="{Binding ScreamingAnguish}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="434" Canvas.Top="162"
+                           DataContext="{Binding ScreamingSpite}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="434" Canvas.Top="208"
+                           DataContext="{Binding ScreamingScorn}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="434" Canvas.Top="254"
+                           DataContext="{Binding ScreamingEnvy}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="434" Canvas.Top="300"
+                           DataContext="{Binding ScreamingMisery}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="434" Canvas.Top="346"
+                           DataContext="{Binding ScreamingDread}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="74" Canvas.Top="24"
+                           DataContext="{Binding ShriekingGreed}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="74" Canvas.Top="70"
+                           DataContext="{Binding ShriekingContempt}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="74" Canvas.Top="116"
+                           DataContext="{Binding ShriekingHatred}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="74" Canvas.Top="162"
+                           DataContext="{Binding ShriekingWoe}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="74" Canvas.Top="208"
+                           DataContext="{Binding ShriekingFear}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="74" Canvas.Top="254"
+                           DataContext="{Binding ShriekingAnger}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="74" Canvas.Top="300"
+                           DataContext="{Binding ShriekingTorment}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="74" Canvas.Top="346"
+                           DataContext="{Binding ShriekingSorrow}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="74" Canvas.Top="392"
+                           DataContext="{Binding ShriekingRage}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="74" Canvas.Top="438"
+                           DataContext="{Binding ShriekingSuffering}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="74" Canvas.Top="484"
+                           DataContext="{Binding ShriekingWrath}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="74" Canvas.Top="530"
+                           DataContext="{Binding ShriekingDoubt}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="480" Canvas.Top="24"
+                           DataContext="{Binding ShriekingLoathing}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="480" Canvas.Top="70"
+                           DataContext="{Binding ShriekingZeal}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="480" Canvas.Top="116"
+                           DataContext="{Binding ShriekingAnguish}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="480" Canvas.Top="162"
+                           DataContext="{Binding ShriekingSpite}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="480" Canvas.Top="208"
+                           DataContext="{Binding ShriekingScorn}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="480" Canvas.Top="254"
+                           DataContext="{Binding ShriekingEnvy}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="480" Canvas.Top="300"
+                           DataContext="{Binding ShriekingMisery}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="480" Canvas.Top="346"
+                           DataContext="{Binding ShriekingDread}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="28" Canvas.Top="24"
+                           DataContext="{Binding DeafeningGreed}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="28" Canvas.Top="70"
+                           DataContext="{Binding DeafeningContempt}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="28" Canvas.Top="116"
+                           DataContext="{Binding DeafeningHatred}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="28" Canvas.Top="162"
+                           DataContext="{Binding DeafeningWoe}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="28" Canvas.Top="208"
+                           DataContext="{Binding DeafeningFear}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="28" Canvas.Top="254"
+                           DataContext="{Binding DeafeningAnger}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="28" Canvas.Top="300"
+                           DataContext="{Binding DeafeningTorment}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="28" Canvas.Top="346"
+                           DataContext="{Binding DeafeningSorrow}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="28" Canvas.Top="392"
+                           DataContext="{Binding DeafeningRage}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="28" Canvas.Top="438"
+                           DataContext="{Binding DeafeningSuffering}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="28" Canvas.Top="484"
+                           DataContext="{Binding DeafeningWrath}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="28" Canvas.Top="530"
+                           DataContext="{Binding DeafeningDoubt}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="526" Canvas.Top="24"
+                           DataContext="{Binding DeafeningLoathing}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="526" Canvas.Top="70"
+                           DataContext="{Binding DeafeningZeal}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="526" Canvas.Top="116"
+                           DataContext="{Binding DeafeningAnguish}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="526" Canvas.Top="162"
+                           DataContext="{Binding DeafeningSpite}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="526" Canvas.Top="208"
+                           DataContext="{Binding DeafeningScorn}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="526" Canvas.Top="254"
+                           DataContext="{Binding DeafeningEnvy}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="526" Canvas.Top="300"
+                           DataContext="{Binding DeafeningMisery}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="526" Canvas.Top="346"
+                           DataContext="{Binding DeafeningDread}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="526" Canvas.Top="392"
+                           DataContext="{Binding Insanity}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="526" Canvas.Top="438"
+                           DataContext="{Binding Horror}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="526" Canvas.Top="484"
+                           DataContext="{Binding Delirium}" />
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="526" Canvas.Top="530"
+                           DataContext="{Binding Hysteria}" />
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="480" Canvas.Top="392"
+                           DataContext="{Binding RemnantOfCorruption}" />
+
+    </Canvas>
+</UserControl>
