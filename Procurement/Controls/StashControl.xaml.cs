@@ -12,6 +12,7 @@ using Procurement.ViewModel.Filters;
 using System.Diagnostics;
 using POEApi.Infrastructure;
 using Procurement.Interfaces;
+using System.Windows.Media.Imaging;
 
 namespace Procurement.Controls
 {
@@ -20,6 +21,7 @@ namespace Procurement.Controls
         public int TabNumber { get; set; }
         public int FilterResults { get; set; }
         private bool initialized = false;
+        private TabType tabType;
 
         private Dictionary<Tuple<int, int>, Item> stashByLocation;
         private Dictionary<Tuple<int, int>, Border> borderByLocation;
@@ -102,7 +104,7 @@ namespace Procurement.Controls
         private void refresh()
         {
             this.Stash = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(TabNumber);
-            TabType tabType = GetTabType();
+            tabType = GetTabType();
 
             updateStashByLocation();
             render(tabType);
@@ -149,6 +151,8 @@ namespace Procurement.Controls
             {
                 columns = QUAD_SPACING;
                 rows = QUAD_SPACING;
+
+                gridOuter.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Images/stash-quad-grid.png")));
             }
 
             grid.ColumnDefinitions.Clear();
@@ -166,7 +170,6 @@ namespace Procurement.Controls
                         grid.RowDefinitions.Add(new RowDefinition());
 
                     Grid childGrid = new Grid();
-                    childGrid.Margin = new Thickness(1);
 
                     Tuple<int, int> currentKey = new Tuple<int, int>(i, j);
 
@@ -200,7 +203,7 @@ namespace Procurement.Controls
 
         private UIElement getImage(Item item)
         {
-            return new ItemDisplay() { DataContext = new ItemDisplayViewModel(item) };
+            return new ItemDisplay() { DataContext = new ItemDisplayViewModel(item), IsQuadStash = tabType == TabType.Quad };
         }
 
         void popup_LostMouseCapture(object sender, MouseEventArgs e)

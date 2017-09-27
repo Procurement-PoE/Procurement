@@ -735,6 +735,10 @@
     <Resource Include="Images\Sockets\abyssal-socketed.png" />
     <Resource Include="Images\Sockets\abyssal.png" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\stash-quad-grid.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
