@@ -39,7 +39,10 @@ namespace POEApi.Model
                     if(item.TypeLine == "Offering to the Goddess")
                         return new Offering(item);
                 }
-                
+
+                if (item.FrameType == 6)
+                    return new DivinationCard(item);
+
 
                 return new Gear(item);
             }
