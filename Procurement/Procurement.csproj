@@ -94,9 +94,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ApplicationState.cs" />
+    <Compile Include="Controls\EssenceStash.xaml.cs">
+      <DependentUpon>EssenceStash.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CurencyStash.xaml.cs">
       <DependentUpon>CurencyStash.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\EssenceStashViewModel.cs" />
     <Compile Include="ViewModel\CurrencyStashViewModel.cs" />
     <Compile Include="Interfaces\IStashControl.cs" />
     <Compile Include="Controls\SetTabBuyoutView.xaml.cs">
@@ -420,6 +424,10 @@
     <Resource Include="Resources\fontin-smallcaps-webfont.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\EssenceStash.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\CurencyStash.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -716,6 +724,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\currencyTab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\essenceTab.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

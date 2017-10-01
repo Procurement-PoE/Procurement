@@ -303,6 +303,15 @@ namespace Procurement.ViewModel
 
                         tabsAndContent.Add(new TabContent(i - 1, item, currencyStash));
                         break;
+                    case TabType.Essence:
+                        var essenceStash = new EssenceStash(currentTab.i, getUserFilter(string.Empty));
+
+                        item.Content = essenceStash;
+
+                        addContextMenu(item, essenceStash);
+
+                        tabsAndContent.Add(new TabContent(i - 1, item, essenceStash));
+                        break;
                     default:
                         var itemStash = new StashControl();
 
