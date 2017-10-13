@@ -4,20 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" Height="32" Width="356">
     <UserControl.Resources>
         <ResourceDictionary Source="ExpressionDark.xaml" />
     </UserControl.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="131"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="26" />
-            <RowDefinition Height="29" />
-            <RowDefinition Height="245*" />
+            <RowDefinition Height="28" />
+            <RowDefinition Height="27" />
+            <RowDefinition Height="0*" />
         </Grid.RowDefinitions>
         <Grid.Background>
             <SolidColorBrush Color="Black" Opacity="0.8" />
         </Grid.Background>
-        <Label Content="League Selection:" Grid.Row="0"  Foreground="#FFAB9066" FontSize="14" FontWeight="Bold"/>
-        <ComboBox ItemsSource="{Binding Leagues}" Grid.Row="1" Foreground="#FFAB9066" SelectionChanged="ComboBox_SelectionChanged" SelectedItem="{Binding CurrentLeague, Mode=OneTime}" />
+        <Label Content="League Selection:" Grid.Row="0"  Foreground="#FFAB9066" FontSize="14" FontWeight="Bold" Margin="0,5,0,0"/>
+        <ComboBox ItemsSource="{Binding Leagues}" Foreground="#FFAB9066" SelectionChanged="ComboBox_SelectionChanged" SelectedItem="{Binding CurrentLeague, Mode=OneTime}" Margin="3,5,64,0" Grid.Column="1" />
     </Grid>
 </UserControl>
