@@ -115,6 +115,10 @@ namespace Procurement.ViewModel
 
             if (!offline)
             {
+                // Prevents the event from being registered doubly if the login fails prematurely. 
+                ApplicationState.Model.StashLoading -= model_StashLoading;
+                ApplicationState.Model.ImageLoading -= model_ImageLoading;
+
                 ApplicationState.Model.StashLoading += model_StashLoading;
                 ApplicationState.Model.ImageLoading += model_ImageLoading;
             }
