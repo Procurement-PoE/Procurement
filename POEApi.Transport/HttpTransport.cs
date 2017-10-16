@@ -73,6 +73,7 @@ namespace POEApi.Transport
                 credentialCookies.Add(new Cookie("POESESSID", unwrappedPassword, "/", ".pathofexile.com"));
                 HttpWebRequest confirmAuth = getHttpRequest(HttpMethod.GET, loginURL);
                 HttpWebResponse confirmAuthResponse = (HttpWebResponse)confirmAuth.GetResponse();
+                confirmAuthResponse.Close();
 
                 if (confirmAuthResponse.ResponseUri.ToString() == loginURL)
                     throw new LogonFailedException();
@@ -101,6 +102,7 @@ namespace POEApi.Transport
 
             HttpWebResponse response;
             response = (HttpWebResponse)request.GetResponse();
+            response.Close();
 
             //If we didn't get a redirect, your gonna have a bad time.
             if (response.StatusCode != HttpStatusCode.Found)
