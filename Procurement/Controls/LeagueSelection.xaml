@@ -10,19 +10,16 @@
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" MinWidth="131"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="28" />
-            <RowDefinition Height="27" />
-            <RowDefinition Height="0*" />
         </Grid.RowDefinitions>
         <Grid.Background>
             <SolidColorBrush Color="Black" Opacity="0.8" />
         </Grid.Background>
-        <Label Content="League Selection:" Grid.Row="0"  Foreground="#FFAB9066" FontSize="14" FontWeight="Bold" Margin="0,5,0,0"/>
-        <ComboBox ItemsSource="{Binding Leagues}" Foreground="#FFAB9066" SelectionChanged="ComboBox_SelectionChanged" SelectedItem="{Binding CurrentLeague, Mode=OneTime}" Margin="3,5,64,0" Grid.Column="1" />
+        <Label Content="League Selection :" Grid.Row="0"  Foreground="#FFAB9066" FontSize="14" FontWeight="Bold" Margin="6,5,4,0"/>
+        <ComboBox ItemsSource="{Binding Leagues}" Foreground="#FFAB9066" SelectionChanged="ComboBox_SelectionChanged" SelectedItem="{Binding CurrentLeague, Mode=OneTime}" Margin="1,5,0,0" Grid.Column="1" HorizontalAlignment="Left" Width="Auto" />
     </Grid>
 </UserControl>
