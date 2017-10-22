@@ -20,6 +20,6 @@
             <SolidColorBrush Color="Black" Opacity="0.8" />
         </Grid.Background>
         <Label Content="League Selection :" Grid.Row="0"  Foreground="#FFAB9066" FontSize="14" FontWeight="Bold" Margin="6,5,4,0"/>
-        <ComboBox ItemsSource="{Binding Leagues}" Foreground="#FFAB9066" SelectionChanged="ComboBox_SelectionChanged" SelectedItem="{Binding CurrentLeague, Mode=OneTime}" Margin="1,5,0,0" Grid.Column="1" HorizontalAlignment="Left" Width="146" />
+        <ComboBox ItemsSource="{Binding Leagues}" Foreground="#FFAB9066" SelectionChanged="ComboBox_SelectionChanged" SelectedItem="{Binding CurrentLeague, Mode=OneTime}" Margin="1,5,0,0" Grid.Column="1" HorizontalAlignment="Left" Width="Auto" />
     </Grid>
 </UserControl>
