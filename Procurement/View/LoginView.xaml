@@ -38,11 +38,11 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="90"/>
                         <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="150"/>
-                        <ColumnDefinition Width="228*" />
+                        <ColumnDefinition Width="159"/>
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Column="0" Name="LoginButton" Width="85" Height="28" HorizontalAlignment="Left" Click="Login_Click" IsDefault="True">
+                    <Button Grid.Column="0" Name="LoginButton" Width="85" HorizontalAlignment="Left" Click="Login_Click" IsDefault="True" Margin="0,2,0,1">
                         <Image>
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">
@@ -57,7 +57,7 @@
                         </Image>
                     </Button>
 
-                    <Button Grid.Column="1" Name="OfflineButton" Width="85" Height="28" HorizontalAlignment="Left" Click="Offline_Click">
+                    <Button Grid.Column="1" Name="OfflineButton" Width="85" HorizontalAlignment="Left" Click="Offline_Click" Margin="0,2,0,1">
                         <Image>
                             <Image.Style>
                                 <Style TargetType="{x:Type Image}">
@@ -71,8 +71,30 @@
                             </Image.Style>
                         </Image>
                     </Button>
-
-                    <CheckBox Name="useSession" Content="Use SessionID" Grid.Column="2" HorizontalAlignment="Left" Margin="25,9,0,0" Height="15" VerticalAlignment="Top" IsChecked="{Binding UseSession}" Foreground="#FFAB9066" FontSize="12" FontWeight="Bold"/>
+                    <Grid Grid.Column="2" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="149" Margin="25,0,0,0" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox x:Name="useSession" Content="Use SessionID" Margin="0,9,0,0" Height="15" VerticalAlignment="Top" IsChecked="{Binding UseSession}" Foreground="#FFAB9066" FontSize="12" FontWeight="Bold" HorizontalAlignment="Left" Width="Auto"/>
+                        <Image x:Name="sessionidQ" Margin="7,4,0,0" Source="/Procurement;component/Images/circleQuestion.png" Stretch="None" Cursor="Hand" ForceCursor="True" MouseLeftButtonDown="sessionidQ_MouseLeftButtonDown" RenderTransformOrigin="3.075,0.702" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" ToolTipService.VerticalOffset="5" MouseLeftButtonUp="sessionidQ_MouseLeftButtonUp">
+                            <Image.Resources>
+                                <Style x:Key="sessionidQTooltip" TargetType="{x:Type ToolTip}">
+                                    <Setter Property = "HorizontalOffset" Value="0"/>
+                                    <Setter Property = "VerticalOffset" Value="5"/>
+                                    <Setter Property = "Background" Value="Black"/>
+                                    <Setter Property = "Foreground" Value="White"/>
+                                    <Setter Property = "FontSize" Value="14"/>
+                                    <Setter Property = "FontWeight" Value="Normal"/>
+                                </Style>
+                            </Image.Resources>
+                            <Image.ToolTip>
+                                <ToolTip Style="{StaticResource sessionidQTooltip}">
+                                    <TextBlock Text="Please click here to know the way to get SessionID." />
+                                </ToolTip>
+                            </Image.ToolTip>
+                        </Image>
+                    </Grid>
 
                 </Grid>
 
