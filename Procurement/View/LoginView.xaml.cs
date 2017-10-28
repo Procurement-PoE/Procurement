@@ -40,7 +40,7 @@ namespace Procurement.View
         {
             e.Handled = true;
 
-            System.Diagnostics.Process.Start("https://code.google.com/archive/p/procurement/wikis/LoginWithSessionID.wiki");
+            (this.DataContext as LoginWindowViewModel).NavigateHowToSessionIDwiki();
         }
     }
 }
