@@ -109,8 +109,9 @@ namespace Procurement.Controls
         private void BindSocketPopup(ItemDisplayViewModel vm)
         {
             UIElement socket = null;
+            bool isKeyPressed = false;
 
-            MainGrid.MouseEnter += (o, ev) =>
+            Action DisplaySocket = () =>
             {
                 if (socket == null)
                     socket = vm.GetSocket();
@@ -119,7 +120,36 @@ namespace Procurement.Controls
                     MainGrid.Children.Add(socket);
             };
 
-            MainGrid.MouseLeave += (o, ev) => MainGrid.Children.Remove(socket);
+            MainGrid.MouseEnter += (o, ev) =>
+            {
+                DisplaySocket();
+            };
+
+            MainGrid.MouseLeave += (o, ev) =>
+            {
+                if (!isKeyPressed)
+                    MainGrid.Children.Remove(socket);
+            };
+
+            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+            mainWindow.KeyDown += (o, ev) =>
+            { 
+                if ((ev.SystemKey == System.Windows.Input.Key.LeftAlt) ||
+                    (ev.SystemKey == System.Windows.Input.Key.RightAlt))
+                {
+                    isKeyPressed = true;
+
+                    DisplaySocket();
+                }
+            };
+
+            mainWindow.KeyUp += (o, ev) =>
+            {
+                isKeyPressed = false;
+
+                if (!MainGrid.IsMouseOver)
+                    MainGrid.Children.Remove(socket);
+            };
         }
 
         private ContextMenu getContextMenu()
