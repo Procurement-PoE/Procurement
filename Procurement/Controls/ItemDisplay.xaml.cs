@@ -11,6 +11,7 @@ using POEApi.Model;
 using Procurement.ViewModel;
 using POEApi.Infrastructure;
 using Procurement.Utility;
+using System.Windows.Input;
 
 namespace Procurement.Controls
 {
@@ -134,8 +135,8 @@ namespace Procurement.Controls
             MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
             mainWindow.KeyDown += (o, ev) =>
             { 
-                if ((ev.SystemKey == System.Windows.Input.Key.LeftAlt) ||
-                    (ev.SystemKey == System.Windows.Input.Key.RightAlt))
+                if ((ev.SystemKey == Key.LeftAlt) ||
+                    (ev.SystemKey == Key.RightAlt))
                 {
                     isKeyPressed = true;
 
@@ -145,10 +146,14 @@ namespace Procurement.Controls
 
             mainWindow.KeyUp += (o, ev) =>
             {
-                isKeyPressed = false;
+                if (((Keyboard.GetKeyStates(Key.LeftAlt)  == KeyStates.None) || (Keyboard.GetKeyStates(Key.LeftAlt)  == KeyStates.Toggled)) &&
+                    ((Keyboard.GetKeyStates(Key.RightAlt) == KeyStates.None) || (Keyboard.GetKeyStates(Key.RightAlt) == KeyStates.Toggled)))
+                {
+                    isKeyPressed = false;
 
-                if (!MainGrid.IsMouseOver)
-                    MainGrid.Children.Remove(socket);
+                    if (!MainGrid.IsMouseOver)
+                        MainGrid.Children.Remove(socket);
+                }
             };
         }
 
