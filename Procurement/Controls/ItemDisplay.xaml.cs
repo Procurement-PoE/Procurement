@@ -11,6 +11,7 @@ using POEApi.Model;
 using Procurement.ViewModel;
 using POEApi.Infrastructure;
 using Procurement.Utility;
+using System.Windows.Input;
 
 namespace Procurement.Controls
 {
@@ -109,8 +110,9 @@ namespace Procurement.Controls
         private void BindSocketPopup(ItemDisplayViewModel vm)
         {
             UIElement socket = null;
+            bool isKeyPressed = false;
 
-            MainGrid.MouseEnter += (o, ev) =>
+            Action DisplaySocket = () =>
             {
                 if (socket == null)
                     socket = vm.GetSocket();
@@ -119,7 +121,40 @@ namespace Procurement.Controls
                     MainGrid.Children.Add(socket);
             };
 
-            MainGrid.MouseLeave += (o, ev) => MainGrid.Children.Remove(socket);
+            MainGrid.MouseEnter += (o, ev) =>
+            {
+                DisplaySocket();
+            };
+
+            MainGrid.MouseLeave += (o, ev) =>
+            {
+                if (!isKeyPressed)
+                    MainGrid.Children.Remove(socket);
+            };
+
+            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+            mainWindow.KeyDown += (o, ev) =>
+            { 
+                if ((ev.SystemKey == Key.LeftAlt) ||
+                    (ev.SystemKey == Key.RightAlt))
+                {
+                    isKeyPressed = true;
+
+                    DisplaySocket();
+                }
+            };
+
+            mainWindow.KeyUp += (o, ev) =>
+            {
+                if (((Keyboard.GetKeyStates(Key.LeftAlt)  == KeyStates.None) || (Keyboard.GetKeyStates(Key.LeftAlt)  == KeyStates.Toggled)) &&
+                    ((Keyboard.GetKeyStates(Key.RightAlt) == KeyStates.None) || (Keyboard.GetKeyStates(Key.RightAlt) == KeyStates.Toggled)))
+                {
+                    isKeyPressed = false;
+
+                    if (!MainGrid.IsMouseOver)
+                        MainGrid.Children.Remove(socket);
+                }
+            };
         }
 
         private ContextMenu getContextMenu()
