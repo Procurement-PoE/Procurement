@@ -50,9 +50,11 @@
     <Compile Include="BreachBlessing.cs" />
     <Compile Include="BreachType.cs" />
     <Compile Include="CharacterStashBuilder.cs" />
+    <Compile Include="DivinationCard.cs" />
     <Compile Include="Decoration.cs" />
     <Compile Include="DivineVessel.cs" />
     <Compile Include="Essence.cs" />
+    <Compile Include="DivinationCardType.cs" />
     <Compile Include="EssenceType.cs" />
     <Compile Include="GemHandler.cs" />
     <Compile Include="ItemTradeInfo.cs" />

@@ -104,7 +104,7 @@ namespace Procurement.Controls
             this.Stash = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(TabNumber);
             TabType tabType = GetTabType();
 
-            updateStashByLocation();
+            updateStashByLocation(tabType);
             render(tabType);
         }
 
@@ -121,20 +121,45 @@ namespace Procurement.Controls
             }
         }
 
-        private void updateStashByLocation()
+        private void updateStashByLocation(TabType tabType)
         {
 
             stashByLocation.Clear();
 
+            int x = 0;
+            int y = 0;
 
             foreach (var item in this.Stash)
             {
-                var key = Tuple.Create<int, int>(item.X, item.Y);
+                if (tabType == TabType.DivinationCard)
+                {                    
+                    var key = Tuple.Create<int, int>(x, y);
+                    
+                    if (stashByLocation.ContainsKey(key))
+                        continue;
 
-                if (stashByLocation.ContainsKey(key))
-                    continue;
+                    stashByLocation.Add(key, item);
 
-                stashByLocation.Add(key, item);
+                    if (x < 12)
+                    {
+                        x++;
+                    }
+                    else
+                    {
+                        x = 0;
+                        y++;
+                    }
+                }
+                else
+                {
+                    var key = Tuple.Create<int, int>(item.X, item.Y);
+
+                    if (stashByLocation.ContainsKey(key))
+                        continue;
+
+                    stashByLocation.Add(key, item);
+                }
+                
             }
         }
 

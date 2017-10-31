@@ -52,7 +52,7 @@ namespace Procurement.ViewModel
             if (item is Gem)
                 return new GemItemHoverViewModel(item);
 
-            if (item is Currency || item is Sextant || item is Essence)
+            if (item is Currency || item is Sextant || item is Essence || item is DivinationCard)
                 return new CurrencyItemHoverViewModel(item);
 
             if (item is Prophecy)

@@ -47,10 +47,24 @@ namespace Procurement.View
                 }
             }
 
+            if (parameter != null && parameter.ToString() == "InvertResultCollapsed")
+            {
+                if (result == Visibility.Hidden)
+                {
+                    result = Visibility.Visible;
+                }
+                else
+                {
+                    result = Visibility.Collapsed;
+                }
+
+            }
+
             if (parameter != null && parameter.ToString() == "CollapseWhenFalse" && result == Visibility.Hidden)
             {
                 result = Visibility.Collapsed;
             }
+            
 
             return result;
         }

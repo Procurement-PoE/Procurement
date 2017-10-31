@@ -4,6 +4,10 @@ using System.Text;
 using System.Windows.Media.Animation;
 
 using POEApi.Model;
+using System.Text.RegularExpressions;
+using System.Windows.Controls;
+using POEApi.Infrastructure;
+using System.Windows.Media;
 
 namespace Procurement.ViewModel
 {
@@ -38,6 +42,10 @@ namespace Procurement.ViewModel
         public string ProphecyDifficultyText { get; set; }
         public List<string> ProphecyFlavour { get; set; }
         public bool IsGear { get; set; }
+
+        public bool IsDivinationCard { get; set; }
+        public string DivinationCardStackText { get; set; }
+        public ImageSource DivinationCardImage { get; set; }
 
         public string ItemLevel { get; set; }
 
@@ -102,6 +110,11 @@ namespace Procurement.ViewModel
 
             if (gem != null)
                 this.Requirements = gem.Requirements;
+
+            var divinationCard = item as DivinationCard;
+
+            if (divinationCard != null)
+                setDivinationCardProperties(item, divinationCard);
         }
 
         private void setGearProperties(Item item, Gear gear)
@@ -121,5 +134,36 @@ namespace Procurement.ViewModel
                 DescriptionText = builder.ToString();
             }
         }
+
+        private void setDivinationCardProperties(Item item, DivinationCard divinationCard)
+        {
+            this.IsDivinationCard = true;
+
+            if (divinationCard.FlavourText != null && divinationCard.FlavourText.Count > 0)
+            {
+                var builder = new StringBuilder();
+
+                foreach (var text in (divinationCard.FlavourText))
+                    builder.Append(Regex.Replace(text, "<.*?>", String.Empty).Trim(new char[] {'{', '}' }) );
+
+                DescriptionText = builder.ToString();
+            }
+
+            DivinationCardStackText = String.Format("{0}/{1}", divinationCard.StackInfo.Amount, divinationCard.StackInfo.MaxSize);
+
+            try
+            {
+                DivinationCardImage = ApplicationState.BitmapCache[divinationCard.ImageURL];
+            }
+            catch (Exception e)
+            {
+                Logger.Log(item.TypeLine);
+                Logger.Log(e);
+                //Don't crash - just give me a blank image.
+                DivinationCardImage = null;
+            }
+
+        }
+
     }
 }

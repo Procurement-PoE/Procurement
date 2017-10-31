@@ -63,6 +63,7 @@ namespace POEApi.Model.JSONProxy
         public string ProphecyText { get; set; }
         public string ProphecyDiffText { get; set; }
         public bool IsRelic { get; set; }
+        public string ArtFilename { get; set; }
     }
 
     public class Socket

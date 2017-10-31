@@ -6,8 +6,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:v="clr-namespace:Procurement.View"
              xmlns:vm="clr-namespace:Procurement.ViewModel"
-             d:DesignHeight="150"
-             d:DesignWidth="150"
+             d:DesignHeight="409"
+             d:DesignWidth="268"
              mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -15,6 +15,7 @@
         <v:ItemPropertyToFormattedRunConverter x:Key="pc" />
         <v:ItemRequirementToFormattedRunConverter x:Key="rc" />
         <v:ItemExplicitModsToFormattedRunConverter x:Key="ec" />
+        <v:DivinationCardExplicitModsToFormattedRunConverter x:Key="dc" />
         <v:VisibilityConverter x:Key="bc" />
 
         <LinearGradientBrush x:Key="SeperatorBrush" StartPoint="0,0" EndPoint="1,0">
@@ -58,7 +59,10 @@
                    Grid.Row="0"
                    Grid.Column="0"
                    Height="Auto"
-                   LastChildFill="True">
+                   LastChildFill="True"
+                   Visibility="{Binding IsDivinationCard,
+                               Converter={StaticResource bc},
+                               ConverterParameter=InvertResultCollapsed}">
             <local:ItemHoverHeader x:Name="ItemHeader"
                                    Content="{Binding}"
                                    DockPanel.Dock="Top" />
@@ -80,8 +84,8 @@
                                TextWrapping="Wrap"
                                Visibility="{Binding IsGear,
                                Converter={StaticResource bc},
-                               ConverterParameter=CollapseWhenFalse}" />                    
-                    
+                               ConverterParameter=CollapseWhenFalse}" />
+
                     <ItemsControl ItemsSource="{Binding Properties}" Padding="0 5 0 5">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -142,7 +146,7 @@
                             Visibility="{Binding HasEnchantMods,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
-                    
+
                     <ItemsControl ItemsSource="{Binding EnchantMods}"
                                   Padding="10 0 10 5"
                                   Visibility="{Binding HasEnchantMods,
@@ -165,7 +169,7 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-                    
+
                     <Border Margin="0 0 0 5"
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
@@ -302,9 +306,6 @@
                                                     Converter={StaticResource VisibilityConverter},
                                                     ConverterParameter=CollapseWhenFalse}" />
 
-
-
-
                     <ItemsControl ItemsSource="{Binding ProphecyFlavour}"
                                   Padding="10 0 10 5"
                                   Visibility="{Binding IsProphecy,
@@ -334,8 +335,8 @@
                             Opacity="0.7"
                             Visibility="{Binding IsProphecy,
                                Converter={StaticResource bc},
-                               ConverterParameter=CollapseWhenFalse}" />                    
-                    
+                               ConverterParameter=CollapseWhenFalse}" />
+
 
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
@@ -398,5 +399,69 @@
                 </StackPanel>
             </Border>
         </DockPanel>
+        <Canvas x:Name="gridDivinationCard"
+                Grid.Row="0"
+                Grid.Column="0"
+                Visibility="{Binding IsDivinationCard,
+                                Converter={StaticResource bc},
+                                ConverterParameter=CollapseWhenFalse}" 
+                Width="268"
+                Height="409">
+
+            <Image Source="{Binding DivinationCardImage}" Stretch="None" Canvas.Left="18" Canvas.Top="32" Width="237" Height="170" />
+            
+            <Image Source="/Procurement;component/Images/DivinationCard/DivinationCard.png" Stretch="None" />
+
+            <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=gridDivinationCard,
+                                               Mode=OneWay}"
+                               HorizontalAlignment="Center"
+                               FontFamily="../Resources/#Fontin SmallCaps"
+                               Text="{Binding TypeLine}"
+                               Foreground="Black"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap" Canvas.Top="14" FontSize="16" />
+
+            <TextBlock
+                               HorizontalAlignment="Center"
+                               FontFamily="../Resources/#Fontin SmallCaps"
+                               Text="{Binding DivinationCardStackText}"
+                               Foreground="White"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap" Canvas.Top="193" FontSize="16" Width="40" Canvas.Left="27" />
+
+            <Border x:Name="borderDivinationCardMod" BorderBrush="{x:Null}" Canvas.Top="220" Width="229" Canvas.Left="20" Height="50" >
+                <ItemsControl ItemsSource="{Binding ExplicitMods}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <v:BindableRichTextBox Width="{Binding Path=ActualWidth, ElementName=borderDivinationCardDesc, Mode=OneWay}" Document="{Binding Converter={StaticResource dc}}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Border>
+
+            <Border x:Name="borderDivinationCardDesc" BorderBrush="{x:Null}" Canvas.Top="275" Canvas.Left="20" Height="118" Width="229" >
+                <Viewbox Stretch="Uniform" Width="{Binding Path=ActualWidth,
+                                               ElementName=borderDivinationCardDesc,
+                                               Mode=OneWay}" >
+                    <TextBlock Width="229"
+                               HorizontalAlignment="Center"
+                               FontFamily="../Resources/#Fontin SmallCaps"
+                               Foreground="Orange"
+                               Padding="10 0 10 5"
+                               Text="{Binding DescriptionText}"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap" FontSize="14" VerticalAlignment="Center" FontStyle="Italic" />
+                </Viewbox>
+            </Border>
+
+        </Canvas>
     </Grid>
 </UserControl>

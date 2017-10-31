@@ -10,6 +10,7 @@ namespace POEApi.Model
         Gear,
         Gem,
         Currency,
+        DivinationCard,
     }
 
     public enum Rarity : int
@@ -53,6 +54,7 @@ namespace POEApi.Model
         public string TradeInventoryId { get; set; }
         public string Character { get; set; }
         public int ItemLevel { get; set; }
+        public string ArtFilename { get; set; }
 
         protected Item(JSONProxy.Item item)
         {
@@ -75,6 +77,7 @@ namespace POEApi.Model
             this.CraftedMods = item.CraftedMods;
             this.EnchantMods = item.EnchantMods;
             this.ItemLevel = item.Ilvl;
+            this.ArtFilename = item.ArtFilename;
 
             if (item.Properties != null)
             {

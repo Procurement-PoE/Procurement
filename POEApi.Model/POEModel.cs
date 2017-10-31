@@ -300,6 +300,11 @@ namespace POEApi.Model
             try
             {
                 getImageWithEvents(GetItemName(item), item.IconURL);
+
+                if (item.ItemType == ItemType.DivinationCard)
+                {
+                    getImageWithEvents(GetItemName(item), ((DivinationCard)item).ImageURL);
+                }
             }
             catch (Exception ex)
             {

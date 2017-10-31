@@ -358,6 +358,7 @@
     </Compile>
     <Compile Include="View\Converters\CharacterToImageConverter.cs" />
     <Compile Include="View\Converters\CharacterToLevelConverter.cs" />
+    <Compile Include="View\Converters\DivinationCardExplicitModsToFormattedRunConverter.cs" />
     <Compile Include="View\Converters\FilterListToNameConverter.cs" />
     <Compile Include="View\Converters\ItemDisplayConverter.cs" />
     <Compile Include="View\Converters\ItemExplicitModsToFormattedRunConverter.cs" />
@@ -727,6 +728,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\essenceTab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DivinationCard\DivinationCard.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
