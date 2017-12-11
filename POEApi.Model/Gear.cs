@@ -18,15 +18,18 @@ namespace POEApi.Model
         {
             this.Rarity = getRarity(item);
             this.FlavourText = item.FlavourText;
-            this.Sockets = item.Sockets.Select(proxy => new Socket(proxy)).ToList();
+            this.Sockets = getSockets(item);
             this.Explicitmods = item.ExplicitMods;
-            this.SocketedItems = item.SocketedItems.Select(proxy => (Gem)ItemFactory.Get(proxy)).ToList();
+            this.SocketedItems = getSocketedItems(item);
             this.Implicitmods = item.ImplicitMods;
             this.Requirements = ProxyMapper.GetRequirements(item.Requirements);
             this.ItemType = Model.ItemType.Gear;
             this.GearType = GearTypeFactory.GetType(this);
             this.BaseType = GearTypeFactory.GetBaseType(this);
         }
+
+        private List<Socket> getSockets(JSONProxy.Item item) => item.Sockets == null ? new List<Socket>() : item.Sockets.Select(proxy => new Socket(proxy)).ToList();
+        private List<Gem> getSocketedItems(JSONProxy.Item item) => item.SocketedItems == null ? new List<Gem>() : item.SocketedItems.Select(proxy => (Gem)ItemFactory.Get(proxy)).ToList();
 
         public bool IsLinked(int links)
         {
