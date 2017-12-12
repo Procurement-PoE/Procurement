@@ -324,5 +324,10 @@ namespace Procurement.ViewModel
 
             statusController.Ok();
         }
+
+        public void NavigateHowToSessionIDwiki()
+        {
+            System.Diagnostics.Process.Start("https://github.com/Stickymaddness/Procurement/wiki/SessionID");
+        }
     }
 }

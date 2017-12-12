@@ -28,5 +28,19 @@ namespace Procurement.View
         {
             (this.DataContext as LoginWindowViewModel).Login(true);
         }
+
+        private void sessionidQ_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            // Since DragMove() called by MouseLeftButtonDown of MainWindow may cause System.InvalidOperationException, the notice of a mouse event is stopped here.
+            // Moreover, it is also a problem that a mouse event is blocked by DragMove() and MouseLeftButtonUp is not called. 
+            e.Handled = true;
+        }
+
+        private void sessionidQ_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+
+            (this.DataContext as LoginWindowViewModel).NavigateHowToSessionIDwiki();
+        }
     }
 }
