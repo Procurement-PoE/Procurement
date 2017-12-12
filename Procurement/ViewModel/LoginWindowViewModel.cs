@@ -327,7 +327,7 @@ namespace Procurement.ViewModel
 
         public void NavigateHowToSessionIDwiki()
         {
-            System.Diagnostics.Process.Start("https://code.google.com/archive/p/procurement/wikis/LoginWithSessionID.wiki");
+            System.Diagnostics.Process.Start("https://github.com/Stickymaddness/Procurement/wiki/SessionID");
         }
     }
 }
