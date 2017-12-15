@@ -56,6 +56,8 @@ namespace POEApi.Model.JSONProxy
         public int Socket { get; set; }
         public string Colour { get; set; }
         public bool Corrupted { get; set; }
+        public bool AbyssJewel { get; set; }
+
         public List<string> CosmeticMods { get; set; }
         public List<string> CraftedMods { get; set; }
         public List<string> EnchantMods { get; set; }

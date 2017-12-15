@@ -8,7 +8,7 @@ namespace POEApi.Model
         public Rarity Rarity { get; private set; }
         public List<string> FlavourText { get; set; }
         public List<Socket> Sockets { get; set; }
-        public List<Gem> SocketedItems { get; set; }
+        public List<SocketableItem> SocketedItems { get; set; }
         public List<string> Implicitmods { get; set; }
         public List<Requirement> Requirements { get; set; }
         public GearType GearType { get; set; }
@@ -29,7 +29,7 @@ namespace POEApi.Model
         }
 
         private List<Socket> getSockets(JSONProxy.Item item) => item.Sockets == null ? new List<Socket>() : item.Sockets.Select(proxy => new Socket(proxy)).ToList();
-        private List<Gem> getSocketedItems(JSONProxy.Item item) => item.SocketedItems == null ? new List<Gem>() : item.SocketedItems.Select(proxy => (Gem)ItemFactory.Get(proxy)).ToList();
+        private List<SocketableItem> getSocketedItems(JSONProxy.Item item) => item.SocketedItems == null ? new List<SocketableItem>() : item.SocketedItems.Select(proxy => (SocketableItem)ItemFactory.Get(proxy)).ToList();
 
         public bool IsLinked(int links)
         {

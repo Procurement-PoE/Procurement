@@ -9,6 +9,7 @@ namespace POEApi.Model
         UnSet,
         Gear,
         Gem,
+        Jewel,
         Currency,
     }
 
