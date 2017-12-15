@@ -51,7 +51,8 @@ namespace POEApi.Model
                 Logger.Log(ex);
                 var errorMessage = "ItemFactory unable to instantiate type : " + item.TypeLine;
                 Logger.Log(errorMessage);
-                throw;
+
+                return new UnknownItem();
             }
         }
 
