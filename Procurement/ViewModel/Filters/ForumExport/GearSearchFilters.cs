@@ -160,4 +160,14 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         }
     }
+
+    class AbysallJewelFilter : GearTypeFilter
+    {
+        public AbysallJewelFilter()
+            : base(GearType.AbysalJewel, "Eye Jewels")
+        {
+
+        }
+
+    }
 }

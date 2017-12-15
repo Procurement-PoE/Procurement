@@ -144,6 +144,7 @@ namespace POEApi.Model
         {
             generalTypes.Add("Belt");
             generalTypes.Add("Sash");
+            generalTypes.Add("Stygian Vise");
         }
     }
 
@@ -179,6 +180,15 @@ namespace POEApi.Model
             : base(GearType.Jewel, new List<string>())
         {
             generalTypes.Add("Jewel");
+        }
+    }
+
+    internal class AbysalJewelRunner : GearTypeRunnerBase
+    {
+        public AbysalJewelRunner()
+            : base(GearType.AbysalJewel, new List<string>())
+        {
+            generalTypes.Add("Eye Jewel");
         }
     }
 

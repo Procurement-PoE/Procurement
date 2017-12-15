@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using POEApi.Model;
@@ -17,6 +18,19 @@ namespace Procurement.ViewModel.ForumExportVisitors
                 return current;
 
             return current.Replace(TOKEN, runFilter<ProphecyFilter>(items.OrderBy(i => i.H)));
+        }
+    }
+
+    internal class AbyssalJewelVisitor : VisitorBase
+    {
+        private const string TOKEN = "{AbyssalJewels}";
+
+        public override string Visit(IEnumerable<Item> items, string current)
+        {
+            if (current.IndexOf(TOKEN) < 0)
+                return current;
+
+            return current.Replace(TOKEN, runFilter<AbyssalJewelFilter>(items.OrderBy(i => i.H)));
         }
     }
 }

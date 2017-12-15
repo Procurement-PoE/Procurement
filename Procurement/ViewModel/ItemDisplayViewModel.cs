@@ -117,7 +117,7 @@ namespace Procurement.ViewModel
                     }
                 }
 
-                if (!isSocketed(currentSocketPosition, socket, i, gear))
+                if (!isSocketed(socket, i, gear))
                 {
                     Image img = GetSocket(socket, string.Empty);
                     img.SetValue(Grid.RowProperty, currentSocketPosition.Item2);
@@ -128,13 +128,14 @@ namespace Procurement.ViewModel
                 else
                 {
                     string suffix = "-socketed";
-                    Gem g = gear.SocketedItems.Find(si => si.Socket == i && (socket.Attribute == si.Color || socket.Attribute == "G" || si.Color == "G"));
+                    SocketableItem g = gear.SocketedItems.Find(si => si.Socket == i && (socket.Attribute == si.Color || socket.Attribute == "G" || si.Color == "G"));
                     if (g.Color == "G")
                         suffix += "-white";
+
                     Image img = GetSocket(socket, suffix);
                     img.SetValue(Grid.RowProperty, currentSocketPosition.Item2);
                     img.SetValue(Grid.ColumnProperty, currentSocketPosition.Item1);
-                    CreateItemPopup(img, getSocketItemAt(currentSocketPosition, socket, i, gear));
+                    CreateItemPopup(img, getSocketItemAt(socket, i, gear));
                     masterpiece.Children.Add(img);
                 }
 
@@ -182,7 +183,7 @@ namespace Procurement.ViewModel
             return img;
         }
 
-        private bool isSocketed(Tuple<int, int> nextAvail, Socket socket, int socketIndex, Gear item)
+        private bool isSocketed(Socket socket, int socketIndex, Gear item)
         {
             if (item.SocketedItems == null || item.SocketedItems.Count == 0)
                 return false;
@@ -190,7 +191,7 @@ namespace Procurement.ViewModel
             return item.SocketedItems.Exists(i => i.Socket == socketIndex && (socket.Attribute == i.Color || socket.Attribute == "G" || i.Color == "G"));
         }
 
-        private Gem getSocketItemAt(Tuple<int, int> nextAvail, Socket socket, int socketIndex, Gear item)
+        private SocketableItem getSocketItemAt(Socket socket, int socketIndex, Gear item)
         {
             return item.SocketedItems.First(i => i.Socket == socketIndex && (socket.Attribute == i.Color || socket.Attribute == "G" || i.Color == "G"));
         }
@@ -209,6 +210,9 @@ namespace Procurement.ViewModel
                     break;
                 case "S":
                     color = "red" + suffix;
+                    break;
+                case "false":
+                    color = "abyssal" + suffix;
                     break;
                 default:
                     color = "white" + suffix;

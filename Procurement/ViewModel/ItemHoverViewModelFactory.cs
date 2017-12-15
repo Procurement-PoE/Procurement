@@ -32,6 +32,12 @@ namespace Procurement.ViewModel
             if (offering != null)
                 r = Rarity.Normal;
 
+            var abyssJewel = item as AbyssJewel;
+            if (abyssJewel != null)
+            {
+                r = abyssJewel.Rarity;
+            }
+
             if (r != null)
             {
                 switch (r)
@@ -51,6 +57,7 @@ namespace Procurement.ViewModel
 
             if (item is Gem)
                 return new GemItemHoverViewModel(item);
+
 
             if (item is Currency || item is Sextant || item is Essence)
                 return new CurrencyItemHoverViewModel(item);

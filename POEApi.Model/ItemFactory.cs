@@ -16,6 +16,9 @@ namespace POEApi.Model
                 if (!string.IsNullOrWhiteSpace(item.ProphecyText))
                     return new Prophecy(item);
 
+                if(item.AbyssJewel)
+                    return new AbyssJewel(item);
+
                 if (item.FrameType == 4)
                     return new Gem(item);
 
