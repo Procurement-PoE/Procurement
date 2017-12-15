@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TestData\SampleCharacterExpiredName.json" />
     <None Include="TestData\SampleCurrencyTabWithShards.json" />
     <None Include="TestData\SampleInventory.json" />
     <None Include="TestData\SampleCharacter.json" />

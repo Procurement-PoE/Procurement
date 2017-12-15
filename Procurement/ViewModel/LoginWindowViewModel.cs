@@ -193,6 +193,12 @@ namespace Procurement.ViewModel
                 if (character.League == "Void")
                     continue;
 
+                if (character.Expired)
+                {
+                    statusController.DisplayMessage(Environment.NewLine + "Skipping character " + character.Name + " because the characters name has expired." + Environment.NewLine);
+                    continue;
+                }
+
                 if (downloadOnlyMyLeagues && !Settings.Lists["MyLeagues"].Contains(character.League))
                     continue;
 

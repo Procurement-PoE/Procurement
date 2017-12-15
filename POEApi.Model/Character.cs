@@ -18,5 +18,8 @@ namespace POEApi.Model
 
         [JsonProperty("level")]
         public int Level { get; set; }
+
+        [JsonProperty("expired")]
+        public bool Expired { get; set; }
     }
 }
