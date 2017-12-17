@@ -24,6 +24,8 @@ namespace Procurement.Controls
 
         private TextBlock textblock;
 
+        public bool IsQuadStash { get; set; }
+
         public ItemDisplay()
         {
             MainGrid = new Grid();
@@ -115,7 +117,7 @@ namespace Procurement.Controls
             Action DisplaySocket = () =>
             {
                 if (socket == null)
-                    socket = vm.GetSocket();
+                    socket = vm.GetSocket(this.IsQuadStash);
 
                 if (!MainGrid.Children.Contains(socket))
                     MainGrid.Children.Add(socket);

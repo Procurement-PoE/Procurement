@@ -22,6 +22,8 @@ namespace Procurement.ViewModel
 
     public class ItemDisplayViewModel
     {
+        private bool isQuadStash;
+
         public static ItemHover ItemHover = new ItemHover();
 
         public Item Item { get; set; }
@@ -70,8 +72,9 @@ namespace Procurement.ViewModel
             return null;
         }
 
-        public UIElement GetSocket()
+        public UIElement GetSocket(bool isQuadStash)
         {
+            this.isQuadStash = isQuadStash;
             var gear = (Gear) Item; 
 
             Grid masterpiece = new Grid();
@@ -84,10 +87,16 @@ namespace Procurement.ViewModel
             int columns = myLittleDesign.Max(t => t.Item1) + 1;
 
             for (int i = 0; i < rows; i++)
-                masterpiece.RowDefinitions.Add(new RowDefinition() { Height = i % 2 == 0 ? GridLength.Auto : new GridLength(0) });
+                masterpiece.RowDefinitions.Add(new RowDefinition() {
+                    Height = i % 2 == 0 ? new GridLength(1, GridUnitType.Star) : new GridLength(0),
+                    MaxHeight = this.isQuadStash ? 23 : 47
+                });
 
             for (int i = 0; i < columns; i++)
-                masterpiece.ColumnDefinitions.Add(new ColumnDefinition() { Width = i % 2 == 0 ? GridLength.Auto : new GridLength(0)  });
+                masterpiece.ColumnDefinitions.Add(new ColumnDefinition() {
+                    Width = i % 2 == 0 ? new GridLength(1, GridUnitType.Star) : new GridLength(0),
+                    MaxWidth = this.isQuadStash ? 23 : 47
+                });
 
             //masterpiece.ShowGridLines = true;
 
@@ -163,21 +172,35 @@ namespace Procurement.ViewModel
             {
                 link = "link-horizontal";
                 img.SetValue(Grid.ColumnSpanProperty, 3);
-                img.Margin = new Thickness(-19, 0, 0, 0);
+                if (this.isQuadStash)
+                {
+                    img.Margin = new Thickness(-11.5, 0, 11.5, 0);
+                }
+                else
+                {
+                    img.Margin = new Thickness(-23, 0, 23, 0);
+                }
                 img.HorizontalAlignment = HorizontalAlignment.Left;
             }
             else
             {
                 link = "link-vertical";
                 img.SetValue(Grid.RowSpanProperty, 3);
-                img.Margin = new Thickness(0, -20, 0, 0);
+                if (this.isQuadStash)
+                {
+                    img.Margin = new Thickness(0, -11.5, 0, 11.5);
+                }
+                else
+                {
+                    img.Margin = new Thickness(0, -23, 0, 23);
+                }
                 img.VerticalAlignment = VerticalAlignment.Top;
             }
 
             var url = string.Format(linkFormat, link);
 
             img.SetValue(Panel.ZIndexProperty, 1);
-            img.Stretch = Stretch.None;
+            img.Stretch = Stretch.Fill;
             img.Source = ApplicationState.BitmapCache.GetByLocalUrl(url);
 
             return img;
@@ -223,7 +246,7 @@ namespace Procurement.ViewModel
 
             var img = new AlphaHittestedImage
             {
-                Stretch = Stretch.None,
+                Stretch = Stretch.Fill,
                 Source = ApplicationState.BitmapCache.GetByLocalUrl(url)
             };
 
@@ -295,5 +318,6 @@ namespace Procurement.ViewModel
                 if (turple.Item1 < maxWidth && turple.Item2 < maxHeight)
                     yield return turple;
         }
+
     }
 }
