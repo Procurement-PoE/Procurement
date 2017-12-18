@@ -18,7 +18,7 @@
                 <v:ItemPropertyToFormattedRunConverter x:Key="pc" />
                 <v:ItemRequirementToFormattedRunConverter x:Key="rc" />
                 <v:ItemExplicitModsToFormattedRunConverter x:Key="ec" />
-                <v:VisibilityConverter x:Key="bc" />
+
                 <DataTemplate DataType="{x:Type vm:UniqueGearItemHoverViewModel}">
                     <Border Background="{Binding Item, Converter={StaticResource vc}, ConverterParameter=0.3}" HorizontalAlignment="Stretch" >
                         <Grid  MinWidth="200" >
@@ -52,8 +52,10 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Image HorizontalAlignment="Left" Source="/Images/ItemHover/ItemHeaderRareLeft.png" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" />
+                            <Image Style="{StaticResource ShaperElderAdornerImage}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" />
                             <Image Source="/Images/ItemHover/ItemHeaderRareMiddle.png" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Stretch="Fill" Canvas.ZIndex="0" />
                             <Image HorizontalAlignment="Right" Source="/Images/ItemHover/ItemHeaderRareRight.png" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" />
+                            <Image Style="{StaticResource ShaperElderAdornerImage}" HorizontalAlignment="Right" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" />
                             <TextBlock  Margin="0,5,0,0" FontFamily="../Resources/#Fontin SmallCaps" Grid.Column="1" Grid.Row="0" Text="{Binding Name}" FontSize="18" Foreground="#F1FF77"   Visibility="{Binding HasName, Converter={StaticResource bc}, ConverterParameter=CollapseWhenFalse}" HorizontalAlignment="Center"/>
                             <TextBlock FontFamily="../Resources/#Fontin SmallCaps" Grid.Column="1" Grid.Row="1" Text="{Binding TypeLine}" FontSize="18" Foreground="#F1FF77"   HorizontalAlignment="Center"/>
                         </Grid>
@@ -72,8 +74,10 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Image HorizontalAlignment="Left" Source="/Images/ItemHover/ItemHeaderMagicLeft.png" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" />
+                            <Image Style="{StaticResource ShaperElderAdornerImage}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" />
                             <Image Source="/Images/ItemHover/ItemHeaderMagicMiddle.png" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Stretch="Fill" Canvas.ZIndex="0" />
                             <Image HorizontalAlignment="Right" Source="/Images/ItemHover/ItemHeaderMagicRight.png" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" />
+                            <Image Style="{StaticResource ShaperElderAdornerImage}" HorizontalAlignment="Right" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" />
                             <TextBlock Margin="0,5,0,0" FontFamily="../Resources/#Fontin SmallCaps" Grid.Column="1" Grid.Row="0" Text="{Binding Name}" FontSize="18" Foreground="#8888F1"   Visibility="{Binding HasName, Converter={StaticResource bc}, ConverterParameter=CollapseWhenFalse}" HorizontalAlignment="Center"/>
                             <TextBlock FontFamily="../Resources/#Fontin SmallCaps" Grid.Column="1" Grid.Row="1" Text="{Binding TypeLine}" FontSize="18" Foreground="#8888F1"   HorizontalAlignment="Center"/>
                         </Grid>
@@ -92,8 +96,10 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Image HorizontalAlignment="Left" Source="/Images/ItemHover/ItemHeaderWhiteLeft.png" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" />
+                            <Image Style="{StaticResource ShaperElderAdornerImage}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" />
                             <Image Source="/Images/ItemHover/ItemHeaderWhiteMiddle.png" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Stretch="Fill" Canvas.ZIndex="0" />
                             <Image HorizontalAlignment="Right" Source="/Images/ItemHover/ItemHeaderWhiteRight.png" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" />
+                            <Image Style="{StaticResource ShaperElderAdornerImage}" HorizontalAlignment="Right" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" />
                             <TextBlock Margin="0,5,0,0"  FontFamily="../Resources/#Fontin SmallCaps" Grid.Column="1" Grid.Row="0" Text="{Binding Name}" FontSize="18" Foreground="White"   Visibility="{Binding HasName, Converter={StaticResource bc}, ConverterParameter=CollapseWhenFalse}" HorizontalAlignment="Center"/>
                             <TextBlock FontFamily="../Resources/#Fontin SmallCaps" Grid.Column="1" Grid.Row="1" Text="{Binding TypeLine}" FontSize="18" Foreground="White"   HorizontalAlignment="Center"/>
                         </Grid>
