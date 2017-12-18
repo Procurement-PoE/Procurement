@@ -54,6 +54,8 @@ namespace POEApi.Model
         public string TradeInventoryId { get; set; }
         public string Character { get; set; }
         public int ItemLevel { get; set; }
+        public bool Shaper { get; set; }
+        public bool Elder { get; set; }
 
         protected Item(JSONProxy.Item item)
         {
@@ -76,6 +78,8 @@ namespace POEApi.Model
             this.CraftedMods = item.CraftedMods;
             this.EnchantMods = item.EnchantMods;
             this.ItemLevel = item.Ilvl;
+            this.Shaper = item.Shaper;
+            this.Elder = item.Elder;
 
             if (item.Properties != null)
             {
@@ -97,7 +101,6 @@ namespace POEApi.Model
             this.TradeInventoryId = this.InventoryId;
             this.Character = string.Empty;
         }
-
         private string getIconUrl(string url)
         {
             Uri uri;
