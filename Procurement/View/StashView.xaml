@@ -5,8 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:poe="clr-namespace:Procurement.Controls"
              xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+             xmlns:viewModel="clr-namespace:Procurement.ViewModel"
              mc:Ignorable="d" 
-             Height="630" Width="1012">
+             Height="630" Width="1012" d:DataContext="{d:DesignInstance viewModel:StashViewModel}">
     <UserControl.Resources>
         <SolidColorBrush x:Key="TabControlNormalBorderBrush" Color="#AA9072" />
         <SolidColorBrush x:Key="ButtonNormalBackground" Color="#2D1D13" />
@@ -80,7 +81,7 @@
                                 </Border>
                             </Border>
                         </Border>
-                        <ScrollViewer x:Name="HeaderPanel" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled">
+                        <ScrollViewer x:Name="HeaderPanel" Grid.Row="0" Grid.Column="0" PreviewMouseWheel="HeaderPanel_OnPreviewMouseWheel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled">
                             <ScrollViewer.Style>
                                 <Style TargetType="{x:Type ScrollViewer}">
                                     <Setter Property="Template">
