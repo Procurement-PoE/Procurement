@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using System.Windows.Input;
 using Procurement.ViewModel;
 
 namespace Procurement.View
@@ -57,6 +58,26 @@ namespace Procurement.View
             }
 
             AdvancedSearchItemControl.Items.Refresh();
+        }
+
+        private void HeaderPanel_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            var scv = (ScrollViewer)sender;
+            if (scv == null)
+            {
+                return;
+            }
+
+            if (e.Delta > 0)
+            {
+                scv.PageLeft();
+            }
+            else
+            {
+                scv.PageRight();
+            }
+
+            e.Handled = true;
         }
     }
 }
