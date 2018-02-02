@@ -13,6 +13,7 @@ namespace Procurement.ViewModel.Recipes
         private bool isMaxCount;
 
         public SameNameRecipe(string recipeName, int setCount, bool isMaxCount)
+            : base(66)
         {
             this.name = recipeName;
             this.setCount = setCount;
@@ -38,17 +39,27 @@ namespace Procurement.ViewModel.Recipes
 
             foreach (var item in itemKeys)
             {
-                var matchedItems = gear.Where(g => g.Rarity != Rarity.Unique && g.Name == item.Key).Select(g => g as Item).ToList();
+                var matchedItems = gear.Where(g => g.Rarity != Rarity.Unique && g.Name == item.Key)
+                    .Select(g => g as Item).ToList();
 
-                if (isCountMatch(matchedItems.Count()))
-                    matches.Add(new RecipeResult()
+                while (matchedItems.Count > 0)
+                {
+                    var currentSet = matchedItems.Take(setCount).ToList();
+                    matchedItems.RemoveRange(0, currentSet.Count);
+                    Decimal percentMatch = ((Decimal)currentSet.Count / setCount) * 100;
+                    var candidateMatch = new RecipeResult()
                     {
                         Instance = this,
-                        IsMatch = true,
-                        MatchedItems = matchedItems,
+                        IsMatch = percentMatch > base.ReturnMatchesGreaterThan,
+                        MatchedItems = currentSet,
                         Missing = new List<string>(),
-                        PercentMatch = 100
-                    });
+                        PercentMatch = percentMatch
+                    };
+                    if (candidateMatch.IsMatch)
+                    {
+                        matches.Add(candidateMatch);
+                    }
+                }
             }
 
             return matches;
