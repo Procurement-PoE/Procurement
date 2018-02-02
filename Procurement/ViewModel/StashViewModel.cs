@@ -143,6 +143,13 @@ namespace Procurement.ViewModel
             set { refreshCommand = value; }
         }
 
+        private DelegateCommand refreshUsedCommand;
+        public DelegateCommand RefreshUsedCommand
+        {
+            get { return refreshUsedCommand; }
+            set { refreshUsedCommand = value; }
+        }
+
         public StashViewModel(StashView stashView)
         {
             this.stashView = stashView;
@@ -150,6 +157,10 @@ namespace Procurement.ViewModel
             refreshCommand = new DelegateCommand(x =>
             {
                 ScreenController.Instance.LoadRefreshView();
+            });
+            refreshUsedCommand = new DelegateCommand(x =>
+            {
+                ScreenController.Instance.LoadRefreshViewUsed();
             });
 
             categoryFilter = new List<IFilter>();

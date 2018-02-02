@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace POEApi.Model
 {
@@ -56,6 +57,53 @@ namespace POEApi.Model
                 try
                 {
                     RefreshTab(currentModel, currentLeague, tab.i, accountName);
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log("Error refreshing tab: " + ex.ToString());
+                }
+            }
+        }
+
+        public void RefreshUsedTabs(POEModel currentModel, string currentLeague, string accountName)
+        {
+            var usedTabNames = items.GroupBy(i => i.InventoryId)
+                .Select(group => group.First())
+                .Select(item => item.InventoryId)
+                .Where(id => !string.IsNullOrWhiteSpace(id));  // An UnknownItem could have an invalid InventoryId.
+
+            // Items in stash tabs should have an "InventoryId" in the format "Stash#", where # is 1-based.  The
+            // corresponding numeric id of the stash tab itself is # - 1.
+            List<int> usedTabIds = new List<int>();
+            foreach (var tabName in usedTabNames)
+            {
+                var match = Regex.Match(tabName, @"\d+");
+                if (match.Success)
+                {
+                    int parsedInt;
+                    if (Int32.TryParse(match.Value, out parsedInt))
+                    {
+                        usedTabIds.Add(parsedInt - 1);
+                    }
+                }
+            }
+
+            // Fake tabs are used for character inventories and are at the end of the tab list, giving them the
+            // largest id values.  We need to skip them when finding the largest id among used tabs, or else we would
+            // always refresh every tab.  However, since inventories typically are used, we want to refresh fake tabs.
+
+            var maxRealTab = Tabs.Where(t => !t.IsFakeTab)
+                .Where(t => usedTabIds.Contains(t.i))
+                .Max(t => t.i);
+
+            foreach (var tab in Tabs)
+            {
+                try
+                {
+                    if (tab.i <= maxRealTab || tab.IsFakeTab)
+                    {
+                        RefreshTab(currentModel, currentLeague, tab.i, accountName);
+                    }
                 }
                 catch (Exception ex)
                 {
