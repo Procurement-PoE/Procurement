@@ -47,7 +47,7 @@
                                                 </ItemsControl.ItemsPanel>
                                                 <ItemsControl.ItemTemplate>
                                                     <DataTemplate>
-                                                        <RadioButton Tag="{Binding }" GroupName="Items" Content="{Binding TypeLine}" Foreground="#FFAB9066" Checked="RadioButton_Checked" Margin="5,0,0,0" />
+                                                        <RadioButton Tag="{Binding }" GroupName="Items" Content="{Binding DescriptiveName}" Foreground="#FFAB9066" Checked="RadioButton_Checked" Margin="5,0,0,0" />
                                                     </DataTemplate>
                                                 </ItemsControl.ItemTemplate>
                                             </ItemsControl>
