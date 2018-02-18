@@ -127,6 +127,16 @@ namespace POEApi.Model
             return Rarity.Normal;
         }
 
+        public virtual string DescriptiveName
+        {
+            get
+            {
+                string qualityString = this.IsQuality ? string.Format(", +{0}% Quality", this.Quality) : string.Empty;
+                string iLevelString = this.ItemLevel > 0 ? string.Format(", i{0}", this.ItemLevel) : string.Empty;
+                return string.Format("{0}{1}{2}", this.TypeLine, qualityString, iLevelString);
+            }
+        }
+
         public object Clone()
         {
             return this.MemberwiseClone();
