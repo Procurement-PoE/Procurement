@@ -211,10 +211,13 @@
     <GearBaseType name="Belt">
       <Item name="Rustic Sash"/>
       <Item name="Chain Belt"/>
+      <Item name="Stygian Vise"/>
       <Item name="Leather Belt"/>
       <Item name="Heavy Belt"/>
       <Item name="Studded Belt"/>
       <Item name="Cloth Belt"/>
+      <Item name="Vanguard Belt"/>
+      <Item name="Crystal Belt"/>
     </GearBaseType>
     <GearBaseType name="Flask">
       <Item name="Small Life Flask"/>
@@ -227,6 +230,8 @@
       <Item name="Sacred Life Flask"/>
       <Item name="Hallowed Life Flask"/>
       <Item name="Sanctified Life Flask"/>
+      <Item name="Divine Life Flask"/>
+      <Item name="Eternal Life Flask"/>
 
       <Item name="Small Mana Flask"/>
       <Item name="Medium Mana Flask"/>
@@ -238,6 +243,8 @@
       <Item name="Sacred Mana Flask"/>
       <Item name="Hallowed Mana Flask"/>
       <Item name="Sanctified Mana Flask"/>
+      <Item name="Divine Mana Flask"/>
+      <Item name="Eternal Mana Flask"/>
 
       <Item name="Small Hybrid Flask"/>
       <Item name="Medium Hybrid Flask"/>
@@ -247,14 +254,21 @@
       <Item name="Hallowed Hybrid Flask"/>
 
       <Item name="Quicksilver Flask"/>
+      <Item name="Bismuth Flask"/>
+      <Item name="Stibnite Flask"/>
       <Item name="Ruby Flask"/>
       <Item name="Sapphire Flask"/>
       <Item name="Topaz Flask"/>
       <Item name="Amethyst Flask"/>
+      <Item name="Silver Flask"/>
+      <Item name="Aquamarine Flask"/>
       <Item name="Granite Flask"/>
-      <Item name="Diamond Flask"/>
       <Item name="Jade Flask"/>
       <Item name="Quartz Flask"/>
+      <Item name="Sulphur Flask"/>
+      <Item name="Basalt Flask"/>
+
+      <Item name="Diamond Flask"/>
     </GearBaseType>
     <GearBaseType name="Map">
       <Item name="Crypt Map"/>
@@ -1067,6 +1081,21 @@
       <Item name="The Eye of the Dragon"/>
       <Item name="The Blazing Fire"/>
       <Item name="Left to Fate"/>
+    </GearBaseType>
+
+    <GearBaseType name="Jewel">
+      <Item name="Cobalt Jewel"/>
+      <Item name="Crimson Jewel"/>
+      <Item name="Viridian Jewel"/>
+      <Item name="Prismatic Jewel"/>
+    </GearBaseType>
+
+    <!-- TODO: This should be named "AbyssJewel". -->
+    <GearBaseType name="AbysalJewel">
+      <Item name="Ghastly Eye Jewel"/>
+      <Item name="Hypnotic Eye Jewel"/>
+      <Item name="Murderous Eye Jewel"/>
+      <Item name="Searching Eye Jewel"/>
     </GearBaseType>
   </GearBaseTypes>
 </Data>
