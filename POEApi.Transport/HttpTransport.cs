@@ -37,11 +37,13 @@ namespace POEApi.Transport
 
         public event ThottledEventHandler Throttled;
 
+        private static TaskThrottle taskThrottle = new TaskThrottle(TimeSpan.FromMinutes(1), 42, 42);
+
         public HttpTransport(string login)
         {
             credentialCookies = new CookieContainer();
             this.email = login;
-            RequestThrottle.Instance.Throttled += new ThottledEventHandler(instance_Throttled);
+            taskThrottle.Throttled += new ThottledEventHandler(instance_Throttled);
         }
 
         public HttpTransport(string login, string proxyUser, string proxyPassword, string proxyDomain)
@@ -113,7 +115,8 @@ namespace POEApi.Transport
 
         private HttpWebRequest getHttpRequest(HttpMethod method, string url)
         {
-            HttpWebRequest request = (HttpWebRequest)RequestThrottle.Instance.Create(url);
+            taskThrottle.StartTask();
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri(url));
 
             request.CookieContainer = credentialCookies;
             request.UserAgent = "User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E; .NET CLR 1.1.4322)";
@@ -189,7 +192,7 @@ namespace POEApi.Transport
         {
             StreamReader reader = new StreamReader(response.GetResponseStream());
             byte[] buffer = reader.ReadAllBytes();
-            RequestThrottle.Instance.Complete();
+            taskThrottle.CompleteTask();
 
             return new MemoryStream(buffer);
         }

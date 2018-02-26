@@ -65,9 +65,7 @@
                         <TextBlock />
                         <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" Text="Path Of Exile, the Path Of Exile logo and all related artwork used in this application are Copyright © Grinding Gear Games. For further information please visit:                     http://www.pathofexile.com" FontSize="11" />
                         <TextBlock FontSize="11" />
-                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" Text="This work is licensed under Artistic License 2.0." />
-                        <TextBlock />
-                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" Text="This software is provided *AS IS* and the authors disclaim all warranties with regard to this software including all implied warranties of merchantability and fitness. In no event shall the authors be liable for any special, direct, indirect or consequential damages or any damage whatsoever resulting from loss of use, data or profits, whether in action of contract, negligence or other tortious action, arising out of or in connection with the use or performance of this software." FontSize="11" />
+                        <TextBlock Foreground="#FFAB9066" TextWrapping="Wrap" Text="This work is licensed under Artistic License 2.0.  See the included LICENSE file for full details." />
                     </StackPanel>
                 </Grid>
             </Grid>
