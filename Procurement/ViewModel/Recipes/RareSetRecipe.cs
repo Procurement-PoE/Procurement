@@ -33,8 +33,8 @@ namespace Procurement.ViewModel.Recipes
             List<Gear> allGear = items.OfType<Gear>().ToList();
             Dictionary<string, List<Gear>> buckets =
                 allGear.Where(g => g.Rarity == Rarity.Rare &&
-                                   g.ItemLevel < maximumItemLevel &&
-                                   g.ItemLevel > minimumItemLevel &&
+                                   g.ItemLevel <= maximumItemLevel &&
+                                   g.ItemLevel >= minimumItemLevel &&
                                    g.Identified == itemsIdentified)
                        .GroupBy(g => g.GearType)
                        .ToDictionary(g => g.Key.ToString(), g => g.OrderBy(i => i.ItemLevel).ToList());
