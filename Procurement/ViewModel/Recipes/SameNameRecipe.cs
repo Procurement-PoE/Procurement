@@ -10,14 +10,12 @@ namespace Procurement.ViewModel.Recipes
     {
         private string name;
         private int setCount;
-        private bool isMaxCount;
 
-        public SameNameRecipe(string recipeName, int setCount, bool isMaxCount)
+        public SameNameRecipe(string recipeName, int setCount)
             : base(66)
         {
             this.name = recipeName;
             this.setCount = setCount;
-            this.isMaxCount = isMaxCount;
         }
 
         public override string Name
@@ -63,14 +61,6 @@ namespace Procurement.ViewModel.Recipes
             }
 
             return matches;
-        }
-
-        private bool isCountMatch(int count)
-        {
-            if (isMaxCount)
-                return count == setCount;
-
-            return count >= setCount;
         }
     }
 }
