@@ -131,10 +131,35 @@ namespace POEApi.Model
         {
             get
             {
-                string qualityString = this.IsQuality ? string.Format(", +{0}% Quality", this.Quality) : string.Empty;
-                string iLevelString = this.ItemLevel > 0 ? string.Format(", i{0}", this.ItemLevel) : string.Empty;
-                return string.Format("{0}{1}{2}", this.TypeLine, qualityString, iLevelString);
+                return AssembleDescriptiveName();
             }
+        }
+
+        protected virtual Dictionary<string, string> DescriptiveNameComponents
+        {
+            get
+            {
+                // TODO: Use a persistent Dictionary that we do not need to recreate for every call.  But this would
+                // require reworking the class in multiple places and in the (applicable) getters, so it would not be
+                // trivial.  Could make the recreation "lazy", however, by just setting a "dirty" flag in the property
+                // setters, and recreating the Dictionary if the data is dirty.
+                return new Dictionary<string, string>
+                {
+                    { "quality", IsQuality ? string.Format("+{0}% Quality", Quality) : null },
+                    { "iLevel",  ItemLevel > 0 ? string.Format("i{0}", ItemLevel) : null },
+                    { "name", TypeLine },
+                };
+            }
+        }
+
+        protected virtual string AssembleDescriptiveName()
+        {
+            var parts = DescriptiveNameComponents;
+            var orderedParts = new List<string>
+            {
+                parts["name"], parts["quality"], parts["iLevel"]
+            }.Where(i => !string.IsNullOrWhiteSpace(i));
+            return string.Join(", ", orderedParts);
         }
 
         public object Clone()
