@@ -184,11 +184,10 @@ namespace POEApi.Model
         }
     }
 
-    // TODO: This should be named AbyssJewelRunner.
-    internal class AbysalJewelRunner : GearTypeRunnerBase
+    internal class AbyssJewelRunner : GearTypeRunnerBase
     {
-        public AbysalJewelRunner()
-            : base(GearType.AbysalJewel, Settings.GearBaseTypes[GearType.AbysalJewel])
+        public AbyssJewelRunner()
+            : base(GearType.AbyssJewel, Settings.GearBaseTypes[GearType.AbyssJewel])
         {
             generalTypes.Add("Eye Jewel");
             incompatibleTypes = new List<string>() { "Jewelled Foil" };

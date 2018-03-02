@@ -1090,8 +1090,7 @@
       <Item name="Prismatic Jewel"/>
     </GearBaseType>
 
-    <!-- TODO: This should be named "AbyssJewel". -->
-    <GearBaseType name="AbysalJewel">
+    <GearBaseType name="AbyssJewel">
       <Item name="Ghastly Eye Jewel"/>
       <Item name="Hypnotic Eye Jewel"/>
       <Item name="Murderous Eye Jewel"/>

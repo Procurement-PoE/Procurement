@@ -26,8 +26,7 @@
         QuestItem,
         DivinationCard,
         Jewel,
-        // This should be named "AbyssJewel".
-        AbysalJewel,
+        AbyssJewel,
         Talisman,
         Breachstone,
         Leaguestone
