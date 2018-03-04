@@ -26,8 +26,8 @@ namespace Procurement.ViewModel.Recipes
                 new GlassblowersBaubleRecipe(),
                 new CartographersChiselRecipe(),
                 new SameBaseTypeRecipe(),
-                new SameNameRecipe("Chance Orb - 2 Of The Same Name", 2, true),
-                new SameNameRecipe("Alchemy Orb - 3 Of The Same Name", 3, false),
+                new SameNameRecipe("Alchemy Orb - 3 Of The Same Name", 3),
+                new SameNameRecipe("Chance Orb - 2 Of The Same Name", 2),
                 //Todo: Implement Essence Combination recipe (Exclude Shrieking and "Special" essences
             };
         }

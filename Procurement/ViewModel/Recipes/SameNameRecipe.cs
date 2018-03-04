@@ -10,13 +10,12 @@ namespace Procurement.ViewModel.Recipes
     {
         private string name;
         private int setCount;
-        private bool isMaxCount;
 
-        public SameNameRecipe(string recipeName, int setCount, bool isMaxCount)
+        public SameNameRecipe(string recipeName, int setCount)
+            : base(66)
         {
             this.name = recipeName;
             this.setCount = setCount;
-            this.isMaxCount = isMaxCount;
         }
 
         public override string Name
@@ -31,35 +30,41 @@ namespace Procurement.ViewModel.Recipes
 
         private IEnumerable<RecipeResult> findDuplicates(IEnumerable<POEApi.Model.Item> items, int setCount)
         {
-            var gear = items.OfType<Gear>().Where(g => g.Name != string.Empty);
-            var itemKeys = gear.GroupBy(i => i.Name).Where(g => g.Count() > 1);
+            // Gear and AbyssJewel both have Rarity, but do not inherit it from a common parent class, so we need to
+            // handle each subclass separately.
+            IEnumerable<Item> gear = items.Where(i => i.Name != string.Empty &&
+                ((i is Gear && (i as Gear).Rarity != Rarity.Unique) ||
+                 (i is AbyssJewel && (i as AbyssJewel).Rarity != Rarity.Unique)));
 
             List<RecipeResult> matches = new List<RecipeResult>();
 
+            var itemKeys = gear.GroupBy(i => i.Name).Where(g => g.Count() > 1);
             foreach (var item in itemKeys)
             {
-                var matchedItems = gear.Where(g => g.Rarity != Rarity.Unique && g.Name == item.Key).Select(g => g as Item).ToList();
+                var matchedItems = gear.Where(g => g.Name == item.Key)
+                    .Select(g => g as Item).ToList();
 
-                if (isCountMatch(matchedItems.Count()))
-                    matches.Add(new RecipeResult()
+                while (matchedItems.Count > 0)
+                {
+                    var currentSet = matchedItems.Take(setCount).ToList();
+                    matchedItems.RemoveRange(0, currentSet.Count);
+                    Decimal percentMatch = ((Decimal)currentSet.Count / setCount) * 100;
+                    var candidateMatch = new RecipeResult()
                     {
                         Instance = this,
-                        IsMatch = true,
-                        MatchedItems = matchedItems,
+                        IsMatch = percentMatch > base.ReturnMatchesGreaterThan,
+                        MatchedItems = currentSet,
                         Missing = new List<string>(),
-                        PercentMatch = 100
-                    });
+                        PercentMatch = percentMatch
+                    };
+                    if (candidateMatch.IsMatch)
+                    {
+                        matches.Add(candidateMatch);
+                    }
+                }
             }
 
             return matches;
-        }
-
-        private bool isCountMatch(int count)
-        {
-            if (isMaxCount)
-                return count == setCount;
-
-            return count >= setCount;
         }
     }
 }
