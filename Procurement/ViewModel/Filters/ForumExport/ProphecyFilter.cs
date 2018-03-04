@@ -2,7 +2,7 @@
 
 namespace Procurement.ViewModel.Filters.ForumExport
 {
-    public class AbyssalJewelFilter : IFilter
+    public class AbyssJewelFilter : IFilter
     {
         public bool Applicable(Item item)
         {
@@ -29,7 +29,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
         {
             get
             {
-                return "Abyssal Jewel";
+                return "Abyss Jewel";
             }
         }
 
@@ -37,7 +37,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
         {
             get
             {
-                return "All Abyssal Jewels";
+                return "All Abyss Jewels";
             }
         }
 

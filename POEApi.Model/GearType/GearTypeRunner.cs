@@ -177,18 +177,20 @@ namespace POEApi.Model
     public class JewelRunner : GearTypeRunnerBase
     {
         public JewelRunner()
-            : base(GearType.Jewel, new List<string>())
+            : base(GearType.Jewel, Settings.GearBaseTypes[GearType.Jewel])
         {
             generalTypes.Add("Jewel");
+            incompatibleTypes = new List<string>() { "Jewelled Foil", "Eye Jewel" };
         }
     }
 
-    internal class AbysalJewelRunner : GearTypeRunnerBase
+    internal class AbyssJewelRunner : GearTypeRunnerBase
     {
-        public AbysalJewelRunner()
-            : base(GearType.AbysalJewel, new List<string>())
+        public AbyssJewelRunner()
+            : base(GearType.AbyssJewel, Settings.GearBaseTypes[GearType.AbyssJewel])
         {
             generalTypes.Add("Eye Jewel");
+            incompatibleTypes = new List<string>() { "Jewelled Foil" };
         }
     }
 

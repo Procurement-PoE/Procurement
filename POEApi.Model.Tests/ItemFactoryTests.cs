@@ -9,13 +9,13 @@ namespace POEApi.Model.Tests
     public class ItemFactoryTests
     {
         [TestMethod]
-        public void ItemFactory_GivenItemWithAbyssalJewel_ShouldConstructItem()
+        public void ItemFactory_GivenItemWithAbyssJewel_ShouldConstructItem()
         {
-            var abyssalJewel = Build.A.JsonProxyItem
-                                      .ThatIsAnAbyssJewel();
+            var abyssJewel = Build.A.JsonProxyItem
+                                    .ThatIsAnAbyssJewel();
 
             var item = Build.A.JsonProxyItem
-                              .WithSocketedItem(abyssalJewel);
+                              .WithSocketedItem(abyssJewel);
 
             Gear result = ItemFactory.Get(item) as Gear;
 
