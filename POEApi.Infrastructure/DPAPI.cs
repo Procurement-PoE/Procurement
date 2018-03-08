@@ -64,10 +64,13 @@ namespace POEApi.Infrastructure
             SecureString secured = new SecureString();
 
             int count = Encoding.Unicode.GetCharCount(decrypted);
-            int bc = decrypted.Length / count;
+            if (count > 0)
+            {
+                int bc = decrypted.Length / count;
 
-            for (int i = 0; i < count; i++)
-                secured.AppendChar(Encoding.Unicode.GetChars(decrypted, i * bc, bc)[0]);
+                for (int i = 0; i < count; i++)
+                    secured.AppendChar(Encoding.Unicode.GetChars(decrypted, i * bc, bc)[0]);
+            }
 
             secured.MakeReadOnly();
 
