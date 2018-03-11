@@ -37,17 +37,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <HintPath>..\..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FluentAssertions, Version=4.19.4.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentAssertions.4.19.4\lib\net45\FluentAssertions.dll</HintPath>
+      <HintPath>..\..\packages\FluentAssertions.4.19.4\lib\net45\FluentAssertions.dll</HintPath>
     </Reference>
     <Reference Include="FluentAssertions.Core, Version=4.19.4.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentAssertions.4.19.4\lib\net45\FluentAssertions.Core.dll</HintPath>
+      <HintPath>..\..\packages\FluentAssertions.4.19.4\lib\net45\FluentAssertions.Core.dll</HintPath>
     </Reference>
     <Reference Include="Moq, Version=4.5.22.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
-      <HintPath>..\packages\Moq.4.5.22\lib\net45\Moq.dll</HintPath>
+      <HintPath>..\..\packages\Moq.4.5.22\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationFramework" />
@@ -70,8 +70,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Builders\Build.cs" />
-    <Compile Include="Builders\JSONProxyItemBuilder.cs" />
     <Compile Include="Files.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -101,7 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\POEApi.Model\POEApi.Model.csproj">
-      <Project>{9841dd07-224d-4534-b9d1-f934c1d7bc73}</Project>
+      <Project>{9841DD07-224D-4534-B9D1-F934C1D7BC73}</Project>
       <Name>POEApi.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\POEApi.Transport\POEApi.Transport.csproj">
@@ -111,6 +109,10 @@
     <ProjectReference Include="..\..\Procurement\Procurement.csproj">
       <Project>{9369113D-A68F-4FE9-B301-D00C5176666A}</Project>
       <Name>Procurement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POEApi.TestHelpers\POEApi.TestHelpers.csproj">
+      <Project>{d7567718-9004-4689-b39f-1d240eebb383}</Project>
+      <Name>POEApi.TestHelpers</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

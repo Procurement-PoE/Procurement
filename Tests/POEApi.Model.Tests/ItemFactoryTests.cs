@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using POEApi.Model.Tests.Builders;
+using POEApi.TestHelpers.Builders;
 using FluentAssertions;
 using System.Linq;
 
