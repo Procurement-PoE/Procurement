@@ -54,5 +54,12 @@ namespace POEApi.Model.Tests.Builders
 
             return this;
         }
+
+        internal JSONProxyItemBuilder WithName(string name)
+        {
+            _item.Name = name;
+
+            return this;
+        }
     }
 }
