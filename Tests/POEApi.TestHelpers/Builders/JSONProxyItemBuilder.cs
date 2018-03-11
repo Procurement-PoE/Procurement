@@ -61,5 +61,12 @@ namespace POEApi.TestHelpers.Builders
 
             return this;
         }
+
+        public JSONProxyItemBuilder WithId(string id)
+        {
+            _item.Id = id;
+
+            return this;
+        }
     }
 }

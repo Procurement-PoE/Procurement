@@ -14,7 +14,7 @@ namespace POEApi.Model
         public GearType GearType { get; set; }
         public string BaseType { get; set; }
 
-        internal Gear(JSONProxy.Item item) : base(item)
+        public Gear(JSONProxy.Item item) : base(item)
         {
             this.Rarity = getRarity(item);
             this.FlavourText = item.FlavourText;
@@ -28,8 +28,12 @@ namespace POEApi.Model
             this.BaseType = GearTypeFactory.GetBaseType(this);
         }
 
-        private List<Socket> getSockets(JSONProxy.Item item) => item.Sockets == null ? new List<Socket>() : item.Sockets.Select(proxy => new Socket(proxy)).ToList();
-        private List<SocketableItem> getSocketedItems(JSONProxy.Item item) => item.SocketedItems == null ? new List<SocketableItem>() : item.SocketedItems.Select(proxy => (SocketableItem)ItemFactory.Get(proxy)).ToList();
+        private List<Socket> getSockets(JSONProxy.Item item) =>
+            item.Sockets == null ? new List<Socket>() : item.Sockets.Select(proxy => new Socket(proxy)).ToList();
+
+        private List<SocketableItem> getSocketedItems(JSONProxy.Item item) =>
+            item.SocketedItems == null ? new List<SocketableItem>() :
+            item.SocketedItems.Select(proxy => (SocketableItem)ItemFactory.Get(proxy)).ToList();
 
         public bool IsLinked(int links)
         {

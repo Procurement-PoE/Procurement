@@ -6,7 +6,7 @@ using POEApi.Model;
 
 namespace Procurement.ViewModel.Recipes
 {
-    class SameNameRecipe : Recipe
+    public class SameNameRecipe : Recipe
     {
         private string name;
         private int setCount;
