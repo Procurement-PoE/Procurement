@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POEApi.Model.Tests", "Tests
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3B0DBAAD-727D-40CB-B859-72EFC208332E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POEApi.TestHelpers", "Tests\POEApi.TestHelpers\POEApi.TestHelpers.csproj", "{D7567718-9004-4689-B39F-1D240EEBB383}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,11 +87,24 @@ Global
 		{52A5B321-3AA1-4A9D-B6DD-93DC7DF7C742}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{52A5B321-3AA1-4A9D-B6DD-93DC7DF7C742}.Release|x86.ActiveCfg = Release|Any CPU
 		{52A5B321-3AA1-4A9D-B6DD-93DC7DF7C742}.Release|x86.Build.0 = Release|Any CPU
+		{D7567718-9004-4689-B39F-1D240EEBB383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7567718-9004-4689-B39F-1D240EEBB383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7567718-9004-4689-B39F-1D240EEBB383}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D7567718-9004-4689-B39F-1D240EEBB383}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D7567718-9004-4689-B39F-1D240EEBB383}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D7567718-9004-4689-B39F-1D240EEBB383}.Debug|x86.Build.0 = Debug|Any CPU
+		{D7567718-9004-4689-B39F-1D240EEBB383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7567718-9004-4689-B39F-1D240EEBB383}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7567718-9004-4689-B39F-1D240EEBB383}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D7567718-9004-4689-B39F-1D240EEBB383}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D7567718-9004-4689-B39F-1D240EEBB383}.Release|x86.ActiveCfg = Release|Any CPU
+		{D7567718-9004-4689-B39F-1D240EEBB383}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{52A5B321-3AA1-4A9D-B6DD-93DC7DF7C742} = {3B0DBAAD-727D-40CB-B859-72EFC208332E}
+		{D7567718-9004-4689-B39F-1D240EEBB383} = {3B0DBAAD-727D-40CB-B859-72EFC208332E}
 	EndGlobalSection
 EndGlobal
