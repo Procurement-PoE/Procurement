@@ -11,13 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POEApi.Infrastructure", "PO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Procurement", "Procurement\Procurement.csproj", "{9369113D-A68F-4FE9-B301-D00C5176666A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POEApi.Model.Tests", "POEApi.Model.Tests\POEApi.Model.Tests.csproj", "{52A5B321-3AA1-4A9D-B6DD-93DC7DF7C742}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ED96F423-D567-4394-9ADF-34284FFC3999}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POEApi.Model.Tests", "Tests\POEApi.Model.Tests\POEApi.Model.Tests.csproj", "{52A5B321-3AA1-4A9D-B6DD-93DC7DF7C742}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3B0DBAAD-727D-40CB-B859-72EFC208332E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,5 +88,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{52A5B321-3AA1-4A9D-B6DD-93DC7DF7C742} = {3B0DBAAD-727D-40CB-B859-72EFC208332E}
 	EndGlobalSection
 EndGlobal
