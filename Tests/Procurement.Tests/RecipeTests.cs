@@ -372,6 +372,39 @@ namespace Procurement.Tests
             items.Add(new Gear(Build.A.JsonProxyItem.WithName(itemsName).WithId("5")));
             CheckThreeItemRecipe(new List<POEApi.Model.Item>(items), itemsName);
         }
+
+        [TestMethod]
+        public void RecipeTests_SameNameRecipe_MultipleResults()
+        {
+            const string firstResultName = "Alpha Beta";
+            const string secondResultName = "Gamma Delta";
+            const string unrelatedName = "Epsilon Phi";
+            List<POEApi.Model.Item> items = new List<POEApi.Model.Item>
+            {
+                new Gear(Build.A.JsonProxyItem.WithName(firstResultName).WithId("1")),
+                new Gear(Build.A.JsonProxyItem.WithName(unrelatedName).WithId("2")),
+                new Gear(Build.A.JsonProxyItem.WithName(secondResultName).WithId("3")),
+                new Gear(Build.A.JsonProxyItem.WithName(firstResultName).WithId("4")),
+                new Gear(Build.A.JsonProxyItem.WithName(firstResultName).WithId("5")),
+                new Gear(Build.A.JsonProxyItem.WithName(secondResultName).WithId("6")),
+            };
+
+            SameNameRecipe threeCopiesRecipe = new SameNameRecipe("Three", 3);
+            var matches = threeCopiesRecipe.Matches(items);
+
+            Assert.AreEqual(2, matches.Count());
+            Assert.IsTrue(matches.All(r => r.MatchedItems.Count > 0));
+
+            var firstMatch = matches.FirstOrDefault(r => r.MatchedItems[0].Name == firstResultName);
+            Assert.IsNotNull(firstMatch);
+            Assert.AreEqual(3, firstMatch.MatchedItems.Count);
+            Assert.IsTrue(firstMatch.MatchedItems.All(i => i.Name == firstResultName));
+
+            var secondMatch = matches.FirstOrDefault(r => r.MatchedItems[1].Name == secondResultName);
+            Assert.IsNotNull(secondMatch);
+            Assert.AreEqual(2, secondMatch.MatchedItems.Count);
+            Assert.IsTrue(secondMatch.MatchedItems.All(i => i.Name == secondResultName));
+        }
         #endregion
     }
 }
