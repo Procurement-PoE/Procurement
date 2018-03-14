@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using POEApi.Model.Tests.Builders;
+using POEApi.TestHelpers.Builders;
 
 namespace POEApi.Model.Tests
 {
