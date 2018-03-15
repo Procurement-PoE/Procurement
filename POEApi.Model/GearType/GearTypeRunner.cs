@@ -25,7 +25,7 @@ namespace POEApi.Model
             : base(gearType)
         {
             this.generalTypes = new List<string>();
-            this.compatibleTypes = compatibleTypes.ToList();
+            this.compatibleTypes = compatibleTypes.OrderByDescending(s => s.Length).ToList();
             this.incompatibleTypes = new List<string>();
         }
 
