@@ -1,6 +1,4 @@
-﻿#define RUN_FAILING_TESTS
-
-using FluentAssertions;
+﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using POEApi.Model;
 using POEApi.TestHelpers.Builders;
@@ -120,7 +118,6 @@ namespace Procurement.ViewModel.Recipes.Tests
         [TestMethod]
         public void RareSetRecipeTests_PartialSet_IncompleteMatch()
         {
-#if RUN_FAILING_TESTS
             List<Item> items = new List<Item>()
             {
                 new Gear(Build.A.JsonProxyItem.WithFrameType((int)Rarity.Rare).WithItemLevel(1).WithId("01")
@@ -179,7 +176,6 @@ namespace Procurement.ViewModel.Recipes.Tests
                     match.PercentMatch.Should().Be(10M * currentItems.Count);
                 }
             }
-#endif
         }
 
         [TestMethod]
@@ -230,7 +226,6 @@ namespace Procurement.ViewModel.Recipes.Tests
         [TestMethod]
         public void RareSetRecipeTests_ItemsIncludeBowAndShield_ShieldIsNotUsed()
         {
-#if RUN_FAILING_TESTS
             List<Item> items = new List<Item>()
             {
                 new Gear(Build.A.JsonProxyItem.WithFrameType((int)Rarity.Rare).WithItemLevel(1).WithId("01")
@@ -271,13 +266,11 @@ namespace Procurement.ViewModel.Recipes.Tests
             match.MatchedItems.Should().NotContain(shieldGear);
             match.Name.Should().Be("set");
             match.PercentMatch.Should().Be(100M);
-#endif
         }
 
         [TestMethod]
         public void RareSetRecipeTests_ItemsIncludeTwoShields_UseBothForMatch()
         {
-#if RUN_FAILING_TESTS
             List<Item> items = new List<Item>()
             {
                 new Gear(Build.A.JsonProxyItem.WithFrameType((int)Rarity.Rare).WithItemLevel(1).WithId("01")
@@ -316,7 +309,6 @@ namespace Procurement.ViewModel.Recipes.Tests
             match.MatchedItems.Should().Contain(items);
             match.Name.Should().Be("set");
             match.PercentMatch.Should().Be(100M);
-#endif
         }
 
         [TestMethod]
@@ -483,7 +475,6 @@ namespace Procurement.ViewModel.Recipes.Tests
             {
                 // The items collection has a bow with lower item level than the shield, but it should not be picked
                 // because the one-handed weapon has the lowest item level.
-#if RUN_FAILING_TESTS
                 List<Item> items = new List<Item>(baseItems);
                 items.Add(new Gear(Build.A.JsonProxyItem.WithFrameType((int)Rarity.Rare).WithItemLevel(30)
                     .WithId("08").WithTypeLine("Coral Ring")));  // Ring 2
@@ -509,12 +500,10 @@ namespace Procurement.ViewModel.Recipes.Tests
                 match.MatchedItems.Select(i => i.Id).Should().OnlyHaveUniqueItems();
                 match.Name.Should().Be("set");
                 match.PercentMatch.Should().Be(100M);
-#endif
             }
 
             {
                 // As the above case, but the shield is the item with the lower item level than the bow.
-#if RUN_FAILING_TESTS
                 List<Item> items = new List<Item>(baseItems);
                 items.Add(new Gear(Build.A.JsonProxyItem.WithFrameType((int)Rarity.Rare).WithItemLevel(30)
                     .WithId("08").WithTypeLine("Coral Ring")));  // Ring 2
@@ -540,13 +529,11 @@ namespace Procurement.ViewModel.Recipes.Tests
                 match.MatchedItems.Select(i => i.Id).Should().OnlyHaveUniqueItems();
                 match.Name.Should().Be("set");
                 match.PercentMatch.Should().Be(100M);
-#endif
             }
 
             {
                 // The items collection has a bow with lower item level than one of the one-handed weapons, but it
                 // should not be picked, as the other one-handed weapon has the lowest item level.
-#if RUN_FAILING_TESTS
                 List<Item> items = new List<Item>(baseItems);
                 items.Add(new Gear(Build.A.JsonProxyItem.WithFrameType((int)Rarity.Rare).WithItemLevel(30)
                     .WithId("08").WithTypeLine("Coral Ring")));  // Ring 2
@@ -572,12 +559,10 @@ namespace Procurement.ViewModel.Recipes.Tests
                 match.MatchedItems.Select(i => i.Id).Should().OnlyHaveUniqueItems();
                 match.Name.Should().Be("set");
                 match.PercentMatch.Should().Be(100M);
-#endif
             }
 
             {
                 // The bow should be picked, as it has a lower item level than the sword and shield.
-#if RUN_FAILING_TESTS
                 List<Item> items = new List<Item>(baseItems);
                 items.Add(new Gear(Build.A.JsonProxyItem.WithFrameType((int)Rarity.Rare).WithItemLevel(30)
                     .WithId("08").WithTypeLine("Coral Ring")));  // Ring 2
@@ -607,12 +592,10 @@ namespace Procurement.ViewModel.Recipes.Tests
                 match.MatchedItems.Select(i => i.Id).Should().OnlyHaveUniqueItems();
                 match.Name.Should().Be("set");
                 match.PercentMatch.Should().Be(100M);
-#endif
             }
 
             {
                 // As above, but the bow has a lower item level than two one-handed weapons.
-#if RUN_FAILING_TESTS
                 List<Item> items = new List<Item>(baseItems);
                 items.Add(new Gear(Build.A.JsonProxyItem.WithFrameType((int)Rarity.Rare).WithItemLevel(30)
                     .WithId("08").WithTypeLine("Coral Ring")));  // Ring 2
@@ -642,7 +625,6 @@ namespace Procurement.ViewModel.Recipes.Tests
                 match.MatchedItems.Select(i => i.Id).Should().OnlyHaveUniqueItems();
                 match.Name.Should().Be("set");
                 match.PercentMatch.Should().Be(100M);
-#endif
             }
         }
 

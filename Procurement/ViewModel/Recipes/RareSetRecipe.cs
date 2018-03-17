@@ -37,13 +37,23 @@ namespace Procurement.ViewModel.Recipes
                                    g.ItemLevel >= minimumItemLevel &&
                                    g.Identified == itemsIdentified)
                        .GroupBy(g => g.GearType)
-                       .ToDictionary(g => g.Key.ToString(), g => g.OrderBy(i => i.ItemLevel).ToList());
+                       .ToDictionary(g => g.Key.ToString(), g => g.ToList());
 
-            GearType[] weaponGearTypes = { GearType.Axe, GearType.Bow, GearType.Claw, GearType.Dagger, GearType.Mace,
-                GearType.Sceptre, GearType.Staff, GearType.Sword, GearType.Wand };
-            mergeKeys(buckets, "One Handed", g => g.Properties.Any(pr => pr.Name.Contains("One Handed")), weaponGearTypes);
-            mergeKeys(buckets, "Two Handed", g => g.Properties.Any(pr => pr.Name.Contains("Two Handed")), weaponGearTypes);
-            removeKeys(buckets, weaponGearTypes);
+            GearType[] oneHandedOnlyGearTypes = { GearType.Claw, GearType.Dagger, GearType.Sceptre, GearType.Wand,
+                GearType.Shield };
+            GearType[] twoHandedOnlyGearTypes = { GearType.Bow, GearType.Staff };
+            GearType[] mixedGearTypes = { GearType.Axe, GearType.Mace, GearType.Sword };
+
+            moveSelectedBucketsContents(buckets, "Two Handed", twoHandedOnlyGearTypes);
+            resortSelectedBuckets(buckets, "Two Handed", g => g.Properties.Any(
+                pr => pr.Name.Contains("Two Handed")), mixedGearTypes);
+            moveSelectedBucketsContents(buckets, "One Handed", oneHandedOnlyGearTypes);
+            moveSelectedBucketsContents(buckets, "One Handed", mixedGearTypes);
+
+            foreach (KeyValuePair<string, List<Gear>> bucket in buckets)
+            {
+                bucket.Value.Sort((x, y) => x.ItemLevel.CompareTo(y.ItemLevel));
+            }
 
             RecipeResult result = getNextResult(buckets);
             while (result.IsMatch)
@@ -69,14 +79,15 @@ namespace Procurement.ViewModel.Recipes
             set.RingLeft = pullValue(buckets, GearType.Ring.ToString());
             set.RingRight = pullValue(buckets, GearType.Ring.ToString());
 
-            if (buckets["One Handed"].Count > 0 && buckets.ContainsKey(GearType.Shield.ToString()) &&
-                buckets[GearType.Shield.ToString()].Count > 0)
+            // Use two one-handed items or one two-handed item, based on which has the lowest item level.
+            int oneHandedItemLevel = buckets.ContainsKey("One Handed") && buckets["One Handed"].Count > 1 ?
+                buckets["One Handed"][0].ItemLevel : int.MaxValue;
+            int twoHandedItemLevel = buckets.ContainsKey("Two Handed") && buckets["Two Handed"].Count > 0 ?
+                buckets["Two Handed"][0].ItemLevel : int.MaxValue;
+
+            if (oneHandedItemLevel <= twoHandedItemLevel)
             {
-                set.Weapon = pullValue(buckets, "One Handed");
-                set.Offhand = pullValue(buckets, GearType.Shield.ToString());
-            }
-            else if (buckets["One Handed"].Count > 1)
-            {
+                // Includes the case where buckets["Two Handed"] is empty and buckets["One Handed"] has one item.
                 set.Weapon = pullValue(buckets, "One Handed");
                 set.Offhand = pullValue(buckets, "One Handed");
             }
@@ -110,19 +121,41 @@ namespace Procurement.ViewModel.Recipes
 
         }
 
-        private void mergeKeys(Dictionary<string, List<Gear>> buckets, string intoKey, Func<Gear, bool> predicate, params GearType[] toMerge)
+        private void moveSelectedBucketsContents(Dictionary<string, List<Gear>> buckets, string intoKey,
+            params GearType[] toMerge)
         {
-            buckets.Add(intoKey, new List<Gear>());
-            foreach (GearType keyToMerge in toMerge)
-                if (buckets.ContainsKey(keyToMerge.ToString()))
-                    buckets[intoKey].AddRange(buckets[keyToMerge.ToString()]);
+            resortSelectedBuckets(buckets, intoKey, g => true, toMerge);
         }
 
-        private void removeKeys(Dictionary<string, List<Gear>> buckets, params GearType[] keys)
+        private void resortSelectedBuckets(Dictionary<string, List<Gear>> buckets, string intoKey, Func<Gear, bool>
+            predicate, params GearType[] toMerge)
         {
-            foreach (GearType keyToMerge in keys)
+            if (!buckets.ContainsKey(intoKey))
+            {
+                buckets.Add(intoKey, new List<Gear>());
+            }
+
+            foreach (GearType keyToMerge in toMerge)
+            {
                 if (buckets.ContainsKey(keyToMerge.ToString()))
-                    buckets.Remove(keyToMerge.ToString());
+                {
+                    var currentSourceBucket = buckets[keyToMerge.ToString()];
+                    for (int i = 0; i < currentSourceBucket.Count; i++)
+                    {
+                        if (predicate(currentSourceBucket[i]))
+                        {
+                            buckets[intoKey].Add(currentSourceBucket[i]);
+                            currentSourceBucket.RemoveAt(i);
+                            i--;
+                        }
+                    }
+
+                    if (currentSourceBucket.Count == 0)
+                    {
+                        buckets.Remove(keyToMerge.ToString());
+                    }
+                }
+            }
         }
     }
 }
