@@ -5,7 +5,7 @@ using POEApi.Model;
 
 namespace Procurement.ViewModel.Recipes
 {
-    internal class RareSetRecipe : Recipe
+    public class RareSetRecipe : Recipe
     {
         private readonly int minimumItemLevel;
         private readonly int maximumItemLevel;

@@ -8,7 +8,7 @@ namespace POEApi.Model
         public int MapTier { get; private set; }
         public int MapQuantity { get; private set; }
 
-        internal Map(JSONProxy.Item item) : base(item)
+        public Map(JSONProxy.Item item) : base(item)
         {
             this.ItemType = Model.ItemType.Gear;
             this.Properties = ProxyMapper.GetProperties(item.Properties);
