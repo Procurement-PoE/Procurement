@@ -9,10 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using POEApi.Model;
 
-namespace Procurement.Tests
+namespace Procurement.ViewModel.Recipes.Tests
 {
     [TestClass]
-    public class RecipeTests
+    public class SameNameRecipeTests
     {
         public bool IsCloseToValue(decimal expectedValue, decimal epsilon, decimal actualValue)
         {
@@ -20,7 +20,6 @@ namespace Procurement.Tests
             return difference < epsilon;
         }
 
-        #region SameNameRecipe
         public void CheckTwoItemRecipe(List<POEApi.Model.Item> potentialItems, string name)
         {
             Assert.AreEqual(7, potentialItems.Count);
@@ -290,7 +289,7 @@ namespace Procurement.Tests
         }
 
         [TestMethod]
-        public void RecipeTests_SameNameRecipe_Gear()
+        public void SameNameRecipeTests_Gear()
         {
             const string itemsName = "Alpha Beta";
             List<POEApi.Model.Item> items = new List<POEApi.Model.Item>
@@ -318,7 +317,7 @@ namespace Procurement.Tests
         }
 
         [TestMethod]
-        public void RecipeTests_SameNameRecipe_AbyssJewel()
+        public void SameNameRecipeTests_AbyssJewel()
         {
             const string itemsName = "Alpha Beta";
             List<POEApi.Model.Item> items = new List<POEApi.Model.Item>
@@ -346,7 +345,7 @@ namespace Procurement.Tests
         }
 
         [TestMethod]
-        public void RecipeTests_SameNameRecipe_MixedTypes()
+        public void SameNameRecipeTests_MixedTypes()
         {
             const string itemsName = "Alpha Beta";
             List<POEApi.Model.Item> items = new List<POEApi.Model.Item>
@@ -374,7 +373,7 @@ namespace Procurement.Tests
         }
 
         [TestMethod]
-        public void RecipeTests_SameNameRecipe_MultipleResults()
+        public void SameNameRecipeTests_MultipleResults()
         {
             const string firstResultName = "Alpha Beta";
             const string secondResultName = "Gamma Delta";
@@ -405,6 +404,5 @@ namespace Procurement.Tests
             Assert.AreEqual(2, secondMatch.MatchedItems.Count);
             Assert.IsTrue(secondMatch.MatchedItems.All(i => i.Name == secondResultName));
         }
-        #endregion
     }
 }

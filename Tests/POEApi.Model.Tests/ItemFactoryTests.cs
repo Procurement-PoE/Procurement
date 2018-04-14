@@ -12,7 +12,7 @@ namespace POEApi.Model.Tests
         public void ItemFactory_GivenItemWithAbyssJewel_ShouldConstructItem()
         {
             var abyssJewel = Build.A.JsonProxyItem
-                                    .ThatIsAnAbyssJewel();
+                                    .ThatIsAnAbyssJewel(true);
 
             var item = Build.A.JsonProxyItem
                               .WithSocketedItem(abyssJewel);
