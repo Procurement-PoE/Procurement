@@ -52,6 +52,18 @@
         BindingOrb,
         HorizonOrb,
         RegalShard,
+        BestiaryOrb,
+        SimpleRopeNet,
+        ReinforcedRopeNet,
+        StrongRopeNet,
+        SimpleIronNet,
+        ReinforcedIronNet,
+        StrongIronNet,
+        SimpleSteelNet,
+        ReinforcedSteelNet,
+        StrongSteelNet,
+        ThaumaturgicalNet,
+        NecromancyNet,
 
         //Must always be last
         Unknown

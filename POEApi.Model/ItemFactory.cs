@@ -72,6 +72,9 @@ namespace POEApi.Model
             if (item.TypeLine.Contains("Sextant"))
                 return new Sextant(item);
 
+            if (item.TypeLine.Contains("Net"))
+                return new Net(item);
+
             return new Currency(item);
         }
 
