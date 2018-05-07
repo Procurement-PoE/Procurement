@@ -25,6 +25,10 @@ namespace POEApi.Model
                 if (item.DescrText != null && item.DescrText.ToLower() == "right click this item then left click a location on the ground to create the object.")
                     return new Decoration(item);
 
+                if (item.DescrText != null && string.Equals(item.DescrText,
+                    "Right-click to add this to your bestiary.", StringComparison.CurrentCultureIgnoreCase))
+                    return new FullBestiaryOrb(item);
+
                 if (item.TypeLine.Contains("Leaguestone"))
                     return new Leaguestone(item);
 
@@ -42,7 +46,6 @@ namespace POEApi.Model
                     if(item.TypeLine == "Offering to the Goddess")
                         return new Offering(item);
                 }
-                
 
                 return new Gear(item);
             }

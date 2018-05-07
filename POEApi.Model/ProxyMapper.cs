@@ -14,6 +14,9 @@ namespace POEApi.Model
         internal const string STASH = "Stash";
         public const string QUALITY = "Quality";
         public const string NETTIER = "Net Tier";
+        public const string GENUS = "Genus";
+        public const string GROUP = "Group";
+        public const string FAMILY = "Family";
         private static readonly Regex qualityRx = new Regex("[+]{1}(?<quality>[0-9]{1,2}).*");
 
         #region   Orb Types  
@@ -357,6 +360,21 @@ namespace POEApi.Model
         public static int GetNetTier(List<JSONProxy.Property> properties)
         {
             return Convert.ToInt32(getPropertyByName(properties, NETTIER));
+        }
+
+        public static string GetGenus(List<JSONProxy.Property> properties)
+        {
+            return getPropertyByName(properties, GENUS);
+        }
+
+        public static string GetGroup(List<JSONProxy.Property> properties)
+        {
+            return getPropertyByName(properties, GROUP);
+        }
+
+        public static string GetFamily(List<JSONProxy.Property> properties)
+        {
+            return getPropertyByName(properties, FAMILY);
         }
     }
 }
