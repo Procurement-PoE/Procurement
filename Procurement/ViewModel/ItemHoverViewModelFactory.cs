@@ -38,6 +38,12 @@ namespace Procurement.ViewModel
                 r = abyssJewel.Rarity;
             }
 
+            var fullBestiaryOrb = item as FullBestiaryOrb;
+            if (fullBestiaryOrb != null)
+            {
+                r = fullBestiaryOrb.Rarity;
+            }
+
             if (r != null)
             {
                 switch (r)

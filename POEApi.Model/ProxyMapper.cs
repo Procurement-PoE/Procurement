@@ -13,6 +13,10 @@ namespace POEApi.Model
         internal const string CHARGES = "Currently has %0 of %1 Charges";
         internal const string STASH = "Stash";
         public const string QUALITY = "Quality";
+        public const string NETTIER = "Net Tier";
+        public const string GENUS = "Genus";
+        public const string GROUP = "Group";
+        public const string FAMILY = "Family";
         private static readonly Regex qualityRx = new Regex("[+]{1}(?<quality>[0-9]{1,2}).*");
 
         #region   Orb Types  
@@ -67,7 +71,19 @@ namespace POEApi.Model
             {"Orb of Annulment", OrbType.AnnulmentOrb},
             {"Orb of Binding", OrbType.BindingOrb},
             {"Orb of Horizons", OrbType.HorizonOrb},
-            {"Regal Shard", OrbType.RegalShard}
+            {"Regal Shard", OrbType.RegalShard},
+            {"Bestiary Orb", OrbType.BestiaryOrb},
+            {"Simple Rope Net", OrbType.SimpleRopeNet},
+            {"Reinforced Rope Net", OrbType.ReinforcedRopeNet},
+            {"Strong Rope Net", OrbType.StrongRopeNet},
+            {"Simple Iron Net", OrbType.SimpleIronNet},
+            {"Reinforced Iron Net", OrbType.ReinforcedIronNet},
+            {"Strong Iron Net", OrbType.StrongIronNet},
+            {"Simple Steel Net", OrbType.SimpleSteelNet},
+            {"Reinforced Steel Net", OrbType.ReinforcedSteelNet},
+            {"Strong Steel Net", OrbType.StrongSteelNet},
+            {"Thaumaturgical Net", OrbType.ThaumaturgicalNet},
+            {"Necromancy Net", OrbType.NecromancyNet},
         };
 
         #endregion
@@ -339,6 +355,26 @@ namespace POEApi.Model
             }
 
             return new ChargeInfo(1,1);
+        }
+
+        public static int GetNetTier(List<JSONProxy.Property> properties)
+        {
+            return Convert.ToInt32(getPropertyByName(properties, NETTIER));
+        }
+
+        public static string GetGenus(List<JSONProxy.Property> properties)
+        {
+            return getPropertyByName(properties, GENUS);
+        }
+
+        public static string GetGroup(List<JSONProxy.Property> properties)
+        {
+            return getPropertyByName(properties, GROUP);
+        }
+
+        public static string GetFamily(List<JSONProxy.Property> properties)
+        {
+            return getPropertyByName(properties, FAMILY);
         }
     }
 }
