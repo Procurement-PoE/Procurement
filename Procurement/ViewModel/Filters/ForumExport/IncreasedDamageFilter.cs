@@ -32,4 +32,19 @@
             : base("Increased Lightning Damage", "Increased Lightning Damage", "Increased Lightning Damage")
         { }
     }
+
+    internal class IncreasedDamageFilterElemental : IncreasedDamageFilter
+    {
+        public IncreasedDamageFilterElemental()
+            : base("Increased Elemental Damage", "Increased Elemental Damage", "\\d+% increased Elemental Damage$")
+        { }
+    }
+
+    internal class IncreasedDamageFilterElementalWithAttackSkills : IncreasedDamageFilter
+    {
+        public IncreasedDamageFilterElementalWithAttackSkills()
+            : base("Increased Elemental Damage With Attack Skills", "Increased Elemental Damage With Attack Skills",
+            "\\d+% increased Elemental Damage with Attack Skills")
+        { }
+    }
 }
