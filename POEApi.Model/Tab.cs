@@ -14,6 +14,7 @@ namespace POEApi.Model
         Unknown,
     }
 
+    [DebuggerDisplay("{DebuggerDisplay,nq}")]
     public class Tab
     {
         public bool IsFakeTab { get; set; }
@@ -48,6 +49,11 @@ namespace POEApi.Model
                 return url;
 
             return "http://webcdn.pathofexile.com" + url;
+        }
+
+        private string DebuggerDisplay
+        {
+            get { return string.Format("{0} Tab - \"{1}\"", Type, Name); }
         }
     }
 
