@@ -84,6 +84,7 @@ namespace POEApi.Model
             {"Strong Steel Net", OrbType.StrongSteelNet},
             {"Thaumaturgical Net", OrbType.ThaumaturgicalNet},
             {"Necromancy Net", OrbType.NecromancyNet},
+            {"Pantheon Soul", OrbType.PantheonSoul},
         };
 
         #endregion
@@ -230,6 +231,9 @@ namespace POEApi.Model
 
         private static string getPropertyByName(List<JSONProxy.Property> properties, string name)
         {
+            if (properties == null)
+                return null;
+
             var prop = properties.Find(p => p.Name == name);
 
             if (prop == null)
@@ -247,6 +251,11 @@ namespace POEApi.Model
         {
             try
             {
+                // Collapse all of the "Captured Soul of ..." into a single PantheonSoul OrbType.
+                if (name.StartsWith("Captured Soul of ", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    name = "Pantheon Soul";
+                }
                 return orbMap.First(m => name.Equals(m.Key, StringComparison.CurrentCultureIgnoreCase)).Value;
             }
             catch (Exception ex)
@@ -308,11 +317,11 @@ namespace POEApi.Model
 
         internal static StackInfo GetStackInfo(List<JSONProxy.Property> list)
         {
-            var stackSize = list.Find(p => p.Name == STACKSIZE);
-            if (stackSize == null)
+            string propertyValue = getPropertyByName(list, STACKSIZE);
+            if (string.IsNullOrWhiteSpace(propertyValue))
                 return new StackInfo(1, 1);
 
-            var stackInfo = getPropertyByName(list, STACKSIZE).Split('/');
+            var stackInfo = propertyValue.Split('/');
 
             return new StackInfo(Convert.ToInt32(stackInfo[0]), Convert.ToInt32(stackInfo[1]));
         }
