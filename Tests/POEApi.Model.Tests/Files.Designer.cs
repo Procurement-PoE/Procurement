@@ -69,19 +69,17 @@ namespace POEApi.Model.Tests {
                 return ((byte[])(obj));
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] SampleCharacterExpiredName
-        {
-            get
-            {
+        internal static byte[] SampleCharacterExpiredName {
+            get {
                 object obj = ResourceManager.GetObject("SampleCharacterExpiredName", resourceCulture);
                 return ((byte[])(obj));
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
@@ -98,6 +96,16 @@ namespace POEApi.Model.Tests {
         internal static byte[] SampleInventory {
             get {
                 object obj = ResourceManager.GetObject("SampleInventory", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SampleInventoryWithPantheonSoul {
+            get {
+                object obj = ResourceManager.GetObject("SampleInventoryWithPantheonSoul", resourceCulture);
                 return ((byte[])(obj));
             }
         }
