@@ -21,7 +21,8 @@ namespace POEApi.Model
 
         #region   Orb Types  
 
-        private static readonly Dictionary<string, OrbType> orbMap = new Dictionary<string, OrbType>
+        private static readonly Dictionary<string, OrbType> orbMap = new Dictionary<string, OrbType>(
+            StringComparer.CurrentCultureIgnoreCase)
         {
             {"Chaos Orb", OrbType.Chaos},
             {"Divine Orb", OrbType.Divine},
@@ -249,22 +250,25 @@ namespace POEApi.Model
 
         internal static OrbType GetOrbType(string name)
         {
-            try
+            if (string.IsNullOrWhiteSpace(name))
             {
-                // Collapse all of the "Captured Soul of ..." into a single PantheonSoul OrbType.
-                if (name.StartsWith("Captured Soul of ", StringComparison.CurrentCultureIgnoreCase))
-                {
-                    name = "Pantheon Soul";
-                }
-                return orbMap.First(m => name.Equals(m.Key, StringComparison.CurrentCultureIgnoreCase)).Value;
-            }
-            catch (Exception ex)
-            {
-                Logger.Log(ex);
-                Logger.Log("ProxyMapper.GetOrbType Failed! ItemType = " + name);
-
+                Logger.Log("ProxyMapper.GetOrbType: Failed to get OrbType: name is null or white space.");
                 return OrbType.Unknown;
             }
+
+            // Collapse all of the "Captured Soul of ..." into a single PantheonSoul OrbType.
+            if (name.StartsWith("Captured Soul of ", StringComparison.CurrentCultureIgnoreCase))
+            {
+                name = "Pantheon Soul";
+            }
+
+            if (orbMap.ContainsKey(name))
+            {
+                return orbMap[name];
+            }
+
+            Logger.Log("ProxyMapper.GetOrbType: Failed to get OrbType for name '" + name + "'.");
+            return OrbType.Unknown;
         }
 
         internal static EssenceType GetEssenceType(JSONProxy.Item item)
