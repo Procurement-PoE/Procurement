@@ -68,6 +68,18 @@
                 </Border.Background>
                 <StackPanel>
 
+                    <!--
+                      KNOWN ISSUES:
+                        - Different dividers between different parts of text are not styled differently.  Instead, the
+                          type of item determines what color the dividers will be.  Examples include: gems,
+                          phrophecies, and normal/magic/rare/unique items.
+                        - Items without DescriptionText will have an extra divider at the bottom of the ItemHover
+                          window.  I'm not sure of a good way to exclude it without complicated converters and/or lots
+                          of cascading if/else blocks.  But it looks like dividers are placed correctly between
+                          sections in all cases and all sections are being displayed.
+                        - Some sections, under some conditions, have extra space before or between lines.
+                    -->
+
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
                                                Mode=OneWay}"
@@ -80,8 +92,16 @@
                                TextWrapping="Wrap"
                                Visibility="{Binding IsGear,
                                Converter={StaticResource bc},
-                               ConverterParameter=CollapseWhenFalse}" />                    
-                    
+                               ConverterParameter=CollapseWhenFalse}" />
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7"
+                            Visibility="{Binding IsGear,
+                                                 Converter={StaticResource bc},
+                                                 ConverterParameter=CollapseWhenFalse}" />
+
                     <ItemsControl ItemsSource="{Binding Properties}" Padding="0 5 0 5">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -91,7 +111,11 @@
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <v:BindableRichTextBox Width="{Binding Path=ActualWidth, ElementName=ItemHeader, Mode=OneWay}" Document="{Binding Converter={StaticResource pc}}" />
+                                    <v:BindableRichTextBox
+                                        Width="{Binding Path=ActualWidth,
+                                                ElementName=ItemHeader,
+                                                Mode=OneWay}"
+                                        Document="{Binding Converter={StaticResource pc}}" />
                                 </StackPanel>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
@@ -101,7 +125,7 @@
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
-                            Visibility="{Binding HasRequirements,
+                            Visibility="{Binding Properties,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
@@ -117,7 +141,7 @@
                     <Border Margin="0 0 0 5"
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
-                            Visibility="{Binding SecondaryDescriptionText,
+                            Visibility="{Binding HasRequirements,
                                                  Converter={StaticResource VisibilityConverter},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
@@ -139,7 +163,7 @@
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
-                            Visibility="{Binding HasEnchantMods,
+                            Visibility="{Binding SecondaryDescriptionText,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
                     
@@ -170,7 +194,7 @@
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
-                            Visibility="{Binding HasImplicitMods,
+                            Visibility="{Binding HasEnchantMods,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
@@ -200,7 +224,7 @@
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
-                            Visibility="{Binding HasExplicitMods,
+                            Visibility="{Binding HasImplicitMods,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
@@ -254,7 +278,7 @@
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
-                            Visibility="{Binding HasMicrotransactions,
+                            Visibility="{Binding HasExplicitMods,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
@@ -284,7 +308,95 @@
                     <Border Margin="0 0 0 5"
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
-                            Visibility="{Binding DescriptionText,
+                            Opacity="0.7"
+                            Visibility="{Binding HasMicrotransactions,
+                                                 Converter={StaticResource bc},
+                                                 ConverterParameter=CollapseWhenFalse}" />
+
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                               HorizontalAlignment="Center"
+                               FontFamily="../Resources/#Fontin SmallCaps"
+                               FontStyle="Italic"
+                               Foreground="#9E6025"
+                               Padding="10 0 10 5"
+                               Text="{Binding FlavourText}"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               Visibility="{Binding FlavourText,
+                               Converter={StaticResource bc},
+                               ConverterParameter=CollapseWhenFalse}" />
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderThickness="1"
+                            Visibility="{Binding FlavourText,
+                                                 Converter={StaticResource VisibilityConverter},
+                                                 ConverterParameter=CollapseWhenFalse}" />
+
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                               HorizontalAlignment="Center"
+                               FontFamily="../Resources/#Fontin SmallCaps"
+                               Foreground="White"
+                               Padding="10 0 10 5"
+                               Text="{Binding ProphecyText}"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               Visibility="{Binding ProphecyText,
+                                                    Converter={StaticResource bc},
+                                                    ConverterParameter=CollapseWhenFalse}" />
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource ProphecySeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7"
+                            Visibility="{Binding ProphecyText,
+                                                 Converter={StaticResource bc},
+                                                 ConverterParameter=CollapseWhenFalse}" />
+
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                               HorizontalAlignment="Center"
+                               FontFamily="../Resources/#Fontin SmallCaps"
+                               Foreground="#FF808080"
+                               Padding="10 0 10 5"
+                               Text="{Binding ProphecyDifficultyText}"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               Visibility="{Binding ProphecyDifficultyText,
+                                                    Converter={StaticResource bc},
+                                                    ConverterParameter=CollapseWhenFalse}" />
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource ProphecySeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7"
+                            Visibility="{Binding ProphecyDifficultyText,
+                                                 Converter={StaticResource bc},
+                                                 ConverterParameter=CollapseWhenFalse}" />
+
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                               HorizontalAlignment="Center"
+                               FontFamily="../Resources/#Fontin SmallCaps"
+                               Foreground="#960003"
+                               Padding="10 0 10 5"
+                               Text="Corrupted"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               Visibility="{Binding IsCorrupted,
+                                                    Converter={StaticResource bc},
+                                                    ConverterParameter=CollapseWhenFalse}" />
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderThickness="1"
+                            Visibility="{Binding IsCorrupted,
                                                  Converter={StaticResource VisibilityConverter},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
@@ -301,100 +413,6 @@
                                Visibility="{Binding DescriptionText,
                                                     Converter={StaticResource VisibilityConverter},
                                                     ConverterParameter=CollapseWhenFalse}" />
-
-
-
-
-                    <ItemsControl ItemsSource="{Binding ProphecyFlavour}"
-                                  Padding="10 0 10 5"
-                                  Visibility="{Binding IsProphecy,
-                               Converter={StaticResource bc},
-                               ConverterParameter=CollapseWhenFalse}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Vertical" />
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
-                                               Foreground="#9E6025"
-                                               Text="{Binding}"
-                                               TextAlignment="Center"
-                                               TextWrapping="Wrap" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-
-                    <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource ProphecySeperatorBrush}"
-                            BorderThickness="1"
-                            Opacity="0.7"
-                            Visibility="{Binding IsProphecy,
-                               Converter={StaticResource bc},
-                               ConverterParameter=CollapseWhenFalse}" />                    
-                    
-
-                    <TextBlock Width="{Binding Path=ActualWidth,
-                                               ElementName=ItemHeader,
-                                               Mode=OneWay}"
-                               HorizontalAlignment="Center"
-                               FontFamily="../Resources/#Fontin SmallCaps"
-                               Foreground="White"
-                               Padding="10 0 10 5"
-                               Text="{Binding ProphecyText}"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding IsProphecy,
-                               Converter={StaticResource bc},
-                               ConverterParameter=CollapseWhenFalse}" />
-
-                    <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource ProphecySeperatorBrush}"
-                            BorderThickness="1"
-                            Opacity="0.7"
-                            Visibility="{Binding IsProphecy,
-                               Converter={StaticResource bc},
-                               ConverterParameter=CollapseWhenFalse}" />
-
-                    <TextBlock Width="{Binding Path=ActualWidth,
-                                               ElementName=ItemHeader,
-                                               Mode=OneWay}"
-                               HorizontalAlignment="Center"
-                               FontFamily="../Resources/#Fontin SmallCaps"
-                               Foreground="#FF808080"
-                               Padding="10 0 10 5"
-                               Text="{Binding ProphecyDifficultyText}"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding IsProphecy,
-                               Converter={StaticResource bc},
-                               ConverterParameter=CollapseWhenFalse}" />
-
-                    <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource ProphecySeperatorBrush}"
-                            BorderThickness="1"
-                            Opacity="0.7"
-                            Visibility="{Binding IsProphecy,
-                               Converter={StaticResource bc},
-                               ConverterParameter=CollapseWhenFalse}" />
-
-                    <TextBlock Width="{Binding Path=ActualWidth,
-                                               ElementName=ItemHeader,
-                                               Mode=OneWay}"
-                               HorizontalAlignment="Center"
-                               FontFamily="../Resources/#Fontin SmallCaps"
-                               Foreground="#960003"
-                               Padding="10 0 10 5"
-                               Text="Corrupted"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding IsCorrupted,
-                               Converter={StaticResource bc},
-                               ConverterParameter=CollapseWhenFalse}" />
-
                 </StackPanel>
             </Border>
         </DockPanel>

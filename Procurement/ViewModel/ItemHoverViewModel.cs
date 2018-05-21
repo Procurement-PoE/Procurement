@@ -37,7 +37,6 @@ namespace Procurement.ViewModel
         public bool IsProphecy { get; set; }
         public string ProphecyText { get; set; }
         public string ProphecyDifficultyText { get; set; }
-        public List<string> ProphecyFlavour { get; set; }
         public bool IsGear { get; set; }
 
         public string ItemLevel { get; set; }
