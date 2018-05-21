@@ -46,6 +46,7 @@ namespace POEApi.Model
         public bool Corrupted { get; private set; }
         public List<string> Microtransactions { get; set; }
         public List<String> EnchantMods { get; set; }
+        public List<string> FlavourText { get; set; }
 
         public List<string> CraftedMods { get; set; }
 
@@ -77,6 +78,7 @@ namespace POEApi.Model
             this.ItemType = Model.ItemType.UnSet;
             this.CraftedMods = item.CraftedMods;
             this.EnchantMods = item.EnchantMods;
+            this.FlavourText = item.FlavourText;
             this.ItemLevel = item.Ilvl;
             this.Shaper = item.Shaper;
             this.Elder = item.Elder;
