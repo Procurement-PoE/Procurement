@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace POEApi.Model
@@ -22,6 +23,7 @@ namespace POEApi.Model
         Relic
     }
 
+    [DebuggerDisplay("{DebuggerDisplay,nq}")]
     public abstract class Item : ICloneable
     {
         public string Id { get; set; }
@@ -127,6 +129,9 @@ namespace POEApi.Model
             return Rarity.Normal;
         }
 
+        // TODO: Allow providing a format string in another function, so how an Item is presented can be customized.
+        //       Something similar to (but not as extreme as) the DateTime class' ToString() method.
+        // (See: https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings)
         public virtual string DescriptiveName
         {
             get
@@ -165,6 +170,14 @@ namespace POEApi.Model
         public object Clone()
         {
             return this.MemberwiseClone();
+        }
+
+        private string DebuggerDisplay
+        {
+            get
+            {
+                return AssembleDescriptiveName();
+            }
         }
     }
 }

@@ -58,7 +58,9 @@ namespace POEApi.Model
                     }
                     else if (this.Rarity != Rarity.Magic)
                     {
-                        components["name"] = string.Format("\"{0}\", {1} {2}", Name, Rarity, TypeLine);
+                        string quotedName = string.IsNullOrWhiteSpace(Name) ? string.Empty :
+                            string.Format("\"{0}\", ", Name);
+                        components["name"] = string.Format("{0}{1} {2}", quotedName, Rarity, TypeLine);
                     }
                 }
 
