@@ -222,7 +222,7 @@ namespace POEApi.Model.Tests
                 var items = stash.GetItemsByTab(5);
 
                 var leagueStones = items.OfType<Leaguestone>();
-                
+
                 Assert.IsTrue(leagueStones.All(x => x.Charges.ToString() == "5/5"));
             }
         }
@@ -290,6 +290,35 @@ namespace POEApi.Model.Tests
                 necromancyNet.Name.Should().BeEmpty();
                 necromancyNet.TypeLine.Should().Be("Necromancy Net");
                 necromancyNet.NetTier.Should().Be(0);
+            }
+        }
+
+        [TestMethod]
+        public void GetMirroredItemsStashTest()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithMirroredItems);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, string.Empty, string.Empty, false)).Returns(stream);
+                var stash = _model.GetStash(0, string.Empty, string.Empty);
+                stash.Should().NotBeNull();
+                stash.Tabs.Should().HaveCount(1);
+
+                var items = stash.GetItemsByTab(54);
+                items.Should().NotBeNull();
+                items.Should().HaveCount(8);
+
+                var mirroredItems = items.Where(i => i.IsMirrored).ToList();
+                var normalItems = items.Where(i => !i.IsMirrored).ToList();
+                mirroredItems.Should().HaveCount(4);
+
+                var mirroredItemsTypeLines = mirroredItems.Select(i => i.TypeLine).ToList();
+                var normalItemsTypeLines = normalItems.Select(i => i.TypeLine).ToList();
+                mirroredItemsTypeLines.Should().BeEquivalentTo(normalItemsTypeLines);
+
+                var mirroredItemsTypes = mirroredItems.Select(i => i.GetType()).ToList();
+                var normalItemsTypes = normalItems.Select(i => i.GetType()).ToList();
+                mirroredItemsTypes.Should().BeEquivalentTo(normalItemsTypes);
             }
         }
     }

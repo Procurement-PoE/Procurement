@@ -1,0 +1,811 @@
+﻿{
+  "numTabs": 1,
+  "tabs": [
+    {
+      "n": "Mirrored Items",
+      "i": 54,
+      "id": "67ad1b9e8423c2f37ae6e39e2a49733a2e8ff172c5d8f3b00883be4b9b6e6514",
+      "type": "PremiumStash",
+      "hidden": false,
+      "selected": true,
+      "colour": {
+        "r": 128,
+        "g": 255,
+        "b": 128
+      },
+      "srcL": "https://web.poecdn.com/gen/image/WzI0LCIwMmExOTc3ZDFkMDM0NDM2ZTc3MzlmODNkMTNiMjA3ZiIsWzIseyJ0IjoxLCJuIjoiIiwiYyI6LTgzMjMyMDB9XV0,/e1364b1909/Stash_TabL.png",
+      "srcC": "https://web.poecdn.com/gen/image/WzI0LCIwMmExOTc3ZDFkMDM0NDM2ZTc3MzlmODNkMTNiMjA3ZiIsWzIseyJ0IjoyLCJuIjoiIiwiYyI6LTgzMjMyMDB9XV0,/feb73574c9/Stash_TabC.png",
+      "srcR": "https://web.poecdn.com/gen/image/WzI0LCIwMmExOTc3ZDFkMDM0NDM2ZTc3MzlmODNkMTNiMjA3ZiIsWzIseyJ0IjozLCJuIjoiIiwiYyI6LTgzMjMyMDB9XV0,/d92085ce8a/Stash_TabR.png"
+    }
+  ],
+  "items": [
+    {
+      "verified": false,
+      "w": 2,
+      "h": 2,
+      "ilvl": 69,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Armours/Helmets/HelmetInt7.png?scale=1&scaleIndex=0&w=2&h=2&v=0f230458eaf985d877912eae780a91fc",
+      "league": "SSF Bestiary",
+      "id": "b65e38fd5150c0cc65078ed2a0357203b0867b421a627c096c10171b2aa18c3c",
+      "sockets": [
+        {
+          "group": 0,
+          "attr": "I",
+          "sColour": "B"
+        },
+        {
+          "group": 0,
+          "attr": "I",
+          "sColour": "B"
+        },
+        {
+          "group": 1,
+          "attr": "I",
+          "sColour": "B"
+        }
+      ],
+      "name": "",
+      "typeLine": "<<set:MS>><<set:M>><<set:S>>Pulsing Steel Circlet of Thick Skin",
+      "identified": true,
+      "properties": [
+        {
+          "name": "Energy Shield",
+          "values": [
+            [
+              "83",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 18
+        }
+      ],
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "48",
+              0
+            ]
+          ],
+          "displayMode": 0
+        },
+        {
+          "name": "Int",
+          "values": [
+            [
+              "101",
+              0
+            ]
+          ],
+          "displayMode": 1
+        }
+      ],
+      "explicitMods": [
+        "+37 to maximum Energy Shield",
+        "13% increased Stun and Block Recovery"
+      ],
+      "frameType": 1,
+      "category": {
+        "armour": [
+          "helmet"
+        ]
+      },
+      "x": 0,
+      "y": 0,
+      "inventoryId": "Stash55",
+      "socketedItems": [
+
+      ]
+    },
+    {
+      "verified": false,
+      "w": 2,
+      "h": 2,
+      "ilvl": 69,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Armours/Boots/BootsStrDex2.png?scale=1&scaleIndex=0&w=2&h=2&v=bdfb39d9a0b60c4ac542bedd8ff06e08",
+      "league": "SSF Bestiary",
+      "id": "4b8dc82f32499aa2b88b1ee3e6a1dc51aa1044e97149cd06c1567f7f4a5db319",
+      "sockets": [
+        {
+          "group": 0,
+          "attr": "D",
+          "sColour": "G"
+        },
+        {
+          "group": 1,
+          "attr": "S",
+          "sColour": "R"
+        }
+      ],
+      "name": "",
+      "typeLine": "Superior Hydrascale Boots",
+      "identified": true,
+      "properties": [
+        {
+          "name": "Quality",
+          "values": [
+            [
+              "+5%",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 6
+        },
+        {
+          "name": "Armour",
+          "values": [
+            [
+              "111",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 16
+        },
+        {
+          "name": "Evasion Rating",
+          "values": [
+            [
+              "111",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 17
+        }
+      ],
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "59",
+              0
+            ]
+          ],
+          "displayMode": 0
+        },
+        {
+          "name": "Str",
+          "values": [
+            [
+              "56",
+              0
+            ]
+          ],
+          "displayMode": 1
+        },
+        {
+          "name": "Dex",
+          "values": [
+            [
+              "56",
+              0
+            ]
+          ],
+          "displayMode": 1
+        }
+      ],
+      "frameType": 0,
+      "category": {
+        "armour": [
+          "boots"
+        ]
+      },
+      "x": 2,
+      "y": 0,
+      "inventoryId": "Stash55",
+      "socketedItems": [
+
+      ]
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 2,
+      "ilvl": 69,
+      "icon": "https://web.poecdn.com/gen/image/WzksNCx7ImYiOiJBcnRcLzJESXRlbXNcL0ZsYXNrc1wvbWFuYWZsYXNrOSIsInNwIjowLjYwODUsImxldmVsIjowfV0,/447a77cd93/Item.png",
+      "league": "SSF Bestiary",
+      "id": "574b3c400662750309ce5d083b83c82f6f415f4dff43c69be6a759d626841324",
+      "name": "",
+      "typeLine": "Sanctified Mana Flask",
+      "identified": true,
+      "properties": [
+        {
+          "name": "Recovers %0 Mana over %1 Seconds",
+          "values": [
+            [
+              "1050",
+              0
+            ],
+            [
+              "14.00",
+              0
+            ]
+          ],
+          "displayMode": 3
+        },
+        {
+          "name": "Consumes %0 of %1 Charges on use",
+          "values": [
+            [
+              "10",
+              0
+            ],
+            [
+              "40",
+              0
+            ]
+          ],
+          "displayMode": 3
+        },
+        {
+          "name": "Currently has %0 Charges",
+          "values": [
+            [
+              "0",
+              0
+            ]
+          ],
+          "displayMode": 3
+        }
+      ],
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "50",
+              0
+            ]
+          ],
+          "displayMode": 0
+        }
+      ],
+      "descrText": "Right click to drink. Can only hold charges while in belt. Refills as you kill monsters.",
+      "frameType": 0,
+      "category": {
+        "flasks": [
+
+        ]
+      },
+      "x": 0,
+      "y": 4,
+      "inventoryId": "Stash55"
+    },
+    {
+      "verified": false,
+      "w": 2,
+      "h": 2,
+      "ilvl": 69,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Armours/Helmets/HelmetInt7.png?scale=1&scaleIndex=0&duplicated=1&w=2&h=2&v=0f230458eaf985d877912eae780a91fc",
+      "league": "SSF Bestiary",
+      "id": "143be52189aa1c4ab7d314038bc950e9a72a73bbdd3ef7958225fa29b3598bf3",
+      "sockets": [
+        {
+          "group": 0,
+          "attr": "I",
+          "sColour": "B"
+        },
+        {
+          "group": 0,
+          "attr": "I",
+          "sColour": "B"
+        },
+        {
+          "group": 1,
+          "attr": "I",
+          "sColour": "B"
+        }
+      ],
+      "name": "",
+      "typeLine": "<<set:MS>><<set:M>><<set:S>>Pulsing Steel Circlet of Thick Skin",
+      "identified": true,
+      "duplicated": true,
+      "properties": [
+        {
+          "name": "Energy Shield",
+          "values": [
+            [
+              "83",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 18
+        }
+      ],
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "48",
+              0
+            ]
+          ],
+          "displayMode": 0
+        },
+        {
+          "name": "Int",
+          "values": [
+            [
+              "101",
+              0
+            ]
+          ],
+          "displayMode": 1
+        }
+      ],
+      "explicitMods": [
+        "+37 to maximum Energy Shield",
+        "13% increased Stun and Block Recovery"
+      ],
+      "frameType": 1,
+      "category": {
+        "armour": [
+          "helmet"
+        ]
+      },
+      "x": 0,
+      "y": 2,
+      "inventoryId": "Stash55",
+      "socketedItems": [
+
+      ]
+    },
+    {
+      "verified": false,
+      "w": 2,
+      "h": 2,
+      "ilvl": 69,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Armours/Boots/BootsStrDex2.png?scale=1&scaleIndex=0&duplicated=1&w=2&h=2&v=bdfb39d9a0b60c4ac542bedd8ff06e08",
+      "league": "SSF Bestiary",
+      "id": "216a540752607fecb46eb55fd470497bd687420c6312621b9934889207918963",
+      "sockets": [
+        {
+          "group": 0,
+          "attr": "D",
+          "sColour": "G"
+        },
+        {
+          "group": 1,
+          "attr": "S",
+          "sColour": "R"
+        }
+      ],
+      "name": "",
+      "typeLine": "Superior Hydrascale Boots",
+      "identified": true,
+      "duplicated": true,
+      "properties": [
+        {
+          "name": "Quality",
+          "values": [
+            [
+              "+5%",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 6
+        },
+        {
+          "name": "Armour",
+          "values": [
+            [
+              "111",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 16
+        },
+        {
+          "name": "Evasion Rating",
+          "values": [
+            [
+              "111",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 17
+        }
+      ],
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "59",
+              0
+            ]
+          ],
+          "displayMode": 0
+        },
+        {
+          "name": "Str",
+          "values": [
+            [
+              "56",
+              0
+            ]
+          ],
+          "displayMode": 1
+        },
+        {
+          "name": "Dex",
+          "values": [
+            [
+              "56",
+              0
+            ]
+          ],
+          "displayMode": 1
+        }
+      ],
+      "frameType": 0,
+      "category": {
+        "armour": [
+          "boots"
+        ]
+      },
+      "x": 2,
+      "y": 2,
+      "inventoryId": "Stash55",
+      "socketedItems": [
+
+      ]
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 2,
+      "ilvl": 69,
+      "icon": "https://web.poecdn.com/gen/image/WzksNCx7ImYiOiJBcnRcLzJESXRlbXNcL0ZsYXNrc1wvbWFuYWZsYXNrOSIsInNwIjowLjYwODUsImxldmVsIjowfV0,/447a77cd93/Item.png",
+      "league": "SSF Bestiary",
+      "id": "102aa2694be967fa801dc698da2633cd734bb326c70f052025cdb3d670bf059e",
+      "name": "",
+      "typeLine": "Sanctified Mana Flask",
+      "identified": true,
+      "duplicated": true,
+      "properties": [
+        {
+          "name": "Recovers %0 Mana over %1 Seconds",
+          "values": [
+            [
+              "1050",
+              0
+            ],
+            [
+              "14.00",
+              0
+            ]
+          ],
+          "displayMode": 3
+        },
+        {
+          "name": "Consumes %0 of %1 Charges on use",
+          "values": [
+            [
+              "10",
+              0
+            ],
+            [
+              "40",
+              0
+            ]
+          ],
+          "displayMode": 3
+        },
+        {
+          "name": "Currently has %0 Charges",
+          "values": [
+            [
+              "0",
+              0
+            ]
+          ],
+          "displayMode": 3
+        }
+      ],
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "50",
+              0
+            ]
+          ],
+          "displayMode": 0
+        }
+      ],
+      "descrText": "Right click to drink. Can only hold charges while in belt. Refills as you kill monsters.",
+      "frameType": 0,
+      "category": {
+        "flasks": [
+
+        ]
+      },
+      "x": 1,
+      "y": 4,
+      "inventoryId": "Stash55"
+    },
+    {
+      "verified": false,
+      "w": 2,
+      "h": 4,
+      "ilvl": 51,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Weapons/TwoHandWeapons/TwoHandSwords/TwoHandSword2.png?scale=1&scaleIndex=0&w=2&h=4&v=c6eb2632cbcdf26da86bc4c2db397e7d",
+      "league": "SSF Bestiary",
+      "id": "0be2a5a51c41c1cf7ec6e63dec1157540778f6dacdf36c17460b1c4df405fce0",
+      "sockets": [
+        {
+          "group": 0,
+          "attr": "D",
+          "sColour": "G"
+        },
+        {
+          "group": 0,
+          "attr": "D",
+          "sColour": "G"
+        }
+      ],
+      "name": "",
+      "typeLine": "Superior Butcher Sword",
+      "identified": true,
+      "properties": [
+        {
+          "name": "Two Handed Sword",
+          "values": [
+
+          ],
+          "displayMode": 0
+        },
+        {
+          "name": "Quality",
+          "values": [
+            [
+              "+13%",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 6
+        },
+        {
+          "name": "Physical Damage",
+          "values": [
+            [
+              "33-77",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 9
+        },
+        {
+          "name": "Critical Strike Chance",
+          "values": [
+            [
+              "5.00%",
+              0
+            ]
+          ],
+          "displayMode": 0,
+          "type": 12
+        },
+        {
+          "name": "Attacks per Second",
+          "values": [
+            [
+              "1.30",
+              0
+            ]
+          ],
+          "displayMode": 0,
+          "type": 13
+        },
+        {
+          "name": "Weapon Range",
+          "values": [
+            [
+              "11",
+              0
+            ]
+          ],
+          "displayMode": 0,
+          "type": 14
+        }
+      ],
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "36",
+              0
+            ]
+          ],
+          "displayMode": 0
+        },
+        {
+          "name": "Str",
+          "values": [
+            [
+              "69",
+              0
+            ]
+          ],
+          "displayMode": 1
+        },
+        {
+          "name": "Dex",
+          "values": [
+            [
+              "58",
+              0
+            ]
+          ],
+          "displayMode": 1
+        }
+      ],
+      "implicitMods": [
+        "+250 to Accuracy Rating"
+      ],
+      "frameType": 0,
+      "category": {
+        "weapons": [
+          "twosword"
+        ]
+      },
+      "x": 8,
+      "y": 0,
+      "inventoryId": "Stash55",
+      "socketedItems": [
+
+      ]
+    },
+    {
+      "verified": false,
+      "w": 2,
+      "h": 4,
+      "ilvl": 51,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Weapons/TwoHandWeapons/TwoHandSwords/TwoHandSword2.png?scale=1&scaleIndex=0&duplicated=1&w=2&h=4&v=c6eb2632cbcdf26da86bc4c2db397e7d",
+      "league": "SSF Bestiary",
+      "id": "4dd0b71de136ebe25df2202158dc023826c41c131b4678ad99865f8d0e46d7ed",
+      "sockets": [
+        {
+          "group": 0,
+          "attr": "D",
+          "sColour": "G"
+        },
+        {
+          "group": 0,
+          "attr": "D",
+          "sColour": "G"
+        }
+      ],
+      "name": "",
+      "typeLine": "Superior Butcher Sword",
+      "identified": true,
+      "duplicated": true,
+      "properties": [
+        {
+          "name": "Two Handed Sword",
+          "values": [
+
+          ],
+          "displayMode": 0
+        },
+        {
+          "name": "Quality",
+          "values": [
+            [
+              "+13%",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 6
+        },
+        {
+          "name": "Physical Damage",
+          "values": [
+            [
+              "33-77",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 9
+        },
+        {
+          "name": "Critical Strike Chance",
+          "values": [
+            [
+              "5.00%",
+              0
+            ]
+          ],
+          "displayMode": 0,
+          "type": 12
+        },
+        {
+          "name": "Attacks per Second",
+          "values": [
+            [
+              "1.30",
+              0
+            ]
+          ],
+          "displayMode": 0,
+          "type": 13
+        },
+        {
+          "name": "Weapon Range",
+          "values": [
+            [
+              "11",
+              0
+            ]
+          ],
+          "displayMode": 0,
+          "type": 14
+        }
+      ],
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "36",
+              0
+            ]
+          ],
+          "displayMode": 0
+        },
+        {
+          "name": "Str",
+          "values": [
+            [
+              "69",
+              0
+            ]
+          ],
+          "displayMode": 1
+        },
+        {
+          "name": "Dex",
+          "values": [
+            [
+              "58",
+              0
+            ]
+          ],
+          "displayMode": 1
+        }
+      ],
+      "implicitMods": [
+        "+250 to Accuracy Rating"
+      ],
+      "frameType": 0,
+      "category": {
+        "weapons": [
+          "twosword"
+        ]
+      },
+      "x": 10,
+      "y": 0,
+      "inventoryId": "Stash55",
+      "socketedItems": [
+
+      ]
+    }
+  ]
+}

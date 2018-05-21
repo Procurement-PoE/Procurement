@@ -27,6 +27,8 @@ namespace POEApi.Model
         public string Id { get; set; }
         public bool Verified { get; private set; }
         public bool Identified { get; private set; }
+        // Only non-unique equipment, non-corrupted item, or maps that are not already mirrored can be mirrored.
+        public bool IsMirrored { get; set; }
         public int W { get; private set; }
         public int H { get; private set; }
         public string IconURL { get; private set; }
@@ -63,6 +65,7 @@ namespace POEApi.Model
             this.Id = item.Id;
             this.Verified = item.Verified;
             this.Identified = item.Identified;
+            this.IsMirrored = item.Duplicated;
             this.W = item.W;
             this.H = item.H;
             this.IconURL = getIconUrl(item.Icon);

@@ -40,6 +40,7 @@ namespace POEApi.Model.JSONProxy
         public string Name { get; set; }
         public string TypeLine { get; set; }
         public bool Identified { get; set; }
+        public bool Duplicated { get; set; }
         public List<Property> Properties { get; set; }
         public List<string> ExplicitMods { get; set; }
         public string DescrText { get; set; }
