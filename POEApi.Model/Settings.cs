@@ -111,6 +111,7 @@ namespace POEApi.Model
             GearBaseTypes = dataDoc.Element("GearBaseTypes").Elements("GearBaseType")
                                                             .ToDictionary(g => (GearType)Enum.Parse(typeof(GearType), g.Attribute("name").Value), g => g.Elements("Item")
                                                             .Select(e => e.Attribute("name").Value)
+                                                            .Distinct()
                                                             .ToList());
         }
 
