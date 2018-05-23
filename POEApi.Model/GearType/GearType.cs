@@ -21,6 +21,7 @@
         Sword,
         Shield,
         Wand,
+        FishingRod,
         Flask,
         Map,
         QuestItem,

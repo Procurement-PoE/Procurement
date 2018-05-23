@@ -325,4 +325,12 @@ namespace POEApi.Model
             generalTypes.Add("Horn");
         }
     }
+
+    public class FishingRodRunner : GearTypeRunnerBase
+    {
+        public FishingRodRunner()
+            : base(GearType.FishingRod, Settings.GearBaseTypes[GearType.FishingRod])
+        {
+        }
+    }
 }

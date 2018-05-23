@@ -1701,5 +1701,9 @@
       <Item name="Murderous Eye Jewel"/>
       <Item name="Searching Eye Jewel"/>
     </GearBaseType>
+
+    <GearBaseType name="FishingRod">
+      <Item name="Fishing Rod"/>
+    </GearBaseType>
   </GearBaseTypes>
 </Data>

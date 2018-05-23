@@ -41,7 +41,7 @@ namespace Procurement.ViewModel.Recipes
 
             GearType[] oneHandedOnlyGearTypes = { GearType.Claw, GearType.Dagger, GearType.Sceptre, GearType.Wand,
                 GearType.Shield };
-            GearType[] twoHandedOnlyGearTypes = { GearType.Bow, GearType.Staff };
+            GearType[] twoHandedOnlyGearTypes = { GearType.Bow, GearType.Staff, GearType.FishingRod };
             GearType[] mixedGearTypes = { GearType.Axe, GearType.Mace, GearType.Sword };
 
             moveSelectedBucketsContents(buckets, "Two Handed", twoHandedOnlyGearTypes);
