@@ -1,0 +1,88 @@
+﻿{
+  "items": [
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 59,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Rings/TopazRuby.png?scale=1&scaleIndex=0&w=1&h=1&v=0bd3c7197b952981eb21cb0dc278c04d",
+      "league": "SSF Bestiary",
+      "id": "900504aca8b996685fe0e2dd5b4daa624dd072358bb4025f42c5a195fb0c891f",
+      "name": "<<set:MS>><<set:M>><<set:S>>Soul Band",
+      "typeLine": "Two-Stone Ring",
+      "identified": true,
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [ [ "35", 0 ] ],
+          "displayMode": 0
+        }
+      ],
+      "implicitMods": [ "+14% to Fire and Lightning Resistances" ],
+      "explicitMods": [ "+28 to Intelligence", "+159 to Accuracy Rating", "8% increased Accuracy Rating", "+47 to maximum Mana", "15% increased Light Radius" ],
+      "craftedMods": [ "Adds 4 to 36 Lightning Damage to Attacks" ],
+      "frameType": 2,
+      "category": { "accessories": [ "ring" ] },
+      "x": 0,
+      "y": 0,
+      "inventoryId": "Ring2"
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Currency/CurrencyUpgradeToMagic.png?scale=1&scaleIndex=0&stackSize=10&w=1&h=1&v=333b8b5e28b73c62972fc66e7634c5c8",
+      "league": "SSF Bestiary",
+      "id": "2de199a7b3b44e6b85988398d2839b1d6e8e8a8970637f03665c7209b378fe3a",
+      "name": "",
+      "typeLine": "Orb of Transmutation",
+      "identified": true,
+      "properties": [
+        {
+          "name": "Stack Size",
+          "values": [ [ "10/40", 0 ] ],
+          "displayMode": 0
+        }
+      ],
+      "explicitMods": [ "Upgrades a normal item to a magic item" ],
+      "descrText": "Right click this item then left click a normal item to apply it.",
+      "frameType": 5,
+      "stackSize": 10,
+      "maxStackSize": 40,
+      "category": { "currency": [] },
+      "x": 7,
+      "y": 4,
+      "inventoryId": "MainInventory"
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 2,
+      "ilvl": 0,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Maps/SinFlaskFull.png?scale=1&scaleIndex=0&w=1&h=2&v=5b5013c16e62ef679c9b044358ff87cf",
+      "league": "SSF Bestiary",
+      "id": "324fd79cea5be0b3d3a521251edd6417fb470bb8262d4af865298d84a6429674",
+      "name": "",
+      "typeLine": "Captured Soul of The Forgotten Soldier",
+      "identified": true,
+      "lockedToCharacter": true,
+      "descrText": "A captured Soul. Give to Sin to unlock a secondary Pantheon Power.",
+      "flavourText": [ "Though his mind decayed with each passing wave,\r", "the Brine King stood steadfast in his hatred,\r", "and wore it like a shell, protecting himself \r", "from his failure to sire a worthy heir." ],
+      "frameType": 5,
+      "category": { "currency": [ "soul" ] },
+      "x": 0,
+      "y": 3,
+      "inventoryId": "MainInventory"
+    }
+  ],
+  "character": {
+    "name": "Tsuesaki",
+    "league": "SSF Bestiary",
+    "classId": 3,
+    "ascendancyClass": 2,
+    "class": "Elementalist",
+    "level": 76,
+    "experience": 631062590
+  }
+}

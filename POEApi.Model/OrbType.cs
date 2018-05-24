@@ -64,6 +64,7 @@
         StrongSteelNet,
         ThaumaturgicalNet,
         NecromancyNet,
+        PantheonSoul,
 
         //Must always be last
         Unknown

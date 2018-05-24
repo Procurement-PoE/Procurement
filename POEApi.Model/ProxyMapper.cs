@@ -21,7 +21,8 @@ namespace POEApi.Model
 
         #region   Orb Types  
 
-        private static readonly Dictionary<string, OrbType> orbMap = new Dictionary<string, OrbType>
+        private static readonly Dictionary<string, OrbType> orbMap = new Dictionary<string, OrbType>(
+            StringComparer.CurrentCultureIgnoreCase)
         {
             {"Chaos Orb", OrbType.Chaos},
             {"Divine Orb", OrbType.Divine},
@@ -84,6 +85,7 @@ namespace POEApi.Model
             {"Strong Steel Net", OrbType.StrongSteelNet},
             {"Thaumaturgical Net", OrbType.ThaumaturgicalNet},
             {"Necromancy Net", OrbType.NecromancyNet},
+            {"Pantheon Soul", OrbType.PantheonSoul},
         };
 
         #endregion
@@ -230,6 +232,9 @@ namespace POEApi.Model
 
         private static string getPropertyByName(List<JSONProxy.Property> properties, string name)
         {
+            if (properties == null)
+                return null;
+
             var prop = properties.Find(p => p.Name == name);
 
             if (prop == null)
@@ -245,17 +250,25 @@ namespace POEApi.Model
 
         internal static OrbType GetOrbType(string name)
         {
-            try
+            if (string.IsNullOrWhiteSpace(name))
             {
-                return orbMap.First(m => name.Equals(m.Key, StringComparison.CurrentCultureIgnoreCase)).Value;
-            }
-            catch (Exception ex)
-            {
-                Logger.Log(ex);
-                Logger.Log("ProxyMapper.GetOrbType Failed! ItemType = " + name);
-
+                Logger.Log("ProxyMapper.GetOrbType: Failed to get OrbType: name is null or white space.");
                 return OrbType.Unknown;
             }
+
+            // Collapse all of the "Captured Soul of ..." into a single PantheonSoul OrbType.
+            if (name.StartsWith("Captured Soul of ", StringComparison.CurrentCultureIgnoreCase))
+            {
+                name = "Pantheon Soul";
+            }
+
+            if (orbMap.ContainsKey(name))
+            {
+                return orbMap[name];
+            }
+
+            Logger.Log("ProxyMapper.GetOrbType: Failed to get OrbType for name '" + name + "'.");
+            return OrbType.Unknown;
         }
 
         internal static EssenceType GetEssenceType(JSONProxy.Item item)
@@ -308,11 +321,11 @@ namespace POEApi.Model
 
         internal static StackInfo GetStackInfo(List<JSONProxy.Property> list)
         {
-            var stackSize = list.Find(p => p.Name == STACKSIZE);
-            if (stackSize == null)
+            string propertyValue = getPropertyByName(list, STACKSIZE);
+            if (string.IsNullOrWhiteSpace(propertyValue))
                 return new StackInfo(1, 1);
 
-            var stackInfo = getPropertyByName(list, STACKSIZE).Split('/');
+            var stackInfo = propertyValue.Split('/');
 
             return new StackInfo(Convert.ToInt32(stackInfo[0]), Convert.ToInt32(stackInfo[1]));
         }

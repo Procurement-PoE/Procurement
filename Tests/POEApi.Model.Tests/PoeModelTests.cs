@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using FluentAssertions;
+using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -223,6 +224,34 @@ namespace POEApi.Model.Tests
                 var leagueStones = items.OfType<Leaguestone>();
                 
                 Assert.IsTrue(leagueStones.All(x => x.Charges.ToString() == "5/5"));
+            }
+        }
+
+        [TestMethod]
+        public void GetPantheonSoulInventoryTest()
+        {
+            string fakeInventoryInfo = Encoding.UTF8.GetString(Files.SampleInventoryWithPantheonSoul);
+            using (var stream = GenerateStreamFromString(fakeInventoryInfo))
+            {
+                _mockTransport.Setup(m => m.GetInventory(string.Empty, false, string.Empty)).Returns(stream);
+                var inventory = _model.GetInventory(string.Empty, false, string.Empty);
+
+                inventory.Should().NotBeNull();
+                inventory.Should().HaveCount(3);
+                Item item = inventory[2];
+
+                item.Should().NotBeNull();
+                Currency pantheonSoul = item as Currency;
+
+                pantheonSoul.Should().NotBeNull();
+                pantheonSoul.Name.Should().BeEmpty();
+                pantheonSoul.TypeLine.Should().Be("Captured Soul of The Forgotten Soldier");
+                pantheonSoul.Type.Should().Be(OrbType.PantheonSoul);
+                pantheonSoul.ItemType.Should().Be(ItemType.Currency);
+
+                pantheonSoul.StackInfo.Should().NotBeNull();
+                pantheonSoul.StackInfo.Amount.Should().Be(1);
+                pantheonSoul.StackInfo.MaxSize.Should().Be(1);
             }
         }
     }
