@@ -141,11 +141,23 @@ namespace POEApi.Model
 
         public static void Save()
         {
+            var userSettingsElements = settingsFile.Elements("UserSettings").Descendants();
             foreach (string key in UserSettings.Keys)
             {
-                XElement update = settingsFile.Elements("UserSettings").Descendants().First(x => x.Attribute("name").Value == key);
                 if (UserSettings[key] != null)
-                    update.Attribute("value").SetValue(UserSettings[key]);
+                {
+                    var elementToUpdate = userSettingsElements.FirstOrDefault(x => x.Attribute("name").Value == key);
+                    if (elementToUpdate != null)
+                    {
+                        elementToUpdate.Attribute("value").SetValue(UserSettings[key]);
+                    }
+                    else
+                    {
+                        var newSetting = new XElement("Setting", new XAttribute("name", key),
+                            new XAttribute("value", UserSettings[key]));
+                        settingsFile.Element("UserSettings").Add(newSetting);
+                    }
+                }
             }
 
             foreach (OrbType key in CurrencyRatios.Keys)
