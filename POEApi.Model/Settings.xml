@@ -23,29 +23,36 @@
     <Orb type="VaalOrb" OrbAmount="1" ChaosAmount="1" />
   </Ratios>
   <PopularGems>
-    <Gem name="Cast when Damage Taken" />
-    <Gem name="Cast On Critical Strike" />
-    <Gem name="Blood Magic" />
-    <Gem name="Item Quantity" />
-    <Gem name="Life Gain on Hit" />
-    <Gem name="Life Leech" />
-    <Gem name="Multistrike" />
-    <Gem name="Reduced Mana" />
-    <Gem name="Spell Totem" />
-    <Gem name="Chain" />
-    <Gem name="Faster Attacks" />
-    <Gem name="Greater Multiple Projectiles" />
-    <Gem name="Lesser Multiple Projectiles" />
-    <Gem name="Added Chaos Damage" />
-    <Gem name="Item Rarity" />
-    <Gem name="Concentrated Effect" />
+    <Gem name="Cast when Damage Taken Support" />
+    <Gem name="Cast On Critical Strike Support" />
+    <Gem name="Blood Magic Support" />
+    <Gem name="Item Quantity Support" />
+    <Gem name="Life Gain on Hit Support" />
+    <Gem name="Life Leech Support" />
+    <Gem name="Multistrike Support" />
+    <Gem name="Reduced Mana Support" />
+    <Gem name="Spell Totem Support" />
+    <Gem name="Chain Support" />
+    <Gem name="Faster Attacks Support" />
+    <Gem name="Greater Multiple Projectiles Support" />
+    <Gem name="Lesser Multiple Projectiles Support" />
+    <Gem name="Added Chaos Damage Support" />
+    <Gem name="Item Rarity Support" />
+    <Gem name="Concentrated Effect Support" />
     <Gem name="Elemental Hit" />
-    <Gem name="Elemental Proliferation" />
+    <Gem name="Elemental Proliferation Support" />
     <Gem name="Elemental Weakness" />
-    <Gem name="Multistrike" />
     <Gem name="Temporal Chains" />
-    <Gem name="Faster Casting" />
+    <Gem name="Faster Casting Support" />
   </PopularGems>
+  <DropOnlyGems>
+    <Gem name="Added Chaos Damage Support" />
+    <Gem name="Detonate Mines" />
+    <Gem name="Empower Support" />
+    <Gem name="Enhance Support" />
+    <Gem name="Enlighten Support" />
+    <Gem name="Portal" />
+  </DropOnlyGems>
   <UserSettings>
     <Setting name="AccountLogin" value="" />
     <Setting name="AccountPassword" value="" />

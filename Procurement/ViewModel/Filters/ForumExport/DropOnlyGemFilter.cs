@@ -17,13 +17,8 @@ namespace Procurement.ViewModel.Filters
 
         public DropOnlyGemFilter()
         {
-            //From http://en.pathofexilewiki.com/wiki/Drop_Only_Gems
-            dropOnly = new List<string>();
-            dropOnly.Add("Empower");
-            dropOnly.Add("Portal");
-            dropOnly.Add("Reduced Duration");
-            dropOnly.Add("Slower Projectiles");
-            dropOnly.Add("Enhance");
+            // From http://en.pathofexilewiki.com/wiki/Drop_Only_Gems.
+            dropOnly = Settings.DropOnlyGems;
         }
 
         public bool CanFormCategory
@@ -33,16 +28,20 @@ namespace Procurement.ViewModel.Filters
 
         public string Keyword
         {
-            get { return "Drop Only Gems"; }
+            get { return "Drop-Only Gems"; }
         }
 
         public string Help
         {
-            get { return "Gems only which can only be aquired through drops"; }
+            get { return "Gems which can only be aquired through drops"; }
         }
 
         public bool Applicable(Item item)
         {
+            Gear gear = item as Gear;
+            if (gear != null && gear.SocketedItems.Any(x => Applicable(x)))
+                return true;
+
             Gem gem = item as Gem;
             if (gem == null)
                 return false;

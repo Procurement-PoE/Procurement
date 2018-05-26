@@ -22,6 +22,7 @@ namespace POEApi.Model
         public static Dictionary<string, string> TabsBuyouts { get; private set; }
         public static Dictionary<string, ShopSetting> ShopSettings { get; private set; }
         public static List<string> PopularGems { get; private set; }
+        public static List<string> DropOnlyGems { get; private set; }
         private static XElement settingsFile;
         private static XElement buyoutFile;
 
@@ -38,13 +39,21 @@ namespace POEApi.Model
             Lists = new Dictionary<string, List<string>>();
 
             if (settingsFile.Element("Lists") != null)
-                Lists = settingsFile.Element("Lists").Elements("List").ToDictionary(list => list.Attribute("name").Value, list => list.Elements("Item").Select(e => e.Attribute("value").Value).ToList());
+                Lists = settingsFile.Element("Lists").Elements("List")
+                    .ToDictionary(list => list.Attribute("name").Value, list => list.Elements("Item")
+                    .Select(e => e.Attribute("value").Value).ToList());
 
             loadBuyouts();
 
             PopularGems = new List<string>();
             if (settingsFile.Element("PopularGems") != null)
-                PopularGems = settingsFile.Element("PopularGems").Elements("Gem").Select(e => e.Attribute("name").Value).ToList();
+                PopularGems = settingsFile.Element("PopularGems").Elements("Gem")
+                    .Select(e => e.Attribute("name").Value).ToList();
+
+            DropOnlyGems = new List<string>();
+            if (settingsFile.Element("DropOnlyGems") != null)
+                DropOnlyGems = settingsFile.Element("DropOnlyGems").Elements("Gem")
+                    .Select(e => e.Attribute("name").Value).ToList();
 
             loadGearTypeData();
             loadShopSettings();
