@@ -136,6 +136,13 @@ namespace Procurement.ViewModel.Filters.ForumExport
         { }
     }
 
+    class FishingRodFilter : GearTypeFilter
+    {
+        public FishingRodFilter()
+            : base(GearType.FishingRod, "Fishing Rods")
+        { }
+    }
+
     class FlaskFilter : GearTypeFilter
     {
         public FlaskFilter()

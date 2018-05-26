@@ -2,31 +2,65 @@
 <Data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Data.xsd">
   <GearBaseTypes>
     <GearBaseType name="Ring">
-      <Item name="Iron Ring"/>
+      <Item name="Breach Ring"/>
       <Item name="Coral Ring"/>
+      <Item name="Iron Ring"/>
       <Item name="Paua Ring"/>
-      <Item name="Gold Ring"/>
-      <Item name="Ruby Ring"/>
+      <Item name="Unset Ring"/>
       <Item name="Sapphire Ring"/>
       <Item name="Topaz Ring"/>
+      <Item name="Ruby Ring"/>
       <Item name="Diamond Ring"/>
+      <Item name="Gold Ring"/>
       <Item name="Moonstone Ring"/>
-      <Item name="Prismatic Ring"/>
-      <Item name="Amethyst Ring"/>
       <Item name="Two-Stone Ring"/>
-      <Item name="Unset Ring"/>
+      <Item name="Amethyst Ring"/>
+      <Item name="Prismatic Ring"/>
+      <Item name="Opal Ring"/>
+      <Item name="Steel Ring"/>
     </GearBaseType>
     <GearBaseType name="Amulet">
-      <Item name="Paua Amulet"/>
       <Item name="Coral Amulet"/>
+      <Item name="Paua Amulet"/>
       <Item name="Amber Amulet"/>
       <Item name="Jade Amulet"/>
       <Item name="Lapis Amulet"/>
       <Item name="Gold Amulet"/>
-      <Item name="Onyx Amulet"/>
       <Item name="Agate Amulet"/>
-      <Item name="Turquoise Amulet"/>
       <Item name="Citrine Amulet"/>
+      <Item name="Turquoise Amulet"/>
+      <Item name="Onyx Amulet"/>
+      <Item name="Marble Amulet"/>
+      <Item name="Blue Pearl Amulet"/>
+
+      <Item name="Ashscale Talisman"/>
+      <Item name="Avian Twins Talisman"/>
+      <Item name="Black Maw Talisman"/>
+      <Item name="Bonespire Talisman"/>
+      <Item name="Breakrib Talisman"/>
+      <Item name="Chrysalis Talisman"/>
+      <Item name="Clutching Talisman"/>
+      <Item name="Deadhand Talisman"/>
+      <Item name="Deep One Talisman"/>
+      <Item name="Fangjaw Talisman"/>
+      <Item name="Greatwolf Talisman"/>
+      <Item name="Hexclaw Talisman"/>
+      <Item name="Horned Talisman"/>
+      <Item name="Lone Antler Talisman"/>
+      <Item name="Longtooth Talisman"/>
+      <Item name="Mandible Talisman"/>
+      <Item name="Monkey Paw Talisman"/>
+      <Item name="Monkey Twins Talisman"/>
+      <Item name="Primal Skull Talisman"/>
+      <Item name="Rot Head Talisman"/>
+      <Item name="Rotfeather Talisman"/>
+      <Item name="Spinefuse Talisman"/>
+      <Item name="Splitnewt Talisman"/>
+      <Item name="Three Hands Talisman"/>
+      <Item name="Three Rat Talisman"/>
+      <Item name="Undying Flesh Talisman"/>
+      <Item name="Wereclaw Talisman"/>
+      <Item name="Writhing Talisman"/>
     </GearBaseType>
     <GearBaseType name="Helmet">
       <Item name="Iron Hat"/>
@@ -65,6 +99,7 @@
       <Item name="Hubris Circlet"/>
 
       <Item name="Battered Helm"/>
+      <Item name="Sallet"/>
       <Item name="Visored Sallet"/>
       <Item name="Gilded Sallet"/>
       <Item name="Secutor Helm"/>
@@ -73,7 +108,6 @@
       <Item name="Fluted Bascinet"/>
       <Item name="Pig-Faced Bascinet"/>
       <Item name="Nightmare Bascinet"/>
-      <Item name="Sallet"/>
 
       <Item name="Rusted Coif"/>
       <Item name="Soldier Helmet"/>
@@ -85,6 +119,7 @@
       <Item name="Magistrate Crown"/>
       <Item name="Prophet Crown"/>
       <Item name="Praetor Crown"/>
+      <Item name="Bone Helmet"/>
 
       <Item name="Scare Mask"/>
       <Item name="Plague Mask"/>
@@ -134,7 +169,6 @@
       <Item name="Exquisite Leather"/>
       <Item name="Zodiac Leather"/>
       <Item name="Assassin's Garb"/>
-      <Item name="Sacrificial Garb"/>
 
       <Item name="Simple Robe"/>
       <Item name="Silken Vest"/>
@@ -207,15 +241,17 @@
       <Item name="Blood Raiment"/>
       <Item name="Sadist Garb"/>
       <Item name="Carnal Armour"/>
+
+      <Item name="Sacrificial Garb"/>
     </GearBaseType>
     <GearBaseType name="Belt">
-      <Item name="Rustic Sash"/>
       <Item name="Chain Belt"/>
+      <Item name="Rustic Sash"/>
       <Item name="Stygian Vise"/>
-      <Item name="Leather Belt"/>
       <Item name="Heavy Belt"/>
-      <Item name="Studded Belt"/>
+      <Item name="Leather Belt"/>
       <Item name="Cloth Belt"/>
+      <Item name="Studded Belt"/>
       <Item name="Vanguard Belt"/>
       <Item name="Crystal Belt"/>
     </GearBaseType>
@@ -256,10 +292,10 @@
       <Item name="Quicksilver Flask"/>
       <Item name="Bismuth Flask"/>
       <Item name="Stibnite Flask"/>
+      <Item name="Amethyst Flask"/>
       <Item name="Ruby Flask"/>
       <Item name="Sapphire Flask"/>
       <Item name="Topaz Flask"/>
-      <Item name="Amethyst Flask"/>
       <Item name="Silver Flask"/>
       <Item name="Aquamarine Flask"/>
       <Item name="Granite Flask"/>
@@ -271,98 +307,609 @@
       <Item name="Diamond Flask"/>
     </GearBaseType>
     <GearBaseType name="Map">
+      <!-- War for the Atlas Maps - [3.1.0, Current] -->
+      <!-- Tier 1 -->
+      <Item name="Beach Map"/>
+      <Item name="Dungeon Map"/>
+      <Item name="Graveyard Map"/>
+      <Item name="Lookout Map"/>
+
+      <!-- Tier 2 -->
+      <Item name="Alleyways Map"/>
+      <Item name="Arid Lake Map"/>
+      <Item name="Desert Map"/>
+      <Item name="Flooded Mine Map"/>
+      <Item name="Marshes Map"/>
+      <Item name="Pen Map"/>
+
+      <!-- Tier 3 -->
+      <Item name="Arcade Map"/>
+      <Item name="Burial Chambers Map"/>
+      <Item name="Cage Map"/>
+      <Item name="Cells Map"/>
+      <Item name="Excavation Map"/>
+      <Item name="Iceberg Map"/>
+      <Item name="Leyline Map"/>
+      <Item name="Peninsula Map"/>
+      <Item name="Port Map"/>
+      <Item name="Springs Map"/>
+
+      <!-- Tier 4 -->
+      <Item name="Canyon Map"/>
+      <Item name="Chateau Map"/>
+      <Item name="City Square Map"/>
+      <Item name="Courthouse Map"/>
+      <Item name="Gorge Map"/>
+      <Item name="Grotto Map"/>
+      <Item name="Lighthouse Map"/>
+      <Item name="Relic Chambers Map"/>
+      <Item name="Strand Map"/>
+      <Item name="Volcano Map"/>
+
+      <!-- Tier 5 -->
+      <Item name="Ancient City Map"/>
+      <Item name="Barrows Map"/>
+      <Item name="Channel Map"/>
+      <Item name="Conservatory Map"/>
+      <Item name="Harbinger Map"/>
+      <Item name="Haunted Mansion Map"/>
+      <Item name="Ivory Temple Map"/>
+      <Item name="Maze Map"/>
+      <Item name="Spider Lair Map"/>
+      <Item name="Sulphur Vents Map"/>
+      <Item name="Toxic Sewer Map"/>
+
+      <!-- Tier 6 -->
+      <Item name="Academy Map"/>
+      <Item name="Ashen Wood Map"/>
+      <Item name="Atoll Map"/>
+      <Item name="Cemetery Map"/>
+      <Item name="Fields Map"/>
+      <Item name="Jungle Valley Map"/>
+      <Item name="Mausoleum Map"/>
+      <Item name="Phantasmagoria Map"/>
+      <Item name="Thicket Map"/>
+      <Item name="Underground Sea Map"/>
+      <Item name="Wharf Map"/>
+
+      <!-- Tier 7 -->
+      <Item name="Arachnid Nest Map"/>
+      <Item name="Bazaar Map"/>
+      <Item name="Bone Crypt Map"/>
+      <Item name="Coral Ruins Map"/>
+      <Item name="Dunes Map"/>
+      <Item name="Gardens Map"/>
+      <Item name="Lava Chamber Map"/>
+      <Item name="Ramparts Map"/>
+      <Item name="Residence Map"/>
+      <Item name="Tribunal Map"/>
+      <Item name="Underground River Map"/>
+
+      <!-- Tier 8 -->
+      <Item name="Armoury Map"/>
+      <Item name="Courtyard Map"/>
+      <Item name="Geode Map"/>
+      <Item name="Infested Valley Map"/>
+      <Item name="Laboratory Map"/>
+      <Item name="Mineral Pools Map"/>
+      <Item name="Mud Geyser Map"/>
+      <Item name="Overgrown Ruin Map"/>
+      <Item name="Shore Map"/>
+      <Item name="Tropical Island Map"/>
+      <Item name="Vaal Pyramid Map"/>
+
+      <!-- Tier 9 -->
+      <Item name="Arena Map"/>
+      <Item name="Estuary Map"/>
+      <Item name="Moon Temple Map"/>
+      <Item name="Museum Map"/>
+      <Item name="Plateau Map"/>
+      <Item name="Scriptorium Map"/>
+      <Item name="Sepulchre Map"/>
+      <Item name="Temple Map"/>
+      <Item name="Tower Map"/>
+      <Item name="Vault Map"/>
+      <Item name="Waste Pool Map"/>
+
+      <!-- Tier 10 -->
+      <Item name="Arachnid Tomb Map"/>
+      <Item name="Belfry Map"/>
+      <Item name="Bog Map"/>
+      <Item name="Cursed Crypt Map"/>
+      <Item name="Harbinger Map"/>
+      <Item name="Orchard Map"/>
+      <Item name="Pier Map"/>
+      <Item name="Precinct Map"/>
+      <Item name="Shipyard Map"/>
+      <Item name="Siege Map"/>
+      <Item name="Wasteland Map"/>
+
+      <!-- Tier 11 -->
+      <Item name="Colonnade Map"/>
+      <Item name="Coves Map"/>
+      <Item name="Factory Map"/>
+      <Item name="Lair Map"/>
+      <Item name="Mesa Map"/>
+      <Item name="Pit Map"/>
+      <Item name="Primordial Pool Map"/>
+      <Item name="Promenade Map"/>
+      <Item name="Shaped Academy Map"/>
+      <Item name="Spider Forest Map"/>
+      <Item name="Waterways Map"/>
+
+      <!-- Tier 12 -->
+      <Item name="Castle Ruins Map"/>
+      <Item name="Crystal Ore Map"/>
+      <Item name="Defiled Cathedral Map"/>
+      <Item name="Necropolis Map"/>
+      <Item name="Overgrown Shrine Map"/>
+      <Item name="Racecourse Map"/>
+      <Item name="Summit Map"/>
+      <Item name="Torture Chamber Map"/>
+      <Item name="Villa Map"/>
+
+      <!-- Tier 13 -->
+      <Item name="Arsenal Map"/>
+      <Item name="Caldera Map"/>
+      <Item name="Core Map"/>
+      <Item name="Desert Spring Map"/>
+      <Item name="Ghetto Map"/>
+      <Item name="Malformation Map"/>
+      <Item name="Park Map"/>
+      <Item name="Shrine Map"/>
+      <Item name="Terrace Map"/>
+
+      <!-- Tier 14 -->
+      <Item name="Acid Lakes Map"/>
+      <Item name="Colosseum Map"/>
+      <Item name="Crimson Temple Map"/>
+      <Item name="Dark Forest Map"/>
+      <Item name="Dig Map"/>
+      <Item name="Palace Map"/>
+      <Item name="Plaza Map"/>
+
+      <!-- Tier 15 -->
+      <Item name="Basilica Map"/>
+      <Item name="Carcass Map"/>
+      <Item name="Harbinger Map"/>
+      <Item name="Lava Lake Map"/>
+      <Item name="Reef Map"/>
+      <Item name="Sunken City Map"/>
+
+      <!-- Tier 16 -->
+      <Item name="Forge of the Phoenix Map"/>
+      <Item name="Lair of the Hydra Map"/>
+      <Item name="Maze of the Minotaur Map"/>
+      <Item name="Pit of the Chimera Map"/>
+      <Item name="Vaal Temple Map"/>
+
+      <!-- Tier 17 -->
+      <Item name="The Shaper's Realm"/>
+
+      <!-- Atlas of Worlds Maps - [2.4.0, 3.1.0) -->
+      <!-- Tier 1 -->
+      <Item name="Arcade Map"/>
+      <Item name="Crystal Ore Map"/>
+      <Item name="Desert Map"/>
+      <Item name="Jungle Valley Map"/>
+
+      <!-- Tier 2 -->
+      <Item name="Beach Map"/>
+      <Item name="Desert Spring Map"/>
+      <Item name="Factory Map"/>
+      <Item name="Ghetto Map"/>
+
+      <!-- Tier 3 -->
+      <Item name="Arid Lake Map"/>
+      <Item name="Channel Map"/>
+      <Item name="Flooded Mine Map"/>
+      <Item name="Grotto Map"/>
+      <Item name="Marshes Map"/>
+      <Item name="Toxic Sewer Map"/>
+      <Item name="Vaal Pyramid Map"/>
+
+      <!-- Tier 4 -->
+      <Item name="Academy Map"/>
+      <Item name="Acid Lakes Map"/>
+      <Item name="Dungeon Map"/>
+      <Item name="Graveyard Map"/>
+      <Item name="Phantasmagoria Map"/>
+      <Item name="Villa Map"/>
+      <Item name="Waste Pool Map"/>
+
+      <!-- Tier 5 -->
+      <Item name="Burial Chambers Map"/>
+      <Item name="Dunes Map"/>
+      <Item name="Harbinger Map"/>
+      <Item name="Mesa Map"/>
+      <Item name="Peninsula Map"/>
+      <Item name="Pit Map"/>
+      <Item name="Primordial Pool Map"/>
+      <Item name="Spider Lair Map"/>
+      <Item name="Tower Map"/>
+
+      <!-- Tier 6 -->
+      <Item name="Ancient City Map"/>
+      <Item name="Canyon Map"/>
+      <Item name="Geode Map"/>
+      <Item name="Racecourse Map"/>
+      <Item name="Ramparts Map"/>
+      <Item name="Shaped Arcade Map"/>
+      <Item name="Shaped Crystal Ore Map"/>
+      <Item name="Shaped Desert Map"/>
+      <Item name="Shaped Jungle Valley Map"/>
+      <Item name="Spider Forest Map"/>
+      <Item name="Strand Map"/>
+      <Item name="Thicket Map"/>
+      <Item name="Wharf Map"/>
+
+      <!-- Tier 7 -->
+      <Item name="Arachnid Tomb Map"/>
+      <Item name="Armoury Map"/>
+      <Item name="Ashen Wood Map"/>
+      <Item name="Bone Crypt Map"/>
+      <Item name="Castle Ruins Map"/>
+      <Item name="Cells Map"/>
+      <Item name="Mud Geyser Map"/>
+      <Item name="Shaped Beach Map"/>
+      <Item name="Shaped Desert Spring Map"/>
+      <Item name="Shaped Factory Map"/>
+      <Item name="Shaped Ghetto Map"/>
+
+      <!-- Tier 8 -->
+      <Item name="Arachnid Nest Map"/>
+      <Item name="Arena Map"/>
+      <Item name="Atoll Map"/>
+      <Item name="Barrows Map"/>
+      <Item name="Bog Map"/>
+      <Item name="Cemetery Map"/>
+      <Item name="Pier Map"/>
+      <Item name="Shaped Arid Lake Map"/>
+      <Item name="Shaped Channel Map"/>
+      <Item name="Shaped Flooded Mine Map"/>
+      <Item name="Shaped Grotto Map"/>
+      <Item name="Shaped Marshes Map"/>
+      <Item name="Shaped Toxic Sewer Map"/>
+      <Item name="Shaped Vaal Pyramid Map"/>
+      <Item name="Shore Map"/>
+      <Item name="Tropical Island Map"/>
+
+      <!-- Tier 9 -->
+      <Item name="Coves Map"/>
+      <Item name="Cursed Crypt Map"/>
+      <Item name="Museum Map"/>
+      <Item name="Orchard Map"/>
+      <Item name="Overgrown Shrine Map"/>
+      <Item name="Promenade Map"/>
+      <Item name="Reef Map"/>
+      <Item name="Shaped Academy Map"/>
+      <Item name="Shaped Acid Lakes Map"/>
+      <Item name="Shaped Dungeon Map"/>
+      <Item name="Shaped Graveyard Map"/>
+      <Item name="Shaped Phantasmagoria Map"/>
+      <Item name="Shaped Villa Map"/>
+      <Item name="Shaped Waste Pool Map"/>
+      <Item name="Temple Map"/>
+
+      <!-- Tier 10 -->
+      <Item name="Arsenal Map"/>
+      <Item name="Colonnade Map"/>
+      <Item name="Courtyard Map"/>
+      <Item name="Harbinger Map"/>
+      <Item name="Malformation Map"/>
+      <Item name="Port Map"/>
+      <Item name="Shaped Burial Chambers Map"/>
+      <Item name="Shaped Dunes Map"/>
+      <Item name="Shaped Mesa Map"/>
+      <Item name="Shaped Peninsula Map"/>
+      <Item name="Shaped Pit Map"/>
+      <Item name="Shaped Primordial Pool Map"/>
+      <Item name="Shaped Spider Lair Map"/>
+      <Item name="Shaped Tower Map"/>
+      <Item name="Terrace Map"/>
+      <Item name="Underground River Map"/>
+
+      <!-- Tier 11 -->
+      <Item name="Bazaar Map"/>
+      <Item name="Chateau Map"/>
+      <Item name="Excavation Map"/>
+      <Item name="Precinct Map"/>
+      <Item name="Shaped Ancient City Map"/>
+      <Item name="Shaped Canyon Map"/>
+      <Item name="Shaped Geode Map"/>
+      <Item name="Shaped Racecourse Map"/>
+      <Item name="Shaped Ramparts Map"/>
+      <Item name="Shaped Spider Forest Map"/>
+      <Item name="Shaped Strand Map"/>
+      <Item name="Shaped Thicket Map"/>
+      <Item name="Shaped Wharf Map"/>
+      <Item name="Torture Chamber Map"/>
+      <Item name="Underground Sea Map"/>
+      <Item name="Wasteland Map"/>
+
+      <!-- Tier 12 -->
+      <Item name="Estuary Map"/>
+      <Item name="Ivory Temple Map"/>
+      <Item name="Lava Chamber Map"/>
+      <Item name="Necropolis Map"/>
+      <Item name="Plateau Map"/>
+      <Item name="Residence Map"/>
+      <Item name="Shaped Arachnid Tomb Map"/>
+      <Item name="Shaped Armoury Map"/>
+      <Item name="Shaped Ashen Wood Map"/>
+      <Item name="Shaped Bone Crypt Map"/>
+      <Item name="Shaped Castle Ruins Map"/>
+      <Item name="Shaped Cells Map"/>
+      <Item name="Shaped Mud Geyser Map"/>
+      <Item name="Shipyard Map"/>
+      <Item name="Vault Map"/>
+
+      <!-- Tier 13 -->
+      <Item name="Gorge Map"/>
+      <Item name="High Gardens Map"/>
+      <Item name="Lair Map"/>
+      <Item name="Leyline Map"/>
+      <Item name="Lighthouse Map"/>
+      <Item name="Plaza Map"/>
+      <Item name="Scriptorium Map"/>
+      <Item name="Shaped Arachnid Nest Map"/>
+      <Item name="Shaped Arena Map"/>
+      <Item name="Shaped Atoll Map"/>
+      <Item name="Shaped Barrows Map"/>
+      <Item name="Shaped Bog Map"/>
+      <Item name="Shaped Cemetery Map"/>
+      <Item name="Shaped Pier Map"/>
+      <Item name="Shaped Shore Map"/>
+      <Item name="Shaped Tropical Island Map"/>
+      <Item name="Waterways Map"/>
+
+      <!-- Tier 14 -->
+      <Item name="Maze Map"/>
+      <Item name="Mineral Pools Map"/>
+      <Item name="Palace Map"/>
+      <Item name="Shaped Coves Map"/>
+      <Item name="Shaped Cursed Crypt Map"/>
+      <Item name="Shaped Museum Map"/>
+      <Item name="Shaped Orchard Map"/>
+      <Item name="Shaped Overgrown Shrine Map"/>
+      <Item name="Shaped Promenade Map"/>
+      <Item name="Shaped Reef Map"/>
+      <Item name="Shaped Temple Map"/>
+      <Item name="Shrine Map"/>
+      <Item name="Springs Map"/>
+      <Item name="Volcano Map"/>
+
+      <!-- Tier 15 -->
+      <Item name="Caldera Map"/>
+      <Item name="Colosseum Map"/>
+      <Item name="Core Map"/>
+      <Item name="Dark Forest Map"/>
+      <Item name="Harbinger Map"/>
+      <Item name="Overgrown Ruin Map"/>
+      <Item name="Shaped Arsenal Map"/>
+      <Item name="Shaped Colonnade Map"/>
+      <Item name="Shaped Courtyard Map"/>
+      <Item name="Shaped Malformation Map"/>
+      <Item name="Shaped Port Map"/>
+      <Item name="Shaped Terrace Map"/>
+      <Item name="Shaped Underground River Map"/>
+
+      <!-- Tier 16 -->
+      <Item name="Forge of the Phoenix Map"/>
+      <Item name="Lair of the Hydra Map"/>
+      <Item name="Maze of the Minotaur Map"/>
+      <Item name="Pit of the Chimera Map"/>
+      <Item name="Vaal Temple Map"/>
+
+      <!-- Tier 17 -->
+      <Item name="The Shaper's Realm"/>
+
+      <!-- The Awakening Maps - [2.0.0, 2.4.0) -->
+      <!-- Tier 1 -->
       <Item name="Crypt Map"/>
-      <Item name="The Coward's Trial"/>
       <Item name="Desert Map"/>
       <Item name="Dunes Map"/>
       <Item name="Dungeon Map"/>
       <Item name="Grotto Map"/>
       <Item name="Pit Map"/>
       <Item name="Tropical Island Map"/>
-      <Item name="Untainted Paradise"/>
+
+      <!-- Tier 2 -->
       <Item name="Arcade Map"/>
+      <Item name="Atoll Map"/>
       <Item name="Cemetery Map"/>
       <Item name="Channel Map"/>
-      <Item name="Mountain Ledge Map"/>
-      <Item name="Maelström of Chaos"/>
       <Item name="Sewer Map"/>
       <Item name="Thicket Map"/>
       <Item name="Wharf Map"/>
-      <Item name="The Apex of Sacrifice"/>
+
+      <!-- Tier 3 -->
       <Item name="Ghetto Map"/>
       <Item name="Mud Geyser Map"/>
       <Item name="Museum Map"/>
       <Item name="Quarry Map"/>
       <Item name="Reef Map"/>
-      <Item name="Mao Kun"/>
       <Item name="Spider Lair Map"/>
       <Item name="Vaal Pyramid Map"/>
-      <Item name="Vaults of Atziri"/>
+
+      <!-- Tier 4 -->
       <Item name="Arena Map"/>
+      <Item name="Crystal Ore Map"/>
       <Item name="Overgrown Shrine Map"/>
-      <Item name="Acton's Nightmare"/>
-      <Item name="Promenade Map"/>
-      <Item name="Hall of Grandmasters"/>
       <Item name="Phantasmagoria Map"/>
+      <Item name="Promenade Map"/>
       <Item name="Shore Map"/>
       <Item name="Spider Forest Map"/>
-      <Item name="Tunnel Map"/>
+
+      <!-- Tier 5 -->
       <Item name="Bog Map"/>
       <Item name="Coves Map"/>
       <Item name="Graveyard Map"/>
       <Item name="Pier Map"/>
-      <Item name="Underground Sea Map"/>
+      <Item name="Underground River Map"/>
       <Item name="Villa Map"/>
+
+      <!-- Tier 6 -->
       <Item name="Arachnid Nest Map"/>
-      <Item name="Catacomb Map"/>
-      <Item name="Olmec's Sanctum"/>
+      <Item name="Ashen Wood Map"/>
+      <Item name="Catacombs Map"/>
       <Item name="Colonnade Map"/>
-      <Item name="Dry Woods Map"/>
       <Item name="Strand Map"/>
-      <Item name="Whakawairua Tuahu"/>
       <Item name="Temple Map"/>
-      <Item name="Poorjoy's Asylum"/>
+
+      <!-- Tier 7 -->
+      <Item name="Cavern Map"/>
       <Item name="Jungle Valley Map"/>
-      <Item name="Labyrinth Map"/>
-      <Item name="Mine Map"/>
-      <Item name="Oba's Cursed Trove"/>
+      <Item name="Terrace Map"/>
       <Item name="Torture Chamber Map"/>
       <Item name="Waste Pool Map"/>
+
+      <!-- Tier 8 -->
       <Item name="Canyon Map"/>
       <Item name="Cells Map"/>
       <Item name="Dark Forest Map"/>
-      <Item name="Dry Peninsula Map"/>
       <Item name="Orchard Map"/>
+      <Item name="Peninsula Map"/>
+
+      <!-- Tier 9 -->
       <Item name="Arid Lake Map"/>
       <Item name="Gorge Map"/>
       <Item name="Malformation Map"/>
       <Item name="Residence Map"/>
-      <Item name="Underground River Map"/>
+      <Item name="Underground Sea Map"/>
+
+      <!-- Tier 10 -->
       <Item name="Bazaar Map"/>
+      <Item name="Chateau Map"/>
       <Item name="Necropolis Map"/>
-      <Item name="Death and Taxes"/>
       <Item name="Plateau Map"/>
       <Item name="Volcano Map"/>
+
+      <!-- Tier 11 -->
       <Item name="Academy Map"/>
       <Item name="Crematorium Map"/>
       <Item name="Precinct Map"/>
       <Item name="Springs Map"/>
+
+      <!-- Tier 12 -->
       <Item name="Arsenal Map"/>
       <Item name="Overgrown Ruin Map"/>
       <Item name="Shipyard Map"/>
-      <Item name="Village Ruin Map"/>
-      <Item name="The Alluring Abyss"/>
+
+      <!-- Tier 13 -->
       <Item name="Courtyard Map"/>
       <Item name="Excavation Map"/>
       <Item name="Wasteland Map"/>
       <Item name="Waterways Map"/>
+
+      <!-- Tier 14 -->
       <Item name="Maze Map"/>
       <Item name="Palace Map"/>
+      <Item name="Plaza Map"/>
       <Item name="Shrine Map"/>
       <Item name="Vaal Temple Map"/>
+
+      <!-- Tier 15 -->
       <Item name="Abyss Map"/>
       <Item name="Colosseum Map"/>
       <Item name="Core Map"/>
+
+      <!-- Original Maps - (1.0.0, 2.0.0) -->
+      <!-- Tier 1 -->
+      <Item name="Arid Lake Map"/>
+      <Item name="Crypt Map"/>
+      <Item name="Dunes Map"/>
+      <Item name="Dungeon Map"/>
+      <Item name="Grotto Map"/>
+      <Item name="Orchard Map"/>
+      <Item name="Overgrown Ruin Map"/>
+      <Item name="Tropical Island Map"/>
+
+      <!-- Tier 2 -->
+      <Item name="Arcade Map"/>
+      <Item name="Arsenal Map"/>
+      <Item name="Atoll Map"/>
+      <Item name="Cemetery Map"/>
+      <Item name="Sewer Map"/>
+      <Item name="Thicket Map"/>
+      <Item name="Wharf Map"/>
+
+      <!-- Tier 3 -->
+      <Item name="Ghetto Map"/>
+      <Item name="Mud Geyser Map"/>
+      <Item name="Museum Map"/>
+      <Item name="Reef Map"/>
+      <Item name="Spider Lair Map"/>
+      <Item name="Springs Map"/>
+      <Item name="Vaal Pyramid Map"/>
+
+      <!-- Tier 4 -->
+      <Item name="Catacombs Map"/>
+      <Item name="Crystal Ore Map"/>
+      <Item name="Overgrown Shrine Map"/>
+      <Item name="Promenade Map"/>
+      <Item name="Shore Map"/>
+      <Item name="Spider Forest Map"/>
+
+      <!-- Tier 5 -->
+      <Item name="Bog Map"/>
+      <Item name="Coves Map"/>
+      <Item name="Graveyard Map"/>
+      <Item name="Pier Map"/>
+      <Item name="Underground River Map"/>
+      <Item name="Villa Map"/>
+
+      <!-- Tier 6 -->
+      <Item name="Arachnid Nest Map"/>
+      <Item name="Ashen Wood Map"/>
+      <Item name="Colonnade Map"/>
+      <Item name="Strand Map"/>
+      <Item name="Temple Map"/>
+
+      <!-- Tier 7 -->
+      <Item name="Cavern Map"/>
+      <Item name="Jungle Valley Map"/>
+      <Item name="Terrace Map"/>
+      <Item name="Torture Chamber Map"/>
+      <Item name="Waste Pool Map"/>
+
+      <!-- Tier 8 -->
+      <Item name="Canyon Map"/>
+      <Item name="Cells Map"/>
+      <Item name="Dark Forest Map"/>
+      <Item name="Peninsula Map"/>
+
+      <!-- Tier 9 -->
+      <Item name="Gorge Map"/>
+      <Item name="Maze Map"/>
+      <Item name="Residence Map"/>
+      <Item name="Underground Sea Map"/>
+
+      <!-- Tier 10 -->
+      <Item name="Bazaar Map"/>
+      <Item name="Necropolis Map"/>
+      <Item name="Plateau Map"/>
+
+      <!-- Tier 11 -->
+      <Item name="Academy Map"/>
+      <Item name="Crematorium Map"/>
+      <Item name="Precinct Map"/>
+
+      <!-- Tier 12 -->
+      <Item name="Shipyard Map"/>
+      <Item name="Shrine Map"/>
+
+      <!-- Tier 13 -->
+      <Item name="Courtyard Map"/>
+      <Item name="Palace Map"/>
+
+      <!-- Tier 14 -->
+      <Item name="Vaal Temple Map"/>
+
+      <!-- Other-->
+      <Item name="The Apex of Sacrifice"/>
+      <Item name="The Alluring Abyss"/>
+      <Item name="The Pale Court"/>
     </GearBaseType>
     <GearBaseType name="Gloves">
       <Item name="Iron Gauntlets"/>
@@ -374,6 +921,7 @@
       <Item name="Goliath Gauntlets"/>
       <Item name="Vaal Gauntlets"/>
       <Item name="Titan Gauntlets"/>
+      <Item name="Spiked Gloves"/>
 
       <Item name="Rawhide Gloves"/>
       <Item name="Goathide Gloves"/>
@@ -394,6 +942,7 @@
       <Item name="Conjurer Gloves"/>
       <Item name="Arcanist Gloves"/>
       <Item name="Sorcerer Gloves"/>
+      <Item name="Fingerless Silk Gloves"/>
 
       <Item name="Fishscale Gauntlets"/>
       <Item name="Ironscale Gauntlets"/>
@@ -480,8 +1029,14 @@
       <Item name="Carnal Boots"/>
       <Item name="Assassin's Boots"/>
       <Item name="Murder Boots"/>
+
+      <!-- Armor and Evasion: Fire and Cold Resistances
+           Armor and Energy Shield: Fire and Lightning Resistances
+           Energy Shield and Evasion: Cold and Lightning Resistances -->
+      <Item name="Two-Toned Boots"/>
     </GearBaseType>
     <GearBaseType name="Axe">
+      <!-- One Hand Axes -->
       <Item name="Rusted Hatchet"/>
       <Item name="Jade Hatchet"/>
       <Item name="Boarding Axe"/>
@@ -490,6 +1045,7 @@
       <Item name="Arming Axe"/>
       <Item name="Decorative Axe"/>
       <Item name="Spectral Axe"/>
+      <Item name="Etched Hatchet"/>
       <Item name="Jasper Axe"/>
       <Item name="Tomahawk"/>
       <Item name="Wrist Chopper"/>
@@ -497,6 +1053,7 @@
       <Item name="Chest Splitter"/>
       <Item name="Ceremonial Axe"/>
       <Item name="Wraith Axe"/>
+      <Item name="Engraved Hatchet"/>
       <Item name="Karui Axe"/>
       <Item name="Siege Axe"/>
       <Item name="Reaver Axe"/>
@@ -504,7 +1061,9 @@
       <Item name="Vaal Hatchet"/>
       <Item name="Royal Axe"/>
       <Item name="Infernal Axe"/>
+      <Item name="Runic Hatchet"/>
 
+      <!-- Two Hand Axes -->
       <Item name="Stone Axe"/>
       <Item name="Jade Chopper"/>
       <Item name="Woodsplitter"/>
@@ -512,6 +1071,7 @@
       <Item name="Double Axe"/>
       <Item name="Gilded Axe"/>
       <Item name="Shadow Axe"/>
+      <Item name="Dagger Axe"/>
       <Item name="Jasper Chopper"/>
       <Item name="Timber Axe"/>
       <Item name="Headsman Axe"/>
@@ -519,12 +1079,12 @@
       <Item name="Noble Axe"/>
       <Item name="Abyssal Axe"/>
       <Item name="Karui Chopper"/>
+      <Item name="Talon Axe"/>
       <Item name="Sundering Axe"/>
       <Item name="Ezomyte Axe"/>
       <Item name="Vaal Axe"/>
       <Item name="Despot Axe"/>
       <Item name="Void Axe"/>
-      <Item name="Runic Hatchet"/>
       <Item name="Fleshripper"/>
     </GearBaseType>
     <GearBaseType name="Claw">
@@ -536,6 +1096,7 @@
       <Item name="Timeworn Claw"/>
       <Item name="Sparkling Claw"/>
       <Item name="Fright Claw"/>
+      <Item name="Double Claw"/>
       <Item name="Thresher Claw"/>
       <Item name="Gouger"/>
       <Item name="Tiger's Paw"/>
@@ -543,6 +1104,7 @@
       <Item name="Prehistoric Claw"/>
       <Item name="Noble Claw"/>
       <Item name="Eagle Claw"/>
+      <Item name="Twin Claw"/>
       <Item name="Great White Claw"/>
       <Item name="Throat Stabber"/>
       <Item name="Hellion's Paw"/>
@@ -562,6 +1124,7 @@
       <Item name="Royal Bow"/>
       <Item name="Death Bow"/>
       <Item name="Grove Bow"/>
+      <Item name="Reflex Bow"/>
       <Item name="Decurve Bow"/>
       <Item name="Compound Bow"/>
       <Item name="Sniper Bow"/>
@@ -569,13 +1132,14 @@
       <Item name="Highborn Bow"/>
       <Item name="Decimation Bow"/>
       <Item name="Thicket Bow"/>
+      <Item name="Steelwood Bow"/>
       <Item name="Citadel Bow"/>
       <Item name="Ranger Bow"/>
-      <Item name="Maraketh Bow"/>
+      <Item name="Assassin Bow"/>
       <Item name="Spine Bow"/>
       <Item name="Imperial Bow"/>
       <Item name="Harbinger Bow"/>
-      <Item name="Assassin Bow"/>
+      <Item name="Maraketh Bow"/>
     </GearBaseType>
     <GearBaseType name="Dagger">
       <Item name="Glass Shank"/>
@@ -587,12 +1151,14 @@
       <Item name="Skean"/>
       <Item name="Imp Dagger"/>
       <Item name="Flaying Knife"/>
+      <Item name="Prong Dagger"/>
       <Item name="Butcher Knife"/>
       <Item name="Poignard"/>
       <Item name="Boot Blade"/>
       <Item name="Golden Kris"/>
       <Item name="Royal Skean"/>
       <Item name="Fiend Dagger"/>
+      <Item name="Trisula"/>
       <Item name="Gutting Knife"/>
       <Item name="Slaughter Knife"/>
       <Item name="Ambusher"/>
@@ -601,9 +1167,9 @@
       <Item name="Imperial Skean"/>
       <Item name="Demon Dagger"/>
       <Item name="Sai"/>
-      <Item name="Trisula"/>
     </GearBaseType>
     <GearBaseType name="Mace">
+      <!-- One Hand Maces -->
       <Item name="Driftwood Club"/>
       <Item name="Tribal Club"/>
       <Item name="Spiked Club"/>
@@ -612,6 +1178,7 @@
       <Item name="Bladed Mace"/>
       <Item name="Ceremonial Mace"/>
       <Item name="Dream Mace"/>
+      <Item name="Wyrm Mace"/>
       <Item name="Petrified Club"/>
       <Item name="Barbed Club"/>
       <Item name="Rock Breaker"/>
@@ -619,6 +1186,7 @@
       <Item name="Flanged Mace"/>
       <Item name="Ornate Mace"/>
       <Item name="Phantom Mace"/>
+      <Item name="Dragon Mace"/>
       <Item name="Ancestral Club"/>
       <Item name="Tenderizer"/>
       <Item name="Gavel"/>
@@ -626,46 +1194,49 @@
       <Item name="Pernarch"/>
       <Item name="Auric Mace"/>
       <Item name="Nightmare Mace"/>
+      <Item name="Behemoth Mace"/>
 
+      <!-- Two Hand Maces -->
       <Item name="Driftwood Maul"/>
       <Item name="Tribal Maul"/>
       <Item name="Mallet"/>
       <Item name="Sledgehammer"/>
-      <Item name="Spiked Maul"/>
+      <Item name="Jagged Maul"/>
       <Item name="Brass Maul"/>
       <Item name="Fright Maul"/>
+      <Item name="Morning Star"/>
       <Item name="Totemic Maul"/>
       <Item name="Great Mallet"/>
       <Item name="Steelhead"/>
       <Item name="Spiny Maul"/>
       <Item name="Plated Maul"/>
       <Item name="Dread Maul"/>
+      <Item name="Solar Maul"/>
       <Item name="Karui Maul"/>
       <Item name="Colossus Mallet"/>
       <Item name="Piledriver"/>
       <Item name="Meatgrinder"/>
       <Item name="Imperial Maul"/>
       <Item name="Terror Maul"/>
-      <Item name="Sambar Sceptre"/>
-      <Item name="Behemoth Mace"/>
       <Item name="Coronal Maul"/>
-      <Item name="Morning Star"/>
     </GearBaseType>
     <GearBaseType name="Quiver">
-      <Item name="Rugged Quiver"/>
-      <Item name="Cured Quiver"/>
-      <Item name="Conductive Quiver"/>
-      <Item name="Heavy Quiver"/>
-      <Item name="Light Quiver"/>
-
-      <Item name="Serrated Arrow Quiver"/>
+      <!-- Current Quivers -->
       <Item name="Two-Point Arrow Quiver"/>
+      <Item name="Serrated Arrow Quiver"/>
       <Item name="Sharktooth Arrow Quiver"/>
       <Item name="Blunt Arrow Quiver"/>
       <Item name="Fire Arrow Quiver"/>
       <Item name="Broadhead Arrow Quiver"/>
       <Item name="Penetrating Arrow Quiver"/>
       <Item name="Spike-Point Arrow Quiver"/>
+
+      <!-- Old Quivers -->
+      <Item name="Rugged Quiver"/>
+      <Item name="Cured Quiver"/>
+      <Item name="Conductive Quiver"/>
+      <Item name="Heavy Quiver"/>
+      <Item name="Light Quiver"/>
     </GearBaseType>
     <GearBaseType name="Sceptre">
       <Item name="Driftwood Sceptre"/>
@@ -677,19 +1248,22 @@
       <Item name="Ritual Sceptre"/>
       <Item name="Shadow Sceptre"/>
       <Item name="Grinning Fetish"/>
+      <Item name="Horned Sceptre"/>
       <Item name="Sekhem"/>
       <Item name="Crystal Sceptre"/>
       <Item name="Lead Sceptre"/>
       <Item name="Blood Sceptre"/>
       <Item name="Royal Sceptre"/>
       <Item name="Abyssal Sceptre"/>
+      <Item name="Stag Sceptre"/>
       <Item name="Karui Sceptre"/>
       <Item name="Tyrant's Sekhem"/>
       <Item name="Opal Sceptre"/>
       <Item name="Platinum Sceptre"/>
-      <Item name="Carnal Sceptre"/>
       <Item name="Vaal Sceptre"/>
+      <Item name="Carnal Sceptre"/>
       <Item name="Void Sceptre"/>
+      <Item name="Sambar Sceptre"/>
     </GearBaseType>
     <GearBaseType name="Staff">
       <Item name="Gnarled Branch"/>
@@ -699,12 +1273,14 @@
       <Item name="Coiled Staff"/>
       <Item name="Royal Staff"/>
       <Item name="Vile Staff"/>
+      <Item name="Crescent Staff"/>
       <Item name="Woodful Staff"/>
       <Item name="Quarterstaff"/>
       <Item name="Military Staff"/>
       <Item name="Serpentine Staff"/>
       <Item name="Highborn Staff"/>
       <Item name="Foul Staff"/>
+      <Item name="Moon Staff"/>
       <Item name="Primordial Staff"/>
       <Item name="Lathi"/>
       <Item name="Ezomyte Staff"/>
@@ -714,6 +1290,7 @@
       <Item name="Eclipse Staff"/>
     </GearBaseType>
     <GearBaseType name="Sword">
+      <!-- One Hand Swords -->
       <Item name="Rusted Sword"/>
       <Item name="Copper Sword"/>
       <Item name="Sabre"/>
@@ -722,6 +1299,7 @@
       <Item name="Ancient Sword"/>
       <Item name="Elegant Sword"/>
       <Item name="Dusk Blade"/>
+      <Item name="Hook Sword"/>
       <Item name="Variscite Blade"/>
       <Item name="Cutlass"/>
       <Item name="Baselard"/>
@@ -729,6 +1307,7 @@
       <Item name="Elder Sword"/>
       <Item name="Graceful Sword"/>
       <Item name="Twilight Blade"/>
+      <Item name="Grappler"/>
       <Item name="Gemstone Sword"/>
       <Item name="Corsair Sword"/>
       <Item name="Gladius"/>
@@ -736,7 +1315,9 @@
       <Item name="Vaal Blade"/>
       <Item name="Eternal Sword"/>
       <Item name="Midnight Blade"/>
+      <Item name="Tiger Hook"/>
 
+      <!-- Thrusting One Hand Swords -->
       <Item name="Rusted Spike"/>
       <Item name="Whalebone Rapier"/>
       <Item name="Battered Foil"/>
@@ -745,6 +1326,7 @@
       <Item name="Antique Rapier"/>
       <Item name="Elegant Foil"/>
       <Item name="Thorn Rapier"/>
+      <Item name="Smallsword"/>
       <Item name="Wyrmbone Rapier"/>
       <Item name="Burnished Foil"/>
       <Item name="Estoc"/>
@@ -752,6 +1334,7 @@
       <Item name="Primeval Rapier"/>
       <Item name="Fancy Foil"/>
       <Item name="Apex Rapier"/>
+      <Item name="Courtesan Sword"/>
       <Item name="Dragonbone Rapier"/>
       <Item name="Tempered Foil"/>
       <Item name="Pecoraro"/>
@@ -759,7 +1342,9 @@
       <Item name="Vaal Rapier"/>
       <Item name="Jewelled Foil"/>
       <Item name="Harpy Rapier"/>
+      <Item name="Dragoon Sword"/>
 
+      <!-- Two Hand Swords -->
       <Item name="Corroded Blade"/>
       <Item name="Longsword"/>
       <Item name="Bastard Sword"/>
@@ -767,12 +1352,14 @@
       <Item name="Etched Greatsword"/>
       <Item name="Ornate Sword"/>
       <Item name="Spectral Sword"/>
+      <Item name="Curved Blade"/>
       <Item name="Butcher Sword"/>
       <Item name="Footman Sword"/>
       <Item name="Highland Blade"/>
       <Item name="Engraved Greatsword"/>
       <Item name="Tiger Sword"/>
       <Item name="Wraith Sword"/>
+      <Item name="Lithe Blade"/>
       <Item name="Headman's Sword"/>
       <Item name="Reaver Sword"/>
       <Item name="Ezomyte Blade"/>
@@ -780,10 +1367,6 @@
       <Item name="Lion Sword"/>
       <Item name="Infernal Sword"/>
       <Item name="Exquisite Blade"/>
-      <Item name="Tiger Hook"/>
-      <Item name="Dragoon Sword"/>
-      <Item name="Grappler"/>
-      <Item name="Lithe Blade"/>
     </GearBaseType>
     <GearBaseType name="Shield">
       <Item name="Splintered Tower Shield"/>
@@ -857,7 +1440,7 @@
       <Item name="Reinforced Kite Shield"/>
       <Item name="Layered Kite Shield"/>
       <Item name="Ceremonial Kite Shield"/>
-      <Item name="Etched Shield"/>
+      <Item name="Etched Kite Shield"/>
       <Item name="Steel Kite Shield"/>
       <Item name="Laminated Kite Shield"/>
       <Item name="Angelic Kite Shield"/>
@@ -887,11 +1470,13 @@
       <Item name="Quartz Wand"/>
       <Item name="Spiraled Wand"/>
       <Item name="Sage Wand"/>
+      <Item name="Pagan Wand"/>
       <Item name="Faun's Horn"/>
       <Item name="Engraved Wand"/>
       <Item name="Crystal Wand"/>
       <Item name="Serpent Wand"/>
       <Item name="Omen Wand"/>
+      <Item name="Heathen Wand"/>
       <Item name="Demon's Horn"/>
       <Item name="Imbued Wand"/>
       <Item name="Opal Wand"/>
@@ -901,186 +1486,206 @@
     </GearBaseType>
 
     <GearBaseType name="DivinationCard">
-      <Item name="Abandoned Wealth"/>
-      <Item name="The Avenger"/>
-      <Item name="The Battle Born"/>
-      <Item name="Birth of the Three"/>
-      <Item name="The Brittle Emperor"/>
-      <Item name="The Carrion Crow"/>
-      <Item name="The Cataclysm"/>
-      <Item name="The Celestial Justicar"/>
-      <Item name="The Chains that Bind"/>
-      <Item name="Chaotic Disposition"/>
-      <Item name="Coveted Possession"/>
-      <Item name="Dialla's Subjugation"/>
-      <Item name="The Dark Mage"/>
-      <Item name="The Doctor"/>
-      <Item name="The Drunken Aristocrat"/>
-      <Item name="Emperor's Luck"/>
-      <Item name="The Explorer"/>
-      <Item name="The Feast"/>
-      <Item name="The Fiend"/>
-      <Item name="The Gambler"/>
-      <Item name="The Gemcutter"/>
-      <Item name="Gemcutter's Promise"/>
-      <Item name="The Gladiator"/>
-      <Item name="The Hermit"/>
-      <Item name="The Hoarder"/>
-      <Item name="Hope"/>
-      <Item name="The Hunger"/>
-      <Item name="Humility"/>
-      <Item name="The Incantation"/>
-      <Item name="The Inventor"/>
-      <Item name="Jack in the Box"/>
-      <Item name="The King's Heart"/>
-      <Item name="Lantador's Lost Love"/>
-      <Item name="The Lover"/>
-      <Item name="Lucky Connections"/>
-      <Item name="Lucky Deck"/>
-      <Item name="Light and Truth"/>
-      <Item name="The Metalsmith's Gift"/>
-      <Item name="The Pact"/>
-      <Item name="The Penitent"/>
-      <Item name="The Poet"/>
-      <Item name="Rain of Chaos"/>
-      <Item name="The Road to Power"/>
-      <Item name="The Scarred Meadow"/>
-      <Item name="The Scholar"/>
-      <Item name="The Summoner"/>
-      <Item name="The Sun"/>
-      <Item name="Three Faces in the Dark"/>
-      <Item name="Time-Lost Relic"/>
-      <Item name="The Union"/>
-      <Item name="Vinia's Token"/>
-      <Item name="The Warden"/>
-      <Item name="The Watcher"/>
-      <Item name="The Wind"/>
-      <Item name="The Siren"/>
-      <Item name="The Betrayal"/>
-      <Item name="The Wrath"/>
-      <Item name="The Artist"/>
-      <Item name="Doedre's Madness"/>
-      <Item name="The Encroaching Darkness"/>
-      <Item name="The Flora's Gift"/>
-      <Item name="The King's Blade"/>
-      <Item name="The Last One Standing"/>
-      <Item name="The One With All"/>
-      <Item name="The Pack Leader"/>
-      <Item name="The Spoiled Prince"/>
-      <Item name="Assassin's Favour"/>
-      <Item name="Audacity"/>
-      <Item name="Hunter's Resolve"/>
-      <Item name="Pride Before the Fall"/>
-      <Item name="Scholar of the Seas"/>
-      <Item name="Loyalty"/>
-      <Item name="The Inoculated"/>
-      <Item name="The Tower"/>
-      <Item name="The Vast"/>
-      <Item name="The Twins"/>
-      <Item name="The Catalyst"/>
-      <Item name="The Doppelganger"/>
-      <Item name="Merciless Armament"/>
-      <Item name="Earth Drinker"/>
-      <Item name="Her Mask"/>
-      <Item name="Treasure Hunter"/>
-      <Item name="Grave Knowledge"/>
-      <Item name="The Risk"/>
-      <Item name="The Sigil"/>
       <Item name="A Mother's Parting Gift"/>
+      <Item name="Abandoned Wealth"/>
       <Item name="Anarchy's Price"/>
+      <Item name="Assassin's Favour"/>
+      <Item name="Atziri's Arsenal"/>
+      <Item name="Audacity"/>
+      <Item name="Birth of the Three"/>
+      <Item name="Blessing of God"/>
       <Item name="Blind Venture"/>
       <Item name="Boundless Realms"/>
       <Item name="Bowyer's Dream"/>
+      <Item name="Call to the First Ones"/>
       <Item name="Cartographer's Delight"/>
+      <Item name="Chaotic Disposition"/>
+      <Item name="Coveted Possession"/>
       <Item name="Death"/>
       <Item name="Destined to Crumble"/>
+      <Item name="Dialla's Subjugation"/>
+      <Item name="Doedre's Madness"/>
       <Item name="Dying Anguish"/>
+      <Item name="Earth Drinker"/>
       <Item name="Emperor of Purity"/>
+      <Item name="Emperor's Luck"/>
+      <Item name="Forbidden Power"/>
+      <Item name="Gemcutter's Promise"/>
       <Item name="Gift of the Gemling Queen"/>
       <Item name="Glimmer of Hope"/>
+      <Item name="Grave Knowledge"/>
+      <Item name="Her Mask"/>
       <Item name="Heterochromia"/>
+      <Item name="Hope"/>
       <Item name="House of Mirrors"/>
       <Item name="Hubris"/>
+      <Item name="Humility"/>
+      <Item name="Hunter's Resolve"/>
       <Item name="Hunter's Reward"/>
+      <Item name="Jack in the Box"/>
+      <Item name="Lantador's Lost Love"/>
       <Item name="Last Hope"/>
+      <Item name="Left to Fate"/>
+      <Item name="Light and Truth"/>
+      <Item name="Lingering Remnants"/>
       <Item name="Lost Worlds"/>
+      <Item name="Loyalty"/>
+      <Item name="Lucky Connections"/>
+      <Item name="Lucky Deck"/>
       <Item name="Lysah's Respite"/>
+      <Item name="Mawr Blaidd"/>
+      <Item name="Merciless Armament"/>
+      <Item name="Might is Right"/>
+      <Item name="Mitts"/>
+      <Item name="No Traces"/>
+      <Item name="Pride Before the Fall"/>
       <Item name="Prosperity"/>
       <Item name="Rain Tempter"/>
+      <Item name="Rain of Chaos"/>
       <Item name="Rats"/>
+      <Item name="Rebirth"/>
+      <Item name="Scholar of the Seas"/>
       <Item name="Shard of Fate"/>
+      <Item name="Struck by Lightning"/>
       <Item name="The Aesthete"/>
       <Item name="The Arena Champion"/>
+      <Item name="The Artist"/>
+      <Item name="The Avenger"/>
+      <Item name="The Battle Born"/>
+      <Item name="The Betrayal"/>
+      <Item name="The Blazing Fire"/>
       <Item name="The Body"/>
+      <Item name="The Breach"/>
+      <Item name="The Brittle Emperor"/>
+      <Item name="The Calling"/>
+      <Item name="The Carrion Crow"/>
       <Item name="The Cartographer"/>
+      <Item name="The Cataclysm"/>
+      <Item name="The Catalyst"/>
+      <Item name="The Celestial Justicar"/>
+      <Item name="The Chains that Bind"/>
+      <Item name="The Coming Storm"/>
       <Item name="The Conduit"/>
       <Item name="The Cursed King"/>
-      <Item name="The Calling"/>
       <Item name="The Dapper Prodigy"/>
+      <Item name="The Dark Mage"/>
+      <Item name="The Deceiver"/>
       <Item name="The Demoness"/>
       <Item name="The Devastator"/>
+      <Item name="The Doctor"/>
+      <Item name="The Doppelganger"/>
       <Item name="The Dragon"/>
       <Item name="The Dragon's Heart"/>
-      <Item name="The Enlightened"/>
+      <Item name="The Dreamer"/>
+      <Item name="The Drunken Aristocrat"/>
+      <Item name="The Encroaching Darkness"/>
       <Item name="The Endurance"/>
+      <Item name="The Enlightened"/>
       <Item name="The Ethereal"/>
+      <Item name="The Explorer"/>
+      <Item name="The Eye of the Dragon"/>
+      <Item name="The Feast"/>
+      <Item name="The Fiend"/>
       <Item name="The Fletcher"/>
-      <Item name="The Fox"/>
+      <Item name="The Flora's Gift"/>
       <Item name="The Formless Sea"/>
+      <Item name="The Forsaken"/>
+      <Item name="The Fox"/>
+      <Item name="The Gambler"/>
+      <Item name="The Garish Power"/>
+      <Item name="The Gemcutter"/>
       <Item name="The Gentleman"/>
+      <Item name="The Gladiator"/>
       <Item name="The Harvester"/>
+      <Item name="The Hermit"/>
+      <Item name="The Hoarder"/>
+      <Item name="The Hunger"/>
       <Item name="The Immortal"/>
+      <Item name="The Incantation"/>
+      <Item name="The Inoculated"/>
+      <Item name="The Insatiable"/>
+      <Item name="The Inventor"/>
+      <Item name="The Iron Bard"/>
       <Item name="The Jester"/>
+      <Item name="The King's Blade"/>
+      <Item name="The King's Heart"/>
+      <Item name="The Last One Standing"/>
       <Item name="The Lich"/>
       <Item name="The Lion"/>
       <Item name="The Lord in Black"/>
+      <Item name="The Lover"/>
       <Item name="The Lunaris Priestess"/>
       <Item name="The Mercenary"/>
+      <Item name="The Metalsmith's Gift"/>
+      <Item name="The Oath"/>
+      <Item name="The Obscured"/>
       <Item name="The Offering"/>
+      <Item name="The One With All"/>
+      <Item name="The Opulent"/>
+      <Item name="The Pack Leader"/>
+      <Item name="The Pact"/>
+      <Item name="The Penitent"/>
+      <Item name="The Poet"/>
+      <Item name="The Polymath"/>
+      <Item name="The Porcupine"/>
+      <Item name="The Puzzle"/>
       <Item name="The Queen"/>
       <Item name="The Rabid Rhoa"/>
+      <Item name="The Realm"/>
+      <Item name="The Risk"/>
+      <Item name="The Road to Power"/>
+      <Item name="The Ruthless Ceinture"/>
+      <Item name="The Saint's Treasure"/>
+      <Item name="The Scarred Meadow"/>
+      <Item name="The Scavenger"/>
+      <Item name="The Scholar"/>
       <Item name="The Sephirot"/>
+      <Item name="The Sigil"/>
+      <Item name="The Siren"/>
       <Item name="The Soul"/>
-      <item name="The Stormcaller"/>
+      <Item name="The Spark and the Flame"/>
+      <Item name="The Spoiled Prince"/>
+      <Item name="The Standoff"/>
+      <Item name="The Stormcaller"/>
+      <Item name="The Summoner"/>
+      <Item name="The Sun"/>
       <Item name="The Surgeon"/>
       <Item name="The Surveyor"/>
       <Item name="The Survivalist"/>
       <Item name="The Thaumaturgist"/>
       <Item name="The Throne"/>
+      <Item name="The Tower"/>
       <Item name="The Traitor"/>
       <Item name="The Trial"/>
+      <Item name="The Twins"/>
       <Item name="The Tyrant"/>
+      <Item name="The Union"/>
+      <Item name="The Valkyrie"/>
+      <Item name="The Valley of Steel Boxes"/>
+      <Item name="The Vast"/>
       <Item name="The Visionary"/>
       <Item name="The Void"/>
+      <Item name="The Warden"/>
       <Item name="The Warlord"/>
+      <Item name="The Watcher"/>
       <Item name="The Web"/>
+      <Item name="The Wind"/>
+      <Item name="The Wolf"/>
       <Item name="The Wolf's Shadow"/>
-      <Item name="Thunderous Skies"/>
-      <Item name="Tranquillity"/>
-      <Item name="Turn the Other Cheek"/>
-      <Item name="Volatile Power"/>
-      <Item name="Wealth and Power"/>
-      <Item name="Call to the First Ones"/>
-      <Item name="Lingering Remnants"/>
-      <Item name="The Coming Storm"/>
-      <Item name="The Forsaken"/>
-      <Item name="The Garish Power"/>
-      <Item name="Mitts"/>
-      <Item name="The Polymath"/>
-      <Item name="The Procupine"/>
-      <Item name="The Saint's Treasure"/>
-      <Item name="The Spark and the Flame"/>
-      <Item name="The Standoff"/>
-      <Item name="The Valley of Steel Boxes"/>
       <Item name="The Wolven King's Bite"/>
       <Item name="The Wolverine"/>
+      <Item name="The World Eater"/>
+      <Item name="The Wrath"/>
       <Item name="The Wretched"/>
-      <Item name="The Ruthless Ceinture"/>
-      <Item name="No Traces"/>
-      <Item name="The Realm"/>
-      <Item name="The Eye of the Dragon"/>
-      <Item name="The Blazing Fire"/>
-      <Item name="Left to Fate"/>
+      <Item name="Three Faces in the Dark"/>
+      <Item name="Thunderous Skies"/>
+      <Item name="Time-Lost Relic"/>
+      <Item name="Tranquillity"/>
+      <Item name="Treasure Hunter"/>
+      <Item name="Turn the Other Cheek"/>
+      <Item name="Vinia's Token"/>
+      <Item name="Volatile Power"/>
+      <Item name="Wealth and Power"/>
     </GearBaseType>
 
     <GearBaseType name="Jewel">
@@ -1095,6 +1700,10 @@
       <Item name="Hypnotic Eye Jewel"/>
       <Item name="Murderous Eye Jewel"/>
       <Item name="Searching Eye Jewel"/>
+    </GearBaseType>
+
+    <GearBaseType name="FishingRod">
+      <Item name="Fishing Rod"/>
     </GearBaseType>
   </GearBaseTypes>
 </Data>

@@ -25,6 +25,7 @@ namespace POEApi.Model
             { new StaffRunner() },
             { new SwordRunner() },
             { new WandRunner() },
+            { new FishingRodRunner() },
             { new MapRunner() },
             { new DivinationCardRunner() },
             { new JewelRunner() },

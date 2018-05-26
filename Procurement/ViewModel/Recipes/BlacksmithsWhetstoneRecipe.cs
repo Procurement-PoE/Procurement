@@ -18,7 +18,8 @@ namespace Procurement.ViewModel.Recipes
             return items.OfType<Gear>().Where(a => a.GearType == GearType.Axe || a.GearType == GearType.Bow
                 || a.GearType == GearType.Claw || a.GearType == GearType.Dagger || a.GearType == GearType.Mace
                 || a.GearType == GearType.Quiver || a.GearType == GearType.Sceptre || a.GearType == GearType.Staff
-                || a.GearType == GearType.Sword || a.GearType == GearType.Wand).Where(a => a.IsQuality);
+                || a.GearType == GearType.Sword || a.GearType == GearType.Wand || a.GearType == GearType.FishingRod)
+                .Where(a => a.IsQuality);
         }
 
         protected override string getMissingCombinationText(decimal requiredQuality, decimal qualityFound)
