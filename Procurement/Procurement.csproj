@@ -167,6 +167,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\CurrencyFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\DamageChaos.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\DivineVesselFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\ElderItemFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\EnchantModFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\EssenceFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\FullBestiaryOrbFilter.cs" />
@@ -182,6 +183,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\PercentEnergyShieldFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\PercentLifeFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ProphecyFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\ShapedItemFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixBlueSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixGreenSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixLink.cs" />
@@ -190,11 +192,13 @@
     <Compile Include="ViewModel\Filters\ForumExport\UnknownItemFilter.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\CurrencyVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\DivineVesselVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\ElderItemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\EssenceVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\FullBestiaryOrbVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\MirroredItemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\OfferingVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\ProphecyVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\ShapedItemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\UnknownItemVisitor.cs" />
     <Compile Include="ViewModel\Recipes\MatchedSet.cs" />
     <Compile Include="ViewModel\SetTabBuyoutViewModel.cs" />
