@@ -19,6 +19,7 @@ namespace Procurement.ViewModel
         public string Name { get; private set; }
         public bool HasName { get; private set; }
         public List<string> ExplicitMods { get; private set; }
+        public bool IsMirrored { get; private set; }
         public bool HasExplicitMods { get; private set; }
         public List<string> ImplicitMods { get; private set; }
         public bool HasImplicitMods { get; private set; }
@@ -52,6 +53,7 @@ namespace Procurement.ViewModel
 
             this.Requirements = new List<Requirement>();
             this.ExplicitMods = item.Explicitmods;
+            this.IsMirrored = item.IsMirrored;
 
             this.ImplicitMods = new List<string>();
 
@@ -69,11 +71,14 @@ namespace Procurement.ViewModel
             SecondaryDescriptionText = item.SecDescrText;
             setTypeSpecificProperties(item);
 
-            this.HasExplicitMods = ExplicitMods != null && ExplicitMods.Count > 0;
-            this.HasImplicitMods = ImplicitMods != null && ImplicitMods.Count > 0; 
+            // If an item has crafted mods but no true explicit mods:
+            //   In game: the crafted mods are correctly separated from the previous section.
+            //   On official web site: there is no seperator added before the previous section.
             this.HasCraftedMods = CraftedMods != null && CraftedMods.Count > 0;
+            this.HasExplicitMods = ExplicitMods?.Count > 0 || HasCraftedMods || IsMirrored;
+            this.HasImplicitMods = ImplicitMods?.Count > 0;
             this.HasEnchantMods = item.EnchantMods.Count > 0;
-            this.HasRequirements = Requirements != null && Requirements.Count > 0;
+            this.HasRequirements = Requirements?.Count > 0;
 
             if (item.FlavourText?.Count > 0)
             {

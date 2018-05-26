@@ -274,6 +274,24 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
 
+                    <!-- The pseudo-explicit property "Mirrored" should appear after any real explicit mods and any
+                         crafted mods.  It is mutually exclusive with being corrupted. -->
+                    <!-- TODO: Padding bug: there is extra padding between explicit mods, crafted mods, and the
+                               mirrored property is any two exist, due to the extra 5 padding below each. -->
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                               HorizontalAlignment="Center"
+                               FontFamily="../Resources/#Fontin SmallCaps"
+                               Foreground="#FF8888FF"
+                               Padding="10 0 10 5"
+                               Text="Mirrored"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               Visibility="{Binding IsMirrored,
+                                                    Converter={StaticResource VisibilityConverter},
+                                                    ConverterParameter=CollapseWhenFalse}" />
+
                     <Border Margin="0 0 0 5"
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"

@@ -177,6 +177,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\LifeLeech.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ManaLeechFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\MapFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\MirroredItemFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\MovementSpeed.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\PercentEnergyShieldFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\PercentLifeFilter.cs" />
@@ -191,6 +192,7 @@
     <Compile Include="ViewModel\ForumExportVisitors\DivineVesselVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\EssenceVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\FullBestiaryOrbVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\MirroredItemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\OfferingVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\ProphecyVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\UnknownItemVisitor.cs" />
