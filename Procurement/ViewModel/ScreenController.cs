@@ -132,6 +132,14 @@ namespace Procurement.ViewModel
             (mainView.MainRegion.Children[0] as RefreshView).RefreshAllTabs();
         }
 
+        public void LoadRefreshViewUsed()
+        {
+            mainView.Buttons.Visibility = Visibility.Hidden;
+            mainView.MainRegion.Children.Clear();
+            mainView.MainRegion.Children.Add(new RefreshView());
+            (mainView.MainRegion.Children[0] as RefreshView).RefreshUsedTabs();
+        }
+
         public void ReloadStash()
         {
             Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal,

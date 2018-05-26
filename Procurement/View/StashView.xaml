@@ -163,6 +163,7 @@
                     <RowDefinition />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="25px" />
+                    <RowDefinition Height="25px" />
                 </Grid.RowDefinitions>
                 <Border Grid.Row="0" BorderBrush="#FF76591B" BorderThickness="2" Background="Black" Margin="0,10,0,0" Padding="0,5,0,7">
                     <Grid Margin="5,0,11,0" Grid.Row="2" HorizontalAlignment="Left">
@@ -303,6 +304,9 @@
 
                 <Grid Grid.Row="2" Grid.Column="2">
                     <Button Content="Refresh All Tabs" Style="{Binding}" Margin="2,2,2,0" Command="{Binding RefreshCommand}" IsEnabled="{Binding LoggedIn}"/>
+                </Grid>
+                <Grid Grid.Row="3" Grid.Column="2">
+                    <Button Content="Refresh Used Tabs" Style="{Binding}" Margin="2,2,2,0" Command="{Binding RefreshUsedCommand}" IsEnabled="{Binding LoggedIn}"/>
                 </Grid>
             </Grid>
         </Grid>
