@@ -372,7 +372,11 @@ namespace POEApi.Model
 
         public static int GetNetTier(List<JSONProxy.Property> properties)
         {
-            return Convert.ToInt32(getPropertyByName(properties, NETTIER));
+            string maybeNetTier = getPropertyByName(properties, NETTIER);
+            if (string.IsNullOrWhiteSpace(maybeNetTier))
+                return 0;
+
+            return Convert.ToInt32(maybeNetTier);
         }
 
         public static string GetGenus(List<JSONProxy.Property> properties)

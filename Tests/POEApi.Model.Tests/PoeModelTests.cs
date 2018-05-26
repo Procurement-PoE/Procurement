@@ -254,5 +254,43 @@ namespace POEApi.Model.Tests
                 pantheonSoul.StackInfo.MaxSize.Should().Be(1);
             }
         }
+
+        [TestMethod]
+        public void GetNetsStashTest()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithNets);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, string.Empty, string.Empty, false)).Returns(stream);
+
+                var stash = _model.GetStash(0, string.Empty, string.Empty);
+                stash.Should().NotBeNull();
+                stash.Tabs.Should().HaveCount(1);
+
+                var items = stash.GetItemsByTab(5);
+                items.Should().NotBeNull();
+                items.Should().HaveCount(5);
+
+                items.Should().AllBeAssignableTo<Currency>();
+
+                var simpleRopeNet = items[1] as Net;
+                simpleRopeNet.Should().NotBeNull();
+                simpleRopeNet.Name.Should().BeEmpty();
+                simpleRopeNet.TypeLine.Should().Be("Simple Rope Net");
+                simpleRopeNet.NetTier.Should().Be(1);
+
+                var thaumaturgicalNet = items[3] as Net;
+                thaumaturgicalNet.Should().NotBeNull();
+                thaumaturgicalNet.Name.Should().BeEmpty();
+                thaumaturgicalNet.TypeLine.Should().Be("Thaumaturgical Net");
+                thaumaturgicalNet.NetTier.Should().Be(10);
+
+                var necromancyNet = items[4] as Net;
+                necromancyNet.Should().NotBeNull();
+                necromancyNet.Name.Should().BeEmpty();
+                necromancyNet.TypeLine.Should().Be("Necromancy Net");
+                necromancyNet.NetTier.Should().Be(0);
+            }
+        }
     }
 }

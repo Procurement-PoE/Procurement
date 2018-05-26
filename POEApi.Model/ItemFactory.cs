@@ -55,7 +55,23 @@ namespace POEApi.Model
                 var errorMessage = "ItemFactory unable to instantiate type : " + item.TypeLine;
                 Logger.Log(errorMessage);
 
-                return new UnknownItem();
+                try
+                {
+                    // Try to fall back and create an unknownItem based off of the provided item object.  This will
+                    // hopefully preserve enough properties so Procurement does not crash elsewhere and the issue is
+                    // more easily debuggable.
+                    var baseItemShell = new UnknownItem(item, ex.ToString());
+                    Logger.Log("Successfully instantiated base item shell for item.");
+                    return baseItemShell;
+                }
+                catch (Exception innerException)
+                {
+                    Logger.Log(innerException);
+                    errorMessage = "Additionally, failed to instantiate base item shell for type : " + item.TypeLine;
+                    Logger.Log(errorMessage);
+
+                    return new UnknownItem();
+                }
             }
         }
 

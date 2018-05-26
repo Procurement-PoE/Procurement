@@ -1,0 +1,237 @@
+﻿{
+  "numTabs": 1,
+  "tabs": [
+    {
+      "n": "$$$",
+      "i": 5,
+      "id": "003864bc2a05733e0511ec9a10baaab91d05431a924192b4d47362f51e8c35ed",
+      "type": "PremiumStash",
+      "hidden": false,
+      "selected": true,
+      "colour": {
+        "r": 191,
+        "g": 94,
+        "b": 0
+      },
+      "srcL": "https://web.poecdn.com/gen/image/WzI0LCIwMmExOTc3ZDFkMDM0NDM2ZTc3MzlmODNkMTNiMjA3ZiIsWzIseyJ0IjoxLCJuIjoiIiwiYyI6LTQyMzU3NzZ9XV0,/2c8b976348/Stash_TabL.png",
+      "srcC": "https://web.poecdn.com/gen/image/WzI0LCIwMmExOTc3ZDFkMDM0NDM2ZTc3MzlmODNkMTNiMjA3ZiIsWzIseyJ0IjoyLCJuIjoiIiwiYyI6LTQyMzU3NzZ9XV0,/0e65837146/Stash_TabC.png",
+      "srcR": "https://web.poecdn.com/gen/image/WzI0LCIwMmExOTc3ZDFkMDM0NDM2ZTc3MzlmODNkMTNiMjA3ZiIsWzIseyJ0IjozLCJuIjoiIiwiYyI6LTQyMzU3NzZ9XV0,/3c4393c68a/Stash_TabR.png"
+    }
+  ],
+  "items": [
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Currency/CurrencyArmourQuality.png?scale=1&scaleIndex=3&stackSize=395&w=1&h=1&v=251e204e4ec325f75ce8ef75b2dfbeb8",
+      "league": "SSF Bestiary",
+      "id": "48a34a13c25922a5130bd96d5365a4bc9e583bb379e4edba0ec3b4ff7014f171",
+      "name": "",
+      "typeLine": "Armourer's Scrap",
+      "identified": true,
+      "properties": [
+        {
+          "name": "Stack Size",
+          "values": [
+            [
+              "395/40",
+              0
+            ]
+          ],
+          "displayMode": 0
+        }
+      ],
+      "explicitMods": [
+        "Improves the quality of an armour"
+      ],
+      "descrText": "Right click this item then left click an armour to apply it. Has greater effect on lower rarity armours. The maximum quality is 20%.",
+      "frameType": 5,
+      "stackSize": 395,
+      "maxStackSize": 5000,
+      "category": {
+        "currency": [
+
+        ]
+      },
+      "x": 3,
+      "y": 0,
+      "inventoryId": "Stash6"
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Currency/BestiaryTrap1.png?scale=1&scaleIndex=3&stackSize=5&w=1&h=1&v=f9b8f3d1b2d33910cfa64f67276957b1",
+      "league": "SSF Bestiary",
+      "id": "1949cdab8ea9bba642c707ad5a7756f672758fc1c41ea12b44da6b9effce3a97",
+      "name": "",
+      "typeLine": "Simple Rope Net",
+      "identified": true,
+      "properties": [
+        {
+          "name": "Stack Size",
+          "values": [
+            [
+              "5/100",
+              0
+            ]
+          ],
+          "displayMode": 0
+        },
+        {
+          "name": "Net Tier",
+          "values": [
+            [
+              "1",
+              0
+            ]
+          ],
+          "displayMode": 0,
+          "type": 19
+        }
+      ],
+      "explicitMods": [
+        "Effective against Beasts of levels 1 to 13.\r\nActivate to use this type of Net when capturing Beasts."
+      ],
+      "frameType": 5,
+      "stackSize": 5,
+      "maxStackSize": 5000,
+      "category": {
+        "currency": [
+
+        ]
+      },
+      "x": 48,
+      "y": 0,
+      "inventoryId": "Stash6"
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Currency/BestiaryOrbEmpty.png?scale=1&scaleIndex=3&stackSize=1&w=1&h=1&v=1e94ab199c10ad04197871406542f16e",
+      "league": "SSF Bestiary",
+      "id": "266784bb0259a6e44f09032332f61062ab50545c1b9e382c7995dcf82b8e9ea0",
+      "name": "",
+      "typeLine": "Bestiary Orb",
+      "identified": true,
+      "properties": [
+        {
+          "name": "Stack Size",
+          "values": [
+            [
+              "1/10",
+              0
+            ]
+          ],
+          "displayMode": 0
+        }
+      ],
+      "explicitMods": [
+        "Stores a Beast in an item so it can be traded"
+      ],
+      "descrText": "Right click on this item then left click on a Beast in your Menagerie to turn it into a tradable item.",
+      "frameType": 5,
+      "stackSize": 1,
+      "maxStackSize": 5000,
+      "category": {
+        "currency": [
+
+        ]
+      },
+      "x": 32,
+      "y": 0,
+      "inventoryId": "Stash6"
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Currency/BestiaryTrap10.png?scale=1&scaleIndex=3&stackSize=9&w=1&h=1&v=44f385e2b49f1e40b1ba21ece93f8197",
+      "league": "SSF Bestiary",
+      "id": "7b865b6584c2acdee156f557c7ec62a315318dd1de64795e541e224563e8723c",
+      "name": "",
+      "typeLine": "Thaumaturgical Net",
+      "identified": true,
+      "properties": [
+        {
+          "name": "Stack Size",
+          "values": [
+            [
+              "9/100",
+              0
+            ]
+          ],
+          "displayMode": 0
+        },
+        {
+          "name": "Net Tier",
+          "values": [
+            [
+              "10",
+              0
+            ]
+          ],
+          "displayMode": 0,
+          "type": 19
+        }
+      ],
+      "explicitMods": [
+        "Effective against Beasts of levels 68 and above.\r\nActivate to use this type of Net when capturing Beasts."
+      ],
+      "frameType": 5,
+      "stackSize": 9,
+      "maxStackSize": 5000,
+      "category": {
+        "currency": [
+
+        ]
+      },
+      "x": 34,
+      "y": 0,
+      "inventoryId": "Stash6"
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "ilvl": 0,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Currency/Necronet.png?scale=1&scaleIndex=3&stackSize=1&w=1&h=1&v=f335b00f477fa75f8c803c8eebaee6c2",
+      "league": "SSF Bestiary",
+      "id": "e4b9bb2dfb5df5e5671425e766afe22d494881878de6b6ae7dc80c4322605162",
+      "name": "",
+      "typeLine": "Necromancy Net",
+      "identified": true,
+      "properties": [
+        {
+          "name": "Stack Size",
+          "values": [
+            [
+              "1/100",
+              0
+            ]
+          ],
+          "displayMode": 0
+        }
+      ],
+      "explicitMods": [
+        "Can be used on Beast corpses of all levels.\r\nActivate to use this type of Net when capturing Beasts."
+      ],
+      "frameType": 5,
+      "stackSize": 1,
+      "maxStackSize": 5000,
+      "category": {
+        "currency": [
+
+        ]
+      },
+      "x": 33,
+      "y": 0,
+      "inventoryId": "Stash6"
+    }
+  ]
+}
