@@ -62,6 +62,21 @@ namespace Procurement.ViewModel
             }
         }
 
+        private bool forceRefresh;
+        public bool ForceRefresh
+        {
+            get { return forceRefresh; }
+            set
+            {
+                if (value != forceRefresh)
+                {
+                    forceRefresh = value;
+                    Settings.UserSettings["ForceRefresh"] = value.ToString();
+                    OnPropertyChanged("ForceRefresh");
+                }
+            }
+        }
+
         private void updateButtonLabels(bool useSession)
         {
             if (this.view == null)
@@ -77,6 +92,8 @@ namespace Procurement.ViewModel
 
             UseSession = Settings.UserSettings.ContainsKey("UseSessionID") ?
                 bool.Parse(Settings.UserSettings["UseSessionID"]) : false;
+            ForceRefresh = Settings.UserSettings.ContainsKey("ForceRefresh") ?
+                bool.Parse(Settings.UserSettings["ForceRefresh"]) : true;
 
             Email = Settings.UserSettings["AccountLogin"];
 
@@ -151,7 +168,10 @@ namespace Procurement.ViewModel
                     statusController.DisplayMessage("Fetching account name...");
                     ApplicationState.AccountName = ApplicationState.Model.GetAccountName();
                     statusController.Ok();
-                    ApplicationState.Model.ForceRefresh();
+                    if (ForceRefresh)
+                    {
+                        ApplicationState.Model.ForceRefresh();
+                    }
                     statusController.DisplayMessage("Loading characters...");
                 }
                 else
@@ -259,6 +279,7 @@ namespace Procurement.ViewModel
 
             Settings.UserSettings["AccountLogin"] = Email;
             Settings.UserSettings["UseSessionID"] = useSession.ToString();
+            Settings.UserSettings["ForceRefresh"] = ForceRefresh.ToString();
             if (passwordChanged)
                 Settings.UserSettings["AccountPassword"] = password.Encrypt();
             Settings.Save();

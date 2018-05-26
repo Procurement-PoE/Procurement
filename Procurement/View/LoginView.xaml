@@ -2,6 +2,17 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          Height="600" Width="1012">
+    <UserControl.Resources>
+        <Style x:Key="tooltipStyle" TargetType="{x:Type ToolTip}">
+            <Setter Property = "HorizontalOffset" Value="0"/>
+            <Setter Property = "VerticalOffset" Value="5"/>
+            <Setter Property = "Background" Value="Black"/>
+            <Setter Property = "Foreground" Value="White"/>
+            <Setter Property = "FontSize" Value="14"/>
+            <Setter Property = "FontWeight" Value="Normal"/>
+        </Style>
+    </UserControl.Resources>
+
     <Grid x:Name="ViewContent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="35*"/>
@@ -25,7 +36,8 @@
                     <RowDefinition Height="35"/>
                     <RowDefinition Height="35"/>
                     <RowDefinition Height="30"/>
-                    <RowDefinition Height="130"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
 
                 <Label x:Name="lblEmail" Content="Email" Grid.Row="1" Grid.Column="0" FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top" ></Label>
@@ -78,26 +90,31 @@
                         </Grid.ColumnDefinitions>
                         <CheckBox x:Name="useSession" Content="Use SessionID" Margin="0,9,0,0" Height="15" VerticalAlignment="Top" IsChecked="{Binding UseSession}" Foreground="#FFAB9066" FontSize="12" FontWeight="Bold" HorizontalAlignment="Left" Width="Auto"/>
                         <Image x:Name="sessionidQ" Margin="7,4,0,0" Source="/Procurement;component/Images/circleQuestion.png" Stretch="None" Cursor="Hand" ForceCursor="True" MouseLeftButtonDown="sessionidQ_MouseLeftButtonDown" RenderTransformOrigin="3.075,0.702" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" ToolTipService.VerticalOffset="5" MouseLeftButtonUp="sessionidQ_MouseLeftButtonUp">
-                            <Image.Resources>
-                                <Style x:Key="sessionidQTooltip" TargetType="{x:Type ToolTip}">
-                                    <Setter Property = "HorizontalOffset" Value="0"/>
-                                    <Setter Property = "VerticalOffset" Value="5"/>
-                                    <Setter Property = "Background" Value="Black"/>
-                                    <Setter Property = "Foreground" Value="White"/>
-                                    <Setter Property = "FontSize" Value="14"/>
-                                    <Setter Property = "FontWeight" Value="Normal"/>
-                                </Style>
-                            </Image.Resources>
                             <Image.ToolTip>
-                                <ToolTip Style="{StaticResource sessionidQTooltip}">
+                                <ToolTip Style="{StaticResource tooltipStyle}">
                                     <TextBlock Text="Please click here to know the way to get SessionID." />
                                 </ToolTip>
                             </Image.ToolTip>
                         </Image>
                     </Grid>
-
                 </Grid>
-
+                <Grid Grid.Row="4" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="159"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <CheckBox Grid.Column="1" x:Name="forceRefresh" Content="Refresh on Login" Margin="25,5,0,0"
+                              Height="15" VerticalAlignment="Top" IsChecked="{Binding ForceRefresh}"
+                              Foreground="#FFAB9066" FontSize="12" FontWeight="Bold" HorizontalAlignment="Left"
+                              Width="Auto">
+                        <CheckBox.ToolTip>
+                            <ToolTip Style="{StaticResource tooltipStyle}">
+                                <TextBlock Text="If unchecked, only missing tabs are downloaded." />
+                            </ToolTip>
+                        </CheckBox.ToolTip>
+                    </CheckBox>
+                </Grid>
             </Grid>
 
             <Grid Grid.Row="1">
