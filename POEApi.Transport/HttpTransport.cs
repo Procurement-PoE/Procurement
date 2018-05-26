@@ -26,7 +26,7 @@ namespace POEApi.Transport
         private const string characterURL = @"https://www.pathofexile.com/character-window/get-characters";
         private const string stashURL = @"https://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}&accountName={2}";
         private const string inventoryURL = @"http://www.pathofexile.com/character-window/get-items?character={0}&accountName={1}";
-        private const string hashRegEx = "name=\\\"hash\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
+        private const string hashRegEx = "name=\\\"hash\\\" value=\\\"(?<hash>[a-zA-Z0-9-]{1,})\\\"";
 
         private const string updateThreadHashEx = "name=\\\"forum_thread\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
         private const string bumpThreadHashEx = "name=\\\"forum_post\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
@@ -93,7 +93,9 @@ namespace POEApi.Transport
             StringBuilder data = new StringBuilder();
             data.Append("login_email=" + Uri.EscapeDataString(email));
             data.Append("&login_password=" + Uri.EscapeDataString(password.UnWrap()));
+            data.Append("&remember_me=0");
             data.Append("&hash=" + hashValue);
+            data.Append("&login=Login");
 
             byte[] byteData = UTF8Encoding.UTF8.GetBytes(data.ToString());
 
