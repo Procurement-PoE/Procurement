@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using POEApi.Model;
 
 namespace Procurement.ViewModel.Filters
@@ -33,6 +34,10 @@ namespace Procurement.ViewModel.Filters
 
         public bool Applicable(Item item)
         {
+            Gear gear = item as Gear;
+            if (gear != null && gear.SocketedItems.Any(x => Applicable(x)))
+                return true;
+
             Gem gem = item as Gem;
             if (gem == null)
                 return false;

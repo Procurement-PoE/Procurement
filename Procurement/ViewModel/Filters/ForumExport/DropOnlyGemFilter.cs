@@ -17,14 +17,8 @@ namespace Procurement.ViewModel.Filters
 
         public DropOnlyGemFilter()
         {
-            //From http://en.pathofexilewiki.com/wiki/Drop_Only_Gems
-            dropOnly = new List<string>();
-            dropOnly.Add("Added Chaos Damage Support");
-            dropOnly.Add("Detonate Mines");
-            dropOnly.Add("Empower Support");
-            dropOnly.Add("Enhance Support");
-            dropOnly.Add("Enlighten Support");
-            dropOnly.Add("Portal");
+            // From http://en.pathofexilewiki.com/wiki/Drop_Only_Gems.
+            dropOnly = Settings.DropOnlyGems;
         }
 
         public bool CanFormCategory
