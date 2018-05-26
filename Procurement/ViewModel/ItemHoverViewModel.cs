@@ -29,6 +29,7 @@ namespace Procurement.ViewModel
         public bool HasMicrotransactions { get; private set; }
         public List<string> EnchantMods { get; private set; }
         public bool HasEnchantMods { get; private set; }
+        public string FlavourText { get; private set; }
 
         public List<string> CraftedMods { get; set; }
 
@@ -36,7 +37,6 @@ namespace Procurement.ViewModel
         public bool IsProphecy { get; set; }
         public string ProphecyText { get; set; }
         public string ProphecyDifficultyText { get; set; }
-        public List<string> ProphecyFlavour { get; set; }
         public bool IsGear { get; set; }
 
         public string ItemLevel { get; set; }
@@ -75,6 +75,11 @@ namespace Procurement.ViewModel
             this.HasEnchantMods = item.EnchantMods.Count > 0;
             this.HasRequirements = Requirements != null && Requirements.Count > 0;
 
+            if (item.FlavourText?.Count > 0)
+            {
+                this.FlavourText = string.Join("", item.FlavourText);
+            }
+
             setProphecyProperties(item);
         }
 
@@ -87,8 +92,6 @@ namespace Procurement.ViewModel
             this.IsProphecy = true;
             this.ProphecyText = prophecy.ProphecyText;
             this.ProphecyDifficultyText = prophecy.ProphecyDifficultyText;
-            this.ProphecyFlavour = prophecy.FlavourText;
-            this.DescriptionText = string.Empty;
         }
 
         private void setTypeSpecificProperties(Item item)
@@ -110,16 +113,6 @@ namespace Procurement.ViewModel
             this.ItemLevel = string.Format("Item Level : {0}", item.ItemLevel);
             this.Requirements = gear.Requirements;
             this.ImplicitMods = gear.Implicitmods;
-
-            if (gear.FlavourText != null && gear.FlavourText.Count > 0)
-            {
-                var builder = new StringBuilder();
-
-                foreach (var text in ((Gear)(item)).FlavourText)
-                    builder.Append(text);
-
-                DescriptionText = builder.ToString();
-            }
         }
     }
 }

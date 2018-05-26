@@ -30,7 +30,7 @@ namespace Procurement.View
 
                     if (enumerable != null)
                     {
-                        result = enumerable.Cast<object>().Any() ? Visibility.Hidden : Visibility.Visible;
+                        result = enumerable.Cast<object>().Any() ? Visibility.Visible : Visibility.Hidden;
                     }
                     else  if (value is int)
                     {
