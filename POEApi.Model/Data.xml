@@ -1706,4 +1706,113 @@
       <Item name="Fishing Rod"/>
     </GearBaseType>
   </GearBaseTypes>
+
+  <FatedUniques>
+    <FatedUnique targetName="Reverberation Rod" fatedName="Amplification Rod" prophecyName="Power Magnified"
+                 baseType="Spiraled Wand" />
+    <FatedUnique targetName="Asenath's Mark" fatedName="Asenath's Chant" prophecyName="Song of the Sekhema"
+                 baseType="Iron Circlet" />
+    <FatedUnique targetName="Atziri's Mirror" fatedName="Atziri's Reflection" prophecyName="The Queen's Sacrifice"
+                 baseType="Golden Buckler" />
+    <FatedUnique targetName="Cameria's Maul" fatedName="Cameria's Avarice" prophecyName="Cold Greed"
+                 baseType="Gavel" />
+    <FatedUnique targetName="Eclipse Solaris" fatedName="Corona Solaris" prophecyName="Blinding Light"
+                 baseType="Crystal Wand" />
+    <FatedUnique targetName="Craghead" fatedName="Cragfall" prophecyName="Heavy Blows"
+                 baseType="Serrated Arrow Quiver" />
+    <FatedUnique targetName="Icetomb" fatedName="Crystal Vault" prophecyName="End of the Light"
+                 baseType="Latticed Ringmail" />
+    <FatedUnique targetName="Death's Harp" fatedName="Death's Opus" prophecyName="The Bowstring's Music"
+                 baseType="Death Bow" />
+    <FatedUnique targetName="Deidbell" fatedName="Deidbellow" prophecyName="Dying Cry"
+                 baseType="Gilded Sallet" />
+    <FatedUnique targetName="Doedre's Tenure" fatedName="Doedre's Malevolence" prophecyName="The Malevolent Witch"
+                 baseType="Velvet Gloves" />
+    <FatedUnique targetName="Doomfletch" fatedName="Doomfletch's Prism" prophecyName="Ancient Doom"
+                 baseType="Royal Bow" />
+    <FatedUnique targetName="Redbeak" fatedName="Dreadbeak" prophecyName="The Dreaded Rhoa"
+                 baseType="Rusted Sword" />
+    <FatedUnique targetName="Dreadarc" fatedName="Dreadsurge" prophecyName="Burning Dread"
+                 baseType="Cleaver" />
+    <FatedUnique targetName="Dusktoe" fatedName="Duskblight" prophecyName="Agony at Dusk"
+                 baseType="Ironscale Boots" />
+    <FatedUnique targetName="Ezomyte Peak" fatedName="Ezomyte Hold" prophecyName="The Bloody Flowers Redux"
+                 baseType="Iron Hat" />
+    <FatedUnique targetName="Foxshade" fatedName="Fox's Fortune" prophecyName="Dark Instincts"
+                 baseType="Wild Leather" />
+    <FatedUnique targetName="Heatshiver" fatedName="Frostferno" prophecyName="A Vision of Ice and Fire"
+                 baseType="Leather Hood" />
+    <FatedUnique targetName="Geofri's Baptism" fatedName="Geofri's Devotion" prophecyName="Black Devotion"
+                 baseType="Brass Maul" />
+    <FatedUnique targetName="Wondertrap" fatedName="Greedtrap" prophecyName="Greed's Folly"
+                 baseType="Velvet Slippers" />
+    <FatedUnique targetName="Hrimsorrow" fatedName="Hrimburn" prophecyName="Fire and Ice"
+                 baseType="Goathide Gloves" />
+    <FatedUnique targetName="Hrimnor's Hymn" fatedName="Hrimnor's Dirge" prophecyName="Winter's Mournful Melodies"
+                 baseType="Sledgehammer" />
+    <FatedUnique targetName="Hyrri's Bite" fatedName="Hyrri's Demise" prophecyName="A Dishonourable Death"
+                 baseType="Sharktooth Arrow Quiver" />
+    <FatedUnique targetName="Kaltenhalt" fatedName="Kaltensoul" prophecyName="The Snuffed Flame"
+                 baseType="Painted Buckler" />
+    <FatedUnique targetName="Kaom's Sign" fatedName="Kaom's Way" prophecyName="The King's Path"
+                 baseType="Coral Ring" />
+    <FatedUnique targetName="Karui Ward" fatedName="Karui Charge" prophecyName="The Karui Rebellion"
+                 baseType="Jade Amulet" />
+    <FatedUnique targetName="Malachai's Simula" fatedName="Malachai's Awakening" prophecyName="The Nightmare Awakens"
+                 baseType="Iron Mask" />
+    <FatedUnique targetName="Crown of Thorns" fatedName="Martyr's Crown" prophecyName="Pleasure and Pain"
+                 baseType="Vine Circlet" />
+    <FatedUnique targetName="Fencoil" fatedName="Mirebough" prophecyName="Trapped in the Tower"
+                 baseType="Gnarled Branch" />
+    <FatedUnique targetName="Araku Tiki" fatedName="Ngamahu Tiki" prophecyName="A Forest of False Idols"
+                 baseType="Coral Amulet" />
+    <FatedUnique targetName="Quecholli" fatedName="Panquetzaliztli" prophecyName="The Fall of an Empire"
+                 baseType="Jagged Maul" />
+    <FatedUnique targetName="Queen's Decree" fatedName="Queen's Escape" prophecyName="The Misunderstood Queen"
+                 baseType="Ornate Sword" />
+    <FatedUnique targetName="Realmshaper" fatedName="Realm Ender" prophecyName="The Beginning and the End"
+                 baseType="Iron Staff" />
+    <FatedUnique targetName="Goredrill" fatedName="Sanguine Gambol" prophecyName="Crimson Hues"
+                 baseType="Skinning Knife" />
+    <FatedUnique targetName="Shavronne's Pace" fatedName="Shavronne's Gambit" prophecyName="The Flow of Energy"
+                 baseType="Scholar Boots" />
+    <FatedUnique targetName="Silverbranch" fatedName="Silverbough" prophecyName="The Silverwood"
+                 baseType="Crude Bow" />
+    <FatedUnique targetName="Sundance" fatedName="Sunspite" prophecyName="Sun's Punishment"
+                 baseType="Clasped Boots" />
+    <FatedUnique targetName="Limbsplit" fatedName="The Cauteriser" prophecyName="Severed Limbs"
+                 baseType="Woodsplitter" />
+    <FatedUnique targetName="The Dancing Dervish" fatedName="The Dancing Duo" prophecyName="Dance of Steel"
+                 baseType="Reaver Sword" />
+    <FatedUnique targetName="The Ignomon" fatedName="The Effigon" prophecyName="Blind Faith"
+                 baseType="Gold Amulet" />
+    <FatedUnique targetName="The Screaming Eagle" fatedName="The Gryphon" prophecyName="The Apex Predator"
+                 baseType="Jade Hatchet" />
+    <FatedUnique targetName="The Magnate" fatedName="The Nomad" prophecyName="The Great Leader of the North"
+                 baseType="Studded Belt" />
+    <FatedUnique targetName="Springleaf" fatedName="The Oak" prophecyName="Nature's Resilience"
+                 baseType="Plank Kite Shield" />
+    <FatedUnique targetName="Blackgleam" fatedName="The Signal Fire" prophecyName="Fire and Brimstone"
+                 baseType="Fire Arrow Quiver" />
+    <FatedUnique targetName="The Stormheart" fatedName="The Stormwall" prophecyName="The Storm Spire"
+                 baseType="Royal Staff" />
+    <FatedUnique targetName="The Magnate" fatedName="The Tactician" prophecyName="The Great Mind of the North"
+                 baseType="Studded Belt" />
+    <FatedUnique targetName="Storm Cloud" fatedName="The Tempest" prophecyName="The Servant's Heart"
+                 baseType="Long Bow" />
+    <FatedUnique targetName="Chalice of Horrors" fatedName="Thirst for Horrors" prophecyName="Mouth of Horrors"
+                 baseType="War Buckler" />
+    <FatedUnique targetName="Timeclasp" fatedName="Timetwist" prophecyName="A Rift in Time"
+                 baseType="Moonstone Ring" />
+    <FatedUnique targetName="Blackheart" fatedName="Voidheart" prophecyName="From The Void"
+                 baseType="Iron Ring" />
+    <FatedUnique targetName="Bramblejack" fatedName="Wall of Brambles" prophecyName="The King and the Brambles"
+                 baseType="Plate Vest" />
+    <FatedUnique targetName="Briskwrap" fatedName="Wildwrap" prophecyName="Last of the Wildmen"
+                 baseType="Strapped Leather" />
+    <FatedUnique targetName="Windscream" fatedName="Windshriek" prophecyName="Darktongue's Shriek"
+                 baseType="Reinforced Greaves" />
+    <FatedUnique targetName="Bloodboil" fatedName="Winterweave" prophecyName="Cold Blooded Fury"
+                 baseType="Coral Ring" />
+  </FatedUniques>
 </Data>

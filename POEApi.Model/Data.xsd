@@ -7,6 +7,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="GearBaseTypes" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="FatedUniques" minOccurs="0" maxOccurs="1" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -29,6 +30,23 @@
     <xs:complexType>
       <xs:attribute name="id" use="optional" type="xs:string" />
       <xs:attribute name="name" use="required" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="FatedUniques">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FatedUnique" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="FatedUnique">
+    <xs:complexType>
+      <xs:attribute name="targetName" use="optional" type="xs:string" />
+      <xs:attribute name="fatedName" use="optional" type="xs:string" />
+      <xs:attribute name="prophecyName" use="optional" type="xs:string" />
+      <xs:attribute name="baseType" use="optional" type="xs:string" />
     </xs:complexType>
   </xs:element>
 </xs:schema>
