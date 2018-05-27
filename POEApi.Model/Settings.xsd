@@ -46,6 +46,7 @@
               <xs:element name="EmbedBuyouts" type="EmbedBuyouts" minOccurs="1" maxOccurs="1" />
               <xs:element name="BuyoutItemsOnlyVisibleInBuyoutsTag" type="BuyoutItemsOnlyVisibleInBuyoutsTag" minOccurs="1" maxOccurs="1" />
               <xs:element name="CheckForUpdates" type="CheckForUpdates" minOccurs="1" maxOccurs="1" />
+              <xs:element name="ForceRefresh" type="ForceRefresh" minOccurs="1" maxOccurs="1" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -144,6 +145,10 @@
   </xs:complexType>
   <xs:complexType name="CheckForUpdates">
     <xs:attribute name="name" fixed="CheckForUpdates" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:boolean" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="ForceRefresh">
+    <xs:attribute name="name" fixed="ForceRefresh" type="xs:string" use="required"/>
     <xs:attribute name="value" type="xs:boolean" use="required"/>
   </xs:complexType>
   <xs:complexType name="Enabled">

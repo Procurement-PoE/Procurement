@@ -23,6 +23,7 @@ namespace Procurement.ViewModel
         public event LoginCompleted OnLoginCompleted;
         public delegate void LoginCompleted();
         private bool formChanged = false;
+        private bool passwordChanged = false;
         private bool useSession;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -57,6 +58,22 @@ namespace Procurement.ViewModel
                 useSession = value;
                 Settings.UserSettings["UseSessionID"] = value.ToString();
                 updateButtonLabels(useSession);
+                OnPropertyChanged("UseSessionID");
+            }
+        }
+
+        private bool forceRefresh;
+        public bool ForceRefresh
+        {
+            get { return forceRefresh; }
+            set
+            {
+                if (value != forceRefresh)
+                {
+                    forceRefresh = value;
+                    Settings.UserSettings["ForceRefresh"] = value.ToString();
+                    OnPropertyChanged("ForceRefresh");
+                }
             }
         }
 
@@ -73,15 +90,18 @@ namespace Procurement.ViewModel
         {
             this.view = view as LoginView;
 
-            UseSession = Settings.UserSettings.ContainsKey("UseSessionID") ? bool.Parse(Settings.UserSettings["UseSessionID"]) : false;
+            UseSession = Settings.UserSettings.ContainsKey("UseSessionID") ?
+                bool.Parse(Settings.UserSettings["UseSessionID"]) : false;
+            ForceRefresh = Settings.UserSettings.ContainsKey("ForceRefresh") ?
+                bool.Parse(Settings.UserSettings["ForceRefresh"]) : true;
 
             Email = Settings.UserSettings["AccountLogin"];
-            this.formChanged = string.IsNullOrEmpty(Settings.UserSettings["AccountPassword"]);
 
-            if (!this.formChanged)
+            if (!string.IsNullOrEmpty(Settings.UserSettings["AccountPassword"]))
                 this.view.txtPassword.Password = string.Empty.PadLeft(8); //For the visuals
 
-            this.view.txtPassword.PasswordChanged += new System.Windows.RoutedEventHandler(txtPassword_PasswordChanged);
+            this.view.txtPassword.PasswordChanged += new RoutedEventHandler(txtPassword_PasswordChanged);
+            PropertyChanged += loginWindow_PropertyChanged;
 
             characterInjector = new CharacterTabInjector();
 
@@ -100,6 +120,12 @@ namespace Procurement.ViewModel
         void txtPassword_PasswordChanged(object sender, System.Windows.RoutedEventArgs e)
         {
             this.formChanged = true;
+            this.passwordChanged = true;
+        }
+
+        void loginWindow_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            this.formChanged = true;
         }
 
         public void Login(bool offline)
@@ -108,7 +134,8 @@ namespace Procurement.ViewModel
 
             if (string.IsNullOrEmpty(Email))
             {
-                MessageBox.Show(string.Format("{0} is required!", useSession ? "Alias" : "Email"), "Error logging in", MessageBoxButton.OK, MessageBoxImage.Stop);
+                MessageBox.Show(string.Format("{0} is required!", useSession ? "Alias" : "Email"), "Error logging in",
+                    MessageBoxButton.OK, MessageBoxImage.Stop);
                 toggleControls();
                 return;
             }
@@ -126,7 +153,11 @@ namespace Procurement.ViewModel
 
             Task.Factory.StartNew(() =>
             {
-                SecureString password = formChanged ? this.view.txtPassword.SecurePassword : Settings.UserSettings["AccountPassword"].Decrypt();
+                // If offline == true, the password is never checked to know if it is correct, but if
+                // passwordChanged == true, the new value is saved to the settings file.  This might not be the
+                // behavior the user expects.
+                SecureString password = passwordChanged ? this.view.txtPassword.SecurePassword :
+                    Settings.UserSettings["AccountPassword"].Decrypt();
                 ApplicationState.Model.Authenticate(Email, password, offline, useSession);
 
                 if (formChanged)
@@ -137,7 +168,10 @@ namespace Procurement.ViewModel
                     statusController.DisplayMessage("Fetching account name...");
                     ApplicationState.AccountName = ApplicationState.Model.GetAccountName();
                     statusController.Ok();
-                    ApplicationState.Model.ForceRefresh();
+                    if (ForceRefresh)
+                    {
+                        ApplicationState.Model.ForceRefresh();
+                    }
                     statusController.DisplayMessage("Loading characters...");
                 }
                 else
@@ -177,13 +211,18 @@ namespace Procurement.ViewModel
                 ApplicationState.Model.ImageLoading -= model_ImageLoading;
                 ApplicationState.Model.Throttled -= model_Throttled;
                 OnLoginCompleted();
-            }).ContinueWith(t => { Logger.Log(t.Exception.InnerException.ToString()); statusController.HandleError(t.Exception.InnerException.Message, toggleControls); }, TaskContinuationOptions.OnlyOnFaulted);
+            }).ContinueWith(t =>
+            {
+                Logger.Log(t.Exception.InnerException.ToString());
+                statusController.HandleError(t.Exception.InnerException.Message, toggleControls);
+            }, TaskContinuationOptions.OnlyOnFaulted);
         }
 
         private IEnumerable<Item> LoadItems(bool offline, IEnumerable<Character> chars)
         {
             bool downloadOnlyMyLeagues = (Settings.UserSettings.ContainsKey("DownloadOnlyMyLeagues") &&
-                                          bool.TryParse(Settings.UserSettings["DownloadOnlyMyLeagues"], out downloadOnlyMyLeagues) &&
+                                          bool.TryParse(Settings.UserSettings["DownloadOnlyMyLeagues"],
+                                                        out downloadOnlyMyLeagues) &&
                                           downloadOnlyMyLeagues &&
                                           Settings.Lists.ContainsKey("MyLeagues") &&
                                           Settings.Lists["MyLeagues"].Count > 0);
@@ -195,7 +234,8 @@ namespace Procurement.ViewModel
 
                 if (character.Expired)
                 {
-                    statusController.DisplayMessage(Environment.NewLine + "Skipping character " + character.Name + " because the characters name has expired." + Environment.NewLine);
+                    statusController.DisplayMessage(Environment.NewLine + "Skipping character " + character.Name +
+                        " because the character's name has expired." + Environment.NewLine);
                     continue;
                 }
 
@@ -210,8 +250,8 @@ namespace Procurement.ViewModel
             }
 
             if (downloadOnlyMyLeagues && ApplicationState.Characters.Count == 0)
-                throw new Exception("No characters found in the leagues specified. Check spelling or try setting DownloadOnlyMyLeagues to false in settings.");
-
+                throw new Exception("No characters found in the leagues specified. Check spelling or try setting " +
+                    "DownloadOnlyMyLeagues to false in the Settings.xml file.");
 
             characterInjector.Inject();
         }
@@ -238,8 +278,10 @@ namespace Procurement.ViewModel
                 return;
 
             Settings.UserSettings["AccountLogin"] = Email;
-            Settings.UserSettings["AccountPassword"] = password.Encrypt();
             Settings.UserSettings["UseSessionID"] = useSession.ToString();
+            Settings.UserSettings["ForceRefresh"] = ForceRefresh.ToString();
+            if (passwordChanged)
+                Settings.UserSettings["AccountPassword"] = password.Encrypt();
             Settings.Save();
         }
 
@@ -257,7 +299,8 @@ namespace Procurement.ViewModel
                 return Enumerable.Empty<Item>();
 
             ApplicationState.CurrentLeague = character.League;
-            ApplicationState.Stash[character.League] = ApplicationState.Model.GetStash(character.League, ApplicationState.AccountName);
+            ApplicationState.Stash[character.League] = ApplicationState.Model.GetStash(character.League,
+                ApplicationState.AccountName);
             ApplicationState.Leagues.Add(character.League);
 
             return ApplicationState.Stash[character.League].Get<Item>();
