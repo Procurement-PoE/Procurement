@@ -27,6 +27,7 @@ namespace POEApi.Model
         private static XElement buyoutFile;
 
         public static Dictionary<GearType, List<string>> GearBaseTypes { get; private set; }
+        public static List<FatedUniqueInfo> FatedUniques { get; private set; }
 
         static Settings()
         {
@@ -112,16 +113,33 @@ namespace POEApi.Model
         private static void loadGearTypeData()
         {
             XElement dataDoc = XElement.Load(DATA_LOCATION);
+
             GearBaseTypes = new Dictionary<GearType, List<string>>();
+            if (dataDoc.Element("GearBaseTypes") != null)
+            {
+                GearBaseTypes = dataDoc.Element("GearBaseTypes")
+                    .Elements("GearBaseType")
+                    .ToDictionary(g => (GearType)Enum.Parse(typeof(GearType), g.Attribute("name").Value),
+                                  g => g.Elements("Item")
+                    .Select(e => e.Attribute("name").Value)
+                    .Distinct()
+                    .ToList());
+            }
 
-            if (dataDoc.Element("GearBaseTypes") == null)
-                return;
-
-            GearBaseTypes = dataDoc.Element("GearBaseTypes").Elements("GearBaseType")
-                                                            .ToDictionary(g => (GearType)Enum.Parse(typeof(GearType), g.Attribute("name").Value), g => g.Elements("Item")
-                                                            .Select(e => e.Attribute("name").Value)
-                                                            .Distinct()
-                                                            .ToList());
+            FatedUniques = new List<FatedUniqueInfo>();
+            if (dataDoc.Element("FatedUniques") != null)
+            {
+                FatedUniques = dataDoc.Element("FatedUniques")
+                    .Elements("FatedUnique")
+                    .Select(e => new FatedUniqueInfo
+                    {
+                        TargetItemName = e.Attribute("targetName")?.Value,
+                        FatedItemName = e.Attribute("fatedName")?.Value,
+                        BaseTypeName = e.Attribute("baseType")?.Value,
+                        ProphecyName = e.Attribute("prophecyName")?.Value,
+                    })
+                    .ToList();
+            }
         }
 
         private static double getChaosAmount(XElement orb)
