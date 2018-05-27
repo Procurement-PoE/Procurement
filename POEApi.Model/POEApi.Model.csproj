@@ -55,6 +55,7 @@
     <Compile Include="DivineVessel.cs" />
     <Compile Include="Essence.cs" />
     <Compile Include="EssenceType.cs" />
+    <Compile Include="FatedUniqueInfo.cs" />
     <Compile Include="FullBestiaryOrb.cs" />
     <Compile Include="GemHandler.cs" />
     <Compile Include="ItemTradeInfo.cs" />

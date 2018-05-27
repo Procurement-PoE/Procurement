@@ -170,6 +170,10 @@
     <Compile Include="ViewModel\Filters\ForumExport\ElderItemFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\EnchantModFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\EssenceFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\FatedUniqueBaseTypesFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\FatedUniquePropheciesFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\FatedUniquesFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\FatedUniqueTargetsFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\FullBestiaryOrbFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GearSearchFilters.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GemLevelFilter.cs" />
@@ -194,6 +198,10 @@
     <Compile Include="ViewModel\ForumExportVisitors\DivineVesselVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\ElderItemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\EssenceVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\FatedUniqueBaseTypeVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\FatedUniqueProphecyVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\FatedUniqueTargetVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\FatedUniqueVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\FullBestiaryOrbVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\MirroredItemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\OfferingVisitor.cs" />
