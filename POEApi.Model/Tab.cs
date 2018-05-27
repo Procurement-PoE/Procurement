@@ -10,6 +10,7 @@ namespace POEApi.Model
         DivinationCard,
         Essence,
         Quad,
+        Map,
 
         Unknown,
     }

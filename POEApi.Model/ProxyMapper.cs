@@ -215,7 +215,8 @@ namespace POEApi.Model
             {"CurrencyStash", TabType.Currency},
             {"DivinationCardStash", TabType.DivinationCard},
             {"EssenceStash", TabType.Essence},
-            {"QuadStash", TabType.Quad}
+            {"QuadStash", TabType.Quad},
+            {"MapStash", TabType.Map },
         };
 
         public static TabType GetTabType(string type)
