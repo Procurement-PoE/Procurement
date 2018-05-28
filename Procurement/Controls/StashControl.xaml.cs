@@ -43,7 +43,19 @@ namespace Procurement.Controls
 
             foreach (var item in Stash)
             {
-                var index = Tuple.Create<int, int>(item.X, item.Y);
+                Tuple<int, int> index;
+                if (tabType == TabType.DivinationCard)
+                {
+                    // Divination cards always have Y == 0, and X has a unique value for each type of card.  Map the
+                    // card's "real" location to a fake one on the grid, so it can be displayed.
+                    int remainder = 0;
+                    int row = Math.DivRem(item.X, QUAD_SPACING, out remainder);
+                    index = Tuple.Create<int, int>(remainder, row);
+                }
+                else
+                {
+                    index = Tuple.Create<int, int>(item.X, item.Y);
+                }
 
                 // Currency tab does not have the standard 12x12 grid
                 // so we have to check each column exists before attempting to access it
@@ -147,7 +159,9 @@ namespace Procurement.Controls
         {
             int columns = NORMAL_SPACING, rows = NORMAL_SPACING;
 
-            if (tabType == TabType.Quad)
+            // Force divination card tabs to use quad tab spacing so there is enough room to show all the different
+            // cards.  A normal tab only has 144 slots, but there are >200 divination cards.
+            if (tabType == TabType.Quad || tabType == TabType.DivinationCard)
             {
                 columns = QUAD_SPACING;
                 rows = QUAD_SPACING;
@@ -172,11 +186,15 @@ namespace Procurement.Controls
                     Grid childGrid = new Grid();
 
                     Tuple<int, int> currentKey = new Tuple<int, int>(i, j);
+                    // Divination cards always have Y == 0, and X has a unique value for each type of card.  Map the
+                    // card's "real" location to a fake one on the grid, so it can be displayed.
+                    Tuple<int, int> stashLocation = tabType == TabType.DivinationCard ?
+                        new Tuple<int, int>(j * columns + i, 0) : currentKey;
 
-                    if (!stashByLocation.ContainsKey(currentKey))
+                    if (!stashByLocation.ContainsKey(stashLocation))
                         continue;
 
-                    Item gearAtLocation = stashByLocation[currentKey];
+                    Item gearAtLocation = stashByLocation[stashLocation];
 
                     setBackround(childGrid, gearAtLocation);
                     //if (search(gearAtLocation))
@@ -203,7 +221,11 @@ namespace Procurement.Controls
 
         private UIElement getImage(Item item)
         {
-            return new ItemDisplay() { DataContext = new ItemDisplayViewModel(item), IsQuadStash = tabType == TabType.Quad };
+            return new ItemDisplay()
+            {
+                DataContext = new ItemDisplayViewModel(item),
+                IsQuadStash = tabType == TabType.Quad || tabType == TabType.DivinationCard,
+            };
         }
 
         void popup_LostMouseCapture(object sender, MouseEventArgs e)
