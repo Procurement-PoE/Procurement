@@ -215,18 +215,20 @@ namespace POEApi.Model
             {"CurrencyStash", TabType.Currency},
             {"DivinationCardStash", TabType.DivinationCard},
             {"EssenceStash", TabType.Essence},
-            {"QuadStash", TabType.Quad}
+            {"QuadStash", TabType.Quad},
+            {"MapStash", TabType.Map },
         };
 
         public static TabType GetTabType(string type)
         {
-            try
+            if (string.IsNullOrWhiteSpace(type) || !tabTypeMap.ContainsKey(type))
             {
-                return tabTypeMap.First(m => type.Contains(m.Key)).Value;
-            }
-            catch (Exception)
-            {
+                Logger.Log(string.Format("Found unknown stash tab type '{0}'.", type));
                 return TabType.Unknown;
+            }
+            else
+            {
+                return tabTypeMap[type];
             }
         }
 
