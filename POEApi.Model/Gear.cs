@@ -42,5 +42,30 @@ namespace POEApi.Model
         {
             return Sockets.Count();
         }
+
+        protected override Dictionary<string, string> DescriptiveNameComponents
+        {
+            get
+            {
+                // TODO: Reduce code duplication between this class's implementation and AbyssJewel's (they both
+                // have a "Rarity" property that works the same way, but do not inherit it from the same parent class).
+                var components = base.DescriptiveNameComponents;
+                if (Rarity != Rarity.Normal)
+                {
+                    if (!Identified)
+                    {
+                        components["name"] = string.Format("Unidentified {0} {1}", Rarity, TypeLine);
+                    }
+                    else if (this.Rarity != Rarity.Magic)
+                    {
+                        string quotedName = string.IsNullOrWhiteSpace(Name) ? string.Empty :
+                            string.Format("\"{0}\", ", Name);
+                        components["name"] = string.Format("{0}{1} {2}", quotedName, Rarity, TypeLine);
+                    }
+                }
+
+                return components;
+            }
+        }
     }
 }

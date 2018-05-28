@@ -110,5 +110,10 @@ namespace POEApi.TestHelpers.Builders
 
             return this;
         }
+
+        public JSONProxyItemBuilder WithQuality(int qualityAmount)
+        {
+            return this.WithProperty("Quality", "+" + qualityAmount, 1);
+        }
     }
 }

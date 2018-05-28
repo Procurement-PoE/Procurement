@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace POEApi.Model
@@ -22,6 +23,7 @@ namespace POEApi.Model
         Relic
     }
 
+    [DebuggerDisplay("{DebuggerDisplay,nq}")]
     public abstract class Item : ICloneable
     {
         public string Id { get; set; }
@@ -127,9 +129,55 @@ namespace POEApi.Model
             return Rarity.Normal;
         }
 
+        // TODO: Allow providing a format string in another function, so how an Item is presented can be customized.
+        //       Something similar to (but not as extreme as) the DateTime class' ToString() method.
+        // (See: https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings)
+        public virtual string DescriptiveName
+        {
+            get
+            {
+                return AssembleDescriptiveName();
+            }
+        }
+
+        protected virtual Dictionary<string, string> DescriptiveNameComponents
+        {
+            get
+            {
+                // TODO: Use a persistent Dictionary that we do not need to recreate for every call.  But this would
+                // require reworking the class in multiple places and in the (applicable) getters, so it would not be
+                // trivial.  Could make the recreation "lazy", however, by just setting a "dirty" flag in the property
+                // setters, and recreating the Dictionary if the data is dirty.
+                return new Dictionary<string, string>
+                {
+                    { "quality", IsQuality ? string.Format("+{0}% Quality", Quality) : null },
+                    { "iLevel",  ItemLevel > 0 ? string.Format("i{0}", ItemLevel) : null },
+                    { "name", TypeLine },
+                };
+            }
+        }
+
+        protected virtual string AssembleDescriptiveName()
+        {
+            var parts = DescriptiveNameComponents;
+            var orderedParts = new List<string>
+            {
+                parts["name"], parts["quality"], parts["iLevel"]
+            }.Where(i => !string.IsNullOrWhiteSpace(i));
+            return string.Join(", ", orderedParts);
+        }
+
         public object Clone()
         {
             return this.MemberwiseClone();
+        }
+
+        private string DebuggerDisplay
+        {
+            get
+            {
+                return AssembleDescriptiveName();
+            }
         }
     }
 }
