@@ -107,6 +107,7 @@
     <Compile Include="Controls\FragmentStash.xaml.cs">
       <DependentUpon>FragmentStash.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FragmentStashViewModel.cs" />
     <Compile Include="ViewModel\EssenceStashViewModel.cs" />
     <Compile Include="ViewModel\CurrencyStashViewModel.cs" />
     <Compile Include="Interfaces\IStashControl.cs" />
