@@ -306,7 +306,7 @@ namespace Procurement.ViewModel
                 switch (currentTab.Type)
                 {
                     case TabType.Currency:
-                        var currencyStash = new CurencyStash(currentTab.i, getUserFilter(string.Empty));
+                        var currencyStash = new CurrencyStash(currentTab.i, getUserFilter(string.Empty));
 
                         item.Content = currencyStash;
 
@@ -322,6 +322,16 @@ namespace Procurement.ViewModel
                         addContextMenu(item, essenceStash);
 
                         tabsAndContent.Add(new TabContent(i - 1, item, essenceStash));
+                        break;
+
+                    case TabType.Fragment:
+                        var fragmentStash = new FragmentStash(currentTab.i, getUserFilter(string.Empty));
+
+                        item.Content = fragmentStash;
+
+                        addContextMenu(item, fragmentStash);
+
+                        tabsAndContent.Add(new TabContent(i - 1, item, fragmentStash));
                         break;
                     default:
                         var itemStash = new StashControl();
