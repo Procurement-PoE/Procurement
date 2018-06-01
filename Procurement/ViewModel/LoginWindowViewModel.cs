@@ -112,7 +112,7 @@ namespace Procurement.ViewModel
             ApplicationState.InitializeFont(Properties.Resources.fontin_regular_webfont);
             ApplicationState.InitializeFont(Properties.Resources.fontin_smallcaps_webfont);
 
-            statusController.DisplayMessage(ApplicationState.Version + " Initialized.\r");
+            statusController.DisplayMessage($"WTF is {ApplicationState.Version} Initialized. RIP TotalBiscuit.\r");
 
             VersionChecker.CheckForUpdates();
         }
