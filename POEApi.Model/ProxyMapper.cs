@@ -86,6 +86,7 @@ namespace POEApi.Model
             {"Thaumaturgical Net", OrbType.ThaumaturgicalNet},
             {"Necromancy Net", OrbType.NecromancyNet},
             {"Pantheon Soul", OrbType.PantheonSoul},
+            {"Incursion Vial", OrbType.IncursionVial},
         };
 
         #endregion
@@ -262,6 +263,10 @@ namespace POEApi.Model
             if (name.StartsWith("Captured Soul of ", StringComparison.CurrentCultureIgnoreCase))
             {
                 name = "Pantheon Soul";
+            }
+            else if (name.StartsWith("Vial of ", StringComparison.CurrentCultureIgnoreCase))
+            {
+                name = "Incursion Vial";
             }
 
             if (orbMap.ContainsKey(name))
