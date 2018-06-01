@@ -7,14 +7,14 @@ using Procurement.ViewModel.Filters;
 namespace Procurement.Controls
 {
     /// <summary>
-    ///     Interaction logic for CurencyStash.xaml
+    ///     Interaction logic for CurrencyStash.xaml
     /// </summary>
-    public partial class CurencyStash : UserControl, IStashControl
+    public partial class CurrencyStash : UserControl, IStashControl
     {
         private List<IFilter> list;
         public CurrencyStashViewModel viewModel;
 
-        public CurencyStash(int tabNumber)
+        public CurrencyStash(int tabNumber)
         {
             TabNumber = tabNumber;
 
@@ -27,7 +27,7 @@ namespace Procurement.Controls
             InitializeComponent();
         }
 
-        public CurencyStash(int tabNumber, List<IFilter> list) : this(tabNumber)
+        public CurrencyStash(int tabNumber, List<IFilter> list) : this(tabNumber)
         {
             this.list = list;
         }
