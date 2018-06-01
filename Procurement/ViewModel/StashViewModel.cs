@@ -157,10 +157,12 @@ namespace Procurement.ViewModel
             refreshCommand = new DelegateCommand(x =>
             {
                 ScreenController.Instance.LoadRefreshView();
+                ScreenController.Instance.InvalidateRecipeScreen();
             });
             refreshUsedCommand = new DelegateCommand(x =>
             {
                 ScreenController.Instance.LoadRefreshViewUsed();
+                ScreenController.Instance.InvalidateRecipeScreen();
             });
 
             categoryFilter = new List<IFilter>();
