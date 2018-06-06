@@ -12,6 +12,10 @@ namespace Procurement.ViewModel.Recipes
             : base(60)
         { }
 
+        public SameBaseTypeRecipe(decimal minimumMatchPercentage)
+            : base(minimumMatchPercentage)
+        { }
+
         public override string Name
         {
             get { return "1 Orb of Augmentation - Same base type with normal, magic, rare"; }
