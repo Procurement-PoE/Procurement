@@ -61,14 +61,19 @@ namespace Procurement.ViewModel.Recipes
                                                                     .GroupBy(g => g.BaseType)
                                                                     .ToDictionary(g => g.Key.ToString(), g => g.ToList());
 
-            Func<Gear, bool> emptyConstraint = g => true;
             Func<Gear, bool> qualityConstraint = g => g.Quality == 20;
+            Func<Gear, bool> identifiedConstraint = g => g.Identified || g.Rarity == Rarity.Normal;
             Func<Gear, bool> unidentifiedConstraint = g => !g.Identified || g.Rarity == Rarity.Normal;
             Func<Gear, bool> qualityAndUnidentifiedConstraint = g => qualityConstraint(g) && unidentifiedConstraint(g);
+
+            Func<Gear, bool> qualityAndIdentifiedConstraint = g => qualityConstraint(g) && identifiedConstraint(g);
+            Func<Gear, bool> notQualityAndUnidentifiedConstraint = g => !qualityConstraint(g) && unidentifiedConstraint(g);
+            Func<Gear, bool> neitherConstraint = g => !qualityConstraint(g) && identifiedConstraint(g);
             IEnumerable<RecipeResult> allResults = new List<RecipeResult>();
 
             foreach (var constraint in new List<Func<Gear, bool>>() {
-                qualityAndUnidentifiedConstraint, qualityConstraint, unidentifiedConstraint, emptyConstraint })
+                qualityAndUnidentifiedConstraint, qualityAndIdentifiedConstraint, notQualityAndUnidentifiedConstraint,
+                neitherConstraint })
             {
                 allResults = allResults.Concat(getNextResult(baseTypeBuckets, constraint));
             }
