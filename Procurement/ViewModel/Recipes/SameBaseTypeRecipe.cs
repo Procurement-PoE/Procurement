@@ -51,8 +51,11 @@ namespace Procurement.ViewModel.Recipes
 
         public override IEnumerable<RecipeResult> Matches(IEnumerable<POEApi.Model.Item> items)
         {
+            List<GearType> invalidGearType = new List<GearType> { GearType.Flask, GearType.QuestItem,
+                GearType.DivinationCard, GearType.Talisman, GearType.Breachstone, GearType.Leaguestone };
+
             List<Gear> allGear = items.OfType<Gear>()
-                                      .Where(g => g.GearType != GearType.Flask)
+                                      .Where(g => !invalidGearType.Contains(g.GearType))
                                       .ToList();
             Dictionary<string, List<Gear>> baseTypeBuckets = allGear.Where(g => !string.IsNullOrWhiteSpace(g.BaseType))
                                                                     .GroupBy(g => g.BaseType)
