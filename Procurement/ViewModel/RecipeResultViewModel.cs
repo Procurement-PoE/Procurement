@@ -52,7 +52,8 @@ namespace Procurement.ViewModel
         {
             SelectedItem = item;
         }
-        private void updateResults()
+
+        Dictionary<Tab, List<Item>> GetUsableCurrentLeagueItemsByTab()
         {
             Dictionary<Tab, List<Item>> itemsByTab = new Dictionary<Tab, List<Item>>();
             Stash stash = ApplicationState.Stash[ApplicationState.CurrentLeague];
@@ -63,6 +64,12 @@ namespace Procurement.ViewModel
                 itemsByTab.Add(tab, stash.GetItemsByTab(tab.i));
             }
 
+            return itemsByTab;
+        }
+
+        private void updateResults()
+        {
+            Dictionary<Tab, List<Item>> itemsByTab = GetUsableCurrentLeagueItemsByTab();
             Results = manager.Run(itemsByTab);
             if (Results.Count > 0)
                 SelectedItem = Results.Values.First().First().MatchedItems[0];
