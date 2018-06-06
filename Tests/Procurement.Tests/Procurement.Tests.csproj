@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewModel\Recipes\RareSetRecipeTests.cs" />
+    <Compile Include="ViewModel\Recipes\SameBaseTypeRecipeTests.cs" />
     <Compile Include="ViewModel\Recipes\SameNameRecipeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -6,7 +6,7 @@ using POEApi.Model;
 
 namespace Procurement.ViewModel.Recipes
 {
-    class SameBaseTypeRecipe : Recipe
+    public class SameBaseTypeRecipe : Recipe
     {
         public SameBaseTypeRecipe()
             : base(60)
