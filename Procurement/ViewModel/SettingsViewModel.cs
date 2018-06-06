@@ -205,13 +205,13 @@ namespace Procurement.ViewModel
         internal void RecipeTabChecked(string tabName)
         {
             addToList("IgnoreTabsInRecipes", tabName);
-            ScreenController.Instance.InvalidateRecipeScreen();
+            ScreenController.Instance.RefreshRecipeScreen();
         }
 
         internal void RecipeTabUnchecked(string tabName)
         {
             removeFromList("IgnoreTabsInRecipes", tabName);
-            ScreenController.Instance.InvalidateRecipeScreen();
+            ScreenController.Instance.RefreshRecipeScreen();
         }
 
         private static void addToList(string list, string value)
