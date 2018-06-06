@@ -52,7 +52,13 @@ namespace Procurement.ViewModel
 
         public void UpdateTrading()
         {
-            screens[TRADING_VIEW] = new TradingView();
+            Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                new Action(() =>
+                {
+                    // TODO: As with updating the RecipeView, can we just update the trading view instead of recreating
+                    // it?
+                    screens[TRADING_VIEW] = new TradingView();
+                }));
         }
 
         private void execute(object obj)
@@ -86,6 +92,18 @@ namespace Procurement.ViewModel
         public void InvalidateRecipeScreen()
         {
             screens[RECIPE_VIEW] = null;
+        }
+
+        public void RefreshRecipeScreen()
+        {
+            Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                new Action(() =>
+                {
+                    // TODO: Cause the RecipeResultsViewModel in the RecipeView to refresh its recipes, instead of
+                    // recreating the RecipeView object.  This could perhaps be done by triggering an event, or
+                    // reaching into the view/viewmodel and calling it directly (but that's probably very bad form).
+                    screens[RECIPE_VIEW] = new RecipeView();
+                }));
         }
 
         private void initLogin()

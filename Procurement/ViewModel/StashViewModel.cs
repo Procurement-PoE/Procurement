@@ -415,7 +415,7 @@ namespace Procurement.ViewModel
         {                      
             IStashControl stash = getStash(sender);
             stash.RefreshTab(ApplicationState.AccountName);
-            ScreenController.Instance.InvalidateRecipeScreen();
+            ScreenController.Instance.RefreshRecipeScreen();
             ScreenController.Instance.UpdateTrading();
         }
 
