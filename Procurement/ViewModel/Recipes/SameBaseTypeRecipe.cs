@@ -8,13 +8,24 @@ namespace Procurement.ViewModel.Recipes
 {
     public class SameBaseTypeRecipe : Recipe
     {
-        public SameBaseTypeRecipe()
-            : base(60)
-        { }
+        private bool _strictConditionChecking;
+        public bool StrictConditionChecking
+        {
+            get
+            {
+                return _strictConditionChecking;
+            }
+            protected set
+            {
+                _strictConditionChecking = value;
+            }
+        }
 
-        public SameBaseTypeRecipe(decimal minimumMatchPercentage)
+        public SameBaseTypeRecipe(decimal minimumMatchPercentage = 60, bool strictRecipeChecking = true)
             : base(minimumMatchPercentage)
-        { }
+        {
+            StrictConditionChecking = strictRecipeChecking;
+        }
 
         public override string Name
         {
@@ -61,6 +72,7 @@ namespace Procurement.ViewModel.Recipes
                                                                     .GroupBy(g => g.BaseType)
                                                                     .ToDictionary(g => g.Key.ToString(), g => g.ToList());
 
+            Func<Gear, bool> emptyConstraint = g => true;
             Func<Gear, bool> qualityConstraint = g => g.Quality == 20;
             Func<Gear, bool> identifiedConstraint = g => g.Identified || g.Rarity == Rarity.Normal;
             Func<Gear, bool> unidentifiedConstraint = g => !g.Identified || g.Rarity == Rarity.Normal;
@@ -69,11 +81,34 @@ namespace Procurement.ViewModel.Recipes
             Func<Gear, bool> qualityAndIdentifiedConstraint = g => qualityConstraint(g) && identifiedConstraint(g);
             Func<Gear, bool> notQualityAndUnidentifiedConstraint = g => !qualityConstraint(g) && unidentifiedConstraint(g);
             Func<Gear, bool> neitherConstraint = g => !qualityConstraint(g) && identifiedConstraint(g);
-            IEnumerable<RecipeResult> allResults = new List<RecipeResult>();
 
-            foreach (var constraint in new List<Func<Gear, bool>>() {
-                qualityAndUnidentifiedConstraint, qualityAndIdentifiedConstraint, notQualityAndUnidentifiedConstraint,
-                neitherConstraint })
+            List<Func<Gear, bool>> variantConstraints;
+            if (StrictConditionChecking)
+            {
+                // Only include items which do not meet more specific requirements.  For example, do not include items
+                // with 20% quality in recipe variants which do not require 20% quality.
+                variantConstraints = new List<Func<Gear, bool>>()
+                {
+                    qualityAndUnidentifiedConstraint, qualityAndIdentifiedConstraint,
+                    notQualityAndUnidentifiedConstraint, neitherConstraint
+                };
+            }
+            else
+            {
+                variantConstraints = new List<Func<Gear, bool>>()
+                {
+                    qualityAndUnidentifiedConstraint, qualityConstraint, unidentifiedConstraint, emptyConstraint
+                };
+            }
+
+            // Since we check for both complete and partial matches for a variant before moving on to the next, less
+            // valuable variant, we might not find complete but less valuable matches, when there is a partial but more
+            // valuable match that uses those items.  We could introduce another option to first check each variant for
+            // complete matches, and then check each variant for partial matches, to favor quantity of matches over
+            // quality of matches.
+
+            IEnumerable<RecipeResult> allResults = new List<RecipeResult>();
+            foreach (var constraint in variantConstraints)
             {
                 allResults = allResults.Concat(getNextResult(baseTypeBuckets, constraint));
             }
