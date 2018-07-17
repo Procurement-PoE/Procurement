@@ -49,6 +49,8 @@ namespace Procurement.Controls
         public ItemDisplayViewModel UulNetolBlessing => new ItemDisplayViewModel(_stash.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.UulNetol));
         public ItemDisplayViewModel XophBlessing => new ItemDisplayViewModel(_stash.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.Xoph));
 
+        public ItemDisplayViewModel Offering => new ItemDisplayViewModel(_stash.OfType<Offering>().FirstOrDefault());
+
 
         private ItemDisplayViewModel GetItemCalled(string name)
         {

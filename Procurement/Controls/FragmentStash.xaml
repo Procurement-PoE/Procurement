@@ -13,12 +13,12 @@
             <Setter Property="Height" Value="40" />
         </Style>
     </UserControl.Resources>
-    <Canvas>
+    <Canvas Margin="0,-8,0,8">
         <Canvas.Background>
             <ImageBrush ImageSource="/Images/fragmentTab.png" />
         </Canvas.Background>
 
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="104" Canvas.Top="91"
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="106" Canvas.Top="90"
                            DataContext="{Binding Dusk}" />
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="168" Canvas.Top="151"
                            DataContext="{Binding Dawn}" />
@@ -56,16 +56,16 @@
                            DataContext="{Binding Minotaur}" />
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="441" Canvas.Top="463"
                            DataContext="{Binding Chimera}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="149" Canvas.Top="305"
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="149" Canvas.Top="307"
                            DataContext="{Binding Chayula}" />
 
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="211" Canvas.Top="305"
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="211" Canvas.Top="307"
                            DataContext="{Binding Esh}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="305"
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="307"
                            DataContext="{Binding Tul}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="339" Canvas.Top="305"
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="339" Canvas.Top="307"
                            DataContext="{Binding UulNetol}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="399" Canvas.Top="305"
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="402" Canvas.Top="307"
                            DataContext="{Binding Xoph}" />
 
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="211" Canvas.Top="243"
@@ -74,12 +74,14 @@
                            DataContext="{Binding TulBlessing}" />
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="339" Canvas.Top="243"
                            DataContext="{Binding UulNetolBlessing}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="399" Canvas.Top="243"
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="402" Canvas.Top="243"
                            DataContext="{Binding XophBlessing}" />
 
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="149" Canvas.Top="243"
                            DataContext="{Binding ChayulaBlessing}" />
-        
-        <!--Todo: Add the solo one that is in the middle there....-->
+
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="431"
+                           DataContext="{Binding Offering}" />
+
     </Canvas>
 </UserControl>
