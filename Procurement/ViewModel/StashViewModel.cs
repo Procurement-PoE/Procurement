@@ -157,10 +157,12 @@ namespace Procurement.ViewModel
             refreshCommand = new DelegateCommand(x =>
             {
                 ScreenController.Instance.LoadRefreshView();
+                ScreenController.Instance.InvalidateRecipeScreen();
             });
             refreshUsedCommand = new DelegateCommand(x =>
             {
                 ScreenController.Instance.LoadRefreshViewUsed();
+                ScreenController.Instance.InvalidateRecipeScreen();
             });
 
             categoryFilter = new List<IFilter>();
@@ -423,7 +425,7 @@ namespace Procurement.ViewModel
         {                      
             IStashControl stash = getStash(sender);
             stash.RefreshTab(ApplicationState.AccountName);
-            ScreenController.Instance.InvalidateRecipeScreen();
+            ScreenController.Instance.RefreshRecipeScreen();
             ScreenController.Instance.UpdateTrading();
         }
 

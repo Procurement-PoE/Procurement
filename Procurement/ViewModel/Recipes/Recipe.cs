@@ -28,5 +28,15 @@ namespace Procurement.ViewModel.Recipes
         }
 
         public abstract IEnumerable<RecipeResult> Matches(IEnumerable<Item> items);
+
+        public virtual IEnumerable<RecipeResult> Matches(IDictionary<Tab, List<Item>> items)
+        {
+            List<Item> flatItems = new List<Item>();
+            foreach (var tab in items)
+            {
+                flatItems.AddRange(tab.Value);
+            }
+            return Matches(flatItems);
+        }
     }
 }

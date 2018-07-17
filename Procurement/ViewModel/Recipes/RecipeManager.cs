@@ -32,7 +32,7 @@ namespace Procurement.ViewModel.Recipes
             };
         }
 
-        public Dictionary<string, List<RecipeResult>> Run(IEnumerable<Item> items)
+        public Dictionary<string, List<RecipeResult>> Run(IDictionary<Tab, List<Item>> items)
         {
             return known.SelectMany(recipe => recipe.Matches(items))
                         .GroupBy(r => r.Name)

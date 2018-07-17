@@ -65,6 +65,7 @@
         ThaumaturgicalNet,
         NecromancyNet,
         PantheonSoul,
+        IncursionVial,
 
         //Must always be last
         Unknown

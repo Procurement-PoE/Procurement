@@ -182,6 +182,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\GearSearchFilters.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GemLevelFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\IncreasedDamageFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\IncursionVialsFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\LeagestoneFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\LifeLeech.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ManaLeechFilter.cs" />
@@ -207,6 +208,7 @@
     <Compile Include="ViewModel\ForumExportVisitors\FatedUniqueTargetVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\FatedUniqueVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\FullBestiaryOrbVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\IncursionVialVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\MirroredItemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\OfferingVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\ProphecyVisitor.cs" />

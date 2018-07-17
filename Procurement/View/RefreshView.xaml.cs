@@ -64,6 +64,8 @@ namespace Procurement.View
                 finally
                 {
                     ScreenController.Instance.ReloadStash();
+                    ScreenController.Instance.RefreshRecipeScreen();
+                    ScreenController.Instance.UpdateTrading();
                 }
             });
         }
