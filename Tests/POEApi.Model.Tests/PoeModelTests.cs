@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using POEApi.Transport;
+using Procurement.Controls;
 using static POEApi.Model.Tests.UnitTestHelper;
 
 namespace POEApi.Model.Tests
@@ -202,6 +203,36 @@ namespace POEApi.Model.Tests
                 Assert.AreEqual(1, items.OfType<Currency>().Count(x => x.Type == OrbType.EngineersOrb));
                 Assert.AreEqual(1, items.OfType<Currency>().Count(x => x.Type == OrbType.BindingOrb));
                 Assert.AreEqual(1, items.OfType<Currency>().Count(x => x.Type == OrbType.BindingShard));
+            }
+        }
+
+        [TestMethod]
+        public void GetFragmentStashTest()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleFragmentStash);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+
+                Assert.AreEqual(1, stash.Tabs.Count);
+
+                var items = stash.GetItemsByTab(12);
+
+                
+                var viewModel = new FragmentStashViewModel(items); 
+
+                Assert.AreEqual(4, viewModel.ChayulaSplinter.Item.StackSize);
+                Assert.AreEqual(6, viewModel.Offering.Item.StackSize);
+                Assert.AreEqual(11, viewModel.Dawn.Item.StackSize);
+                Assert.AreEqual(8, viewModel.TulSplinter.Item.StackSize);
+                Assert.AreEqual(11, viewModel.XophSplinter.Item.StackSize);
+                Assert.AreEqual(17, viewModel.EshSplinter.Item.StackSize);
+                Assert.AreEqual(4, viewModel.ChayulaSplinter.Item.StackSize);
+                Assert.AreEqual(1, viewModel.DivineVessel.Item.StackSize);
             }
         }
 
