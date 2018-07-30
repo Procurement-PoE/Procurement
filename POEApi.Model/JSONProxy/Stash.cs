@@ -57,6 +57,8 @@ namespace POEApi.Model.JSONProxy
         public List<Requirement> Requirements { get; set; }
         public List<Requirement> NextLevelRequirements { get; set; }
         public int Socket { get; set; }
+        public int StackSize { get; set; }
+        public int MaxStackSize { get; set; }
         public string Colour { get; set; }
         public bool Corrupted { get; set; }
         public bool AbyssJewel { get; set; }
