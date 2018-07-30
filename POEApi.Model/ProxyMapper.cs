@@ -218,7 +218,7 @@ namespace POEApi.Model
             {"EssenceStash", TabType.Essence},
             {"QuadStash", TabType.Quad},
             {"MapStash", TabType.Map },
-            {"FragmentStash", TabType.Fragment }
+            {"FragmentStash", TabType.Fragment },
         };
 
         public static TabType GetTabType(string type)

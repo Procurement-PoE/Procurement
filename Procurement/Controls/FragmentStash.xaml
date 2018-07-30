@@ -36,7 +36,7 @@
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="441" Canvas.Top="151"
                            DataContext="{Binding Hope}" />
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="91"
-                           DataContext="{Binding Divine}" Height="94" />
+                           DataContext="{Binding DivineVessel}" Height="94" />
 
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="104" Canvas.Top="400"
                            DataContext="{Binding Volkuur}" />
@@ -47,27 +47,28 @@
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="168" Canvas.Top="463"
                            DataContext="{Binding Yriel}" />
 
-
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="379" Canvas.Top="400"
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="381" Canvas.Top="400"
                            DataContext="{Binding Hydra}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="441" Canvas.Top="400"
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="444" Canvas.Top="400"
                            DataContext="{Binding Phoenix}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="379" Canvas.Top="463"
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="381" Canvas.Top="461"
                            DataContext="{Binding Minotaur}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="441" Canvas.Top="463"
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="444" Canvas.Top="461"
                            DataContext="{Binding Chimera}" />
+
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="149" Canvas.Top="307"
-                           DataContext="{Binding Chayula}" />
-
+                           DataContext="{Binding ChayulaSplinter}" />
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="211" Canvas.Top="307"
-                           DataContext="{Binding Esh}" />
+                           DataContext="{Binding EshSplinter}" />
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="307"
-                           DataContext="{Binding Tul}" />
+                           DataContext="{Binding TulSplinter}" />
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="339" Canvas.Top="307"
-                           DataContext="{Binding UulNetol}" />
+                           DataContext="{Binding UulNetolSplinter}" />
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="402" Canvas.Top="307"
-                           DataContext="{Binding Xoph}" />
+                           DataContext="{Binding XophSplinter}" />
 
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="149" Canvas.Top="243"
+                           DataContext="{Binding ChayulaBlessing}" />
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="211" Canvas.Top="243"
                            DataContext="{Binding EshBlessing}" />
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="243"
@@ -77,11 +78,7 @@
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="402" Canvas.Top="243"
                            DataContext="{Binding XophBlessing}" />
 
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="149" Canvas.Top="243"
-                           DataContext="{Binding ChayulaBlessing}" />
-
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="431"
                            DataContext="{Binding Offering}" />
-
     </Canvas>
 </UserControl>
