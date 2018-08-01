@@ -61,8 +61,8 @@ namespace POEApi.Model
         public int ItemLevel { get; set; }
         public bool Shaper { get; set; }
         public bool Elder { get; set; }
-        public int MaxStackSize { get; set; }
         public int StackSize { get; set; }
+        public int MaxStackSize { get; set; }
 
         protected Item(JSONProxy.Item item)
         {

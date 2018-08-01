@@ -325,7 +325,6 @@ namespace Procurement.ViewModel
 
                         tabsAndContent.Add(new TabContent(i - 1, item, essenceStash));
                         break;
-
                     case TabType.Fragment:
                         var fragmentStash = new FragmentStash(currentTab.i, getUserFilter(string.Empty));
 

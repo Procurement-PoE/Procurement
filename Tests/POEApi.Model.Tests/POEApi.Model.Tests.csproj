@@ -85,7 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Resources\FragmentStash.json" />
     <None Include="TestData\SampleFragmentStash.json" />
     <None Include="TestData\SampleCharacterExpiredName.json" />
     <None Include="TestData\SampleCurrencyTabWithShards.json" />

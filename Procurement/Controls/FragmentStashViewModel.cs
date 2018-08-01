@@ -54,7 +54,7 @@ namespace Procurement.Controls
 
         private ItemDisplayViewModel GetItemCalled(string name)
         {
-            var item = _stash.FirstOrDefault(x => x.DescriptiveName.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+            var item = _stash.FirstOrDefault(x => x.TypeLine.Equals(name, StringComparison.CurrentCultureIgnoreCase));
 
             return new ItemDisplayViewModel(item);
         }

@@ -221,7 +221,6 @@ namespace POEApi.Model.Tests
                 Assert.AreEqual(1, stash.Tabs.Count);
 
                 var items = stash.GetItemsByTab(12);
-
                 
                 var viewModel = new FragmentStashViewModel(items); 
 
