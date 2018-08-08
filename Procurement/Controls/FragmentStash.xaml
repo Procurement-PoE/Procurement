@@ -13,7 +13,7 @@
             <Setter Property="Height" Value="40" />
         </Style>
     </UserControl.Resources>
-    <Canvas Margin="0,-8,0,8">
+    <Canvas>
         <Canvas.Background>
             <ImageBrush ImageSource="/Images/fragmentTab.png" />
         </Canvas.Background>
