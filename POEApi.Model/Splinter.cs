@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using POEApi.Model.Interfaces;
 
 namespace POEApi.Model
 {
-    public class Splinter : StackableItem
+    public class Splinter : StackableItem, IBreachLeague
     {
         public BreachType Type { get; set; }
 

@@ -58,6 +58,7 @@
     <Compile Include="FatedUniqueInfo.cs" />
     <Compile Include="FullBestiaryOrb.cs" />
     <Compile Include="GemHandler.cs" />
+    <Compile Include="Interfaces\IBreachLeague.cs" />
     <Compile Include="ItemTradeInfo.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Currency.cs" />

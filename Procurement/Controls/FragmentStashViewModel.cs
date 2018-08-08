@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using POEApi.Model;
+using POEApi.Model.Interfaces;
 using Procurement.ViewModel;
+using Procurement.ViewModel.Recipes;
 
 namespace Procurement.Controls
 {
@@ -37,19 +39,24 @@ namespace Procurement.Controls
 
         public ItemDisplayViewModel DivineVessel => GetItemCalled("Divine Vessel");
 
-        public ItemDisplayViewModel ChayulaSplinter => new ItemDisplayViewModel(_items.OfType<Splinter>().FirstOrDefault(x => x.Type == BreachType.Chayula));
-        public ItemDisplayViewModel EshSplinter => new ItemDisplayViewModel(_items.OfType<Splinter>().FirstOrDefault(x => x.Type == BreachType.Esh));
-        public ItemDisplayViewModel TulSplinter => new ItemDisplayViewModel(_items.OfType<Splinter>().FirstOrDefault(x => x.Type == BreachType.Tul));
-        public ItemDisplayViewModel UulNetolSplinter => new ItemDisplayViewModel(_items.OfType<Splinter>().FirstOrDefault(x => x.Type == BreachType.UulNetol));
-        public ItemDisplayViewModel XophSplinter => new ItemDisplayViewModel(_items.OfType<Splinter>().FirstOrDefault(x => x.Type == BreachType.Xoph));
+        public ItemDisplayViewModel ChayulaSplinter => new ItemDisplayViewModel(GetBreach<Splinter>(BreachType.Chayula));
+        public ItemDisplayViewModel EshSplinter => new ItemDisplayViewModel(GetBreach<Splinter>(BreachType.Esh));
+        public ItemDisplayViewModel TulSplinter => new ItemDisplayViewModel(GetBreach<Splinter>(BreachType.Tul));
+        public ItemDisplayViewModel UulNetolSplinter => new ItemDisplayViewModel(GetBreach<Splinter>(BreachType.UulNetol));
+        public ItemDisplayViewModel XophSplinter => new ItemDisplayViewModel(GetBreach<Splinter>(BreachType.Xoph));
 
-        public ItemDisplayViewModel ChayulaBlessing => new ItemDisplayViewModel(_items.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.Chayula));
-        public ItemDisplayViewModel EshBlessing => new ItemDisplayViewModel(_items.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.Esh));
-        public ItemDisplayViewModel TulBlessing => new ItemDisplayViewModel(_items.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.Tul));
-        public ItemDisplayViewModel UulNetolBlessing => new ItemDisplayViewModel(_items.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.UulNetol));
-        public ItemDisplayViewModel XophBlessing => new ItemDisplayViewModel(_items.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.Xoph));
+        public ItemDisplayViewModel ChayulaBlessing => new ItemDisplayViewModel(GetBreach<BreachBlessing>(BreachType.Chayula));
+        public ItemDisplayViewModel EshBlessing => new ItemDisplayViewModel(GetBreach<BreachBlessing>(BreachType.Esh));
+        public ItemDisplayViewModel TulBlessing => new ItemDisplayViewModel(GetBreach<BreachBlessing>(BreachType.Tul));
+        public ItemDisplayViewModel UulNetolBlessing => new ItemDisplayViewModel(GetBreach<BreachBlessing>(BreachType.UulNetol));
+        public ItemDisplayViewModel XophBlessing => new ItemDisplayViewModel(GetBreach<BreachBlessing>(BreachType.Xoph));
 
         public ItemDisplayViewModel Offering => new ItemDisplayViewModel(_items.OfType<Offering>().FirstOrDefault());
+
+        private T GetBreach<T>(BreachType breachType) where T : IBreachLeague
+        {
+            return _items.OfType<T>().FirstOrDefault(x => x.Type == breachType);
+        }
 
         private ItemDisplayViewModel GetItemCalled(string name)
         {
