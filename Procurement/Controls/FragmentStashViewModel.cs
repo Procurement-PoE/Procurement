@@ -51,7 +51,6 @@ namespace Procurement.Controls
 
         public ItemDisplayViewModel Offering => new ItemDisplayViewModel(_items.OfType<Offering>().FirstOrDefault());
 
-
         private ItemDisplayViewModel GetItemCalled(string name)
         {
             var item = _items.FirstOrDefault(x => x.TypeLine.Equals(name, StringComparison.CurrentCultureIgnoreCase));
