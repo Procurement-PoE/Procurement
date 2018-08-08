@@ -8,11 +8,11 @@ namespace Procurement.Controls
 {
     public class FragmentStashViewModel
     {
-        private readonly List<Item> _stash;
+        private readonly List<Item> _items;
 
-        public FragmentStashViewModel(List<Item> stash)
+        public FragmentStashViewModel(List<Item> items)
         {
-            _stash = stash;
+            _items = items;
         }
 
         public ItemDisplayViewModel Dawn => GetItemCalled("Sacrifice at Dawn");
@@ -37,24 +37,24 @@ namespace Procurement.Controls
 
         public ItemDisplayViewModel DivineVessel => GetItemCalled("Divine Vessel");
 
-        public ItemDisplayViewModel ChayulaSplinter => new ItemDisplayViewModel(_stash.OfType<Splinter>().FirstOrDefault(x => x.Type == BreachType.Chayula));
-        public ItemDisplayViewModel EshSplinter => new ItemDisplayViewModel(_stash.OfType<Splinter>().FirstOrDefault(x => x.Type == BreachType.Esh));
-        public ItemDisplayViewModel TulSplinter => new ItemDisplayViewModel(_stash.OfType<Splinter>().FirstOrDefault(x => x.Type == BreachType.Tul));
-        public ItemDisplayViewModel UulNetolSplinter => new ItemDisplayViewModel(_stash.OfType<Splinter>().FirstOrDefault(x => x.Type == BreachType.UulNetol));
-        public ItemDisplayViewModel XophSplinter => new ItemDisplayViewModel(_stash.OfType<Splinter>().FirstOrDefault(x => x.Type == BreachType.Xoph));
+        public ItemDisplayViewModel ChayulaSplinter => new ItemDisplayViewModel(_items.OfType<Splinter>().FirstOrDefault(x => x.Type == BreachType.Chayula));
+        public ItemDisplayViewModel EshSplinter => new ItemDisplayViewModel(_items.OfType<Splinter>().FirstOrDefault(x => x.Type == BreachType.Esh));
+        public ItemDisplayViewModel TulSplinter => new ItemDisplayViewModel(_items.OfType<Splinter>().FirstOrDefault(x => x.Type == BreachType.Tul));
+        public ItemDisplayViewModel UulNetolSplinter => new ItemDisplayViewModel(_items.OfType<Splinter>().FirstOrDefault(x => x.Type == BreachType.UulNetol));
+        public ItemDisplayViewModel XophSplinter => new ItemDisplayViewModel(_items.OfType<Splinter>().FirstOrDefault(x => x.Type == BreachType.Xoph));
 
-        public ItemDisplayViewModel ChayulaBlessing => new ItemDisplayViewModel(_stash.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.Chayula));
-        public ItemDisplayViewModel EshBlessing => new ItemDisplayViewModel(_stash.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.Esh));
-        public ItemDisplayViewModel TulBlessing => new ItemDisplayViewModel(_stash.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.Tul));
-        public ItemDisplayViewModel UulNetolBlessing => new ItemDisplayViewModel(_stash.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.UulNetol));
-        public ItemDisplayViewModel XophBlessing => new ItemDisplayViewModel(_stash.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.Xoph));
+        public ItemDisplayViewModel ChayulaBlessing => new ItemDisplayViewModel(_items.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.Chayula));
+        public ItemDisplayViewModel EshBlessing => new ItemDisplayViewModel(_items.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.Esh));
+        public ItemDisplayViewModel TulBlessing => new ItemDisplayViewModel(_items.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.Tul));
+        public ItemDisplayViewModel UulNetolBlessing => new ItemDisplayViewModel(_items.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.UulNetol));
+        public ItemDisplayViewModel XophBlessing => new ItemDisplayViewModel(_items.OfType<BreachBlessing>().FirstOrDefault(x => x.Type == BreachType.Xoph));
 
-        public ItemDisplayViewModel Offering => new ItemDisplayViewModel(_stash.OfType<Offering>().FirstOrDefault());
+        public ItemDisplayViewModel Offering => new ItemDisplayViewModel(_items.OfType<Offering>().FirstOrDefault());
 
 
         private ItemDisplayViewModel GetItemCalled(string name)
         {
-            var item = _stash.FirstOrDefault(x => x.TypeLine.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+            var item = _items.FirstOrDefault(x => x.TypeLine.Equals(name, StringComparison.CurrentCultureIgnoreCase));
 
             return new ItemDisplayViewModel(item);
         }
