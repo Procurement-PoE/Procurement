@@ -78,7 +78,7 @@
         <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="402" Canvas.Top="243"
                            DataContext="{Binding XophBlessing}" />
 
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="431"
+        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="430" 
                            DataContext="{Binding Offering}" />
     </Canvas>
 </UserControl>
