@@ -232,6 +232,7 @@ namespace POEApi.Model.Tests
                 Assert.AreEqual(17, viewModel.EshSplinter.Item.StackSize);
                 Assert.AreEqual(4, viewModel.ChayulaSplinter.Item.StackSize);
                 Assert.AreEqual(1, viewModel.DivineVessel.Item.StackSize);
+                Assert.IsNull(viewModel.Yriel.Item);
             }
         }
 
