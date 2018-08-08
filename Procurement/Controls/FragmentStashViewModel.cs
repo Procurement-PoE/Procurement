@@ -60,7 +60,7 @@ namespace Procurement.Controls
 
         private ItemDisplayViewModel GetItemCalled(string name)
         {
-            var item = _items.FirstOrDefault(x => x.TypeLine.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+            var item = _items.FirstOrDefault(x => string.Equals( x.TypeLine, name, StringComparison.CurrentCultureIgnoreCase));
 
             return new ItemDisplayViewModel(item);
         }
