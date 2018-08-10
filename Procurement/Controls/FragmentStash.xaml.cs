@@ -17,9 +17,9 @@ namespace Procurement.Controls
         {
             TabNumber = tabNumber;
 
-            var stash = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(tabNumber);
+            var items = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(tabNumber);
 
-            viewModel = new FragmentStashViewModel(stash);
+            viewModel = new FragmentStashViewModel(items);
 
             DataContext = viewModel;
 
