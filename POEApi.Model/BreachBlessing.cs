@@ -2,7 +2,7 @@
 
 namespace POEApi.Model
 {
-    public class BreachBlessing : StackableItem, IBreachLeague
+    public class BreachBlessing : StackableItem, IBreachCurrency
     {
         public BreachType Type { get; set; }
 

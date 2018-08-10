@@ -1,6 +1,6 @@
 ﻿namespace POEApi.Model.Interfaces
 {
-    public interface IBreachLeague
+    public interface IBreachCurrency
     {
         BreachType Type { get; set; }
     }

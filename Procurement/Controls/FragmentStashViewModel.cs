@@ -53,7 +53,7 @@ namespace Procurement.Controls
 
         public ItemDisplayViewModel Offering => new ItemDisplayViewModel(_items.OfType<Offering>().FirstOrDefault());
 
-        private T GetBreach<T>(BreachType breachType) where T : IBreachLeague
+        private T GetBreach<T>(BreachType breachType) where T : IBreachCurrency
         {
             return _items.OfType<T>().FirstOrDefault(x => x.Type == breachType);
         }
