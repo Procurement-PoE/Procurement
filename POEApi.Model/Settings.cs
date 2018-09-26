@@ -251,6 +251,7 @@ namespace POEApi.Model
         {
             try
             {
+                bool success = true;
                 if (!settingsFile.Elements("ShopSettings").Any())
                     settingsFile.Add(new XElement("ShopSettings"));
 
@@ -258,12 +259,23 @@ namespace POEApi.Model
 
                 foreach (var shop in ShopSettings)
                 {
-                    XElement buyout = new XElement("Shop", new XAttribute("League", shop.Key), new XAttribute("ThreadId", shop.Value.ThreadId), new XAttribute("ThreadTitle", shop.Value.ThreadTitle));
+                    if (shop.Value == null)
+                    {
+                        Logger.Log(string.Format("Shop settings for league {0} is null while trying to save settings.",
+                            shop.Key));
+                        success = false;
+                        continue;
+                    }
+
+                    XElement buyout = new XElement("Shop",
+                        new XAttribute("League", shop.Key),
+                        new XAttribute("ThreadId", shop.Value.ThreadId),
+                        new XAttribute("ThreadTitle", shop.Value.ThreadTitle));
                     settingsFile.Element("ShopSettings").Add(buyout);
                 }
 
                 settingsFile.Save(SAVE_LOCATION);
-                return true;
+                return success;
             }
             catch (Exception ex)
             {
