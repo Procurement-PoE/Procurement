@@ -145,16 +145,23 @@ namespace Procurement.ViewModel
                 {
                     try
                     {
-                        var threadBumped = ApplicationState.Model.BumpThread(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId, Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle);
+                        var threadBumped = ApplicationState.Model.BumpThread(
+                            Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId,
+                            Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle);
 
                         if (threadBumped)
-                            MessageBox.Show("Shop thread successfully bumped!", "Thread bumped", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show("Shop thread successfully bumped!", "Thread bumped", MessageBoxButton.OK,
+                                MessageBoxImage.Information);
                         else
-                            MessageBox.Show("Error bumping shop thread, details logged to debuginfo.log", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("Error bumping shop thread, details logged to debuginfo.log", "Error",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     catch (ForumThreadException)
                     {
-                        MessageBox.Show("The thread title supplied in your settings does not match the title of the thread Procurement tried to bump with the threadId in your settings. Check that your settings are correct", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("There was an error while attempting to bump the thread.  It is possible " +
+                            "the thread title supplied in your settings does not match the title of the thread " +
+                            "Procurement tried to bump with the threadId in your settings. Check that your settings " +
+                            "are correct", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 });
         }
@@ -186,7 +193,9 @@ namespace Procurement.ViewModel
 
         private bool settingsValid(bool isUpdate)
         {
-            if (!Settings.ShopSettings.ContainsKey(ApplicationState.CurrentLeague) || string.IsNullOrEmpty(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId) || string.IsNullOrEmpty(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle))
+            if (!Settings.ShopSettings.ContainsKey(ApplicationState.CurrentLeague) ||
+                string.IsNullOrEmpty(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId) ||
+                string.IsNullOrEmpty(Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle))
             {
                 MessageBox.Show("No shop settings found for current league, please configure your ThreadId and ThreadTitle under the TradeSettings tab", "Settings not found!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
