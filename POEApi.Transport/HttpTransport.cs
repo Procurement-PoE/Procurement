@@ -11,6 +11,8 @@ namespace POEApi.Transport
 {
     public class HttpTransport : ITransport
     {
+        protected enum HttpMethod { GET, POST }
+
         private string email;
         private CookieContainer credentialCookies;
 
@@ -18,8 +20,6 @@ namespace POEApi.Transport
         private string proxyUser;
         private string proxyPassword;
         private string proxyDomain;
-
-        private enum HttpMethod { GET, POST }
 
         private const string loginURL = @"https://www.pathofexile.com/login";
         private const string accountNameURL = @"https://www.pathofexile.com/character-window/get-account-name";
@@ -31,6 +31,12 @@ namespace POEApi.Transport
 
         private const string updateShopURL = @"https://www.pathofexile.com/forum/edit-thread/{0}";
         private const string bumpShopURL = @"https://www.pathofexile.com/forum/post-reply/{0}";
+
+        protected const string USER_AGENT =
+            @"Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; " +
+            @".NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E; " +
+            @".NET CLR 1.1.4322)";
+        protected const string CONTENT_TYPE = "application/x-www-form-urlencoded";
 
         public event ThottledEventHandler Throttled;
 
@@ -62,30 +68,27 @@ namespace POEApi.Transport
         {
             if (useSessionID)
             {
-                //Alot of users are reporting issue with logging in. Trimming their SessionID will hopefully improve the situation.
+                // A lot of users are reporting issue with logging in. Trimming their SessionID will hopefully improve
+                // the situation.
                 var unwrappedPassword = password.UnWrap();
-                if (!string.IsNullOrEmpty(unwrappedPassword) )
+                if (!string.IsNullOrEmpty(unwrappedPassword))
                 {
                     unwrappedPassword = unwrappedPassword.Trim();
                 }
 
                 credentialCookies.Add(new Cookie("POESESSID", unwrappedPassword, "/", ".pathofexile.com"));
-                HttpWebRequest confirmAuth = getHttpRequest(HttpMethod.GET, loginURL);
-                HttpWebResponse confirmAuthResponse = (HttpWebResponse)confirmAuth.GetResponse();
-                confirmAuthResponse.Close();
-
-                if (confirmAuthResponse.ResponseUri.ToString() == loginURL)
-                    throw new LogonFailedException();
+                using (var sessionIdLoginResponse = BuildHttpRequestAndGetResponse(HttpMethod.GET, loginURL))
+                {
+                    // If the response URI is the login URL, then the login action failed.
+                    if (sessionIdLoginResponse.ResponseUri.ToString() == loginURL)
+                        throw new LogonFailedException();
+                }
                 return true;
             }
 
-            HttpWebRequest getHash = getHttpRequest(HttpMethod.GET, loginURL);
-            HttpWebResponse hashResponse = (HttpWebResponse)getHash.GetResponse();
-            string loginResponse = Encoding.Default.GetString(getMemoryStreamFromResponse(hashResponse).ToArray());
+            var loginResponseStream = PerformHttpRequest(HttpMethod.GET, loginURL);
+            string loginResponse = Encoding.Default.GetString(loginResponseStream.ToArray());
             string hashValue = Regex.Match(loginResponse, hashRegEx).Groups["hash"].Value;
-
-            HttpWebRequest request = getHttpRequest(HttpMethod.POST, loginURL);
-            request.AllowAutoRedirect = false;
 
             StringBuilder data = new StringBuilder();
             data.Append("login_email=" + Uri.EscapeDataString(email));
@@ -94,35 +97,37 @@ namespace POEApi.Transport
             data.Append("&hash=" + hashValue);
             data.Append("&login=Login");
 
-            byte[] byteData = UTF8Encoding.UTF8.GetBytes(data.ToString());
+            var response = BuildHttpRequestAndGetResponse(HttpMethod.POST, loginURL, false, data.ToString());
 
-            request.ContentLength = byteData.Length;
-
-            Stream postStream = request.GetRequestStream();
-            postStream.Write(byteData, 0, byteData.Length);
-
-            HttpWebResponse response;
-            response = (HttpWebResponse)request.GetResponse();
-            response.Close();
-
-            //If we didn't get a redirect, your gonna have a bad time.
+            // If the response is not a redirect, then the login action failed.
             if (response.StatusCode != HttpStatusCode.Found)
                 throw new LogonFailedException(this.email);
 
             return true;
         }
 
-        private HttpWebRequest getHttpRequest(HttpMethod method, string url)
+        private HttpWebRequest getHttpRequest(HttpMethod method, string url, bool? allowAutoRedirects = null,
+            string requestData = null)
         {
-            taskThrottle.StartTask();
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri(url));
-
             request.CookieContainer = credentialCookies;
-            request.UserAgent = "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E; .NET CLR 1.1.4322)";
+            request.UserAgent = USER_AGENT;
             request.Method = method.ToString();
             request.Proxy = getProxySettings();
+            request.ContentType = CONTENT_TYPE;
 
-            request.ContentType = "application/x-www-form-urlencoded";
+            if (allowAutoRedirects.HasValue)
+            {
+                request.AllowAutoRedirect = allowAutoRedirects.Value;
+            }
+
+            if (method == HttpMethod.POST && requestData != null)
+            {
+                byte[] byteData = UTF8Encoding.UTF8.GetBytes(requestData);
+                request.ContentLength = byteData.Length;
+                Stream postStream = request.GetRequestStream();
+                postStream.Write(byteData, 0, byteData.Length);
+            }
 
             return request;
         }
@@ -143,12 +148,36 @@ namespace POEApi.Transport
             return proxy;
         }
 
+        protected HttpWebResponse BuildHttpRequestAndGetResponse(HttpMethod method, string url,
+            bool? allowAutoRedirects = null, string requestData = null)
+        {
+            taskThrottle.StartTask();
+            try
+            {
+                HttpWebRequest request = getHttpRequest(method, url, allowAutoRedirects, requestData);
+                return (HttpWebResponse)request.GetResponse();
+            }
+            finally
+            {
+                taskThrottle.CompleteTask();
+            }
+        }
+
+        protected MemoryStream PerformHttpRequest(HttpMethod method, string url, bool? allowAutoRedirects = null,
+            string requestData = null)
+        {
+            using (var response = BuildHttpRequestAndGetResponse(method, url, allowAutoRedirects, requestData))
+            {
+                MemoryStream responseStream = getMemoryStreamFromResponse(response);
+                return responseStream;
+            }
+        }
+
+        // TODO(20180928): Remove the refresh parameter?
         public Stream GetStash(int index, string league, string accountName, bool refresh)
         {
-            HttpWebRequest request = getHttpRequest(HttpMethod.GET, string.Format(stashURL, league, index, accountName));
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            return getMemoryStreamFromResponse(response);
+            var url = string.Format(stashURL, league, index, accountName);
+            return PerformHttpRequest(HttpMethod.GET, url);
         }
 
         public Stream GetStash(int index, string league, string accountName)
@@ -158,20 +187,15 @@ namespace POEApi.Transport
 
         public Stream GetCharacters()
         {
-            HttpWebRequest request = getHttpRequest(HttpMethod.GET, characterURL);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            return getMemoryStreamFromResponse(response);
+            return PerformHttpRequest(HttpMethod.GET, characterURL);
         }
 
         public Stream GetAccountName()
         {
-            HttpWebRequest request = getHttpRequest(HttpMethod.GET, accountNameURL);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            return getMemoryStreamFromResponse(response);
+            return PerformHttpRequest(HttpMethod.GET, accountNameURL);
         }
 
+        // TODO(20180928): Throttle performing these requests?
         public Stream GetImage(string url)
         {
             WebClient client = new WebClient();
@@ -181,24 +205,16 @@ namespace POEApi.Transport
 
         public Stream GetInventory(string characterName, bool forceRefresh, string accountName)
         {
-            HttpWebRequest request = getHttpRequest(HttpMethod.GET, string.Format(inventoryURL, characterName, accountName));
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            return getMemoryStreamFromResponse(response);
+            var url = string.Format(inventoryURL, characterName, accountName);
+            return PerformHttpRequest(HttpMethod.GET, url);
         }
 
         private MemoryStream getMemoryStreamFromResponse(HttpWebResponse response)
         {
             StreamReader reader = new StreamReader(response.GetResponseStream());
             byte[] buffer = reader.ReadAllBytes();
-            taskThrottle.CompleteTask();
 
             return new MemoryStream(buffer);
-        }
-
-        private StreamReader GetStreamReaderFromResponse(HttpWebResponse response)
-        {
-            return new StreamReader(response.GetResponseStream());
         }
 
         public bool UpdateThread(string threadID, string threadTitle, string threadText)
@@ -216,7 +232,8 @@ namespace POEApi.Transport
                 data.Append("&content=" + Uri.EscapeDataString(threadText));
                 data.Append("&hash=" + threadHash);
 
-                var response = postToForum(data.ToString(), string.Format(updateShopURL, threadID));
+                var response = BuildHttpRequestAndGetResponse(HttpMethod.POST, string.Format(updateShopURL, threadID),
+                    true, data.ToString());
                 // TODO: Check if response.ResponseUri is for a view-thread URI or an edit-thread URI to determine if
                 // the update request was a success or failure, respectively.
 
@@ -246,7 +263,8 @@ namespace POEApi.Transport
                     "[url=https://github.com/Stickymaddness/Procurement/]Bumped with Procurement![/url]"));
                 data.Append("&post_submit=" + Uri.EscapeDataString("Submit"));
 
-                var response = postToForum(data.ToString(), string.Format(bumpShopURL, threadID));
+                var response = BuildHttpRequestAndGetResponse(HttpMethod.POST, string.Format(bumpShopURL, threadID),
+                    true, data.ToString());
                 // TODO: Check if response.ResponseUri is for a view-thread URI or an post-reply URI to determine if
                 // the post request was a success or failure, respectively.
 
@@ -257,24 +275,6 @@ namespace POEApi.Transport
                 Logger.Log("Error bumping shop thread: " + ex.ToString());
                 return false;
             }
-        }
-
-        private HttpWebResponse postToForum(string data, string url)
-        {
-            HttpWebRequest request = getHttpRequest(HttpMethod.POST, url);
-            request.AllowAutoRedirect = true;
-
-            byte[] byteData = UTF8Encoding.UTF8.GetBytes(data);
-
-            request.ContentLength = byteData.Length;
-
-            Stream postStream = request.GetRequestStream();
-            postStream.Write(byteData, 0, byteData.Length);
-
-            HttpWebResponse response;
-            response = (HttpWebResponse)request.GetResponse();
-
-            return response;
         }
 
         private string validateAndGetHash(string url, string threadTitle, string hashRegex)
@@ -292,16 +292,13 @@ namespace POEApi.Transport
         private string getThreadHash(string url, string regex)
         {
             string html = downloadPageData(url);
-
             return Regex.Match(html, regex).Groups["hash"].Value;
         }
 
         private string downloadPageData(string url)
         {
-            HttpWebRequest getHashRequest = getHttpRequest(HttpMethod.GET, url);
-            HttpWebResponse hashResponse = (HttpWebResponse)getHashRequest.GetResponse();
-
-            using (StreamReader reader = new StreamReader(hashResponse.GetResponseStream()))
+            var response = BuildHttpRequestAndGetResponse(HttpMethod.GET, url);
+            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
             {
                 return reader.ReadToEnd();
             }
