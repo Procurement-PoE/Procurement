@@ -218,6 +218,7 @@ namespace POEApi.Model
             {"EssenceStash", TabType.Essence},
             {"QuadStash", TabType.Quad},
             {"MapStash", TabType.Map },
+            {"FragmentStash", TabType.Fragment },
         };
 
         public static TabType GetTabType(string type)
@@ -227,10 +228,8 @@ namespace POEApi.Model
                 Logger.Log(string.Format("Found unknown stash tab type '{0}'.", type));
                 return TabType.Unknown;
             }
-            else
-            {
-                return tabTypeMap[type];
-            }
+
+            return tabTypeMap[type];
         }
 
         private static string getPropertyByName(List<JSONProxy.Property> properties, string name)

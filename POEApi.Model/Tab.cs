@@ -11,8 +11,9 @@ namespace POEApi.Model
         Essence,
         Quad,
         Map,
+        Fragment,
 
-        Unknown,
+        Unknown
     }
 
     [DebuggerDisplay("{DebuggerDisplay,nq}")]

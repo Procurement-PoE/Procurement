@@ -101,9 +101,13 @@
     <Compile Include="Controls\EssenceStash.xaml.cs">
       <DependentUpon>EssenceStash.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\CurencyStash.xaml.cs">
-      <DependentUpon>CurencyStash.xaml</DependentUpon>
+    <Compile Include="Controls\CurrencyStash.xaml.cs">
+      <DependentUpon>CurrencyStash.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FragmentStash.xaml.cs">
+      <DependentUpon>FragmentStash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FragmentStashViewModel.cs" />
     <Compile Include="ViewModel\EssenceStashViewModel.cs" />
     <Compile Include="ViewModel\CurrencyStashViewModel.cs" />
     <Compile Include="Interfaces\IStashControl.cs" />
@@ -453,7 +457,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\CurencyStash.xaml">
+    <Page Include="Controls\CurrencyStash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FragmentStash.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -765,6 +773,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\ItemHover\ShaperIconAdorner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fragmentTab.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

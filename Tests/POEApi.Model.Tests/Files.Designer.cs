@@ -93,6 +93,16 @@ namespace POEApi.Model.Tests {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] SampleFragmentStash {
+            get {
+                object obj = ResourceManager.GetObject("SampleFragmentStash", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] SampleInventory {
             get {
                 object obj = ResourceManager.GetObject("SampleInventory", resourceCulture);
@@ -163,9 +173,9 @@ namespace POEApi.Model.Tests {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] SampleStashWithNets {
+        internal static byte[] SampleStashWithMirroredItems {
             get {
-                object obj = ResourceManager.GetObject("SampleStashWithNets", resourceCulture);
+                object obj = ResourceManager.GetObject("SampleStashWithMirroredItems", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -173,9 +183,9 @@ namespace POEApi.Model.Tests {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] SampleStashWithMirroredItems {
+        internal static byte[] SampleStashWithNets {
             get {
-                object obj = ResourceManager.GetObject("SampleStashWithMirroredItems", resourceCulture);
+                object obj = ResourceManager.GetObject("SampleStashWithNets", resourceCulture);
                 return ((byte[])(obj));
             }
         }
