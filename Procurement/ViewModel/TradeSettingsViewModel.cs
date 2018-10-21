@@ -153,8 +153,8 @@ namespace Procurement.ViewModel
             if (!Settings.ShopSettings.ContainsKey(ApplicationState.CurrentLeague))
                 Settings.ShopSettings.Add(ApplicationState.CurrentLeague, new ShopSetting());
 
-            Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId = this.threadId;
-            Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle = this.threadTitle;
+            Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadId = this.threadId ?? "";
+            Settings.ShopSettings[ApplicationState.CurrentLeague].ThreadTitle = this.threadTitle ?? "";
 
             if (Settings.SaveShopSettings())
                 MessageBox.Show("Shop settings saved", "Settings saved", MessageBoxButton.OK, MessageBoxImage.Information);
