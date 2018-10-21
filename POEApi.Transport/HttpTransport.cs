@@ -27,9 +27,6 @@ namespace POEApi.Transport
         private const string stashURL = @"https://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}&accountName={2}";
         private const string inventoryURL = @"http://www.pathofexile.com/character-window/get-items?character={0}&accountName={1}";
         private const string hashRegEx = "name=\\\"hash\\\" value=\\\"(?<hash>[a-zA-Z0-9-]{1,})\\\"";
-
-        private const string updateThreadHashEx = "name=\\\"forum_thread\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
-        private const string bumpThreadHashEx = "name=\\\"forum_post\\\" value=\\\"(?<hash>[a-zA-Z0-9]{1,})\\\"";
         private const string titleRegex = @"\<title\b[^>]*\>\s*(?<Title>[\s\S]*?)\</title\>";
 
         private const string updateShopURL = @"https://www.pathofexile.com/forum/edit-thread/{0}";
@@ -208,14 +205,20 @@ namespace POEApi.Transport
         {
             try
             {
-                string threadHash = getThreadHash(string.Format(updateShopURL, threadID), updateThreadHashEx);
+                string threadHash = getThreadHash(string.Format(updateShopURL, threadID), hashRegEx);
+                if (string.IsNullOrEmpty(threadHash))
+                {
+                    throw new ForumThreadException("Unable to obtain thread hash to update thread.");
+                }
 
                 StringBuilder data = new StringBuilder();
                 data.Append("title=" + Uri.EscapeDataString(threadTitle));
                 data.Append("&content=" + Uri.EscapeDataString(threadText));
-                data.Append("&forum_thread=" + threadHash);
+                data.Append("&hash=" + threadHash);
 
-                postToForum(data.ToString(), string.Format(updateShopURL, threadID));
+                var response = postToForum(data.ToString(), string.Format(updateShopURL, threadID));
+                // TODO: Check if response.ResponseUri is for a view-thread URI or an edit-thread URI to determine if
+                // the update request was a success or failure, respectively.
 
                 return true;
             }
@@ -230,22 +233,27 @@ namespace POEApi.Transport
         {
             try
             {
-                string threadHash = validateAndGetHash(string.Format(bumpShopURL, threadID), threadTitle, bumpThreadHashEx);
+                string threadHash = validateAndGetHash(string.Format(bumpShopURL, threadID), threadTitle,
+                    hashRegEx);
+                if (string.IsNullOrEmpty(threadHash))
+                {
+                    throw new ForumThreadException("Unable to obtain thread hash to bump thread.");
+                }
 
                 StringBuilder data = new StringBuilder();
-                data.Append("forum_post=" + threadHash);
-                data.Append("&content=" + Uri.EscapeDataString("[url=https://github.com/Stickymaddness/Procurement/]Bumped with Procurement![/url]"));
+                data.Append("hash=" + threadHash);
+                data.Append("&content=" + Uri.EscapeDataString(
+                    "[url=https://github.com/Stickymaddness/Procurement/]Bumped with Procurement![/url]"));
                 data.Append("&post_submit=" + Uri.EscapeDataString("Submit"));
 
                 var response = postToForum(data.ToString(), string.Format(bumpShopURL, threadID));
+                // TODO: Check if response.ResponseUri is for a view-thread URI or an post-reply URI to determine if
+                // the post request was a success or failure, respectively.
 
                 return true;
             }
             catch (Exception ex)
             {
-                if (ex is ForumThreadException)
-                    throw;
-
                 Logger.Log("Error bumping shop thread: " + ex.ToString());
                 return false;
             }
