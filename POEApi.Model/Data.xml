@@ -1708,6 +1708,11 @@
       <Item name="Vinia's Token"/>
       <Item name="Volatile Power"/>
       <Item name="Wealth and Power"/>
+      <Item name="The Master Artisan"/>
+      <Item name="The Life Thief"/>
+      <Item name="The Sacrifice"/>
+      <Item name="A Dab of Ink"/>
+      <Item name="The Nurse"/>
     </GearBaseType>
 
     <GearBaseType name="Jewel">
