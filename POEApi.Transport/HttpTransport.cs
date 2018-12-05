@@ -157,6 +157,18 @@ namespace POEApi.Transport
                 HttpWebRequest request = getHttpRequest(method, url, allowAutoRedirects, requestData);
                 return (HttpWebResponse)request.GetResponse();
             }
+            catch (System.Net.WebException ex)
+            {
+                Logger.Log(string.Format("Failed to build HTTP request and get response for: method={0}, url='{1}', " +
+                    "allowAutoRedirects={2}, requestData='{3}': {4}", method.ToString(), url, allowAutoRedirects,
+                    requestData, ex.Message));
+                // It's possible (guaranteed?) that the WebException will have a response, which can be a valid page.
+                // For example, for a 503 error when the site is down for maintenance:
+                // ((HttpWebResponse)ex.Response).StatusCode --> ServiceUnavailable (enum)
+                // ((HttpWebResponse)ex.Response).StatusDescription --> "Service Temporarily Unavailable"
+                // In theory, we could return this response, and the caller would need to figure out if it is valid.
+                throw;
+            }
             finally
             {
                 taskThrottle.CompleteTask();
