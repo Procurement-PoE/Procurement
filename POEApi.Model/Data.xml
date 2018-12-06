@@ -1486,6 +1486,7 @@
     </GearBaseType>
 
     <GearBaseType name="DivinationCard">
+      <Item name="A Dab of Ink"/>
       <Item name="A Mother's Parting Gift"/>
       <Item name="Abandoned Wealth"/>
       <Item name="Anarchy's Price"/>
@@ -1623,14 +1624,17 @@
       <Item name="The King's Heart"/>
       <Item name="The Last One Standing"/>
       <Item name="The Lich"/>
+      <Item name="The Life Thief"/>
       <Item name="The Lion"/>
       <Item name="The Lord in Black"/>
       <Item name="The Lover"/>
       <Item name="The Lunaris Priestess"/>
       <Item name="The Master"/>
+      <Item name="The Master Artisan"/>      
       <Item name="The Mayor"/>
       <Item name="The Mercenary"/>
       <Item name="The Metalsmith's Gift"/>
+      <Item name="The Nurse"/>
       <Item name="The Oath"/>
       <Item name="The Obscured"/>
       <Item name="The Offering"/>
@@ -1651,6 +1655,7 @@
       <Item name="The Rite of Elements"/>
       <Item name="The Road to Power"/>
       <Item name="The Ruthless Ceinture"/>
+      <Item name="The Sacrifice"/>
       <Item name="The Saint's Treasure"/>
       <Item name="The Samurai's Eye"/>
       <Item name="The Scarred Meadow"/>
@@ -1708,11 +1713,6 @@
       <Item name="Vinia's Token"/>
       <Item name="Volatile Power"/>
       <Item name="Wealth and Power"/>
-      <Item name="The Master Artisan"/>
-      <Item name="The Life Thief"/>
-      <Item name="The Sacrifice"/>
-      <Item name="A Dab of Ink"/>
-      <Item name="The Nurse"/>
     </GearBaseType>
 
     <GearBaseType name="Jewel">
