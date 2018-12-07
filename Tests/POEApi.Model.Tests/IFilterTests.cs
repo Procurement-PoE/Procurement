@@ -90,5 +90,27 @@ namespace POEApi.Model.Tests
                 Assert.IsTrue(offerings.All(filter.Applicable));
             }
         }
+
+        [TestMethod]
+        public void AreScarabsApplicable()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithScarab);
+            filter = new ScarabFilter();
+
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+                var test = stash.GetItemsByTab(1);
+                var scarab = stash.GetItemsByTab(1).Where(x => x is Scarab);
+
+                Assert.AreEqual(1, scarab.Count());
+
+                Assert.IsTrue(filter.Applicable(scarab.First()));
+            }
+        }
     }
 }
