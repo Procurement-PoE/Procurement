@@ -45,6 +45,9 @@ namespace POEApi.Model
 
                     if(item.TypeLine == "Offering to the Goddess")
                         return new Offering(item);
+
+                    if (item.TypeLine.Contains("Scarab")) //TODO: Refactor to use category property: "category": { "maps": ["fragment", "scarab"] }
+                        return new Scarab(item);
                 }
 
                 return new Gear(item);

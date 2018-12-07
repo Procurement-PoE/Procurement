@@ -199,6 +199,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\SixRedSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SocketColourFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\UnknownItemFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\ScarabFilter.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\CurrencyVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\DivineVesselVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\ElderItemVisitor.cs" />
@@ -212,6 +213,7 @@
     <Compile Include="ViewModel\ForumExportVisitors\MirroredItemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\OfferingVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\ProphecyVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\ScarabVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\ShapedItemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\UnknownItemVisitor.cs" />
     <Compile Include="ViewModel\Recipes\MatchedSet.cs" />
