@@ -24,7 +24,6 @@ namespace Procurement.ViewModel
         public delegate void LoginCompleted();
         private bool formChanged = false;
         private bool passwordChanged = false;
-        private bool useSession;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -50,6 +49,7 @@ namespace Procurement.ViewModel
             }
         }
 
+        private bool useSession;
         public bool UseSession
         {
             get { return useSession; }
@@ -77,6 +77,42 @@ namespace Procurement.ViewModel
             }
         }
 
+        private string _userAgent;
+        public string UserAgent
+        {
+            get { return _userAgent; }
+            set
+            {
+                _userAgent = value;
+                Settings.UserSettings["UserAgent"] = value;
+                OnPropertyChanged("UserAgent");
+            }
+        }
+
+        private string _cloudFlareId;
+        public string CloudFlareId
+        {
+            get { return _cloudFlareId; }
+            set
+            {
+                _cloudFlareId = value;
+                Settings.UserSettings["CloudFlareId"] = value;
+                OnPropertyChanged("CloudFlareId");
+            }
+        }
+
+        private string _cloudFlareClearance;
+        public string CloudFlareClearance
+        {
+            get { return _cloudFlareClearance; }
+            set
+            {
+                _cloudFlareClearance = value;
+                Settings.UserSettings["CloudFlareClearance"] = value;
+                OnPropertyChanged("CloudFlareClearance");
+            }
+        }
+
         private void updateButtonLabels(bool useSession)
         {
             if (this.view == null)
@@ -99,6 +135,12 @@ namespace Procurement.ViewModel
 
             if (!string.IsNullOrEmpty(Settings.UserSettings["AccountPassword"]))
                 this.view.txtPassword.Password = string.Empty.PadLeft(8); //For the visuals
+
+            UserAgent = Settings.UserSettings.ContainsKey("UserAgent") ? Settings.UserSettings["UserAgent"] : "";
+            CloudFlareId = Settings.UserSettings.ContainsKey("CloudFlareId") ?
+                Settings.UserSettings["CloudFlareId"] : "";
+            CloudFlareClearance = Settings.UserSettings.ContainsKey("CloudFlareClearance") ?
+                Settings.UserSettings["CloudFlareClearance"] : "";
 
             this.view.txtPassword.PasswordChanged += new RoutedEventHandler(txtPassword_PasswordChanged);
             PropertyChanged += loginWindow_PropertyChanged;
@@ -158,7 +200,8 @@ namespace Procurement.ViewModel
                 // behavior the user expects.
                 SecureString password = passwordChanged ? this.view.txtPassword.SecurePassword :
                     Settings.UserSettings["AccountPassword"].Decrypt();
-                ApplicationState.Model.Authenticate(Email, password, offline, useSession);
+                ApplicationState.Model.Authenticate(Email, password, offline, useSession, UserAgent, CloudFlareId,
+                    CloudFlareClearance);
 
                 if (formChanged)
                     saveSettings(password);
