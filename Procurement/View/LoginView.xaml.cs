@@ -42,5 +42,23 @@ namespace Procurement.View
 
             (this.DataContext as LoginWindowViewModel).NavigateHowToSessionIDwiki();
         }
+
+        // TODO: Can we have each button's mouse down and up handlers routed to the same two functions, and those
+        // functions properly route to the correct LoginWindowViewModel function?  Also, should we have the URI for
+        // the buttons a property of the buttons themselves, so we do not need two different LoginWindowViewModel
+        // functions?
+        private void userAgentQ_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            // Since DragMove() called by MouseLeftButtonDown of MainWindow may cause System.InvalidOperationException, the notice of a mouse event is stopped here.
+            // Moreover, it is also a problem that a mouse event is blocked by DragMove() and MouseLeftButtonUp is not called.
+            e.Handled = true;
+        }
+
+        private void userAgentQ_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+
+            (this.DataContext as LoginWindowViewModel).NavigateWhatIsMyUserAgent();
+        }
     }
 }

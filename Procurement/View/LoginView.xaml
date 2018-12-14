@@ -71,6 +71,19 @@
                          Background="Black" BorderBrush="#FF76591B" Foreground="#FFAB9066" SelectionBrush="#FFCABE9F">
                 </TextBox>
 
+                <Image x:Name="userAgentQ" Margin="7,4,0,0" Source="/Procurement;component/Images/circleQuestion.png"
+                       Stretch="None" Cursor="Hand" ForceCursor="True" RenderTransformOrigin="3.075,0.702" Grid.Row="3"
+                       Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       ToolTipService.VerticalOffset="5" MouseLeftButtonDown="userAgentQ_MouseLeftButtonDown"
+                       MouseLeftButtonUp="userAgentQ_MouseLeftButtonUp">
+                    <Image.ToolTip>
+                        <ToolTip Style="{StaticResource tooltipStyle}">
+                            <TextBlock Width="300" TextWrapping="Wrap"
+                                       Text="The user agent of the browser used to obtain the Session ID.  Click here to open a web page to see what your user agent is.  Paste that value in this text box." />
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+
                 <Image x:Name="cloudFlareIdQ" Margin="7,4,0,0" Source="/Procurement;component/Images/circleQuestion.png"
                        Stretch="None" RenderTransformOrigin="3.075,0.702" Grid.Row="4" Grid.Column="2"
                        HorizontalAlignment="Left" VerticalAlignment="Top" ToolTipService.VerticalOffset="5">

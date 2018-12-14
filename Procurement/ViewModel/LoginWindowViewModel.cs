@@ -416,9 +416,20 @@ namespace Procurement.ViewModel
             statusController.Ok();
         }
 
+        private void openWebPageInBrowser(string uri)
+        {
+            System.Diagnostics.Process.Start(uri);
+        }
+
         public void NavigateHowToSessionIDwiki()
         {
-            System.Diagnostics.Process.Start("https://github.com/Stickymaddness/Procurement/wiki/SessionID");
+            openWebPageInBrowser("https://github.com/Stickymaddness/Procurement/wiki/SessionID");
+        }
+
+        public void NavigateWhatIsMyUserAgent()
+        {
+            // TODO: Link to a Procurement wiki page that links to this page, once one is set up.
+            openWebPageInBrowser("https://www.whatismybrowser.com/detect/what-is-my-user-agent");
         }
     }
 }
