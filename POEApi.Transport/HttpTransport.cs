@@ -42,10 +42,24 @@ namespace POEApi.Transport
 
         private static TaskThrottle taskThrottle = new TaskThrottle(TimeSpan.FromMinutes(1), 42, 42);
 
+        private string _userAgent;
+        public string UserAgent
+        {
+            get
+            {
+                return _userAgent;
+            }
+            set
+            {
+                _userAgent = value;
+            }
+        }
+
         public HttpTransport(string login)
         {
             credentialCookies = new CookieContainer();
             this.email = login;
+            this.UserAgent = USER_AGENT;
             taskThrottle.Throttled += new ThottledEventHandler(instance_Throttled);
         }
 
@@ -64,7 +78,8 @@ namespace POEApi.Transport
                 Throttled(this, e);
         }
 
-        public bool Authenticate(string email, SecureString password, bool useSessionID)
+        public bool Authenticate(string email, SecureString password, bool useSessionID, string cloudFlareId,
+            string cloudFlareClearance)
         {
             if (useSessionID)
             {
@@ -77,6 +92,14 @@ namespace POEApi.Transport
                 }
 
                 credentialCookies.Add(new Cookie("POESESSID", unwrappedPassword, "/", ".pathofexile.com"));
+                if (!string.IsNullOrWhiteSpace(cloudFlareId))
+                {
+                    credentialCookies.Add(new Cookie("__cfduid", cloudFlareId, "/", ".pathofexile.com"));
+                }
+                if (!string.IsNullOrWhiteSpace(cloudFlareClearance))
+                {
+                    credentialCookies.Add(new Cookie("cf_clearance", cloudFlareClearance, "/", ".pathofexile.com"));
+                }
                 using (var sessionIdLoginResponse = BuildHttpRequestAndGetResponse(HttpMethod.GET, loginURL))
                 {
                     // If the response URI is the login URL, then the login action failed.
@@ -111,10 +134,16 @@ namespace POEApi.Transport
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri(url));
             request.CookieContainer = credentialCookies;
-            request.UserAgent = USER_AGENT;
+            request.UserAgent = UserAgent;
             request.Method = method.ToString();
             request.Proxy = getProxySettings();
             request.ContentType = CONTENT_TYPE;
+            request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
+            request.Host = "www.pathofexile.com";
+            request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip, deflate, br");
+            request.Headers.Add(HttpRequestHeader.AcceptLanguage, "en-US,en;q=0.5");
+            request.Headers.Add(HttpRequestHeader.Upgrade, "1");
+            request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
 
             if (allowAutoRedirects.HasValue)
             {

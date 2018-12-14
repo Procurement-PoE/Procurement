@@ -39,7 +39,8 @@ namespace POEApi.Model
             downOnlyMyCharacters = bool.Parse(Settings.UserSettings["DownloadOnlyMyCharacters"]);
         }
 
-        public bool Authenticate(string email, SecureString password, bool offline, bool useSessionID)
+        public bool Authenticate(string email, SecureString password, bool offline, bool useSessionID,
+            string userAgent = null, string cloudFlareId = null, string cloudFlareClearance = null)
         {
             if (Transport != null)
                 Transport.Throttled -= new ThottledEventHandler(instance_Throttled);
@@ -51,10 +52,12 @@ namespace POEApi.Model
             if (offline)
                 return true;
 
+            if (!string.IsNullOrWhiteSpace(userAgent))
+                Transport.UserAgent = userAgent;
             Transport.Throttled += new ThottledEventHandler(instance_Throttled);
             onAuthenticate(POEEventState.BeforeEvent, email);
 
-            Transport.Authenticate(email, password, useSessionID);
+            Transport.Authenticate(email, password, useSessionID, cloudFlareId, cloudFlareClearance);
 
             onAuthenticate(POEEventState.AfterEvent, email);
 
@@ -105,17 +108,20 @@ namespace POEApi.Model
 
                     return (T) serializer.Deserialize(jsonTextReader, typeof (T));
                 }
-                catch
+                catch (Exception ex)
                 {
                     MemoryStream ms = stream as MemoryStream;
                     ms.Seek(0, SeekOrigin.Begin);
                     var sr = new StreamReader(ms);
                     var text = sr.ReadToEnd();
-                    Debug.Write(text);
+                    Logger.Log(string.Format(
+                        "Failed to deserialize response stream into '{0}' object.  Received text: '{1}'.",
+                        typeof(T).Name, text));
+
+                    throw new Exception(
+                        "Unable to deserialize object.  See the DebugInfo.log file for further details.", ex);
                 }
             }
-            
-            throw new ApplicationException("Unable to deserialize object");
         }
 
         void instance_Throttled(object sender, ThottledEventArgs e)

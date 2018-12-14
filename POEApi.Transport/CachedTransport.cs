@@ -17,6 +17,19 @@ namespace POEApi.Transport
 
         public event ThottledEventHandler Throttled;
 
+        private string _userAgent;
+        public string UserAgent
+        {
+            get
+            {
+                return innerTranport.UserAgent;
+            }
+            set
+            {
+                innerTranport.UserAgent = value;
+            }
+        }
+
         public CachedTransport(string email, ITransport innerTranport, bool offline)
         {
             Offline = offline;
@@ -32,9 +45,10 @@ namespace POEApi.Transport
                 Throttled(sender, e);
         }
 
-        public bool Authenticate(string email, SecureString password, bool useSessionID)
+        public bool Authenticate(string email, SecureString password, bool useSessionID, string cloudFlareId,
+            string cloudFlareClearance)
         {
-            return innerTranport.Authenticate(email, password, useSessionID);
+            return innerTranport.Authenticate(email, password, useSessionID, cloudFlareId, cloudFlareClearance);
         }
 
         public Stream GetAccountName()
