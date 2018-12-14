@@ -86,23 +86,15 @@ namespace POEApi.Transport
                     TraditionalSessionIdLogin();
                     return true;
                 }
-                catch (Exception ex)
+                catch (WebException ex)
                 {
-                    //Something that isn't a cloud flare exception occurred
-                    if (ex.Message.Contains("503") == false)
-                    {
-                        throw;
-                    }
-
-                    try
+                    if (((HttpWebResponse)ex.Response).Server == "cloudflare" && ((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.ServiceUnavailable)
                     {
                         CloudFlareSessionIdLogin();
                         return true;
                     }
-                    catch
-                    {
-                        throw;
-                    }
+
+                    throw;
                 }
             }
 
@@ -144,7 +136,7 @@ namespace POEApi.Transport
             catch (AggregateException ex) when (ex.InnerException is CloudFlareClearanceException)
             {
                 // After all retries, clearance still failed.
-                throw new Exception("Cloud flare clearance failed, please wait one minute and try again");
+                throw new Exception("Cloud flare clearance failed, please wait one minute and try again", ex);
             }
             catch (AggregateException ex) when (ex.InnerException is TaskCanceledException)
             {
