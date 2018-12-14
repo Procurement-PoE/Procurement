@@ -42,18 +42,7 @@ namespace POEApi.Transport
 
         private static TaskThrottle taskThrottle = new TaskThrottle(TimeSpan.FromMinutes(1), 42, 42);
 
-        private string _userAgent;
-        public string UserAgent
-        {
-            get
-            {
-                return _userAgent;
-            }
-            set
-            {
-                _userAgent = value;
-            }
-        }
+        public string UserAgent { get; set; }
 
         public HttpTransport(string login)
         {

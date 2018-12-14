@@ -17,7 +17,6 @@ namespace POEApi.Transport
 
         public event ThottledEventHandler Throttled;
 
-        private string _userAgent;
         public string UserAgent
         {
             get
