@@ -28,11 +28,15 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition Width="330"/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
                     <RowDefinition Height="35"/>
                     <RowDefinition Height="35"/>
                     <RowDefinition Height="30"/>
@@ -42,11 +46,53 @@
 
                 <Label x:Name="lblEmail" Content="Email" Grid.Row="1" Grid.Column="0" FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top" ></Label>
                 <Label x:Name="lblPassword" Content="Password" Grid.Row="2" Grid.Column="0" FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top" ></Label>
+                <Label x:Name="lblUserAgent" Content="UserAgent" Grid.Row="3" Grid.Column="0"
+                       FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top">
+                </Label>
+                <Label x:Name="lblCloudFlareId" Content="CloudFlare ID" Grid.Row="4" Grid.Column="0"
+                       FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top" >
+                </Label>
+                <Label x:Name="lblCloudFlareClearance" Content="CloudFlare PW" Grid.Row="5" Grid.Column="0"
+                       FontFamily="../Resources/#Fontin" Foreground="#FFAB9066" FontSize="14" VerticalAlignment="Top" >
+                </Label>
 
                 <TextBox Name="txtLogin" Text="{Binding Email}" Grid.Row="1" Grid.Column="1" Height="22" Width="330" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black" BorderBrush="#FF76591B" Foreground="#FFAB9066" SelectionBrush="#FFCABE9F"></TextBox>
                 <PasswordBox Name="txtPassword" Grid.Row="2" Grid.Column="1" Height="22" Width="330" Background="Black" BorderBrush="#FF76591B" HorizontalAlignment="Left" VerticalAlignment="Top"  Foreground="#FFAB9066" SelectionBrush="#FFCABE9F"/>
+                <TextBox Name="txtUserAgent" Text="{Binding UserAgent}" Grid.Row="3" Grid.Column="1"
+                         Height="22" Width="330" HorizontalAlignment="Left" VerticalAlignment="Top"
+                         Background="Black" BorderBrush="#FF76591B" Foreground="#FFAB9066" SelectionBrush="#FFCABE9F">
+                </TextBox>
+                <TextBox Name="txtCloudFlareId" Text="{Binding CloudFlareId}" Grid.Row="4" Grid.Column="1"
+                         Height="22" Width="330" HorizontalAlignment="Left" VerticalAlignment="Top"
+                         Background="Black" BorderBrush="#FF76591B" Foreground="#FFAB9066" SelectionBrush="#FFCABE9F">
+                </TextBox>
+                <TextBox Name="txtCloudFlareClearance" Text="{Binding CloudFlareClearance}" Grid.Row="5" Grid.Column="1"
+                         Height="22" Width="330" HorizontalAlignment="Left" VerticalAlignment="Top"
+                         Background="Black" BorderBrush="#FF76591B" Foreground="#FFAB9066" SelectionBrush="#FFCABE9F">
+                </TextBox>
 
-                <Grid Grid.Row="3" Grid.Column="1">
+                <Image x:Name="cloudFlareIdQ" Margin="7,4,0,0" Source="/Procurement;component/Images/circleQuestion.png"
+                       Stretch="None" RenderTransformOrigin="3.075,0.702" Grid.Row="4" Grid.Column="2"
+                       HorizontalAlignment="Left" VerticalAlignment="Top" ToolTipService.VerticalOffset="5">
+                    <Image.ToolTip>
+                        <ToolTip Style="{StaticResource tooltipStyle}">
+                            <TextBlock Text="When using SessionID, the value of the __cfduid cookie."/>
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+
+                <Image x:Name="cloudFlareClearanceQ" Margin="7,4,0,0" Source="/Procurement;component/Images/circleQuestion.png"
+                       Stretch="None" RenderTransformOrigin="3.075,0.702" Grid.Row="5" Grid.Column="2"
+                       HorizontalAlignment="Left" VerticalAlignment="Top" ToolTipService.VerticalOffset="5">
+                    <Image.ToolTip>
+                        <ToolTip Style="{StaticResource tooltipStyle}">
+                            <TextBlock Text="When using SessionID, the value of the cf_clearance cookie."/>
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+
+
+                <Grid Grid.Row="6" Grid.Column="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="90"/>
                         <ColumnDefinition Width="90"/>
@@ -98,7 +144,7 @@
                         </Image>
                     </Grid>
                 </Grid>
-                <Grid Grid.Row="4" Grid.Column="1">
+                <Grid Grid.Row="7" Grid.Column="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="180"/>
                         <ColumnDefinition Width="159"/>
@@ -118,7 +164,7 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                <RichTextBox Name="StatusBox" Width="641" HorizontalAlignment="Left" Margin="2,-74,0,30" Background="Black" BorderBrush="#FF93732D" Focusable="True" Foreground="#FFAB9066" FontFamily="Consolas" BorderThickness="1" IsReadOnly="True" VerticalScrollBarVisibility="Hidden" />
+                <RichTextBox Name="StatusBox" Width="641" Height="300" HorizontalAlignment="Left" Margin="2,-4,0,30" Background="Black" BorderBrush="#FF93732D" Focusable="True" Foreground="#FFAB9066" FontFamily="Consolas" BorderThickness="1" IsReadOnly="True" VerticalScrollBarVisibility="Hidden" />
             </Grid>
         </Grid>
 
