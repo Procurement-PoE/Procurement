@@ -177,7 +177,7 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                <RichTextBox Name="StatusBox" Width="641" Height="300" HorizontalAlignment="Left" Margin="2,-4,0,30" Background="Black" BorderBrush="#FF93732D" Focusable="True" Foreground="#FFAB9066" FontFamily="Consolas" BorderThickness="1" IsReadOnly="True" VerticalScrollBarVisibility="Hidden" />
+                <RichTextBox Name="StatusBox" Width="641" HorizontalAlignment="Left" Margin="2,-4,0,0" Background="Black" BorderBrush="#FF93732D" Focusable="True" Foreground="#FFAB9066" FontFamily="Consolas" BorderThickness="1" IsReadOnly="True" VerticalScrollBarVisibility="Hidden" />
             </Grid>
         </Grid>
 
