@@ -1,11 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using POEApi.Infrastructure;
 using System.Security;
 using POEApi.Infrastructure.Events;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using CloudFlareUtilities;
 
 namespace POEApi.Transport
 {
@@ -77,13 +80,30 @@ namespace POEApi.Transport
                 }
 
                 credentialCookies.Add(new Cookie("POESESSID", unwrappedPassword, "/", ".pathofexile.com"));
-                using (var sessionIdLoginResponse = BuildHttpRequestAndGetResponse(HttpMethod.GET, loginURL))
+
+                try
                 {
-                    // If the response URI is the login URL, then the login action failed.
-                    if (sessionIdLoginResponse.ResponseUri.ToString() == loginURL)
-                        throw new LogonFailedException();
+                    TraditionalSessionIdLogin();
+                    return true;
                 }
-                return true;
+                catch (Exception ex)
+                {
+                    //Something that isn't a cloud flare exception occurred
+                    if (ex.Message.Contains("503") == false)
+                    {
+                        throw;
+                    }
+
+                    try
+                    {
+                        CloudFlareSessionIdLogin();
+                        return true;
+                    }
+                    catch
+                    {
+                        throw;
+                    }
+                }
             }
 
             var loginResponseStream = PerformHttpRequest(HttpMethod.GET, loginURL);
@@ -104,6 +124,43 @@ namespace POEApi.Transport
                 throw new LogonFailedException(this.email);
 
             return true;
+        }
+
+        private void CloudFlareSessionIdLogin()
+        {
+            try
+            {
+                using (var clearanceHandler = new ClearanceHandler {MaxRetries = 2})
+                using (var handler = new HttpClientHandler() {CookieContainer = credentialCookies, Proxy = getProxySettings()})
+                {
+                    clearanceHandler.InnerHandler = handler;
+
+                    using (var client = new HttpClient(clearanceHandler))
+                    {
+                        var result = client.GetStringAsync(new Uri(loginURL)).Result;
+                    }
+                }
+            }
+            catch (AggregateException ex) when (ex.InnerException is CloudFlareClearanceException)
+            {
+                // After all retries, clearance still failed.
+                throw new Exception("Cloud flare clearance failed, please wait one minute and try again");
+            }
+            catch (AggregateException ex) when (ex.InnerException is TaskCanceledException)
+            {
+                Logger.Log(ex);
+                throw;
+            }
+        }
+
+        private void TraditionalSessionIdLogin()
+        {
+            using (var sessionIdLoginResponse = BuildHttpRequestAndGetResponse(HttpMethod.GET, loginURL))
+            {
+                // If the response URI is the login URL, then the login action failed.
+                if (sessionIdLoginResponse.ResponseUri.ToString() == loginURL)
+                    throw new LogonFailedException();
+            }
         }
 
         private HttpWebRequest getHttpRequest(HttpMethod method, string url, bool? allowAutoRedirects = null,
