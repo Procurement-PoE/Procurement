@@ -9,78 +9,208 @@
              d:DataContext="{d:DesignInstance local:FragmentStashViewModel}">
     <UserControl.Resources>
         <Style x:Key="SingleCellItemStyle" TargetType="local:ItemDisplay">
-            <Setter Property="Width" Value="40" />
-            <Setter Property="Height" Value="40" />
+            <Setter Property="Width" Value="34" />
+            <Setter Property="Height" Value="34" />
         </Style>
     </UserControl.Resources>
     <Border x:Name="Border" BorderThickness="3" CornerRadius="2" BorderBrush="Aquamarine">
+        <Border.Background>
+            <ImageBrush ImageSource="/Images/fragmentTab.png" />
+        </Border.Background>
         <Canvas>
-            <Canvas.Background>
-                <ImageBrush ImageSource="/Images/fragmentTab.png" />
-            </Canvas.Background>
+            <Grid Height="80" Width="80" Canvas.Left="82" Canvas.Top="89">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="37*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="37*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="36*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="38*" />
+                </Grid.RowDefinitions>
 
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="106" Canvas.Top="90"
-                               DataContext="{Binding Dusk}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="168" Canvas.Top="151"
-                               DataContext="{Binding Dawn}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="104" Canvas.Top="151"
-                               DataContext="{Binding Noon}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="168" Canvas.Top="91"
-                               DataContext="{Binding Midnight}" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Dusk}" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Dawn}" Grid.Column="2" Grid.Row="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Noon}" Grid.Row="2" Grid.Column="0" />
+                <local:ItemDisplay Grid.Row="0" Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Midnight}" Grid.Column="2" />
+            </Grid>
 
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="379" Canvas.Top="86"
-                               DataContext="{Binding Grief}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="441" Canvas.Top="86"
-                               DataContext="{Binding Rage}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="379" Canvas.Top="151"
-                               DataContext="{Binding Ignorance}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="441" Canvas.Top="151"
-                               DataContext="{Binding Hope}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="91"
-                               DataContext="{Binding DivineVessel}" Height="94" />
+            <Grid Height="80" Width="80" Canvas.Left="194" Canvas.Top="89">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="37*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="37*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="36*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="38*" />
+                </Grid.RowDefinitions>
 
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="104" Canvas.Top="400"
-                               DataContext="{Binding Volkuur}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="168" Canvas.Top="400"
-                               DataContext="{Binding Eber}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="104" Canvas.Top="463"
-                               DataContext="{Binding Inya}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="168" Canvas.Top="463"
-                               DataContext="{Binding Yriel}" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Volkuur}" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Eber}" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Inya}" Grid.Row="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Yriel}" Grid.Column="2" Grid.Row="2" />
 
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="381" Canvas.Top="400"
-                               DataContext="{Binding Hydra}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="444" Canvas.Top="400"
-                               DataContext="{Binding Phoenix}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="381" Canvas.Top="461"
-                               DataContext="{Binding Minotaur}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="444" Canvas.Top="461"
-                               DataContext="{Binding Chimera}" />
 
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="148" Canvas.Top="307"
-                               DataContext="{Binding ChayulaSplinter}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="212" Canvas.Top="307"
-                               DataContext="{Binding TulSplinter}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="276" Canvas.Top="307"
-                               DataContext="{Binding XophSplinter}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="340" Canvas.Top="307"
-                               DataContext="{Binding EshSplinter}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="403" Canvas.Top="307"
-                               DataContext="{Binding UulNetolSplinter}" />
+            </Grid>
+            <Grid Height="80" Width="80" Canvas.Left="308" Canvas.Top="89">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="37*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="37*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="36*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="38*" />
+                </Grid.RowDefinitions>
 
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="149" Canvas.Top="243"
-                               DataContext="{Binding ChayulaBlessing}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="211" Canvas.Top="243"
-                               DataContext="{Binding TulBlessing}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="243"
-                               DataContext="{Binding XophBlessing}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="339" Canvas.Top="243"
-                               DataContext="{Binding EshBlessing}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="402" Canvas.Top="243"
-                               DataContext="{Binding UulNetolBlessing}" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Hydra}" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Phoenix}" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Chimera}" Grid.Column="0" Grid.Row="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Minotaur}" Grid.Row="2" Grid.Column="2" />
 
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="430"
+            </Grid>
+            <Grid Height="80" Width="80" Canvas.Left="422" Canvas.Top="89">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="37*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="37*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="36*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="38*" />
+                </Grid.RowDefinitions>
+
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Grief}" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Rage}" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Ignorance}" Grid.Row="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding Hope}" Grid.Column="2" Grid.Row="2" />
+            </Grid>
+
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="91" Canvas.Top="222"
+                               DataContext="{Binding DivineVessel}" Height="56" Width="33" />
+
+            <Grid Height="80" Width="209" Canvas.Left="189" Canvas.Top="212">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="37*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="35*" />
+                    <ColumnDefinition Width="8*" />
+                    <ColumnDefinition Width="37*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="36*" />
+                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="36*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="36*" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="38*" />
+                </Grid.RowDefinitions>
+
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding ChayulaBlessing}" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding TulBlessing}" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding XophBlessing}" Grid.Column="4" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding EshBlessing}" Grid.Column="6" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding UulNetolBlessing}" Grid.Column="8" />
+
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding ChayulaSplinter}" Grid.Row="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Grid.Row="2" Grid.Column="2"
+                                   DataContext="{Binding TulSplinter}" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Grid.Row="2" Grid.Column="4"
+                                   DataContext="{Binding XophSplinter}" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Grid.Row="2" Grid.Column="6"
+                                   DataContext="{Binding EshSplinter}" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Grid.Row="2" Grid.Column="8"
+                                   DataContext="{Binding UulNetolSplinter}" />
+
+            </Grid>
+
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="456" Canvas.Top="233"
                                DataContext="{Binding Offering}" />
+
+            <Grid Height="171" Width="122" Canvas.Left="84" Canvas.Top="327">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="36*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="36*" />
+                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="37*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="37*" />
+                    <RowDefinition Height="6*" />
+                    <RowDefinition Height="37*" />
+                    <RowDefinition Height="7*" />
+                    <RowDefinition Height="39*" />
+                    <RowDefinition Height="6*" />
+                    <RowDefinition Height="39*" />
+                </Grid.RowDefinitions>
+            </Grid>
+            <Grid Height="172" Width="122" Canvas.Left="234" Canvas.Top="327">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="36*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="36*" />
+                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="37*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="37*" />
+                    <RowDefinition Height="6*" />
+                    <RowDefinition Height="37*" />
+                    <RowDefinition Height="7*" />
+                    <RowDefinition Height="39*" />
+                    <RowDefinition Height="6*" />
+                    <RowDefinition Height="39*" />
+                </Grid.RowDefinitions>
+            </Grid>
+            <Grid Height="171" Width="122" Canvas.Left="382" Canvas.Top="327">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="36*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="36*" />
+                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="37*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="37*" />
+                    <RowDefinition Height="6*" />
+                    <RowDefinition Height="37*" />
+                    <RowDefinition Height="7*" />
+                    <RowDefinition Height="39*" />
+                    <RowDefinition Height="6*" />
+                    <RowDefinition Height="39*" />
+                </Grid.RowDefinitions>
+            </Grid>
+
+
         </Canvas>
     </Border>
 </UserControl>
