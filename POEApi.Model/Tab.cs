@@ -58,11 +58,4 @@ namespace POEApi.Model
             get { return string.Format("{0} Tab - \"{1}\"", Type, Name); }
         }
     }
-
-    public class Colour
-    {
-        public int r { get; set; }
-        public int g { get; set; }
-        public int b { get; set; }
-    }
 }
