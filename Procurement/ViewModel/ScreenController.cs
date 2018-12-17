@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Threading;
 using POEApi.Model;
 using Procurement.View;
+using Procurement.View.ViewModel;
 
 namespace Procurement.ViewModel
 {
@@ -19,7 +21,7 @@ namespace Procurement.ViewModel
         public bool ButtonsVisible { get; set; }
         public bool FullMode { get; set; }
 
-        public DelegateCommand MenuButtonCommand { get; set; }
+        public ICommand MenuButtonCommand => new RelayCommand(execute);
 
         private const string STASH_VIEW = "StashView";
         private const string RECIPE_VIEW = "Recipes";
@@ -44,10 +46,8 @@ namespace Procurement.ViewModel
                 FooterHeight = 138;
             }
 
-            MenuButtonCommand = new DelegateCommand(execute);
             mainView = layout;
             initLogin();
-
         }
 
         public void UpdateTrading()
