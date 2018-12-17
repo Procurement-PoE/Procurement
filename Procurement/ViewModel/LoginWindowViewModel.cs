@@ -16,7 +16,7 @@ using System.Windows;
 
 namespace Procurement.ViewModel
 {
-    public class LoginWindowViewModel : INotifyPropertyChanged
+    public class LoginWindowViewModel : ObservableBase
     {
         private LoginView view = null;
         private StatusController statusController;
@@ -26,15 +26,7 @@ namespace Procurement.ViewModel
         private bool passwordChanged = false;
         private bool useSession;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private CharacterTabInjector characterInjector;
-
-        protected void OnPropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-        }
 
         private string email;
         public string Email
@@ -45,7 +37,7 @@ namespace Procurement.ViewModel
                 if (value != email)
                 {
                     email = value;
-                    OnPropertyChanged("Email");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -58,7 +50,7 @@ namespace Procurement.ViewModel
                 useSession = value;
                 Settings.UserSettings["UseSessionID"] = value.ToString();
                 updateButtonLabels(useSession);
-                OnPropertyChanged("UseSessionID");
+                OnPropertyChanged();
             }
         }
 
@@ -72,7 +64,7 @@ namespace Procurement.ViewModel
                 {
                     forceRefresh = value;
                     Settings.UserSettings["ForceRefresh"] = value.ToString();
-                    OnPropertyChanged("ForceRefresh");
+                    OnPropertyChanged();
                 }
             }
         }

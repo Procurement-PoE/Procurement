@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using POEApi.Model;
 
 namespace Procurement.ViewModel
 {
-    public class CurrencyStashViewModel : INotifyPropertyChanged
+    public class CurrencyStashViewModel : ObservableBase
     {
         private readonly List<Item> _stash;
 
@@ -69,8 +68,6 @@ namespace Procurement.ViewModel
         public ItemDisplayViewModel ExaltedShard => GetCurrencyItem(OrbType.ExaltedShard);
         public ItemDisplayViewModel MirrorShard => GetCurrencyItem(OrbType.AnnulmentShard);
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private ItemDisplayViewModel GetItemAtPosition(int x, int y)
         {
             var item = _stash.FirstOrDefault(i => i.X == x && i.Y == y);
@@ -102,11 +99,6 @@ namespace Procurement.ViewModel
             }
 
             return new ItemDisplayViewModel(null);
-        }
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

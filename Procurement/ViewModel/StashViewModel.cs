@@ -14,13 +14,11 @@ using Procurement.View;
 using Procurement.ViewModel.Filters;
 using System.Text;
 using POEApi.Infrastructure;
-using System.Windows.Controls.Primitives;
-using System.Threading.Tasks;
 using Procurement.Interfaces;
 
 namespace Procurement.ViewModel
 {
-    public class StashViewModel : INotifyPropertyChanged
+    public class StashViewModel : ObservableBase
     {
         private class TabContent
         {
@@ -244,10 +242,10 @@ namespace Procurement.ViewModel
             stashView.tabControl.Items.Clear();
             stashView.tabControl.SelectionChanged += new SelectionChangedEventHandler(tabControl_SelectionChanged);
             stashView_Loaded(sender, null);
-            raisePropertyChanged("AvailableItems");
-            raisePropertyChanged("Total");
-            raisePropertyChanged("TotalDistibution");
-            raisePropertyChanged("GemDistribution");
+            OnPropertyChanged(nameof(AvailableItems));
+            OnPropertyChanged(nameof(Total));
+            OnPropertyChanged(nameof(TotalDistibution));
+            OnPropertyChanged(nameof(GemDistribution));
         }
 
         public void GetTabList(object o)
@@ -434,14 +432,6 @@ namespace Procurement.ViewModel
             IStashControl stash = source.Tag as IStashControl;
 
             return stash;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void raisePropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
     }
 }

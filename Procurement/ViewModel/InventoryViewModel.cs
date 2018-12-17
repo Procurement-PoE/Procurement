@@ -5,17 +5,9 @@ using Procurement.View;
 
 namespace Procurement.ViewModel
 {
-    public class InventoryViewModel : INotifyPropertyChanged
+    public class InventoryViewModel : ObservableBase
     {
         private InventoryView inventoryView;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-        }
 
         private string character;
         public string Character
@@ -26,7 +18,7 @@ namespace Procurement.ViewModel
                 if (value != character)
                 {
                     character = value;
-                    OnPropertyChanged("Character");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -38,7 +30,7 @@ namespace Procurement.ViewModel
             set
             {
                 characters = value;
-                OnPropertyChanged("Characters");
+                OnPropertyChanged();
             }
         }
 

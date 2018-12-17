@@ -217,6 +217,7 @@
     <Compile Include="ViewModel\ForumExportVisitors\ScarabVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\ShapedItemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\UnknownItemVisitor.cs" />
+    <Compile Include="ViewModel\ObservableBase.cs" />
     <Compile Include="ViewModel\Recipes\MatchedSet.cs" />
     <Compile Include="ViewModel\SetTabBuyoutViewModel.cs" />
     <Compile Include="ViewModel\TradeSettingsViewModel.cs" />
