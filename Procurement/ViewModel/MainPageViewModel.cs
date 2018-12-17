@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using POEApi.Model;
+using Procurement.View.ViewModel;
 
 namespace Procurement.ViewModel
 {
@@ -17,7 +18,6 @@ namespace Procurement.ViewModel
             IsBusy = false;
             var stash = ApplicationState.Stash[ApplicationState.CurrentLeague];
             stashItems = stash.GetItemsByTab(0);
-            GetTabs = new DelegateCommand(getTabs);
         }
 
         public void getTabs(object o)
@@ -47,7 +47,8 @@ namespace Procurement.ViewModel
             return menu;
         }
         
-        public ICommand GetTabs { get; set; }
+        public ICommand GetTabs => new RelayCommand(getTabs);
+
         public void CloseAndSelect(ContextMenu menu, MenuItem menuItem)
         {
             menu.IsOpen = false;

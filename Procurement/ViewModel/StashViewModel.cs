@@ -15,6 +15,7 @@ using Procurement.ViewModel.Filters;
 using System.Text;
 using POEApi.Infrastructure;
 using Procurement.Interfaces;
+using Procurement.View.ViewModel;
 
 namespace Procurement.ViewModel
 {
@@ -93,7 +94,7 @@ namespace Procurement.ViewModel
             processFilter();
         }
 
-        public ICommand GetTabs { get; set; }
+        public ICommand GetTabs => new RelayCommand(GetTabList);
 
         public List<AdvancedSearchCategory> AvailableCategories { get; private set; }
 
@@ -134,40 +135,27 @@ namespace Procurement.ViewModel
         public List<string> AvailableItems { get; private set; }
 
 
-        private DelegateCommand refreshCommand;
-        public DelegateCommand RefreshCommand
+        public ICommand RefreshCommand => new RelayCommand(x =>
         {
-            get { return refreshCommand; }
-            set { refreshCommand = value; }
-        }
+            ScreenController.Instance.LoadRefreshView();
+            ScreenController.Instance.InvalidateRecipeScreen();
+        });
 
-        private DelegateCommand refreshUsedCommand;
-        public DelegateCommand RefreshUsedCommand
+        public ICommand RefreshUsedCommand => new RelayCommand(x =>
         {
-            get { return refreshUsedCommand; }
-            set { refreshUsedCommand = value; }
-        }
+            ScreenController.Instance.LoadRefreshViewUsed();
+            ScreenController.Instance.InvalidateRecipeScreen();
+        });
 
         public StashViewModel(StashView stashView)
         {
             this.stashView = stashView;
 
-            refreshCommand = new DelegateCommand(x =>
-            {
-                ScreenController.Instance.LoadRefreshView();
-                ScreenController.Instance.InvalidateRecipeScreen();
-            });
-            refreshUsedCommand = new DelegateCommand(x =>
-            {
-                ScreenController.Instance.LoadRefreshViewUsed();
-                ScreenController.Instance.InvalidateRecipeScreen();
-            });
-
             categoryFilter = new List<IFilter>();
             AvailableCategories = CategoryManager.GetAvailableCategories();
             tabsAndContent = new List<TabContent>();
             stashView.Loaded += new RoutedEventHandler(stashView_Loaded);
-            GetTabs = new DelegateCommand(GetTabList);
+
             ApplicationState.LeagueChanged += new PropertyChangedEventHandler(ApplicationState_LeagueChanged);
             stashView.tabControl.SelectionChanged += new SelectionChangedEventHandler(tabControl_SelectionChanged);
             getAvailableItems();

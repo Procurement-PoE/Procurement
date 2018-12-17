@@ -1,7 +1,7 @@
 ﻿using POEApi.Infrastructure;
-using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Input;
+using Procurement.View.ViewModel;
 
 namespace Procurement.ViewModel
 {
@@ -48,16 +48,14 @@ namespace Procurement.ViewModel
                 Orb = "Chaos Orb";
         }
 
-        public ICommand IncreaseValue { get; set; }
-        public ICommand DecreaseValue { get; set; }
+        public ICommand IncreaseValue => new RelayCommand(x => updateValue(1));
+        public ICommand DecreaseValue => new RelayCommand(x => updateValue(-1));
+
         public PricingInfo()
         {
             value = string.Empty;
             orb = string.Empty;
             enabled = false;
-
-            IncreaseValue = new DelegateCommand(x => updateValue(1));
-            DecreaseValue = new DelegateCommand(x => updateValue(-1));
         }
 
         private void updateValue(int difference)
