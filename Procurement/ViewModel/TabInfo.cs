@@ -2,7 +2,7 @@
 
 namespace Procurement.ViewModel
 {
-    public class TabInfo : INotifyPropertyChanged
+    public class TabInfo : ObservableBase
     {
         public string Name { get; set; }
         public decimal AvailableSpace { get; set; }
@@ -16,8 +16,8 @@ namespace Procurement.ViewModel
             set
             {
                 isChecked = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("IsChecked"));
+
+                OnPropertyChanged();
             }
         }
 
@@ -27,7 +27,5 @@ namespace Procurement.ViewModel
             if (int.TryParse(Name, out id))
                 Name = "Tab " + Name;
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

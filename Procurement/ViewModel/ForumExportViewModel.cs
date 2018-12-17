@@ -16,7 +16,7 @@ using System.Windows;
 
 namespace Procurement.ViewModel
 {
-    public class ForumExportViewModel : INotifyPropertyChanged
+    public class ForumExportViewModel : ObservableBase
     {
         private ExportPreferenceManager preferenceManager;
         private List<TabInfo> stashItems;
@@ -54,7 +54,7 @@ namespace Procurement.ViewModel
             set
             {
                 currentTemplate = value;
-                onPropertyChanged("CurrentTemplate");
+                OnPropertyChanged();
                 Text = getFinal(selected.SelectMany(sid => ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(sid))
                                                               .OrderBy(id => id.Y).ThenBy(i => i.X));
             }
@@ -66,7 +66,7 @@ namespace Procurement.ViewModel
             set
             {
                 stashItems = value;
-                onPropertyChanged("StashItems");
+                OnPropertyChanged();
             }
         }
 
@@ -78,7 +78,7 @@ namespace Procurement.ViewModel
             set
             {
                 text = value;
-                onPropertyChanged("Text");
+                OnPropertyChanged();
             }
         }
 
@@ -361,14 +361,6 @@ namespace Procurement.ViewModel
                                                     .Where(t => !(t.IsAbstract || t.IsInterface) && visitorType.IsAssignableFrom(t))
                                                     .Select(t => Activator.CreateInstance(t) as IVisitor)
                                                     .ToList();
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void onPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
         internal void ToggleAll(bool value)

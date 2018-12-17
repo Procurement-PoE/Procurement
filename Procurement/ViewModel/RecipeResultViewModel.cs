@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Procurement.ViewModel.Recipes;
 using System.ComponentModel;
 using POEApi.Model;
-using System.Windows.Controls;
 
 namespace Procurement.ViewModel
 {
-    public class RecipeResultViewModel : INotifyPropertyChanged
+    public class RecipeResultViewModel : ObservableBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private Dictionary<string, List<RecipeResult>> results;
         private RecipeManager manager;
 
@@ -22,8 +17,8 @@ namespace Procurement.ViewModel
             set 
             { 
                 results = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("Results"));
+
+                OnPropertyChanged();
             }
         }
 
@@ -35,8 +30,8 @@ namespace Procurement.ViewModel
             set 
             { 
                 selectedItem = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("SelectedItem"));
+
+                OnPropertyChanged();
             }
         }
         
