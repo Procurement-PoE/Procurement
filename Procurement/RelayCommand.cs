@@ -6,14 +6,8 @@ namespace Procurement.View.ViewModel
 {
     public class RelayCommand : ICommand
     {
-        #region Fields
-
         readonly Action<object> execute;
         readonly Predicate<object> canExecute;
-
-        #endregion
-
-        #region Constructors
 
         public RelayCommand(Action<object> execute)
             : this(execute, null)
@@ -28,9 +22,6 @@ namespace Procurement.View.ViewModel
             this.execute = execute;
             this.canExecute = canExecute;
         }
-        #endregion
-
-        #region ICommand Members
 
         [DebuggerStepThrough]
         public bool CanExecute(object parameter)
@@ -48,7 +39,5 @@ namespace Procurement.View.ViewModel
         {
             execute(parameter);
         }
-
-        #endregion
     }
 }
