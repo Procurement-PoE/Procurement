@@ -13,6 +13,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
+using Procurement.View.ViewModel;
 
 namespace Procurement.ViewModel
 {
@@ -24,26 +26,11 @@ namespace Procurement.ViewModel
         private string text;
         private static List<IVisitor> visitors = null;
 
-        private DelegateCommand copyCommand;
-        public DelegateCommand CopyCommand
-        {
-            get { return copyCommand; }
-            set { copyCommand = value; }
-        }
+        public ICommand CopyCommand => new RelayCommand(copy);
 
-        private DelegateCommand postToThreadCommand;
-        public DelegateCommand PostToThreadCommand
-        {
-            get { return postToThreadCommand; }
-            set { postToThreadCommand = value; }
-        }
+        public ICommand PostToThreadCommand=> new RelayCommand(postToThread);
 
-        private DelegateCommand bumpThreadCommand;
-        public DelegateCommand BumpThreadCommand
-        {
-            get { return bumpThreadCommand; }
-            set { bumpThreadCommand = value; }
-        }
+        public ICommand BumpThreadCommand => new RelayCommand(bumpThread);
 
         public List<string> AvailableTemplates { get; private set; }
 
@@ -85,10 +72,6 @@ namespace Procurement.ViewModel
 
         public ForumExportViewModel()
         {
-            copyCommand = new DelegateCommand(copy);
-            postToThreadCommand = new DelegateCommand(postToThread);
-            bumpThreadCommand = new DelegateCommand(bumpThread);
-
             preferenceManager = new ExportPreferenceManager();
 
             updateForLeague();

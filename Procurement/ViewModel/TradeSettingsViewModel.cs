@@ -1,9 +1,9 @@
 ﻿using POEApi.Model;
 using Procurement.Utility;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows;
+using System.Windows.Input;
+using Procurement.View.ViewModel;
 
 namespace Procurement.ViewModel
 {
@@ -119,9 +119,6 @@ namespace Procurement.ViewModel
             this.onlyDisplayBuyouts = getSetting(ONLY_DISPLAY_BUYOUTS);
             this.poeTradeRefreshEnabled = getSetting(POE_TRADE_REFRESH);
 
-            saveCommand = new DelegateCommand(saveShopSettings);
-            saveRefreshCommand = new DelegateCommand(saveRefreshSettings);
-
             if (!Settings.ShopSettings.ContainsKey(ApplicationState.CurrentLeague))
                 return;
 
@@ -154,19 +151,9 @@ namespace Procurement.ViewModel
                 MessageBox.Show("Unable to save shop settings, error logged to debuginfo.log", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        private DelegateCommand saveCommand;
-        public DelegateCommand SaveCommand
-        {
-            get { return saveCommand; }
-            set { saveCommand = value; }
-        }
+        public ICommand SaveCommand => new RelayCommand(saveShopSettings);
 
-        private DelegateCommand saveRefreshCommand;
-        public DelegateCommand SaveRefreshCommand
-        {
-            get { return saveRefreshCommand; }
-            set { saveRefreshCommand = value; }
-        }
+        public ICommand SaveRefreshCommand => new RelayCommand(saveRefreshSettings);
 
         private bool getSetting(string key)
         {

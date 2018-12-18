@@ -109,6 +109,7 @@
       <DependentUpon>FragmentStash.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\FragmentStashViewModel.cs" />
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModel\EssenceStashViewModel.cs" />
     <Compile Include="ViewModel\CurrencyStashViewModel.cs" />
     <Compile Include="Interfaces\IStashControl.cs" />
@@ -222,7 +223,6 @@
     <Compile Include="ViewModel\SetTabBuyoutViewModel.cs" />
     <Compile Include="ViewModel\TradeSettingsViewModel.cs" />
     <Compile Include="ViewModel\Cache\BitmapCache.cs" />
-    <Compile Include="ViewModel\DelegateCommand.cs" />
     <Compile Include="ViewModel\DisplayModeStrategy\DisplayModeFactory.cs" />
     <Compile Include="ViewModel\DisplayModeStrategy\DisplayModeStrategyBase.cs" />
     <Compile Include="ViewModel\DisplayModeStrategy\IDisplayModeStrategy.cs" />
