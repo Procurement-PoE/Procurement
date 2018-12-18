@@ -13,72 +13,74 @@
             <Setter Property="Height" Value="40" />
         </Style>
     </UserControl.Resources>
-    <Canvas>
-        <Canvas.Background>
-            <ImageBrush ImageSource="/Images/fragmentTab.png" />
-        </Canvas.Background>
+    <Border x:Name="Border" BorderThickness="3" CornerRadius="2" BorderBrush="Aquamarine">
+        <Canvas>
+            <Canvas.Background>
+                <ImageBrush ImageSource="/Images/fragmentTab.png" />
+            </Canvas.Background>
 
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="106" Canvas.Top="90"
-                           DataContext="{Binding Dusk}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="168" Canvas.Top="151"
-                           DataContext="{Binding Dawn}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="104" Canvas.Top="151"
-                           DataContext="{Binding Noon}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="168" Canvas.Top="91"
-                           DataContext="{Binding Midnight}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="106" Canvas.Top="90"
+                               DataContext="{Binding Dusk}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="168" Canvas.Top="151"
+                               DataContext="{Binding Dawn}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="104" Canvas.Top="151"
+                               DataContext="{Binding Noon}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="168" Canvas.Top="91"
+                               DataContext="{Binding Midnight}" />
 
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="379" Canvas.Top="86"
-                           DataContext="{Binding Grief}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="441" Canvas.Top="86"
-                           DataContext="{Binding Rage}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="379" Canvas.Top="151"
-                           DataContext="{Binding Ignorance}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="441" Canvas.Top="151"
-                           DataContext="{Binding Hope}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="91"
-                           DataContext="{Binding DivineVessel}" Height="94" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="379" Canvas.Top="86"
+                               DataContext="{Binding Grief}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="441" Canvas.Top="86"
+                               DataContext="{Binding Rage}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="379" Canvas.Top="151"
+                               DataContext="{Binding Ignorance}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="441" Canvas.Top="151"
+                               DataContext="{Binding Hope}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="91"
+                               DataContext="{Binding DivineVessel}" Height="94" />
 
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="104" Canvas.Top="400"
-                           DataContext="{Binding Volkuur}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="168" Canvas.Top="400"
-                           DataContext="{Binding Eber}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="104" Canvas.Top="463"
-                           DataContext="{Binding Inya}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="168" Canvas.Top="463"
-                           DataContext="{Binding Yriel}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="104" Canvas.Top="400"
+                               DataContext="{Binding Volkuur}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="168" Canvas.Top="400"
+                               DataContext="{Binding Eber}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="104" Canvas.Top="463"
+                               DataContext="{Binding Inya}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="168" Canvas.Top="463"
+                               DataContext="{Binding Yriel}" />
 
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="381" Canvas.Top="400"
-                           DataContext="{Binding Hydra}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="444" Canvas.Top="400"
-                           DataContext="{Binding Phoenix}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="381" Canvas.Top="461"
-                           DataContext="{Binding Minotaur}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="444" Canvas.Top="461"
-                           DataContext="{Binding Chimera}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="381" Canvas.Top="400"
+                               DataContext="{Binding Hydra}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="444" Canvas.Top="400"
+                               DataContext="{Binding Phoenix}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="381" Canvas.Top="461"
+                               DataContext="{Binding Minotaur}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="444" Canvas.Top="461"
+                               DataContext="{Binding Chimera}" />
 
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="148" Canvas.Top="307"
-                           DataContext="{Binding ChayulaSplinter}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="212" Canvas.Top="307"
-                           DataContext="{Binding TulSplinter}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="276" Canvas.Top="307"
-                           DataContext="{Binding XophSplinter}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="340" Canvas.Top="307"
-                           DataContext="{Binding EshSplinter}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="403" Canvas.Top="307"
-                           DataContext="{Binding UulNetolSplinter}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="148" Canvas.Top="307"
+                               DataContext="{Binding ChayulaSplinter}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="212" Canvas.Top="307"
+                               DataContext="{Binding TulSplinter}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="276" Canvas.Top="307"
+                               DataContext="{Binding XophSplinter}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="340" Canvas.Top="307"
+                               DataContext="{Binding EshSplinter}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="403" Canvas.Top="307"
+                               DataContext="{Binding UulNetolSplinter}" />
 
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="149" Canvas.Top="243"
-                           DataContext="{Binding ChayulaBlessing}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="211" Canvas.Top="243"
-                           DataContext="{Binding TulBlessing}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="243"
-                           DataContext="{Binding XophBlessing}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="339" Canvas.Top="243"
-                           DataContext="{Binding EshBlessing}" />
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="402" Canvas.Top="243"
-                           DataContext="{Binding UulNetolBlessing}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="149" Canvas.Top="243"
+                               DataContext="{Binding ChayulaBlessing}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="211" Canvas.Top="243"
+                               DataContext="{Binding TulBlessing}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="243"
+                               DataContext="{Binding XophBlessing}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="339" Canvas.Top="243"
+                               DataContext="{Binding EshBlessing}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="402" Canvas.Top="243"
+                               DataContext="{Binding UulNetolBlessing}" />
 
-        <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="430" 
-                           DataContext="{Binding Offering}" />
-    </Canvas>
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="430"
+                               DataContext="{Binding Offering}" />
+        </Canvas>
+    </Border>
 </UserControl>

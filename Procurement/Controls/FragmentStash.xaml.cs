@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using Procurement.Interfaces;
 using Procurement.ViewModel.Filters;
 
@@ -23,6 +25,8 @@ namespace Procurement.Controls
 
             DataContext = viewModel;
 
+            SetPremiumTabBorderColour();
+
             InitializeComponent();
         }
 
@@ -42,6 +46,13 @@ namespace Procurement.Controls
 
         public void ForceUpdate()
         {
+        }
+
+        public void SetPremiumTabBorderColour()
+        {
+            var color = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs[TabNumber].Colour.WpfColor;
+            
+            this.Border.BorderBrush = new SolidColorBrush(color);
         }
     }
 }

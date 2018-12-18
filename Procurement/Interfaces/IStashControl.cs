@@ -10,6 +10,8 @@ namespace Procurement.Interfaces
         int FilterResults { get; set; }
         List<IFilter> Filter { get; set; }
 
+        void SetPremiumTabBorderColour();
+
         void ForceUpdate();
     }
 }

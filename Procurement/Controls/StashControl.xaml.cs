@@ -261,5 +261,10 @@ namespace Procurement.Controls
 
             return Filter.All(filter => filter.Applicable(item));
         }
+
+        public void SetPremiumTabBorderColour()
+        {
+            //throw new NotImplementedException();
+        }
     }
 }
