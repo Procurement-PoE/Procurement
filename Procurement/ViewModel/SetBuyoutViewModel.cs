@@ -1,13 +1,10 @@
 ﻿using POEApi.Model;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace Procurement.ViewModel
 {
-    public class SetBuyoutViewModel : INotifyPropertyChanged
+    public class SetBuyoutViewModel : ObservableBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        
         private static List<string> orbTypes = new List<string>()
         {
             "Chaos Orb",

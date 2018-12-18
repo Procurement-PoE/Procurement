@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using POEApi.Model;
 
 namespace Procurement.ViewModel
 {
-    public class EssenceStashViewModel : INotifyPropertyChanged
+    public class EssenceStashViewModel : ObservableBase
     {
         private readonly List<Item> _stash;
 
@@ -128,9 +127,6 @@ namespace Procurement.ViewModel
 
         public ItemDisplayViewModel RemnantOfCorruption => GetEssenceItem(EssenceType.RemnantOfCorruption);
 
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private ItemDisplayViewModel GetItemAtPosition(int x, int y)
         {
             var item = _stash.FirstOrDefault(i => i.X == x && i.Y == y);
@@ -149,11 +145,6 @@ namespace Procurement.ViewModel
             }
 
             return new ItemDisplayViewModel(null);
-        }
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

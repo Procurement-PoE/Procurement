@@ -7,19 +7,12 @@ using System.Windows;
 
 namespace Procurement.ViewModel
 {
-    public class TradeSettingsViewModel : INotifyPropertyChanged
+    public class TradeSettingsViewModel : ObservableBase
     {
         private const string EMBED_BUYOUTS = "EmbedBuyouts";
         private const string BUYOUT_TAG_ONLY = "BuyoutItemsOnlyVisibleInBuyoutsTag";
         private const string ONLY_DISPLAY_BUYOUTS = "OnlyDisplayBuyouts";
         private const string POE_TRADE_REFRESH = "PoeTradeRefreshEnabled";
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void onPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-        }
 
         public bool LoggedIn { get { return !ApplicationState.Model.Offline; } }
 
@@ -30,8 +23,8 @@ namespace Procurement.ViewModel
             set
             {
                 embedBuyouts = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs(EMBED_BUYOUTS));
+
+                OnPropertyChanged();
 
                 Settings.UserSettings[EMBED_BUYOUTS] = Convert.ToString(value);
                 Settings.Save();
@@ -45,8 +38,8 @@ namespace Procurement.ViewModel
             set
             {
                 buyoutItemsOnlyVisibleInBuyoutsTag = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs(BUYOUT_TAG_ONLY));
+
+                OnPropertyChanged();
 
                 Settings.UserSettings[BUYOUT_TAG_ONLY] = Convert.ToString(value);
                 Settings.Save();
@@ -60,8 +53,8 @@ namespace Procurement.ViewModel
             set
             {
                 onlyDisplayBuyouts = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs(ONLY_DISPLAY_BUYOUTS));
+
+                OnPropertyChanged();
 
                 Settings.UserSettings[ONLY_DISPLAY_BUYOUTS] = Convert.ToString(value);
                 Settings.Save();
@@ -75,8 +68,8 @@ namespace Procurement.ViewModel
             set
             {
                 poeTradeRefreshEnabled = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs(POE_TRADE_REFRESH));
+
+                OnPropertyChanged();
 
                 Settings.UserSettings[POE_TRADE_REFRESH] = Convert.ToString(value);
             }
@@ -91,8 +84,7 @@ namespace Procurement.ViewModel
                 poeTradeRefreshUrl = value;
                 Settings.UserSettings["PoeTradeRefreshUrl"] = value;
 
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("PoeTradeRefreshUrl"));
+                OnPropertyChanged();
             }
         }
 
@@ -103,8 +95,8 @@ namespace Procurement.ViewModel
             set
             {
                 threadId = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("ThreadId"));
+
+                OnPropertyChanged();
             }
         }
 
@@ -115,8 +107,8 @@ namespace Procurement.ViewModel
             set
             {
                 threadTitle = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("ThreadTitle"));
+
+                OnPropertyChanged();
             }
         }
 

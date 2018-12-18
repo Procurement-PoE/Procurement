@@ -8,7 +8,7 @@ using Procurement.View;
 
 namespace Procurement.ViewModel
 {
-    public class SettingsViewModel : INotifyPropertyChanged
+    public class SettingsViewModel : ObservableBase
     {
         private SettingsView view;
 
@@ -36,8 +36,8 @@ namespace Procurement.ViewModel
             set
             {
                 compactMode = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("CompactMode"));
+
+                OnPropertyChanged();
 
                 Settings.UserSettings["CompactMode"] = Convert.ToString(value);
                 Settings.Save();
@@ -81,7 +81,15 @@ namespace Procurement.ViewModel
             }
         }
 
-        public List<string> Characters { get; set; }
+        public List<string> Characters
+        {
+            get { return _characters; }
+            set
+            {
+                _characters = value;
+                OnPropertyChanged();
+            }
+        }
 
         public List<string> Leagues { get; set; }
 
@@ -99,8 +107,8 @@ namespace Procurement.ViewModel
             set
             {
                 downloadOnlyMyLeagues = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("DownloadOnlyMyLeagues"));
+
+                OnPropertyChanged();
 
                 Settings.UserSettings["DownloadOnlyMyLeagues"] = Convert.ToString(value);
                 Settings.Save();
@@ -114,8 +122,8 @@ namespace Procurement.ViewModel
             set
             {
                 downloadOnlyMyCharacters = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("DownloadOnlyMyCharacters"));
+
+                OnPropertyChanged();
 
                 Settings.UserSettings["DownloadOnlyMyCharacters"] = Convert.ToString(value);
                 Settings.Save();
@@ -123,19 +131,17 @@ namespace Procurement.ViewModel
         }
 
         private List<TabInfo> stashTabs;
+        private List<string> _characters;
+
         public List<TabInfo> StashTabs 
         {
             get { return stashTabs; }
             set
             {
                 stashTabs = value;
-                onPropertyChanged("StashItems");
+
+                OnPropertyChanged();
             }
-        }
-        private void onPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
         public SettingsViewModel(SettingsView view)
@@ -196,11 +202,7 @@ namespace Procurement.ViewModel
         private void refreshCharacters()
         {
             this.Characters = ApplicationState.Model.GetCharacters().Where(c => c.League == CurrentLeague).Select(c => c.Name).ToList();
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs("Characters"));
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         internal void RecipeTabChecked(string tabName)
         {

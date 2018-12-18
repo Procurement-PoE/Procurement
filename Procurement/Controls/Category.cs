@@ -1,10 +1,10 @@
 ﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
+using Procurement.ViewModel;
 using Procurement.ViewModel.Filters;
 
 namespace Procurement.Controls
 {
-    internal class Category : INotifyPropertyChanged
+    internal class Category : ObservableBase
     {
         public Category()
         {
@@ -14,7 +14,7 @@ namespace Procurement.Controls
 
         void filters_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            onPropertyChanged("Filters");
+            OnPropertyChanged(nameof(Filters));
         }
         public string Name { get; set; }
         private ObservableCollection<IFilter> filters;
@@ -22,14 +22,6 @@ namespace Procurement.Controls
         {
             get { return filters; }
             set { filters = value; }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void onPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
     }
 }

@@ -7,10 +7,8 @@ using POEApi.Model;
 
 namespace Procurement.ViewModel
 {
-    public class MainPageViewModel : INotifyPropertyChanged
+    public class MainPageViewModel : ObservableBase
     {
-        
-        public event PropertyChangedEventHandler PropertyChanged;
         private List<Item> stashItems;
         private bool isBusy;
 
@@ -63,7 +61,7 @@ namespace Procurement.ViewModel
             set 
             { 
                 stashItems = value;
-                publishPropertyChanged("StashItems");
+                OnPropertyChanged();
             }
         }
 
@@ -73,13 +71,8 @@ namespace Procurement.ViewModel
             set 
             { 
                 isBusy = value;
-                publishPropertyChanged("IsBusy");
+                OnPropertyChanged();
             }
-        }
-        private void publishPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
     }
 }

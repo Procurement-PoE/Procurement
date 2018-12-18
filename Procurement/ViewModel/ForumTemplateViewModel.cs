@@ -1,17 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Windows.Controls;
-using System.Windows.Input;
+﻿using System.ComponentModel;
 using Procurement.Controls;
-using Procurement.ViewModel.Filters;
 
 namespace Procurement.ViewModel
 {
-    internal class ForumTemplateViewModel : INotifyPropertyChanged
+    internal class ForumTemplateViewModel : ObservableBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public ForumTemplateViewModel()
         {
             this.Text = ForumExportTemplateReader.GetTemplate(null);
@@ -23,12 +16,6 @@ namespace Procurement.ViewModel
             this.Text = sender.ToString();
         }
 
-        private void onPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-        }
-
         private string text;
         public string Text
         {
@@ -36,7 +23,7 @@ namespace Procurement.ViewModel
             set
             {
                 text = value;
-                onPropertyChanged("Text");
+                OnPropertyChanged();
             }
         }
 

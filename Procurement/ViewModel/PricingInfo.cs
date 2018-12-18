@@ -5,15 +5,8 @@ using System.Windows.Input;
 
 namespace Procurement.ViewModel
 {
-    public class PricingInfo : INotifyPropertyChanged
+    public class PricingInfo : ObservableBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void onPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-        }
-
         private string value;
         public string Value
         {
@@ -21,7 +14,7 @@ namespace Procurement.ViewModel
             set
             {
                 this.value = value;
-                onPropertyChanged("Value");
+                OnPropertyChanged();
             }
         }
         private string orb;
@@ -31,7 +24,7 @@ namespace Procurement.ViewModel
             set
             {
                 this.orb = value;
-                onPropertyChanged("Orb");
+                OnPropertyChanged();
             }
         }
         private bool enabled;
@@ -42,7 +35,7 @@ namespace Procurement.ViewModel
             {
                 enabled = value;
                 setDefaults();
-                onPropertyChanged("Enabled");
+                OnPropertyChanged();
             }
         }
 
@@ -105,7 +98,7 @@ namespace Procurement.ViewModel
             if (!enabled || (string.IsNullOrEmpty(value) && string.IsNullOrEmpty(orb)))
                 return string.Empty;
 
-            return string.Format("{0} {1}", value, CurrencyAbbreviationMap.Instance.FromCurrency(orb));
+            return $"{value} {CurrencyAbbreviationMap.Instance.FromCurrency(orb)}";
         }
     }
 }
