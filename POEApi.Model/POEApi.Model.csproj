@@ -92,6 +92,7 @@
     <Compile Include="Property.cs" />
     <Compile Include="Prophecy.cs" />
     <Compile Include="ProxyMapper.cs" />
+    <Compile Include="QuestItem.cs" />
     <Compile Include="Requirement.cs" />
     <Compile Include="Scarab.cs" />
     <Compile Include="Settings.cs" />

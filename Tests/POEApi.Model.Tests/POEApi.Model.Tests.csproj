@@ -90,6 +90,7 @@
     <None Include="TestData\SampleCurrencyTabWithShards.json" />
     <None Include="TestData\SampleInventory.json" />
     <None Include="TestData\SampleCharacter.json" />
+    <None Include="TestData\SampleInventoryWithQuestItems.json" />
     <None Include="TestData\SampleStash.json" />
     <None Include="TestData\SampleStashWithDivineVessel.json" />
     <None Include="TestData\SampleStashWithEssences.json" />
