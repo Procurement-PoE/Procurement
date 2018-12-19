@@ -365,9 +365,13 @@ namespace POEApi.Model.Tests
                 var stash = _model.GetStash(0, "", "");
 
                 Assert.IsNotNull(stash);
-                var scarab = stash.GetItemsByTab(1).OfType<Scarab>().First(x => x.ScarabRank == ScarabRank.Gilded && x.ScarabEffect == ScarabEffect.Breach);
+                var scarab = stash.GetItemsByTab(1).OfType<Scarab>()
+                            .First(x => x.ScarabRank == ScarabRank.Gilded && x.ScarabEffect == ScarabEffect.Breach);
 
                 Assert.IsNotNull(scarab);
+                
+                Assert.AreEqual(ScarabRank.Gilded, scarab.ScarabRank);
+                Assert.AreEqual(ScarabEffect.Breach, scarab.ScarabEffect);
             }
         }
     }

@@ -1,4 +1,6 @@
-﻿namespace POEApi.Model
+﻿using System;
+
+namespace POEApi.Model
 {
     public class Scarab : Item
     {
@@ -14,101 +16,36 @@
 
         private ScarabEffect GetScarabEffect()
         {
-            if (TypeLine.Contains("Ambush"))
-            {
-                return ScarabEffect.Ambush;
-            }
+            ScarabEffect result = ScarabEffect.Unknown;
 
-            if (TypeLine.Contains("Bestiary"))
-            {
-                return ScarabEffect.Bestiary;
-            }
+            Enum.TryParse(TypeLine.Split(' ')[1], true, out result);
 
-            if (TypeLine.Contains("Breach"))
-            {
-                return ScarabEffect.Breach;
-            }
-
-            if (TypeLine.Contains("Cartography"))
-            {
-                return ScarabEffect.Cartography;
-            }
-
-            if (TypeLine.Contains("Divination"))
-            {
-                return ScarabEffect.Divination;
-            }
-
-            if (TypeLine.Contains("Elder"))
-            {
-                return ScarabEffect.Elder;
-            }
-
-            if (TypeLine.Contains("Harbinger"))
-            {
-                return ScarabEffect.Harbinger;
-            }
-
-            if (TypeLine.Contains("Perandus"))
-            {
-                return ScarabEffect.Perandus;
-            }
-
-            if (TypeLine.Contains("Reliquary"))
-            {
-                return ScarabEffect.Reliquary;
-            }
-
-            if (TypeLine.Contains("Shaper"))
-            {
-                return ScarabEffect.Shaper;
-            }
-
-            if (TypeLine.Contains("Sulphite"))
-            {
-                return ScarabEffect.Sulphite;
-            }
-
-            if (TypeLine.Contains("Torment"))
-            {
-                return ScarabEffect.Torment;
-            }
-
-            return ScarabEffect.Unknown;
+            return result;
         }
 
         private ScarabRank GetScarabRank()
         {
-            if (TypeLine.Contains("Gilded"))
-            {
-                return ScarabRank.Gilded;
-            }
+            ScarabRank result = ScarabRank.Unknown;
 
-            if (TypeLine.Contains("Polished"))
-            {
-                return ScarabRank.Polished;
-            }
+            Enum.TryParse(TypeLine.Split(' ')[0], true, out result);
 
-            if (TypeLine.Contains("Rusted"))
-            {
-                return ScarabRank.Rusted;
-            }
-
-            return ScarabRank.Unknown;
+            return result;
         }
     }
 
     public enum ScarabRank
     {
+        Unknown,
+
         Rusted,
         Polished,
-        Gilded,
-
-        Unknown
+        Gilded
     }
 
     public enum ScarabEffect
     {
+        Unknown,
+
         Ambush,
         Bestiary,
         Breach,
@@ -120,8 +57,6 @@
         Reliquary,
         Shaper,
         Sulphite,
-        Torment,
-
-        Unknown
+        Torment
     }
 }
