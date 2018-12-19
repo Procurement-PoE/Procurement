@@ -99,6 +99,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ApplicationState.cs" />
+    <Compile Include="Controls\AbstractStashControl.cs" />
     <Compile Include="Controls\EssenceStash.xaml.cs">
       <DependentUpon>EssenceStash.xaml</DependentUpon>
     </Compile>

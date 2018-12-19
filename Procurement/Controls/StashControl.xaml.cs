@@ -8,33 +8,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using POEApi.Model;
 using Procurement.ViewModel;
-using Procurement.ViewModel.Filters;
-using System.Diagnostics;
 using POEApi.Infrastructure;
-using Procurement.Interfaces;
 using System.Windows.Media.Imaging;
 
 namespace Procurement.Controls
 {
-    public partial class StashControl : UserControl, IStashControl
+    public partial class StashControl : AbstractStashControl
     {
-        public int TabNumber { get; set; }
-        public int FilterResults { get; set; }
         private bool initialized = false;
         private TabType tabType;
 
         private Dictionary<Tuple<int, int>, Item> stashByLocation;
         private Dictionary<Tuple<int, int>, Border> borderByLocation;
-        public List<Item> Stash { get; set; }
-        //public int FilterResults { get; private set; }
 
-        public List<IFilter> Filter
-        {
-            get { return (List<IFilter>) GetValue(FilterProperty); }
-            set { SetValue(FilterProperty, value); }
-        }
-
-        public void ForceUpdate()
+        public override void ForceUpdate()
         {
             if (initialized == false && Stash == null)
                 refresh();
@@ -82,15 +69,12 @@ namespace Procurement.Controls
             border.Background = Brushes.Transparent;
         }
 
-        public void RefreshTab(string accountName)
+        public override void RefreshTab(string accountName)
         {
-            ApplicationState.Stash[ApplicationState.CurrentLeague].RefreshTab(ApplicationState.Model,
-                ApplicationState.CurrentLeague, TabNumber, accountName);
+            base.RefreshTab(accountName);
+
             refresh();
         }
-
-        public static readonly DependencyProperty FilterProperty =
-            DependencyProperty.Register("Filter", typeof(IEnumerable<IFilter>), typeof(StashControl), null);
 
         public StashControl()
         {
@@ -137,9 +121,7 @@ namespace Procurement.Controls
 
         private void updateStashByLocation()
         {
-
             stashByLocation.Clear();
-
 
             foreach (var item in this.Stash)
             {
@@ -233,7 +215,6 @@ namespace Procurement.Controls
             (sender as Popup).IsOpen = false;
         }
 
-
         private Border getBorder()
         {
             Border b = new Border();
@@ -248,8 +229,6 @@ namespace Procurement.Controls
                 childGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#88001D"));
             else
                 childGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#21007F"));
-
-
 
             childGrid.Background.Opacity = 0.3;
         }
