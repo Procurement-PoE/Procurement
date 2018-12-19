@@ -241,5 +241,15 @@
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="480" Canvas.Top="392"
                                DataContext="{Binding RemnantOfCorruption}" />
 
-        </Canvas></Border>
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="320" Canvas.Top="406"
+                DataContext="{Binding MainSlot}" Height="157" Width="81" />
+
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="480" Canvas.Top="438"
+                DataContext="{Binding SlotOne}"  />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="480" Canvas.Top="484"
+                DataContext="{Binding SlotTwo}" />
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="480" Canvas.Top="530"
+                DataContext="{Binding SlotThree}" />
+        </Canvas>
+    </Border>
 </UserControl>
