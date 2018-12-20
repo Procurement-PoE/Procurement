@@ -374,5 +374,23 @@ namespace POEApi.Model.Tests
                 Assert.AreEqual(ScarabEffect.Breach, scarab.ScarabEffect);
             }
         }
+
+        [TestMethod]
+        public void GetInventoryWithQuestItemsTest()
+        {
+            string fakeCharacterInfo = Encoding.UTF8.GetString(Files.SampleInventoryWithQuestItems);
+
+            using (var stream = GenerateStreamFromString(fakeCharacterInfo))
+            {
+                _mockTransport.Setup(m => m.GetInventory("", false, "")).Returns(stream);
+
+                var inventory = _model.GetInventory("", false, "");
+
+                Assert.IsNotNull(inventory);
+
+                Assert.AreEqual(2, inventory.Count);
+                Assert.AreEqual(true, inventory.All(x => x is QuestItem));
+            }
+        }
     }
 }
