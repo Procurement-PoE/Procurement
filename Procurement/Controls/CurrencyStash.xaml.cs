@@ -14,11 +14,15 @@ namespace Procurement.Controls
 
         public CurrencyStash(int tabNumber) : base(tabNumber)
         {
-            var stash = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(TabNumber);
+            Refresh();
 
-            viewModel = new CurrencyStashViewModel(stash);
+            viewModel = new CurrencyStashViewModel(StashByLocation);
 
             DataContext = viewModel;
+
+            InitializeComponent();
+
+            Ready = true;
 
             SetPremiumTabBorderColour();
         }
@@ -29,10 +33,5 @@ namespace Procurement.Controls
         }
 
         public override Border Border => this.LocalBorder;
-
-        public override void ForceUpdate()
-        {
-            //throw new System.NotImplementedException();
-        }
     }
 }

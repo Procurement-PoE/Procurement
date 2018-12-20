@@ -6,11 +6,11 @@ namespace Procurement.ViewModel
 {
     public class EssenceStashViewModel : ObservableBase
     {
-        private readonly List<Item> _stash;
+        private readonly Dictionary<Item, ItemDisplayViewModel> _stash;
 
-        public EssenceStashViewModel(List<Item> stash)
+        public EssenceStashViewModel(Dictionary<Item, ItemDisplayViewModel> stashByLocation)
         {
-            _stash = stash;
+            _stash = stashByLocation;
         }
 
         public ItemDisplayViewModel WhisperingGreed => GetEssenceItem(EssenceType.WhisperingGreed);
@@ -129,22 +129,36 @@ namespace Procurement.ViewModel
 
         private ItemDisplayViewModel GetItemAtPosition(int x, int y)
         {
-            var item = _stash.FirstOrDefault(i => i.X == x && i.Y == y);
+            var item = _stash.FirstOrDefault(i => i.Key.X == x && i.Key.Y == y).Key;
+            
+            //We don't have an essence you are looking for
+            if(item == null)
+                return new ItemDisplayViewModel(null);
 
-            return new ItemDisplayViewModel(item);
+            if (_stash.ContainsKey(item) == false)
+                _stash.Add(item, new ItemDisplayViewModel(item));
+
+            return _stash[item];
         }
 
         private ItemDisplayViewModel GetEssenceItem(EssenceType essenceType)
         {
+            ItemDisplayViewModel rtnViewModel = null;
+
             foreach (var item in _stash)
             {
-                var essence = item as Essence;
+                var essence = item.Key as Essence;
 
                 if (essence?.Type == essenceType)
-                    return new ItemDisplayViewModel(item);
+                {
+                    rtnViewModel = new ItemDisplayViewModel(essence);
+
+                    _stash[essence] = rtnViewModel;
+                    break;
+                }
             }
 
-            return new ItemDisplayViewModel(null);
+            return rtnViewModel ?? (rtnViewModel = new ItemDisplayViewModel(null));
         }
     }
 }

@@ -30,6 +30,8 @@ namespace Procurement.View
     public class TabIDToStashControlFiltered : IValueConverter
     {
         public static Dictionary<string, Grid> cache;
+
+        //Todo: Get this to handle the premium tabs
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             if (value == null)

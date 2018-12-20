@@ -296,48 +296,38 @@ namespace Procurement.ViewModel
                     case TabType.Currency:
                         var currencyStash = new CurrencyStash(currentTab.i, getUserFilter(string.Empty));
 
-                        item.Content = currencyStash;
-
-                        addContextMenu(item, currencyStash);
-
-                        tabsAndContent.Add(new TabContent(i - 1, item, currencyStash));
+                        CraftTabAndContent(item, currencyStash, i);
                         break;
                     case TabType.Essence:
                         var essenceStash = new EssenceStash(currentTab.i, getUserFilter(string.Empty));
 
-                        item.Content = essenceStash;
-
-                        addContextMenu(item, essenceStash);
-
-                        tabsAndContent.Add(new TabContent(i - 1, item, essenceStash));
+                        CraftTabAndContent(item, essenceStash, i);
                         break;
                     case TabType.Fragment:
                         var fragmentStash = new FragmentStash(currentTab.i, getUserFilter(string.Empty));
 
-                        item.Content = fragmentStash;
-
-                        addContextMenu(item, fragmentStash);
-
-                        tabsAndContent.Add(new TabContent(i - 1, item, fragmentStash));
+                        CraftTabAndContent(item, fragmentStash, i);
                         break;
                     default:
-                        var itemStash = new StashControl(currentTab.i);
+                        var itemStash = new StashControl(currentTab.i, getUserFilter(string.Empty));
 
-                        itemStash.Filter = getUserFilter(string.Empty);
-
-                        item.Content = itemStash;
-                        addContextMenu(item, itemStash);
-
-                        tabsAndContent.Add(new TabContent(i - 1, item, itemStash));
+                        CraftTabAndContent(item, itemStash, i);
                         break;
                 }
 
-
                 stashView.tabControl.Items.Add(item);
-                
             }
 
-            stashView.Loaded -= new System.Windows.RoutedEventHandler(stashView_Loaded);
+            stashView.Loaded -= stashView_Loaded;
+        }
+
+        private void CraftTabAndContent(TabItem item, AbstractStashControl stash, int i)
+        {
+            item.Content = stash;
+
+            addContextMenu(item, stash);
+
+            tabsAndContent.Add(new TabContent(i - 1, item, stash));
         }
 
         private void addContextMenu(TabItem item, IStashControl itemStash)

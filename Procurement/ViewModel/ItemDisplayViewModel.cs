@@ -44,7 +44,9 @@ namespace Procurement.ViewModel
             get { return _isItemInFilter; }
             set
             {
-                _isItemInFilter = value; OnPropertyChanged();
+                _isItemInFilter = value;
+
+                OnPropertyChanged();
                 OnPropertyChanged(nameof(ItemFilterBrush));
             }
         }

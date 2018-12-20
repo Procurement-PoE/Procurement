@@ -6,11 +6,11 @@ namespace Procurement.ViewModel
 {
     public class CurrencyStashViewModel : ObservableBase
     {
-        private readonly List<Item> _stash;
+        private readonly Dictionary<Item, ItemDisplayViewModel> _stash;
 
-        public CurrencyStashViewModel(List<Item> stash)
+        public CurrencyStashViewModel(Dictionary<Item, ItemDisplayViewModel> stashByLocation)
         {
-            _stash = stash;
+            _stash = stashByLocation;
         }
 
         public ItemDisplayViewModel Exalted => GetCurrencyItem(OrbType.Exalted);
@@ -70,35 +70,60 @@ namespace Procurement.ViewModel
 
         private ItemDisplayViewModel GetItemAtPosition(int x, int y)
         {
-            var item = _stash.FirstOrDefault(i => i.X == x && i.Y == y);
+            ItemDisplayViewModel rtnViewModel = null;
 
-            return new ItemDisplayViewModel(item);
+            foreach (var item in _stash)
+            {
+                if (item.Key.X == x & item.Key.Y == y)
+                {
+                    rtnViewModel = new ItemDisplayViewModel(item.Key);
+
+                    _stash[item.Key] = rtnViewModel;
+                    break;
+                }
+            }
+
+            return rtnViewModel ?? (rtnViewModel = new ItemDisplayViewModel(null));
         }
 
         private ItemDisplayViewModel GetSextant(SextantType sextanType)
         {
+            ItemDisplayViewModel rtnViewModel = null;
+
             foreach (var item in _stash)
             {
-                var curency = item as Sextant;
+                var sextant = item.Key as Sextant;
 
-                if (curency?.Type == sextanType)
-                    return new ItemDisplayViewModel(item);
+                if (sextant?.Type == sextanType)
+                {
+                    rtnViewModel = new ItemDisplayViewModel(sextant);
+
+                    _stash[sextant] = rtnViewModel;
+                    break;
+                }
             }
 
-            return new ItemDisplayViewModel(null);
+            return rtnViewModel ?? (rtnViewModel = new ItemDisplayViewModel(null));
         }
         
         private ItemDisplayViewModel GetCurrencyItem(OrbType orbType)
         {
+            ItemDisplayViewModel rtnViewModel = null;
+
             foreach (var item in _stash)
             {
-                var curency = item as Currency;
+                var currency = item.Key as Currency;
 
-                if (curency?.Type == orbType)
-                    return new ItemDisplayViewModel(item);
+                if (currency?.Type == orbType)
+                {
+                    rtnViewModel = new ItemDisplayViewModel(currency);
+
+                    _stash[currency] = rtnViewModel;
+                    break;
+                }
             }
 
-            return new ItemDisplayViewModel(null);
+            return rtnViewModel ?? (rtnViewModel = new ItemDisplayViewModel(null));
         }
     }
 }

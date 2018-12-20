@@ -4,7 +4,6 @@ using System.Linq;
 using POEApi.Model;
 using POEApi.Model.Interfaces;
 using Procurement.ViewModel;
-using Procurement.ViewModel.Recipes;
 
 namespace Procurement.Controls
 {
@@ -52,6 +51,8 @@ namespace Procurement.Controls
         public ItemDisplayViewModel XophBlessing => new ItemDisplayViewModel(GetBreach<BreachBlessing>(BreachType.Xoph));
 
         public ItemDisplayViewModel Offering => new ItemDisplayViewModel(_items.OfType<Offering>().FirstOrDefault());
+
+        //Todo: Update these so that they become part of the filtering.
 
         private T GetBreach<T>(BreachType breachType) where T : IBreachCurrency
         {

@@ -13,15 +13,17 @@ namespace Procurement.Controls
 
         public FragmentStash(int tabNumber) : base(tabNumber)
         {
-            var items = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(TabNumber);
+            Refresh();
 
-            viewModel = new FragmentStashViewModel(items);
+            viewModel = new FragmentStashViewModel(Stash);
 
             DataContext = viewModel;
 
+            InitializeComponent();
+
             SetPremiumTabBorderColour();
 
-            InitializeComponent();
+            Ready = true;
         }
 
         public FragmentStash(int tabNumber, List<IFilter> list) : this(tabNumber)
@@ -30,9 +32,5 @@ namespace Procurement.Controls
         }
 
         public override Border Border => LocalBorder;
-
-        public override void ForceUpdate()
-        {
-        }
     }
 }
