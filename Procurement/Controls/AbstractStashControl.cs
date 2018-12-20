@@ -13,10 +13,14 @@ namespace Procurement.Controls
     {
         public bool Ready;
 
+        public AbstractStashControl(int tabNumber)
+        {
+            TabNumber = tabNumber;
+        }
+
         public virtual void RefreshTab(string accountName)
         {
-            ApplicationState.Stash[ApplicationState.CurrentLeague].RefreshTab(ApplicationState.Model,
-                ApplicationState.CurrentLeague, TabNumber, accountName);
+            ApplicationState.Stash[ApplicationState.CurrentLeague].RefreshTab(ApplicationState.Model, ApplicationState.CurrentLeague, TabNumber, accountName);
         }
 
         public int TabNumber { get; set; }

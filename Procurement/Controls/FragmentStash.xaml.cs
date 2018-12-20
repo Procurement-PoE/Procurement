@@ -11,11 +11,9 @@ namespace Procurement.Controls
     {
         private readonly FragmentStashViewModel viewModel;
 
-        public FragmentStash(int tabNumber)
+        public FragmentStash(int tabNumber) : base(tabNumber)
         {
-            TabNumber = tabNumber;
-
-            var items = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(tabNumber);
+            var items = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(TabNumber);
 
             viewModel = new FragmentStashViewModel(items);
 

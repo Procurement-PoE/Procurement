@@ -12,18 +12,14 @@ namespace Procurement.Controls
     {
         public CurrencyStashViewModel viewModel;
 
-        public CurrencyStash(int tabNumber)
+        public CurrencyStash(int tabNumber) : base(tabNumber)
         {
-            TabNumber = tabNumber;
-
-            var stash = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(tabNumber);
+            var stash = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(TabNumber);
 
             viewModel = new CurrencyStashViewModel(stash);
 
             DataContext = viewModel;
 
-            InitializeComponent();
-            
             SetPremiumTabBorderColour();
         }
 

@@ -12,11 +12,9 @@ namespace Procurement.Controls
     {
         public EssenceStashViewModel viewModel;
 
-        public EssenceStash(int tabNumber)
+        public EssenceStash(int tabNumber) : base(tabNumber)
         {
-            TabNumber = tabNumber;
-
-            var stash = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(tabNumber);
+            var stash = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(TabNumber);
 
             viewModel = new EssenceStashViewModel(stash);
 

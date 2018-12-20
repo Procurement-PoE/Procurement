@@ -19,9 +19,10 @@ namespace Procurement.Controls
         
         private TabType tabType;
 
-        public StashControl(int tabNumber)
+        public StashControl(int tabNumber) : base(tabNumber)
         {
             InitializeComponent();
+
             Loaded += StashControl_Loaded;
             ApplicationState.LeagueChanged += ApplicationState_LeagueChanged;
 
