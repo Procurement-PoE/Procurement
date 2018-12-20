@@ -21,10 +21,25 @@ namespace Procurement.Controls
         private Image itemImage;
 
         private TextBlock textblock;
+        private ItemDisplayViewModel _viewModel;
 
         public ItemDisplay()
         {
             InitializeComponent();
+        }
+
+        public ItemDisplayViewModel ViewModel
+        {
+            get { return _viewModel; }
+            set
+            {
+                _viewModel = value;
+
+                if (DataContext == null)
+                {
+                    DataContext = _viewModel;
+                }
+            }
         }
 
         public bool IsQuadStash { get; set; }
