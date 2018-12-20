@@ -20,9 +20,10 @@ namespace Procurement.ViewModel
     }
 
 
-    public class ItemDisplayViewModel
+    public class ItemDisplayViewModel : ObservableBase
     {
         private bool isQuadStash;
+        private bool _isItemInFilter;
 
         public static ItemHover ItemHover = new ItemHover();
 
@@ -37,7 +38,23 @@ namespace Procurement.ViewModel
                 return gear != null && gear.Sockets.Count > 0;
             }
         }
-        
+
+        public bool IsItemInFilter
+        {
+            get { return _isItemInFilter; }
+            set
+            {
+                _isItemInFilter = value; OnPropertyChanged();
+                OnPropertyChanged(nameof(ItemFilterBrush));
+            }
+        }
+
+        public SolidColorBrush ItemFilterBrush
+        {
+            get { return IsItemInFilter ? new SolidColorBrush(Colors.LightGoldenrodYellow) 
+                                        : new SolidColorBrush(Colors.Transparent); }
+        }
+
         public ItemDisplayViewModel(Item item)
         {
             this.Item = item;

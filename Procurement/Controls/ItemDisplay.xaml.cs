@@ -5,39 +5,31 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Documents;
-using System.Windows.Media;
-using POEApi.Model;
-using Procurement.ViewModel;
-using POEApi.Infrastructure;
-using Procurement.Utility;
 using System.Windows.Input;
+using System.Windows.Media;
+using POEApi.Infrastructure;
+using POEApi.Model;
+using Procurement.Utility;
+using Procurement.ViewModel;
 
 namespace Procurement.Controls
 {
     public partial class ItemDisplay : UserControl
     {
-        private static List<Popup> annoyed = new List<Popup>();
-        private static ResourceDictionary expressionDarkGrid;
+        private static readonly List<Popup> annoyed = new List<Popup>();
+        private bool contexted;
         private Image itemImage;
-        private bool contexted = false;
 
         private TextBlock textblock;
 
-        public bool IsQuadStash { get; set; }
-
         public ItemDisplay()
         {
-            MainGrid = new Grid();
-            AddChild(MainGrid);
-
-            expressionDarkGrid = expressionDarkGrid ?? Application.LoadComponent(new Uri("/Procurement;component/Controls/ExpressionDarkGrid.xaml", UriKind.RelativeOrAbsolute)) as ResourceDictionary;
-
-            this.Loaded += new RoutedEventHandler(ItemDisplay_Loaded);
-            this.MouseRightButtonUp += ItemDisplay_MouseRightButtonUp;
+            InitializeComponent();
         }
 
-        void ItemDisplay_MouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        public bool IsQuadStash { get; set; }
+
+        private void ItemDisplay_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (!contexted)
             {
@@ -51,94 +43,109 @@ namespace Procurement.Controls
             closeOthersButNot(new Popup());
         }
 
-        void ItemDisplay_Loaded(object sender, RoutedEventArgs e)
+        private void ItemDisplay_Loaded(object sender, RoutedEventArgs e)
         {
-            ItemDisplayViewModel vm = this.DataContext as ItemDisplayViewModel;
+            var vm = DataContext as ItemDisplayViewModel;
             if (vm != null)
             {
-                Image i = vm.getImage();
+                var i = vm.getImage();
                 itemImage = i;
 
                 if (i != null)
                 {
-                    this.MainGrid.Children.Add(i);
+                    MainGrid.Children.Add(i);
 
                     if (vm.HasSocket)
+                    {
                         BindSocketPopup(vm);
+                    }
 
-                    this.Height = i.Height;
-                    this.Width = i.Width;
+                    Height = i.Height;
+                    Width = i.Width;
                 }
             }
-            this.Loaded -= new RoutedEventHandler(ItemDisplay_Loaded);
+
+            Loaded -= ItemDisplay_Loaded;
 
             resyncText();
         }
 
         private void resyncText()
         {
-            ItemDisplayViewModel vm = this.DataContext as ItemDisplayViewModel;
+            var vm = DataContext as ItemDisplayViewModel;
             if (vm != null)
             {
-                Item item = vm.Item;
-                if (item == null) return;
+                var item = vm.Item;
+                if (item == null)
+                {
+                    return;
+                }
 
-                string pricingInfo = string.Empty;
+                var pricingInfo = string.Empty;
 
                 if (Settings.Buyouts.ContainsKey(item.Id))
                 {
                     pricingInfo = Settings.Buyouts[item.Id].Buyout;
 
                     if (pricingInfo == string.Empty)
+                    {
                         pricingInfo = Settings.Buyouts[item.Id].Price;
+                    }
                 }
 
                 if (textblock != null)
-                    this.MainGrid.Children.Remove(textblock);
+                {
+                    MainGrid.Children.Remove(textblock);
+                }
 
                 textblock = new TextBlock();
                 textblock.Text = pricingInfo;
 
                 if (item is Currency)
-                    textblock.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
+                {
+                    textblock.VerticalAlignment = VerticalAlignment.Bottom;
+                }
 
 
                 textblock.IsHitTestVisible = false;
                 textblock.Margin = new Thickness(1, 1, 0, 0);
-                this.MainGrid.Children.Add(textblock);
+                MainGrid.Children.Add(textblock);
             }
         }
 
         private void BindSocketPopup(ItemDisplayViewModel vm)
         {
             UIElement socket = null;
-            bool isKeyPressed = false;
+            var isKeyPressed = false;
 
             Action DisplaySocket = () =>
             {
                 if (socket == null)
-                    socket = vm.GetSocket(this.IsQuadStash);
+                {
+                    socket = vm.GetSocket(IsQuadStash);
+                }
 
                 if (!MainGrid.Children.Contains(socket))
+                {
                     MainGrid.Children.Add(socket);
+                }
             };
 
-            MainGrid.MouseEnter += (o, ev) =>
-            {
-                DisplaySocket();
-            };
+            MainGrid.MouseEnter += (o, ev) => { DisplaySocket(); };
 
             MainGrid.MouseLeave += (o, ev) =>
             {
                 if (!isKeyPressed)
+                {
                     MainGrid.Children.Remove(socket);
+                }
             };
 
-            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+            var mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
             mainWindow.KeyDown += (o, ev) =>
-            { 
-                if ((ev.SystemKey == Key.LeftAlt) ||
-                    (ev.SystemKey == Key.RightAlt))
+            {
+                if (ev.SystemKey == Key.LeftAlt ||
+                    ev.SystemKey == Key.RightAlt)
                 {
                     isKeyPressed = true;
 
@@ -148,34 +155,38 @@ namespace Procurement.Controls
 
             mainWindow.KeyUp += (o, ev) =>
             {
-                if (((Keyboard.GetKeyStates(Key.LeftAlt)  == KeyStates.None) || (Keyboard.GetKeyStates(Key.LeftAlt)  == KeyStates.Toggled)) &&
-                    ((Keyboard.GetKeyStates(Key.RightAlt) == KeyStates.None) || (Keyboard.GetKeyStates(Key.RightAlt) == KeyStates.Toggled)))
+                if ((Keyboard.GetKeyStates(Key.LeftAlt) == KeyStates.None || Keyboard.GetKeyStates(Key.LeftAlt) == KeyStates.Toggled) &&
+                    (Keyboard.GetKeyStates(Key.RightAlt) == KeyStates.None || Keyboard.GetKeyStates(Key.RightAlt) == KeyStates.Toggled))
                 {
                     isKeyPressed = false;
 
                     if (!MainGrid.IsMouseOver)
+                    {
                         MainGrid.Children.Remove(socket);
+                    }
                 }
             };
         }
 
         private ContextMenu getContextMenu()
         {
-            ItemDisplayViewModel vm = this.DataContext as ItemDisplayViewModel;
-            Item item = vm.Item;
+            var vm = DataContext as ItemDisplayViewModel;
+            var item = vm.Item;
 
-            ContextMenu menu = new ContextMenu();
+            var menu = new ContextMenu();
             menu.Background = Brushes.Black;
 
-            menu.Resources = expressionDarkGrid;
+            menu.Resources = Resources["ExpressionDarkGrid"] as ResourceDictionary;
 
-            MenuItem setBuyout = new MenuItem();
+            var setBuyout = new MenuItem();
             setBuyout.StaysOpenOnClick = true;
 
             var buyoutControl = new SetBuyoutView();
 
             if (Settings.Buyouts.ContainsKey(item.Id))
+            {
                 buyoutControl.SetBuyoutInfo(Settings.Buyouts[item.Id]);
+            }
 
             setBuyout.Header = buyoutControl;
             buyoutControl.Update += buyoutControl_Update;
@@ -185,7 +196,7 @@ namespace Procurement.Controls
             return menu;
         }
 
-        void buyoutControl_Update(ItemTradeInfo info)
+        private void buyoutControl_Update(ItemTradeInfo info)
         {
             updateBuyout(info);
             Settings.SaveBuyouts();
@@ -196,8 +207,8 @@ namespace Procurement.Controls
 
         private void updateBuyout(ItemTradeInfo info)
         {
-            ItemDisplayViewModel vm = this.DataContext as ItemDisplayViewModel;
-            Item item = vm.Item;
+            var vm = DataContext as ItemDisplayViewModel;
+            var item = vm.Item;
 
             if (info.IsEmpty)
             {
@@ -208,17 +219,17 @@ namespace Procurement.Controls
             Settings.Buyouts[item.Id] = info;
         }
 
-        void buyoutControl_SaveImageClicked()
+        private void buyoutControl_SaveImageClicked()
         {
-            ItemHoverRenderer.SaveToDisk((this.DataContext as ItemDisplayViewModel).Item, Dispatcher);
+            ItemHoverRenderer.SaveToDisk((DataContext as ItemDisplayViewModel).Item, Dispatcher);
         }
 
-        void buyoutView_SaveClicked(string amount, string orbType)
+        private void buyoutView_SaveClicked(string amount, string orbType)
         {
             var abbreviation = CurrencyAbbreviationMap.Instance.FromCurrency(orbType);
 
-            ItemDisplayViewModel vm = this.DataContext as ItemDisplayViewModel;
-            Item item = vm.Item;
+            var vm = DataContext as ItemDisplayViewModel;
+            var item = vm.Item;
 
             Settings.Buyouts[item.Id].Buyout = string.Format("{0} {1}", amount, abbreviation);
             Settings.SaveBuyouts();
@@ -228,8 +239,8 @@ namespace Procurement.Controls
 
         public static void closeOthersButNot(Popup current)
         {
-            List<Popup> others = annoyed.Where(p => p.IsOpen && !object.ReferenceEquals(current, p)).ToList();
-            Task.Factory.StartNew(() => others.ToList().ForEach(p => p.Dispatcher.Invoke((Action)(() => { p.IsOpen = false; }))));
+            var others = annoyed.Where(p => p.IsOpen && !ReferenceEquals(current, p)).ToList();
+            Task.Factory.StartNew(() => others.ToList().ForEach(p => p.Dispatcher.Invoke(() => { p.IsOpen = false; })));
         }
     }
 }
