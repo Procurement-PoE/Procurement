@@ -51,7 +51,7 @@ namespace Procurement.ViewModel
 
         public SolidColorBrush ItemFilterBrush
         {
-            get { return IsItemInFilter ? new SolidColorBrush(Colors.LightGoldenrodYellow) 
+            get { return IsItemInFilter ? new SolidColorBrush(Colors.Yellow) 
                                         : new SolidColorBrush(Colors.Transparent); }
         }
 
