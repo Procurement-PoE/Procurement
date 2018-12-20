@@ -44,6 +44,12 @@ namespace Procurement.ViewModel
                 r = fullBestiaryOrb.Rarity;
             }
 
+            var questItem = item as QuestItem;
+            if (questItem != null)
+            {
+                return new QuestItemHoverViewModel(item);
+            }
+
             if (r != null)
             {
                 switch (r)
@@ -134,6 +140,13 @@ namespace Procurement.ViewModel
     public class ProphecyItemHoverViewModel : ItemHoverViewModel
     {
         public ProphecyItemHoverViewModel(Item item) 
+            : base(item)
+        { }
+    }
+
+    public class QuestItemHoverViewModel : ItemHoverViewModel
+    {
+        public QuestItemHoverViewModel(Item item) 
             : base(item)
         { }
     }

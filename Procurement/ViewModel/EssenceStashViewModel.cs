@@ -127,6 +127,11 @@ namespace Procurement.ViewModel
 
         public ItemDisplayViewModel RemnantOfCorruption => GetEssenceItem(EssenceType.RemnantOfCorruption);
 
+        public ItemDisplayViewModel MainSlot => GetItemAtPosition(108, 0);
+        public ItemDisplayViewModel SlotOne => GetItemAtPosition(105, 0);
+        public ItemDisplayViewModel SlotTwo => GetItemAtPosition(106, 0);
+        public ItemDisplayViewModel SlotThree => GetItemAtPosition(107, 0);
+
         private ItemDisplayViewModel GetItemAtPosition(int x, int y)
         {
             var item = _stash.FirstOrDefault(i => i.Key.X == x && i.Key.Y == y).Key;
