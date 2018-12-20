@@ -76,12 +76,16 @@ namespace Procurement.Controls
             refresh();
         }
 
-        public StashControl()
+        public StashControl(int tabNumber)
         {
             InitializeComponent();
             this.Loaded += new RoutedEventHandler(StashControl_Loaded);
             ApplicationState.LeagueChanged += ApplicationState_LeagueChanged;
             stashByLocation = new Dictionary<Tuple<int, int>, Item>();
+
+            TabNumber = tabNumber;
+
+            SetPremiumTabBorderColour();
         }
 
         void ApplicationState_LeagueChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -241,9 +245,6 @@ namespace Procurement.Controls
             return Filter.All(filter => filter.Applicable(item));
         }
 
-        public void SetPremiumTabBorderColour()
-        {
-            //throw new NotImplementedException();
-        }
+        public override Border Border => LocalBorder;
     }
 }

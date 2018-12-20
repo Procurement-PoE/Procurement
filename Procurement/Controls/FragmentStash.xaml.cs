@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using Procurement.Interfaces;
 using Procurement.ViewModel.Filters;
 
 namespace Procurement.Controls
@@ -10,10 +7,9 @@ namespace Procurement.Controls
     /// <summary>
     ///     Interaction logic for FragmentStash.xaml
     /// </summary>
-    public partial class FragmentStash : UserControl, IStashControl
+    public partial class FragmentStash : AbstractStashControl
     {
         private readonly FragmentStashViewModel viewModel;
-        private List<IFilter> list;
 
         public FragmentStash(int tabNumber)
         {
@@ -32,27 +28,13 @@ namespace Procurement.Controls
 
         public FragmentStash(int tabNumber, List<IFilter> list) : this(tabNumber)
         {
-            this.list = list;
+            Filter = list;
         }
 
-        public int TabNumber { get; set; }
-        public int FilterResults { get; set; }
-        public List<IFilter> Filter { get; set; }
+        public override Border Border => LocalBorder;
 
-        public void RefreshTab(string accountName)
+        public override void ForceUpdate()
         {
-            //Todo: Implement!
-        }
-
-        public void ForceUpdate()
-        {
-        }
-
-        public void SetPremiumTabBorderColour()
-        {
-            var color = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs[TabNumber].Colour.WpfColor;
-            
-            this.Border.BorderBrush = new SolidColorBrush(color);
         }
     }
 }

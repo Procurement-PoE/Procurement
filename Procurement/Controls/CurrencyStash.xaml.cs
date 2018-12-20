@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Controls;
-using System.Windows.Media;
-using Procurement.Interfaces;
 using Procurement.ViewModel;
 using Procurement.ViewModel.Filters;
 
@@ -10,9 +8,8 @@ namespace Procurement.Controls
     /// <summary>
     ///     Interaction logic for CurrencyStash.xaml
     /// </summary>
-    public partial class CurrencyStash : UserControl, IStashControl
+    public partial class CurrencyStash : AbstractStashControl
     {
-        private List<IFilter> list;
         public CurrencyStashViewModel viewModel;
 
         public CurrencyStash(int tabNumber)
@@ -32,28 +29,14 @@ namespace Procurement.Controls
 
         public CurrencyStash(int tabNumber, List<IFilter> list) : this(tabNumber)
         {
-            this.list = list;
+            Filter = list;
         }
 
-        public void RefreshTab(string accountName)
-        {
-            //throw new NotImplementedException();
-        }
+        public override Border Border => this.LocalBorder;
 
-        public int TabNumber { get; set; }
-        public int FilterResults { get; set; }
-        public List<IFilter> Filter { get; set; }
-
-        public void SetPremiumTabBorderColour()
+        public override void ForceUpdate()
         {
-            var color = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs[TabNumber].Colour.WpfColor;
-            
-            Border.BorderBrush = new SolidColorBrush(color);
-        }
-
-        public void ForceUpdate()
-        {
-            //throw new NotImplementedException();
+            //throw new System.NotImplementedException();
         }
     }
 }

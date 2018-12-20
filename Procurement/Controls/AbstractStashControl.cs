@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using POEApi.Model;
 using Procurement.Interfaces;
 using Procurement.ViewModel.Filters;
@@ -33,8 +33,25 @@ namespace Procurement.Controls
 
         public void SetPremiumTabBorderColour()
         {
-            throw new NotImplementedException();
+            var tab = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs[TabNumber];
+
+            if (Border == null)
+            {
+                return;
+            }
+
+            if (tab.Colour == null)
+            {
+                return;
+            }
+
+            var color = tab.Colour.WpfColor;
+            
+            Border.BorderBrush = new SolidColorBrush(color);
         }
+
+        //Subsequent controls will give me a border
+        public abstract Border Border { get; }
 
         public abstract void ForceUpdate();
     }

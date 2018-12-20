@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Procurement.Controls.CurrencyStash"
+﻿<local:AbstractStashControl x:Class="Procurement.Controls.CurrencyStash"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -15,7 +15,7 @@
         </Style>
     </UserControl.Resources>
     <!--Todo: Border data should be done with bindings --> 
-    <Border x:Name="Border" BorderThickness="3" CornerRadius="2" BorderBrush="Aquamarine">
+    <Border x:Name="LocalBorder" BorderThickness="3" CornerRadius="2" BorderBrush="Aquamarine">
         <Canvas>
             <Canvas.Background>
                 <ImageBrush ImageSource="/Images/CurrencyTab.png" />
@@ -145,4 +145,4 @@
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="302" Canvas.Top="191"
                                DataContext="{Binding MirrorShard}" />
         </Canvas></Border>
-</UserControl>
+</local:AbstractStashControl>

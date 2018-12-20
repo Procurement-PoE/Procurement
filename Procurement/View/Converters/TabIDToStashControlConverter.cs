@@ -17,7 +17,7 @@ namespace Procurement.View
         {
             TabInfo item = value as TabInfo;
             Grid g = new Grid();
-            g.Children.Add(new StashControl() { TabNumber = item.ID });
+            g.Children.Add(new StashControl(item.ID));
             return g;
         }
 
@@ -45,7 +45,7 @@ namespace Procurement.View
             int inventoryId = int.Parse(item.InventoryId.Replace("Stash", "")) - 1;
             Grid g = new Grid();
 
-            StashControl control = new StashControl() { TabNumber = inventoryId };
+            StashControl control = new StashControl(inventoryId);
             Tab tab = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs.Find(t => t.i == inventoryId);
             Image tabImage = getImage(tab, true);
 

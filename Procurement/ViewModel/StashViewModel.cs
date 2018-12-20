@@ -321,10 +321,9 @@ namespace Procurement.ViewModel
                         tabsAndContent.Add(new TabContent(i - 1, item, fragmentStash));
                         break;
                     default:
-                        var itemStash = new StashControl();
+                        var itemStash = new StashControl(currentTab.i);
 
                         itemStash.Filter = getUserFilter(string.Empty);
-                        itemStash.TabNumber = currentTab.i;
 
                         item.Content = itemStash;
                         addContextMenu(item, itemStash);

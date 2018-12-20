@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Windows.Controls;
 using Procurement.ViewModel.Filters;
 
 namespace Procurement.Interfaces
@@ -11,6 +12,8 @@ namespace Procurement.Interfaces
         List<IFilter> Filter { get; set; }
 
         void SetPremiumTabBorderColour();
+
+        Border Border { get; }
 
         void ForceUpdate();
     }
