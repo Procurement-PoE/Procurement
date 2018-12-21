@@ -25,9 +25,9 @@ namespace Procurement.Controls
 
             DataContext = viewModel;
 
-            SetPremiumTabBorderColour();
-
             InitializeComponent();
+
+            SetPremiumTabBorderColour();
         }
 
         public FragmentStash(int tabNumber, List<IFilter> list) : this(tabNumber)
