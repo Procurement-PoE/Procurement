@@ -85,7 +85,7 @@ namespace Procurement.Controls
 
                 string pricingInfo = string.Empty;
 
-                if (Settings.Buyouts.ContainsKey(item.Id))
+                if (!string.IsNullOrWhiteSpace(item.Id) && Settings.Buyouts.ContainsKey(item.Id))
                 {
                     pricingInfo = Settings.Buyouts[item.Id].Buyout;
 
