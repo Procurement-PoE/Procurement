@@ -191,6 +191,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\MapFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\MirroredItemFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\MovementSpeed.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\MultipleVeiledModsFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\PercentEnergyShieldFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\PercentLifeFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ProphecyFilter.cs" />
@@ -202,6 +203,9 @@
     <Compile Include="ViewModel\Filters\ForumExport\SocketColourFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\UnknownItemFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ScarabFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\VeiledModFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\VeiledPrefixFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\VeiledSuffixFilter.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\CurrencyVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\DivineVesselVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\ElderItemVisitor.cs" />
