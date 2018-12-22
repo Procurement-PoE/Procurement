@@ -172,6 +172,36 @@
                     <RowDefinition Height="6*" />
                     <RowDefinition Height="39*" />
                 </Grid.RowDefinitions>
+
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding RustedBestiaryScarab}" Grid.Row="0" Grid.Column="0"/>
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding PolishedBestiaryScarab}" Grid.Row="0" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding GildedBestiaryScarab}" Grid.Row="0" Grid.Column="4" />
+
+                <!-- Unconfirmed scarab type. -->
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding RustedReliquaryScarab}" Grid.Row="2" Grid.Column="0"/>
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding PolishedReliquaryScarab}" Grid.Row="2" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding GildedReliquaryScarab}" Grid.Row="2" Grid.Column="4" />
+
+                <!-- Unconfirmed scarab type. -->
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding RustedTormentScarab}" Grid.Row="4" Grid.Column="0"/>
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding PolishedTormentScarab}" Grid.Row="4" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding GildedTormentScarab}" Grid.Row="4" Grid.Column="4" />
+
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding RustedSulphiteScarab}" Grid.Row="6" Grid.Column="0"/>
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding PolishedSulphiteScarab}" Grid.Row="6" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding GildedSulphiteScarab}" Grid.Row="6" Grid.Column="4" />
             </Grid>
             <Grid Height="172" Width="122" Canvas.Left="234" Canvas.Top="327">
                 <Grid.ColumnDefinitions>
@@ -190,6 +220,35 @@
                     <RowDefinition Height="6*" />
                     <RowDefinition Height="39*" />
                 </Grid.RowDefinitions>
+
+                <!-- Unconfirmed scarab type. -->
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding RustedAmbushScarab}" Grid.Row="0" Grid.Column="0"/>
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding PolishedAmbushScarab}" Grid.Row="0" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding GildedAmbushScarab}" Grid.Row="0" Grid.Column="4" />
+
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding RustedShaperScarab}" Grid.Row="2" Grid.Column="0"/>
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding PolishedShaperScarab}" Grid.Row="2" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding GildedShaperScarab}" Grid.Row="2" Grid.Column="4" />
+
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding RustedPerandusScarab}" Grid.Row="4" Grid.Column="0"/>
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding PolishedPerandusScarab}" Grid.Row="4" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding GildedPerandusScarab}" Grid.Row="4" Grid.Column="4" />
+
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding RustedCartographyScarab}" Grid.Row="6" Grid.Column="0"/>
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding PolishedCartographyScarab}" Grid.Row="6" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding GildedCartographyScarab}" Grid.Row="6" Grid.Column="4" />
             </Grid>
             <Grid Height="171" Width="122" Canvas.Left="382" Canvas.Top="327">
                 <Grid.ColumnDefinitions>
@@ -208,9 +267,38 @@
                     <RowDefinition Height="6*" />
                     <RowDefinition Height="39*" />
                 </Grid.RowDefinitions>
+
+                <!-- Unconfirmed scarab type. -->
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding RustedHarbingerScarab}" Grid.Row="0" Grid.Column="0"/>
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding PolishedHarbingerScarab}" Grid.Row="0" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding GildedHarbingerScarab}" Grid.Row="0" Grid.Column="4" />
+
+                <!-- Unconfirmed scarab type. -->
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding RustedElderScarab}" Grid.Row="2" Grid.Column="0"/>
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding PolishedElderScarab}" Grid.Row="2" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding GildedElderScarab}" Grid.Row="2" Grid.Column="4" />
+
+                <!-- Unconfirmed scarab type. -->
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding RustedDivinationScarab}" Grid.Row="4" Grid.Column="0"/>
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding PolishedDivinationScarab}" Grid.Row="4" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding GildedDivinationScarab}" Grid.Row="4" Grid.Column="4" />
+
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding RustedBreachScarab}" Grid.Row="6" Grid.Column="0"/>
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding PolishedBreachScarab}" Grid.Row="6" Grid.Column="2" />
+                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                                   DataContext="{Binding GildedBreachScarab}" Grid.Row="6" Grid.Column="4" />
             </Grid>
-
-
         </Canvas>
     </Border>
 </UserControl>
