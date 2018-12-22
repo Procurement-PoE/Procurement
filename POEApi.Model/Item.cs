@@ -53,6 +53,7 @@ namespace POEApi.Model
         public List<string> FlavourText { get; set; }
 
         public List<string> CraftedMods { get; set; }
+        public List<string> VeiledMods { get; set; }
 
         public int TradeX { get; set; }
         public int TradeY { get; set; }
@@ -83,8 +84,9 @@ namespace POEApi.Model
             this.SecDescrText = item.SecDescrText;
             this.Explicitmods = item.ExplicitMods;
             this.ItemType = Model.ItemType.UnSet;
-            this.CraftedMods = item.CraftedMods;
-            this.EnchantMods = item.EnchantMods;
+            this.CraftedMods = item.CraftedMods ?? new List<string>();
+            this.VeiledMods = item.VeiledMods ?? new List<string>();
+            this.EnchantMods = item.EnchantMods ?? new List<string>();
             this.FlavourText = item.FlavourText;
             this.ItemLevel = item.Ilvl;
             this.Shaper = item.Shaper;
