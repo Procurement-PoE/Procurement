@@ -195,7 +195,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\PercentEnergyShieldFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\PercentLifeFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ProphecyFilter.cs" />
-    <Compile Include="ViewModel\Filters\ForumExport\ShapedItemFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\ShaperItemFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixBlueSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixGreenSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixLink.cs" />
@@ -220,7 +220,7 @@
     <Compile Include="ViewModel\ForumExportVisitors\OfferingVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\ProphecyVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\ScarabVisitor.cs" />
-    <Compile Include="ViewModel\ForumExportVisitors\ShapedItemVisitor.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\ShaperItemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\UnknownItemVisitor.cs" />
     <Compile Include="ViewModel\ObservableBase.cs" />
     <Compile Include="ViewModel\Recipes\MatchedSet.cs" />
@@ -400,6 +400,8 @@
     <Compile Include="View\Converters\ItemPropertyToFormattedRunConverter.cs" />
     <Compile Include="View\Converters\ItemRequirementToFormattedRunConverter.cs" />
     <Compile Include="View\Converters\ItemToColorBrushConverter.cs" />
+    <Compile Include="View\Converters\ItemToItemHoverSymbolPath.cs" />
+    <Compile Include="View\Converters\ItemToItemHoverSymbolVisibility.cs" />
     <Compile Include="View\Converters\ObjectInListMultiConverter.cs" />
     <Compile Include="View\Converters\RecipeDescriptionConverter.cs" />
     <Compile Include="View\Converters\ResultMatchConverter.cs" />
@@ -780,7 +782,9 @@
     <Resource Include="Images\stash-quad-grid.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\ItemHover\ElderIconAdorner.png" />
     <Resource Include="Images\ItemHover\ShaperIconAdorner.png" />
+    <Resource Include="Images\ItemHover\VeiledIconAdorner.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\fragmentTab.png" />
