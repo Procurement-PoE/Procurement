@@ -2,7 +2,7 @@
 
 namespace Procurement.ViewModel.Filters.ForumExport
 {
-    public class ShapedItemFilter : IFilter
+    public class ShaperItemFilter : IFilter
     {
         public bool CanFormCategory
         {
