@@ -16,7 +16,7 @@ namespace Procurement.Controls
         {
             Refresh();
 
-            viewModel = new CurrencyStashViewModel(StashByLocation);
+            viewModel = new CurrencyStashViewModel(TabItemsToViewModels);
 
             DataContext = viewModel;
 

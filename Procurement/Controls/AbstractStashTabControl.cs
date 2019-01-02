@@ -18,10 +18,10 @@ namespace Procurement.Controls
             DependencyProperty.Register("Filters", typeof(IEnumerable<IFilter>), typeof(StashTabControl), null);
 
         /// <summary>
-        /// Dictionary to tie together items and their view models, this is searched and the viewModels
+        /// Dictionary to tie together items and their view models, this collection is filtered and the viewModels
         /// IsItemInFilter is updated
         /// </summary>
-        public readonly Dictionary<Item, ItemDisplayViewModel> StashByLocation = new Dictionary<Item, ItemDisplayViewModel>();
+        public readonly Dictionary<Item, ItemDisplayViewModel> TabItemsToViewModels = new Dictionary<Item, ItemDisplayViewModel>();
 
         public bool Ready;
         public TabType TabType;
@@ -78,7 +78,7 @@ namespace Procurement.Controls
         {
             ItemsMatchingFiltersCount = !Filters.Any() ? -1 : 0;
 
-            foreach (var item in StashByLocation)
+            foreach (var item in TabItemsToViewModels)
             {
                 if (IsFilterApplicableToItem(item.Key))
                 {
@@ -106,11 +106,11 @@ namespace Procurement.Controls
 
         private void UpdateStashByLocation()
         {
-            StashByLocation.Clear();
+            TabItemsToViewModels.Clear();
 
             foreach (var item in Stash)
             {
-                var entry = StashByLocation.Keys.FirstOrDefault(x => x.X == item.X
+                var entry = TabItemsToViewModels.Keys.FirstOrDefault(x => x.X == item.X
                                                                      && x.Y == item.Y);
 
                 if (entry != null)
@@ -118,7 +118,7 @@ namespace Procurement.Controls
                     continue;
                 }
 
-                StashByLocation.Add(item, getImage(item));
+                TabItemsToViewModels.Add(item, getImage(item));
             }
         }
 

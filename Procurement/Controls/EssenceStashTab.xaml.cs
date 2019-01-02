@@ -16,7 +16,7 @@ namespace Procurement.Controls
         {
             Refresh();
 
-            viewModel = new EssenceStashViewModel(StashByLocation);
+            viewModel = new EssenceStashViewModel(TabItemsToViewModels);
 
             DataContext = viewModel;
 

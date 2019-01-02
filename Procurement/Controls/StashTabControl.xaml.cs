@@ -87,14 +87,14 @@ namespace Procurement.Controls
                     // card's "real" location to a fake one on the grid, so it can be displayed.
                     var stashLocation = TabType == TabType.DivinationCard ? new Tuple<int, int>(j * columns + i, 0) : currentKey;
 
-                    var key = StashByLocation.Keys.FirstOrDefault(item => item.X == stashLocation.Item1
+                    var key = TabItemsToViewModels.Keys.FirstOrDefault(item => item.X == stashLocation.Item1
                                                                           && item.Y == stashLocation.Item2);
                     if (key == null)
                     {
                         continue;
                     }
 
-                    ItemDisplayViewModel itemViewModel = StashByLocation[key];
+                    ItemDisplayViewModel itemViewModel = TabItemsToViewModels[key];
 
                     var itemDisplay = new ItemDisplay
                     {

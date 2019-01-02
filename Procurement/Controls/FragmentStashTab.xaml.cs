@@ -15,7 +15,7 @@ namespace Procurement.Controls
         {
             Refresh();
 
-            viewModel = new FragmentStashViewModel(StashByLocation);
+            viewModel = new FragmentStashViewModel(TabItemsToViewModels);
 
             DataContext = viewModel;
 
