@@ -37,6 +37,7 @@ namespace Procurement.Controls
             Stash = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(TabNumber);
             
             Loaded += Control_Loaded;
+            ApplicationState.LeagueChanged += (s,e) => { Ready = false; };
         }
 
         public List<Item> Stash { get; set; }

@@ -20,8 +20,6 @@ namespace Procurement.Controls
         {
             InitializeComponent();
 
-            ApplicationState.LeagueChanged += ApplicationState_LeagueChanged;
-
             SetPremiumTabBorderColour();
         }
 
@@ -45,11 +43,6 @@ namespace Procurement.Controls
             base.RefreshTab(accountName);
 
             Refresh();
-        }
-
-        private void ApplicationState_LeagueChanged(object sender, PropertyChangedEventArgs e)
-        {
-            Ready = false;
         }
 
         public override void Refresh()
