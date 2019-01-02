@@ -60,7 +60,7 @@ namespace Procurement.ViewModel
 
             foreach (var item in tabsAndContent)
             {
-                item.Stash.Filter = allfilters;
+                item.Stash.Filters = allfilters;
                 item.Stash.ForceUpdate();
                 if (item.Stash.FilterResults == 0)
                 {

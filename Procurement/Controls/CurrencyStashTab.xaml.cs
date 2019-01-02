@@ -29,7 +29,7 @@ namespace Procurement.Controls
 
         public CurrencyStashTab(int tabNumber, List<IFilter> list) : this(tabNumber)
         {
-            Filter = list;
+            Filters = list;
         }
 
         public override Border Border => this.LocalBorder;

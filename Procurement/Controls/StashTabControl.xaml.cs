@@ -27,7 +27,7 @@ namespace Procurement.Controls
 
         public StashTabControl(int tabNumber, List<IFilter> list) : this(tabNumber)
         {
-            Filter = list;
+            Filters = list;
         }
 
         public override void ForceUpdate()

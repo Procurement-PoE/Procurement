@@ -14,8 +14,8 @@ namespace Procurement.Controls
 {
     public abstract class AbstractStashTabControl : UserControl, IStashControl
     {
-        public static readonly DependencyProperty FilterProperty =
-            DependencyProperty.Register("Filter", typeof(IEnumerable<IFilter>), typeof(StashTabControl), null);
+        public static readonly DependencyProperty FiltersProperty =
+            DependencyProperty.Register("Filters", typeof(IEnumerable<IFilter>), typeof(StashTabControl), null);
 
         /// <summary>
         /// Dictionary to tie together items and their view models, this is searched and the viewModels
@@ -51,10 +51,10 @@ namespace Procurement.Controls
 
         public int FilterResults { get; set; }
 
-        public List<IFilter> Filter
+        public List<IFilter> Filters
         {
-            get { return (List<IFilter>) GetValue(FilterProperty); }
-            set { SetValue(FilterProperty, value); }
+            get { return (List<IFilter>) GetValue(FiltersProperty); }
+            set { SetValue(FiltersProperty, value); }
         }
 
         public void SetPremiumTabBorderColour()
@@ -75,7 +75,7 @@ namespace Procurement.Controls
 
         public virtual void ForceUpdate()
         {
-            FilterResults = !Filter.Any() ? -1 : 0;
+            FilterResults = !Filters.Any() ? -1 : 0;
 
             foreach (var item in StashByLocation)
             {
@@ -150,12 +150,12 @@ namespace Procurement.Controls
 
         private bool Search(Item item)
         {
-            if (!Filter.Any())
+            if (!Filters.Any())
             {
                 return false;
             }
 
-            return Filter.All(filter => filter.Applicable(item));
+            return Filters.All(filter => filter.Applicable(item));
         }
     }
 }

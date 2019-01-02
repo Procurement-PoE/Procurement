@@ -29,7 +29,7 @@ namespace Procurement.Controls
 
         public EssenceStashTab(int tabNumber, List<IFilter> list) : this(tabNumber)
         {
-            Filter = list;
+            Filters = list;
         }
 
         public override Border Border => this.LocalBorder;

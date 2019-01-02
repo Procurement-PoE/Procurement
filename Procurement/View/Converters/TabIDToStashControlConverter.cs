@@ -51,7 +51,7 @@ namespace Procurement.View
             Tab tab = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs.Find(t => t.i == inventoryId);
             Image tabImage = getImage(tab, true);
 
-            tabControl.SetValue(StashTabControl.FilterProperty, new List<IFilter>() { new ItemFilter(item) });
+            tabControl.SetValue(StashTabControl.FiltersProperty, new List<IFilter>() { new ItemFilter(item) });
             tabControl.ForceUpdate();
             RowDefinition imageRow = new RowDefinition();
             imageRow.Height = new GridLength(26);

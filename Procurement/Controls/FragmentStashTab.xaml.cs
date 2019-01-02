@@ -28,7 +28,7 @@ namespace Procurement.Controls
 
         public FragmentStashTab(int tabNumber, List<IFilter> list) : this(tabNumber)
         {
-            Filter = list;
+            Filters = list;
         }
 
         public override Border Border => LocalBorder;
