@@ -21,6 +21,11 @@ namespace Procurement.Controls
         public bool Ready;
         public TabType TabType;
 
+        public AbstractStashControl()
+        {
+            
+        }
+
         public AbstractStashControl(int tabNumber)
         {
             TabNumber = tabNumber;
