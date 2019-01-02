@@ -17,7 +17,7 @@ namespace Procurement.View
         {
             TabInfo item = value as TabInfo;
             Grid g = new Grid();
-            g.Children.Add(new StashControl(item.ID));
+            g.Children.Add(new StashTabControl(item.ID));
             return g;
         }
 
@@ -47,20 +47,20 @@ namespace Procurement.View
             int inventoryId = int.Parse(item.InventoryId.Replace("Stash", "")) - 1;
             Grid g = new Grid();
 
-            StashControl control = new StashControl(inventoryId);
+            StashTabControl tabControl = new StashTabControl(inventoryId);
             Tab tab = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs.Find(t => t.i == inventoryId);
             Image tabImage = getImage(tab, true);
 
-            control.SetValue(StashControl.FilterProperty, new List<IFilter>() { new ItemFilter(item) });
-            control.ForceUpdate();
+            tabControl.SetValue(StashTabControl.FilterProperty, new List<IFilter>() { new ItemFilter(item) });
+            tabControl.ForceUpdate();
             RowDefinition imageRow = new RowDefinition();
             imageRow.Height = new GridLength(26);
             g.RowDefinitions.Add(imageRow);
             g.RowDefinitions.Add(new RowDefinition());
             tabImage.SetValue(Grid.RowProperty, 0);
-            control.SetValue(Grid.RowProperty, 1);
+            tabControl.SetValue(Grid.RowProperty, 1);
             g.Children.Add(tabImage);
-            g.Children.Add(control);
+            g.Children.Add(tabControl);
             cache.Add(key, g);
 
             return g;

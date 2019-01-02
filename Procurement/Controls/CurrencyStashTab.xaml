@@ -1,4 +1,4 @@
-﻿<local:AbstractStashControl x:Class="Procurement.Controls.CurrencyStash"
+﻿<local:AbstractStashTabControl x:Class="Procurement.Controls.CurrencyStashTab"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -145,4 +145,4 @@
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="302" Canvas.Top="191"
                                DataContext="{Binding MirrorShard}" />
         </Canvas></Border>
-</local:AbstractStashControl>
+</local:AbstractStashTabControl>

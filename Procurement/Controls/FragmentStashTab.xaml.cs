@@ -7,11 +7,11 @@ namespace Procurement.Controls
     /// <summary>
     ///     Interaction logic for FragmentStash.xaml
     /// </summary>
-    public partial class FragmentStash : AbstractStashControl
+    public partial class FragmentStashTab : AbstractStashTabControl
     {
         private readonly FragmentStashViewModel viewModel;
 
-        public FragmentStash(int tabNumber) : base(tabNumber)
+        public FragmentStashTab(int tabNumber) : base(tabNumber)
         {
             Refresh();
 
@@ -26,7 +26,7 @@ namespace Procurement.Controls
             Ready = true;
         }
 
-        public FragmentStash(int tabNumber, List<IFilter> list) : this(tabNumber)
+        public FragmentStashTab(int tabNumber, List<IFilter> list) : this(tabNumber)
         {
             Filter = list;
         }

@@ -10,12 +10,12 @@ using Procurement.ViewModel.Filters;
 
 namespace Procurement.Controls
 {
-    public partial class StashControl : AbstractStashControl
+    public partial class StashTabControl : AbstractStashTabControl
     {
         private const int NORMAL_SPACING = 12;
         private const int QUAD_SPACING = 24;
         
-        public StashControl(int tabNumber) : base(tabNumber)
+        public StashTabControl(int tabNumber) : base(tabNumber)
         {
             InitializeComponent();
 
@@ -24,7 +24,7 @@ namespace Procurement.Controls
             SetPremiumTabBorderColour();
         }
 
-        public StashControl(int tabNumber, List<IFilter> list) : this(tabNumber)
+        public StashTabControl(int tabNumber, List<IFilter> list) : this(tabNumber)
         {
             Filter = list;
         }

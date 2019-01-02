@@ -12,21 +12,21 @@ using Procurement.ViewModel.Filters;
 
 namespace Procurement.Controls
 {
-    public abstract class AbstractStashControl : UserControl, IStashControl
+    public abstract class AbstractStashTabControl : UserControl, IStashControl
     {
         public static readonly DependencyProperty FilterProperty =
-            DependencyProperty.Register("Filter", typeof(IEnumerable<IFilter>), typeof(StashControl), null);
+            DependencyProperty.Register("Filter", typeof(IEnumerable<IFilter>), typeof(StashTabControl), null);
 
         public readonly Dictionary<Item, ItemDisplayViewModel> StashByLocation = new Dictionary<Item, ItemDisplayViewModel>();
         public bool Ready;
         public TabType TabType;
 
-        public AbstractStashControl()
+        public AbstractStashTabControl()
         {
             
         }
 
-        public AbstractStashControl(int tabNumber)
+        public AbstractStashTabControl(int tabNumber)
         {
             TabNumber = tabNumber;
             Stash = ApplicationState.Stash[ApplicationState.CurrentLeague].GetItemsByTab(TabNumber);

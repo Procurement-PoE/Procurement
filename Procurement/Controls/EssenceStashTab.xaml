@@ -1,4 +1,4 @@
-﻿<local:AbstractStashControl x:Class="Procurement.Controls.EssenceStash"
+﻿<local:AbstractStashTabControl x:Class="Procurement.Controls.EssenceStashTab"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -252,4 +252,4 @@
                 DataContext="{Binding SlotThree}" />
         </Canvas>
     </Border>
-</local:AbstractStashControl>
+</local:AbstractStashTabControl>

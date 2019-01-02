@@ -1,4 +1,4 @@
-﻿<local:AbstractStashControl x:Class="Procurement.Controls.FragmentStash"
+﻿<local:AbstractStashTabControl x:Class="Procurement.Controls.FragmentStashTab"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -301,4 +301,4 @@
             </Grid>
         </Canvas>
     </Border>
-</local:AbstractStashControl>
+</local:AbstractStashTabControl>

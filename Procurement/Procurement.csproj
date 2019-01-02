@@ -99,15 +99,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ApplicationState.cs" />
-    <Compile Include="Controls\AbstractStashControl.cs" />
-    <Compile Include="Controls\EssenceStash.xaml.cs">
-      <DependentUpon>EssenceStash.xaml</DependentUpon>
+    <Compile Include="Controls\AbstractStashTabControl.cs" />
+    <Compile Include="Controls\EssenceStashTab.xaml.cs">
+      <DependentUpon>EssenceStashTab.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\CurrencyStash.xaml.cs">
-      <DependentUpon>CurrencyStash.xaml</DependentUpon>
+    <Compile Include="Controls\CurrencyStashTab.xaml.cs">
+      <DependentUpon>CurrencyStashTab.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\FragmentStash.xaml.cs">
-      <DependentUpon>FragmentStash.xaml</DependentUpon>
+    <Compile Include="Controls\FragmentStashTab.xaml.cs">
+      <DependentUpon>FragmentStashTab.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\FragmentStashViewModel.cs" />
     <Compile Include="RelayCommand.cs" />
@@ -360,8 +360,8 @@
     <Compile Include="ViewModel\ForumTemplateViewModel.cs" />
     <Compile Include="ViewModel\InventoryViewModel.cs" />
     <Compile Include="ViewModel\ItemHoverViewModel.cs" />
-    <Compile Include="Controls\StashControl.xaml.cs">
-      <DependentUpon>StashControl.xaml</DependentUpon>
+    <Compile Include="Controls\StashTabControl.xaml.cs">
+      <DependentUpon>StashTabControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\ItemDisplayViewModel.cs" />
     <Compile Include="ViewModel\ItemHoverViewModelFactory.cs" />
@@ -464,15 +464,15 @@
     <Resource Include="Resources\fontin-smallcaps-webfont.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Controls\EssenceStash.xaml">
+    <Page Include="Controls\EssenceStashTab.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\CurrencyStash.xaml">
+    <Page Include="Controls\CurrencyStashTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\FragmentStash.xaml">
+    <Page Include="Controls\FragmentStashTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -544,7 +544,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\StashControl.xaml">
+    <Page Include="Controls\StashTabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

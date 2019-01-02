@@ -6,17 +6,17 @@ using Procurement.ViewModel.Filters;
 namespace Procurement.Controls
 {
     /// <summary>
-    ///     Interaction logic for CurrencyStash.xaml
+    ///     Interaction logic for EssenceStash.xaml
     /// </summary>
-    public partial class CurrencyStash : AbstractStashControl
+    public partial class EssenceStashTab : AbstractStashTabControl
     {
-        public CurrencyStashViewModel viewModel;
+        public EssenceStashViewModel viewModel;
 
-        public CurrencyStash(int tabNumber) : base(tabNumber)
+        public EssenceStashTab(int tabNumber) : base(tabNumber)
         {
             Refresh();
 
-            viewModel = new CurrencyStashViewModel(StashByLocation);
+            viewModel = new EssenceStashViewModel(StashByLocation);
 
             DataContext = viewModel;
 
@@ -27,7 +27,7 @@ namespace Procurement.Controls
             SetPremiumTabBorderColour();
         }
 
-        public CurrencyStash(int tabNumber, List<IFilter> list) : this(tabNumber)
+        public EssenceStashTab(int tabNumber, List<IFilter> list) : this(tabNumber)
         {
             Filter = list;
         }
