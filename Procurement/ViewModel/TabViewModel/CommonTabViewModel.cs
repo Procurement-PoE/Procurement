@@ -8,24 +8,24 @@ namespace Procurement.ViewModel
 {
     public class CommonTabViewModel : ObservableBase
     {
-        private readonly Dictionary<Item, ItemDisplayViewModel> _stash;
+        private readonly Dictionary<Item, ItemDisplayViewModel> _items;
 
-        protected CommonTabViewModel(Dictionary<Item, ItemDisplayViewModel> stashByLocation)
+        protected CommonTabViewModel(Dictionary<Item, ItemDisplayViewModel> itemsByLocation)
         {
-            _stash = stashByLocation;
+            _items = itemsByLocation;
         }
 
         protected ItemDisplayViewModel GetItemAtPosition(int x, int y)
         {
             var itemDisplayViewModel = new ItemDisplayViewModel(null);
 
-            foreach (var item in _stash)
+            foreach (var item in _items)
             {
                 if (item.Key.X == x & item.Key.Y == y)
                 {
                     itemDisplayViewModel = new ItemDisplayViewModel(item.Key);
 
-                    _stash[item.Key] = itemDisplayViewModel;
+                    _items[item.Key] = itemDisplayViewModel;
                     break;
                 }
             }
@@ -37,13 +37,13 @@ namespace Procurement.ViewModel
         {
             var itemDisplayViewModel = new ItemDisplayViewModel(null);
 
-            foreach (var item in _stash)
+            foreach (var item in _items)
             {
                 if (item.Key.TypeLine.Equals(name, StringComparison.CurrentCultureIgnoreCase))
                 {
                     itemDisplayViewModel = new ItemDisplayViewModel(item.Key);
 
-                    _stash[item.Key] = itemDisplayViewModel;
+                    _items[item.Key] = itemDisplayViewModel;
                     break;
                 }
             }
@@ -55,7 +55,7 @@ namespace Procurement.ViewModel
         {
             var itemDisplayViewModel = new ItemDisplayViewModel(null);
 
-            foreach (var item in _stash)
+            foreach (var item in _items)
             {
                 var sextant = item.Key as Sextant;
 
@@ -63,7 +63,7 @@ namespace Procurement.ViewModel
                 {
                     itemDisplayViewModel = new ItemDisplayViewModel(sextant);
 
-                    _stash[sextant] = itemDisplayViewModel;
+                    _items[sextant] = itemDisplayViewModel;
                     break;
                 }
             }
@@ -75,7 +75,7 @@ namespace Procurement.ViewModel
         {
             var itemDisplayViewModel = new ItemDisplayViewModel(null);
 
-            foreach (var item in _stash)
+            foreach (var item in _items)
             {
                 var currency = item.Key as Currency;
 
@@ -83,7 +83,7 @@ namespace Procurement.ViewModel
                 {
                     itemDisplayViewModel = new ItemDisplayViewModel(currency);
 
-                    _stash[currency] = itemDisplayViewModel;
+                    _items[currency] = itemDisplayViewModel;
                     break;
                 }
             }
@@ -95,7 +95,7 @@ namespace Procurement.ViewModel
         {
             var itemDisplayViewModel = new ItemDisplayViewModel(null);
 
-            foreach (var item in _stash)
+            foreach (var item in _items)
             {
                 var essence = item.Key as Essence;
 
@@ -103,7 +103,7 @@ namespace Procurement.ViewModel
                 {
                     itemDisplayViewModel = new ItemDisplayViewModel(essence);
 
-                    _stash[essence] = itemDisplayViewModel;
+                    _items[essence] = itemDisplayViewModel;
                     break;
                 }
             }
@@ -115,7 +115,7 @@ namespace Procurement.ViewModel
         {
             var itemDisplayViewModel = new ItemDisplayViewModel(null);
 
-            foreach (var breach in _stash.Keys.OfType<T>())
+            foreach (var breach in _items.Keys.OfType<T>())
             {
                 var breachItem = breach as Item;
 
@@ -123,7 +123,7 @@ namespace Procurement.ViewModel
                 {
                     itemDisplayViewModel = new ItemDisplayViewModel(breachItem);
 
-                    _stash[breachItem] = itemDisplayViewModel;
+                    _items[breachItem] = itemDisplayViewModel;
                     break;
                 }
             }
@@ -135,7 +135,7 @@ namespace Procurement.ViewModel
         {
             var itemDisplayViewModel = new ItemDisplayViewModel(null);
 
-            foreach (var scarab in _stash.Keys.OfType<Scarab>())
+            foreach (var scarab in _items.Keys.OfType<Scarab>())
             {
                 Item scarabItem = scarab;
 
@@ -143,7 +143,7 @@ namespace Procurement.ViewModel
                 {
                     itemDisplayViewModel = new ItemDisplayViewModel(scarabItem);
 
-                    _stash[scarabItem] = itemDisplayViewModel;
+                    _items[scarabItem] = itemDisplayViewModel;
                     break;
                 }
             }
@@ -155,11 +155,11 @@ namespace Procurement.ViewModel
         {
             var itemDisplayViewModel = new ItemDisplayViewModel(null);
 
-            foreach (var offering in _stash.Keys.OfType<Offering>())
+            foreach (var offering in _items.Keys.OfType<Offering>())
             {
                 itemDisplayViewModel = new ItemDisplayViewModel(offering);
 
-                _stash[offering] = itemDisplayViewModel;
+                _items[offering] = itemDisplayViewModel;
                 break;
             }
 
