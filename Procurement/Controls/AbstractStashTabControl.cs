@@ -61,12 +61,7 @@ namespace Procurement.Controls
         {
             var tab = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs[TabNumber];
 
-            if (Border == null)
-            {
-                return;
-            }
-
-            if (tab.Colour == null)
+            if (Border == null || tab.Colour == null)
             {
                 return;
             }
