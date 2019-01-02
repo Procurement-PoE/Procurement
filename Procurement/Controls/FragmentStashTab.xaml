@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Procurement.Controls.FragmentStash"
+﻿<local:AbstractStashTabControl x:Class="Procurement.Controls.FragmentStashTab"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -13,7 +13,7 @@
             <Setter Property="Height" Value="34" />
         </Style>
     </UserControl.Resources>
-    <Border x:Name="Border" BorderThickness="3" CornerRadius="2" BorderBrush="Aquamarine">
+    <Border x:Name="LocalBorder" BorderThickness="3" CornerRadius="2" BorderBrush="Aquamarine">
         <Border.Background>
             <ImageBrush ImageSource="/Images/fragmentTab.png" />
         </Border.Background>
@@ -301,4 +301,4 @@
             </Grid>
         </Canvas>
     </Border>
-</UserControl>
+</local:AbstractStashTabControl>

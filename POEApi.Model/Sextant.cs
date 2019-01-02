@@ -1,3 +1,6 @@
+using System;
+using System.CodeDom;
+
 namespace POEApi.Model
 {
     public class Sextant : StackableItem

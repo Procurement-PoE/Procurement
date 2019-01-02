@@ -4,13 +4,11 @@ using POEApi.Model;
 
 namespace Procurement.ViewModel
 {
-    public class EssenceStashViewModel : ObservableBase
+    public class EssenceStashViewModel : CommonTabViewModel
     {
-        private readonly List<Item> _stash;
-
-        public EssenceStashViewModel(List<Item> stash)
+        public EssenceStashViewModel(Dictionary<Item, ItemDisplayViewModel> stashByLocation) : base(stashByLocation)
         {
-            _stash = stash;
+
         }
 
         public ItemDisplayViewModel WhisperingGreed => GetEssenceItem(EssenceType.WhisperingGreed);
@@ -131,25 +129,5 @@ namespace Procurement.ViewModel
         public ItemDisplayViewModel SlotOne => GetItemAtPosition(105, 0);
         public ItemDisplayViewModel SlotTwo => GetItemAtPosition(106, 0);
         public ItemDisplayViewModel SlotThree => GetItemAtPosition(107, 0);
-
-        private ItemDisplayViewModel GetItemAtPosition(int x, int y)
-        {
-            var item = _stash.FirstOrDefault(i => i.X == x && i.Y == y);
-
-            return new ItemDisplayViewModel(item);
-        }
-
-        private ItemDisplayViewModel GetEssenceItem(EssenceType essenceType)
-        {
-            foreach (var item in _stash)
-            {
-                var essence = item as Essence;
-
-                if (essence?.Type == essenceType)
-                    return new ItemDisplayViewModel(item);
-            }
-
-            return new ItemDisplayViewModel(null);
-        }
     }
 }

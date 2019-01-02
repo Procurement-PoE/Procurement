@@ -7,10 +7,8 @@ namespace Procurement.Interfaces
     {
         void RefreshTab(string accountName);
         int TabNumber { get; set; }
-        int FilterResults { get; set; }
-        List<IFilter> Filter { get; set; }
-
-        void SetPremiumTabBorderColour();
+        int ItemsMatchingFiltersCount { get; set; }
+        List<IFilter> Filters { get; set; }
 
         void ForceUpdate();
     }

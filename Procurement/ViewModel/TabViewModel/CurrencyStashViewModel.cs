@@ -1,16 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using POEApi.Model;
 
 namespace Procurement.ViewModel
 {
-    public class CurrencyStashViewModel : ObservableBase
+    public class CurrencyStashViewModel : CommonTabViewModel
     {
-        private readonly List<Item> _stash;
-
-        public CurrencyStashViewModel(List<Item> stash)
+        public CurrencyStashViewModel(Dictionary<Item, ItemDisplayViewModel> stashByLocation) : base(stashByLocation)
         {
-            _stash = stash;
+
         }
 
         public ItemDisplayViewModel Exalted => GetCurrencyItem(OrbType.Exalted);
@@ -68,37 +65,5 @@ namespace Procurement.ViewModel
         public ItemDisplayViewModel ExaltedShard => GetCurrencyItem(OrbType.ExaltedShard);
         public ItemDisplayViewModel MirrorShard => GetCurrencyItem(OrbType.AnnulmentShard);
 
-        private ItemDisplayViewModel GetItemAtPosition(int x, int y)
-        {
-            var item = _stash.FirstOrDefault(i => i.X == x && i.Y == y);
-
-            return new ItemDisplayViewModel(item);
-        }
-
-        private ItemDisplayViewModel GetSextant(SextantType sextanType)
-        {
-            foreach (var item in _stash)
-            {
-                var curency = item as Sextant;
-
-                if (curency?.Type == sextanType)
-                    return new ItemDisplayViewModel(item);
-            }
-
-            return new ItemDisplayViewModel(null);
-        }
-        
-        private ItemDisplayViewModel GetCurrencyItem(OrbType orbType)
-        {
-            foreach (var item in _stash)
-            {
-                var curency = item as Currency;
-
-                if (curency?.Type == orbType)
-                    return new ItemDisplayViewModel(item);
-            }
-
-            return new ItemDisplayViewModel(null);
-        }
     }
 }

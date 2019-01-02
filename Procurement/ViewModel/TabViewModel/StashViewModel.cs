@@ -60,9 +60,9 @@ namespace Procurement.ViewModel
 
             foreach (var item in tabsAndContent)
             {
-                item.Stash.Filter = allfilters;
+                item.Stash.Filters = allfilters;
                 item.Stash.ForceUpdate();
-                if (item.Stash.FilterResults == 0)
+                if (item.Stash.ItemsMatchingFiltersCount == 0)
                 {
                     item.TabItem.Visibility = Visibility.Collapsed;
                     (item.TabItem.Content as UIElement).Visibility = Visibility.Collapsed;
@@ -291,54 +291,39 @@ namespace Procurement.ViewModel
                     BorderBrush = Brushes.Transparent
                 };
 
+                AbstractStashTabControl stashTab;
+
                 switch (currentTab.Type)
                 {
                     case TabType.Currency:
-                        var currencyStash = new CurrencyStash(currentTab.i, getUserFilter(string.Empty));
-
-                        item.Content = currencyStash;
-
-                        addContextMenu(item, currencyStash);
-
-                        tabsAndContent.Add(new TabContent(i - 1, item, currencyStash));
+                        stashTab = new CurrencyStashTab(currentTab.i, getUserFilter(string.Empty));
                         break;
                     case TabType.Essence:
-                        var essenceStash = new EssenceStash(currentTab.i, getUserFilter(string.Empty));
-
-                        item.Content = essenceStash;
-
-                        addContextMenu(item, essenceStash);
-
-                        tabsAndContent.Add(new TabContent(i - 1, item, essenceStash));
+                        stashTab = new EssenceStashTab(currentTab.i, getUserFilter(string.Empty));
                         break;
                     case TabType.Fragment:
-                        var fragmentStash = new FragmentStash(currentTab.i, getUserFilter(string.Empty));
-
-                        item.Content = fragmentStash;
-
-                        addContextMenu(item, fragmentStash);
-
-                        tabsAndContent.Add(new TabContent(i - 1, item, fragmentStash));
+                        stashTab = new FragmentStashTab(currentTab.i, getUserFilter(string.Empty));
                         break;
                     default:
-                        var itemStash = new StashControl();
-
-                        itemStash.Filter = getUserFilter(string.Empty);
-                        itemStash.TabNumber = currentTab.i;
-
-                        item.Content = itemStash;
-                        addContextMenu(item, itemStash);
-
-                        tabsAndContent.Add(new TabContent(i - 1, item, itemStash));
+                        stashTab = new StashTabControl(currentTab.i, getUserFilter(string.Empty));
                         break;
                 }
 
+                CraftTabAndContent(item, stashTab, i);
 
                 stashView.tabControl.Items.Add(item);
-                
             }
 
-            stashView.Loaded -= new System.Windows.RoutedEventHandler(stashView_Loaded);
+            stashView.Loaded -= stashView_Loaded;
+        }
+
+        private void CraftTabAndContent(TabItem item, AbstractStashTabControl stashTab, int i)
+        {
+            item.Content = stashTab;
+
+            addContextMenu(item, stashTab);
+
+            tabsAndContent.Add(new TabContent(i - 1, item, stashTab));
         }
 
         private void addContextMenu(TabItem item, IStashControl itemStash)
