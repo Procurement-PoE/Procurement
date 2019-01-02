@@ -80,7 +80,7 @@ namespace Procurement.Controls
 
             foreach (var item in StashByLocation)
             {
-                if (Search(item.Key))
+                if (IsFilterApplicableToItem(item.Key))
                 {
                     item.Value.IsItemInFilter = true;
                     ItemsMatchingFiltersCount++;
@@ -149,7 +149,7 @@ namespace Procurement.Controls
             }
         }
 
-        private bool Search(Item item)
+        private bool IsFilterApplicableToItem(Item item)
         {
             if (!Filters.Any())
             {
