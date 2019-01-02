@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using POEApi.Model;
+using Procurement.ViewModel;
 using Procurement.ViewModel.Filters;
 
 namespace Procurement.Controls
@@ -100,7 +101,7 @@ namespace Procurement.Controls
                         continue;
                     }
 
-                    var itemViewModel = StashByLocation[key];
+                    ItemDisplayViewModel itemViewModel = StashByLocation[key];
 
                     var itemDisplay = new ItemDisplay
                     {
