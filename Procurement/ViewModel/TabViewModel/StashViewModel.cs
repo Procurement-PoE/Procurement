@@ -62,7 +62,7 @@ namespace Procurement.ViewModel
             {
                 item.Stash.Filters = allfilters;
                 item.Stash.ForceUpdate();
-                if (item.Stash.FilterResults == 0)
+                if (item.Stash.ItemsMatchingFiltersCount == 0)
                 {
                     item.TabItem.Visibility = Visibility.Collapsed;
                     (item.TabItem.Content as UIElement).Visibility = Visibility.Collapsed;

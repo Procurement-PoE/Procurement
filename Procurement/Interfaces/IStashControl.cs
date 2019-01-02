@@ -7,7 +7,7 @@ namespace Procurement.Interfaces
     {
         void RefreshTab(string accountName);
         int TabNumber { get; set; }
-        int FilterResults { get; set; }
+        int ItemsMatchingFiltersCount { get; set; }
         List<IFilter> Filters { get; set; }
 
         void ForceUpdate();

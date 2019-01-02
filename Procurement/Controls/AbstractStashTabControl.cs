@@ -49,7 +49,7 @@ namespace Procurement.Controls
 
         public int TabNumber { get; set; }
 
-        public int FilterResults { get; set; }
+        public int ItemsMatchingFiltersCount { get; set; }
 
         public List<IFilter> Filters
         {
@@ -75,14 +75,14 @@ namespace Procurement.Controls
 
         public virtual void ForceUpdate()
         {
-            FilterResults = !Filters.Any() ? -1 : 0;
+            ItemsMatchingFiltersCount = !Filters.Any() ? -1 : 0;
 
             foreach (var item in StashByLocation)
             {
                 if (Search(item.Key))
                 {
                     item.Value.IsItemInFilter = true;
-                    FilterResults++;
+                    ItemsMatchingFiltersCount++;
                 }
                 else
                 {
