@@ -1,10 +1,12 @@
-﻿using FluentAssertions;
+﻿using System.Collections.Generic;
+using FluentAssertions;
 using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using POEApi.Transport;
 using Procurement.Controls;
+using Procurement.ViewModel;
 using static POEApi.Model.Tests.UnitTestHelper;
 
 namespace POEApi.Model.Tests
@@ -221,8 +223,14 @@ namespace POEApi.Model.Tests
                 Assert.AreEqual(1, stash.Tabs.Count);
 
                 var items = stash.GetItemsByTab(12);
-                
-                var viewModel = new FragmentStashViewModel(items); 
+                var itemViewModelPairing = new Dictionary<Item, ItemDisplayViewModel>();
+
+                foreach (var item in items)
+                {
+                    itemViewModelPairing.Add(item, null);
+                }
+
+                var viewModel = new FragmentStashViewModel(itemViewModelPairing); 
 
                 Assert.AreEqual(4, viewModel.ChayulaSplinter.Item.StackSize);
                 Assert.AreEqual(6, viewModel.Offering.Item.StackSize);

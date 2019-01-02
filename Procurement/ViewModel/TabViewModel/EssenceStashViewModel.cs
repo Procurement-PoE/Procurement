@@ -4,13 +4,11 @@ using POEApi.Model;
 
 namespace Procurement.ViewModel
 {
-    public class EssenceStashViewModel : ObservableBase
+    public class EssenceStashViewModel : CommonTabViewModel
     {
-        private readonly Dictionary<Item, ItemDisplayViewModel> _stash;
-
-        public EssenceStashViewModel(Dictionary<Item, ItemDisplayViewModel> stashByLocation)
+        public EssenceStashViewModel(Dictionary<Item, ItemDisplayViewModel> stashByLocation) : base(stashByLocation)
         {
-            _stash = stashByLocation;
+
         }
 
         public ItemDisplayViewModel WhisperingGreed => GetEssenceItem(EssenceType.WhisperingGreed);
@@ -131,39 +129,5 @@ namespace Procurement.ViewModel
         public ItemDisplayViewModel SlotOne => GetItemAtPosition(105, 0);
         public ItemDisplayViewModel SlotTwo => GetItemAtPosition(106, 0);
         public ItemDisplayViewModel SlotThree => GetItemAtPosition(107, 0);
-
-        private ItemDisplayViewModel GetItemAtPosition(int x, int y)
-        {
-            var item = _stash.FirstOrDefault(i => i.Key.X == x && i.Key.Y == y).Key;
-            
-            //We don't have an essence you are looking for
-            if(item == null)
-                return new ItemDisplayViewModel(null);
-
-            if (_stash.ContainsKey(item) == false)
-                _stash.Add(item, new ItemDisplayViewModel(item));
-
-            return _stash[item];
-        }
-
-        private ItemDisplayViewModel GetEssenceItem(EssenceType essenceType)
-        {
-            ItemDisplayViewModel rtnViewModel = null;
-
-            foreach (var item in _stash)
-            {
-                var essence = item.Key as Essence;
-
-                if (essence?.Type == essenceType)
-                {
-                    rtnViewModel = new ItemDisplayViewModel(essence);
-
-                    _stash[essence] = rtnViewModel;
-                    break;
-                }
-            }
-
-            return rtnViewModel ?? (rtnViewModel = new ItemDisplayViewModel(null));
-        }
     }
 }

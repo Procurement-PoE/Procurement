@@ -109,10 +109,10 @@
     <Compile Include="Controls\FragmentStashTab.xaml.cs">
       <DependentUpon>FragmentStashTab.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\FragmentStashViewModel.cs" />
+    <Compile Include="ViewModel\TabViewModel\FragmentStashViewModel.cs" />
     <Compile Include="RelayCommand.cs" />
-    <Compile Include="ViewModel\EssenceStashViewModel.cs" />
-    <Compile Include="ViewModel\CurrencyStashViewModel.cs" />
+    <Compile Include="ViewModel\TabViewModel\EssenceStashViewModel.cs" />
+    <Compile Include="ViewModel\TabViewModel\CurrencyStashViewModel.cs" />
     <Compile Include="Interfaces\IStashControl.cs" />
     <Compile Include="Controls\SetTabBuyoutView.xaml.cs">
       <DependentUpon>SetTabBuyoutView.xaml</DependentUpon>
@@ -226,6 +226,7 @@
     <Compile Include="ViewModel\ObservableBase.cs" />
     <Compile Include="ViewModel\Recipes\MatchedSet.cs" />
     <Compile Include="ViewModel\SetTabBuyoutViewModel.cs" />
+    <Compile Include="ViewModel\TabViewModel\CommonTabViewModel.cs" />
     <Compile Include="ViewModel\TradeSettingsViewModel.cs" />
     <Compile Include="ViewModel\Cache\BitmapCache.cs" />
     <Compile Include="ViewModel\DisplayModeStrategy\DisplayModeFactory.cs" />
@@ -383,7 +384,7 @@
     <Compile Include="ViewModel\Recipes\SameNameRecipe.cs" />
     <Compile Include="ViewModel\ScreenController.cs" />
     <Compile Include="ViewModel\SettingsViewModel.cs" />
-    <Compile Include="ViewModel\StashViewModel.cs" />
+    <Compile Include="ViewModel\TabViewModel\StashViewModel.cs" />
     <Compile Include="ViewModel\StatusController.cs" />
     <Compile Include="ViewModel\TradingViewModel.cs" />
     <Compile Include="View\AboutView.xaml.cs">

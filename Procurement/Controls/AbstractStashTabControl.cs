@@ -17,7 +17,12 @@ namespace Procurement.Controls
         public static readonly DependencyProperty FilterProperty =
             DependencyProperty.Register("Filter", typeof(IEnumerable<IFilter>), typeof(StashTabControl), null);
 
+        /// <summary>
+        /// Dictionary to tie together items and their view models, this is searched and the viewModels
+        /// IsItemInFilter is updated
+        /// </summary>
         public readonly Dictionary<Item, ItemDisplayViewModel> StashByLocation = new Dictionary<Item, ItemDisplayViewModel>();
+
         public bool Ready;
         public TabType TabType;
 
@@ -92,7 +97,6 @@ namespace Procurement.Controls
 
             UpdateLayout();
         }
-
 
         public void Control_Loaded(object sender, RoutedEventArgs e)
         {
