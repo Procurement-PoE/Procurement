@@ -86,7 +86,7 @@ namespace Procurement.ViewModel
             return rtnViewModel ?? (rtnViewModel = new ItemDisplayViewModel(null));
         }
 
-        private ItemDisplayViewModel GetSextant(SextantType sextanType)
+        private ItemDisplayViewModel GetSextant(SextantType sextantType)
         {
             ItemDisplayViewModel rtnViewModel = null;
 
@@ -94,7 +94,7 @@ namespace Procurement.ViewModel
             {
                 var sextant = item.Key as Sextant;
 
-                if (sextant?.Type == sextanType)
+                if (sextant?.Type == sextantType)
                 {
                     rtnViewModel = new ItemDisplayViewModel(sextant);
 
