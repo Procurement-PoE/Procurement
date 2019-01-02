@@ -354,6 +354,28 @@ namespace POEApi.Model.Tests
         }
 
         [TestMethod]
+        public void IsScarabDetected()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithScarab);
+
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+                var scarab = stash.GetItemsByTab(1).OfType<Scarab>()
+                            .First(x => x.ScarabRank == ScarabRank.Gilded && x.ScarabEffect == ScarabEffect.Breach);
+
+                Assert.IsNotNull(scarab);
+                
+                Assert.AreEqual(ScarabRank.Gilded, scarab.ScarabRank);
+                Assert.AreEqual(ScarabEffect.Breach, scarab.ScarabEffect);
+            }
+        }
+
+        [TestMethod]
         public void GetInventoryWithQuestItemsTest()
         {
             string fakeCharacterInfo = Encoding.UTF8.GetString(Files.SampleInventoryWithQuestItems);

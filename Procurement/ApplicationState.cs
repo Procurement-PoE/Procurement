@@ -14,7 +14,7 @@ namespace Procurement
         /// Application version to check for latest release.
         /// Must begin with "Procurement ". See: VersionChecker.cs
         /// </summary>
-        public static string Version = "Procurement 1.24.1";
+        public static string Version = "Procurement 1.24.2";
         public static POEModel Model = new POEModel();
         public static Dictionary<string, Stash> Stash = new Dictionary<string, Stash>();
         public static Dictionary<string, Item> Inventory = new Dictionary<string, Item>();

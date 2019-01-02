@@ -2,7 +2,7 @@
 
 namespace Procurement.ViewModel.Filters.ForumExport
 {
-    public class ShapedItemFilter : IFilter
+    public class ShaperItemFilter : IFilter
     {
         public bool CanFormCategory
         {
@@ -16,7 +16,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
         {
             get
             {
-                return "Shaped Items";
+                return "Shaper Items";
             }
         }
 
@@ -24,7 +24,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
         {
             get
             {
-                return "All Shaped Items";
+                return "All Shaper Items";
             }
         }
 

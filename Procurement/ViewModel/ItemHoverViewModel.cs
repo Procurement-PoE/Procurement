@@ -33,8 +33,10 @@ namespace Procurement.ViewModel
         public string FlavourText { get; private set; }
 
         public List<string> CraftedMods { get; set; }
+        public List<string> VeiledMods { get; set; }
 
         public bool HasCraftedMods { get; private set; }
+        public bool HasVeiledMods { get; private set; }
         public bool IsProphecy { get; set; }
         public string ProphecyText { get; set; }
         public string ProphecyDifficultyText { get; set; }
@@ -67,6 +69,7 @@ namespace Procurement.ViewModel
             this.EnchantMods = item.EnchantMods;
 
             this.CraftedMods = item.CraftedMods;
+            setVeiledMods(item);
 
             SecondaryDescriptionText = item.SecDescrText;
             setTypeSpecificProperties(item);
@@ -74,7 +77,8 @@ namespace Procurement.ViewModel
             // If an item has crafted mods but no true explicit mods:
             //   In game: the crafted mods are correctly separated from the previous section.
             //   On official web site: there is no seperator added before the previous section.
-            this.HasCraftedMods = CraftedMods != null && CraftedMods.Count > 0;
+            this.HasCraftedMods = CraftedMods?.Count > 0;
+            this.HasVeiledMods = VeiledMods?.Count > 0;
             this.HasExplicitMods = ExplicitMods?.Count > 0 || HasCraftedMods || IsMirrored;
             this.HasImplicitMods = ImplicitMods?.Count > 0;
             this.HasEnchantMods = item.EnchantMods.Count > 0;
@@ -86,6 +90,27 @@ namespace Procurement.ViewModel
             }
 
             setProphecyProperties(item);
+        }
+
+        private void setVeiledMods(Item item)
+        {
+            // The text for veiled mods is in the format "(Prefix|Suffix)##" where ## currently can be 01-06.
+            VeiledMods = new List<string>();
+            foreach (var veiledMod in item.VeiledMods)
+            {
+                if (veiledMod.StartsWith("Prefix"))
+                {
+                    VeiledMods.Add("Veiled Prefix");
+                }
+                else if (veiledMod.StartsWith("Suffix"))
+                {
+                    VeiledMods.Add("Veiled Suffix");
+                }
+                else
+                {
+                    VeiledMods.Add("Veiled Affix");
+                }
+            }
         }
 
         private void setProphecyProperties(Item item)

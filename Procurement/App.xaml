@@ -11,13 +11,15 @@
             </ResourceDictionary.MergedDictionaries>
 
             <view:VisibilityConverter x:Key="bc" />
-            
+            <view:ItemToItemHoverSymbolVisibility x:Key="symbolVisibility" />
+            <view:ItemToItemHoverSymbolPath x:Key="symbolPath" />
+
             <Style x:Key="ShaperElderAdornerImage" TargetType="Image">
                 <Setter Property="HorizontalAlignment" Value="Left" />
                 <Setter Property="Margin" Value="1" />
-                <!--Todo: Multidata trigger binding with Shaper and Elder properties to show the correct adorner. -->
-                <Setter Property="Source" Value="/Images/ItemHover/ShaperIconAdorner.png" />
-                <Setter Property="Visibility" Value="{Binding Item.Shaper, Converter={StaticResource bc}, FallbackValue=Collapsed}" />
+                <Setter Property="Source" Value="{Binding Item, Converter={StaticResource symbolPath}}" />
+                <Setter Property="Visibility" Value="{Binding Item, Converter={StaticResource symbolVisibility},
+                    FallbackValue=Collapsed}" />
             </Style>
         </ResourceDictionary>
         
