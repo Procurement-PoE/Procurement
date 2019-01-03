@@ -17,7 +17,7 @@ namespace POEApi.Infrastructure
         {
             addItem("Chromatic Orb", "chrom");
             addItem("Orb of Alteration", "alt");
-            addItem("Jeweller's Orb", "jewel");
+            addItem("Jeweller's Orb", "jew");
             addItem("Orb of Chance", "chance");
             addItem("Cartographer's Chisel", "chisel");
             addItem("Orb of Fusing", "fuse");
