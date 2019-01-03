@@ -15,7 +15,7 @@ namespace Procurement.ViewModel.ForumExportVisitors
 
             tokens.Add("{QualityGems}", new QualityGemFilter(0));
 
-            for (int i = 1; i < 21; i++)
+            for (int i = 1; i < 24; i++)
                 tokens.Add("{Quality" + i + "Gems}", new QualityGemFilter(i));
         }
         public override string Visit(IEnumerable<Item> items, string current)
