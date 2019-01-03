@@ -170,6 +170,9 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 [spoiler="          Offering to the Goddess          "]
 {Offering}
 [/spoiler]
+[spoiler="          Scarabs          "]
+{Scarab}
+[/spoiler]
 
 Thanks for visiting!
 
