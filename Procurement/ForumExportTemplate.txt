@@ -2,7 +2,7 @@
 
 Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 
-[spoiler="          BreachStones        "]
+[spoiler="          Breachstones        "]
 {Breachstone}
 [/spoiler]
 [spoiler="          Leaguestones        "]
@@ -40,7 +40,7 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 {VaalFragments}
 {VaalUberFragments}
 [/spoiler]
-[spoiler="          Tier 1 -5          "]
+[spoiler="          Tier 1 - 5          "]
 {Tier1Maps}{Tier2Maps}{Tier3Maps}{Tier4Maps}{Tier5Maps}
 [/spoiler]
 [spoiler="          Tier 6 - 10          "]
@@ -49,20 +49,26 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 [spoiler="          Tier 11 - 15          "]
 {Tier11Maps}{Tier12Maps}{Tier13Maps}{Tier14Maps}{Tier15Maps}
 [/spoiler]
+[spoiler="          Tier 16          "]
+{Tier16Maps}
+[/spoiler]
 [/spoiler]
 [spoiler="          Gems          "]
 [spoiler="          Quality Gems          "]
 [spoiler="          Quality Gems 1-5      "]
 {Quality1Gems}{Quality2Gems}{Quality3Gems}{Quality4Gems}{Quality5Gems}
 [/spoiler]
-[spoiler="          Quality Gems 5-10     "]
+[spoiler="          Quality Gems 6-10     "]
 {Quality6Gems}{Quality7Gems}{Quality8Gems}{Quality9Gems}{Quality10Gems}
 [/spoiler]
-[spoiler="          Quality Gems 10-15    "]
+[spoiler="          Quality Gems 11-15    "]
 {Quality11Gems}{Quality12Gems}{Quality13Gems}{Quality14Gems}{Quality15Gems}
 [/spoiler]
-[spoiler="          Quality Gems 15-20    "]
+[spoiler="          Quality Gems 16-20    "]
 {Quality16Gems}{Quality17Gems}{Quality18Gems}{Quality19Gems}{Quality20Gems}
+[/spoiler]
+[spoiler="          Quality Gems 21-23    "]
+{Quality21Gems}{Quality22Gems}{Quality23Gems}
 [/spoiler]
 [/spoiler]
 [spoiler="          Drop Only Gems          "]
@@ -81,7 +87,7 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 {SupportGems}
 [/spoiler]
 [spoiler="          Leveled Gems          "]
-{Level2Gems}{Level3Gems}{Level4Gems}{Level5Gems}{Level6Gems}{Level7Gems}{Level8Gems}{Level9Gems}{Level10Gems}{Level11Gems}{Level12Gems}{Level13Gems}{Level14Gems}{Level15Gems}{Level16Gems}{Level17Gems}{Level18Gems}{Level19Gems}{Level20Gems}
+{Level2Gems}{Level3Gems}{Level4Gems}{Level5Gems}{Level6Gems}{Level7Gems}{Level8Gems}{Level9Gems}{Level10Gems}{Level11Gems}{Level12Gems}{Level13Gems}{Level14Gems}{Level15Gems}{Level16Gems}{Level17Gems}{Level18Gems}{Level19Gems}{Level20Gems}{Level21Gems}
 [/spoiler]
 [spoiler="          Vaal Gems          "]
 {VaalGems}
@@ -134,7 +140,7 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 [spoiler="          Claws          "]
 {RareClaw}
 [/spoiler]
-[spoiler="          Bows  & Quivers          "]
+[spoiler="          Bows & Quivers          "]
 {RareBow}
 {RareQuiver}
 [/spoiler]
@@ -161,8 +167,7 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 [spoiler="          Divine Vessels          "]
 {DivineVessel}
 [/spoiler]
-
-[spoiler="          Offering of the Goddess          "]
+[spoiler="          Offering to the Goddess          "]
 {Offering}
 [/spoiler]
 
