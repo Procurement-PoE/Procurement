@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using POEApi.Model;
 
 namespace Procurement.ViewModel.Recipes
 {
     internal class VaalOrbRecipe : Recipe
     {
+        private const int NeededVaalGems = 7;
         public override string Name => "1 Vaal Orb";
 
         public override IEnumerable<RecipeResult> Matches(IEnumerable<Item> items)
@@ -30,18 +30,16 @@ namespace Procurement.ViewModel.Recipes
                 for (int i = candidateGems.Count - 1; i >= 0; i--)
                 {
                     var candidateGem = candidateGems[i];
-                    if (recipeResult.MatchedItems.Count <= 6)
-                    {
-                        recipeResult.MatchedItems.Add(candidateGem);
-                        candidateGems.Remove(candidateGem);
-                    }
-                    else
+                    if (recipeResult.MatchedItems.Count == NeededVaalGems)
                     {
                         break;
                     }
+
+                    recipeResult.MatchedItems.Add(candidateGem);
+                    candidateGems.Remove(candidateGem);
                 }
 
-                var numberOfMissingGems = 7 - recipeResult.MatchedItems.Count;
+                var numberOfMissingGems = NeededVaalGems - recipeResult.MatchedItems.Count;
                 if (numberOfMissingGems >= 1)
                 {
                     recipeResult.Missing.Add($"{numberOfMissingGems} Vaal Skill gems");
@@ -57,7 +55,7 @@ namespace Procurement.ViewModel.Recipes
                     recipeResult.Missing.Add("Sacrifice Fragment");
                 }
 
-                recipeResult.PercentMatch = (decimal) ((recipeResult.MatchedItems.Count / 8d) * 100) ;
+                recipeResult.PercentMatch = (decimal) (recipeResult.MatchedItems.Count / 8d * 100) ;
                 recipeSets.Add(recipeResult);
             }
 
