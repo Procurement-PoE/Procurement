@@ -40,7 +40,12 @@ namespace Procurement.ViewModel.Recipes
                 }
 
                 var numberOfMissingGems = NeededVaalGems - recipeResult.MatchedItems.Count;
-                if (numberOfMissingGems >= 1)
+
+                if (numberOfMissingGems == 1)
+                {
+                    recipeResult.Missing.Add($"{numberOfMissingGems} Vaal Skill gem");
+                }
+                else if (numberOfMissingGems >= 2)
                 {
                     recipeResult.Missing.Add($"{numberOfMissingGems} Vaal Skill gems");
                 }
