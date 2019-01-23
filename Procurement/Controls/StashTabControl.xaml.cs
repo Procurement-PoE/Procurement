@@ -20,6 +20,10 @@ namespace Procurement.Controls
         {
             InitializeComponent();
 
+            Refresh();
+
+            Ready = true;
+
             SetPremiumTabBorderColour();
         }
 

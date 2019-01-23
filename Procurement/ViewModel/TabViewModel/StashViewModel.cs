@@ -291,23 +291,7 @@ namespace Procurement.ViewModel
                     BorderBrush = Brushes.Transparent
                 };
 
-                AbstractStashTabControl stashTab;
-
-                switch (currentTab.Type)
-                {
-                    case TabType.Currency:
-                        stashTab = new CurrencyStashTab(currentTab.i, getUserFilter(string.Empty));
-                        break;
-                    case TabType.Essence:
-                        stashTab = new EssenceStashTab(currentTab.i, getUserFilter(string.Empty));
-                        break;
-                    case TabType.Fragment:
-                        stashTab = new FragmentStashTab(currentTab.i, getUserFilter(string.Empty));
-                        break;
-                    default:
-                        stashTab = new StashTabControl(currentTab.i, getUserFilter(string.Empty));
-                        break;
-                }
+                var stashTab = TabFactory.GenerateTab(currentTab, getUserFilter(string.Empty));
 
                 CraftTabAndContent(item, stashTab, i);
 
