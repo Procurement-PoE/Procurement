@@ -89,10 +89,10 @@ namespace POEApi.Model
                 return new Essence(item);
 
             if (typeline.Contains("splinter of"))
-                return new Splinter(item);
+                return new BreachSplinter(item);
 
             if (typeline.Contains("blessing"))
-                return new BreachBlessing(item);
+                return new BreachStone(item);
 
             if (item.TypeLine.Contains("Sextant"))
                 return new Sextant(item);
