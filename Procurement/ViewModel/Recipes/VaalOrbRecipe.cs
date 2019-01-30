@@ -8,6 +8,7 @@ namespace Procurement.ViewModel.Recipes
     internal class VaalOrbRecipe : Recipe
     {
         private const int NeededVaalGems = 7;
+        private const decimal TotalNumberOfNeededItems = 8m;
         public override string Name => "1 Vaal Orb";
 
         public override IEnumerable<RecipeResult> Matches(IEnumerable<Item> items)
@@ -43,7 +44,7 @@ namespace Procurement.ViewModel.Recipes
 
                 if (numberOfMissingGems == 1)
                 {
-                    recipeResult.Missing.Add($"{numberOfMissingGems} Vaal Skill gem");
+                    recipeResult.Missing.Add("1 Vaal Skill gem");
                 }
                 else if (numberOfMissingGems >= 2)
                 {
@@ -60,7 +61,7 @@ namespace Procurement.ViewModel.Recipes
                     recipeResult.Missing.Add("Sacrifice Fragment");
                 }
 
-                recipeResult.PercentMatch = (decimal) (recipeResult.MatchedItems.Count / 8d * 100) ;
+                recipeResult.PercentMatch = recipeResult.MatchedItems.Count / TotalNumberOfNeededItems * 100 ;
                 recipeSets.Add(recipeResult);
             }
 
