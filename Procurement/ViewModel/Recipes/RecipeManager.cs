@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using POEApi.Model;
 
 namespace Procurement.ViewModel.Recipes
@@ -19,6 +17,10 @@ namespace Procurement.ViewModel.Recipes
                 new RareSetRecipe(60, 74, false, "2 Chaos - Full Unidentified Rare Set"),
                 new RareSetRecipe(75, 100, true, "1 Regal - i75+ Full Rare Set"),
                 new RareSetRecipe(75, 100, false, "2 Regal - Unidentified  i75+ Full Rare Set"),
+                new RareSetRecipe(1, 100, true, "2 Exalted Shard - Full Shaper Rare Set", SetType.Shaper),
+                new RareSetRecipe(1, 100, true, "2 Exalted Shard - Full Elder Rare Set", SetType.Elder),
+                new RareSetRecipe(1, 100, false, "4 Exalted Shard - Unidentified Full Elder Rare Set", SetType.Elder),
+                new RareSetRecipe(1, 100, false, "4 Exalted Shard - Unidentified Elder Rare Set", SetType.Elder),
                 new Chromatic(), 
                 new GCPRecipe(), 
                 new ArmourersScrapRecipe(),

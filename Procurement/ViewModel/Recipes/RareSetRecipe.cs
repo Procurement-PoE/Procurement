@@ -5,12 +5,20 @@ using POEApi.Model;
 
 namespace Procurement.ViewModel.Recipes
 {
+    public enum SetType
+    {
+        Normal,
+        Shaper,
+        Elder
+    }
+
     public class RareSetRecipe : Recipe
     {
         private readonly int minimumItemLevel;
         private readonly int maximumItemLevel;
         private readonly bool itemsIdentified;
         private readonly string name;
+        private readonly SetType _setType;
 
         public override string Name
         {
@@ -19,23 +27,30 @@ namespace Procurement.ViewModel.Recipes
 
         private List<MatchedSet> sets = new List<MatchedSet>();
         
-        public RareSetRecipe(int minimumItemLevel, int maximumItemLevel, bool itemsIdentified, string name)
+        public RareSetRecipe(int minimumItemLevel, int maximumItemLevel, bool itemsIdentified, string name, SetType setType = SetType.Normal)
             : base(80)
         {
             this.minimumItemLevel = minimumItemLevel;
             this.maximumItemLevel = maximumItemLevel;
             this.itemsIdentified = itemsIdentified;
             this.name = name;
+            _setType = setType;
         }
 
         public override IEnumerable<RecipeResult> Matches(IEnumerable<Item> items)
         {
             List<Gear> allGear = items.OfType<Gear>().ToList();
+
+            bool isShaperWanted = _setType == SetType.Shaper;
+            bool isElderWanted = _setType == SetType.Elder;
+
             Dictionary<string, List<Gear>> buckets =
                 allGear.Where(g => g.Rarity == Rarity.Rare &&
                                    g.ItemLevel <= maximumItemLevel &&
                                    g.ItemLevel >= minimumItemLevel &&
-                                   g.Identified == itemsIdentified)
+                                   g.Identified == itemsIdentified &&
+                                   g.Shaper == isShaperWanted &&
+                                   g.Elder == isElderWanted)
                        .GroupBy(g => g.GearType)
                        .ToDictionary(g => g.Key.ToString(), g => g.ToList());
 
