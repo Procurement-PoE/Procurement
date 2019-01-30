@@ -34,18 +34,17 @@ namespace Procurement.Controls
 
         public ItemDisplayViewModel DivineVessel => GetItemCalled("Divine Vessel");
 
-        public ItemDisplayViewModel ChayulaSplinter => GetBreach<Splinter>(BreachType.Chayula);
-        public ItemDisplayViewModel EshSplinter => GetBreach<Splinter>(BreachType.Esh);
-        public ItemDisplayViewModel TulSplinter => GetBreach<Splinter>(BreachType.Tul);
-        public ItemDisplayViewModel UulNetolSplinter => GetBreach<Splinter>(BreachType.UulNetol);
-        public ItemDisplayViewModel XophSplinter => GetBreach<Splinter>(BreachType.Xoph);
+        public ItemDisplayViewModel ChayulaSplinter => GetBreach<BreachSplinter>(BreachType.Chayula);
+        public ItemDisplayViewModel EshSplinter => GetBreach<BreachSplinter>(BreachType.Esh);
+        public ItemDisplayViewModel TulSplinter => GetBreach<BreachSplinter>(BreachType.Tul);
+        public ItemDisplayViewModel UulNetolSplinter => GetBreach<BreachSplinter>(BreachType.UulNetol);
+        public ItemDisplayViewModel XophSplinter => GetBreach<BreachSplinter>(BreachType.Xoph);
 
-        public ItemDisplayViewModel ChayulaBlessing => GetBreach<BreachBlessing>(BreachType.Chayula);
-        public ItemDisplayViewModel EshBlessing => GetBreach<BreachBlessing>(BreachType.Esh);
-        public ItemDisplayViewModel TulBlessing => GetBreach<BreachBlessing>(BreachType.Tul);
-        public ItemDisplayViewModel UulNetolBlessing => GetBreach<BreachBlessing>(BreachType.UulNetol);
-
-        public ItemDisplayViewModel XophBlessing => GetBreach<BreachBlessing>(BreachType.Xoph);
+        public ItemDisplayViewModel ChayulaBreachstone => GetBreach<Breachstone>(BreachType.Chayula);
+        public ItemDisplayViewModel EshBreachstone => GetBreach<Breachstone>(BreachType.Esh);
+        public ItemDisplayViewModel TulBreachstone => GetBreach<Breachstone>(BreachType.Tul);
+        public ItemDisplayViewModel UulNetolBreachstone => GetBreach<Breachstone>(BreachType.UulNetol);
+        public ItemDisplayViewModel XophBreachstone => GetBreach<Breachstone>(BreachType.Xoph);
 
         public ItemDisplayViewModel GildedAmbushScarab => GetScarab(ScarabRank.Gilded, ScarabEffect.Ambush);
         public ItemDisplayViewModel GildedBestiaryScarab => GetScarab(ScarabRank.Gilded, ScarabEffect.Bestiary);

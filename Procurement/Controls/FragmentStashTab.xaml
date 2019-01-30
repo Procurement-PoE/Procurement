@@ -129,15 +129,15 @@
                 </Grid.RowDefinitions>
 
                 <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
-                                   DataContext="{Binding ChayulaBlessing}" />
+                                   DataContext="{Binding ChayulaBreachstone}" />
                 <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
-                                   DataContext="{Binding TulBlessing}" Grid.Column="2" />
+                                   DataContext="{Binding TulBreachstone}" Grid.Column="2" />
                 <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
-                                   DataContext="{Binding XophBlessing}" Grid.Column="4" />
+                                   DataContext="{Binding XophBreachstone}" Grid.Column="4" />
                 <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
-                                   DataContext="{Binding EshBlessing}" Grid.Column="6" />
+                                   DataContext="{Binding EshBreachstone}" Grid.Column="6" />
                 <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
-                                   DataContext="{Binding UulNetolBlessing}" Grid.Column="8" />
+                                   DataContext="{Binding UulNetolBreachstone}" Grid.Column="8" />
 
                 <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
                                    DataContext="{Binding ChayulaSplinter}" Grid.Row="2" />
