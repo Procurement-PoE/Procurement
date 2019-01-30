@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbyssJewel.cs" />
-    <Compile Include="BreachStone.cs" />
+    <Compile Include="Breachstone.cs" />
     <Compile Include="BreachType.cs" />
     <Compile Include="CharacterStashBuilder.cs" />
     <Compile Include="Colour.cs" />

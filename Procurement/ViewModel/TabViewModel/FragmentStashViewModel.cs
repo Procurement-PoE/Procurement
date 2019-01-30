@@ -40,12 +40,11 @@ namespace Procurement.Controls
         public ItemDisplayViewModel UulNetolSplinter => GetBreach<BreachSplinter>(BreachType.UulNetol);
         public ItemDisplayViewModel XophSplinter => GetBreach<BreachSplinter>(BreachType.Xoph);
 
-        public ItemDisplayViewModel ChayulaBlessing => GetBreach<BreachStone>(BreachType.Chayula);
-        public ItemDisplayViewModel EshBlessing => GetBreach<BreachStone>(BreachType.Esh);
-        public ItemDisplayViewModel TulBlessing => GetBreach<BreachStone>(BreachType.Tul);
-        public ItemDisplayViewModel UulNetolBlessing => GetBreach<BreachStone>(BreachType.UulNetol);
-
-        public ItemDisplayViewModel XophBlessing => GetBreach<BreachStone>(BreachType.Xoph);
+        public ItemDisplayViewModel ChayulaBreachstone => GetBreach<Breachstone>(BreachType.Chayula);
+        public ItemDisplayViewModel EshBreachstone => GetBreach<Breachstone>(BreachType.Esh);
+        public ItemDisplayViewModel TulBreachstone => GetBreach<Breachstone>(BreachType.Tul);
+        public ItemDisplayViewModel UulNetolBreachstone => GetBreach<Breachstone>(BreachType.UulNetol);
+        public ItemDisplayViewModel XophBreachstone => GetBreach<Breachstone>(BreachType.Xoph);
 
         public ItemDisplayViewModel GildedAmbushScarab => GetScarab(ScarabRank.Gilded, ScarabEffect.Ambush);
         public ItemDisplayViewModel GildedBestiaryScarab => GetScarab(ScarabRank.Gilded, ScarabEffect.Bestiary);

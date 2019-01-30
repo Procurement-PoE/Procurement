@@ -92,7 +92,7 @@ namespace POEApi.Model
                 return new BreachSplinter(item);
 
             if (typeline.Contains("blessing"))
-                return new BreachStone(item);
+                return new Breachstone(item);
 
             if (item.TypeLine.Contains("Sextant"))
                 return new Sextant(item);
