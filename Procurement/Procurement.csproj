@@ -109,6 +109,7 @@
     <Compile Include="Controls\FragmentStashTab.xaml.cs">
       <DependentUpon>FragmentStashTab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Recipes\VaalOrbRecipe.cs" />
     <Compile Include="ViewModel\TabViewModel\FragmentStashViewModel.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModel\TabViewModel\EssenceStashViewModel.cs" />
