@@ -40,19 +40,10 @@ namespace Procurement.ViewModel.Recipes
         public override IEnumerable<RecipeResult> Matches(IEnumerable<Item> items)
         {
             List<Gear> allGear = items.OfType<Gear>().ToList();
-            bool isShaperWanted = false;
-            bool isElderWanted = false;
 
-            switch (_setType)
-            {
-                case SetType.Shaper:
-                    isShaperWanted = true;
-                    break;
-                case SetType.Elder:
-                    isElderWanted = true;
-                    break;
-            }
-            
+            bool isShaperWanted = _setType == SetType.Shaper;
+            bool isElderWanted = _setType == SetType.Elder;
+
             Dictionary<string, List<Gear>> buckets =
                 allGear.Where(g => g.Rarity == Rarity.Rare &&
                                    g.ItemLevel <= maximumItemLevel &&
