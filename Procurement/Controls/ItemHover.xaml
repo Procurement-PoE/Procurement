@@ -6,7 +6,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:v="clr-namespace:Procurement.View"
              xmlns:vm="clr-namespace:Procurement.ViewModel"
-             d:DesignHeight="150"
+             
              d:DesignWidth="150"
              mc:Ignorable="d">
 
@@ -46,6 +46,15 @@
             <Setter Property="FontFamily" Value="../Resources/#Fontin SmallCaps" />
         </Style>
 
+        <Style x:Key="ExperienceBarStyle" TargetType="ProgressBar">
+            <Setter Property="Minimum" Value="0" />
+            <Setter Property="Maximum" Value="1" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="BorderBrush" Value="LightGray" />
+            <Setter Property="Foreground" Value="DarkGoldenrod" />
+            <Setter Property="Height" Value="6" />
+        </Style>
+
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -83,14 +92,14 @@
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
                                                Mode=OneWay}"
-                               HorizontalAlignment="Center"
-                               FontFamily="../Resources/#Fontin SmallCaps"
-                               Foreground="White"
-                               Padding="10 0 10 5"
-                               Text="{Binding ItemLevel}"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding IsGear,
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="White"
+                        Padding="10 0 10 5"
+                        Text="{Binding ItemLevel}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding IsGear,
                                Converter={StaticResource bc},
                                ConverterParameter=CollapseWhenFalse}" />
 
@@ -132,9 +141,9 @@
                     <v:BindableRichTextBox Width="{Binding Path=ActualWidth,
                                                            ElementName=ItemHeader,
                                                            Mode=OneWay}"
-                                           Document="{Binding Converter={StaticResource rc}}"
-                                           Padding="10 0 10 5"
-                                           Visibility="{Binding HasRequirements,
+                        Document="{Binding Converter={StaticResource rc}}"
+                        Padding="10 0 10 5"
+                        Visibility="{Binding HasRequirements,
                                                                 Converter={StaticResource bc},
                                                                 ConverterParameter=CollapseWhenFalse}" />
 
@@ -148,14 +157,14 @@
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
                                                Mode=OneWay}"
-                               HorizontalAlignment="Center"
-                               FontFamily="../Resources/#Fontin SmallCaps"
-                               Foreground="Turquoise"
-                               Padding="10 0 10 5"
-                               Text="{Binding SecondaryDescriptionText}"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding SecondaryDescriptionText,
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="Turquoise"
+                        Padding="10 0 10 5"
+                        Text="{Binding SecondaryDescriptionText}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding SecondaryDescriptionText,
                                                     Converter={StaticResource VisibilityConverter},
                                                     ConverterParameter=CollapseWhenFalse}" />
 
@@ -166,7 +175,7 @@
                             Visibility="{Binding SecondaryDescriptionText,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
-                    
+
                     <ItemsControl ItemsSource="{Binding EnchantMods}"
                                   Padding="10 0 10 5"
                                   Visibility="{Binding HasEnchantMods,
@@ -189,7 +198,7 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-                    
+
                     <Border Margin="0 0 0 5"
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
@@ -304,14 +313,14 @@
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
                                                Mode=OneWay}"
-                               HorizontalAlignment="Center"
-                               FontFamily="../Resources/#Fontin SmallCaps"
-                               Foreground="#FF8888FF"
-                               Padding="10 0 10 5"
-                               Text="Mirrored"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding IsMirrored,
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="#FF8888FF"
+                        Padding="10 0 10 5"
+                        Text="Mirrored"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding IsMirrored,
                                                     Converter={StaticResource VisibilityConverter},
                                                     ConverterParameter=CollapseWhenFalse}" />
 
@@ -357,15 +366,15 @@
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
                                                Mode=OneWay}"
-                               HorizontalAlignment="Center"
-                               FontFamily="../Resources/#Fontin SmallCaps"
-                               FontStyle="Italic"
-                               Foreground="#9E6025"
-                               Padding="10 0 10 5"
-                               Text="{Binding FlavourText}"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding FlavourText,
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        FontStyle="Italic"
+                        Foreground="#9E6025"
+                        Padding="10 0 10 5"
+                        Text="{Binding FlavourText}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding FlavourText,
                                Converter={StaticResource bc},
                                ConverterParameter=CollapseWhenFalse}" />
 
@@ -379,14 +388,14 @@
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
                                                Mode=OneWay}"
-                               HorizontalAlignment="Center"
-                               FontFamily="../Resources/#Fontin SmallCaps"
-                               Foreground="White"
-                               Padding="10 0 10 5"
-                               Text="{Binding ProphecyText}"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding ProphecyText,
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="White"
+                        Padding="10 0 10 5"
+                        Text="{Binding ProphecyText}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding ProphecyText,
                                                     Converter={StaticResource bc},
                                                     ConverterParameter=CollapseWhenFalse}" />
 
@@ -401,14 +410,14 @@
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
                                                Mode=OneWay}"
-                               HorizontalAlignment="Center"
-                               FontFamily="../Resources/#Fontin SmallCaps"
-                               Foreground="#FF808080"
-                               Padding="10 0 10 5"
-                               Text="{Binding ProphecyDifficultyText}"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding ProphecyDifficultyText,
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="#FF808080"
+                        Padding="10 0 10 5"
+                        Text="{Binding ProphecyDifficultyText}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding ProphecyDifficultyText,
                                                     Converter={StaticResource bc},
                                                     ConverterParameter=CollapseWhenFalse}" />
 
@@ -423,16 +432,39 @@
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
                                                Mode=OneWay}"
-                               HorizontalAlignment="Center"
-                               FontFamily="../Resources/#Fontin SmallCaps"
-                               Foreground="#960003"
-                               Padding="10 0 10 5"
-                               Text="Corrupted"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding IsCorrupted,
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="#960003"
+                        Padding="10 0 10 5"
+                        Text="Corrupted"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding IsCorrupted,
                                                     Converter={StaticResource bc},
                                                     ConverterParameter=CollapseWhenFalse}" />
+
+                    <StackPanel Orientation="Vertical"
+                                Visibility="{Binding IsGemProgressVisible,
+                                                 Converter={StaticResource VisibilityConverter},
+                                                 ConverterParameter=CollapseWhenFalse}">
+
+                        <DockPanel Margin="10 0 10 5">
+
+
+                            <Label DockPanel.Dock="Right" FontFamily="../Resources/#Fontin SmallCaps"
+                                   Content="{Binding Denominator, FallbackValue=2}" Foreground="White" />
+                            <Label DockPanel.Dock="Right" FontFamily="../Resources/#Fontin SmallCaps" Content="/"
+                                   Foreground="White" />
+                            <Label DockPanel.Dock="Right" FontFamily="../Resources/#Fontin SmallCaps"
+                                   Content="{Binding Numerator, FallbackValue=1}" Foreground="White" />
+                            <ProgressBar Style="{StaticResource ExperienceBarStyle}"
+                                         Value="{Binding LevelProgress, FallbackValue=0.5}"  />
+                        </DockPanel>
+
+                        <Border Margin="0 0 0 5"
+                                BorderBrush="{StaticResource SeperatorBrush}"
+                                BorderThickness="1" />
+                    </StackPanel>
 
                     <Border Margin="0 0 0 5"
                             BorderBrush="{StaticResource SeperatorBrush}"
@@ -444,14 +476,14 @@
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
                                                Mode=OneWay}"
-                               HorizontalAlignment="Center"
-                               FontFamily="../Resources/#Fontin SmallCaps"
-                               Foreground="Gray"
-                               Padding="10 0 10 5"
-                               Text="{Binding DescriptionText}"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding DescriptionText,
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="Gray"
+                        Padding="10 0 10 5"
+                        Text="{Binding DescriptionText}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding DescriptionText,
                                                     Converter={StaticResource VisibilityConverter},
                                                     ConverterParameter=CollapseWhenFalse}" />
                 </StackPanel>
