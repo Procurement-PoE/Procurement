@@ -46,10 +46,10 @@ namespace Procurement.ViewModel
 
         public bool IsGemProgressVisible => Item is Gem;
 
-        public double LevelProgress { get; set; }
+        public double LevelExperienceProgress { get; set; }
 
-        public int Numerator { get; }
-        public int Denominator { get; }
+        public int ExperienceNumerator { get; }
+        public int ExperienceDenominator { get; }
 
         public ItemHoverViewModel(Item item)
         {
@@ -84,9 +84,9 @@ namespace Procurement.ViewModel
             var gem = Item as Gem;
             if (gem != null)
             {
-                LevelProgress = gem.LevelProgress;
-                Numerator = gem.Numerator;
-                Denominator = gem.Denominator;
+                LevelExperienceProgress = gem.LevelExperienceProgress;
+                ExperienceNumerator = gem.ExperienceNumerator;
+                ExperienceDenominator = gem.ExperienceDenominator;
             }
 
             // If an item has crafted mods but no true explicit mods:

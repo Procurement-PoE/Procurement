@@ -447,18 +447,15 @@
                                 Visibility="{Binding IsGemProgressVisible,
                                                  Converter={StaticResource VisibilityConverter},
                                                  ConverterParameter=CollapseWhenFalse}">
-
                         <DockPanel Margin="10 0 10 5">
-
-
                             <Label DockPanel.Dock="Right" FontFamily="../Resources/#Fontin SmallCaps"
-                                   Content="{Binding Denominator, FallbackValue=2}" Foreground="White" />
+                                   Content="{Binding ExperienceDenominator, FallbackValue=2}" Foreground="White" />
                             <Label DockPanel.Dock="Right" FontFamily="../Resources/#Fontin SmallCaps" Content="/"
                                    Foreground="White" />
                             <Label DockPanel.Dock="Right" FontFamily="../Resources/#Fontin SmallCaps"
-                                   Content="{Binding Numerator, FallbackValue=1}" Foreground="White" />
+                                   Content="{Binding ExperienceNumerator, FallbackValue=1}" Foreground="White" />
                             <ProgressBar Style="{StaticResource ExperienceBarStyle}"
-                                         Value="{Binding LevelProgress, FallbackValue=0.5}"  />
+                                         Value="{Binding LevelExperienceProgress, FallbackValue=0.5}"  />
                         </DockPanel>
 
                         <Border Margin="0 0 0 5"

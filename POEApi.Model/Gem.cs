@@ -6,9 +6,21 @@ namespace POEApi.Model
     public class Gem : SocketableItem
     {
         public int Level { get; set; }
-        public double LevelProgress { get; private set; }
-        public int Numerator { get; set; }
-        public int Denominator { get; set; }
+
+        /// <summary>
+        /// Value between 0 and 1 to show how far a gem has progressed to the next level.
+        /// </summary>
+        public double LevelExperienceProgress { get; private set; }
+
+        /// <summary>
+        /// Numerator to show how much experience has been gained for this level
+        /// </summary>
+        public int ExperienceNumerator { get; set; }
+
+        /// <summary>
+        /// Denominator to show how much experience needs to be gained for the next level.
+        /// </summary>
+        public int ExperienceDenominator { get; set; }
 
         public Gem(JSONProxy.Item item) : base(item)
         {
@@ -29,7 +41,7 @@ namespace POEApi.Model
                 return;
             }
 
-            LevelProgress = experienceProperties.Progress;
+            LevelExperienceProgress = experienceProperties.Progress;
             var experienceValues = experienceProperties.Values[0].FirstOrDefault()?.ToString();
 
             if (experienceValues == null || !experienceValues.Contains("/"))
@@ -39,8 +51,16 @@ namespace POEApi.Model
 
             var numeratorAndDenominator = experienceValues.Split('/');
 
-            Numerator = int.Parse(numeratorAndDenominator[0]);
-            Denominator = int.Parse(numeratorAndDenominator[1]);
+            int temporaryInt; 
+            if(int.TryParse(numeratorAndDenominator[0], out temporaryInt))
+            {
+                ExperienceNumerator = temporaryInt;
+            }
+
+            if(int.TryParse(numeratorAndDenominator[1], out temporaryInt))
+            {
+                ExperienceDenominator = temporaryInt;
+            }
         }
 
         private int getLevel()
