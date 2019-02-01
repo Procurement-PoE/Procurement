@@ -108,10 +108,9 @@ namespace Procurement.ViewModel
             get { return ApplicationState.CurrentLeague; }
         }
 
-        public string Total
-        {
-            get { return "Total " + configuredOrbType.ToString() + " in Orbs : " + ApplicationState.Stash[ApplicationState.CurrentLeague].GetTotal(configuredOrbType).ToString(); }
-        }
+        public string Total => "Total " + configuredOrbType + " in Orbs";
+
+        public string TotalOrbValue => ApplicationState.Stash[ApplicationState.CurrentLeague].GetTotal(configuredOrbType).ToString();
 
         public Dictionary<OrbType, double> TotalDistibution
         {
@@ -232,6 +231,7 @@ namespace Procurement.ViewModel
             stashView_Loaded(sender, null);
             OnPropertyChanged(nameof(AvailableItems));
             OnPropertyChanged(nameof(Total));
+            OnPropertyChanged(nameof(TotalOrbValue));
             OnPropertyChanged(nameof(TotalDistibution));
             OnPropertyChanged(nameof(GemDistribution));
         }
