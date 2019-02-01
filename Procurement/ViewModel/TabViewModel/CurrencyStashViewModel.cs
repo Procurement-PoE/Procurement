@@ -30,6 +30,7 @@ namespace Procurement.ViewModel
         public ItemDisplayViewModel TransmutationShard => GetCurrencyItem(OrbType.TransmutationShard);
         public ItemDisplayViewModel AlterationShard => GetCurrencyItem(OrbType.AlterationShard);
         public ItemDisplayViewModel Regal => GetCurrencyItem(OrbType.Regal);
+        public ItemDisplayViewModel RegalShard => GetCurrencyItem(OrbType.RegalShard);
         public ItemDisplayViewModel AlchemyShard => GetCurrencyItem(OrbType.AlchemyShard);
         public ItemDisplayViewModel Blessed => GetCurrencyItem(OrbType.Blessed);
         public ItemDisplayViewModel Divine => GetCurrencyItem(OrbType.Divine);
@@ -61,9 +62,9 @@ namespace Procurement.ViewModel
         public ItemDisplayViewModel Master => GetSextant(SextantType.Master);
 
         public ItemDisplayViewModel Annulment  => GetCurrencyItem(OrbType.AnnulmentOrb);
-        public ItemDisplayViewModel AnnulmentShard => GetCurrencyItem(OrbType.AnnulmentOrb);
+        public ItemDisplayViewModel AnnulmentShard => GetCurrencyItem(OrbType.AnnulmentShard);
         public ItemDisplayViewModel ExaltedShard => GetCurrencyItem(OrbType.ExaltedShard);
-        public ItemDisplayViewModel MirrorShard => GetCurrencyItem(OrbType.AnnulmentShard);
+        public ItemDisplayViewModel MirrorShard => GetCurrencyItem(OrbType.MirrorShard);
 
     }
 }

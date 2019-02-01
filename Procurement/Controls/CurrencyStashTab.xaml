@@ -14,7 +14,7 @@
             <Setter Property="Height" Value="40" />
         </Style>
     </UserControl.Resources>
-    <!--Todo: Border data should be done with bindings --> 
+    <!--Todo: Border data should be done with bindings -->
     <Border x:Name="LocalBorder" BorderThickness="3" CornerRadius="2" BorderBrush="Aquamarine">
         <Canvas>
             <Canvas.Background>
@@ -31,13 +31,13 @@
                                DataContext="{Binding TownPortalScrolls}" />
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="313" Canvas.Top="67"
                                DataContext="{Binding BlacksmithsWhetstone}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="368" Canvas.Top="67"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="367" Canvas.Top="67"
                                DataContext="{Binding ArmourersScrap}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="423" Canvas.Top="67"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="420" Canvas.Top="66"
                                DataContext="{Binding GlassblowersBauble}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="477" Canvas.Top="67"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="473" Canvas.Top="67"
                                DataContext="{Binding GemCuttersPrism}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="533" Canvas.Top="67"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="529" Canvas.Top="67"
                                DataContext="{Binding Chisel}" />
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="18" Canvas.Top="139"
                                DataContext="{Binding Transmutation}" />
@@ -51,13 +51,13 @@
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="302" Canvas.Top="139"
                                DataContext="{Binding Mirror}" />
 
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="423" Canvas.Top="139"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="420" Canvas.Top="138"
                                DataContext="{Binding Alchemy}" />
 
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="477" Canvas.Top="139"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="473" Canvas.Top="139"
                                DataContext="{Binding Chaos}" />
 
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="477" Canvas.Top="191"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="473" Canvas.Top="190"
                                DataContext="{Binding ChaosShard}" />
 
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="182" Canvas.Top="139"
@@ -67,32 +67,35 @@
                                DataContext="{Binding TransmutationShard}" />
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="73" Canvas.Top="191"
                                DataContext="{Binding AlterationShard}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="368" Canvas.Top="139"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="367" Canvas.Top="139"
                                DataContext="{Binding Regal}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="423" Canvas.Top="191"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="363" Canvas.Top="188"
+                               DataContext="{Binding RegalShard}" />
+
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="420" Canvas.Top="190"
                                DataContext="{Binding AlchemyShard}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="533" Canvas.Top="139"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="529" Canvas.Top="139"
                                DataContext="{Binding Blessed}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="533" Canvas.Top="191"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="529" Canvas.Top="191"
                                DataContext="{Binding Divine}" />
 
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="73" Canvas.Top="275"
                                DataContext="{Binding Jewlers}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="128" Canvas.Top="275"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="127" Canvas.Top="274"
                                DataContext="{Binding Fuse}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="182" Canvas.Top="275"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="182" Canvas.Top="274"
                                DataContext="{Binding Chromatic}" />
 
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="368" Canvas.Top="275"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="365" Canvas.Top="274"
                                DataContext="{Binding Scour}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="423" Canvas.Top="275"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="420" Canvas.Top="274"
                                DataContext="{Binding Regret}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="477" Canvas.Top="275"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="473" Canvas.Top="274"
                                DataContext="{Binding Vaal}" />
 
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="128" Canvas.Top="327"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="127" Canvas.Top="326"
                                DataContext="{Binding Perandus}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="182" Canvas.Top="327"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="182" Canvas.Top="326"
                                DataContext="{Binding Silver}" />
 
             <local:ItemDisplay Height="160" Canvas.Left="259" Canvas.Top="259" Width="80"
@@ -126,11 +129,11 @@
                                DataContext="{Binding Slot13}" />
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="440" Canvas.Top="504"
                                DataContext="{Binding Slot14}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="368" Canvas.Top="327"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="365" Canvas.Top="326"
                                DataContext="{Binding Apprentice}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="423" Canvas.Top="327"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="420" Canvas.Top="326"
                                DataContext="{Binding Journey}" />
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="477" Canvas.Top="327"
+            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="473" Canvas.Top="326"
                                DataContext="{Binding Master}" />
 
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="128" Canvas.Top="139"
@@ -144,5 +147,6 @@
 
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="302" Canvas.Top="191"
                                DataContext="{Binding MirrorShard}" />
-        </Canvas></Border>
+        </Canvas>
+    </Border>
 </local:AbstractStashTabControl>
