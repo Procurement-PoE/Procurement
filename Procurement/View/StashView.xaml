@@ -11,6 +11,8 @@
     <UserControl.Resources>
         <SolidColorBrush x:Key="TabControlNormalBorderBrush" Color="#AA9072" />
         <SolidColorBrush x:Key="ButtonNormalBackground" Color="#2D1D13" />
+        <SolidColorBrush x:Key="TextForecolour" Color="#FFAB9066"/>
+        <SolidColorBrush x:Key="BorderBrush" Color="#FF76591B"/>
         <Style TargetType="{x:Type TabItem}" x:Key="NonImages">
             <Setter Property="Template">
                 <Setter.Value>
@@ -165,8 +167,8 @@
                     <RowDefinition Height="25px" />
                     <RowDefinition Height="25px" />
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" BorderBrush="#FF76591B" BorderThickness="2" Background="Black" Margin="0,10,0,0" Padding="0,5,0,7">
-                    <Grid Margin="5,0,11,0" Grid.Row="2" HorizontalAlignment="Left">
+                <Border Grid.Row="0" BorderBrush="{StaticResource BorderBrush}" BorderThickness="2" Background="Black" Margin="0,10,0,0" Padding="0,5,0,7">
+                    <Grid Margin="5,0,11,0" HorizontalAlignment="Left">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="33"/>
                             <RowDefinition Height="33"/>
@@ -180,7 +182,7 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Label Content="Search :" Foreground="#FFAB9066" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Right" Margin="1,1,0,1">
+                            <Label Content="Search :" Foreground="{StaticResource TextForecolour}" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Right" Margin="1,1,0,1">
                                 <Label.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform/>
@@ -190,45 +192,58 @@
                                     </TransformGroup>
                                 </Label.RenderTransform>
                             </Label>
-                            <toolkit:AutoCompleteBox x:Name="autoComplete" MinimumPopulateDelay="100" MinimumPrefixLength="2" FilterMode="Contains" Background="Black" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderBrush="#FF76591B" Foreground="#FFAB9066" ItemsSource="{Binding AvailableItems}" Margin="0,4,-1,2" RenderTransformOrigin="0.498,0.438" Grid.Column="1" />
+                            <toolkit:AutoCompleteBox x:Name="autoComplete" MinimumPopulateDelay="100" MinimumPrefixLength="2" FilterMode="Contains" Background="Black" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource BorderBrush}" Foreground="{StaticResource TextForecolour}" ItemsSource="{Binding AvailableItems}" Margin="0,4,-1,2" RenderTransformOrigin="0.498,0.438" Grid.Column="1" />
                         </Grid>
                     </Grid>
                 </Border>
 
                 <TabControl Grid.Row="1" Grid.Column="2" >
                     <TabItem Header="Currency Breakdown    " Style="{StaticResource NonImages}">
-                        <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0">
+                        <Border BorderBrush="{StaticResource BorderBrush}" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0">
                             <StackPanel>
-                                <Grid Margin="5,5,5,5">
+                                <Label Content="Currency Breakdown" Foreground="{StaticResource TextForecolour}" FontSize="14" FontWeight="Bold"/>
+                                <Grid Margin="5,5,5,5"  Grid.IsSharedSizeScope="True">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" SharedSizeGroup="FirstCol"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
 
-                                    <Label Content="Currency Breakdown" Grid.Row="0"  Foreground="#FFAB9066" FontSize="14" FontWeight="Bold"/>
-                                    <Label Grid.Row="1" Content="{Binding Total}" Foreground="#FFAB9066"/>
-                                    <ItemsControl Grid.Row="2" ItemsSource="{Binding TotalDistibution}">
+                                    <TextBlock Foreground="{StaticResource TextForecolour}" Text="{Binding Total, Mode=OneWay}" />
+
+                                    <TextBlock  Grid.Row="0" Grid.Column="1" Foreground="{StaticResource TextForecolour}" Text="{Binding TotalOrbValue, FallbackValue=44, Mode=OneWay}" />
+                                    <ItemsControl Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" ItemsSource="{Binding TotalDistibution}" >
                                         <ItemsControl.ItemsPanel>
-                                            <ItemsPanelTemplate>
+                                            <ItemsPanelTemplate >
                                                 <StackPanel Orientation="Vertical"/>
                                             </ItemsPanelTemplate>
                                         </ItemsControl.ItemsPanel>
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
-                                                <Grid Height="Auto">
-                                                    <RichTextBox Background="Black" BorderBrush="Transparent" IsReadOnly="True" SelectionBrush="Transparent">
-                                                        <FlowDocument>
-                                                            <Paragraph>
-                                                                <Bold>
-                                                                    <Run Foreground="#FFAB9066" Text="{Binding Key, Mode=OneWay}"></Run>
-                                                                </Bold>
-                                                                <Run Foreground="#FFAB9066" Text=": "></Run>
-                                                                <Run Foreground="#FFAB9066" Text="{Binding Value, Mode=OneWay, StringFormat=0.00}"></Run>
-                                                            </Paragraph>
-                                                        </FlowDocument>
-                                                    </RichTextBox>
-                                                </Grid>
+                                                <Border BorderThickness="1">
+                                                    <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="BorderBrush" Value="#FFAB9066" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                    </Border.Style>
+                                                    <Grid Height="Auto">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" SharedSizeGroup="FirstCol"/>
+                                                            <ColumnDefinition Width="Auto" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Foreground="{StaticResource TextForecolour}" Text="{Binding Key, Mode=OneWay}" FontWeight="Bold"/>
+
+                                                        <TextBlock Grid.Column="1" Foreground="{StaticResource TextForecolour}" Text="{Binding Value, Mode=OneWay, StringFormat=0.00}" />
+                                                    </Grid>
+                                                </Border>
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
                                     </ItemsControl>
@@ -237,16 +252,16 @@
                         </Border>
                     </TabItem>
                     <TabItem Header="Advanced Search" Style="{StaticResource NonImages}">
-                        <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0">
+                        <Border BorderBrush="{StaticResource BorderBrush}" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal" Background="Black" Margin="0, 5, 0, 8">
-                                    <Label Content="Filter :" Foreground="#FFAB9066"/>
-                                    <TextBox Name="AdvancedSearchFilter" Width="270" Height="23" Foreground="#FFAB9066" Background="Black" KeyUp="AdvancedSearchFilter_KeyUp"/>
+                                    <Label Content="Filter :" Foreground="{StaticResource TextForecolour}"/>
+                                    <TextBox Name="AdvancedSearchFilter" Width="270" Height="23" Foreground="{StaticResource TextForecolour}" Background="Black" KeyUp="AdvancedSearchFilter_KeyUp"/>
                                 </StackPanel>
                                 <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="416">
                                     <Grid>
                                         <StackPanel>
-                                            <CheckBox Content="None" Foreground="#FFAB9066" Checked="CheckBox_Checked" />
+                                            <CheckBox Content="None" Foreground="{StaticResource TextForecolour}" Checked="CheckBox_Checked" />
                                             <ItemsControl ItemsSource="{Binding AvailableCategories}" Name="AdvancedSearchItemControl">
                                                 <ItemsControl.ItemsPanel>
                                                     <ItemsPanelTemplate>
@@ -255,10 +270,10 @@
                                                 </ItemsControl.ItemsPanel>
                                                 <ItemsControl.ItemTemplate>
                                                     <DataTemplate>
-                                                        <CheckBox Content="{Binding Key}" Foreground="#FFAB9066" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked" IsChecked="{Binding IsChecked}" Visibility="{Binding IsVisibleString}">
+                                                        <CheckBox Content="{Binding Key}" Foreground="{StaticResource TextForecolour}" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked" IsChecked="{Binding IsChecked}" Visibility="{Binding IsVisibleString}">
                                                             <CheckBox.ToolTip>
                                                                 <Border Background="Black" BorderBrush="#FFAB9066" BorderThickness="1">
-                                                                    <TextBlock Text="{Binding Value}" Foreground="#FFAB9066" />
+                                                                    <TextBlock Text="{Binding Value}" Foreground="{StaticResource TextForecolour}" />
                                                                 </Border>
                                                             </CheckBox.ToolTip>
                                                         </CheckBox>
@@ -272,7 +287,7 @@
                         </Border>
                     </TabItem>
                     <TabItem Header="Gems" Height="22" Margin="-1,0,2,0" Width="91" Style="{StaticResource NonImages}">
-                        <Border BorderBrush="#FF76591B" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0">
+                        <Border BorderBrush="{StaticResource BorderBrush}" BorderThickness="2" VerticalAlignment="Top" Background="Black" Margin="0,0,0,0">
                             <ScrollViewer VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="455">
                                 <Grid>
                                     <ItemsControl ItemsSource="{Binding GemDistribution}">
@@ -283,10 +298,10 @@
                                                         <FlowDocument>
                                                             <Paragraph>
                                                                 <Bold>
-                                                                    <Run Foreground="#FFAB9066" Text="{Binding Key, Mode=OneWay}"></Run>
+                                                                    <Run Foreground="{StaticResource TextForecolour}" Text="{Binding Key, Mode=OneWay}"></Run>
                                                                 </Bold>
-                                                                <Run Foreground="#FFAB9066" Text=": "></Run>
-                                                                <Run Foreground="#FFAB9066" Text="{Binding Value, Mode=OneWay, StringFormat=0}"></Run>
+                                                                <Run Foreground="{StaticResource TextForecolour}" Text=": "></Run>
+                                                                <Run Foreground="{StaticResource TextForecolour}" Text="{Binding Value, Mode=OneWay, StringFormat=0}"></Run>
                                                             </Paragraph>
                                                         </FlowDocument>
                                                     </RichTextBox>
