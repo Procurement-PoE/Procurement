@@ -44,6 +44,13 @@ namespace Procurement.ViewModel
 
         public string ItemLevel { get; set; }
 
+        public bool IsGemProgressVisible => Item is Gem;
+
+        public double LevelExperienceProgress { get; set; }
+
+        public int ExperienceNumerator { get; }
+        public int ExperienceDenominator { get; }
+
         public ItemHoverViewModel(Item item)
         {
             this.Item = item;
@@ -73,6 +80,14 @@ namespace Procurement.ViewModel
 
             SecondaryDescriptionText = item.SecDescrText;
             setTypeSpecificProperties(item);
+
+            var gem = Item as Gem;
+            if (gem != null)
+            {
+                LevelExperienceProgress = gem.LevelExperienceProgress;
+                ExperienceNumerator = gem.ExperienceNumerator;
+                ExperienceDenominator = gem.ExperienceDenominator;
+            }
 
             // If an item has crafted mods but no true explicit mods:
             //   In game: the crafted mods are correctly separated from the previous section.
