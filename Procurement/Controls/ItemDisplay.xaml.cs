@@ -196,7 +196,7 @@ namespace Procurement.Controls
             var setBuyout = new MenuItem();
             setBuyout.StaysOpenOnClick = true;
 
-            var buyoutControl = new SetBuyoutView();
+            var buyoutControl = new SetBuyoutView(item);
 
             if (Settings.Buyouts.ContainsKey(item.Id))
             {

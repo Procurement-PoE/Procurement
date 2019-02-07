@@ -185,5 +185,7 @@ namespace POEApi.Model
                 return AssembleDescriptiveName();
             }
         }
+        
+        public virtual string PobData => String.Empty;
     }
 }

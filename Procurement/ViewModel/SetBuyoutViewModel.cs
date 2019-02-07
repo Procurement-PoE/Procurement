@@ -1,10 +1,17 @@
-﻿using POEApi.Model;
+﻿using System;
+using POEApi.Model;
 using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Input;
+using Procurement.View.ViewModel;
 
 namespace Procurement.ViewModel
 {
     public class SetBuyoutViewModel : ObservableBase
     {
+        private readonly Item item;
+
+        //Todo: Replace this with ProxyMapper.orbMap, duplicate info.
         private static List<string> orbTypes = new List<string>()
         {
             "Chaos Orb",
@@ -54,9 +61,10 @@ namespace Procurement.ViewModel
             set { notes = value; }
         }
 
-        public SetBuyoutViewModel()
+        public SetBuyoutViewModel(Item item)
         {
-            
+            this.item = item;
+
             buyoutInfo = new PricingInfo();
             offerInfo = new PricingInfo();
             priceInfo = new PricingInfo();
@@ -69,6 +77,30 @@ namespace Procurement.ViewModel
             offerInfo.Update(info.CurrentOffer);
             priceInfo.Update(info.Price);
             Notes = info.Notes;
-        }        
+        }
+
+        public ICommand PobDataGenerationCommand => new RelayCommand(GetPobData, CanGetPobData);
+
+        private void GetPobData(object o)
+        {
+            try
+            {
+                Clipboard.SetText(item.PobData);
+
+                //Todo: Inject some sort of display framework - we don't want to spin up 
+                //a message box here...
+                MessageBox.Show("Path of building data copied to the clipboard", "Copied", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Unable to generate POB item data, please check log.","Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+
+        private bool CanGetPobData(object o)
+        {
+            return item.GetType() == typeof(Gear);
+        }
     }
 }
