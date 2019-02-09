@@ -1485,6 +1485,9 @@
       <Item name="Profane Wand"/>
     </GearBaseType>
 
+    <!--Source data: https://pathofexile.gamepedia.com/Divination_card-->
+    <!--Regex find: ^(.*)\r -->
+    <!--Regex Replace: <Item name="$1"/> -->
     <GearBaseType name="DivinationCard">
       <Item name="A Dab of Ink"/>
       <Item name="A Mother's Parting Gift"/>
@@ -1493,9 +1496,11 @@
       <Item name="Assassin's Favour"/>
       <Item name="Atziri's Arsenal"/>
       <Item name="Audacity"/>
+      <Item name="Beauty Through Death"/>
       <Item name="Birth of the Three"/>
       <Item name="Blessing of God"/>
       <Item name="Blind Venture"/>
+      <Item name="Boon of the First Ones"/>
       <Item name="Boundless Realms"/>
       <Item name="Bowyer's Dream"/>
       <Item name="Call to the First Ones"/>
@@ -1544,8 +1549,8 @@
       <Item name="Perfection"/>
       <Item name="Pride Before the Fall"/>
       <Item name="Prosperity"/>
-      <Item name="Rain Tempter"/>
       <Item name="Rain of Chaos"/>
+      <Item name="Rain Tempter"/>
       <Item name="Rats"/>
       <Item name="Rebirth"/>
       <Item name="Scholar of the Seas"/>
@@ -1564,6 +1569,7 @@
       <Item name="The Body"/>
       <Item name="The Breach"/>
       <Item name="The Brittle Emperor"/>
+      <Item name="The Cacophony"/>
       <Item name="The Calling"/>
       <Item name="The Carrion Crow"/>
       <Item name="The Cartographer"/>
@@ -1589,6 +1595,7 @@
       <Item name="The Dreamland"/>
       <Item name="The Drunken Aristocrat"/>
       <Item name="The Encroaching Darkness"/>
+      <Item name="The Endless Darkness"/>
       <Item name="The Endurance"/>
       <Item name="The Enlightened"/>
       <Item name="The Ethereal"/>
@@ -1614,6 +1621,7 @@
       <Item name="The Hunger"/>
       <Item name="The Immortal"/>
       <Item name="The Incantation"/>
+      <Item name="The Innocent"/>
       <Item name="The Inoculated"/>
       <Item name="The Insatiable"/>
       <Item name="The Inventor"/>
@@ -1629,8 +1637,8 @@
       <Item name="The Lord in Black"/>
       <Item name="The Lover"/>
       <Item name="The Lunaris Priestess"/>
+      <Item name="The Master Artisan"/>
       <Item name="The Master"/>
-      <Item name="The Master Artisan"/>      
       <Item name="The Mayor"/>
       <Item name="The Mercenary"/>
       <Item name="The Metalsmith's Gift"/>
@@ -1646,6 +1654,7 @@
       <Item name="The Poet"/>
       <Item name="The Polymath"/>
       <Item name="The Porcupine"/>
+      <Item name="The Price of Protection"/>
       <Item name="The Professor"/>
       <Item name="The Puzzle"/>
       <Item name="The Queen"/>
@@ -1680,6 +1689,7 @@
       <Item name="The Tower"/>
       <Item name="The Traitor"/>
       <Item name="The Trial"/>
+      <Item name="The Twilight Moon"/>
       <Item name="The Twins"/>
       <Item name="The Tyrant"/>
       <Item name="The Undaunted"/>
@@ -1694,10 +1704,11 @@
       <Item name="The Warlord"/>
       <Item name="The Watcher"/>
       <Item name="The Web"/>
+      <Item name="The Wilted Rose"/>
       <Item name="The Wind"/>
       <Item name="The Witch"/>
-      <Item name="The Wolf"/>
       <Item name="The Wolf's Shadow"/>
+      <Item name="The Wolf"/>
       <Item name="The Wolven King's Bite"/>
       <Item name="The Wolverine"/>
       <Item name="The World Eater"/>
