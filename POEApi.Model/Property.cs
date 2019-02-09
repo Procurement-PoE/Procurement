@@ -12,16 +12,23 @@ namespace POEApi.Model
 
         internal Property(JSONProxy.Property property)
         {
-            this.Name = property.Name;
+            Name = property.Name;
             Values = new List<Tuple<string, int>>();
 
             foreach (object value in property.Values)
             {
-                var pair = (JArray) value;
-                Values.Add(new Tuple<string, int>(pair[0].ToString(), int.Parse(pair[1].ToString())));
+                var pair = (JArray)value;
+                Values.Add(new Tuple<string, int>(Sanitize(pair[0]), int.Parse(pair[1].ToString())));
             }
-            
-            this.DisplayMode = property.DisplayMode;
+
+            DisplayMode = property.DisplayMode;
+        }
+
+        private string Sanitize(JToken jToken)
+        {
+            const string infoText = "<<set:MS>><<set:M>><<set:S>>";
+
+            return jToken.ToString().Replace(infoText, string.Empty);
         }
     }
 }
