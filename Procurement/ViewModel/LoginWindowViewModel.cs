@@ -24,7 +24,7 @@ namespace Procurement.ViewModel
         public delegate void LoginCompleted();
         private bool formChanged = false;
         private bool passwordChanged = false;
-        private bool useSession;
+        private bool useSession = true;
 
         private CharacterTabInjector characterInjector;
 
@@ -39,18 +39,6 @@ namespace Procurement.ViewModel
                     email = value;
                     OnPropertyChanged();
                 }
-            }
-        }
-
-        public bool UseSession
-        {
-            get { return useSession; }
-            set
-            {
-                useSession = value;
-                Settings.UserSettings["UseSessionID"] = value.ToString();
-                updateButtonLabels(useSession);
-                OnPropertyChanged();
             }
         }
 
@@ -82,8 +70,6 @@ namespace Procurement.ViewModel
         {
             this.view = view as LoginView;
 
-            UseSession = Settings.UserSettings.ContainsKey("UseSessionID") ?
-                bool.Parse(Settings.UserSettings["UseSessionID"]) : false;
             ForceRefresh = Settings.UserSettings.ContainsKey("ForceRefresh") ?
                 bool.Parse(Settings.UserSettings["ForceRefresh"]) : true;
 
@@ -150,7 +136,7 @@ namespace Procurement.ViewModel
                 // behavior the user expects.
                 SecureString password = passwordChanged ? this.view.txtPassword.SecurePassword :
                     Settings.UserSettings["AccountPassword"].Decrypt();
-                ApplicationState.Model.Authenticate(Email, password, offline, useSession);
+                ApplicationState.Model.Authenticate(Email, password, offline);
 
                 if (formChanged)
                     saveSettings(password);
