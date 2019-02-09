@@ -11,14 +11,19 @@ using Procurement.View.ViewModel;
 
 namespace Procurement.ViewModel
 {
-    public class ScreenController
+    public class ScreenController : ObservableBase
     {
-        private static MainWindow mainView;
         private static Dictionary<string, IView> screens = new Dictionary<string, IView>();
 
         public double HeaderHeight { get; set; }
         public double FooterHeight { get; set; }
-        public bool ButtonsVisible { get; set; }
+
+        public bool ButtonsVisible
+        {
+            get { return _buttonsVisible; }
+            set { _buttonsVisible = value; OnPropertyChanged(); }
+        }
+
         public bool FullMode { get; set; }
 
         public ICommand MenuButtonCommand => new RelayCommand(execute);
@@ -31,13 +36,15 @@ namespace Procurement.ViewModel
         private const string ABOUT_VIEW = "About";
 
         public static ScreenController Instance = null;
+        private UserControl _selectedView;
+        private bool _buttonsVisible;
 
-        public static void Create(MainWindow layout)
+        public static void Create()
         {
-            Instance = new ScreenController(layout);
+            Instance = new ScreenController();
         }
 
-        private ScreenController(MainWindow layout)
+        private ScreenController()
         {
             FullMode = !bool.Parse(Settings.UserSettings["CompactMode"]) && !bool.Parse(Settings.UserSettings["MinimalMode"]);
             if (FullMode)
@@ -46,7 +53,6 @@ namespace Procurement.ViewModel
                 FooterHeight = 138;
             }
 
-            mainView = layout;
             initLogin();
         }
 
@@ -118,44 +124,42 @@ namespace Procurement.ViewModel
         {
             initScreens();
             LoadView(screens.First().Value);
-            showMenuButtons();
+            ButtonsVisible = true;
         }
 
-        private static void showMenuButtons()
+        public UserControl SelectedView
         {
-            Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
-            new Action(() =>
+            get { return _selectedView; }
+            set
             {
-                mainView.Buttons.Visibility = Visibility.Visible;
-            }));
+                _selectedView = value;
+                OnPropertyChanged();
+            }
         }
 
         public void LoadView(IView view)
         {
+            SelectedView = view as UserControl;
+
             Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
                 new Action(() =>
                 {
-                    mainView.MainRegion.Children.Clear();
-                    if (view is StashView)
-                        screens[STASH_VIEW] = new StashView();
-                    mainView.MainRegion.Children.Add(view as UserControl);
+                    SelectedView = view as UserControl;
                 }));
         }
 
         public void LoadRefreshView()
         {
-            mainView.Buttons.Visibility = Visibility.Hidden;
-            mainView.MainRegion.Children.Clear();
-            mainView.MainRegion.Children.Add(new RefreshView());
-            (mainView.MainRegion.Children[0] as RefreshView).RefreshAllTabs();
+            ButtonsVisible = false;
+            SelectedView = new RefreshView();
+            (SelectedView as RefreshView).RefreshAllTabs();
         }
 
         public void LoadRefreshViewUsed()
         {
-            mainView.Buttons.Visibility = Visibility.Hidden;
-            mainView.MainRegion.Children.Clear();
-            mainView.MainRegion.Children.Add(new RefreshView());
-            (mainView.MainRegion.Children[0] as RefreshView).RefreshUsedTabs();
+            ButtonsVisible = false;
+            SelectedView = new RefreshView();
+            (SelectedView as RefreshView).RefreshUsedTabs();
         }
 
         public void ReloadStash()
@@ -163,9 +167,9 @@ namespace Procurement.ViewModel
             Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
                 new Action(() =>
                 {
-                    mainView.Buttons.Visibility = Visibility.Visible;
-                    mainView.MainRegion.Children.Clear();
-                    mainView.MainRegion.Children.Add(new StashView());
+                    screens[STASH_VIEW] = new StashView();
+                    SelectedView = screens[STASH_VIEW] as UserControl;
+                    ButtonsVisible = true;
                 }));
         }
     }
