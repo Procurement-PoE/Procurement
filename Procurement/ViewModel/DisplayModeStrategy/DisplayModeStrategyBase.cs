@@ -19,8 +19,8 @@ namespace Procurement.ViewModel
             displayColorMappings.Add(5, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2943c6"))); //Blue cold
             displayColorMappings.Add(6, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f2bc01"))); //Yellow lightning
             displayColorMappings.Add(7, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#D02090"))); //Pink chaos
+            displayColorMappings.Add(8, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"))); //Imprint White
             displayColorMappings.Add(9, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"))); //White
-            
         }
 
         public abstract Block Get();
