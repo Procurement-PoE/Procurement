@@ -67,55 +67,33 @@ namespace POEApi.Transport
                 Throttled(this, e);
         }
 
-        public bool Authenticate(string email, SecureString password, bool useSessionID)
+        public bool Authenticate(string email, SecureString password)
         {
-            if (useSessionID)
+            // A lot of users are reporting issue with logging in. Trimming their SessionID will hopefully improve
+            // the situation.
+            var unwrappedPassword = password.UnWrap();
+            if (!string.IsNullOrEmpty(unwrappedPassword))
             {
-                // A lot of users are reporting issue with logging in. Trimming their SessionID will hopefully improve
-                // the situation.
-                var unwrappedPassword = password.UnWrap();
-                if (!string.IsNullOrEmpty(unwrappedPassword))
-                {
-                    unwrappedPassword = unwrappedPassword.Trim();
-                }
-
-                credentialCookies.Add(new Cookie("POESESSID", unwrappedPassword, "/", ".pathofexile.com"));
-
-                try
-                {
-                    TraditionalSessionIdLogin();
-                    return true;
-                }
-                catch (WebException ex)
-                {
-                    if (((HttpWebResponse)ex.Response).Server == "cloudflare" && ((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.ServiceUnavailable)
-                    {
-                        CloudFlareSessionIdLogin();
-                        return true;
-                    }
-
-                    throw;
-                }
+                unwrappedPassword = unwrappedPassword.Trim();
             }
 
-            var loginResponseStream = PerformHttpRequest(HttpMethod.GET, loginURL);
-            string loginResponse = Encoding.Default.GetString(loginResponseStream.ToArray());
-            string hashValue = Regex.Match(loginResponse, hashRegEx).Groups["hash"].Value;
+            credentialCookies.Add(new Cookie("POESESSID", unwrappedPassword, "/", ".pathofexile.com"));
 
-            StringBuilder data = new StringBuilder();
-            data.Append("login_email=" + Uri.EscapeDataString(email));
-            data.Append("&login_password=" + Uri.EscapeDataString(password.UnWrap()));
-            data.Append("&remember_me=0");
-            data.Append("&hash=" + hashValue);
-            data.Append("&login=Login");
+            try
+            {
+                TraditionalSessionIdLogin();
+                return true;
+            }
+            catch (WebException ex)
+            {
+                if (((HttpWebResponse)ex.Response).Server == "cloudflare" && ((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.ServiceUnavailable)
+                {
+                    CloudFlareSessionIdLogin();
+                    return true;
+                }
 
-            var response = BuildHttpRequestAndGetResponse(HttpMethod.POST, loginURL, false, data.ToString());
-
-            // If the response is not a redirect, then the login action failed.
-            if (response.StatusCode != HttpStatusCode.Found)
-                throw new LogonFailedException(this.email);
-
-            return true;
+                throw;
+            }
         }
 
         private void CloudFlareSessionIdLogin()

@@ -39,7 +39,7 @@ namespace POEApi.Model
             downOnlyMyCharacters = bool.Parse(Settings.UserSettings["DownloadOnlyMyCharacters"]);
         }
 
-        public bool Authenticate(string email, SecureString password, bool offline, bool useSessionID)
+        public bool Authenticate(string email, SecureString password, bool offline)
         {
             if (Transport != null)
                 Transport.Throttled -= new ThottledEventHandler(instance_Throttled);
@@ -54,7 +54,7 @@ namespace POEApi.Model
             Transport.Throttled += new ThottledEventHandler(instance_Throttled);
             onAuthenticate(POEEventState.BeforeEvent, email);
 
-            Transport.Authenticate(email, password, useSessionID);
+            Transport.Authenticate(email, password);
 
             onAuthenticate(POEEventState.AfterEvent, email);
 

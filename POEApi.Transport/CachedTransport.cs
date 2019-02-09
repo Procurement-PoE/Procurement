@@ -32,9 +32,9 @@ namespace POEApi.Transport
                 Throttled(sender, e);
         }
 
-        public bool Authenticate(string email, SecureString password, bool useSessionID)
+        public bool Authenticate(string email, SecureString password)
         {
-            return innerTranport.Authenticate(email, password, useSessionID);
+            return innerTranport.Authenticate(email, password);
         }
 
         public Stream GetAccountName()
