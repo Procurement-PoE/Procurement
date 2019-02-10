@@ -107,6 +107,8 @@ namespace Procurement.Controls
                     };
 
                     childGrid.Children.Add(itemDisplay);
+
+                    SetBackground(childGrid, key);
                     
                     Grid.SetColumn(childGrid, i);
                     Grid.SetRow(childGrid, j);
