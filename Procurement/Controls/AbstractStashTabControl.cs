@@ -128,11 +128,11 @@ namespace Procurement.Controls
                     continue;
                 }
 
-                TabItemsToViewModels.Add(item, getImage(item));
+                TabItemsToViewModels.Add(item, GetImage(item));
             }
         }
 
-        private ItemDisplayViewModel getImage(Item item)
+        private ItemDisplayViewModel GetImage(Item item)
         {
             return new ItemDisplayViewModel(item);
         }

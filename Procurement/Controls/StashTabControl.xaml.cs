@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -13,15 +12,13 @@ namespace Procurement.Controls
 {
     public partial class StashTabControl : AbstractStashTabControl
     {
-        private const int NORMAL_SPACING = 12;
-        private const int QUAD_SPACING = 24;
+        private const int NormalSpacing = 12;
+        private const int QuadSpacing = 24;
         
         public StashTabControl(int tabNumber) : base(tabNumber)
         {
             InitializeComponent();
-
             Refresh();
-
             Ready = true;
 
             SetPremiumTabBorderColour();
@@ -53,19 +50,19 @@ namespace Procurement.Controls
         {
             base.Refresh();
 
-            render();
+            Render();
         }
 
-        private void render()
+        private void Render()
         {
-            int columns = NORMAL_SPACING, rows = NORMAL_SPACING;
+            int columns = NormalSpacing, rows = NormalSpacing;
 
             // Force divination card tabs to use quad tab spacing so there is enough room to show all the different
             // cards.  A normal tab only has 144 slots, but there are >200 divination cards.
             if (TabType == TabType.Quad || TabType == TabType.DivinationCard)
             {
-                columns = QUAD_SPACING;
-                rows = QUAD_SPACING;
+                columns = QuadSpacing;
+                rows = QuadSpacing;
 
                 gridOuter.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Images/stash-quad-grid.png")));
             }
@@ -91,14 +88,14 @@ namespace Procurement.Controls
                     // card's "real" location to a fake one on the grid, so it can be displayed.
                     var stashLocation = TabType == TabType.DivinationCard ? new Tuple<int, int>(j * columns + i, 0) : currentKey;
 
-                    var key = TabItemsToViewModels.Keys.FirstOrDefault(item => item.X == stashLocation.Item1
-                                                                          && item.Y == stashLocation.Item2);
-                    if (key == null)
+                    var keyItem = TabItemsToViewModels.Keys.FirstOrDefault(item => item.X == stashLocation.Item1
+                                                                             && item.Y == stashLocation.Item2);
+                    if (keyItem == null)
                     {
                         continue;
                     }
 
-                    ItemDisplayViewModel itemViewModel = TabItemsToViewModels[key];
+                    ItemDisplayViewModel itemViewModel = TabItemsToViewModels[keyItem];
 
                     var itemDisplay = new ItemDisplay
                     {
@@ -108,7 +105,7 @@ namespace Procurement.Controls
 
                     childGrid.Children.Add(itemDisplay);
 
-                    SetBackground(childGrid, key);
+                    SetBackground(childGrid, keyItem);
                     
                     Grid.SetColumn(childGrid, i);
                     Grid.SetRow(childGrid, j);
