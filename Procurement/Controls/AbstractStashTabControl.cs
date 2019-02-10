@@ -104,6 +104,16 @@ namespace Procurement.Controls
             Refresh();
         }
 
+        protected void SetBackground(Grid childGrid, Item item)
+        {
+            if (item is Gear && (item as Gear).Rarity != Rarity.Normal && (item as Gear).Explicitmods == null)
+                childGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#88001D"));
+            else
+                childGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#21007F"));
+
+            childGrid.Background.Opacity = 0.3;
+        }
+
         private void UpdateStashByLocation()
         {
             TabItemsToViewModels.Clear();
@@ -118,11 +128,11 @@ namespace Procurement.Controls
                     continue;
                 }
 
-                TabItemsToViewModels.Add(item, getImage(item));
+                TabItemsToViewModels.Add(item, GetImage(item));
             }
         }
 
-        private ItemDisplayViewModel getImage(Item item)
+        private ItemDisplayViewModel GetImage(Item item)
         {
             return new ItemDisplayViewModel(item);
         }
