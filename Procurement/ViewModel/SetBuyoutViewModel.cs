@@ -55,6 +55,8 @@ namespace Procurement.ViewModel
         }
 
         private string notes;
+        private bool isDataInClipboard;
+
         public string Notes
         {
             get { return notes; }
@@ -79,6 +81,16 @@ namespace Procurement.ViewModel
             Notes = info.Notes;
         }
 
+        public bool IsDataInClipboard
+        {
+            get { return isDataInClipboard; }
+            set
+            {
+                isDataInClipboard = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ICommand PobDataGenerationCommand => new RelayCommand(GetPobData, CanGetPobData);
 
         private void GetPobData(object o)
@@ -87,9 +99,7 @@ namespace Procurement.ViewModel
             {
                 Clipboard.SetText(item.PobData);
 
-                //Todo: Inject some sort of display framework - we don't want to spin up 
-                //a message box here...
-                MessageBox.Show("Path of building data copied to the clipboard", "Copied", MessageBoxButton.OK, MessageBoxImage.Information);
+                IsDataInClipboard = true;
             }
             catch (Exception e)
             {

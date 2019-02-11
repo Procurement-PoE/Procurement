@@ -51,8 +51,11 @@
 
 
         <TextBlock Grid.Row="3" Foreground="#FFAB9066" Text="Notes:" />
+
+        <TextBlock Grid.Row="3" Foreground="#FFAB9066" Text="POB Data copied to Clipboard" Grid.Column="1" Grid.ColumnSpan="2" Visibility="{Binding IsDataInClipboard, Converter={StaticResource bc}}"/>
+
         <Button Content="Export to POB" ToolTip="Copy item data to clipboard in Path of Building format" 
-                Grid.Column="2" Height="25" Command="{Binding PobDataGenerationCommand}"  Grid.Row="3" 
+                Grid.Column="2" Height="25" Command="{Binding PobDataGenerationCommand}"  Grid.Row="3" Visibility="{Binding IsDataInClipboard, Converter={StaticResource bc}, ConverterParameter=Invert}"
                 Margin="2"  HorizontalAlignment="Right" Padding="1"/>
         <TextBox x:Name="Notes" Grid.Row="4" Grid.ColumnSpan="3" Text="{Binding Notes}" VerticalScrollBarVisibility="Auto" KeyDown="TextBox_KeyDown"/>
 
