@@ -43,6 +43,14 @@ namespace Procurement.View
                     else if (value is bool)
                     {
                         result = ((bool) value) ? Visibility.Visible : Visibility.Hidden;
+
+                        if (parameter != null && parameter.ToString() == "Invert")
+                        {
+                            if (result == Visibility.Visible)
+                                result = Visibility.Collapsed;
+                            if (result == Visibility.Hidden)
+                                result = Visibility.Visible;
+                        }
                     }
                 }
             }
