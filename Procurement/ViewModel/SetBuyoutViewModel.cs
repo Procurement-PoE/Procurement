@@ -1,10 +1,17 @@
-﻿using POEApi.Model;
+﻿using System;
+using POEApi.Model;
 using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Input;
+using Procurement.View.ViewModel;
 
 namespace Procurement.ViewModel
 {
     public class SetBuyoutViewModel : ObservableBase
     {
+        private readonly Item item;
+
+        //Todo: Replace this with ProxyMapper.orbMap, duplicate info.
         private static List<string> orbTypes = new List<string>()
         {
             "Chaos Orb",
@@ -48,15 +55,18 @@ namespace Procurement.ViewModel
         }
 
         private string notes;
+        private bool isDataInClipboard;
+
         public string Notes
         {
             get { return notes; }
             set { notes = value; }
         }
 
-        public SetBuyoutViewModel()
+        public SetBuyoutViewModel(Item item)
         {
-            
+            this.item = item;
+
             buyoutInfo = new PricingInfo();
             offerInfo = new PricingInfo();
             priceInfo = new PricingInfo();
@@ -69,6 +79,37 @@ namespace Procurement.ViewModel
             offerInfo.Update(info.CurrentOffer);
             priceInfo.Update(info.Price);
             Notes = info.Notes;
-        }        
+        }
+
+        public bool IsDataInClipboard
+        {
+            get { return isDataInClipboard; }
+            set
+            {
+                isDataInClipboard = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICommand PobDataGenerationCommand => new RelayCommand(GetPobData, CanGetPobData);
+
+        private void GetPobData(object o)
+        {
+            try
+            {
+                Clipboard.SetText(item.PobData);
+
+                IsDataInClipboard = true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Unable to generate POB item data; please check log.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private bool CanGetPobData(object o)
+        {
+            return item.GetType() == typeof(Gear);
+        }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using POEApi.Model;
 using Procurement.ViewModel;
 using System;
-using System.Text.RegularExpressions;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -10,10 +8,15 @@ namespace Procurement.Controls
 {
     public partial class SetBuyoutView : UserControl
     {
-        public SetBuyoutView()
+        private SetBuyoutViewModel viewModel;
+
+        public SetBuyoutView(Item item)
         {
             InitializeComponent();
-            this.DataContext = new SetBuyoutViewModel();
+
+            viewModel = new SetBuyoutViewModel(item);
+
+            this.DataContext = viewModel;
         }
 
         public event PricingInfoHandler Update;
@@ -23,12 +26,7 @@ namespace Procurement.Controls
 
         public void Save_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
-            var vm = (this.DataContext as SetBuyoutViewModel);
-            Update(new ItemTradeInfo(vm.BuyoutInfo.GetSaveText(), vm.PriceInfo.GetSaveText(), vm.OfferInfo.GetSaveText(), vm.Notes));
-        }
-        private void RemoveBuyout_Click(object sender, RoutedEventArgs e)
-        {
-            Update(new ItemTradeInfo());
+            Update(new ItemTradeInfo(viewModel.BuyoutInfo.GetSaveText(), viewModel.PriceInfo.GetSaveText(), viewModel.OfferInfo.GetSaveText(), viewModel.Notes));
         }
 
         public void SaveImage_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -43,7 +41,7 @@ namespace Procurement.Controls
 
         public void SetBuyoutInfo(ItemTradeInfo buyoutInfo)
         {
-            (this.DataContext as SetBuyoutViewModel).SetBuyoutInfo(buyoutInfo);
+            viewModel.SetBuyoutInfo(buyoutInfo);
         }
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)

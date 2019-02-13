@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using POEApi.Infrastructure;
 
 namespace POEApi.Model
 {
@@ -65,6 +68,66 @@ namespace POEApi.Model
                 }
 
                 return components;
+            }
+        }
+
+        public override string PobData
+        {
+            get
+            {
+                try
+                {
+                    var pobData = new StringBuilder();
+                    pobData.AppendLine(Name);
+                    pobData.AppendLine(TypeLine);
+                    pobData.AppendLine($"Unique ID: {Id}");
+                    pobData.AppendLine($"Item Level: {ItemLevel}");
+                    pobData.AppendLine($"Quality: {Quality}");
+
+                    if (Sockets != null && Sockets.Any())
+                    {
+                        //Links are denoted by "Groups"
+                        List<int> groups = Sockets.Select(x => x.Group).Distinct().ToList();
+                        string socketData = string.Empty;
+                            
+                        foreach (var group in groups)
+                        {
+                            socketData += string.Join("=", Sockets.Where(x => x.Group == group).Select(y => y.ToPobFormat()));
+                            
+                            //Don't append a space on the last character
+                            if (groups.Last() != group)
+                            {
+                                //Space character denotes group demarcations
+                                socketData += " ";
+                            }
+                        }
+
+                        pobData.AppendLine($"Sockets: {socketData}");
+                    }
+
+                    if (Implicitmods != null && Implicitmods.Any())
+                    {
+                        pobData.AppendLine($"Implicits: {Implicitmods.Count}");
+                        Implicitmods.ForEach(x => pobData.AppendLine($"{{crafted}}{x}"));
+                    }
+
+                    if (Explicitmods != null && Explicitmods.Any())
+                    {
+                        Explicitmods.ForEach(x=> pobData.AppendLine(x));
+                    }
+
+                    if (CraftedMods != null && CraftedMods.Any())
+                    {
+                        CraftedMods.ForEach(x => pobData.AppendLine($"{{crafted}}{x}"));
+                    }
+
+                    return pobData.ToString();
+                }
+                catch (Exception e)
+                {
+                    Logger.Log(e);
+                    throw;
+                }
             }
         }
     }

@@ -51,6 +51,9 @@ namespace Procurement.Controls
                 itemImage.ContextMenu = getContextMenu();
                 contexted = true;
             }
+
+            //Reset the export to pob button incase user needs to export again
+            (buyoutControl.DataContext as SetBuyoutViewModel).IsDataInClipboard = false;
         }
 
         public static void ClosePopups()
@@ -183,6 +186,8 @@ namespace Procurement.Controls
             };
         }
 
+        private SetBuyoutView buyoutControl;
+
         private ContextMenu getContextMenu()
         {
             var vm = DataContext as ItemDisplayViewModel;
@@ -196,7 +201,7 @@ namespace Procurement.Controls
             var setBuyout = new MenuItem();
             setBuyout.StaysOpenOnClick = true;
 
-            var buyoutControl = new SetBuyoutView();
+            buyoutControl = new SetBuyoutView(item);
 
             if (Settings.Buyouts.ContainsKey(item.Id))
             {
