@@ -103,9 +103,8 @@ namespace Procurement.ViewModel
             }
             catch (Exception e)
             {
-                MessageBox.Show("Unable to generate POB item data, please check log.","Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Unable to generate POB item data; please check log.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
 
         private bool CanGetPobData(object o)

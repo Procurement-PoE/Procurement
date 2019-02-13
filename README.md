@@ -13,7 +13,7 @@ Procurement is a Windows application for the online game Path Of Exile, that log
 * Show where items are in your stash, that form part of vendor recipes
 * View your characters/gear
 * Oneclick generate forum trade posts that you can copy&paste into a trade post, which will have all your gear linked, verified and categorised in spoiler tags
-* Generate ![Path of Building](https://github.com/openarl/pathofbuilding) compatible item definitions
+* Generate [Path of Building](https://github.com/openarl/pathofbuilding) compatible item definitions
 * Customise how your shop thread gets generated
 * Breakdown of your currency with Chaos total (Ratios configurable)
 * Everything is cached and can be viewed offline after you've logged in once

@@ -20,17 +20,22 @@
             switch (Attribute)
             {
                 case "S":
-                    return "R";
+                    return RED;
                 case "I":
-                    return "B";
+                    return BLUE;
                 case "D":
-                    return "G";
+                    return GREEN;
                 case "G":
-                    return "W";
+                    return WHITE;
                 default:
-                    //Abyssal socket.
-                    return "A"; 
+                    return ABYSSAL; 
             }
         }
+
+        private const string RED = "R";
+        private const string BLUE = "B";
+        private const string GREEN = "G";
+        private const string WHITE = "W";
+        private const string ABYSSAL = "A";
     }
 }
