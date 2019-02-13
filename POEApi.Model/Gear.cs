@@ -86,7 +86,21 @@ namespace POEApi.Model
 
                     if (Sockets != null && Sockets.Any())
                     {
-                        var socketData = string.Join("=", Sockets.Select(x => x.ToPobFormat()));
+                        //Links are denoted by "Groups"
+                        List<int> groups = Sockets.Select(x => x.Group).Distinct().ToList();
+                        string socketData = string.Empty;
+                            
+                        foreach (var group in groups)
+                        {
+                            socketData += string.Join("=", Sockets.Where(x => x.Group == group).Select(y => y.ToPobFormat()));
+                            
+                            //Don't append a space on the last character
+                            if (groups.Last() != group)
+                            {
+                                //Space character denotes group demarcations
+                                socketData += " ";
+                            }
+                        }
 
                         pobData.AppendLine($"Sockets: {socketData}");
                     }
