@@ -34,7 +34,7 @@ namespace POEApi.Model
 
         private void ExtractGemExperience(JSONProxy.Item item)
         {
-            var experienceProperties = item.AdditionalProperties.FirstOrDefault(x => x.Name == "Experience");
+            var experienceProperties = item.AdditionalProperties?.FirstOrDefault(x => x.Name == "Experience");
 
             if (experienceProperties == null)
             {
@@ -61,6 +61,8 @@ namespace POEApi.Model
             {
                 ExperienceDenominator = temporaryInt;
             }
+
+            HasExperience = true;
         }
 
         private int getLevel()
@@ -74,5 +76,7 @@ namespace POEApi.Model
             
             return level;
         }
+
+        public bool HasExperience { get; set; }
     }
 }

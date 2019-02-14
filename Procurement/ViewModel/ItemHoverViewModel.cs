@@ -44,7 +44,18 @@ namespace Procurement.ViewModel
 
         public string ItemLevel { get; set; }
 
-        public bool IsGemProgressVisible => Item is Gem;
+        public bool IsGemProgressVisible
+        {
+            get
+            {
+                var gem = Item as Gem;
+
+                if (gem == null)
+                    return false;
+
+                return gem.HasExperience;
+            }
+        }
 
         public double LevelExperienceProgress { get; set; }
 
