@@ -15,21 +15,21 @@
     internal class IncreasedDamageFilterCold : IncreasedDamageFilter
     {
         public IncreasedDamageFilterCold()
-            : base("Increased Cold Damage", "Increased Cold Damage", "Increased Cold Damage")
+            : base("Increased Cold Damage", "Increased Cold Damage", "increased Cold Damage")
         { }
     }
 
     internal class IncreasedDamageFilterFire : IncreasedDamageFilter
     {
         public IncreasedDamageFilterFire()
-            : base("Increased Fire Damage", "Increased Fire Damage", "Increased Fire Damage")
+            : base("Increased Fire Damage", "Increased Fire Damage", "increased Fire Damage")
         { }
     }
 
     internal class IncreasedDamageFilterLightning : IncreasedDamageFilter
     {
         public IncreasedDamageFilterLightning()
-            : base("Increased Lightning Damage", "Increased Lightning Damage", "Increased Lightning Damage")
+            : base("Increased Lightning Damage", "Increased Lightning Damage", "increased Lightning Damage")
         { }
     }
 
