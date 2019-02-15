@@ -8,7 +8,7 @@
         }
 
         public CastSpeed()
-            : base("Increased Cast Speed", "Increased Cast Speed", "Increased Cast Speed")
+            : base("Increased Cast Speed", "Increased Cast Speed", "increased Cast Speed")
         { }
     }
 }
