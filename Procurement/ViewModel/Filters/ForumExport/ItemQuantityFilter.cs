@@ -13,7 +13,7 @@ namespace Procurement.ViewModel.Filters
         }
 
         public ItemQuantityFilter()
-            : base("Item Quantity", "Item with the Item Quantity stat", "INCREASED QUANTITY")
+            : base("Item Quantity", "Item with the Item Quantity stat", "increased Quantity")
         { }
     }
 }
