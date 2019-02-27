@@ -13,7 +13,15 @@
     <Grid>
         <Border BorderBrush="{Binding ItemFilterBrush}" BorderThickness="2" >
             <Grid x:Name="MainGrid" Margin="-2">
-        
+                <TextBlock HorizontalAlignment="Left"
+                           FontFamily="../Resources/#Fontin SmallCaps"
+                           Foreground="White"
+                           Text="{Binding StackSize}"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap"
+                           Visibility="{Binding IsStackSizeVisible,
+                               Converter={StaticResource bc},
+                               ConverterParameter=CollapseWhenFalse}" />
             </Grid>
         </Border>
     </Grid>
