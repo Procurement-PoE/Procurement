@@ -57,6 +57,21 @@ namespace Procurement.ViewModel
                                         : new SolidColorBrush(Colors.Transparent); }
         }
 
+        public bool IsStackSizeVisible => Item is StackableItem;
+
+        public int StackSize
+        {
+            get
+            {
+                if (Item != null)
+                {
+                    return Item.StackSize;
+                }
+
+                return 0;
+            }
+        }
+
         public ItemDisplayViewModel(Item item)
         {
             this.Item = item;
@@ -72,7 +87,7 @@ namespace Procurement.ViewModel
                     var img = new Image
                     {
                         Source = ApplicationState.BitmapCache[Item.IconURL],
-                        Stretch = Stretch.None
+                        Stretch = Stretch.Fill
                     };
 
                     CreateItemPopup(img, Item);

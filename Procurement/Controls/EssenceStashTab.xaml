@@ -8,12 +8,6 @@
              mc:Ignorable="d"
              d:DesignHeight="592" d:DesignWidth="591" Height="592" Width="591"
              d:DataContext="{d:DesignInstance viewModel:EssenceStashViewModel}">
-    <UserControl.Resources>
-        <Style x:Key="SingleCellItemStyle" TargetType="local:ItemDisplay">
-            <Setter Property="Width" Value="40" />
-            <Setter Property="Height" Value="40" />
-        </Style>
-    </UserControl.Resources>
 
     <Border x:Name="LocalBorder" BorderThickness="3" CornerRadius="2" BorderBrush="Aquamarine">
         <Canvas>
@@ -241,7 +235,7 @@
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="480" Canvas.Top="392"
                                DataContext="{Binding RemnantOfCorruption}" />
 
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="320" Canvas.Top="406"
+            <local:ItemDisplay Canvas.Left="320" Canvas.Top="406"
                 DataContext="{Binding MainSlot}" Height="157" Width="81" />
 
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="480" Canvas.Top="438"

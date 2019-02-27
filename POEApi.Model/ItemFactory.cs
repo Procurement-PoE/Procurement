@@ -100,6 +100,9 @@ namespace POEApi.Model
             if (item.TypeLine.Contains("Net"))
                 return new Net(item);
 
+            if (item.TypeLine.Contains("Fossil"))
+                return new Fossil(item);
+
             return new Currency(item);
         }
 

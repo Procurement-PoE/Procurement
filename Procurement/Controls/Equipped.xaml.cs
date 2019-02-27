@@ -70,6 +70,8 @@ namespace Procurement.Controls
             ret.Add("Flask2", new Tuple<int, int>(416, 277));
             ret.Add("Flask3", new Tuple<int, int>(416, 324));
             ret.Add("Flask4", new Tuple<int, int>(416, 372));
+            //Todo: Redo this tab to follow more modern MVVM pattern
+            //Scale of mainhand/offhand "Knackered"
             ret.Add("Weapon", new Tuple<int, int>(109, 63));
             ret.Add("Offhand", new Tuple<int, int>(109, 436));
             ret.Add("AltWeapon", new Tuple<int, int>(109, 63));
