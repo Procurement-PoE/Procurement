@@ -59,6 +59,7 @@
     <Compile Include="Essence.cs" />
     <Compile Include="EssenceType.cs" />
     <Compile Include="FatedUniqueInfo.cs" />
+    <Compile Include="Fossil.cs" />
     <Compile Include="FullBestiaryOrb.cs" />
     <Compile Include="GemHandler.cs" />
     <Compile Include="Interfaces\IBreachCurrency.cs" />
