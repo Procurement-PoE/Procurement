@@ -72,7 +72,7 @@ namespace Procurement.ViewModel
                     var img = new Image
                     {
                         Source = ApplicationState.BitmapCache[Item.IconURL],
-                        Stretch = Stretch.None
+                        Stretch = Stretch.Fill
                     };
 
                     CreateItemPopup(img, Item);

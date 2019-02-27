@@ -23,6 +23,24 @@ namespace Procurement.Controls
         private TextBlock textblock;
         private ItemDisplayViewModel _viewModel;
 
+        public static readonly DependencyProperty HeightScaleProperty = DependencyProperty.Register(
+            "HeightScale", typeof(double?), typeof(ItemDisplay), new PropertyMetadata(null));
+
+        public double? HeightScale
+        {
+            get { return (double?) GetValue(HeightScaleProperty); }
+            set { SetValue(HeightScaleProperty, value); }
+        }
+
+        public static readonly DependencyProperty WidthScaleProperty = DependencyProperty.Register(
+            "WidthScale", typeof(double?), typeof(ItemDisplay), new PropertyMetadata(null));
+
+        public double? WidthScale
+        {
+            get { return (double?) GetValue(WidthScaleProperty); }
+            set { SetValue(WidthScaleProperty, value); }
+        }
+
         public ItemDisplay()
         {
             InitializeComponent();
@@ -68,9 +86,16 @@ namespace Procurement.Controls
             {
                 var i = vm.getImage();
                 itemImage = i;
-
+                
                 if (i != null)
                 {
+                    //See: https://github.com/Stickymaddness/Procurement/issues/966
+                    if (HeightScale.HasValue && WidthScale.HasValue)
+                    {
+                        itemImage.Height = HeightScale.Value;
+                        itemImage.Width = WidthScale.Value;
+                    }
+
                     MainGrid.Children.Add(i);
 
                     if (vm.HasSocket)

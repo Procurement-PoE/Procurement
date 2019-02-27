@@ -7,12 +7,6 @@
              mc:Ignorable="d"
              d:DesignHeight="592" d:DesignWidth="591" Height="592" Width="591"
              d:DataContext="{d:DesignInstance local:FragmentStashViewModel}">
-    <UserControl.Resources>
-        <Style x:Key="SingleCellItemStyle" TargetType="local:ItemDisplay">
-            <Setter Property="Width" Value="34" />
-            <Setter Property="Height" Value="34" />
-        </Style>
-    </UserControl.Resources>
     <Border x:Name="LocalBorder" BorderThickness="3" CornerRadius="2" BorderBrush="Aquamarine">
         <Border.Background>
             <ImageBrush ImageSource="/Images/fragmentTab.png" />
