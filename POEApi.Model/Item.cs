@@ -67,52 +67,52 @@ namespace POEApi.Model
 
         protected Item(JSONProxy.Item item)
         {
-            this.Id = item.Id;
-            this.Verified = item.Verified;
-            this.Identified = item.Identified;
-            this.IsMirrored = item.Duplicated;
-            this.W = item.W;
-            this.H = item.H;
-            this.IconURL = getIconUrl(item.Icon);
-            this.League = item.League;
-            this.Name = item.Name;
-            this.TypeLine = item.TypeLine;
-            this.DescrText = item.DescrText;
-            this.X = item.X;
-            this.Y = item.Y;
-            this.InventoryId = item.InventoryId;
-            this.SecDescrText = item.SecDescrText;
-            this.Explicitmods = item.ExplicitMods;
-            this.ItemType = Model.ItemType.UnSet;
-            this.CraftedMods = item.CraftedMods ?? new List<string>();
-            this.VeiledMods = item.VeiledMods ?? new List<string>();
-            this.EnchantMods = item.EnchantMods ?? new List<string>();
-            this.FlavourText = item.FlavourText;
-            this.ItemLevel = item.Ilvl;
-            this.Shaper = item.Shaper;
-            this.Elder = item.Elder;
-            this.StackSize = item.StackSize;
-            this.MaxStackSize = item.MaxStackSize;
+            Id = item.Id;
+            Verified = item.Verified;
+            Identified = item.Identified;
+            IsMirrored = item.Duplicated;
+            W = item.W;
+            H = item.H;
+            IconURL = getIconUrl(item.Icon);
+            League = item.League;
+            Name = item.Name;
+            TypeLine = item.TypeLine;
+            DescrText = item.DescrText;
+            X = item.X;
+            Y = item.Y;
+            InventoryId = item.InventoryId;
+            SecDescrText = item.SecDescrText;
+            Explicitmods = item.ExplicitMods;
+            ItemType = Model.ItemType.UnSet;
+            CraftedMods = item.CraftedMods ?? new List<string>();
+            VeiledMods = item.VeiledMods ?? new List<string>();
+            EnchantMods = item.EnchantMods ?? new List<string>();
+            FlavourText = item.FlavourText;
+            ItemLevel = item.Ilvl;
+            Shaper = item.Shaper;
+            Elder = item.Elder;
+            StackSize = item.StackSize;
+            MaxStackSize = item.MaxStackSize;
 
             if (item.Properties != null)
             {
-                this.Properties = item.Properties.Select(p => new Property(p)).ToList();
+                Properties = item.Properties.Select(p => new Property(p)).ToList();
 
-                if (this.Properties.Any(p => p.Name == "Quality"))
+                if (Properties.Any(p => p.Name == "Quality"))
                 {
-                    this.IsQuality = true;
-                    this.Quality = ProxyMapper.GetQuality(item.Properties);
+                    IsQuality = true;
+                    Quality = ProxyMapper.GetQuality(item.Properties);
                 }
             }
 
-            this.Corrupted = item.Corrupted;
-            this.Microtransactions = item.CosmeticMods ?? new List<string>();
-            this.EnchantMods = item.EnchantMods ?? new List<string>();
+            Corrupted = item.Corrupted;
+            Microtransactions = item.CosmeticMods ?? new List<string>();
+            EnchantMods = item.EnchantMods ?? new List<string>();
 
-            this.TradeX = this.X;
-            this.TradeY = this.Y;
-            this.TradeInventoryId = this.InventoryId;
-            this.Character = string.Empty;
+            TradeX = X;
+            TradeY = Y;
+            TradeInventoryId =InventoryId;
+            Character = string.Empty;
         }
         private string getIconUrl(string url)
         {
@@ -175,7 +175,7 @@ namespace POEApi.Model
 
         public object Clone()
         {
-            return this.MemberwiseClone();
+            return MemberwiseClone();
         }
 
         private string DebuggerDisplay

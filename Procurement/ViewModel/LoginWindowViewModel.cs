@@ -18,57 +18,57 @@ namespace Procurement.ViewModel
 {
     public class LoginWindowViewModel : ObservableBase
     {
-        private LoginView view = null;
-        private StatusController statusController;
+        private LoginView _view = null;
+        private StatusController _statusController;
         public event LoginCompleted OnLoginCompleted;
         public delegate void LoginCompleted();
-        private bool formChanged = false;
-        private bool passwordChanged = false;
-        private bool useSession = true;
+        private bool _formChanged = false;
+        private bool _passwordChanged = false;
+        private bool _useSession = true;
 
-        private CharacterTabInjector characterInjector;
+        private CharacterTabInjector _characterInjector;
 
-        private string email;
+        private string _email;
         public string Email
         {
-            get { return email; }
+            get { return _email; }
             set
             {
-                if (value != email)
+                if (value != _email)
                 {
-                    email = value;
+                    _email = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        private bool forceRefresh;
+        private bool _forceRefresh;
         public bool ForceRefresh
         {
-            get { return forceRefresh; }
+            get { return _forceRefresh; }
             set
             {
-                if (value != forceRefresh)
+                if (value != _forceRefresh)
                 {
-                    forceRefresh = value;
+                    _forceRefresh = value;
                     Settings.UserSettings["ForceRefresh"] = value.ToString();
                     OnPropertyChanged();
                 }
             }
         }
 
-        private void updateButtonLabels(bool useSession)
+        private void UpdateButtonLabels(bool useSession)
         {
-            if (this.view == null)
+            if (_view == null)
                 return;
 
-            this.view.lblEmail.Content = useSession ? "Alias" : "Email";
-            this.view.lblPassword.Content = useSession ? "Session ID" : "Password";
+            _view.lblEmail.Content = useSession ? "Alias" : "Email";
+            _view.lblPassword.Content = useSession ? "Session ID" : "Password";
         }
 
         public LoginWindowViewModel(UserControl view)
         {
-            this.view = view as LoginView;
+            _view = view as LoginView;
 
             ForceRefresh = Settings.UserSettings.ContainsKey("ForceRefresh") ?
                 bool.Parse(Settings.UserSettings["ForceRefresh"]) : true;
@@ -76,56 +76,56 @@ namespace Procurement.ViewModel
             Email = Settings.UserSettings["AccountLogin"];
 
             if (!string.IsNullOrEmpty(Settings.UserSettings["AccountPassword"]))
-                this.view.txtPassword.Password = string.Empty.PadLeft(8); //For the visuals
+                _view.txtPassword.Password = string.Empty.PadLeft(8); //For the visuals
 
-            this.view.txtPassword.PasswordChanged += new RoutedEventHandler(txtPassword_PasswordChanged);
-            PropertyChanged += loginWindow_PropertyChanged;
+            _view.txtPassword.PasswordChanged += new RoutedEventHandler(TxtPassword_PasswordChanged);
+            PropertyChanged += LoginWindow_PropertyChanged;
 
-            characterInjector = new CharacterTabInjector();
+            _characterInjector = new CharacterTabInjector();
 
-            statusController = new StatusController(this.view.StatusBox);
+            _statusController = new StatusController(_view.StatusBox);
 
-            ApplicationState.Model.Authenticating += model_Authenticating;
-            ApplicationState.Model.Throttled += model_Throttled;
+            ApplicationState.Model.Authenticating += Model_Authenticating;
+            ApplicationState.Model.Throttled += Model_Throttled;
             ApplicationState.InitializeFont(Properties.Resources.fontin_regular_webfont);
             ApplicationState.InitializeFont(Properties.Resources.fontin_smallcaps_webfont);
 
-            statusController.DisplayMessage(ApplicationState.Version + " Initialized.\r");
+            _statusController.DisplayMessage(ApplicationState.Version + " Initialized.\r");
 
             VersionChecker.CheckForUpdates();
         }
 
-        void txtPassword_PasswordChanged(object sender, System.Windows.RoutedEventArgs e)
+        void TxtPassword_PasswordChanged(object sender, System.Windows.RoutedEventArgs e)
         {
-            this.formChanged = true;
-            this.passwordChanged = true;
+            _formChanged = true;
+            _passwordChanged = true;
         }
 
-        void loginWindow_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        void LoginWindow_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            this.formChanged = true;
+            _formChanged = true;
         }
 
         public void Login(bool offline)
         {
-            toggleControls();
+            ToggleControls();
 
             if (string.IsNullOrEmpty(Email))
             {
-                MessageBox.Show(string.Format("{0} is required!", useSession ? "Alias" : "Email"), "Error logging in",
+                MessageBox.Show(string.Format("{0} is required!", _useSession ? "Alias" : "Email"), "Error logging in",
                     MessageBoxButton.OK, MessageBoxImage.Stop);
-                toggleControls();
+                ToggleControls();
                 return;
             }
 
             if (!offline)
             {
                 // Prevents the event from being registered doubly if the login fails prematurely. 
-                ApplicationState.Model.StashLoading -= model_StashLoading;
-                ApplicationState.Model.ImageLoading -= model_ImageLoading;
+                ApplicationState.Model.StashLoading -= Model_StashLoading;
+                ApplicationState.Model.ImageLoading -= Model_ImageLoading;
 
-                ApplicationState.Model.StashLoading += model_StashLoading;
-                ApplicationState.Model.ImageLoading += model_ImageLoading;
+                ApplicationState.Model.StashLoading += Model_StashLoading;
+                ApplicationState.Model.ImageLoading += Model_ImageLoading;
             }
 
 
@@ -134,27 +134,27 @@ namespace Procurement.ViewModel
                 // If offline == true, the password is never checked to know if it is correct, but if
                 // passwordChanged == true, the new value is saved to the settings file.  This might not be the
                 // behavior the user expects.
-                SecureString password = passwordChanged ? this.view.txtPassword.SecurePassword :
+                SecureString password = _passwordChanged ? this._view.txtPassword.SecurePassword :
                     Settings.UserSettings["AccountPassword"].Decrypt();
                 ApplicationState.Model.Authenticate(Email, password, offline);
 
-                if (formChanged)
-                    saveSettings(password);
+                if (_formChanged)
+                    SaveSettings(password);
 
                 if (!offline)
                 {
-                    statusController.DisplayMessage("Fetching account name...");
+                    _statusController.DisplayMessage("Fetching account name...");
                     ApplicationState.AccountName = ApplicationState.Model.GetAccountName();
-                    statusController.Ok();
+                    _statusController.Ok();
                     if (ForceRefresh)
                     {
                         ApplicationState.Model.ForceRefresh();
                     }
-                    statusController.DisplayMessage("Loading characters...");
+                    _statusController.DisplayMessage("Loading characters...");
                 }
                 else
                 {
-                    statusController.DisplayMessage("Loading Procurement in offline mode...");
+                    _statusController.DisplayMessage("Loading Procurement in offline mode...");
                 }
 
                 List<Character> chars;
@@ -165,12 +165,12 @@ namespace Procurement.ViewModel
                 catch (WebException wex)
                 {
                     Logger.Log(wex);
-                    statusController.NotOK();
+                    _statusController.NotOK();
                     throw new Exception("Failed to load characters", wex.InnerException);
                 }
-                statusController.Ok();
+                _statusController.Ok();
 
-                updateCharactersByLeague(chars);
+                UpdateCharactersByLeague(chars);
 
                 var items = LoadItems(offline, chars).ToList();
 
@@ -180,19 +180,19 @@ namespace Procurement.ViewModel
 
                 if (!offline)
                 {
-                    statusController.DisplayMessage("\nDone!");
+                    _statusController.DisplayMessage("\nDone!");
                     PoeTradeOnlineHelper.Instance.Start();
                 }
 
-                ApplicationState.Model.Authenticating -= model_Authenticating;
-                ApplicationState.Model.StashLoading -= model_StashLoading;
-                ApplicationState.Model.ImageLoading -= model_ImageLoading;
-                ApplicationState.Model.Throttled -= model_Throttled;
+                ApplicationState.Model.Authenticating -= Model_Authenticating;
+                ApplicationState.Model.StashLoading -= Model_StashLoading;
+                ApplicationState.Model.ImageLoading -= Model_ImageLoading;
+                ApplicationState.Model.Throttled -= Model_Throttled;
                 OnLoginCompleted();
             }).ContinueWith(t =>
             {
                 Logger.Log(t.Exception.InnerException.ToString());
-                statusController.HandleError(t.Exception.InnerException.Message, toggleControls);
+                _statusController.HandleError(t.Exception.InnerException.Message, ToggleControls);
             }, TaskContinuationOptions.OnlyOnFaulted);
         }
 
@@ -212,7 +212,7 @@ namespace Procurement.ViewModel
 
                 if (character.Expired)
                 {
-                    statusController.DisplayMessage(Environment.NewLine + "Skipping character " + character.Name +
+                    _statusController.DisplayMessage(Environment.NewLine + "Skipping character " + character.Name +
                         " because the character's name has expired." + Environment.NewLine);
                     continue;
                 }
@@ -231,10 +231,10 @@ namespace Procurement.ViewModel
                 throw new Exception("No characters found in the leagues specified. Check spelling or try setting " +
                     "DownloadOnlyMyLeagues to false in the Settings.xml file.");
 
-            characterInjector.Inject();
+            _characterInjector.Inject();
         }
 
-        private static void updateCharactersByLeague(List<Character> chars)
+        private static void UpdateCharactersByLeague(List<Character> chars)
         {
             var allLeagues = chars.Select(c => c.League).Distinct();
 
@@ -250,25 +250,25 @@ namespace Procurement.ViewModel
                 ApplicationState.AllCharactersByLeague[character.League].Add(character.Name);
         }
 
-        private void saveSettings(SecureString password)
+        private void SaveSettings(SecureString password)
         {
-            if (!formChanged)
+            if (!_formChanged)
                 return;
 
             Settings.UserSettings["AccountLogin"] = Email;
-            Settings.UserSettings["UseSessionID"] = useSession.ToString();
+            Settings.UserSettings["UseSessionID"] = _useSession.ToString();
             Settings.UserSettings["ForceRefresh"] = ForceRefresh.ToString();
-            if (passwordChanged)
+            if (_passwordChanged)
                 Settings.UserSettings["AccountPassword"] = password.Encrypt();
             Settings.Save();
         }
 
-        private void toggleControls()
+        private void ToggleControls()
         {
-            view.LoginButton.IsEnabled = !view.LoginButton.IsEnabled;
-            view.OfflineButton.IsEnabled = !view.OfflineButton.IsEnabled;
-            view.txtLogin.IsEnabled = !view.txtLogin.IsEnabled;
-            view.txtPassword.IsEnabled = !view.txtPassword.IsEnabled;
+            _view.LoginButton.IsEnabled = !_view.LoginButton.IsEnabled;
+            _view.OfflineButton.IsEnabled = !_view.OfflineButton.IsEnabled;
+            _view.txtLogin.IsEnabled = !_view.txtLogin.IsEnabled;
+            _view.txtPassword.IsEnabled = !_view.txtPassword.IsEnabled;
         }
 
         private IEnumerable<Item> LoadStashItems(Character character)
@@ -289,7 +289,7 @@ namespace Procurement.ViewModel
             bool success;
 
             if (!offline)
-                statusController.DisplayMessage((string.Format("Loading {0}'s inventory...", character.Name)));
+                _statusController.DisplayMessage((string.Format("Loading {0}'s inventory...", character.Name)));
 
             List<Item> inventory;
             try
@@ -303,53 +303,53 @@ namespace Procurement.ViewModel
                 success = false;
             }
 
-            characterInjector.Add(character, inventory);
-            updateStatus(success, offline);
+            _characterInjector.Add(character, inventory);
+            UpdateStatus(success, offline);
 
             return inventory;
         }
 
-        private void updateStatus(bool success, bool offline)
+        private void UpdateStatus(bool success, bool offline)
         {
             if (offline)
                 return;
 
             if (success)
-                statusController.Ok();
+                _statusController.Ok();
             else
-                statusController.NotOK();
+                _statusController.NotOK();
         }
 
-        void model_StashLoading(POEModel sender, StashLoadedEventArgs e)
+        void Model_StashLoading(POEModel sender, StashLoadedEventArgs e)
         {
-            update("Loading " + ApplicationState.CurrentLeague + " Stash Tab " + (e.StashID + 1) + "...", e);
+            Update("Loading " + ApplicationState.CurrentLeague + " Stash Tab " + (e.StashID + 1) + "...", e);
         }
 
-        void model_ImageLoading(POEModel sender, ImageLoadedEventArgs e)
+        void Model_ImageLoading(POEModel sender, ImageLoadedEventArgs e)
         {
-            update("Loading Image For " + e.URL, e);
+            Update("Loading Image For " + e.URL, e);
         }
 
-        void model_Authenticating(POEModel sender, AuthenticateEventArgs e)
+        void Model_Authenticating(POEModel sender, AuthenticateEventArgs e)
         {
-            update("Authenticating " + e.Email, e);
+            Update("Authenticating " + e.Email, e);
         }
 
-        void model_Throttled(object sender, ThottledEventArgs e)
+        void Model_Throttled(object sender, ThottledEventArgs e)
         {
             if (e.WaitTime.TotalSeconds > 4)
-                update(string.Format("GGG Server request limit hit, throttling activated. Please wait {0} seconds", e.WaitTime.Seconds), new POEEventArgs(POEEventState.BeforeEvent));
+                Update(string.Format("GGG Server request limit hit, throttling activated. Please wait {0} seconds", e.WaitTime.Seconds), new POEEventArgs(POEEventState.BeforeEvent));
         }
 
-        private void update(string message, POEEventArgs e)
+        private void Update(string message, POEEventArgs e)
         {
             if (e.State == POEEventState.BeforeEvent)
             {
-                statusController.DisplayMessage(message);
+                _statusController.DisplayMessage(message);
                 return;
             }
 
-            statusController.Ok();
+            _statusController.Ok();
         }
 
         public void NavigateHowToSessionIDwiki()

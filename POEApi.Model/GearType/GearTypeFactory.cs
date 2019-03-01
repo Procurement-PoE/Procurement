@@ -4,7 +4,7 @@ namespace POEApi.Model
 {
     internal class GearTypeFactory
     {
-        private static List<GearTypeRunner> runners = new List<GearTypeRunner>()
+        private static List<GearTypeRunner> _runners = new List<GearTypeRunner>()
         {
             { new HelmetRunner() },
             { new RingRunner() },
@@ -37,7 +37,7 @@ namespace POEApi.Model
 
         public static GearType GetType(Gear item)
         {
-            foreach (var runner in runners)
+            foreach (var runner in _runners)
                 if (runner.IsCompatibleType(item))
                     return runner.Type;
 
@@ -46,7 +46,7 @@ namespace POEApi.Model
 
         public static string GetBaseType(Gear item)
         {
-            foreach (var runner in runners)
+            foreach (var runner in _runners)
             {
                 // If we know the GearType of the item, only query the GearTypeRunner for
                 // that type.  If the GearType is unknown, query all of them.

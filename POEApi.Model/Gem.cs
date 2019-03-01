@@ -24,10 +24,10 @@ namespace POEApi.Model
 
         public Gem(JSONProxy.Item item) : base(item)
         {
-            this.Properties = ProxyMapper.GetProperties(item.Properties);
-            this.ItemType = ItemType.Gem;
+            Properties = ProxyMapper.GetProperties(item.Properties);
+            ItemType = ItemType.Gem;
 
-            this.Level = getLevel();
+            Level = getLevel();
 
             ExtractGemExperience(item);
         }

@@ -10,9 +10,9 @@ namespace POEApi.Model
 
         internal Requirement(JSONProxy.Requirement proxy)
         {
-            this.Name = proxy.Name;
-            this.NameFirst = proxy.DisplayMode == 0;
-            this.Value = ((JArray)proxy.Values[0])[0].ToString();
+            Name = proxy.Name;
+            NameFirst = proxy.DisplayMode == 0;
+            Value = ((JArray)proxy.Values[0])[0].ToString();
         }
     }
 }

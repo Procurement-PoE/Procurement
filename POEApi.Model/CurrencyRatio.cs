@@ -8,9 +8,9 @@
 
         public CurrencyRatio(OrbType orbType, double OrbAmount, double ChaosAmount)
         {
-            this.OrbType = orbType;
-            this.OrbAmount = OrbAmount;
-            this.ChaosAmount = ChaosAmount;
+            OrbType = orbType;
+            OrbAmount = OrbAmount;
+            ChaosAmount = ChaosAmount;
         }
     }
 }

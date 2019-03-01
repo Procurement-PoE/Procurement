@@ -18,21 +18,21 @@ namespace POEApi.Model
 
         public Gear(JSONProxy.Item item) : base(item)
         {
-            this.Rarity = getRarity(item);
-            this.Sockets = getSockets(item);
-            this.Explicitmods = item.ExplicitMods;
-            this.SocketedItems = getSocketedItems(item);
-            this.Implicitmods = item.ImplicitMods;
-            this.Requirements = ProxyMapper.GetRequirements(item.Requirements);
-            this.ItemType = Model.ItemType.Gear;
-            this.GearType = GearTypeFactory.GetType(this);
-            this.BaseType = GearTypeFactory.GetBaseType(this);
+            Rarity = getRarity(item);
+            Sockets = GetSockets(item);
+            Explicitmods = item.ExplicitMods;
+            SocketedItems = GetSocketedItems(item);
+            Implicitmods = item.ImplicitMods;
+            Requirements = ProxyMapper.GetRequirements(item.Requirements);
+            ItemType = Model.ItemType.Gear;
+            GearType = GearTypeFactory.GetType(this);
+            BaseType = GearTypeFactory.GetBaseType(this);
         }
 
-        private List<Socket> getSockets(JSONProxy.Item item) =>
+        private List<Socket> GetSockets(JSONProxy.Item item) =>
             item.Sockets == null ? new List<Socket>() : item.Sockets.Select(proxy => new Socket(proxy)).ToList();
 
-        private List<SocketableItem> getSocketedItems(JSONProxy.Item item) =>
+        private List<SocketableItem> GetSocketedItems(JSONProxy.Item item) =>
             item.SocketedItems == null ? new List<SocketableItem>() :
             item.SocketedItems.Select(proxy => (SocketableItem)ItemFactory.Get(proxy)).ToList();
 

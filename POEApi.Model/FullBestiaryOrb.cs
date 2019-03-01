@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace POEApi.Model
+﻿namespace POEApi.Model
 {
     public class FullBestiaryOrb : Item
     {
         public FullBestiaryOrb(JSONProxy.Item item) : base(item)
         {
-            this.Rarity = getRarity(item);
-            this.ItemType = ItemType.Currency;
+            Rarity = getRarity(item);
+            ItemType = ItemType.Currency;
 
-            this.Genus = ProxyMapper.GetGenus(item.Properties);
-            this.Group = ProxyMapper.GetGroup(item.Properties);
-            this.Family = ProxyMapper.GetFamily(item.Properties);
+            Genus = ProxyMapper.GetGenus(item.Properties);
+            Group = ProxyMapper.GetGroup(item.Properties);
+            Family = ProxyMapper.GetFamily(item.Properties);
 
             // TODO: This item's explicit mods are the mods of the contained beast.  These could be various types of
             // mods ("prefix mod", "suffix mod", "monster mod", etc.), but only the name is provided in the JSON for

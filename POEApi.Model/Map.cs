@@ -10,10 +10,10 @@ namespace POEApi.Model
 
         public Map(JSONProxy.Item item) : base(item)
         {
-            this.ItemType = Model.ItemType.Gear;
-            this.Properties = ProxyMapper.GetProperties(item.Properties);
-            this.Rarity = getRarity(item);
-            this.MapTier = int.Parse(Properties.Find(p => p.Name == "Map Tier").Values[0].Item1);
+            ItemType = Model.ItemType.Gear;
+            Properties = ProxyMapper.GetProperties(item.Properties);
+            Rarity = getRarity(item);
+            MapTier = int.Parse(Properties.Find(p => p.Name == "Map Tier").Values[0].Item1);
         }
     }
 }

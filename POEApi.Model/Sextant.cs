@@ -1,10 +1,9 @@
-using System;
-using System.CodeDom;
-
 namespace POEApi.Model
 {
     public class Sextant : StackableItem
     {
+        public SextantType Type { get; }
+
         public Sextant(JSONProxy.Item item) : base(item)
         {
             if (item.TypeLine.StartsWith("Apprentice"))
@@ -15,8 +14,6 @@ namespace POEApi.Model
                 Type = SextantType.Master;
             else
                 Type = SextantType.Unknown;
-        }
-
-        public SextantType Type { get; }
+        }        
     }
 }

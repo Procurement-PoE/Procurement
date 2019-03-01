@@ -15,8 +15,8 @@ namespace POEApi.Model
 
         internal StackInfo(int amount, int maxSize)
         {
-            this.Amount = amount;
-            this.MaxSize = maxSize;
+            Amount = amount;
+            MaxSize = maxSize;
         }
     }
 
@@ -27,8 +27,8 @@ namespace POEApi.Model
 
         internal ChargeInfo(int charges, int maxCharges)
         {
-            this.Charges = charges;
-            this.MaxCharges = maxCharges;
+            Charges = charges;
+            MaxCharges = maxCharges;
         }
 
         public override string ToString()

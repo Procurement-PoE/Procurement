@@ -10,8 +10,8 @@ namespace POEApi.Model
         {
             try
             {
-                item.Name = filterString(item.Name);
-                item.TypeLine = filterString(item.TypeLine);
+                item.Name = FilterString(item.Name);
+                item.TypeLine = FilterString(item.TypeLine);
 
                 if (!string.IsNullOrWhiteSpace(item.ProphecyText))
                     return new Prophecy(item);
@@ -107,7 +107,7 @@ namespace POEApi.Model
         }
 
 
-        private static string filterString(string json)
+        private static string FilterString(string json)
         {
             var items = json.Split(new[] {">>"}, StringSplitOptions.None);
 

@@ -9,19 +9,19 @@ namespace POEApi.Model
 {
     internal class ProxyMapper
     {
-        internal const string STACKSIZE = "Stack Size";
-        internal const string CHARGES = "Currently has %0 of %1 Charges";
-        internal const string STASH = "Stash";
-        public const string QUALITY = "Quality";
-        public const string NETTIER = "Net Tier";
-        public const string GENUS = "Genus";
-        public const string GROUP = "Group";
-        public const string FAMILY = "Family";
-        private static readonly Regex qualityRx = new Regex("[+]{1}(?<quality>[0-9]{1,2}).*");
+        internal const string StackSize = "Stack Size";
+        internal const string Charges = "Currently has %0 of %1 Charges";
+        internal const string Stash = "Stash";
+        public const string Quality = "Quality";
+        public const string NetTier = "Net Tier";
+        public const string Genus = "Genus";
+        public const string Group = "Group";
+        public const string Family = "Family";
+        private static readonly Regex _qualityRx = new Regex("[+]{1}(?<quality>[0-9]{1,2}).*");
 
         #region   Orb Types  
 
-        private static readonly Dictionary<string, OrbType> orbMap = new Dictionary<string, OrbType>(
+        private static readonly Dictionary<string, OrbType> _orbMap = new Dictionary<string, OrbType>(
             StringComparer.CurrentCultureIgnoreCase)
         {
             {"Chaos Orb", OrbType.Chaos},
@@ -91,7 +91,7 @@ namespace POEApi.Model
 
         #endregion
 
-        private static readonly Dictionary<string, EssenceType> essenceMap = new Dictionary<string, EssenceType>
+        private static readonly Dictionary<string, EssenceType> _essenceMap = new Dictionary<string, EssenceType>
         {
             {"Whispering Essence of Greed", EssenceType.WhisperingGreed},
             {"Whispering Essence of Contempt", EssenceType.WhisperingContempt},
@@ -200,7 +200,7 @@ namespace POEApi.Model
             {"Remnant of Corruption", EssenceType.RemnantOfCorruption}
         };
 
-        private static readonly Dictionary<string, BreachType> breachMap = new Dictionary<string, BreachType>
+        private static readonly Dictionary<string, BreachType> _breachMap = new Dictionary<string, BreachType>
         {
             {"Chayula", BreachType.Chayula},
             {"Xoph", BreachType.Xoph},
@@ -209,7 +209,7 @@ namespace POEApi.Model
             {"Uul-Netol", BreachType.UulNetol}
         };
 
-        private static readonly Dictionary<string, TabType> tabTypeMap = new Dictionary<string, TabType>
+        private static readonly Dictionary<string, TabType> _tabTypeMap = new Dictionary<string, TabType>
         {
             {"NormalStash", TabType.Normal},
             {"PremiumStash", TabType.Premium},
@@ -223,16 +223,16 @@ namespace POEApi.Model
 
         public static TabType GetTabType(string type)
         {
-            if (string.IsNullOrWhiteSpace(type) || !tabTypeMap.ContainsKey(type))
+            if (string.IsNullOrWhiteSpace(type) || !_tabTypeMap.ContainsKey(type))
             {
                 Logger.Log(string.Format("Found unknown stash tab type '{0}'.", type));
                 return TabType.Unknown;
             }
 
-            return tabTypeMap[type];
+            return _tabTypeMap[type];
         }
 
-        private static string getPropertyByName(List<JSONProxy.Property> properties, string name)
+        private static string GetPropertyByName(List<JSONProxy.Property> properties, string name)
         {
             if (properties == null)
                 return null;
@@ -268,9 +268,9 @@ namespace POEApi.Model
                 name = "Incursion Vial";
             }
 
-            if (orbMap.ContainsKey(name))
+            if (_orbMap.ContainsKey(name))
             {
-                return orbMap[name];
+                return _orbMap[name];
             }
 
             Logger.Log("ProxyMapper.GetOrbType: Failed to get OrbType for name '" + name + "'.");
@@ -286,7 +286,7 @@ namespace POEApi.Model
         {
             try
             {
-                return essenceMap.First(m => name.Contains(m.Key)).Value;
+                return _essenceMap.First(m => name.Contains(m.Key)).Value;
             }
             catch (Exception ex)
             {
@@ -301,7 +301,7 @@ namespace POEApi.Model
         {
             try
             {
-                return breachMap.First(m => item.TypeLine.Contains(m.Key)).Value;
+                return _breachMap.First(m => item.TypeLine.Contains(m.Key)).Value;
             }
             catch (Exception ex)
             {
@@ -327,7 +327,7 @@ namespace POEApi.Model
 
         internal static StackInfo GetStackInfo(List<JSONProxy.Property> list)
         {
-            string propertyValue = getPropertyByName(list, STACKSIZE);
+            string propertyValue = GetPropertyByName(list, StackSize);
             if (string.IsNullOrWhiteSpace(propertyValue))
                 return new StackInfo(1, 1);
 
@@ -338,7 +338,7 @@ namespace POEApi.Model
 
         internal static int GetQuality(List<JSONProxy.Property> properties)
         {
-            return Convert.ToInt32(qualityRx.Match(getPropertyByName(properties, QUALITY)).Groups["quality"].Value);
+            return Convert.ToInt32(_qualityRx.Match(GetPropertyByName(properties, Quality)).Groups["quality"].Value);
         }
 
         internal static List<Tab> GetTabs(List<JSONProxy.Tab> tabs)
@@ -358,7 +358,7 @@ namespace POEApi.Model
         {
             try
             {
-                var chargeSize = list.Find(p => p.Name == CHARGES);
+                var chargeSize = list.Find(p => p.Name == Charges);
                 if (chargeSize == null)
                     return new ChargeInfo(0, 0);
 
@@ -378,7 +378,7 @@ namespace POEApi.Model
 
         public static int GetNetTier(List<JSONProxy.Property> properties)
         {
-            string maybeNetTier = getPropertyByName(properties, NETTIER);
+            string maybeNetTier = GetPropertyByName(properties, NetTier);
             if (string.IsNullOrWhiteSpace(maybeNetTier))
                 return 0;
 
@@ -387,17 +387,17 @@ namespace POEApi.Model
 
         public static string GetGenus(List<JSONProxy.Property> properties)
         {
-            return getPropertyByName(properties, GENUS);
+            return GetPropertyByName(properties, Genus);
         }
 
         public static string GetGroup(List<JSONProxy.Property> properties)
         {
-            return getPropertyByName(properties, GROUP);
+            return GetPropertyByName(properties, Group);
         }
 
         public static string GetFamily(List<JSONProxy.Property> properties)
         {
-            return getPropertyByName(properties, FAMILY);
+            return GetPropertyByName(properties, Family);
         }
     }
 }

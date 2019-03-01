@@ -7,7 +7,7 @@ namespace POEApi.Infrastructure.Events
         public TimeSpan WaitTime { get; private set; }
         public ThottledEventArgs(TimeSpan waitTime)
         {
-            this.WaitTime = waitTime;
+            WaitTime = waitTime;
         }
     }
 }
