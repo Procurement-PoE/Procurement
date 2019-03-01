@@ -92,7 +92,7 @@
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="182" Canvas.Top="326"
                                DataContext="{Binding Silver}" />
 
-            <local:ItemDisplay Height="160" Canvas.Left="259" Canvas.Top="259" Width="80"
+            <local:ItemDisplay Height="160" Canvas.Left="259" Canvas.Top="259" Width="80" WidthScale="76.6776" HeightScale="153.342"
                                DataContext="{Binding CraftingSection}" />
 
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="113" Canvas.Top="450"
