@@ -101,8 +101,8 @@
                                    DataContext="{Binding Hope}" Grid.Column="2" Grid.Row="2" />
             </Grid>
 
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="91" Canvas.Top="222"
-                               DataContext="{Binding DivineVessel}" Height="56" Width="33" />
+            <local:ItemDisplay Canvas.Left="91" Canvas.Top="222"
+                               DataContext="{Binding DivineVessel}" Height="56" Width="33" HeightScale="60.8523" WidthScale="38.3388" />
 
             <Grid Height="80" Width="209" Canvas.Left="189" Canvas.Top="212">
                 <Grid.ColumnDefinitions>
