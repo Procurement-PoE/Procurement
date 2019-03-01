@@ -29,7 +29,14 @@
                 <Setter Property="HeightScale" Value="38.3388" />
                 <Setter Property="WidthScale" Value="38.3388" />
             </Style>
+
+            <Style x:Key="FragmentItemStyle" TargetType="controls:ItemDisplay">
+                <Setter Property="Width" Value="30" />
+                <Setter Property="Height" Value="30" />
+                <Setter Property="HeightScale" Value="30.4261" />
+                <Setter Property="WidthScale" Value="30.4261" />
+            </Style>
+
         </ResourceDictionary>
-        
     </Application.Resources>
 </Application>
