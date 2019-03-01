@@ -10,20 +10,20 @@ namespace POEApi.Transport
     public class CachedTransport : ITransport
     {
         public bool Offline { get; }
-        private ITransport innerTranport;
-        private const string stashKey = "stash";
-        private CacheService userCacheService;
-        private CacheService commonCacheService;
+        private ITransport _innerTranport;
+        private const string _stashKey = "stash";
+        private CacheService _userCacheService;
+        private CacheService _commonCacheService;
 
         public event ThottledEventHandler Throttled;
 
         public CachedTransport(string email, ITransport innerTranport, bool offline)
         {
             Offline = offline;
-            userCacheService = new CacheService(email);
-            commonCacheService = new CacheService();
-            this.innerTranport = innerTranport;
-            this.innerTranport.Throttled += instance_Throttled;
+            _userCacheService = new CacheService(email);
+            _commonCacheService = new CacheService();
+            _innerTranport = innerTranport;
+            _innerTranport.Throttled += instance_Throttled;
         }
 
         private void instance_Throttled(object sender, ThottledEventArgs e)
@@ -34,26 +34,26 @@ namespace POEApi.Transport
 
         public bool Authenticate(string email, SecureString password)
         {
-            return innerTranport.Authenticate(email, password);
+            return _innerTranport.Authenticate(email, password);
         }
 
         public Stream GetAccountName()
         {
-            return innerTranport.GetAccountName();
+            return _innerTranport.GetAccountName();
         }
 
         public Stream GetStash(int index, string league, string accountName, bool refresh)
         {
-            string key = string.Format("{0}-{1}-{2}", league, stashKey, index);
+            string key = string.Format("{0}-{1}-{2}", league, _stashKey, index);
 
-            if (refresh && userCacheService.Exists(key))
-                userCacheService.Remove(key);
+            if (refresh && _userCacheService.Exists(key))
+                _userCacheService.Remove(key);
 
-            if (!Offline && !userCacheService.Exists(key))
-                userCacheService.Set(key, innerTranport.GetStash(index, league, accountName));
+            if (!Offline && !_userCacheService.Exists(key))
+                _userCacheService.Set(key, _innerTranport.GetStash(index, league, accountName));
 
-            if(userCacheService.Exists(key))
-                return userCacheService.Get(key);
+            if(_userCacheService.Exists(key))
+                return _userCacheService.Get(key);
 
             return Stream.Null;
         }
@@ -69,10 +69,10 @@ namespace POEApi.Transport
             try
             {
                 string key = string.Concat(url.GetHash(), ".png");
-                if (!commonCacheService.Exists(key))
-                    commonCacheService.Set(key, innerTranport.GetImage(url));
+                if (!_commonCacheService.Exists(key))
+                    _commonCacheService.Set(key, _innerTranport.GetImage(url));
 
-                ms = commonCacheService.Get(key);
+                ms = _commonCacheService.Get(key);
             }
             catch (WebException)
             {
@@ -88,37 +88,37 @@ namespace POEApi.Transport
         {
             string key = "characterdata";
 
-            if (!Offline && !userCacheService.Exists(key))
-                userCacheService.Set(key, innerTranport.GetCharacters());
+            if (!Offline && !_userCacheService.Exists(key))
+                _userCacheService.Set(key, _innerTranport.GetCharacters());
 
-            if(userCacheService.Exists(key))
-                return userCacheService.Get(key);
+            if(_userCacheService.Exists(key))
+                return _userCacheService.Get(key);
 
             return Stream.Null;
         }
 
         public Stream GetInventory(string characterName, bool forceRefresh, string accountName)
         {
-            if (forceRefresh && userCacheService.Exists(characterName))
-                userCacheService.Remove(characterName);
+            if (forceRefresh && _userCacheService.Exists(characterName))
+                _userCacheService.Remove(characterName);
 
-            if (!Offline && !userCacheService.Exists(characterName))
-                userCacheService.Set(characterName, innerTranport.GetInventory(characterName, forceRefresh, accountName));
+            if (!Offline && !_userCacheService.Exists(characterName))
+                _userCacheService.Set(characterName, _innerTranport.GetInventory(characterName, forceRefresh, accountName));
 
-            if(userCacheService.Exists(characterName))
-                return userCacheService.Get(characterName);
+            if(_userCacheService.Exists(characterName))
+                return _userCacheService.Get(characterName);
 
             return Stream.Null;
         }
 
         public bool UpdateThread(string threadID, string threadTitle, string threadText)
         {
-            return innerTranport.UpdateThread(threadID, threadTitle, threadText);
+            return _innerTranport.UpdateThread(threadID, threadTitle, threadText);
         }
 
         public bool BumpThread(string threadID, string threadTitle)
         {
-            return innerTranport.BumpThread(threadID, threadTitle);
+            return _innerTranport.BumpThread(threadID, threadTitle);
         }
     }
 }

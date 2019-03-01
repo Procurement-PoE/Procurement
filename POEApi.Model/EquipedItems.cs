@@ -41,10 +41,10 @@ namespace POEApi.Model
 
             foreach (var item in items)
                 if (item.InventoryId != "Map")
-                    setProperty(item);
+                    SetProperty(item);
         }   
 
-        private void setProperty(Item item)
+        private void SetProperty(Item item)
         {
             try
             {

@@ -11,8 +11,8 @@ namespace POEApi.Infrastructure
 {
     public static class DPAPI
     {
-        private static RNGCryptoServiceProvider rngProvider = new RNGCryptoServiceProvider();
-        private static int saltLengthBytes = 16;
+        private static RNGCryptoServiceProvider _rngProvider = new RNGCryptoServiceProvider();
+        private static int _saltLengthBytes = 16;
 
         public static string Encrypt(this SecureString secret)
         {
@@ -22,8 +22,8 @@ namespace POEApi.Infrastructure
             IntPtr ptr = Marshal.SecureStringToCoTaskMemUnicode(secret);
             try
             {
-                byte[] entropy = new byte[saltLengthBytes];
-                rngProvider.GetBytes(entropy);
+                byte[] entropy = new byte[_saltLengthBytes];
+                _rngProvider.GetBytes(entropy);
 
                 char[] buffer = new char[secret.Length];
                 Marshal.Copy(ptr, buffer, 0, secret.Length);
@@ -48,7 +48,7 @@ namespace POEApi.Infrastructure
             if (cipher == null) throw new ArgumentNullException("cipher");
 
             byte[] saltInclusive = Convert.FromBase64String(cipher);
-            if (saltInclusive.Length < saltLengthBytes)
+            if (saltInclusive.Length < _saltLengthBytes)
             {
                 var securedString = new SecureString();
                 securedString.MakeReadOnly();
@@ -61,8 +61,8 @@ namespace POEApi.Infrastructure
             using (ms = new MemoryStream(saltInclusive))
             {
                 BinaryReader reader = new BinaryReader(ms, Encoding.Unicode);
-                entropy = reader.ReadBytes(saltLengthBytes);
-                data = reader.ReadBytes(saltInclusive.Length - saltLengthBytes);
+                entropy = reader.ReadBytes(_saltLengthBytes);
+                data = reader.ReadBytes(saltInclusive.Length - _saltLengthBytes);
             }
 
             byte[] decrypted = ProtectedData.Unprotect(data, entropy, DataProtectionScope.CurrentUser);

@@ -8,7 +8,7 @@ namespace POEApi.Model.Events
         public ImageLoadedEventArgs(string url, POEEventState state) :
             base(state)
         {
-            this.URL = url;
+            URL = url;
         }
     }
 }

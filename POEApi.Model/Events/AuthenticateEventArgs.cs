@@ -6,7 +6,7 @@
         public AuthenticateEventArgs(string email, POEEventState state) :
             base(state)
         {
-            this.Email = email;
+            Email = email;
         }
     }
 }

@@ -6,8 +6,8 @@ namespace Procurement.View.ViewModel
 {
     public class RelayCommand : ICommand
     {
-        readonly Action<object> execute;
-        readonly Predicate<object> canExecute;
+        readonly Action<object> _execute;
+        readonly Predicate<object> _canExecute;
 
         public RelayCommand(Action<object> execute)
             : this(execute, null)
@@ -19,14 +19,14 @@ namespace Procurement.View.ViewModel
             if (execute == null)
                 throw new ArgumentNullException("execute");
 
-            this.execute = execute;
-            this.canExecute = canExecute;
+            _execute = execute;
+            _canExecute = canExecute;
         }
 
         [DebuggerStepThrough]
         public bool CanExecute(object parameter)
         {
-            return canExecute == null ? true : canExecute(parameter);
+            return _canExecute == null ? true : _canExecute(parameter);
         }
 
         public event EventHandler CanExecuteChanged
@@ -37,7 +37,7 @@ namespace Procurement.View.ViewModel
 
         public void Execute(object parameter)
         {
-            execute(parameter);
+            _execute(parameter);
         }
     }
 }

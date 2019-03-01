@@ -10,9 +10,9 @@ namespace POEApi.Model
     //Do you want to be refactored settings.cs? Because this is how you end up getting refactored.
     public static class Settings
     {
-        private const string SAVE_LOCATION = "Settings.xml";
-        private const string DATA_LOCATION = "Data.xml";
-        private const string BUYOUT_LOCATION = "Buyouts.xml";
+        private const string SaveLocation = "Settings.xml";
+        private const string DataLocation = "Data.xml";
+        private const string BuyoutLocation = "Buyouts.xml";
 
         public static Dictionary<OrbType, CurrencyRatio> CurrencyRatios { get; private set; }
         public static Dictionary<string, string> UserSettings { get; private set; }
@@ -31,11 +31,11 @@ namespace POEApi.Model
 
         static Settings()
         {
-            settingsFile = XElement.Load(SAVE_LOCATION);
-            CurrencyRatios = settingsFile.Elements("Ratios").Descendants().ToDictionary(orb => orb.Attribute("type").GetEnum<OrbType>(), orb => new CurrencyRatio(orb.Attribute("type").GetEnum<OrbType>(), getOrbAmount(orb), getChaosAmount(orb)));
+            settingsFile = XElement.Load(SaveLocation);
+            CurrencyRatios = settingsFile.Elements("Ratios").Descendants().ToDictionary(orb => orb.Attribute("type").GetEnum<OrbType>(), orb => new CurrencyRatio(orb.Attribute("type").GetEnum<OrbType>(), GetOrbAmount(orb), GetChaosAmount(orb)));
 
-            UserSettings = getStandardNameValue("UserSettings");
-            ProxySettings = getStandardNameValue("ProxySettings");
+            UserSettings = GetStandardNameValue("UserSettings");
+            ProxySettings = GetStandardNameValue("ProxySettings");
 
             Lists = new Dictionary<string, List<string>>();
 
@@ -44,7 +44,7 @@ namespace POEApi.Model
                     .ToDictionary(list => list.Attribute("name").Value, list => list.Elements("Item")
                     .Select(e => e.Attribute("value").Value).ToList());
 
-            loadBuyouts();
+            LoadBuyouts();
 
             PopularGems = new List<string>();
             if (settingsFile.Element("PopularGems") != null)
@@ -56,19 +56,19 @@ namespace POEApi.Model
                 DropOnlyGems = settingsFile.Element("DropOnlyGems").Elements("Gem")
                     .Select(e => e.Attribute("name").Value).ToList();
 
-            loadGearTypeData();
-            loadShopSettings();
+            LoadGearTypeData();
+            LoadShopSettings();
         }
 
-        private static void loadBuyouts()
+        private static void LoadBuyouts()
         {
             try
             {
-                buyoutFile = XElement.Load(BUYOUT_LOCATION);
+                buyoutFile = XElement.Load(BuyoutLocation);
                 Buyouts = new Dictionary<string, ItemTradeInfo>();
 
                 if (buyoutFile.Element("ItemBuyouts") != null)
-                    Buyouts = loadItemBuyouts();
+                    Buyouts = LoadItemBuyouts();
 
                 TabsBuyouts = new Dictionary<string, string>();
                 if (buyoutFile.Element("TabBuyouts") != null)
@@ -81,7 +81,7 @@ namespace POEApi.Model
             }
         }
 
-        private static Dictionary<string, ItemTradeInfo> loadItemBuyouts()
+        private static Dictionary<string, ItemTradeInfo> LoadItemBuyouts()
         {            
             var items = buyoutFile.Element("ItemBuyouts").Elements("Item");
             var legacyBuyouts = items.Where(i => i.Attribute("value") != null).Any();
@@ -89,20 +89,20 @@ namespace POEApi.Model
             if (legacyBuyouts)
                 return items.ToDictionary(list => (string)list.Attribute("id"), list => new ItemTradeInfo(list.Attribute("value").Value, string.Empty, string.Empty, string.Empty));
 
-            return items.ToDictionary(list => (string)list.Attribute("id"), list => new ItemTradeInfo(tryGetValue(list, "BuyoutValue"), tryGetValue(list, "PriceValue"), tryGetValue(list, "CurrentOfferValue"), tryGetValue(list, "Notes")));
+            return items.ToDictionary(list => (string)list.Attribute("id"), list => new ItemTradeInfo(TryGetValue(list, "BuyoutValue"), TryGetValue(list, "PriceValue"), TryGetValue(list, "CurrentOfferValue"), TryGetValue(list, "Notes")));
         }
 
-        private static void loadShopSettings()
+        private static void LoadShopSettings()
         {
-            ShopSettings = settingsFile.Elements("ShopSettings").Descendants().ToDictionary(shop => shop.Attribute("League").Value, shop => createShopSetting(shop));
+            ShopSettings = settingsFile.Elements("ShopSettings").Descendants().ToDictionary(shop => shop.Attribute("League").Value, shop => CreateShopSetting(shop));
         }
 
-        private static ShopSetting createShopSetting(XElement shop)
+        private static ShopSetting CreateShopSetting(XElement shop)
         {
             return new ShopSetting { ThreadId = shop.Attribute("ThreadId").Value, ThreadTitle = shop.Attribute("ThreadTitle").Value };
         }
 
-        private static string tryGetValue(XElement list, string key)
+        private static string TryGetValue(XElement list, string key)
         {
             if (list.Attribute(key) == null)
                 return string.Empty;
@@ -110,9 +110,9 @@ namespace POEApi.Model
             return list.Attribute(key).Value;
         }
 
-        private static void loadGearTypeData()
+        private static void LoadGearTypeData()
         {
-            XElement dataDoc = XElement.Load(DATA_LOCATION);
+            XElement dataDoc = XElement.Load(DataLocation);
 
             GearBaseTypes = new Dictionary<GearType, List<string>>();
             if (dataDoc.Element("GearBaseTypes") != null)
@@ -142,17 +142,17 @@ namespace POEApi.Model
             }
         }
 
-        private static double getChaosAmount(XElement orb)
+        private static double GetChaosAmount(XElement orb)
         {
             return double.Parse(orb.Attribute("ChaosAmount").Value, CultureInfo.InvariantCulture);
         }
 
-        private static double getOrbAmount(XElement orb)
+        private static double GetOrbAmount(XElement orb)
         {
             return double.Parse(orb.Attribute("OrbAmount").Value, CultureInfo.InvariantCulture);
         }
 
-        private static Dictionary<string, string> getStandardNameValue(string root)
+        private static Dictionary<string, string> GetStandardNameValue(string root)
         {
             return settingsFile.Elements(root).Descendants().ToDictionary(setting => setting.Attribute("name").Value, setting => setting.Attribute("value").Value);
         }
@@ -189,7 +189,7 @@ namespace POEApi.Model
 
             try
             {
-                settingsFile.Save(SAVE_LOCATION);
+                settingsFile.Save(SaveLocation);
             }
             catch (Exception ex)
             {
@@ -207,7 +207,7 @@ namespace POEApi.Model
                 buyoutFile.Element("ItemBuyouts").Add(buyout);
             }
 
-            buyoutFile.Save(BUYOUT_LOCATION);
+            buyoutFile.Save(BuyoutLocation);
         }
 
         public static void SaveTabBuyouts()
@@ -220,13 +220,13 @@ namespace POEApi.Model
                 buyoutFile.Element("TabBuyouts").Add(tabBuyout);
             }
 
-            buyoutFile.Save(BUYOUT_LOCATION);
+            buyoutFile.Save(BuyoutLocation);
         }
 
         public static void SaveLists()
         {
             updateLists();
-            settingsFile.Save(SAVE_LOCATION);
+            settingsFile.Save(SaveLocation);
         }
 
         private static void updateLists()
@@ -274,7 +274,7 @@ namespace POEApi.Model
                     settingsFile.Element("ShopSettings").Add(buyout);
                 }
 
-                settingsFile.Save(SAVE_LOCATION);
+                settingsFile.Save(SaveLocation);
                 return success;
             }
             catch (Exception ex)

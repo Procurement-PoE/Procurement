@@ -44,7 +44,7 @@ namespace POEApi.Model
             if (Transport != null)
                 Transport.Throttled -= new ThottledEventHandler(instance_Throttled);
 
-            Transport = getTransport(email, offline);
+            Transport = GetTransport(email, offline);
             cacheService = new CacheService(email);
             Offline = offline;
 
@@ -124,7 +124,7 @@ namespace POEApi.Model
                 Throttled(sender, e);
         }
 
-        private ITransport getTransport(string email, bool offline)
+        private ITransport GetTransport(string email, bool offline)
         {
             if (Settings.ProxySettings["Enabled"] != bool.TrueString)
                 return new CachedTransport(email, new HttpTransport(email), offline);
@@ -154,12 +154,12 @@ namespace POEApi.Model
 
                     proxy = GetProperObjectFromTransport<JSONProxy.Stash>(stream);
                     if (proxy == null)
-                        logNullStash(stream, "Proxy was null");
+                        LogNullStash(stream, "Proxy was null");
                 }
                 catch (Exception ex)
                 {
                     Logger.Log(ex);
-                    logNullStash(stream, "JSON Serialization Failed");
+                    LogNullStash(stream, "JSON Serialization Failed");
                 }
             }
 
@@ -168,7 +168,7 @@ namespace POEApi.Model
             return new Stash(proxy);
         }
 
-        private void logNullStash(Stream stream, string errorPrefix)
+        private void LogNullStash(Stream stream, string errorPrefix)
         {
             try
             {
@@ -202,7 +202,7 @@ namespace POEApi.Model
                 List<Tab> skippedTabs = new List<Tab>();
 
                 if (!onlyMyTabs)
-                    return getAllTabs(league, accountName, stash);
+                    return GetAllTabs(league, accountName, stash);
 
                 int tabCount = 0;
 
@@ -231,7 +231,7 @@ namespace POEApi.Model
             }
         }
 
-        private Stash getAllTabs(string league, string accountName, Stash stash)
+        private Stash GetAllTabs(string league, string accountName, Stash stash)
         {
             List<Tab> hiddenTabs = new List<Tab>();
 
@@ -292,14 +292,14 @@ namespace POEApi.Model
         public void GetImages(IEnumerable<Item> items)
         {
             foreach (var item in items.Distinct(new ImageComparer()))
-                getImageWithEvents(item);
+                GetImageWithEvents(item);
         }
 
-        private void getImageWithEvents(Item item)
+        private void GetImageWithEvents(Item item)
         {
             try
             {
-                getImageWithEvents(GetItemName(item), item.IconURL);
+                GetImageWithEvents(GetItemName(item), item.IconURL);
             }
             catch (Exception ex)
             {
@@ -308,7 +308,7 @@ namespace POEApi.Model
             }
         }
 
-        private void getImageWithEvents(string name, string url)
+        private void GetImageWithEvents(string name, string url)
         {
             onImageLoaded(POEEventState.BeforeEvent, name);
             Transport.GetImage(url);

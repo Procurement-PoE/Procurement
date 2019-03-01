@@ -1,8 +1,6 @@
 ﻿using POEApi.Infrastructure.Events;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace POEApi.Transport
 {
@@ -28,7 +26,7 @@ namespace POEApi.Transport
 
         public event ThottledEventHandler Throttled;
 
-        private Object lockObject = new Object();
+        private Object _lockObject = new Object();
 
         public TaskThrottle(TimeSpan windowSize, int windowLimit, int simultaneiousTasksLimit)
         {
@@ -48,7 +46,7 @@ namespace POEApi.Transport
                     System.Threading.Thread.Sleep(100);
                 }
 
-                lock(lockObject)
+                lock(_lockObject)
                 {
                     if (NumberOfOutstandingTasks >= SimultaneiousTasksLimit)
                     {
@@ -76,7 +74,7 @@ namespace POEApi.Transport
 
         public void CompleteTask()
         {
-            lock(lockObject)
+            lock(_lockObject)
             {
                 System.Threading.Interlocked.Decrement(ref _numberOfOutstandingTasks);
                 RemvoeExpiredTasks();

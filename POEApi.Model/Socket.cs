@@ -7,8 +7,8 @@
 
         internal Socket(JSONProxy.Socket s)
         {
-            this.Attribute = s.Attr;
-            this.Group = s.Group;
+            Attribute = s.Attr;
+            Group = s.Group;
         }
 
         /// <summary>
@@ -20,22 +20,22 @@
             switch (Attribute)
             {
                 case "S":
-                    return RED;
+                    return Red;
                 case "I":
-                    return BLUE;
+                    return Blue;
                 case "D":
-                    return GREEN;
+                    return Green;
                 case "G":
-                    return WHITE;
+                    return White;
                 default:
-                    return ABYSSAL; 
+                    return Abyssal; 
             }
         }
 
-        private const string RED = "R";
-        private const string BLUE = "B";
-        private const string GREEN = "G";
-        private const string WHITE = "W";
-        private const string ABYSSAL = "A";
+        private const string Red     = "R";
+        private const string Green   = "G";
+        private const string Blue    = "B";
+        private const string White   = "W";
+        private const string Abyssal = "A";
     }
 }

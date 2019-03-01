@@ -7,7 +7,7 @@ namespace POEApi.Model.Events
         public POEEventState State { get; private set; }
         public POEEventArgs(POEEventState state)
         {
-            this.State = state;
+            State = state;
         }
     }
 }

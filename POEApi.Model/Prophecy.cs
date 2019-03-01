@@ -9,8 +9,8 @@ namespace POEApi.Model
 
         internal Prophecy(JSONProxy.Item item) : base(item)
         {
-            this.ProphecyText = item.ProphecyText;
-            this.ProphecyDifficultyText = item.ProphecyDiffText;
+            ProphecyText = item.ProphecyText;
+            ProphecyDifficultyText = item.ProphecyDiffText;
         }
     }
 }

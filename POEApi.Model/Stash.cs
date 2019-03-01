@@ -28,8 +28,8 @@ namespace POEApi.Model
             }
 
             items = proxy.Items.Select(item => ItemFactory.Get(item)).ToList();
-            this.NumberOfTabs = proxy.NumTabs;
-            this.Tabs = ProxyMapper.GetTabs(proxy.Tabs);
+            NumberOfTabs = proxy.NumTabs;
+            Tabs = ProxyMapper.GetTabs(proxy.Tabs);
 
             tabNameByTabId = Tabs.Where(t => t.IsFakeTab == false).ToDictionary(t => t.i, t => t.Name);
         }
@@ -116,7 +116,7 @@ namespace POEApi.Model
         {
             try
             {
-                string inventId = ProxyMapper.STASH + (tabId + 1).ToString();
+                string inventId = ProxyMapper.Stash + (tabId + 1).ToString();
                 items.RemoveAll(i => i.InventoryId == inventId);
 
                 if (Tabs.First(t => t.i == tabId).IsFakeTab)
@@ -154,7 +154,7 @@ namespace POEApi.Model
                     buildItemsByTab();
 
                 ++tabId;
-                return itemsByTab[ProxyMapper.STASH + tabId.ToString()];
+                return itemsByTab[ProxyMapper.Stash + tabId.ToString()];
             }
             catch (Exception ex)
             {
@@ -184,7 +184,7 @@ namespace POEApi.Model
         public string GetTabNameByInventoryId(string inventoryID)
         {
             if (tabNameByInventoryId == null)
-                tabNameByInventoryId = Tabs.ToDictionary(kvp => ProxyMapper.STASH + (kvp.i + 1).ToString(), kvp => kvp.Name);
+                tabNameByInventoryId = Tabs.ToDictionary(kvp => ProxyMapper.Stash + (kvp.i + 1).ToString(), kvp => kvp.Name);
 
             return tabNameByInventoryId[inventoryID];
         }
@@ -193,7 +193,7 @@ namespace POEApi.Model
         {
             try
             {
-                var tabs = Tabs.Select(t => ProxyMapper.STASH + (t.i + 1));
+                var tabs = Tabs.Select(t => ProxyMapper.Stash + (t.i + 1));
                 itemsByTab = tabs.ToDictionary(kvp => kvp, kvp => items.Where(i => i.InventoryId == kvp).ToList());
             }
             catch
@@ -219,7 +219,7 @@ namespace POEApi.Model
                 return;
             }
 
-            string inventId = ProxyMapper.STASH + (tabId + 1).ToString();
+            string inventId = ProxyMapper.Stash + (tabId + 1).ToString();
             itemsByTab[inventId] = items.Where(i => i.InventoryId == inventId).ToList();
         }
 

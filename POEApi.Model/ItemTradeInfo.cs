@@ -16,10 +16,10 @@
 
         public ItemTradeInfo(string buyout, string price, string currentOffer, string notes)
         {
-            this.Buyout = buyout;
-            this.Price = price;
-            this.CurrentOffer = currentOffer;
-            this.Notes = notes;
+            Buyout = buyout;
+            Price = price;
+            CurrentOffer = currentOffer;
+            Notes = notes;
         }
     }
 }

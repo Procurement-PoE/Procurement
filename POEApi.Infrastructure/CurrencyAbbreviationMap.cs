@@ -7,64 +7,64 @@ namespace POEApi.Infrastructure
 
     public sealed class CurrencyAbbreviationMap
     {
-        private static volatile CurrencyAbbreviationMap instance;
-        private static object syncRoot = new Object();
+        private static volatile CurrencyAbbreviationMap _instance;
+        private static object _syncRoot = new Object();
 
-        private static Dictionary<string, string> currencyToAbbreviation = new Dictionary<string, string>();
-        private static Dictionary<string, string> abbreviationToCurrency = new Dictionary<string, string>();
+        private static Dictionary<string, string> _currencyToAbbreviation = new Dictionary<string, string>();
+        private static Dictionary<string, string> _abbreviationToCurrency = new Dictionary<string, string>();
 
         private CurrencyAbbreviationMap()
         {
-            addItem("Chromatic Orb", "chrom");
-            addItem("Orb of Alteration", "alt");
-            addItem("Jeweller's Orb", "jew");
-            addItem("Orb of Chance", "chance");
-            addItem("Cartographer's Chisel", "chisel");
-            addItem("Orb of Fusing", "fuse");
-            addItem("Orb of Alchemy", "alch");
-            addItem("Orb of Scouring", "scour");
-            addItem("Blessed Orb", "blessed");
-            addItem("Chaos Orb", "chaos");
-            addItem("Orb of Regret", "regret");
-            addItem("Regal Orb", "regal");
-            addItem("Gemcutter's Prism", "gcp");
-            addItem("Divine Orb", "divine");
-            addItem("Exalted Orb", "exa");
-            addItem("Vaal Orb", "vaal");
+            AddItem("Chromatic Orb", "chrom");
+            AddItem("Orb of Alteration", "alt");
+            AddItem("Jeweller's Orb", "jew");
+            AddItem("Orb of Chance", "chance");
+            AddItem("Cartographer's Chisel", "chisel");
+            AddItem("Orb of Fusing", "fuse");
+            AddItem("Orb of Alchemy", "alch");
+            AddItem("Orb of Scouring", "scour");
+            AddItem("Blessed Orb", "blessed");
+            AddItem("Chaos Orb", "chaos");
+            AddItem("Orb of Regret", "regret");
+            AddItem("Regal Orb", "regal");
+            AddItem("Gemcutter's Prism", "gcp");
+            AddItem("Divine Orb", "divine");
+            AddItem("Exalted Orb", "exa");
+            AddItem("Vaal Orb", "vaal");
         }
 
-        private static void addItem(string currency, string abbreviation)
+        private static void AddItem(string currency, string abbreviation)
         {
-            currencyToAbbreviation.Add(currency, abbreviation);
-            abbreviationToCurrency.Add(abbreviation, currency);
+            _currencyToAbbreviation.Add(currency, abbreviation);
+            _abbreviationToCurrency.Add(abbreviation, currency);
         }
 
         public string FromAbbreviation(string abbreviation)
         {
-            if (!abbreviationToCurrency.ContainsKey(abbreviation))
+            if (!_abbreviationToCurrency.ContainsKey(abbreviation))
                 return string.Empty;
             
-            return abbreviationToCurrency[abbreviation];
+            return _abbreviationToCurrency[abbreviation];
         }
 
         public string FromCurrency(string currency)
         {
-            if (!currencyToAbbreviation.ContainsKey(currency))
+            if (!_currencyToAbbreviation.ContainsKey(currency))
                 return string.Empty;
 
-            return currencyToAbbreviation[currency];
+            return _currencyToAbbreviation[currency];
         }
 
         public static CurrencyAbbreviationMap Instance
         {
             get
             {
-                if (instance == null)
-                    lock (syncRoot)
-                        if (instance == null)
-                            instance = new CurrencyAbbreviationMap();
+                if (_instance == null)
+                    lock (_syncRoot)
+                        if (_instance == null)
+                            _instance = new CurrencyAbbreviationMap();
 
-                return instance;
+                return _instance;
             }
         }
     }

@@ -26,7 +26,7 @@ namespace POEApi.Model
                     {
                         components["name"] = string.Format("Unidentified {0} {1}", Rarity, TypeLine);
                     }
-                    else if (this.Rarity != Rarity.Magic)
+                    else if (Rarity != Rarity.Magic)
                     {
                         components["name"] = string.Format("\"{0}\", {1} {2}", Name, Rarity, TypeLine);
                     }

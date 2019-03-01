@@ -11,9 +11,9 @@ namespace POEApi.Model
 
         protected SocketableItem(JSONProxy.Item item) : base(item)
         {
-            this.Socket = item.Socket;
-            this.Color = item.Colour;
-            this.Requirements = ProxyMapper.GetRequirements(item.Requirements);
+            Socket = item.Socket;
+            Color = item.Colour;
+            Requirements = ProxyMapper.GetRequirements(item.Requirements);
         }
     }
 }

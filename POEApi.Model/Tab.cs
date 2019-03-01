@@ -34,17 +34,17 @@ namespace POEApi.Model
 
         public Tab(JSONProxy.Tab t)
         {
-            this.Colour = new Colour() { b = t.colour.b, g = t.colour.g, r = t.colour.r };
+            Colour = new Colour() { b = t.colour.b, g = t.colour.g, r = t.colour.r };
             i = t.i;
             Name = t.n;
-            srcR = getUrl(t.srcR);
-            srcC = getUrl(t.srcC);
-            srcL = getUrl(t.srcL); 
+            srcR = GetUrl(t.srcR);
+            srcC = GetUrl(t.srcC);
+            srcL = GetUrl(t.srcL); 
             Hidden = t.hidden;
             Type = ProxyMapper.GetTabType(t.type);
         }
 
-        private string getUrl(string url)
+        private string GetUrl(string url)
         {
             Uri uri;
             if (Uri.TryCreate(url, UriKind.Absolute, out uri))
