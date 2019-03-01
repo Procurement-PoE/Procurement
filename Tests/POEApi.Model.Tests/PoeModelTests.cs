@@ -288,9 +288,7 @@ namespace POEApi.Model.Tests
                 pantheonSoul.Type.Should().Be(OrbType.PantheonSoul);
                 pantheonSoul.ItemType.Should().Be(ItemType.Currency);
 
-                pantheonSoul.StackInfo.Should().NotBeNull();
-                pantheonSoul.StackInfo.Amount.Should().Be(1);
-                pantheonSoul.StackInfo.MaxSize.Should().Be(1);
+                pantheonSoul.StackSize.Should().Be(0);
             }
         }
 

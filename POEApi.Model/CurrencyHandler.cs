@@ -42,7 +42,7 @@ namespace POEApi.Model
             double total = 0;
 
             foreach (var orb in currency)
-                total += orb.StackInfo.Amount * orb.ChaosValue;
+                total += orb.StackSize * orb.ChaosValue;
 
             var ratioToChaos = Settings.CurrencyRatios[target];
 
@@ -65,7 +65,7 @@ namespace POEApi.Model
         {
             return currency.Where(o => !o.TypeLine.Contains("Shard"))
                            .GroupBy(orb => orb.Type)
-                           .Select(grp => new { Key = grp.Key, Value = (double)grp.Sum(c => c.StackInfo.Amount) })
+                           .Select(grp => new { Key = grp.Key, Value = (double)grp.Sum(c => c.StackSize) })
                            .OrderByDescending(at => at.Value)
                            .ToDictionary(at => at.Key, at => at.Value);
         }

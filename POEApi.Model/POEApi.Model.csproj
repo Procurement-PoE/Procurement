@@ -53,6 +53,7 @@
     <Compile Include="Breachstone.cs" />
     <Compile Include="BreachType.cs" />
     <Compile Include="CharacterStashBuilder.cs" />
+    <Compile Include="ChargeInfo.cs" />
     <Compile Include="Colour.cs" />
     <Compile Include="Decoration.cs" />
     <Compile Include="DivineVessel.cs" />
@@ -103,8 +104,6 @@
     <Compile Include="Socket.cs" />
     <Compile Include="SocketableItem.cs" />
     <Compile Include="BreachSplinter.cs" />
-    <Compile Include="StackableItem.cs" />
-    <Compile Include="StackInfo.cs" />
     <Compile Include="Stash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Events\StashLoadedEventArgs.cs" />

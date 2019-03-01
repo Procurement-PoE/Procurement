@@ -3,7 +3,7 @@
 namespace POEApi.Model
 {
     [DebuggerDisplay("Type: {Type} Stack: {StackInfo.Amount}/{StackInfo.MaxSize}")]
-    public class Currency : StackableItem
+    public class Currency : Item
     {
         public Currency(JSONProxy.Item item) : base(item)
         {
