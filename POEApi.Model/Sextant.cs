@@ -1,6 +1,6 @@
 namespace POEApi.Model
 {
-    public class Sextant : StackableItem
+    public class Sextant : Item
     {
         public SextantType Type { get; }
 

@@ -5,7 +5,7 @@ using POEApi.Model.Interfaces;
 
 namespace POEApi.Model
 {
-    public class BreachSplinter : StackableItem, IBreachCurrency
+    public class BreachSplinter : Item, IBreachCurrency
     {
         public BreachType Type { get; set; }
 

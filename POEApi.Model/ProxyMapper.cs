@@ -325,17 +325,6 @@ namespace POEApi.Model
             return requirements.Select(r => new Requirement(r)).ToList();
         }
 
-        internal static StackInfo GetStackInfo(List<JSONProxy.Property> list)
-        {
-            string propertyValue = GetPropertyByName(list, StackSize);
-            if (string.IsNullOrWhiteSpace(propertyValue))
-                return new StackInfo(1, 1);
-
-            var stackInfo = propertyValue.Split('/');
-
-            return new StackInfo(Convert.ToInt32(stackInfo[0]), Convert.ToInt32(stackInfo[1]));
-        }
-
         internal static int GetQuality(List<JSONProxy.Property> properties)
         {
             return Convert.ToInt32(_qualityRx.Match(GetPropertyByName(properties, Quality)).Groups["quality"].Value);
@@ -373,7 +362,7 @@ namespace POEApi.Model
                 Logger.Log("Error in ProxyMapper.GetCharges: " + ex);
             }
 
-            return new ChargeInfo(1,1);
+            return new ChargeInfo(1, 1);
         }
 
         public static int GetNetTier(List<JSONProxy.Property> properties)

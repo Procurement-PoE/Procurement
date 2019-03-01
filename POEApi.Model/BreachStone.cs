@@ -2,7 +2,7 @@
 
 namespace POEApi.Model
 {
-    public class Breachstone : StackableItem, IBreachCurrency
+    public class Breachstone : Item, IBreachCurrency
     {
         public BreachType Type { get; set; }
 

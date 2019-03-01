@@ -3,7 +3,7 @@
 namespace POEApi.Model
 {
     [DebuggerDisplay("{TypeLine}")]
-    public class Essence : StackableItem
+    public class Essence : Item
     {
         public EssenceType Type { get; }
 

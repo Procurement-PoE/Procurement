@@ -57,7 +57,7 @@ namespace Procurement.ViewModel
                                         : new SolidColorBrush(Colors.Transparent); }
         }
 
-        public bool IsStackSizeVisible => Item is StackableItem;
+        public bool IsStackSizeVisible => Item?.StackSize > 1;
 
         public int StackSize
         {
