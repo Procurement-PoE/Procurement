@@ -24,13 +24,13 @@
                     <RowDefinition Height="38*" />
                 </Grid.RowDefinitions>
 
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Dusk}" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Dawn}" Grid.Column="2" Grid.Row="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Noon}" Grid.Row="2" Grid.Column="0" />
-                <local:ItemDisplay Grid.Row="0" Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Grid.Row="0" Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Midnight}" Grid.Column="2" />
             </Grid>
 
@@ -46,13 +46,13 @@
                     <RowDefinition Height="38*" />
                 </Grid.RowDefinitions>
 
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Volkuur}" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Eber}" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Inya}" Grid.Row="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Yriel}" Grid.Column="2" Grid.Row="2" />
 
 
@@ -69,13 +69,13 @@
                     <RowDefinition Height="38*" />
                 </Grid.RowDefinitions>
 
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Hydra}" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Phoenix}" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Chimera}" Grid.Column="0" Grid.Row="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Minotaur}" Grid.Row="2" Grid.Column="2" />
 
             </Grid>
@@ -91,13 +91,13 @@
                     <RowDefinition Height="38*" />
                 </Grid.RowDefinitions>
 
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Grief}" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Rage}" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Ignorance}" Grid.Row="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding Hope}" Grid.Column="2" Grid.Row="2" />
             </Grid>
 
@@ -122,31 +122,31 @@
                     <RowDefinition Height="38*" />
                 </Grid.RowDefinitions>
 
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding ChayulaBreachstone}" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding TulBreachstone}" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding XophBreachstone}" Grid.Column="4" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding EshBreachstone}" Grid.Column="6" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding UulNetolBreachstone}" Grid.Column="8" />
 
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding ChayulaSplinter}" Grid.Row="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Grid.Row="2" Grid.Column="2"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}" Grid.Row="2" Grid.Column="2"
                                    DataContext="{Binding TulSplinter}" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Grid.Row="2" Grid.Column="4"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}" Grid.Row="2" Grid.Column="4"
                                    DataContext="{Binding XophSplinter}" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Grid.Row="2" Grid.Column="6"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}" Grid.Row="2" Grid.Column="6"
                                    DataContext="{Binding EshSplinter}" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Grid.Row="2" Grid.Column="8"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}" Grid.Row="2" Grid.Column="8"
                                    DataContext="{Binding UulNetolSplinter}" />
 
             </Grid>
 
-            <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="456" Canvas.Top="233"
+            <local:ItemDisplay Style="{StaticResource FragmentItemStyle}" Canvas.Left="456" Canvas.Top="233"
                                DataContext="{Binding Offering}" />
 
             <Grid Height="171" Width="122" Canvas.Left="84" Canvas.Top="327">
@@ -167,34 +167,34 @@
                     <RowDefinition Height="39*" />
                 </Grid.RowDefinitions>
 
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding RustedBestiaryScarab}" Grid.Row="0" Grid.Column="0"/>
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding PolishedBestiaryScarab}" Grid.Row="0" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding GildedBestiaryScarab}" Grid.Row="0" Grid.Column="4" />
 
                 <!-- Unconfirmed scarab type. -->
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding RustedReliquaryScarab}" Grid.Row="2" Grid.Column="0"/>
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding PolishedReliquaryScarab}" Grid.Row="2" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding GildedReliquaryScarab}" Grid.Row="2" Grid.Column="4" />
 
                 <!-- Unconfirmed scarab type. -->
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding RustedTormentScarab}" Grid.Row="4" Grid.Column="0"/>
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding PolishedTormentScarab}" Grid.Row="4" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding GildedTormentScarab}" Grid.Row="4" Grid.Column="4" />
 
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding RustedSulphiteScarab}" Grid.Row="6" Grid.Column="0"/>
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding PolishedSulphiteScarab}" Grid.Row="6" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding GildedSulphiteScarab}" Grid.Row="6" Grid.Column="4" />
             </Grid>
             <Grid Height="172" Width="122" Canvas.Left="234" Canvas.Top="327">
@@ -216,32 +216,32 @@
                 </Grid.RowDefinitions>
 
                 <!-- Unconfirmed scarab type. -->
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding RustedAmbushScarab}" Grid.Row="0" Grid.Column="0"/>
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding PolishedAmbushScarab}" Grid.Row="0" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding GildedAmbushScarab}" Grid.Row="0" Grid.Column="4" />
 
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding RustedShaperScarab}" Grid.Row="2" Grid.Column="0"/>
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding PolishedShaperScarab}" Grid.Row="2" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding GildedShaperScarab}" Grid.Row="2" Grid.Column="4" />
 
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding RustedPerandusScarab}" Grid.Row="4" Grid.Column="0"/>
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding PolishedPerandusScarab}" Grid.Row="4" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding GildedPerandusScarab}" Grid.Row="4" Grid.Column="4" />
 
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding RustedCartographyScarab}" Grid.Row="6" Grid.Column="0"/>
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding PolishedCartographyScarab}" Grid.Row="6" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding GildedCartographyScarab}" Grid.Row="6" Grid.Column="4" />
             </Grid>
             <Grid Height="171" Width="122" Canvas.Left="382" Canvas.Top="327">
@@ -263,34 +263,34 @@
                 </Grid.RowDefinitions>
 
                 <!-- Unconfirmed scarab type. -->
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding RustedHarbingerScarab}" Grid.Row="0" Grid.Column="0"/>
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding PolishedHarbingerScarab}" Grid.Row="0" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding GildedHarbingerScarab}" Grid.Row="0" Grid.Column="4" />
 
                 <!-- Unconfirmed scarab type. -->
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding RustedElderScarab}" Grid.Row="2" Grid.Column="0"/>
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding PolishedElderScarab}" Grid.Row="2" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding GildedElderScarab}" Grid.Row="2" Grid.Column="4" />
 
                 <!-- Unconfirmed scarab type. -->
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding RustedDivinationScarab}" Grid.Row="4" Grid.Column="0"/>
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding PolishedDivinationScarab}" Grid.Row="4" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding GildedDivinationScarab}" Grid.Row="4" Grid.Column="4" />
 
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding RustedBreachScarab}" Grid.Row="6" Grid.Column="0"/>
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding PolishedBreachScarab}" Grid.Row="6" Grid.Column="2" />
-                <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}"
+                <local:ItemDisplay Style="{StaticResource FragmentItemStyle}"
                                    DataContext="{Binding GildedBreachScarab}" Grid.Row="6" Grid.Column="4" />
             </Grid>
         </Canvas>
