@@ -65,6 +65,5 @@ namespace Procurement.ViewModel
         public ItemDisplayViewModel AnnulmentShard => GetCurrencyItem(OrbType.AnnulmentShard);
         public ItemDisplayViewModel ExaltedShard => GetCurrencyItem(OrbType.ExaltedShard);
         public ItemDisplayViewModel MirrorShard => GetCurrencyItem(OrbType.MirrorShard);
-
     }
 }

@@ -5,11 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Procurement.Controls"
              xmlns:viewModel="clr-namespace:Procurement.ViewModel"
+             xmlns:v="clr-namespace:Procurement.View"
              mc:Ignorable="d"
              d:DesignHeight="592" d:DesignWidth="591" Height="592" Width="591"
              d:DataContext="{d:DesignInstance viewModel:CurrencyStashViewModel}">
     <!--Todo: Border data should be done with bindings -->
     <Border x:Name="LocalBorder" BorderThickness="3" CornerRadius="2" BorderBrush="Aquamarine">
+        <Border.Resources>
+            <v:CurrencyCraftingSlotScalingConverter x:Key="cs" />
+        </Border.Resources>
         <Canvas>
             <Canvas.Background>
                 <ImageBrush ImageSource="/Images/CurrencyTab.png" />
@@ -92,7 +96,9 @@
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="182" Canvas.Top="326"
                                DataContext="{Binding Silver}" />
 
-            <local:ItemDisplay Height="160" Canvas.Left="259" Canvas.Top="259" Width="80" WidthScale="76.6776" HeightScale="153.342"
+            <local:ItemDisplay Height="160" Canvas.Left="257" Canvas.Top="280" Width="80"
+                               WidthScale="{Binding Path=Item, Converter={StaticResource cs}, ConverterParameter='width'}"
+                               HeightScale="{Binding Path=Item, Converter={StaticResource cs}, ConverterParameter='height'}"
                                DataContext="{Binding CraftingSection}" />
 
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="113" Canvas.Top="450"
