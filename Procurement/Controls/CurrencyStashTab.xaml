@@ -13,138 +13,239 @@
     <Border x:Name="LocalBorder" BorderThickness="3" CornerRadius="2" BorderBrush="Aquamarine">
         <Border.Resources>
             <v:CurrencyCraftingSlotScalingConverter x:Key="cs" />
+            <BooleanToVisibilityConverter x:Key="VisibilityConverter" />
+            <Style x:Key="slotBackground" TargetType="Border">
+                <Style.Resources>
+                    <SolidColorBrush x:Key="slotBackgroundBrush" Color="#191a96" Opacity="0.25"/>
+                </Style.Resources>
+                <Setter Property="Background" Value="{StaticResource slotBackgroundBrush}" />
+            </Style>
+            <Style x:Key="singleSlotBackground" TargetType="{x:Type Border}" BasedOn="{StaticResource slotBackground}" >
+                <Setter Property="Width" Value="38.3388" />
+                <Setter Property="Height" Value="38.3388" />
+            </Style>
         </Border.Resources>
         <Canvas>
             <Canvas.Background>
                 <ImageBrush ImageSource="/Images/CurrencyTab.png" />
             </Canvas.Background>
 
-
+            <Border Canvas.Left="18" Canvas.Top="67" Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasScrollFragment, Converter={StaticResource VisibilityConverter}}"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="18" Canvas.Top="67"
                                DataContext="{Binding ScrollFragment}" />
 
+            <Border Canvas.Left="73" Canvas.Top="67" Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasWisdomScrolls, Converter={StaticResource VisibilityConverter}}"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="73" Canvas.Top="67"
                                DataContext="{Binding WisdomScrolls}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasTownPortalScrolls, Converter={StaticResource VisibilityConverter}}" Canvas.Left="128" Canvas.Top="67"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="128" Canvas.Top="67"
                                DataContext="{Binding TownPortalScrolls}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasBlacksmithsWhetstone, Converter={StaticResource VisibilityConverter}}" Canvas.Left="313" Canvas.Top="67"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="313" Canvas.Top="67"
                                DataContext="{Binding BlacksmithsWhetstone}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasArmourersScrap, Converter={StaticResource VisibilityConverter}}" Canvas.Left="367" Canvas.Top="67"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="367" Canvas.Top="67"
                                DataContext="{Binding ArmourersScrap}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasGlassblowersBauble, Converter={StaticResource VisibilityConverter}}" Canvas.Left="420" Canvas.Top="66"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="420" Canvas.Top="66"
                                DataContext="{Binding GlassblowersBauble}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasGemCuttersPrism, Converter={StaticResource VisibilityConverter}}" Canvas.Left="473" Canvas.Top="67"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="473" Canvas.Top="67"
                                DataContext="{Binding GemCuttersPrism}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasChisel, Converter={StaticResource VisibilityConverter}}" Canvas.Left="529" Canvas.Top="67"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="529" Canvas.Top="67"
                                DataContext="{Binding Chisel}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasTransmutation, Converter={StaticResource VisibilityConverter}}" Canvas.Left="18" Canvas.Top="139"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="18" Canvas.Top="139"
                                DataContext="{Binding Transmutation}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasAlteration, Converter={StaticResource VisibilityConverter}}" Canvas.Left="73" Canvas.Top="139"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="73" Canvas.Top="139"
                                DataContext="{Binding Alteration}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasAugmentation, Converter={StaticResource VisibilityConverter}}" Canvas.Left="182" Canvas.Top="191"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="182" Canvas.Top="191"
                                DataContext="{Binding Augmentation}" />
 
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasExalted, Converter={StaticResource VisibilityConverter}}" Canvas.Left="248" Canvas.Top="139"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="248" Canvas.Top="139"
                                DataContext="{Binding Exalted}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasMirror, Converter={StaticResource VisibilityConverter}}" Canvas.Left="302" Canvas.Top="139"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="302" Canvas.Top="139"
                                DataContext="{Binding Mirror}" />
 
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasAlchemy, Converter={StaticResource VisibilityConverter}}" Canvas.Left="420" Canvas.Top="138"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="420" Canvas.Top="138"
                                DataContext="{Binding Alchemy}" />
 
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasChaos, Converter={StaticResource VisibilityConverter}}" Canvas.Left="473" Canvas.Top="139"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="473" Canvas.Top="139"
                                DataContext="{Binding Chaos}" />
 
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasChaosShard, Converter={StaticResource VisibilityConverter}}" Canvas.Left="473" Canvas.Top="190"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="473" Canvas.Top="190"
                                DataContext="{Binding ChaosShard}" />
 
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSingleCellItemStyle, Converter={StaticResource VisibilityConverter}}" Canvas.Left="182" Canvas.Top="139"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="182" Canvas.Top="139"
                                DataContext="{Binding Chance}" />
 
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasTransmutationShard, Converter={StaticResource VisibilityConverter}}" Canvas.Left="18" Canvas.Top="191"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="18" Canvas.Top="191"
                                DataContext="{Binding TransmutationShard}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasAlterationShard, Converter={StaticResource VisibilityConverter}}" Canvas.Left="73" Canvas.Top="191"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="73" Canvas.Top="191"
                                DataContext="{Binding AlterationShard}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasRegal, Converter={StaticResource VisibilityConverter}}" Canvas.Left="367" Canvas.Top="139"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="367" Canvas.Top="139"
                                DataContext="{Binding Regal}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasRegalShard, Converter={StaticResource VisibilityConverter}}" Canvas.Left="363" Canvas.Top="188"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="363" Canvas.Top="188"
                                DataContext="{Binding RegalShard}" />
 
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasAlchemyShard, Converter={StaticResource VisibilityConverter}}" Canvas.Left="420" Canvas.Top="190"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="420" Canvas.Top="190"
                                DataContext="{Binding AlchemyShard}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasBlessed, Converter={StaticResource VisibilityConverter}}" Canvas.Left="529" Canvas.Top="139"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="529" Canvas.Top="139"
                                DataContext="{Binding Blessed}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasDivine, Converter={StaticResource VisibilityConverter}}" Canvas.Left="529" Canvas.Top="191"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="529" Canvas.Top="191"
                                DataContext="{Binding Divine}" />
 
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasJewlers, Converter={StaticResource VisibilityConverter}}" Canvas.Left="73" Canvas.Top="275"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="73" Canvas.Top="275"
                                DataContext="{Binding Jewlers}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasFuse, Converter={StaticResource VisibilityConverter}}" Canvas.Left="127" Canvas.Top="274"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="127" Canvas.Top="274"
                                DataContext="{Binding Fuse}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasChromatic, Converter={StaticResource VisibilityConverter}}" Canvas.Left="182" Canvas.Top="274"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="182" Canvas.Top="274"
                                DataContext="{Binding Chromatic}" />
 
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasScour, Converter={StaticResource VisibilityConverter}}" Canvas.Left="365" Canvas.Top="274"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="365" Canvas.Top="274"
                                DataContext="{Binding Scour}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasRegret, Converter={StaticResource VisibilityConverter}}" Canvas.Left="420" Canvas.Top="274"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="420" Canvas.Top="274"
                                DataContext="{Binding Regret}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasVaal, Converter={StaticResource VisibilityConverter}}" Canvas.Left="473" Canvas.Top="274"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="473" Canvas.Top="274"
                                DataContext="{Binding Vaal}" />
 
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasPerandus, Converter={StaticResource VisibilityConverter}}" Canvas.Left="127" Canvas.Top="326"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="127" Canvas.Top="326"
                                DataContext="{Binding Perandus}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSilver, Converter={StaticResource VisibilityConverter}}" Canvas.Left="182" Canvas.Top="326"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="182" Canvas.Top="326"
                                DataContext="{Binding Silver}" />
+
+            <Border Height="162" Canvas.Left="255" Canvas.Top="253" Width="80" Style="{StaticResource slotBackground}" Visibility="{Binding HasCraftingItem, Converter={StaticResource VisibilityConverter}}"/>
 
             <local:ItemDisplay Height="160" Canvas.Left="257" Canvas.Top="280" Width="80"
                                WidthScale="{Binding Path=Item, Converter={StaticResource cs}, ConverterParameter='width'}"
                                HeightScale="{Binding Path=Item, Converter={StaticResource cs}, ConverterParameter='height'}"
                                DataContext="{Binding CraftingSection}" />
 
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSlot1, Converter={StaticResource VisibilityConverter}}"  Canvas.Left="112" Canvas.Top="446"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="113" Canvas.Top="450"
                                DataContext="{Binding Slot1}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSlot2, Converter={StaticResource VisibilityConverter}}" Canvas.Left="166" Canvas.Top="446"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="167" Canvas.Top="450"
                                DataContext="{Binding Slot2}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSlot3, Converter={StaticResource VisibilityConverter}}" Canvas.Left="218" Canvas.Top="446" Width="40"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="222" Canvas.Top="450"
                                DataContext="{Binding Slot3}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSlot4, Converter={StaticResource VisibilityConverter}}" Canvas.Left="271" Canvas.Top="446" Width="40"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="450"
                                DataContext="{Binding Slot4}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSlot5, Converter={StaticResource VisibilityConverter}}" Canvas.Left="329" Canvas.Top="446"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="329" Canvas.Top="450"
                                DataContext="{Binding Slot5}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSlot6, Converter={StaticResource VisibilityConverter}}" Canvas.Left="384" Canvas.Top="446"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="384" Canvas.Top="450"
                                DataContext="{Binding Slot6}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSlot7, Converter={StaticResource VisibilityConverter}}" Canvas.Left="436" Canvas.Top="446"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="440" Canvas.Top="450"
                                DataContext="{Binding Slot7}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSlot8, Converter={StaticResource VisibilityConverter}}" Canvas.Left="112" Canvas.Top="500"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="113" Canvas.Top="504"
                                DataContext="{Binding Slot8}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSlot9, Converter={StaticResource VisibilityConverter}}" Canvas.Left="166" Canvas.Top="500"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="167" Canvas.Top="504"
                                DataContext="{Binding Slot9}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSlot10, Converter={StaticResource VisibilityConverter}}" Canvas.Left="218" Canvas.Top="500" Width="40"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="222" Canvas.Top="504"
                                DataContext="{Binding Slot10}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSlot11, Converter={StaticResource VisibilityConverter}}" Canvas.Left="271" Canvas.Top="500" Width="40"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="275" Canvas.Top="504"
                                DataContext="{Binding Slot11}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSlot12, Converter={StaticResource VisibilityConverter}}" Canvas.Left="325" Canvas.Top="500" />
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="329" Canvas.Top="504"
                                DataContext="{Binding Slot12}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSlot13, Converter={StaticResource VisibilityConverter}}" Canvas.Left="380" Canvas.Top="500" />
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="384" Canvas.Top="504"
                                DataContext="{Binding Slot13}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasSlot14, Converter={StaticResource VisibilityConverter}}" Canvas.Left="436" Canvas.Top="500" />
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="440" Canvas.Top="504"
                                DataContext="{Binding Slot14}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasApprentice, Converter={StaticResource VisibilityConverter}}" Canvas.Left="365" Canvas.Top="326"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="365" Canvas.Top="326"
                                DataContext="{Binding Apprentice}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasJourney, Converter={StaticResource VisibilityConverter}}" Canvas.Left="420" Canvas.Top="326"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="420" Canvas.Top="326"
                                DataContext="{Binding Journey}" />
+
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasMaster, Converter={StaticResource VisibilityConverter}}" Canvas.Left="473" Canvas.Top="326"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="473" Canvas.Top="326"
                                DataContext="{Binding Master}" />
 
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasAnnulment, Converter={StaticResource VisibilityConverter}}" Canvas.Left="128" Canvas.Top="139"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="128" Canvas.Top="139"
                                DataContext="{Binding Annulment}" />
 
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasAnnulmentShard, Converter={StaticResource VisibilityConverter}}" Canvas.Left="128" Canvas.Top="191"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="128" Canvas.Top="191"
                                DataContext="{Binding AnnulmentShard}" />
 
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasExaltedShard, Converter={StaticResource VisibilityConverter}}" Canvas.Left="248" Canvas.Top="191"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="248" Canvas.Top="191"
                                DataContext="{Binding ExaltedShard}" />
 
+            <Border Style="{StaticResource singleSlotBackground}" Visibility="{Binding HasMirrorShard, Converter={StaticResource VisibilityConverter}}" Canvas.Left="302" Canvas.Top="191"/>
             <local:ItemDisplay Style="{StaticResource SingleCellItemStyle}" Canvas.Left="302" Canvas.Top="191"
                                DataContext="{Binding MirrorShard}" />
         </Canvas>
