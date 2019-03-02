@@ -229,7 +229,9 @@
     <Compile Include="ViewModel\Recipes\MatchedSet.cs" />
     <Compile Include="ViewModel\SetTabBuyoutViewModel.cs" />
     <Compile Include="ViewModel\TabViewModel\CommonTabViewModel.cs" />
+    <Compile Include="ViewModel\TabViewModel\TabContent.cs" />
     <Compile Include="ViewModel\TabViewModel\TabFactory.cs" />
+    <Compile Include="ViewModel\TabViewModel\TabVisuals.cs" />
     <Compile Include="ViewModel\TradeSettingsViewModel.cs" />
     <Compile Include="ViewModel\Cache\BitmapCache.cs" />
     <Compile Include="ViewModel\DisplayModeStrategy\DisplayModeFactory.cs" />
