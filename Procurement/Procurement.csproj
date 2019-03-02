@@ -399,6 +399,7 @@
     </Compile>
     <Compile Include="View\Converters\CharacterToImageConverter.cs" />
     <Compile Include="View\Converters\CharacterToLevelConverter.cs" />
+    <Compile Include="View\Converters\CurrencyCraftingSlotScalingConverter.cs" />
     <Compile Include="View\Converters\FilterListToNameConverter.cs" />
     <Compile Include="View\Converters\ItemDisplayConverter.cs" />
     <Compile Include="View\Converters\ItemExplicitModsToFormattedRunConverter.cs" />
