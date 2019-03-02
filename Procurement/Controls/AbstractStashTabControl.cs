@@ -106,12 +106,34 @@ namespace Procurement.Controls
 
         protected void SetBackground(Grid childGrid, Item item)
         {
-            if (item is Gear && (item as Gear).Rarity != Rarity.Normal && (item as Gear).Explicitmods == null)
+            var gear = item as Gear;
+
+            if (gear == null)
+                return;
+
+            if (gear.Rarity != Rarity.Normal && gear.Explicitmods == null)
                 childGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#88001D"));
             else
                 childGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#21007F"));
 
             childGrid.Background.Opacity = 0.3;
+
+            SetItemBackground(childGrid, item);
+        }
+
+        private static void SetItemBackground(Grid childGrid, Item item)
+        {
+            if (!item.HasBackground)
+                return;
+
+            try
+            {
+                (childGrid.Children[0] as ItemDisplay).Background = new ImageBrush(ApplicationState.BitmapCache[item.BackgroundUrl]);
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(ex);
+            }
         }
 
         private void UpdateStashByLocation()
