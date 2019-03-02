@@ -64,6 +64,7 @@
     <Compile Include="FullBestiaryOrb.cs" />
     <Compile Include="GemHandler.cs" />
     <Compile Include="Interfaces\IBreachCurrency.cs" />
+    <Compile Include="ItemBackgroundUrlBuilder.cs" />
     <Compile Include="ItemTradeInfo.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Currency.cs" />

@@ -11,6 +11,7 @@ using POEApi.Infrastructure.Events;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using POEApi.Model.JSONProxy;
+using System.Threading.Tasks;
 
 namespace POEApi.Model
 {
@@ -293,6 +294,22 @@ namespace POEApi.Model
         {
             foreach (var item in items.Distinct(new ImageComparer()))
                 GetImageWithEvents(item);
+
+            LoadShaperElderImages(items);
+        }
+
+        private void LoadShaperElderImages(IEnumerable<Item> items)
+        {
+            IEnumerable<Item> elderShaperItems = items.Where(i => i.Shaper || i.Elder);
+
+            foreach (var item in elderShaperItems)
+            {
+                var prefix = item.Shaper ? "Shaper" : "Edlder";
+
+                onImageLoaded(POEEventState.BeforeEvent, $"{prefix} {item.Name}");
+                Transport.GetImage(item.BackgroundUrl);
+                onImageLoaded(POEEventState.AfterEvent, $"{prefix} {item.Name}");
+            }
         }
 
         private void GetImageWithEvents(Item item)

@@ -65,6 +65,10 @@ namespace POEApi.Model
         public int StackSize { get; set; }
         public int MaxStackSize { get; set; }
 
+        public string BackgroundUrl { get; private set; }
+
+        public bool HasBackground => string.IsNullOrEmpty(BackgroundUrl) == false;
+
         protected Item(JSONProxy.Item item)
         {
             Id = item.Id;
@@ -111,8 +115,11 @@ namespace POEApi.Model
 
             TradeX = X;
             TradeY = Y;
-            TradeInventoryId =InventoryId;
+            TradeInventoryId = InventoryId;
             Character = string.Empty;
+
+            if (item.Elder || item.Shaper)
+                BackgroundUrl = ItemBackgroundUrlBuilder.GetUrl(this);
         }
         private string getIconUrl(string url)
         {
