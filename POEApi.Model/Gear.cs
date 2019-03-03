@@ -16,6 +16,8 @@ namespace POEApi.Model
         public GearType GearType { get; set; }
         public string BaseType { get; set; }
 
+        public override bool IsGear => true;
+
         public Gear(JSONProxy.Item item) : base(item)
         {
             Rarity = getRarity(item);
