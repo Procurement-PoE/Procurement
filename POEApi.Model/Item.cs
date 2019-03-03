@@ -69,6 +69,8 @@ namespace POEApi.Model
 
         public bool HasBackground => string.IsNullOrEmpty(BackgroundUrl) == false;
 
+        public virtual bool IsGear => false;
+
         protected Item(JSONProxy.Item item)
         {
             Id = item.Id;

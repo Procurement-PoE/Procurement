@@ -86,7 +86,10 @@ namespace Procurement.Controls
             {
                 var i = vm.getImage();
                 itemImage = i;
-                
+
+                if (vm.Item != null && vm.Item.IsGear && itemImage != null)
+                    RenderOptions.SetBitmapScalingMode(itemImage, BitmapScalingMode.NearestNeighbor);
+
                 if (i != null)
                 {
                     //See: https://github.com/Stickymaddness/Procurement/issues/966
