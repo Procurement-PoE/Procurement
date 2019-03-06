@@ -130,6 +130,20 @@ namespace Procurement.ViewModel
             }
         }
 
+        private bool _useShortRecipeDisplayDescriptions;
+        public bool UseShortRecipeDisplayDescriptions
+        {
+            get { return _useShortRecipeDisplayDescriptions; }
+            set
+            {
+                _useShortRecipeDisplayDescriptions = value;
+
+                OnPropertyChanged();
+                Settings.UserSettings["UseShortRecipeDisplayDescriptions"] = Convert.ToString(value);
+                Settings.Save();
+            }
+        }
+
         private List<TabInfo> stashTabs;
         private List<string> _characters;
 
