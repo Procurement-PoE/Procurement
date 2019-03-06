@@ -40,7 +40,7 @@ namespace Procurement.ViewModel.Recipes
             return Matches(flatItems);
         }
 
-        protected virtual bool GetShouldUseShortRecipeDescriptions()
+        protected bool GetShouldUseShortRecipeDescriptions()
         {
             bool result = false;
             bool.TryParse(Settings.UserSettings.GetEntry("UseShortRecipeDisplayDescriptions"), out result);
