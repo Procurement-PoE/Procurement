@@ -34,6 +34,10 @@ namespace Procurement.View
             {
                 return "/Images/ItemHover/SyntheisedIconAdorner.png";
             }
+            if (item.Fractured)
+            {
+                return "/Images/ItemHover/FracturedIconAdorner.png";
+            }
 
             return "";
         }

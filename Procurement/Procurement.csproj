@@ -109,7 +109,9 @@
     <Compile Include="Controls\FragmentStashTab.xaml.cs">
       <DependentUpon>FragmentStashTab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Filters\ForumExport\FracturedItemFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SynthesisedItemFilter.cs" />
+    <Compile Include="ViewModel\ForumExportVisitors\FracturedItemVisitor.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\SynthesisedItemVisitor.cs" />
     <Compile Include="ViewModel\Recipes\LoreweaveRecipe.cs" />
     <Compile Include="ViewModel\Recipes\VaalOrbRecipe.cs" />

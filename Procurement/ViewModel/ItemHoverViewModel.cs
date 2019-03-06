@@ -34,9 +34,11 @@ namespace Procurement.ViewModel
 
         public List<string> CraftedMods { get; set; }
         public List<string> VeiledMods { get; set; }
+        public List<string> FracturedMods { get; set; }
 
         public bool HasCraftedMods { get; private set; }
         public bool HasVeiledMods { get; private set; }
+        public bool HasFracturedMods { get; private set; }
         public bool IsProphecy { get; set; }
         public string ProphecyText { get; set; }
         public string ProphecyDifficultyText { get; set; }
@@ -89,6 +91,8 @@ namespace Procurement.ViewModel
             this.CraftedMods = item.CraftedMods;
             setVeiledMods(item);
 
+            this.FracturedMods = item.FracturedMods;
+
             SecondaryDescriptionText = item.SecDescrText;
             setTypeSpecificProperties(item);
 
@@ -105,7 +109,8 @@ namespace Procurement.ViewModel
             //   On official web site: there is no seperator added before the previous section.
             this.HasCraftedMods = CraftedMods?.Count > 0;
             this.HasVeiledMods = VeiledMods?.Count > 0;
-            this.HasExplicitMods = ExplicitMods?.Count > 0 || HasCraftedMods || IsMirrored;
+            this.HasFracturedMods = FracturedMods?.Count > 0;
+            this.HasExplicitMods = ExplicitMods?.Count > 0 || HasFracturedMods || HasCraftedMods || IsMirrored;
             this.HasImplicitMods = ImplicitMods?.Count > 0;
             this.HasEnchantMods = item.EnchantMods.Count > 0;
             this.HasRequirements = Requirements?.Count > 0;
