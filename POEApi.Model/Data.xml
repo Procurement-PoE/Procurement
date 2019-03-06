@@ -1492,7 +1492,9 @@
       <Item name="A Dab of Ink"/>
       <Item name="A Mother's Parting Gift"/>
       <Item name="Abandoned Wealth"/>
+      <Item name="Alone in the Darkness"/>
       <Item name="Anarchy's Price"/>
+      <Item name="Arrogance of the Vaal"/>
       <Item name="Assassin's Favour"/>
       <Item name="Atziri's Arsenal"/>
       <Item name="Audacity"/>
@@ -1500,6 +1502,7 @@
       <Item name="Birth of the Three"/>
       <Item name="Blessing of God"/>
       <Item name="Blind Venture"/>
+      <Item name="Boon of Justice"/>
       <Item name="Boon of the First Ones"/>
       <Item name="Boundless Realms"/>
       <Item name="Bowyer's Dream"/>
@@ -1507,6 +1510,7 @@
       <Item name="Cartographer's Delight"/>
       <Item name="Chaotic Disposition"/>
       <Item name="Coveted Possession"/>
+      <Item name="Dark Temptation"/>
       <Item name="Death"/>
       <Item name="Destined to Crumble"/>
       <Item name="Dialla's Subjugation"/>
@@ -1545,6 +1549,7 @@
       <Item name="Merciless Armament"/>
       <Item name="Might is Right"/>
       <Item name="Mitts"/>
+      <Item name="Monochrome"/>
       <Item name="No Traces"/>
       <Item name="Perfection"/>
       <Item name="Pride Before the Fall"/>
@@ -1553,7 +1558,9 @@
       <Item name="Rain Tempter"/>
       <Item name="Rats"/>
       <Item name="Rebirth"/>
+      <Item name="Sambodhi's Vow"/>
       <Item name="Scholar of the Seas"/>
+      <Item name="Seven Years Bad Luck"/>
       <Item name="Shard of Fate"/>
       <Item name="Struck by Lightning"/>
       <Item name="The Admirer"/>
@@ -1614,6 +1621,7 @@
       <Item name="The Gemcutter"/>
       <Item name="The Gentleman"/>
       <Item name="The Gladiator"/>
+      <Item name="The Golden Era"/>
       <Item name="The Hale Heart"/>
       <Item name="The Harvester"/>
       <Item name="The Hermit"/>
@@ -1628,19 +1636,24 @@
       <Item name="The Iron Bard"/>
       <Item name="The Jester"/>
       <Item name="The Jeweller's Boon"/>
+      <Item name="The Journey"/>
       <Item name="The King's Blade"/>
       <Item name="The King's Heart"/>
+      <Item name="The Landing"/>
       <Item name="The Last One Standing"/>
       <Item name="The Lich"/>
       <Item name="The Life Thief"/>
       <Item name="The Lion"/>
       <Item name="The Lord in Black"/>
+      <Item name="The Lord of Celebration"/>
       <Item name="The Lover"/>
       <Item name="The Lunaris Priestess"/>
+      <Item name="The Mad King"/>
       <Item name="The Master Artisan"/>
       <Item name="The Master"/>
       <Item name="The Mayor"/>
       <Item name="The Mercenary"/>
+      <Item name="The Messenger"/>
       <Item name="The Metalsmith's Gift"/>
       <Item name="The Nurse"/>
       <Item name="The Oath"/>
@@ -1670,6 +1683,7 @@
       <Item name="The Scarred Meadow"/>
       <Item name="The Scavenger"/>
       <Item name="The Scholar"/>
+      <Item name="The Seeker"/>
       <Item name="The Sephirot"/>
       <Item name="The Sigil"/>
       <Item name="The Siren"/>
