@@ -37,6 +37,7 @@ namespace POEApi.Model.JSONProxy
         public string League { get; set; }
         public bool Shaper { get; set; }
         public bool Elder { get; set; }
+        public bool Synthesised { get; set; }
         public string Name { get; set; }
         public string TypeLine { get; set; }
         public bool Identified { get; set; }

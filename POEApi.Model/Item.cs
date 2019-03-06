@@ -62,6 +62,7 @@ namespace POEApi.Model
         public int ItemLevel { get; set; }
         public bool Shaper { get; set; }
         public bool Elder { get; set; }
+        public bool Synthesised { get; set; }
         public int StackSize { get; set; }
         public int MaxStackSize { get; set; }
 
@@ -97,6 +98,7 @@ namespace POEApi.Model
             ItemLevel = item.Ilvl;
             Shaper = item.Shaper;
             Elder = item.Elder;
+            Synthesised = item.Synthesised;
             StackSize = item.StackSize;
             MaxStackSize = item.MaxStackSize;
 

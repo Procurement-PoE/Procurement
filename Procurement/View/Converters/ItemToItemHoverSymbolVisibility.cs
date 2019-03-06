@@ -17,7 +17,7 @@ namespace Procurement.View
                 return Visibility.Collapsed;
             }
 
-            if (item.Shaper || item.Elder || item.VeiledMods?.Count > 0)
+            if (item.Shaper || item.Elder || item.VeiledMods?.Count > 0 || item.Synthesised)
             {
                 return Visibility.Visible;
             }
