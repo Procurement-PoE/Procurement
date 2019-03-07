@@ -801,6 +801,10 @@
   <ItemGroup>
     <Resource Include="Images\fragmentTab.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ItemHover\FracturedIconAdorner.png" />
+    <Resource Include="Images\ItemHover\SynthesisedIconAdorner.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy /Y "$(SolutionDir)LICENSE" "$(TargetDir)LICENSE"

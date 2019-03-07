@@ -32,7 +32,7 @@ namespace Procurement.View
             }
             if (item.Synthesised)
             {
-                return "/Images/ItemHover/SyntheisedIconAdorner.png";
+                return "/Images/ItemHover/SynthesisedIconAdorner.png";
             }
             if (item.Fractured)
             {
