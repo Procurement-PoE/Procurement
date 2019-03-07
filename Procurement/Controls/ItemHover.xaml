@@ -237,6 +237,29 @@
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
+                    <ItemsControl ItemsSource="{Binding FracturedMods}"
+                                  Padding="10 0 10 5"
+                                  Visibility="{Binding HasFracturedMods,
+                                                       Converter={StaticResource bc},
+                                                       ConverterParameter=CollapseWhenFalse}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
+                                               Foreground="#a29162"
+                                               Text="{Binding}"
+                                               TextAlignment="Center"
+                                               TextWrapping="Wrap" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
                     <ItemsControl ItemsSource="{Binding ExplicitMods}"
                                   Padding="10 0 10 5"
                                   Visibility="{Binding HasExplicitMods,

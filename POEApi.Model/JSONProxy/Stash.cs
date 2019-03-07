@@ -37,6 +37,8 @@ namespace POEApi.Model.JSONProxy
         public string League { get; set; }
         public bool Shaper { get; set; }
         public bool Elder { get; set; }
+        public bool Synthesised { get; set; }
+        public bool Fractured { get; set; }
         public string Name { get; set; }
         public string TypeLine { get; set; }
         public bool Identified { get; set; }
@@ -67,6 +69,7 @@ namespace POEApi.Model.JSONProxy
         public List<string> CraftedMods { get; set; }
         public List<string> EnchantMods { get; set; }
         public List<string> VeiledMods { get; set; }
+        public List<string> FracturedMods { get; set; }
         public int Ilvl { get; set; }
         public string ProphecyText { get; set; }
         public string ProphecyDiffText { get; set; }

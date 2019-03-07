@@ -54,6 +54,7 @@ namespace POEApi.Model
 
         public List<string> CraftedMods { get; set; }
         public List<string> VeiledMods { get; set; }
+        public List<string> FracturedMods { get; set; }
 
         public int TradeX { get; set; }
         public int TradeY { get; set; }
@@ -62,6 +63,8 @@ namespace POEApi.Model
         public int ItemLevel { get; set; }
         public bool Shaper { get; set; }
         public bool Elder { get; set; }
+        public bool Synthesised { get; set; }
+        public bool Fractured { get; set; }
         public int StackSize { get; set; }
         public int MaxStackSize { get; set; }
 
@@ -93,10 +96,13 @@ namespace POEApi.Model
             CraftedMods = item.CraftedMods ?? new List<string>();
             VeiledMods = item.VeiledMods ?? new List<string>();
             EnchantMods = item.EnchantMods ?? new List<string>();
+            FracturedMods = item.FracturedMods ?? new List<string>();
             FlavourText = item.FlavourText;
             ItemLevel = item.Ilvl;
             Shaper = item.Shaper;
             Elder = item.Elder;
+            Synthesised = item.Synthesised;
+            Fractured = item.Fractured;
             StackSize = item.StackSize;
             MaxStackSize = item.MaxStackSize;
 
