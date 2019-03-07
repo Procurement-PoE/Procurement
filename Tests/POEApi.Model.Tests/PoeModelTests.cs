@@ -360,6 +360,51 @@ namespace POEApi.Model.Tests
         }
 
         [TestMethod]
+        public void GetSynthesisedItemsStashTest()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithSynthesisItems);
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, string.Empty, string.Empty, false)).Returns(stream);
+                var stash = _model.GetStash(0, string.Empty, string.Empty);
+                stash.Should().NotBeNull();
+                stash.Tabs.Should().HaveCount(1);
+
+                var items = stash.GetItemsByTab(1);
+                items.Should().NotBeNull();
+                items.Should().HaveCount(2);
+
+                var synthesisedItems = items.Where(i => i.Synthesised).ToList();
+                synthesisedItems.Should().HaveCount(1);
+
+                var synthesisedItemTypeLine = synthesisedItems[0].TypeLine;
+                synthesisedItemTypeLine.Should().NotStartWith("Synthesised");
+                synthesisedItemTypeLine.Should().Contain(" Synthesised ");
+
+                var synthesisedGear = synthesisedItems[0] as Gear;
+                synthesisedGear.Should().NotBeNull();
+                var synthesisedItemImplicitMods = synthesisedGear.Implicitmods;
+                synthesisedItemImplicitMods.Should().HaveCount(1);
+                synthesisedItemImplicitMods[0].Should().Be("Socketed Gems have 10% reduced Mana Reservation");
+                synthesisedGear.Explicitmods.Should().BeNullOrEmpty();
+                synthesisedGear.FracturedMods.Should().BeNullOrEmpty();
+
+                var fracturedItems = items.Where(i => i.Fractured).ToList();
+                fracturedItems.Should().HaveCount(1);
+                fracturedItems[0].TypeLine.Should().Be("Leather Belt");
+
+                var fracturedGear = fracturedItems[0] as Gear;
+                fracturedGear.Should().NotBeNull();
+                var fracturedGearFracturedMods = fracturedGear.FracturedMods;
+                fracturedGearFracturedMods.Should().HaveCount(2);
+                fracturedGearFracturedMods.Should().Contain(
+                    new List<string>{ "+40 to maximum Energy Shield", "+42% to Cold Resistance" });
+
+                synthesisedItems[0].TypeLine.Should().NotBe(fracturedItems[0].TypeLine);
+            }
+        }
+
+        [TestMethod]
         public void IsScarabDetected()
         {
             string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithScarab);

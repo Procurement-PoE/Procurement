@@ -1,0 +1,186 @@
+﻿{
+  "numTabs":1,
+  "tabs":[
+    {
+      "n": "Synthesis",
+      "i": 1,
+      "id": "003864bc2a05733e0511ec9a10baaab91d05431a924192b4d47362f51e8c35ed",
+      "type": "PremiumStash",
+      "hidden": false,
+      "selected": true,
+      "colour": {
+        "r": 191,
+        "g": 94,
+        "b": 0
+      },
+      "srcL": "https://web.poecdn.com/gen/image/WzI0LCIwMmExOTc3ZDFkMDM0NDM2ZTc3MzlmODNkMTNiMjA3ZiIsWzIseyJ0IjoxLCJuIjoiIiwiYyI6LTQyMzU3NzZ9XV0,/2c8b976348/Stash_TabL.png",
+      "srcC": "https://web.poecdn.com/gen/image/WzI0LCIwMmExOTc3ZDFkMDM0NDM2ZTc3MzlmODNkMTNiMjA3ZiIsWzIseyJ0IjoyLCJuIjoiIiwiYyI6LTQyMzU3NzZ9XV0,/0e65837146/Stash_TabC.png",
+      "srcR": "https://web.poecdn.com/gen/image/WzI0LCIwMmExOTc3ZDFkMDM0NDM2ZTc3MzlmODNkMTNiMjA3ZiIsWzIseyJ0IjozLCJuIjoiIiwiYyI6LTQyMzU3NzZ9XV0,/3c4393c68a/Stash_TabR.png"
+    }
+  ],
+  "items":[
+    {
+      "inventoryId": "Stash2",
+      "verified": false,
+      "w": 2,
+      "h": 3,
+      "ilvl": 90,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Armours/Shields/ShieldStrInt3.png?scale=1&w=2&h=3&synthesised=true",
+      "league": "Synthesis",
+      "synthesised": true,
+      "sockets": [
+        {
+          "group": 0,
+          "attr": "I",
+          "sColour": "B"
+        },
+        {
+          "group": 0,
+          "attr": "I",
+          "sColour": "B"
+        },
+        {
+          "group": 1,
+          "attr": "S",
+          "sColour": "R"
+        }
+      ],
+      "name": "",
+      "typeLine": "Superior Synthesised Laminated Kite Shield",
+      "identified": true,
+      "properties": [
+        {
+          "name": "Quality",
+          "values": [
+            [
+              "+3%",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 6
+        },
+        {
+          "name": "Chance to Block",
+          "values": [
+            [
+              "24%",
+              0
+            ]
+          ],
+          "displayMode": 0,
+          "type": 15
+        },
+        {
+          "name": "Armour",
+          "values": [
+            [
+              "116",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 16
+        },
+        {
+          "name": "Energy Shield",
+          "values": [
+            [
+              "23",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 18
+        }
+      ],
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "50",
+              0
+            ]
+          ],
+          "displayMode": 0
+        },
+        {
+          "name": "Str",
+          "values": [
+            [
+              "64",
+              0
+            ]
+          ],
+          "displayMode": 1
+        },
+        {
+          "name": "Int",
+          "values": [
+            [
+              "64",
+              0
+            ]
+          ],
+          "displayMode": 1
+        }
+      ],
+      "implicitMods": [
+        "Socketed Gems have 10% reduced Mana Reservation"
+      ],
+      "frameType": 0,
+      "category": {
+        "armour": [
+          "shield"
+        ]
+      },
+      "socketedItems": [
+
+      ]
+    },
+    {
+      "inventoryId": "Stash2",
+      "verified": true,
+      "w": 2,
+      "h": 1,
+      "ilvl": 90,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Belts/Belt3.png?scale=1&w=2&h=1&fractured=true",
+      "league": "Synthesis",
+      "fractured": true,
+      "name": "Hate Trap",
+      "typeLine": "Leather Belt",
+      "identified": true,
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "67",
+              0
+            ]
+          ],
+          "displayMode": 0
+        }
+      ],
+      "implicitMods": [
+        "+38 to maximum Life"
+      ],
+      "explicitMods": [
+        "+393 to Armour",
+        "+48% to Lightning Resistance",
+        "19% increased Stun and Block Recovery"
+      ],
+      "fracturedMods": [
+        "+40 to maximum Energy Shield",
+        "+42% to Cold Resistance"
+      ],
+      "frameType": 2,
+      "category": {
+        "accessories": [
+          "belt"
+        ]
+      }
+    }
+  ]
+}
