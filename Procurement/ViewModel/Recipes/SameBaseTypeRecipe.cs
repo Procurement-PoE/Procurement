@@ -34,30 +34,47 @@ namespace Procurement.ViewModel.Recipes
 
         public override string GetResultName(RecipeResult result)
         {
+            bool useShortRecipeDescriptions = GetShouldUseShortRecipeDescriptions();
             if (result.MatchedItems.Any(i => i.ItemType == ItemType.Gear
                 && (i as Gear).Rarity == Rarity.Unique))
             {
-                return "5 Orbs of Chance - Same base type with normal, magic, rare, and unique";
+                if (useShortRecipeDescriptions)
+                    return "5 Orbs of Chance - SBT, NMRU";
+                else
+                    return "5 Orbs of Chance - Same base type with normal, magic, rare, and unique";
             }
 
             // All items have 20% quality and are either unidentified or normal rarity.
             if (result.MatchedItems.All(i => i.Quality == 20
                 && (!i.Identified || (i is Gear && (i as Gear).Rarity == Rarity.Normal))))
             {
-                return "2 Orbs of Alchemy - Same base type with normal, magic, rare, 20% quality and unidentified";
+                if (useShortRecipeDescriptions)
+                    return "2 Orbs of Alchemy - SBT, NMR, 20% (U)";
+                else
+                    return "2 Orbs of Alchemy - Same base type with normal, magic, rare, 20% quality and unidentified";
             }
 
             if (result.MatchedItems.All(i => i.Quality == 20))
             {
-                return "1 Orb of Alchemy - Same base type with normal, magic, rare, 20% quality";
+                if (useShortRecipeDescriptions)
+                    return "1 Orb of Alchemy - SBT, NMR, 20%";
+                else
+                    return "1 Orb of Alchemy - Same base type with normal, magic, rare, 20% quality";
             }
 
             if (result.MatchedItems.All(i => !i.Identified || (i is Gear && (i as Gear).Rarity == Rarity.Normal)))
             {
-                return "2 Orbs of Augmentation - Same base type with normal, magic, rare, unidentified";
+                if (useShortRecipeDescriptions)
+                    return "2 Orbs of Augmentation - SBT, NMR, (U)";
+                else
+                    return "2 Orbs of Augmentation - Same base type with normal, magic, rare, unidentified";
             }
 
-            return "1 Orb of Augmentation - Same base type with normal, magic, and rare"; // base case
+            // base case
+            if (useShortRecipeDescriptions)
+                return "1 Orb of Augmentation - SBT, NMR";
+            else
+                return "1 Orb of Augmentation - Same base type with normal, magic, and rare";
         }
 
         public override IEnumerable<RecipeResult> Matches(IEnumerable<POEApi.Model.Item> items)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using POEApi.Infrastructure;
 using POEApi.Model;
 
 namespace Procurement.ViewModel.Recipes
@@ -37,6 +38,14 @@ namespace Procurement.ViewModel.Recipes
                 flatItems.AddRange(tab.Value);
             }
             return Matches(flatItems);
+        }
+
+        protected bool GetShouldUseShortRecipeDescriptions()
+        {
+            bool result = false;
+            bool.TryParse(Settings.UserSettings.GetEntry("UseShortRecipeDisplayDescriptions"), out result);
+            // result is false if the parsing attempt failed.
+            return result;
         }
     }
 }

@@ -18,22 +18,35 @@ namespace Procurement.ViewModel.Recipes
         private readonly int maximumItemLevel;
         private readonly bool itemsIdentified;
         private readonly string name;
+        private readonly string _shortName;
         private readonly SetType _setType;
 
         public override string Name
         {
-            get { return name; }
+            get
+            {
+                if (GetShouldUseShortRecipeDescriptions())
+                {
+                    return _shortName;
+                }
+                else
+                {
+                    return name;
+                }
+            }
         }
 
         private List<MatchedSet> sets = new List<MatchedSet>();
         
-        public RareSetRecipe(int minimumItemLevel, int maximumItemLevel, bool itemsIdentified, string name, SetType setType = SetType.Normal)
+        public RareSetRecipe(int minimumItemLevel, int maximumItemLevel, bool itemsIdentified, string name,
+            string shortName = "", SetType setType = SetType.Normal)
             : base(80)
         {
             this.minimumItemLevel = minimumItemLevel;
             this.maximumItemLevel = maximumItemLevel;
             this.itemsIdentified = itemsIdentified;
             this.name = name;
+            this._shortName = string.IsNullOrWhiteSpace(shortName) ? name : shortName;
             _setType = setType;
         }
 
