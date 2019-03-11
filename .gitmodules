@@ -1,0 +1,3 @@
+[submodule "lib/CloudFlareUtilities"]
+	path = lib/CloudFlareUtilities
+	url = https://github.com/elcattivo/CloudFlareUtilities.git

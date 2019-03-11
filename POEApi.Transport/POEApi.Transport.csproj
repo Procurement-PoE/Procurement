@@ -35,10 +35,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CloudFlareUtilities, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CloudFlareUtilities.1.2.0\lib\netstandard1.1\CloudFlareUtilities.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
@@ -64,6 +60,10 @@
     <Compile Include="TaskThrottle.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\lib\CloudFlareUtilities\CloudFlareUtilities\CloudFlareUtilities.csproj">
+      <Project>{e2ca4abc-ced6-4dcc-a852-9c45dc738130}</Project>
+      <Name>CloudFlareUtilities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\POEApi.Infrastructure\POEApi.Infrastructure.csproj">
       <Project>{2F0E4301-694B-4A26-80D8-D57042DA9D6F}</Project>
       <Name>POEApi.Infrastructure</Name>

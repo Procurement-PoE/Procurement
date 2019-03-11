@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POEApi.Transport", "POEApi.Transport\POEApi.Transport.csproj", "{5933C062-45EA-4BC3-9AE9-0D6CFC26D505}"
 EndProject
@@ -24,6 +24,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POEApi.TestHelpers", "Tests\POEApi.TestHelpers\POEApi.TestHelpers.csproj", "{D7567718-9004-4689-B39F-1D240EEBB383}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Procurement.Tests", "Tests\Procurement.Tests\Procurement.Tests.csproj", "{256989B7-5A60-40E7-9408-B79C1CDB01B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{BBCF3908-3AE3-4AAB-8E70-3287006AE593}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CloudFlareUtilities", "CloudFlareUtilities", "{12257E09-78FC-4882-865B-0E41F7D09600}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudFlareUtilities", "lib\CloudFlareUtilities\CloudFlareUtilities\CloudFlareUtilities.csproj", "{E2CA4ABC-CED6-4DCC-A852-9C45DC738130}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,6 +119,18 @@ Global
 		{256989B7-5A60-40E7-9408-B79C1CDB01B7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{256989B7-5A60-40E7-9408-B79C1CDB01B7}.Release|x86.ActiveCfg = Release|Any CPU
 		{256989B7-5A60-40E7-9408-B79C1CDB01B7}.Release|x86.Build.0 = Release|Any CPU
+		{E2CA4ABC-CED6-4DCC-A852-9C45DC738130}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2CA4ABC-CED6-4DCC-A852-9C45DC738130}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2CA4ABC-CED6-4DCC-A852-9C45DC738130}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E2CA4ABC-CED6-4DCC-A852-9C45DC738130}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E2CA4ABC-CED6-4DCC-A852-9C45DC738130}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E2CA4ABC-CED6-4DCC-A852-9C45DC738130}.Debug|x86.Build.0 = Debug|Any CPU
+		{E2CA4ABC-CED6-4DCC-A852-9C45DC738130}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2CA4ABC-CED6-4DCC-A852-9C45DC738130}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2CA4ABC-CED6-4DCC-A852-9C45DC738130}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E2CA4ABC-CED6-4DCC-A852-9C45DC738130}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E2CA4ABC-CED6-4DCC-A852-9C45DC738130}.Release|x86.ActiveCfg = Release|Any CPU
+		{E2CA4ABC-CED6-4DCC-A852-9C45DC738130}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -121,5 +139,10 @@ Global
 		{52A5B321-3AA1-4A9D-B6DD-93DC7DF7C742} = {3B0DBAAD-727D-40CB-B859-72EFC208332E}
 		{D7567718-9004-4689-B39F-1D240EEBB383} = {3B0DBAAD-727D-40CB-B859-72EFC208332E}
 		{256989B7-5A60-40E7-9408-B79C1CDB01B7} = {3B0DBAAD-727D-40CB-B859-72EFC208332E}
+		{12257E09-78FC-4882-865B-0E41F7D09600} = {BBCF3908-3AE3-4AAB-8E70-3287006AE593}
+		{E2CA4ABC-CED6-4DCC-A852-9C45DC738130} = {12257E09-78FC-4882-865B-0E41F7D09600}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F5D6794F-C904-4EF1-AEEB-8A0835DEA64A}
 	EndGlobalSection
 EndGlobal
