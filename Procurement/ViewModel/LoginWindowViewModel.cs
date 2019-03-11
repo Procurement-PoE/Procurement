@@ -345,8 +345,14 @@ namespace Procurement.ViewModel
 
         void Model_Throttled(object sender, ThottledEventArgs e)
         {
-            if (e.WaitTime.TotalSeconds > 4)
-                Update(string.Format("GGG Server request limit hit, throttling activated. Please wait {0} seconds", e.WaitTime.Seconds), new POEEventArgs(POEEventState.BeforeEvent));
+            if (!e.Expected)
+                Update(string.Format("Exceeded GGG Server request limit; throttling activated.  Waiting {0} " +
+                    "seconds.  Ensure you do not have other instances of Procurement running or other apps using " +
+                    "the GGG API with your account.", Convert.ToInt32(e.WaitTime.TotalSeconds)),
+                    new POEEventArgs(POEEventState.BeforeEvent));
+            else if (e.WaitTime.TotalSeconds > 4)
+                Update(string.Format("GGG Server request limit hit, throttling activated. Please wait {0} seconds",
+                    Convert.ToInt32(e.WaitTime.TotalSeconds)), new POEEventArgs(POEEventState.BeforeEvent));
         }
 
         private void Update(string message, POEEventArgs e)
