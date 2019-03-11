@@ -88,5 +88,22 @@ namespace POEApi.Transport
                 CurrentTasks.Dequeue();
             }
         }
+
+        public void HandleUnexpectedOverload()
+        {
+            lock (_lockObject)
+            {
+                // We've unexpectedly gone over the number of allowed requests in a time period.  Fill up the set of
+                // current tasks as if we had started tasks.
+                while (CurrentTasks.Count < WindowLimit)
+                    CurrentTasks.Enqueue(DateTime.Now);
+
+                // Wait at least as long as the WindowSize before trying another task.
+                var timeUntilNextTask = CurrentTasks.Peek() - DateTime.Now;
+                TimeSpan waitTime = timeUntilNextTask > WindowSize ? timeUntilNextTask : WindowSize;
+                Throttled?.Invoke(this, new ThottledEventArgs(waitTime, false));  // Not an expected throttle event.
+                System.Threading.Thread.Sleep(waitTime);
+            }
+        }
     }
 }
