@@ -84,7 +84,7 @@ namespace Procurement.Controls
             var vm = DataContext as ItemDisplayViewModel;
             if (vm != null)
             {
-                var i = vm.getImage();
+                var i = vm.ItemImage;
                 itemImage = i;
 
                 if (vm.Item != null && vm.Item.IsGear && itemImage != null)
