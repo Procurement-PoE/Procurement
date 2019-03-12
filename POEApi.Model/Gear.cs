@@ -83,7 +83,17 @@ namespace POEApi.Model
                     pobData.AppendLine(Name);
                     pobData.AppendLine(TypeLine);
                     pobData.AppendLine($"Unique ID: {Id}");
-                    pobData.AppendLine($"Item Level: {ItemLevel}");
+
+                    var itemType = GetSpecialItemType();
+                    if (string.IsNullOrEmpty(itemType) == false)
+                        pobData.AppendLine(itemType);
+
+                    if (Corrupted)
+                        pobData.AppendLine(nameof(Corrupted));
+
+                    if (string.IsNullOrEmpty(Radius) == false)
+                        pobData.AppendLine($"Radius: {Radius}");
+
                     pobData.AppendLine($"Quality: {Quality}");
 
                     if (Sockets != null && Sockets.Any())
@@ -113,6 +123,11 @@ namespace POEApi.Model
                         Implicitmods.ForEach(x => pobData.AppendLine($"{{crafted}}{x}"));
                     }
 
+                    if (FracturedMods != null && FracturedMods.Any())
+                    {
+                        FracturedMods.ForEach(x => pobData.AppendLine($"{{fractured}}{x}"));
+                    }
+
                     if (Explicitmods != null && Explicitmods.Any())
                     {
                         Explicitmods.ForEach(x=> pobData.AppendLine(x));
@@ -131,6 +146,31 @@ namespace POEApi.Model
                     throw;
                 }
             }
+        }
+
+        private string GetSpecialItemType()
+        {
+            if (Elder)
+            {
+                return "Elder Item";
+            }
+
+            if (Shaper)
+            {
+                return "Shaper Item";
+            }
+
+            if (Fractured)
+            {
+                return "Fractured Item";
+            }
+
+            if (Synthesised)
+            {
+                return "Synthesised Item";
+            }
+
+            return null;
         }
     }
 }

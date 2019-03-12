@@ -115,6 +115,11 @@ namespace POEApi.Model
                     IsQuality = true;
                     Quality = ProxyMapper.GetQuality(item.Properties);
                 }
+
+                if (Properties.Any(p => p.Name == "Radius"))
+                {
+                    Radius = Properties.First(p => p.Name == "Radius").Values[0].Item1;
+                }
             }
 
             Corrupted = item.Corrupted;
@@ -129,6 +134,9 @@ namespace POEApi.Model
             if (item.Elder || item.Shaper)
                 BackgroundUrl = ItemBackgroundUrlBuilder.GetUrl(this);
         }
+
+        public string Radius { get; set; }
+
         private string getIconUrl(string url)
         {
             Uri uri;
