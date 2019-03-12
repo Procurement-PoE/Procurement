@@ -224,7 +224,7 @@ namespace Procurement.Controls
             var menu = new ContextMenu();
             menu.Background = Brushes.Black;
 
-            menu.Resources = Resources["ExpressionDarkGrid"] as ResourceDictionary;
+            menu.Resources = Application.Current.Resources["ExpressionDarkGrid"] as ResourceDictionary;
 
             var setBuyout = new MenuItem();
             setBuyout.StaysOpenOnClick = true;
