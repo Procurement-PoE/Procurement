@@ -26,14 +26,11 @@ namespace Procurement.ViewModel.ForumExportVisitors
 
         public abstract string Visit(IEnumerable<Item> items, string current);
 
-        protected string runFilter<T>(IEnumerable<Item> items) where T : IFilter, new()
-        {
-            return runFilter(new T(), items);
-        }
-
         protected string runFilter(IFilter filter, IEnumerable<Item> items)
         {
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
+            items = items.OrderBy(i => i.H);
+
             foreach (var item in items.Where(i => filter.Applicable(i)))
                 builder.Append(getLinkItem(item));
 
