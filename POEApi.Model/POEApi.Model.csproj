@@ -97,6 +97,7 @@
     <Compile Include="ProxyMapper.cs" />
     <Compile Include="QuestItem.cs" />
     <Compile Include="Requirement.cs" />
+    <Compile Include="Resonator.cs" />
     <Compile Include="Scarab.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Sextant.cs" />

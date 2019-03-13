@@ -46,4 +46,17 @@ namespace Procurement.ViewModel.ForumExportVisitors
             return current.Replace(TOKEN, runFilter<FossilFilter>(items.OrderBy(i => i.H)));
         }
     }
+
+    internal class ResonatorVisitor : VisitorBase
+    {
+        private const string TOKEN = "{Resonator}";
+
+        public override string Visit(IEnumerable<Item> items, string current)
+        {
+            if (current.IndexOf(TOKEN) < 0)
+                return current;
+
+            return current.Replace(TOKEN, runFilter<ResonatorFilter>(items.OrderBy(i => i.H)));
+        }
+    }
 }

@@ -176,6 +176,9 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 [spoiler="          Fossils          "]
 {Fossil}
 [/spoiler]
+[spoiler="          Resonators          "]
+{Resonator}
+[/spoiler]
 
 Thanks for visiting!
 
