@@ -33,4 +33,17 @@ namespace Procurement.ViewModel.ForumExportVisitors
             return current.Replace(TOKEN, runFilter<AbyssJewelFilter>(items.OrderBy(i => i.H)));
         }
     }
+
+    internal class FossilVisitor : VisitorBase
+    {
+        private const string TOKEN = "{Fossil}";
+
+        public override string Visit(IEnumerable<Item> items, string current)
+        {
+            if (current.IndexOf(TOKEN) < 0)
+                return current;
+
+            return current.Replace(TOKEN, runFilter<FossilFilter>(items.OrderBy(i => i.H)));
+        }
+    }
 }
