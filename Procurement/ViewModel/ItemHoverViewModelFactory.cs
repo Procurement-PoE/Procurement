@@ -70,13 +70,11 @@ namespace Procurement.ViewModel
             if (item is Gem)
                 return new GemItemHoverViewModel(item);
 
-            if (item is Currency || item is Sextant || item is Essence || item is Fossil || item is Resonator)
-                return new CurrencyItemHoverViewModel(item);
-
             if (item is Prophecy)
                 return new ProphecyItemHoverViewModel(item);
 
-            return new ItemHoverViewModel(item);
+            //Currency, sextant, essence, fossil, resonator, scarabs and splinters
+            return new CurrencyItemHoverViewModel(item);
         }
     }
 
