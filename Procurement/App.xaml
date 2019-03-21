@@ -10,7 +10,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Procurement;component/Controls/TabControlStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
+            <ResourceDictionary x:Key="ExpressionDarkGrid" Source="Controls/ExpressionDarkGrid.xaml" />
             <view:VisibilityConverter x:Key="bc" />
             <view:ItemToItemHoverSymbolVisibility x:Key="symbolVisibility" />
             <view:ItemToItemHoverSymbolPath x:Key="symbolPath" />
