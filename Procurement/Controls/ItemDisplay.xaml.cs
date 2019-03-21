@@ -84,7 +84,7 @@ namespace Procurement.Controls
             var vm = DataContext as ItemDisplayViewModel;
             if (vm != null)
             {
-                var i = vm.ItemImage;
+                var i = vm.getImage();
                 itemImage = i;
 
                 if (vm.Item != null && vm.Item.IsGear && itemImage != null)
@@ -224,7 +224,7 @@ namespace Procurement.Controls
             var menu = new ContextMenu();
             menu.Background = Brushes.Black;
 
-            menu.Resources = Application.Current.Resources["ExpressionDarkGrid"] as ResourceDictionary;
+            menu.Resources = Resources["ExpressionDarkGrid"] as ResourceDictionary;
 
             var setBuyout = new MenuItem();
             setBuyout.StaysOpenOnClick = true;

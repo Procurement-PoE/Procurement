@@ -12,6 +12,14 @@ using Procurement.Utility;
 
 namespace Procurement.ViewModel
 {
+    public class LinkPath
+    {
+        public Image image;
+        public int row { get; set; }
+        public int col { get; set; }
+    }
+
+
     public class ItemDisplayViewModel : ObservableBase
     {
         private bool isQuadStash;
@@ -30,8 +38,6 @@ namespace Procurement.ViewModel
                 return gear != null && gear.Sockets.Count > 0;
             }
         }
-
-        public bool? IsItemIdentified => Item?.Identified;
 
         public bool IsItemInFilter
         {
@@ -71,29 +77,10 @@ namespace Procurement.ViewModel
             this.Item = item;
         }
 
-        public bool HasSpecialBackground => Item != null && Item.HasBackground;
-
-        public ImageBrush SpecialBackground
+        public Image getImage()
         {
-            get
+            if (Item != null)
             {
-                if (HasSpecialBackground == false)
-                    return null;
-
-                return new ImageBrush(ApplicationState.BitmapCache[Item.BackgroundUrl]);
-            }
-
-        }
-
-        public Image ItemImage
-        {
-            get
-            {
-                if (Item == null)
-                {
-                    return null;
-                }
-
                 try
                 {
 
@@ -116,6 +103,7 @@ namespace Procurement.ViewModel
                 }
             }
 
+            return null;
         }
 
         public UIElement GetSocket(bool isQuadStash)
