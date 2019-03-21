@@ -245,7 +245,16 @@ namespace POEApi.Model
 
         public SortedDictionary<string, int> GetTotalGemDistribution()
         {
-            return GemHandler.GetGemDistribution(Get<Gem>());
+            var gems = Get<Gem>();
+            var gears = items.OfType<Gear>()
+                             .Where(x => x.SocketedItems.Count > 0);
+
+            var socketedGems = gears.SelectMany(x => x.SocketedItems)
+                                    .OfType<Gem>().ToArray();
+
+            gems.AddRange(socketedGems);
+
+            return GemHandler.GetGemDistribution(gems);
         }
     }
 }
