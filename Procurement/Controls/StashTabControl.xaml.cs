@@ -105,6 +105,8 @@ namespace Procurement.Controls
 
                     childGrid.Children.Add(itemDisplay);
 
+                    SetBackground(childGrid, keyItem);
+                    
                     Grid.SetColumn(childGrid, i);
                     Grid.SetRow(childGrid, j);
                     if (itemViewModel.Item.H > 1)
