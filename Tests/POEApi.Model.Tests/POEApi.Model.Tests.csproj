@@ -95,6 +95,7 @@
     <None Include="TestData\SampleStashWithDivineVessel.json" />
     <None Include="TestData\SampleStashWithEssences.json" />
     <None Include="TestData\SampleStashWithLitheBlade.json" />
+    <None Include="TestData\SampleStashWithMaps.json" />
     <None Include="TestData\SampleStashWithNets.json" />
     <None Include="TestData\SampleStashWithMirroredItems.json" />
     <None Include="TestData\SampleStashWithRelic.json" />

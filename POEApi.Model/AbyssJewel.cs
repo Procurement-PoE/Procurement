@@ -4,11 +4,9 @@ namespace POEApi.Model
 {
     public class AbyssJewel : SocketableItem
     {
-        public Rarity Rarity { get; set; }
-
         public AbyssJewel(JSONProxy.Item item) : base(item)
         {
-            Rarity = getRarity(item);
+
         }
 
         public bool Abyssal { get; } = true;
@@ -17,9 +15,8 @@ namespace POEApi.Model
         {
             get
             {
-                // TODO: Reduce code duplication between this class's implementation and Gear's (they both have a
-                // "Rarity" property that works the same way, but do not inherit it from the same parent class).
                 var components = base.DescriptiveNameComponents;
+
                 if (Rarity != Rarity.Normal)
                 {
                     if (!Identified)

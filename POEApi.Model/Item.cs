@@ -67,6 +67,7 @@ namespace POEApi.Model
         public bool Fractured { get; set; }
         public int StackSize { get; set; }
         public int MaxStackSize { get; set; }
+        public Rarity Rarity { get; set; }
 
         public string BackgroundUrl { get; private set; }
 
@@ -130,6 +131,7 @@ namespace POEApi.Model
             TradeY = Y;
             TradeInventoryId = InventoryId;
             Character = string.Empty;
+            Rarity = GetRarity(item);
 
             if (item.Elder || item.Shaper)
                 BackgroundUrl = ItemBackgroundUrlBuilder.GetUrl(this);
@@ -146,7 +148,7 @@ namespace POEApi.Model
             return "http://webcdn.pathofexile.com" + url;
         }
 
-        protected Rarity getRarity(JSONProxy.Item item)
+        private Rarity GetRarity(JSONProxy.Item item)
         {
             //Looks like isRelic is coming across the wire as an additional field but coincidentally 9 was the correct frame type here.
             if (item.FrameType == 9 || item.IsRelic)

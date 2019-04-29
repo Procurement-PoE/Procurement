@@ -4,7 +4,6 @@
     {
         public FullBestiaryOrb(JSONProxy.Item item) : base(item)
         {
-            Rarity = getRarity(item);
             ItemType = ItemType.Currency;
 
             Genus = ProxyMapper.GetGenus(item.Properties);
@@ -19,8 +18,6 @@
             // in-game detailed tooltip uses "monster mod" for different kinds of mods, including bestiary beast mods
             // (bold white text with red outline) and bloodline mods (magenta text RGB(210, 0, 220)).
         }
-
-        public Rarity Rarity { get; }
 
         // TODO: Compile the possible values of Genus, Group, and Family, and use enums instead of raw strings.
         public string Genus { get; }
