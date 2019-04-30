@@ -40,7 +40,7 @@ namespace POEApi.Model
             downOnlyMyCharacters = bool.Parse(Settings.UserSettings["DownloadOnlyMyCharacters"]);
         }
 
-        public bool Authenticate(string email, SecureString password, bool offline)
+        public bool Authenticate(string email, SecureString password, bool offline, string realm)
         {
             if (Transport != null)
                 Transport.Throttled -= new ThottledEventHandler(instance_Throttled);
@@ -53,16 +53,16 @@ namespace POEApi.Model
                 return true;
 
             Transport.Throttled += new ThottledEventHandler(instance_Throttled);
-            onAuthenticate(POEEventState.BeforeEvent, email);
+            onAuthenticate(POEEventState.BeforeEvent, email,realm);
 
             Transport.Authenticate(email, password);
 
-            onAuthenticate(POEEventState.AfterEvent, email);
+            onAuthenticate(POEEventState.AfterEvent, email, realm);
 
             return true;
         }
 
-        public string GetAccountName()
+        public string GetAccountName(string realm)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace POEApi.Model
                     return string.Empty;
                 }
 
-                var account = GetProperObjectFromTransport<Account>(Transport.GetAccountName());
+                var account = GetProperObjectFromTransport<Account>(Transport.GetAccountName(realm));
 
                 if (string.IsNullOrEmpty(account?.AccountName))
                 {
@@ -138,13 +138,13 @@ namespace POEApi.Model
             cacheService.Clear();
         }
 
-        public Stash GetStash(int index, string league, string accountName, bool forceRefresh = false)
+        public Stash GetStash(int index, string league, string accountName, string realm, bool forceRefresh = false)
         {
             JSONProxy.Stash proxy = null;
 
             onStashLoaded(POEEventState.BeforeEvent, index, -1);
 
-            using (var stream = Transport.GetStash(index, league, accountName, forceRefresh))
+            using (var stream = Transport.GetStash(index, league, accountName, realm))
             {
                 try
                 {
@@ -187,14 +187,14 @@ namespace POEApi.Model
             throw new Exception(@"Downloading stash, details logged to DebugInfo.log, please open a ticket at https://github.com/Stickymaddness/Procurement/issues and include your DebugInfo.log");
         }
 
-        public Stash GetStash(string league, string accountName)
+        public Stash GetStash(string league, string accountName, string realm)
         {
             try
             {
                 var myTabs = Settings.Lists["MyTabs"];
                 bool onlyMyTabs = myTabs.Count != 0;
 
-                Stash stash = GetStash(0, league, accountName);
+                Stash stash = GetStash(0, league, accountName, realm);
 
                 var firstTab = stash.Tabs.FirstOrDefault();
                 if (firstTab != null && firstTab.Hidden)
@@ -203,7 +203,7 @@ namespace POEApi.Model
                 List<Tab> skippedTabs = new List<Tab>();
 
                 if (!onlyMyTabs)
-                    return GetAllTabs(league, accountName, stash);
+                    return GetAllTabs(league, accountName, stash, realm);
 
                 int tabCount = 0;
 
@@ -211,7 +211,7 @@ namespace POEApi.Model
                 {
                     if (myTabs.Contains(stash.Tabs[i].Name))
                     {
-                        stash.Add(GetStash(i, league, accountName));
+                        stash.Add(GetStash(i, league, accountName, realm));
                         ++tabCount;
                     }
                     else
@@ -232,7 +232,7 @@ namespace POEApi.Model
             }
         }
 
-        private Stash GetAllTabs(string league, string accountName, Stash stash)
+        private Stash GetAllTabs(string league, string accountName, Stash stash, string realm)
         {
             List<Tab> hiddenTabs = new List<Tab>();
 
@@ -240,7 +240,7 @@ namespace POEApi.Model
             {
                 if (!stash.Tabs[i].Hidden)
                 {
-                    stash.Add(GetStash(i, league, accountName));
+                    stash.Add(GetStash(i, league, accountName, realm));
                 }
                 else
                 {
@@ -264,19 +264,19 @@ namespace POEApi.Model
             return stash;
         }
 
-        public List<Character> GetCharacters()
+        public List<Character> GetCharacters(string realm)
         {
-            return GetProperObjectFromTransport<List<Character>>(Transport.GetCharacters());
+            return GetProperObjectFromTransport<List<Character>>(Transport.GetCharacters(realm));
         }
 
-        public List<Item> GetInventory(string characterName, bool forceRefresh, string accountName)
+        public List<Item> GetInventory(string characterName, bool forceRefresh, string accountName, string realm)
         {
             try
             {
                 if (downOnlyMyCharacters && !Settings.Lists["MyCharacters"].Contains(characterName))
                     return new List<Item>();
 
-                Inventory item  = GetProperObjectFromTransport<Inventory>(Transport.GetInventory(characterName, forceRefresh, accountName));
+                Inventory item  = GetProperObjectFromTransport<Inventory>(Transport.GetInventory(characterName, forceRefresh, accountName, realm));
 
                 if (item?.Items == null)
                     return new List<Item>();
@@ -376,10 +376,10 @@ namespace POEApi.Model
                 ImageLoading(this, new ImageLoadedEventArgs(url, state));
         }
 
-        private void onAuthenticate(POEEventState state, string email)
+        private void onAuthenticate(POEEventState state, string email, string realm)
         {
             if (Authenticating != null)
-                Authenticating(this, new AuthenticateEventArgs(email, state));
+                Authenticating(this, new AuthenticateEventArgs(email, realm, state));
         }
     }
 }

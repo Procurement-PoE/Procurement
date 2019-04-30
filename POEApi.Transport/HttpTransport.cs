@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -25,10 +26,10 @@ namespace POEApi.Transport
         private string _proxyDomain;
 
         private const string LoginURL = @"https://www.pathofexile.com/login";
-        private const string AccountNameURL = @"https://www.pathofexile.com/character-window/get-account-name";
-        private const string CharacterURL = @"https://www.pathofexile.com/character-window/get-characters";
-        private const string StashURL = @"https://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}&accountName={2}";
-        private const string InventoryURL = @"http://www.pathofexile.com/character-window/get-items?character={0}&accountName={1}";
+        private const string AccountNameURL = @"https://www.pathofexile.com/character-window/get-account-name?realm={0}";
+        private const string CharacterURL = @"https://www.pathofexile.com/character-window/get-characters?&realm={0}";
+        private const string StashURL = @"https://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}&accountName={2}&realm={3}";
+        private const string InventoryURL = @"http://www.pathofexile.com/character-window/get-items?character={0}&accountName={1}&realm={2}";
         private const string HashRegEx = "name=\\\"hash\\\" value=\\\"(?<hash>[a-zA-Z0-9-]{1,})\\\"";
         private const string TitleRegex = @"\<title\b[^>]*\>\s*(?<Title>[\s\S]*?)\</title\>";
 
@@ -212,26 +213,20 @@ namespace POEApi.Transport
             }
         }
 
-        // TODO(20180928): Remove the refresh parameter?
-        public Stream GetStash(int index, string league, string accountName, bool refresh)
+        public Stream GetStash(int index, string league, string accountName, string realm )
         {
-            var url = string.Format(StashURL, league, index, accountName);
+            var url = string.Format(StashURL, league, index, accountName, realm);
             return PerformHttpRequest(HttpMethod.GET, url);
         }
 
-        public Stream GetStash(int index, string league, string accountName)
+        public Stream GetCharacters(string realm )
         {
-            return GetStash(index, league, accountName, false);
+            return PerformHttpRequest(HttpMethod.GET, string.Format(CharacterURL, realm));
         }
 
-        public Stream GetCharacters()
+        public Stream GetAccountName(string realm )
         {
-            return PerformHttpRequest(HttpMethod.GET, CharacterURL);
-        }
-
-        public Stream GetAccountName()
-        {
-            return PerformHttpRequest(HttpMethod.GET, AccountNameURL);
+            return PerformHttpRequest(HttpMethod.GET, string.Format(AccountNameURL, realm));
         }
 
         // TODO(20180928): Throttle performing these requests?
@@ -242,9 +237,9 @@ namespace POEApi.Transport
             return new MemoryStream(client.DownloadData(url));
         }
 
-        public Stream GetInventory(string characterName, bool forceRefresh, string accountName)
+        public Stream GetInventory(string characterName, bool forceRefresh, string accountName, string realm )
         {
-            var url = string.Format(InventoryURL, characterName, accountName);
+            var url = string.Format(InventoryURL, characterName, accountName, realm);
             return PerformHttpRequest(HttpMethod.GET, url);
         }
 
@@ -342,5 +337,14 @@ namespace POEApi.Transport
                 return reader.ReadToEnd();
             }
         }
+    }
+
+    public class Realm
+    {
+        public const string PC = "pc";
+        public const string XBOX = "xbox";
+        public const string SONY = "sony";
+
+        public static IEnumerable<string> AvailableRealms = new List<string>() {PC, XBOX, SONY};
     }
 }

@@ -54,7 +54,7 @@ namespace Procurement
                     return;
 
                 currentLeague = value;
-                Characters = Model.GetCharacters().Where(c => c.League == value).ToList();
+                Characters = Model.GetCharacters(CurrentRealm).Where(c => c.League == value).ToList();
                 CurrentCharacter = Characters.FirstOrDefault();
                 if (LeagueChanged != null)
                     LeagueChanged(Model, new PropertyChangedEventArgs("CurrentLeague"));
@@ -70,6 +70,8 @@ namespace Procurement
                 allCharactersByLeague = value;
             }
         }
+
+        public static string CurrentRealm { get; set; }
 
         public static void SetDefaults()
         {
