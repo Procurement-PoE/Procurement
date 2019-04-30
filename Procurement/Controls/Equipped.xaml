@@ -10,8 +10,6 @@
             <Grid.Background>
                 <ImageBrush ImageSource="/Images/equiped.jpg" />
             </Grid.Background>
-            <Button></Button>
-            <Canvas x:Name="davinci" Grid.Column="1">
-            </Canvas>
+            <Canvas x:Name="davinci" Grid.Column="1" />
         </Grid>
 </UserControl>
