@@ -18,13 +18,12 @@ namespace Procurement.ViewModel.Filters
         }
 
         public string Keyword { get { return rarity.ToString() + " rarity"; } }
-        public string Help { get { return "Returns All " + rarity.ToString() + " rarity items"; } }
+        public string Help { get { return "Returns All " + rarity + " rarity items"; } }
 
         public bool Applicable(Item item)
         {
-            Gear gear = item as Gear;
-            if (gear != null)
-                return gear.Rarity == rarity;
+            if (item != null)
+                return item.Rarity == rarity;
 
             return false;
         }

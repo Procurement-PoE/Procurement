@@ -8,7 +8,6 @@ namespace POEApi.Model
 {
     public class Gear : Item
     {
-        public Rarity Rarity { get; private set; }
         public List<Socket> Sockets { get; set; }
         public List<SocketableItem> SocketedItems { get; set; }
         public List<string> Implicitmods { get; set; }
@@ -20,7 +19,6 @@ namespace POEApi.Model
 
         public Gear(JSONProxy.Item item) : base(item)
         {
-            Rarity = getRarity(item);
             Sockets = GetSockets(item);
             Explicitmods = item.ExplicitMods;
             SocketedItems = GetSocketedItems(item);

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -112,5 +112,45 @@ namespace POEApi.Model.Tests
                 Assert.IsTrue(filter.Applicable(scarab.First()));
             }
         }
+
+        [TestMethod]
+        public void AreRareMapsApplicable()
+        {
+            string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithMaps);
+            filter = new MapFilter();
+            var rareFilter = new RarityFilter(Rarity.Rare);
+
+            var filters = new[] {filter, rareFilter};
+            
+
+            using (var stream = GenerateStreamFromString(fakeStashInfo))
+            {
+                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+
+                var stash = _model.GetStash(0, "", "");
+
+                Assert.IsNotNull(stash);
+
+                var maps = stash.GetItemsByTab(4).Where(x => x is Map);
+
+                Assert.AreEqual(88, maps.Count());
+
+                Assert.IsTrue(maps.All(filter.Applicable));
+
+                var rareMaps = new List<Item>();
+
+                foreach (var map in maps)
+                {
+                    if(filters.All(x => x.Applicable(map)))
+                    {
+                        rareMaps.Add(map);
+                    }
+                }
+                
+                Assert.IsTrue(rareMaps.Count > 0);
+                Assert.IsTrue(maps.Count() > rareMaps.Count);
+            }
+        }
+
     }
 }
