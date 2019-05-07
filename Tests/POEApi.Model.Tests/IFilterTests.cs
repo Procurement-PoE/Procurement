@@ -125,9 +125,9 @@ namespace POEApi.Model.Tests
 
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, "", "", false)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, "", "", "")).Returns(stream);
 
-                var stash = _model.GetStash(0, "", "");
+                var stash = _model.GetStash(0, "", "", "");
 
                 Assert.IsNotNull(stash);
 
