@@ -617,6 +617,10 @@
       <Project>{9841DD07-224D-4534-B9D1-F934C1D7BC73}</Project>
       <Name>POEApi.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\POEApi.Transport\POEApi.Transport.csproj">
+      <Project>{5933C062-45EA-4BC3-9AE9-0D6CFC26D505}</Project>
+      <Name>POEApi.Transport</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

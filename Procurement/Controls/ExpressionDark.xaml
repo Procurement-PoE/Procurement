@@ -1314,6 +1314,15 @@
         <Setter Property="Template" Value="{DynamicResource ComboBoxTemplate}" />
     </Style>
 
+    <Style TargetType="{x:Type ToolTip}">
+        <Setter Property = "HorizontalOffset" Value="0"/>
+        <Setter Property = "VerticalOffset" Value="5"/>
+        <Setter Property = "Background" Value="{DynamicResource BlackColor}"/>
+        <Setter Property = "Foreground" Value="{DynamicResource TextBrush}"/>
+        <Setter Property = "FontSize" Value="14"/>
+        <Setter Property = "FontWeight" Value="Normal"/>
+    </Style>
+
     <ControlTemplate x:Key="ComboBoxTemplate" TargetType="{x:Type ComboBox}">
         <Grid x:Name="grid">
             <ToggleButton Grid.Column="2" Template="{DynamicResource ComboBoxToggleButton}" x:Name="ToggleButton" Focusable="false" IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press" />

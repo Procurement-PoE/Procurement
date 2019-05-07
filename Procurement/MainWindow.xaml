@@ -9,6 +9,7 @@
         d:DataContext="{d:DesignInstance viewModel:ScreenController }">
     <Window.Resources>
         <v:VisibilityConverter x:Key="vc" />
+        <Style TargetType="Button" BasedOn="{StaticResource ImageButton}" />
     </Window.Resources>
     <Grid Height="1000" Width="1100">
         <Grid.RowDefinitions>

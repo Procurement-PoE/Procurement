@@ -13,6 +13,7 @@ using POEApi.Model.Events;
 using Procurement.View;
 using Procurement.Utility;
 using System.Windows;
+using POEApi.Transport;
 
 namespace Procurement.ViewModel
 {
@@ -43,6 +44,8 @@ namespace Procurement.ViewModel
         }
 
         private bool _forceRefresh;
+        private string selectedRealm;
+
         public bool ForceRefresh
         {
             get { return _forceRefresh; }
@@ -93,6 +96,9 @@ namespace Procurement.ViewModel
             _statusController.DisplayMessage(ApplicationState.Version + " Initialized.\r");
 
             VersionChecker.CheckForUpdates();
+
+            //Todo: Feed this in from a setting so that console players will have their preference remembered
+            SelectedRealm = AvailableRealms.First();
         }
 
         void TxtPassword_PasswordChanged(object sender, System.Windows.RoutedEventArgs e)
@@ -136,7 +142,8 @@ namespace Procurement.ViewModel
                 // behavior the user expects.
                 SecureString password = _passwordChanged ? this._view.txtPassword.SecurePassword :
                     Settings.UserSettings["AccountPassword"].Decrypt();
-                ApplicationState.Model.Authenticate(Email, password, offline);
+                ApplicationState.CurrentRealm = SelectedRealm;
+                ApplicationState.Model.Authenticate(Email, password, offline, ApplicationState.CurrentRealm);
 
                 if (_formChanged)
                     SaveSettings(password);
@@ -144,7 +151,7 @@ namespace Procurement.ViewModel
                 if (!offline)
                 {
                     _statusController.DisplayMessage("Fetching account name...");
-                    ApplicationState.AccountName = ApplicationState.Model.GetAccountName();
+                    ApplicationState.AccountName = ApplicationState.Model.GetAccountName(ApplicationState.CurrentRealm);
                     _statusController.Ok();
                     if (ForceRefresh)
                     {
@@ -160,7 +167,7 @@ namespace Procurement.ViewModel
                 List<Character> chars;
                 try
                 {
-                    chars = ApplicationState.Model.GetCharacters();
+                    chars = ApplicationState.Model.GetCharacters(ApplicationState.CurrentRealm);
                 }
                 catch (WebException wex)
                 {
@@ -277,8 +284,7 @@ namespace Procurement.ViewModel
                 return Enumerable.Empty<Item>();
 
             ApplicationState.CurrentLeague = character.League;
-            ApplicationState.Stash[character.League] = ApplicationState.Model.GetStash(character.League,
-                ApplicationState.AccountName);
+            ApplicationState.Stash[character.League] = ApplicationState.Model.GetStash(character.League, ApplicationState.AccountName, ApplicationState.CurrentRealm);
             ApplicationState.Leagues.Add(character.League);
 
             return ApplicationState.Stash[character.League].Get<Item>();
@@ -294,7 +300,7 @@ namespace Procurement.ViewModel
             List<Item> inventory;
             try
             {
-                inventory = ApplicationState.Model.GetInventory(character.Name, false, ApplicationState.AccountName);
+                inventory = ApplicationState.Model.GetInventory(character.Name, false, ApplicationState.AccountName, ApplicationState.CurrentRealm);
                 success = true;
             }
             catch (WebException)
@@ -350,6 +356,14 @@ namespace Procurement.ViewModel
             }
 
             _statusController.Ok();
+        }
+
+        public List<string> AvailableRealms => (List<string>) Realm.AvailableRealms;
+
+        public string SelectedRealm
+        {
+            get { return selectedRealm; }
+            set { selectedRealm = value; OnPropertyChanged();}
         }
 
         public void NavigateHowToSessionIDwiki()

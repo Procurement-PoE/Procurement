@@ -3,10 +3,13 @@
     public class AuthenticateEventArgs : POEEventArgs
     {
         public string Email { get; private set; }
-        public AuthenticateEventArgs(string email, POEEventState state) :
+        public string Realm { get; private set; }
+
+        public AuthenticateEventArgs(string email, string realm,POEEventState state) :
             base(state)
         {
             Email = email;
+            Realm = realm;
         }
     }
 }

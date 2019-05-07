@@ -45,7 +45,7 @@ namespace Procurement.Controls
         public virtual void RefreshTab(string accountName)
         {
             var stash = ApplicationState.Stash[ApplicationState.CurrentLeague];
-            stash.RefreshTab(ApplicationState.Model, ApplicationState.CurrentLeague, TabNumber, accountName);
+            stash.RefreshTab(ApplicationState.Model, ApplicationState.CurrentLeague, TabNumber, accountName, ApplicationState.CurrentRealm);
         }
 
         public int TabNumber { get; set; }

@@ -37,6 +37,16 @@
                 <Setter Property="WidthScale" Value="30.4261" />
             </Style>
 
+            <Style TargetType="{x:Type Button}" x:Key="ImageButton">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <ContentPresenter />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

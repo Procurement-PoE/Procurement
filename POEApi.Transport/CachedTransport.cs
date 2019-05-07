@@ -37,12 +37,12 @@ namespace POEApi.Transport
             return _innerTranport.Authenticate(email, password);
         }
 
-        public Stream GetAccountName()
+        public Stream GetAccountName(string realm)
         {
-            return _innerTranport.GetAccountName();
+            return _innerTranport.GetAccountName(realm);
         }
 
-        public Stream GetStash(int index, string league, string accountName, bool refresh)
+        public Stream GetStash(int index, string league, string accountName, bool refresh, string realm)
         {
             string key = string.Format("{0}-{1}-{2}", league, _stashKey, index);
 
@@ -50,7 +50,7 @@ namespace POEApi.Transport
                 _userCacheService.Remove(key);
 
             if (!Offline && !_userCacheService.Exists(key))
-                _userCacheService.Set(key, _innerTranport.GetStash(index, league, accountName));
+                _userCacheService.Set(key, _innerTranport.GetStash(index, league, accountName, realm));
 
             if(_userCacheService.Exists(key))
                 return _userCacheService.Get(key);
@@ -58,9 +58,9 @@ namespace POEApi.Transport
             return Stream.Null;
         }
 
-        public Stream GetStash(int index, string league, string accountName)
+        public Stream GetStash(int index, string league, string accountName, string realm)
         {
-            return GetStash(index, league, accountName, false);
+            return GetStash(index, league, accountName, false, realm);
         }
 
         public Stream GetImage(string url)
@@ -84,12 +84,12 @@ namespace POEApi.Transport
             return ms;
         }
 
-        public Stream GetCharacters()
+        public Stream GetCharacters(string realm)
         {
             string key = "characterdata";
 
             if (!Offline && !_userCacheService.Exists(key))
-                _userCacheService.Set(key, _innerTranport.GetCharacters());
+                _userCacheService.Set(key, _innerTranport.GetCharacters(realm));
 
             if(_userCacheService.Exists(key))
                 return _userCacheService.Get(key);
@@ -97,13 +97,13 @@ namespace POEApi.Transport
             return Stream.Null;
         }
 
-        public Stream GetInventory(string characterName, bool forceRefresh, string accountName)
+        public Stream GetInventory(string characterName, bool forceRefresh, string accountName, string realm)
         {
             if (forceRefresh && _userCacheService.Exists(characterName))
                 _userCacheService.Remove(characterName);
 
             if (!Offline && !_userCacheService.Exists(characterName))
-                _userCacheService.Set(characterName, _innerTranport.GetInventory(characterName, forceRefresh, accountName));
+                _userCacheService.Set(characterName, _innerTranport.GetInventory(characterName, forceRefresh, accountName, realm));
 
             if(_userCacheService.Exists(characterName))
                 return _userCacheService.Get(characterName);

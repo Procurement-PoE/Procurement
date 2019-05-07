@@ -42,15 +42,16 @@ namespace Procurement.View
                 {
                     ApplicationState.Model.StashLoading += model_StashLoading;
                     ApplicationState.Model.Throttled += model_Throttled;
+                    var stash = ApplicationState.Stash[ApplicationState.CurrentLeague];
                     if (refreshAllTabs)
                     {
-                        ApplicationState.Stash[ApplicationState.CurrentLeague].RefreshAll(ApplicationState.Model,
-                            ApplicationState.CurrentLeague, ApplicationState.AccountName);
+                        stash.RefreshAll(ApplicationState.Model, ApplicationState.CurrentLeague,
+                            ApplicationState.AccountName, ApplicationState.CurrentRealm);
                     }
                     else
                     {
-                        ApplicationState.Stash[ApplicationState.CurrentLeague].RefreshUsedTabs(ApplicationState.Model,
-                            ApplicationState.CurrentLeague, ApplicationState.AccountName);
+                        stash.RefreshUsedTabs(ApplicationState.Model, ApplicationState.CurrentLeague,
+                            ApplicationState.AccountName, ApplicationState.CurrentRealm);
                     }
                     ApplicationState.Model.StashLoading -= model_StashLoading;
                     ApplicationState.Model.Throttled -= model_Throttled;
