@@ -103,6 +103,9 @@ namespace POEApi.Model
             if (item.TypeLine.Contains("Fossil"))
                 return new Fossil(item);
 
+            if (item.TypeLine.Contains("Resonator"))
+                return new Resonator(item);
+
             return new Currency(item);
         }
 
