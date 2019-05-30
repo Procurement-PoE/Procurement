@@ -12,6 +12,7 @@ namespace POEApi.Model
         Quad,
         Map,
         Fragment,
+        Unique,
 
         Unknown
     }

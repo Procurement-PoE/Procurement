@@ -219,6 +219,7 @@ namespace POEApi.Model
             {"QuadStash", TabType.Quad},
             {"MapStash", TabType.Map },
             {"FragmentStash", TabType.Fragment },
+            {"UniqueStash", TabType.Unique },
         };
 
         public static TabType GetTabType(string type)
