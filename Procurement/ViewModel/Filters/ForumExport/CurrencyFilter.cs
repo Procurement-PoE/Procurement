@@ -17,7 +17,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public string Help
         {
-            get { return "All currency orbs"; }
+            get { return "All currency items"; }
         }
 
         public FilterGroup Group
@@ -27,12 +27,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public bool Applicable(Item item)
         {
-            var currency = item as Currency;
-
-            if (currency == null)
-                return false;
-
-            return true;
+            return item is Currency || item is BreachSplinter || item is LegionSplinter || item is LegionEmblem || item is Breachstone;
         }
     }
 }

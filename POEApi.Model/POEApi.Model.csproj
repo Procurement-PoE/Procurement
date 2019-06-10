@@ -63,6 +63,7 @@
     <Compile Include="Fossil.cs" />
     <Compile Include="FullBestiaryOrb.cs" />
     <Compile Include="GemHandler.cs" />
+    <Compile Include="Interfaces\ILegion.cs" />
     <Compile Include="Incubator.cs" />
     <Compile Include="Interfaces\IBreachCurrency.cs" />
     <Compile Include="ItemBackgroundUrlBuilder.cs" />
@@ -86,6 +87,9 @@
     <Compile Include="JSONProxy\Account.cs" />
     <Compile Include="JSONProxy\Stash.cs" />
     <Compile Include="Leaguestone.cs" />
+    <Compile Include="LegionEmblem.cs" />
+    <Compile Include="LegionSplinter.cs" />
+    <Compile Include="LegionType.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Net.cs" />
     <Compile Include="Offering.cs" />
