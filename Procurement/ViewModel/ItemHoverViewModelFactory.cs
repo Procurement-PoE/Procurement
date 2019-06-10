@@ -73,7 +73,7 @@ namespace Procurement.ViewModel
             if (item is Prophecy)
                 return new ProphecyItemHoverViewModel(item);
             
-            if (item is Currency || item is Sextant || item is Essence || item is Fossil || item is Resonator || item is Scarab || item is BreachSplinter)
+            if (item is Currency || item is Sextant || item is Essence || item is Fossil || item is Resonator || item is Scarab || item is BreachSplinter || item is Incubator)
                 return new CurrencyItemHoverViewModel(item);
 
             return new ItemHoverViewModel(item);
