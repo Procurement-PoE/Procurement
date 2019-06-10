@@ -17,7 +17,9 @@ namespace Procurement.View
         {
             TabInfo item = value as TabInfo;
             Grid g = new Grid();
-            g.Children.Add(new StashTabControl(item.ID));
+            Tab tab = ApplicationState.Stash[ApplicationState.CurrentLeague].Tabs.Find(t => t.i == item.ID);
+            var tabControl = TabFactory.GenerateTab(tab, new List<IFilter>());
+            g.Children.Add(tabControl);
             return g;
         }
 
