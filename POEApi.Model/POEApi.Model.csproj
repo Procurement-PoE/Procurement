@@ -63,6 +63,7 @@
     <Compile Include="Fossil.cs" />
     <Compile Include="FullBestiaryOrb.cs" />
     <Compile Include="GemHandler.cs" />
+    <Compile Include="Incubator.cs" />
     <Compile Include="Interfaces\IBreachCurrency.cs" />
     <Compile Include="ItemBackgroundUrlBuilder.cs" />
     <Compile Include="ItemTradeInfo.cs" />

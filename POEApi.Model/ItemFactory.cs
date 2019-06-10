@@ -51,6 +51,9 @@ namespace POEApi.Model
 
                     if (item.TypeLine.Contains("Scarab")) //TODO: Refactor to use category property: "category": { "maps": ["fragment", "scarab"] }
                         return new Scarab(item);
+
+                    if (item.TypeLine.Contains("Incubator")) //TODO: Refactor to use category property: "category": { "currency": ["incubator"] }
+                        return new Incubator(item);
                 }
 
                 return new Gear(item);
