@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using POEApi.Model.JSONProxy;
 
 namespace POEApi.Model
 {
@@ -56,6 +57,8 @@ namespace POEApi.Model
         public List<string> VeiledMods { get; set; }
         public List<string> FracturedMods { get; set; }
 
+        public IncubatedDetails IncubatedDetails { get; set; }
+
         public int TradeX { get; set; }
         public int TradeY { get; set; }
         public string TradeInventoryId { get; set; }
@@ -106,6 +109,7 @@ namespace POEApi.Model
             Fractured = item.Fractured;
             StackSize = item.StackSize;
             MaxStackSize = item.MaxStackSize;
+            IncubatedDetails = item.IncubatedItem;
 
             if (item.Properties != null)
             {

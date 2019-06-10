@@ -64,6 +64,20 @@ namespace Procurement.ViewModel
         public int ExperienceNumerator { get; }
         public int ExperienceDenominator { get; }
 
+        public int IncubatorNumerator { get; }
+        public int IncubatorDenominator { get; }
+        public double IncubatorProgress { get; }
+        public string Incubating { get; set; }
+        public string IncubationLevel { get; set; }
+
+        public bool IsIncubatorProgressVisible
+        {
+            get
+            {
+                return Item.IncubatedDetails != null;
+            }
+        }
+
         public ItemHoverViewModel(Item item)
         {
             this.Item = item;
@@ -102,6 +116,18 @@ namespace Procurement.ViewModel
                 LevelExperienceProgress = gem.LevelExperienceProgress;
                 ExperienceNumerator = gem.ExperienceNumerator;
                 ExperienceDenominator = gem.ExperienceDenominator;
+            }
+
+            if (IsIncubatorProgressVisible)
+            {
+                IncubatorNumerator = item.IncubatedDetails.Progress;
+                IncubatorDenominator = item.IncubatedDetails.Total;
+                Incubating = $"Incubating {item.IncubatedDetails.Name}";
+                IncubationLevel =  $"Level {item.IncubatedDetails.Level}+ Monster Kills";
+                if (Item.IncubatedDetails.Total > 0 )
+                {
+                    IncubatorProgress = double.Parse(item.IncubatedDetails.Progress.ToString()) / double.Parse(item.IncubatedDetails.Total.ToString());
+                }
             }
 
             // If an item has crafted mods but no true explicit mods:
