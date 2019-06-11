@@ -6,9 +6,9 @@ namespace POEApi.Model
     {
         public LegionSplinter(JSONProxy.Item item) : base(item)
         {
-            Type = ProxyMapper.GetLegionType(item);
+            Faction = ProxyMapper.GetLegionFaction(item);
         }
 
-        public LegionType Type { get; set; }
+        public LegionFaction Faction { get; set; }
     }
 }

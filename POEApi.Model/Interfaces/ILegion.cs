@@ -2,6 +2,6 @@
 {
     public interface ILegion
     {
-        LegionType Type { get; set; }
+        LegionFaction Faction { get; set; }
     }
 }

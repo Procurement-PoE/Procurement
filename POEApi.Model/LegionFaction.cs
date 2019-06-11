@@ -1,13 +1,13 @@
 ﻿namespace POEApi.Model
 {
-    public enum LegionType
+    public enum LegionFaction
     {
+        Unknown,
+
         EternalEmpire,
         Karui,
         Maraketh,
         Templar,
-        Vaal, 
-
-        Unknown
+        Vaal
     }
 }

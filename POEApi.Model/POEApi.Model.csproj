@@ -89,7 +89,7 @@
     <Compile Include="Leaguestone.cs" />
     <Compile Include="LegionEmblem.cs" />
     <Compile Include="LegionSplinter.cs" />
-    <Compile Include="LegionType.cs" />
+    <Compile Include="LegionFaction.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Net.cs" />
     <Compile Include="Offering.cs" />
