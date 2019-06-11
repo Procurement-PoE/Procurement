@@ -111,7 +111,7 @@
     </Compile>
     <Compile Include="ViewModel\Filters\ForumExport\FossilFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\FracturedItemFilter.cs" />
-    <Compile Include="ViewModel\Filters\ForumExport\LegionFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\IncubatorFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ResonatorFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SynthesisedItemFilter.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\SimpleVisitor.cs" />
