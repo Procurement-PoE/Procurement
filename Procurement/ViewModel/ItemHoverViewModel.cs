@@ -124,7 +124,7 @@ namespace Procurement.ViewModel
                 IncubatorDenominator = item.IncubatedDetails.Total;
                 Incubating = $"Incubating {item.IncubatedDetails.Name}";
                 IncubationLevel =  $"Level {item.IncubatedDetails.Level}+ Monster Kills";
-                if (Item.IncubatedDetails.Total > 0 )
+                if (Item.IncubatedDetails.Total > 0)
                 {
                     IncubatorProgress = double.Parse(item.IncubatedDetails.Progress.ToString()) / double.Parse(item.IncubatedDetails.Total.ToString());
                 }
