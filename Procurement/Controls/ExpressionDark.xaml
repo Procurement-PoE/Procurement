@@ -24,6 +24,8 @@
     <Color x:Key="BottomGradientSelectColor">#FF737373</Color>
 
     <Color x:Key="BlackColor">#FF000000</Color>
+    <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource BlackColor}" />
+
     <Color x:Key="WhiteColor">#FFFFFFFF</Color>
 
     <SolidColorBrush x:Key="TextBrush" Color="#FFFFFFFF" />
@@ -1317,7 +1319,7 @@
     <Style TargetType="{x:Type ToolTip}">
         <Setter Property = "HorizontalOffset" Value="0"/>
         <Setter Property = "VerticalOffset" Value="5"/>
-        <Setter Property = "Background" Value="{DynamicResource BlackColor}"/>
+        <Setter Property = "Background" Value="{StaticResource BlackBrush}"/>
         <Setter Property = "Foreground" Value="{DynamicResource TextBrush}"/>
         <Setter Property = "FontSize" Value="14"/>
         <Setter Property = "FontWeight" Value="Normal"/>
