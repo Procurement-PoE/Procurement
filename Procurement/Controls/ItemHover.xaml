@@ -9,6 +9,8 @@
              mc:Ignorable="d">
 
     <UserControl.Resources>
+        <SolidColorBrush x:Key="CraftedModBrush">#B4B4FF</SolidColorBrush>
+
         <v:VisibilityConverter x:Key="VisibilityConverter" />
         <v:ItemPropertyToFormattedRunConverter x:Key="pc" />
         <v:ItemRequirementToFormattedRunConverter x:Key="rc" />
@@ -188,7 +190,7 @@
                             <DataTemplate>
                                 <StackPanel>
                                     <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
-                                               Foreground="#b4b4ff"
+                                               Foreground="{StaticResource CraftedModBrush}"
                                                Text="{Binding}"
                                                TextAlignment="Center"
                                                TextWrapping="Wrap" />
@@ -295,7 +297,7 @@
                             <DataTemplate>
                                 <StackPanel>
                                     <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
-                                               Foreground="#b4b4ff"
+                                               Foreground="{StaticResource CraftedModBrush}"
                                                Text="{Binding}"
                                                TextAlignment="Center"
                                                TextWrapping="Wrap" />
@@ -318,7 +320,7 @@
                             <DataTemplate>
                                 <StackPanel>
                                     <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
-                                               Foreground="#b4b4ff"
+                                               Foreground="{StaticResource CraftedModBrush}"
                                                Text="{Binding}"
                                                TextAlignment="Center"
                                                TextWrapping="Wrap" />
@@ -496,7 +498,7 @@
                                                  Converter={StaticResource VisibilityConverter},
                                                  ConverterParameter=CollapseWhenFalse}">
                         <Label HorizontalAlignment="Center" FontFamily="../Resources/#Fontin SmallCaps" Content="{Binding Incubating, StringFormat=Incubating {}, FallbackValue='Incubating Some Item'}"
-                               Foreground="#FF8986CB" />
+                               Foreground="{StaticResource CraftedModBrush}" />
 
                         <ProgressBar Style="{StaticResource ExperienceBarStyle}" Margin="10,0"
                                      Value="{Binding IncubatorProgress, FallbackValue=0.5, Mode=OneTime}"  />
