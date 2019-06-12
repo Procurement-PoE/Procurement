@@ -87,10 +87,10 @@
     <List name="MyLeagues">
       <Item value="Standard" />
       <Item value="Hardcore" />
-      <Item value="Betrayal" />
-      <Item value="Hardcore Betrayal" />
-      <Item value="SSF Betrayal" />
-      <Item value="SSF Hardcore Betrayal" />
+      <Item value="Legion" />
+      <Item value="Hardcore Legion" />
+      <Item value="SSF Legion" />
+      <Item value="SSF Hardcore Legion" />
       <Item value="SSF Standard" />
       <Item value="SSF Hardcore" />
     </List>
