@@ -26,6 +26,14 @@ namespace POEApi.Model.JSONProxy
         public int DisplayMode { get; set; }
     }
 
+    public class IncubatedDetails
+    {
+        public string Name { get; set; }
+        public int Level { get; set; }
+        public int Progress { get; set; }
+        public int Total { get; set; }
+    }
+
     public class Item
     {
         public string Id { get; set; }
@@ -64,7 +72,7 @@ namespace POEApi.Model.JSONProxy
         public string Colour { get; set; }
         public bool Corrupted { get; set; }
         public bool AbyssJewel { get; set; }
-
+        public IncubatedDetails IncubatedItem { get; set; }
         public List<string> CosmeticMods { get; set; }
         public List<string> CraftedMods { get; set; }
         public List<string> EnchantMods { get; set; }

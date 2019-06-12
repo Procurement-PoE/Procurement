@@ -51,6 +51,9 @@ namespace POEApi.Model
 
                     if (item.TypeLine.Contains("Scarab")) //TODO: Refactor to use category property: "category": { "maps": ["fragment", "scarab"] }
                         return new Scarab(item);
+
+                    if (item.TypeLine.Contains("Incubator")) //TODO: Refactor to use category property: "category": { "currency": ["incubator"] }
+                        return new Incubator(item);
                 }
 
                 return new Gear(item);
@@ -90,6 +93,12 @@ namespace POEApi.Model
 
             if (typeline.Contains("splinter of"))
                 return new BreachSplinter(item);
+
+            if(typeline.Contains("splinter"))
+                return new LegionSplinter(item);
+
+            if(typeline.Contains("emblem"))
+                return new LegionEmblem(item);
 
             if (typeline.Contains("blessing"))
                 return new Breachstone(item);

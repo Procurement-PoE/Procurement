@@ -6,11 +6,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:v="clr-namespace:Procurement.View"
              xmlns:vm="clr-namespace:Procurement.ViewModel"
-             
-             d:DesignWidth="150"
              mc:Ignorable="d">
 
     <UserControl.Resources>
+        <SolidColorBrush x:Key="CraftedModBrush">#B4B4FF</SolidColorBrush>
+
         <v:VisibilityConverter x:Key="VisibilityConverter" />
         <v:ItemPropertyToFormattedRunConverter x:Key="pc" />
         <v:ItemRequirementToFormattedRunConverter x:Key="rc" />
@@ -190,7 +190,7 @@
                             <DataTemplate>
                                 <StackPanel>
                                     <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
-                                               Foreground="#b4b4ff"
+                                               Foreground="{StaticResource CraftedModBrush}"
                                                Text="{Binding}"
                                                TextAlignment="Center"
                                                TextWrapping="Wrap" />
@@ -297,7 +297,7 @@
                             <DataTemplate>
                                 <StackPanel>
                                     <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
-                                               Foreground="#b4b4ff"
+                                               Foreground="{StaticResource CraftedModBrush}"
                                                Text="{Binding}"
                                                TextAlignment="Center"
                                                TextWrapping="Wrap" />
@@ -320,7 +320,7 @@
                             <DataTemplate>
                                 <StackPanel>
                                     <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
-                                               Foreground="#b4b4ff"
+                                               Foreground="{StaticResource CraftedModBrush}"
                                                Text="{Binding}"
                                                TextAlignment="Center"
                                                TextWrapping="Wrap" />
@@ -466,6 +466,13 @@
                                                     Converter={StaticResource bc},
                                                     ConverterParameter=CollapseWhenFalse}" />
 
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderThickness="1"
+                            Visibility="{Binding IsCorrupted,
+                                                 Converter={StaticResource VisibilityConverter},
+                                                 ConverterParameter=CollapseWhenFalse}" />
+
                     <StackPanel Orientation="Vertical"
                                 Visibility="{Binding IsGemProgressVisible,
                                                  Converter={StaticResource VisibilityConverter},
@@ -486,12 +493,33 @@
                                 BorderThickness="1" />
                     </StackPanel>
 
-                    <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource SeperatorBrush}"
-                            BorderThickness="1"
-                            Visibility="{Binding IsCorrupted,
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
+                                Visibility="{Binding IsIncubatorProgressVisible,
                                                  Converter={StaticResource VisibilityConverter},
-                                                 ConverterParameter=CollapseWhenFalse}" />
+                                                 ConverterParameter=CollapseWhenFalse}">
+                        <Label HorizontalAlignment="Center" FontFamily="../Resources/#Fontin SmallCaps" Content="{Binding Incubating, StringFormat=Incubating {}, FallbackValue='Incubating Some Item'}"
+                               Foreground="{StaticResource CraftedModBrush}" />
+
+                        <ProgressBar Style="{StaticResource ExperienceBarStyle}" Margin="10,0"
+                                     Value="{Binding IncubatorProgress, FallbackValue=0.5, Mode=OneTime}"  />
+                        <DockPanel Margin="10 0 10 5" LastChildFill="True">
+
+                            <Label DockPanel.Dock="Left" FontFamily="../Resources/#Fontin SmallCaps"
+                                   Content="{Binding IncubatorNumerator, FallbackValue=1}" Foreground="White" />
+                            <Label DockPanel.Dock="Left" FontFamily="../Resources/#Fontin SmallCaps" Content="/"
+                                   Foreground="White" />
+                            <Label DockPanel.Dock="Left" FontFamily="../Resources/#Fontin SmallCaps"
+                                   Content="{Binding IncubatorDenominator, FallbackValue=2}" Foreground="White" />
+                            
+                            <Label DockPanel.Dock="Right" FontFamily="../Resources/#Fontin SmallCaps" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Content="{Binding IncubationLevel}" Foreground="Gray" />
+                            
+                        </DockPanel>
+
+                        <Border Margin="0 0 0 5"
+                                BorderBrush="{StaticResource SeperatorBrush}"
+                                BorderThickness="1" />
+                    </StackPanel>
 
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,

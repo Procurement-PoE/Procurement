@@ -214,4 +214,12 @@ namespace Procurement.ViewModel.ForumExportVisitors
         {
         }
     }
+
+    internal class IncubatorVisitor : SimpleVisitor
+    {
+        public IncubatorVisitor() : base("{Incubator}", new IncubatorFilter())
+        {
+            
+        }
+    }
 }
