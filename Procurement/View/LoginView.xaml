@@ -95,7 +95,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <CheckBox Margin="0,9,0,0" Height="15" x:Name="forceRefresh" Content="Refresh on Login"  VerticalAlignment="Top" IsChecked="{Binding ForceRefresh}"
+                        <CheckBox x:Name="forceRefresh" Content="Refresh on Login"  VerticalAlignment="Center" IsChecked="{Binding ForceRefresh}"
                               Foreground="{StaticResource TextForecolourBrush}" FontSize="12" FontWeight="Bold" HorizontalAlignment="Left"
                               Width="Auto">
                             <CheckBox.ToolTip>
