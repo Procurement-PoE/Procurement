@@ -74,8 +74,10 @@ namespace POEApi.Transport
 
                 ms = _commonCacheService.Get(key);
             }
-            catch (WebException)
+            catch (WebException ex)
             {
+                Logger.Log(string.Format("Failed to get image '{0}': {1}", url, ex.ToString()));
+
                 ms = new MemoryStream();
                 SystemIcons.Error.Save(ms);
                 ms.Seek(0, SeekOrigin.Begin);

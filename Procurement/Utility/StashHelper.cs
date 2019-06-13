@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using POEApi.Model;
+using POEApi.Infrastructure;
 
 namespace Procurement.Utility
 {
@@ -14,25 +15,24 @@ namespace Procurement.Utility
 
         internal static Image GenerateTabImage(Tab tab, bool mouseOver)
         {
-            List<System.Drawing.Bitmap> images = new List<System.Drawing.Bitmap>();
-            System.Drawing.Bitmap finalImage = null;
-
-            Image img = new Image();
             int offset = mouseOver ? 26 : 0;
-
             string key = tab.srcL + tab.srcC + tab.srcR + tab.Name + mouseOver.ToString();
 
             if (!imageCache.ContainsKey(key))
-                finalImage = buildImage(tab, images, finalImage, offset, key);
+                buildImage(tab, offset, key);
 
+            Image img = new Image();
             img.Source = imageCache[key];
             img.Tag = tab;
 
             return img;
         }
 
-        private static System.Drawing.Bitmap buildImage(Tab tab, List<System.Drawing.Bitmap> images, System.Drawing.Bitmap finalImage, int offset, string key)
+        private static void buildImage(Tab tab, int offset, string key)
         {
+            System.Drawing.Bitmap finalImage = null;
+            var images = new List<System.Drawing.Bitmap>();
+
             try
             {
                 System.Drawing.Font font = new System.Drawing.Font(ApplicationState.FontCollection.Families[0], 11);
@@ -104,17 +104,19 @@ namespace Procurement.Utility
             }
             catch (Exception ex)
             {
+                Logger.Log(string.Format("Error while building tab image for tab {0} with key {1}: {2}", tab.Name,
+                    key, ex.ToString()));
+
                 if (finalImage != null)
                     finalImage.Dispose();
 
-                throw ex;
+                throw;
             }
             finally
             {
                 foreach (System.Drawing.Bitmap image in images)
                     image.Dispose();
             }
-            return finalImage;
         }
     }
 }
