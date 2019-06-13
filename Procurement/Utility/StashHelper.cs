@@ -99,7 +99,23 @@ namespace Procurement.Utility
 
                     BitmapImage bitmapclone = (BitmapImage)bitmap.Clone();
                     bitmap = null;
-                    imageCache.Add(key, new CroppedBitmap(bitmapclone, new Int32Rect(0, offset, (int)bitmapclone.Width, 26)));
+
+                    Int32Rect croppingRectangle = new Int32Rect();
+                    if (offset + 26 > bitmapclone.Height)
+                    {
+                        // Something unexpected happened when fetching the tab images or piecing together the bitmap,
+                        // as the final image is not as tall as expected.  This can happen when we fail to retrieve all
+                        // of the parts of the tab image, since the replacement image is not tall enough.  In this
+                        // case, do not use a positive offset, and make sure we do not go beyond the final image's
+                        // height.
+                        int truncatedHeight = Math.Min(26, (int)bitmapclone.Height);
+                        croppingRectangle = new Int32Rect(0, 0, (int)bitmapclone.Width, truncatedHeight);
+                    }
+                    else
+                    {
+                        croppingRectangle = new Int32Rect(0, offset, (int)bitmapclone.Width, 26);
+                    }
+                    imageCache.Add(key, new CroppedBitmap(bitmapclone, croppingRectangle));
                 }
             }
             catch (Exception ex)
