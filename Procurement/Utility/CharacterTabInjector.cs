@@ -20,9 +20,10 @@ namespace Procurement.Utility
     
     public class CharacterTabInjector
     {
-        private const string tabImageCenter = @"http://webcdn.pathofexile.com/gen/image/YTozOntpOjA7aToyNDtp/OjE7czozMjoiMDJhMTk3/N2QxZDAzNDQzNmU3NzM5/ZjgzZDEzYjIwN2YiO2k6/MjthOjI6e2k6MDtpOjI7/aToxO2E6Mzp7czoxOiJ0/IjtpOjI7czoxOiJuIjtz/OjA6IiI7czoxOiJjIjtp/Oi0xMzQ4NzU2Njt9fX0,/a2619ce769/Stash_TabC.png";
-        private const string tabImageLeft = @"http://webcdn.pathofexile.com/gen/image/YTozOntpOjA7aToyNDtp/OjE7czozMjoiMDJhMTk3/N2QxZDAzNDQzNmU3NzM5/ZjgzZDEzYjIwN2YiO2k6/MjthOjI6e2k6MDtpOjI7/aToxO2E6Mzp7czoxOiJ0/IjtpOjE7czoxOiJuIjtz/OjA6IiI7czoxOiJjIjtp/Oi0xMzQ4NzU2Njt9fX0,/6628828a0d/Stash_TabL.png";
-        private const string tabImageRight = @"http://webcdn.pathofexile.com/gen/image/YTozOntpOjA7aToyNDtp/OjE7czozMjoiMDJhMTk3/N2QxZDAzNDQzNmU3NzM5/ZjgzZDEzYjIwN2YiO2k6/MjthOjI6e2k6MDtpOjI7/aToxO2E6Mzp7czoxOiJ0/IjtpOjM7czoxOiJuIjtz/OjA6IiI7czoxOiJjIjtp/Oi0xMzQ4NzU2Njt9fX0,/83ee9c99fb/Stash_TabR.png";
+        // TODO(20190613): Dynamically determine what URLs to use, based on data for other [real] tabs.
+        private const string tabImageCenter = @"https://web.poecdn.com/gen/image/WzIzLDEseyJ0IjoibSIsImMiOi0xMzQ4NzU2Nn1d/4470380632/Stash_TabL.png";
+        private const string tabImageLeft = @"https://web.poecdn.com/gen/image/WzIzLDEseyJ0IjoibCIsImMiOi0xMzQ4NzU2Nn1d/0ce8f75b7c/Stash_TabL.png";
+        private const string tabImageRight = @"https://web.poecdn.com/gen/image/WzIzLDEseyJ0IjoiciIsImMiOi0xMzQ4NzU2Nn1d/b85f086896/Stash_TabL.png";
 
         private List<CharacterInventory> characterInventories;
 
