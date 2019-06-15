@@ -1,0 +1,87 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+package POEApi.Model.Protobuf;
+
+message SemanticVersion {
+  int32 major = 1;
+  int32 minor = 2;
+  int32 revision = 3;
+}
+
+message MissingSameBaseTypesFilterRuleConfig {
+  bool disable_missing_normal_items = 1;
+  bool disable_missing_magic_items = 2;
+  bool disable_missing_rare_items = 3;
+  bool disable_missing_normal_quality_items = 4;
+  bool disable_missing_magic_quality_items = 5;
+  bool disable_missing_rare_quality_items = 6;
+}
+
+message ChancingBasesFilterRuleConfig {
+  enum ChancingBaseStyling {
+	PRIMARY = 0;
+	SECONDARY = 1;
+	UNSTYLED = 2;
+  }
+  ChancingBaseStyling current_character_styling = 5;
+  ChancingBaseStyling other_characters_styling = 6;
+}
+
+message FilterRuleConfig {
+  bool disabled = 1;
+  string name = 2;
+
+  string search_string = 3;
+
+  enum SearchStringRelation {
+	BEFORE = 0;
+	AFTER = 1;
+  }
+  SearchStringRelation search_string_relation = 4;
+
+  google.protobuf.Any additional_config = 5;
+}
+
+message FileConfig {
+  bool disabled = 1;
+  string input_location = 2;
+  string output_location = 3;
+
+  repeated FilterRuleConfig filter_rule_config = 4;
+}
+
+message ChancingBaseConfig {
+  bool disabled = 1;
+  string base_type_name = 2;
+  string unique_item_name = 3;
+
+  int32 quantity_held = 4;
+  int32 quantity_needed = 5;
+
+  string required_league = 6;
+}
+
+message BuildConfig {
+  bool disabled = 1;
+  string build_name = 2;
+  string character_name = 3;
+  repeated string stash_name = 4;
+
+  repeated ChancingBaseConfig chancing_base = 5;
+}
+
+message LeagueConfig {
+  bool disabled = 1;
+  string name = 2;
+
+  repeated BuildConfig build_config = 3;
+}
+
+message ItemFilterConfig {
+  SemanticVersion version = 1;
+
+  repeated FileConfig file_config = 2;
+  repeated LeagueConfig league_config = 3;
+}

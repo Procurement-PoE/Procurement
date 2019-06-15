@@ -170,6 +170,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Protobuf Include="ItemFilterConfig.proto" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
