@@ -171,6 +171,9 @@
   </ItemGroup>
   <ItemGroup>
     <Protobuf Include="ItemFilterConfig.proto" />
+    <None Include="ItemFilterConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
