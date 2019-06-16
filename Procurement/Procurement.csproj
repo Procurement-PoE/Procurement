@@ -109,6 +109,7 @@
     <Compile Include="Controls\FragmentStashTab.xaml.cs">
       <DependentUpon>FragmentStashTab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utility\ClientLogFileWatcher.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\FossilFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\FracturedItemFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\IncubatorFilter.cs" />
