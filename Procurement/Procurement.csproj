@@ -115,7 +115,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\ResonatorFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SynthesisedItemFilter.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\SimpleVisitor.cs" />
-    <Compile Include="ViewModel\LootFilterUpdater.cs" />
+    <Compile Include="ViewModel\ItemFilterUpdater.cs" />
     <Compile Include="ViewModel\Recipes\LoreweaveRecipe.cs" />
     <Compile Include="ViewModel\Recipes\VaalOrbRecipe.cs" />
     <Compile Include="ViewModel\TabViewModel\FragmentStashViewModel.cs" />

@@ -69,7 +69,7 @@ namespace Procurement.ViewModel
             if (Results.Count > 0)
                 SelectedItem = Results.Values.First().First().MatchedItems[0];
 
-            LootFilterUpdater.UpdateLootFilter();
+            ItemFilterUpdater.UpdateLootFilters();
         }
 
         void ApplicationState_LeagueChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Procurement.ViewModel
 {
-    class LootFilterUpdater
+    class ItemFilterUpdater
     {
         protected static Dictionary<Tab, List<Item>> GetUsableCurrentLeagueItemsByTab()
         {
@@ -38,7 +38,7 @@ namespace Procurement.ViewModel
                 .ToDictionary(g => g.Name, g => g.RecipeGroup.ToList());
         }
 
-        public static void UpdateLootFilter()
+        public static void UpdateLootFilters()
         {
             if (!bool.Parse(Settings.UserSettings["UpdateItemFilter"]))
                 return;
