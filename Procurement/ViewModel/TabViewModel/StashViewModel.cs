@@ -133,6 +133,27 @@ namespace Procurement.ViewModel
             ScreenController.Instance.InvalidateRecipeScreen();
         });
 
+        public static DateTime LastAutomaticRefresh { get; protected set; }
+        public void OnClientLogFileChanged(object sender, ClientLogFileEventArgs e)
+        {
+            lock (this)
+            {
+                if ((DateTime.Now - LastAutomaticRefresh).TotalSeconds <= 120)
+                    return;
+                LastAutomaticRefresh = DateTime.Now;
+
+                Application.Current.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal,
+                    new Action(() =>
+                    {
+                        if (ScreenController.Instance.ButtonsVisible)
+                        {
+                            ScreenController.Instance.LoadRefreshViewUsed();
+                            ScreenController.Instance.InvalidateRecipeScreen();
+                        }
+                    }));
+            }
+        }
+
         public StashViewModel(StashView stashView)
         {
             this.stashView = stashView;
@@ -153,6 +174,9 @@ namespace Procurement.ViewModel
                 currencyDistributionUsesCount = true;
             else
                 configuredOrbType = (OrbType)Enum.Parse(typeof(OrbType), currencyDistributionMetric);
+
+            ClientLogFileWatcher.ClientLogFileChanged -= OnClientLogFileChanged;
+            ClientLogFileWatcher.ClientLogFileChanged += OnClientLogFileChanged;
         }
 
         private void getAvailableItems()
