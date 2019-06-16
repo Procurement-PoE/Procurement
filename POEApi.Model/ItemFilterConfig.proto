@@ -31,17 +31,24 @@ message ChancingBasesFilterRuleConfig {
 
 message FilterRuleConfig {
   bool disabled = 1;
-  string name = 2;
 
-  string search_string = 3;
+  enum FilterRuleType {
+    UNKNOWN = 0;
+    MISSING_SAME_BASE_TYPE = 1;
+    CHANCING_BASES = 2;
+  }
+  FilterRuleType rule_type = 2;
+  string name = 3;
+
+  string search_string = 4;
 
   enum SearchStringRelation {
 	BEFORE = 0;
 	AFTER = 1;
   }
-  SearchStringRelation search_string_relation = 4;
+  SearchStringRelation search_string_relation = 5;
 
-  google.protobuf.Any additional_config = 5;
+  google.protobuf.Any additional_config = 6;
 }
 
 message FileConfig {
