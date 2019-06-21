@@ -304,7 +304,7 @@ namespace POEApi.Model
 
             foreach (var item in elderShaperItems)
             {
-                var prefix = item.Shaper ? "Shaper" : "Edlder";
+                var prefix = item.Shaper ? "Shaper" : "Elder";
 
                 onImageLoaded(POEEventState.BeforeEvent, $"{prefix} {item.Name}");
                 Transport.GetImage(item.BackgroundUrl);
