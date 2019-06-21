@@ -149,7 +149,7 @@ namespace POEApi.Model
             if (Uri.TryCreate(url, UriKind.Absolute, out uri))
                 return url;
 
-            return "http://webcdn.pathofexile.com" + url;
+            return "https://webcdn.pathofexile.com" + url;
         }
 
         private Rarity GetRarity(JSONProxy.Item item)
