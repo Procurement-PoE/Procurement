@@ -136,6 +136,11 @@ namespace Procurement.ViewModel
         public static DateTime LastAutomaticRefresh { get; protected set; }
         public void OnClientLogFileChanged(object sender, ClientLogFileEventArgs e)
         {
+            // All actions currently taken when the log file changes relate to refreshing staash tabs.  This checks
+            // first that we are logged in, and quits early if we are not.
+            if (!LoggedIn)
+                return;
+
             lock (this)
             {
                 if ((DateTime.Now - LastAutomaticRefresh).TotalSeconds <= 120)
