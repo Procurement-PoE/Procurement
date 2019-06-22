@@ -126,13 +126,11 @@ namespace Procurement.ViewModel
         public ICommand RefreshCommand => new RelayCommand(x =>
         {
             ScreenController.Instance.LoadRefreshView();
-            ScreenController.Instance.InvalidateRecipeScreen();
         });
 
         public ICommand RefreshUsedCommand => new RelayCommand(x =>
         {
             ScreenController.Instance.LoadRefreshViewUsed();
-            ScreenController.Instance.InvalidateRecipeScreen();
         });
 
         public static DateTime LastAutomaticRefresh { get; protected set; }
@@ -155,7 +153,6 @@ namespace Procurement.ViewModel
                         if (ScreenController.Instance.ButtonsVisible)
                         {
                             ScreenController.Instance.LoadRefreshViewUsed();
-                            ScreenController.Instance.InvalidateRecipeScreen();
                         }
                     }));
             }
