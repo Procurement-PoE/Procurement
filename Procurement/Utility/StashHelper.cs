@@ -12,10 +12,15 @@ namespace Procurement.Utility
     internal class StashHelper
     {
         private static Dictionary<string, CroppedBitmap> imageCache = new Dictionary<string, CroppedBitmap>();
+        private const int _tabImageDefaultVisibleHeight = 26;
 
         internal static Image GenerateTabImage(Tab tab, bool mouseOver)
         {
-            int offset = mouseOver ? 26 : 0;
+            // The images for the pieces of the tabs fetched from the API have the normal and selected (here, referred
+            // to as being moused-over) versions stacked vertically.  If we are building the image of the selected tab,
+            // we want to use the lower half of the image, so use an offset based on the height that is visible.
+            int offset = mouseOver ? _tabImageDefaultVisibleHeight : 0;
+
             string key = tab.srcL + tab.srcC + tab.srcR + tab.Name + mouseOver.ToString();
 
             if (!imageCache.ContainsKey(key))
@@ -101,19 +106,20 @@ namespace Procurement.Utility
                     bitmap = null;
 
                     Int32Rect croppingRectangle = new Int32Rect();
-                    if (offset + 26 > bitmapclone.Height)
+                    if (offset + _tabImageDefaultVisibleHeight > bitmapclone.Height)
                     {
                         // Something unexpected happened when fetching the tab images or piecing together the bitmap,
                         // as the final image is not as tall as expected.  This can happen when we fail to retrieve all
                         // of the parts of the tab image, since the replacement image is not tall enough.  In this
                         // case, do not use a positive offset, and make sure we do not go beyond the final image's
                         // height.
-                        int truncatedHeight = Math.Min(26, (int)bitmapclone.Height);
+                        int truncatedHeight = Math.Min(_tabImageDefaultVisibleHeight, (int)bitmapclone.Height);
                         croppingRectangle = new Int32Rect(0, 0, (int)bitmapclone.Width, truncatedHeight);
                     }
                     else
                     {
-                        croppingRectangle = new Int32Rect(0, offset, (int)bitmapclone.Width, 26);
+                        croppingRectangle = new Int32Rect(0, offset, (int)bitmapclone.Width,
+                            _tabImageDefaultVisibleHeight);
                     }
                     imageCache.Add(key, new CroppedBitmap(bitmapclone, croppingRectangle));
                 }
