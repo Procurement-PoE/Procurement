@@ -34,6 +34,7 @@ namespace Procurement.ViewModel
         private const string INVENTORY_VIEW = "Inventory";
         private const string SETTINGS_VIEW = "Settings";
         private const string ABOUT_VIEW = "About";
+        private const string REFRESH_VIEW = "Refresh";
 
         public static ScreenController Instance = null;
         private UserControl _selectedView;
@@ -150,14 +151,14 @@ namespace Procurement.ViewModel
         public void LoadRefreshView()
         {
             ButtonsVisible = false;
-            SelectedView = new RefreshView();
+            SelectedView = screens[REFRESH_VIEW] as RefreshView;
             (SelectedView as RefreshView).RefreshAllTabs();
         }
 
         public void LoadRefreshViewUsed()
         {
             ButtonsVisible = false;
-            SelectedView = new RefreshView();
+            SelectedView = screens[REFRESH_VIEW] as RefreshView;
             (SelectedView as RefreshView).RefreshUsedTabs();
         }
 

@@ -10,13 +10,18 @@ using System.Windows.Controls;
 
 namespace Procurement.View
 {
-    public partial class RefreshView : UserControl
+    public partial class RefreshView : UserControl, IView
     {
         private StatusController statusController;
 
         public RefreshView()
         {
             InitializeComponent();
+        }
+
+        public new Grid Content
+        {
+            get { return this.ViewContent; }
         }
 
         public void RefreshAllTabs()
@@ -67,6 +72,7 @@ namespace Procurement.View
                     ScreenController.Instance.ReloadStash();
                     ScreenController.Instance.RefreshRecipeScreen();
                     ScreenController.Instance.UpdateTrading();
+                    statusController.Clear();
                 }
             });
         }

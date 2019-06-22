@@ -32,6 +32,16 @@ namespace Procurement.ViewModel
             CheckAccessAndInvoke(() => displayResult("ER", Brushes.Red));
         }
 
+        public void Clear()
+        {
+            CheckAccessAndInvoke(() => ClearInternal());
+        }
+
+        private void ClearInternal()
+        {
+            (statusBox.Document.Blocks.LastBlock as Paragraph).Inlines.Clear();
+        }
+
         public void DisplayMessage(string message)
         {
             CheckAccessAndInvoke((Action)delegate()
