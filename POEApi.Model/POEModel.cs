@@ -131,16 +131,10 @@ namespace POEApi.Model
             if (Settings.UserSettings.Keys.Contains("ApiRequestLimit") &&
                 int.TryParse(Settings.UserSettings["ApiRequestLimit"], out customRequestLimit))
             {
-                if (HttpTransport.AdjustThrottleWindowLimit(customRequestLimit))
-                {
-                    Logger.Log(string.Format("Successfully set throttle window limit to custom size of '{0}'.",
-                        customRequestLimit));
-                }
-                else
-                {
-                    Logger.Log(string.Format("Failed to set throttle window limit to custom size of '{0}'.",
-                        customRequestLimit));
-                }
+                string resultIndication = HttpTransport.AdjustThrottleWindowLimit(customRequestLimit)
+                    ? "Successfully" : "Failed to";
+                Logger.Log(string.Format("{0} set throttle window limit to custom size of '{1}'.",
+                    resultIndication, customRequestLimit));
             }
 
             if (Settings.ProxySettings["Enabled"] != bool.TrueString)

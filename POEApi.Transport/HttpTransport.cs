@@ -46,12 +46,8 @@ namespace POEApi.Transport
 
         public event ThottledEventHandler Throttled;
 
-        private static TaskThrottle _taskThrottle = InitializeTaskThrottle();
-
-        protected static TaskThrottle InitializeTaskThrottle()
-        {
-            return new TaskThrottle(TimeSpan.FromMinutes(1), _maximumWindowLimit, _maximumWindowLimit);
-        }
+        private static TaskThrottle _taskThrottle =
+            new TaskThrottle(TimeSpan.FromMinutes(1), _maximumWindowLimit, _maximumWindowLimit);
 
         public static bool AdjustThrottleWindowLimit(int newWindowLimit)
         {
