@@ -1,29 +1,12 @@
 ﻿using POEApi.Infrastructure;
 using POEApi.Model;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Procurement.Utility
 {
-    public class ClientLogFileEventArgs : EventArgs
-    {
-        public DateTime EventDateTime { get; private set; }
-        public long EventTimestamp { get; private set; }
-        public string LocationEntered { get; private set; }
-
-        public ClientLogFileEventArgs(DateTime eventDateTime, long eventTimestamp, string locationEntered)
-        {
-            EventDateTime = eventDateTime;
-            EventTimestamp = eventTimestamp;
-            LocationEntered = locationEntered;
-        }
-    }
-
     class ClientLogFileWatcher
     {
         private static ClientLogFileWatcher _instance;
