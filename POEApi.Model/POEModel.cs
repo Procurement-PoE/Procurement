@@ -127,6 +127,22 @@ namespace POEApi.Model
 
         private ITransport GetTransport(string email, bool offline)
         {
+            int customRequestLimit;
+            if (Settings.UserSettings.Keys.Contains("ApiRequestLimit") &&
+                int.TryParse(Settings.UserSettings["ApiRequestLimit"], out customRequestLimit))
+            {
+                if (HttpTransport.AdjustThrottleWindowLimit(customRequestLimit))
+                {
+                    Logger.Log(string.Format("Successfully set throttle window limit to custom size of '{0}'.",
+                        customRequestLimit));
+                }
+                else
+                {
+                    Logger.Log(string.Format("Failed to set throttle window limit to custom size of '{0}'.",
+                        customRequestLimit));
+                }
+            }
+
             if (Settings.ProxySettings["Enabled"] != bool.TrueString)
                 return new CachedTransport(email, new HttpTransport(email), offline);
 

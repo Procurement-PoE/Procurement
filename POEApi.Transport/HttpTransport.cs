@@ -36,6 +36,8 @@ namespace POEApi.Transport
         private const string UpdateShopURL = @"https://www.pathofexile.com/forum/edit-thread/{0}";
         private const string BumpShopURL = @"https://www.pathofexile.com/forum/post-reply/{0}";
 
+        private const int _maximumWindowLimit = 42;
+
         protected const string UserAgent =
             @"Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; " +
             @".NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E; " +
@@ -44,7 +46,21 @@ namespace POEApi.Transport
 
         public event ThottledEventHandler Throttled;
 
-        private static TaskThrottle _taskThrottle = new TaskThrottle(TimeSpan.FromMinutes(1), 42, 42);
+        private static TaskThrottle _taskThrottle = InitializeTaskThrottle();
+
+        protected static TaskThrottle InitializeTaskThrottle()
+        {
+            return new TaskThrottle(TimeSpan.FromMinutes(1), _maximumWindowLimit, _maximumWindowLimit);
+        }
+
+        public static bool AdjustThrottleWindowLimit(int newWindowLimit)
+        {
+            if (newWindowLimit < 1 || newWindowLimit > _maximumWindowLimit)
+                return false;
+
+            _taskThrottle.AdjustWindowLimit(newWindowLimit, newWindowLimit);
+            return true;
+        }
 
         public HttpTransport(string login)
         {

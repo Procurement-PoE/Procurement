@@ -36,6 +36,12 @@ namespace POEApi.Transport
             SimultaneiousTasksLimit = simultaneiousTasksLimit;
         }
 
+        public void AdjustWindowLimit(int newWindowLimit, int newSimultaneiousTasksLimit)
+        {
+            WindowLimit = newWindowLimit;
+            SimultaneiousTasksLimit = newSimultaneiousTasksLimit;
+        }
+
         public void StartTask()
         {
             bool finished = false;
@@ -55,7 +61,7 @@ namespace POEApi.Transport
                     }
 
                     RemvoeExpiredTasks();
-                    if (CurrentTasks.Count == WindowLimit)
+                    while (CurrentTasks.Count >= WindowLimit)
                     {
                         TimeSpan waitTime = CurrentTasks.Dequeue() - DateTime.Now;
                         if (waitTime.TotalMilliseconds > 0)
