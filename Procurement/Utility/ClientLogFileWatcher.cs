@@ -71,6 +71,12 @@ namespace Procurement.Utility
             set;
         }
 
+        protected Regex LocationChangedRegex
+        {
+            get;
+            set;
+        }
+
         protected void Initialize()
         {
             if (!Settings.UserSettings.Keys.Contains("ClientLogFileLocation"))
@@ -87,6 +93,12 @@ namespace Procurement.Utility
             PollingTimer = new System.Timers.Timer();
             PollingTimer.Elapsed += (s, e) => { ReadClientLogFile(); };
             PollingTimer.Interval = 30000;  // 30 seconds
+
+            // Regex to catch lines formatted like:
+            //   2019/06/21 19:16:37 245842781 aa1 [INFO Client 19844] : You have entered Sunspire Hideout.
+            LocationChangedRegex = new Regex(
+                @"(\d{4}/\d{2}/\d{2} \d{2}:\d{2}:\d{2}) (\d+) [^ .]* \[.*\] : You have entered (.*).$",
+                RegexOptions.Compiled);
         }
 
         internal void Start()
@@ -118,29 +130,27 @@ namespace Procurement.Utility
         {
             lock (Instance)
             {
-                var rx = new Regex(
-                    @"(\d{4}/\d{2}/\d{2} \d{2}:\d{2}:\d{2}) (\d+) [^ .]* \[.*\] : You have entered (.*).$",
-                    RegexOptions.Compiled);
-
                 try
                 {
                     Stream stream = new FileStream(Settings.UserSettings["ClientLogFileLocation"], FileMode.Open,
                         FileAccess.Read, FileShare.ReadWrite);
                     using (var reader = new StreamReader(stream))
                     {
+                        // Quit early if the log file is no longer than the last time we read it.
                         if (reader.BaseStream.Length <= Instance.LastFileSizeSeen)
                         {
+                            Instance.LastFileSizeSeen = reader.BaseStream.Length;
                             return;
                         }
 
                         reader.BaseStream.Seek(Instance.LastFileSizeSeen, System.IO.SeekOrigin.Begin);
-                        string line;
+
                         DateTime eventTime = Instance.LastDateTimeSeen;
                         long eventTimestamp = Instance.LastTimestampSeen;
-                        string location;
+                        string line, location;
                         while ((line = reader.ReadLine()) != null)
                         {
-                            Match match = rx.Match(line);
+                            Match match = LocationChangedRegex.Match(line);
                             if (!match.Success)
                                 continue;
 
