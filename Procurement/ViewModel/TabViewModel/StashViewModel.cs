@@ -175,8 +175,15 @@ namespace Procurement.ViewModel
             else
                 configuredOrbType = (OrbType)Enum.Parse(typeof(OrbType), currencyDistributionMetric);
 
-            ClientLogFileWatcher.ClientLogFileChanged -= OnClientLogFileChanged;
-            ClientLogFileWatcher.ClientLogFileChanged += OnClientLogFileChanged;
+            if (Settings.UserSettings.Keys.Contains("EnableTabRefreshOnLocationChanged"))
+            {
+                var enabled = false;
+                if (bool.TryParse(Settings.UserSettings["EnableTabRefreshOnLocationChanged"], out enabled) && enabled)
+                {
+                    ClientLogFileWatcher.ClientLogFileChanged -= OnClientLogFileChanged;
+                    ClientLogFileWatcher.ClientLogFileChanged += OnClientLogFileChanged;
+                }
+            }
         }
 
         private void getAvailableItems()

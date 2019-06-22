@@ -82,6 +82,8 @@ namespace Procurement.Utility
             if (!Settings.UserSettings.Keys.Contains("ClientLogFileLocation"))
                 return;
             string fullFilePath = Settings.UserSettings["ClientLogFileLocation"];
+            if (string.IsNullOrWhiteSpace(fullFilePath))
+                return;
 
             FileWatcher = new System.IO.FileSystemWatcher();
             FileWatcher.Path = System.IO.Path.GetDirectoryName(fullFilePath);
