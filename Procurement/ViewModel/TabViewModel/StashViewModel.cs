@@ -30,6 +30,8 @@ namespace Procurement.ViewModel
         private bool currencyDistributionUsesCount;
         private string filter;
 
+        private const string _enableTabRefreshOnLocationChangedConfigName = "EnableTabRefreshOnLocationChanged";
+
         public string Filter
         {
             get { return filter; }
@@ -180,10 +182,11 @@ namespace Procurement.ViewModel
             else
                 configuredOrbType = (OrbType)Enum.Parse(typeof(OrbType), currencyDistributionMetric);
 
-            if (Settings.UserSettings.Keys.Contains("EnableTabRefreshOnLocationChanged"))
+            if (Settings.UserSettings.Keys.Contains(_enableTabRefreshOnLocationChangedConfigName))
             {
                 var enabled = false;
-                if (bool.TryParse(Settings.UserSettings["EnableTabRefreshOnLocationChanged"], out enabled) && enabled)
+                if (bool.TryParse(Settings.UserSettings[_enableTabRefreshOnLocationChangedConfigName], out enabled)
+                    && enabled)
                 {
                     ClientLogFileWatcher.ClientLogFileChanged -= OnClientLogFileChanged;
                     ClientLogFileWatcher.ClientLogFileChanged += OnClientLogFileChanged;
