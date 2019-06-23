@@ -179,6 +179,8 @@ namespace Procurement.ViewModel
             else
                 configuredOrbType = (OrbType)Enum.Parse(typeof(OrbType), currencyDistributionMetric);
 
+            ApplicationState.Model.StashLoading += ApplicationState_StashLoading;
+
             if (Settings.UserSettings.Keys.Contains(_enableTabRefreshOnLocationChangedConfigName))
             {
                 var enabled = false;
@@ -187,6 +189,23 @@ namespace Procurement.ViewModel
                 {
                     ClientLogFileWatcher.ClientLogFileChanged -= OnClientLogFileChanged;
                     ClientLogFileWatcher.ClientLogFileChanged += OnClientLogFileChanged;
+                }
+            }
+        }
+
+        private void ApplicationState_StashLoading(POEModel sender, POEApi.Model.Events.StashLoadedEventArgs e)
+        {
+            if (e.State != POEApi.Model.Events.POEEventState.AfterEvent)
+                return;
+
+            foreach (var tabAndContent in tabsAndContent)
+            {
+                if (tabAndContent.Index == e.StashID && tabAndContent.Stash is AbstractStashTabControl)
+                {
+                    // This tab has been refreshed.  We mark it as not ready, so it is refreshed the next time it is
+                    // selected.
+                    (tabAndContent.Stash as AbstractStashTabControl).Ready = false;
+                    break;
                 }
             }
         }
