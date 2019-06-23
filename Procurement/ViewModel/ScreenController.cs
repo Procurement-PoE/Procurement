@@ -167,7 +167,6 @@ namespace Procurement.ViewModel
             Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
                 new Action(() =>
                 {
-                    screens[STASH_VIEW] = new StashView();
                     SelectedView = screens[STASH_VIEW] as UserControl;
                     ButtonsVisible = true;
                 }));

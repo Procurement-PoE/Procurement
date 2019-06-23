@@ -252,7 +252,6 @@ namespace Procurement.ViewModel
             var item = stashView.tabControl.SelectedItem as TabItem;
             selectedTab = item;
             Image i = item.Header as Image;
-            CroppedBitmap bm = (CroppedBitmap)i.Source;
             Tab tab = (Tab)i.Tag;
             item.Header = StashHelper.GenerateTabImage(tab, true);
         }
@@ -266,6 +265,8 @@ namespace Procurement.ViewModel
 
         void ApplicationState_LeagueChanged(object sender, PropertyChangedEventArgs e)
         {
+            tabsAndContent.Clear();
+
             getAvailableItems();
             stashView.tabControl.SelectionChanged -= new SelectionChangedEventHandler(tabControl_SelectionChanged);
             stashView.tabControl.Items.Clear();
@@ -339,9 +340,9 @@ namespace Procurement.ViewModel
 
         void stashView_Loaded(object sender, RoutedEventArgs e)
         {
+            var stash = ApplicationState.Stash[ApplicationState.CurrentLeague];
             for (var i = 1; i <= ApplicationState.Stash[ApplicationState.CurrentLeague].NumberOfTabs; i++)
             {
-                var stash = ApplicationState.Stash[ApplicationState.CurrentLeague];
                 var currentTab = stash.Tabs[i - 1];
 
                 var item = new TabItem
