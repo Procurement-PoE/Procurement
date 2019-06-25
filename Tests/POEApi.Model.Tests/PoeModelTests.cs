@@ -33,7 +33,7 @@ namespace POEApi.Model.Tests
             {
                 _mockTransport.Setup(m => m.GetInventory("", false, "", Realm.PC)).Returns(stream);
 
-                var inventory = _model.GetInventory("", false, "", Realm.PC);
+                var inventory = _model.GetInventory("", -1, false, "", Realm.PC);
 
                 Assert.IsNotNull(inventory);
             }
@@ -273,7 +273,7 @@ namespace POEApi.Model.Tests
             using (var stream = GenerateStreamFromString(fakeInventoryInfo))
             {
                 _mockTransport.Setup(m => m.GetInventory(string.Empty, false, string.Empty, Realm.PC)).Returns(stream);
-                var inventory = _model.GetInventory(string.Empty, false, string.Empty, Realm.PC);
+                var inventory = _model.GetInventory(string.Empty, -1, false, string.Empty, Realm.PC);
 
                 inventory.Should().NotBeNull();
                 inventory.Should().HaveCount(3);
@@ -435,7 +435,7 @@ namespace POEApi.Model.Tests
             {
                 _mockTransport.Setup(m => m.GetInventory("", false, "", Realm.PC)).Returns(stream);
 
-                var inventory = _model.GetInventory("", false, "", Realm.PC);
+                var inventory = _model.GetInventory("", -1, false, "", Realm.PC);
 
                 Assert.IsNotNull(inventory);
 
