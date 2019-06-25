@@ -299,10 +299,19 @@ namespace Procurement.ViewModel
             if (!offline)
                 _statusController.DisplayMessage((string.Format("Loading {0}'s inventory...", character.Name)));
 
+            // TODO: It looks like the character's fake stash tab does not exist at this point.  Confirm, and determine
+            // the best course of action at this point.
+            var tab = ApplicationState.Stash[character.League].Tabs.FirstOrDefault(
+                t => t.Name == character.Name && t.IsFakeTab);
+            int tabId = 0;
+            if (tab != null)
+                tabId = tab.i;
+
             List<Item> inventory;
             try
             {
-                inventory = ApplicationState.Model.GetInventory(character.Name, false, ApplicationState.AccountName, ApplicationState.CurrentRealm);
+                inventory = ApplicationState.Model.GetInventory(character.Name, tabId, false, ApplicationState.AccountName,
+                    ApplicationState.CurrentRealm);
                 success = true;
             }
             catch (WebException)

@@ -269,14 +269,22 @@ namespace POEApi.Model
             return GetProperObjectFromTransport<List<Character>>(Transport.GetCharacters(realm));
         }
 
-        public List<Item> GetInventory(string characterName, bool forceRefresh, string accountName, string realm)
+        public List<Item> GetInventory(string characterName, int index, bool forceRefresh, string accountName, string realm)
         {
             try
             {
+                onStashLoaded(POEEventState.BeforeEvent, index, -1);
+
                 if (downOnlyMyCharacters && !Settings.Lists["MyCharacters"].Contains(characterName))
                     return new List<Item>();
 
-                Inventory item  = GetProperObjectFromTransport<Inventory>(Transport.GetInventory(characterName, forceRefresh, accountName, realm));
+                Inventory item = null;
+                using (var stream = Transport.GetInventory(characterName, forceRefresh, accountName, realm))
+                {
+                    item = GetProperObjectFromTransport<Inventory>(stream);
+                }
+
+                onStashLoaded(POEEventState.AfterEvent, index, -1);
 
                 if (item?.Items == null)
                     return new List<Item>();
