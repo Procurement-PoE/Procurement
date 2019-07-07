@@ -81,7 +81,7 @@ namespace POEApi.Model.Tests
             string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStash);
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC, false)).Returns(stream);
 
                 var stash = _model.GetStash(0, "", "", Realm.PC);
 
@@ -97,7 +97,7 @@ namespace POEApi.Model.Tests
             string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithEssences);
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC, false)).Returns(stream);
 
                 var stash = _model.GetStash(0, "", "", Realm.PC);
 
@@ -117,7 +117,7 @@ namespace POEApi.Model.Tests
             string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithRelic);
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC, false)).Returns(stream);
 
                 var stash = _model.GetStash(0, "", "", Realm.PC);
 
@@ -137,7 +137,7 @@ namespace POEApi.Model.Tests
             string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithLitheBlade);
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC, false)).Returns(stream);
 
                 var stash = _model.GetStash(0, "", "", Realm.PC);
 
@@ -157,7 +157,7 @@ namespace POEApi.Model.Tests
             string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithSaintlyChainmail);
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC, false)).Returns(stream);
 
                 var stash = _model.GetStash(0, "", "", Realm.PC);
 
@@ -192,7 +192,7 @@ namespace POEApi.Model.Tests
             string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleCurrencyTabWithShards);
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC, false)).Returns(stream);
 
                 var stash = _model.GetStash(0, "", "", Realm.PC);
 
@@ -214,7 +214,7 @@ namespace POEApi.Model.Tests
             string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleFragmentStash);
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC, false)).Returns(stream);
 
                 var stash = _model.GetStash(0, "", "", Realm.PC);
 
@@ -250,7 +250,7 @@ namespace POEApi.Model.Tests
             string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithLeagueStoneChargeInfo);
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC, false)).Returns(stream);
 
                 var stash = _model.GetStash(0, "", "", Realm.PC);
 
@@ -298,7 +298,7 @@ namespace POEApi.Model.Tests
             string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithNets);
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, string.Empty, string.Empty, Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, string.Empty, string.Empty, Realm.PC, false)).Returns(stream);
 
                 var stash = _model.GetStash(0, string.Empty, string.Empty, Realm.PC);
                 stash.Should().NotBeNull();
@@ -336,7 +336,7 @@ namespace POEApi.Model.Tests
             string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithMirroredItems);
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, string.Empty, string.Empty, Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, string.Empty, string.Empty, Realm.PC, false)).Returns(stream);
                 var stash = _model.GetStash(0, string.Empty, string.Empty, Realm.PC);
                 stash.Should().NotBeNull();
                 stash.Tabs.Should().HaveCount(1);
@@ -365,7 +365,7 @@ namespace POEApi.Model.Tests
             string fakeStashInfo = Encoding.UTF8.GetString(Files.SampleStashWithSynthesisItems);
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, string.Empty, string.Empty, Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, string.Empty, string.Empty, Realm.PC, false)).Returns(stream);
                 var stash = _model.GetStash(0, string.Empty, string.Empty, Realm.PC);
                 stash.Should().NotBeNull();
                 stash.Tabs.Should().HaveCount(1);
@@ -411,7 +411,7 @@ namespace POEApi.Model.Tests
 
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC, false)).Returns(stream);
 
                 var stash = _model.GetStash(0, "", "", Realm.PC);
 

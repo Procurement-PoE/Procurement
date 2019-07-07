@@ -9,6 +9,7 @@ namespace POEApi.Transport
         bool Authenticate(string email, SecureString password);
         Stream GetAccountName(string realm);
         Stream GetStash(int index, string league, string accountName, string realm);
+        Stream GetStash(int index, string league, string accountName, string realm, bool refresh);
         Stream GetImage(string url);
         Stream GetCharacters(string realm);
         Stream GetInventory(string characterName, bool forceRefresh, string accountName, string realm);

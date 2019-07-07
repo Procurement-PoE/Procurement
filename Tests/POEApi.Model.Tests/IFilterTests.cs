@@ -32,7 +32,7 @@ namespace POEApi.Model.Tests
 
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC, false)).Returns(stream);
 
                 var stash = _model.GetStash(0, "", "", Realm.PC);
 
@@ -55,7 +55,7 @@ namespace POEApi.Model.Tests
 
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC, false)).Returns(stream);
 
                 var stash = _model.GetStash(0, "", "", Realm.PC);
 
@@ -77,7 +77,7 @@ namespace POEApi.Model.Tests
 
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC, false)).Returns(stream);
 
                 var stash = _model.GetStash(0, "", "", Realm.PC);
 
@@ -99,7 +99,7 @@ namespace POEApi.Model.Tests
 
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, "", "", Realm.PC, false)).Returns(stream);
 
                 var stash = _model.GetStash(0, "", "", Realm.PC);
 
@@ -125,7 +125,7 @@ namespace POEApi.Model.Tests
 
             using (var stream = GenerateStreamFromString(fakeStashInfo))
             {
-                _mockTransport.Setup(m => m.GetStash(0, "", "", "")).Returns(stream);
+                _mockTransport.Setup(m => m.GetStash(0, "", "", "", false)).Returns(stream);
 
                 var stash = _model.GetStash(0, "", "", "");
 

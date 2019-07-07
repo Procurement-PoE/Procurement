@@ -144,7 +144,7 @@ namespace POEApi.Model
 
             onStashLoaded(POEEventState.BeforeEvent, index, -1);
 
-            using (var stream = Transport.GetStash(index, league, accountName, realm))
+            using (var stream = Transport.GetStash(index, league, accountName, realm, forceRefresh))
             {
                 try
                 {

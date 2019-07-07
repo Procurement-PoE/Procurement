@@ -213,10 +213,16 @@ namespace POEApi.Transport
             }
         }
 
-        public Stream GetStash(int index, string league, string accountName, string realm )
+        // The refresh parameter in this ITransport implementation is ignored.
+        public Stream GetStash(int index, string league, string accountName, string realm, bool refresh)
         {
             var url = string.Format(StashURL, league, index, accountName, realm);
             return PerformHttpRequest(HttpMethod.GET, url);
+        }
+
+        public Stream GetStash(int index, string league, string accountName, string realm)
+        {
+            return GetStash(index, league, accountName, realm, false);
         }
 
         public Stream GetCharacters(string realm )

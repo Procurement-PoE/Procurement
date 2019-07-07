@@ -42,10 +42,11 @@ namespace POEApi.Transport
             return _innerTranport.GetAccountName(realm);
         }
 
-        public Stream GetStash(int index, string league, string accountName, bool refresh, string realm)
+        public Stream GetStash(int index, string league, string accountName, string realm, bool refresh)
         {
             string key = string.Format("{0}-{1}-{2}", league, _stashKey, index);
 
+            // TODO(20190612): Don't actually clear the cache until we successfully fetch a replacement.
             if (refresh && _userCacheService.Exists(key))
                 _userCacheService.Remove(key);
 
@@ -60,7 +61,7 @@ namespace POEApi.Transport
 
         public Stream GetStash(int index, string league, string accountName, string realm)
         {
-            return GetStash(index, league, accountName, false, realm);
+            return GetStash(index, league, accountName, realm, false);
         }
 
         public Stream GetImage(string url)
