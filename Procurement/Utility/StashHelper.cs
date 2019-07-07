@@ -5,34 +5,39 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using POEApi.Model;
+using POEApi.Infrastructure;
 
 namespace Procurement.Utility
 {
     internal class StashHelper
     {
         private static Dictionary<string, CroppedBitmap> imageCache = new Dictionary<string, CroppedBitmap>();
+        private const int _tabImageDefaultVisibleHeight = 26;
 
         internal static Image GenerateTabImage(Tab tab, bool mouseOver)
         {
-            List<System.Drawing.Bitmap> images = new List<System.Drawing.Bitmap>();
-            System.Drawing.Bitmap finalImage = null;
-
-            Image img = new Image();
-            int offset = mouseOver ? 26 : 0;
+            // The images for the pieces of the tabs fetched from the API have the normal and selected (here, referred
+            // to as being moused-over) versions stacked vertically.  If we are building the image of the selected tab,
+            // we want to use the lower half of the image, so use an offset based on the height that is visible.
+            int offset = mouseOver ? _tabImageDefaultVisibleHeight : 0;
 
             string key = tab.srcL + tab.srcC + tab.srcR + tab.Name + mouseOver.ToString();
 
             if (!imageCache.ContainsKey(key))
-                finalImage = buildImage(tab, images, finalImage, offset, key);
+                buildImage(tab, offset, key);
 
+            Image img = new Image();
             img.Source = imageCache[key];
             img.Tag = tab;
 
             return img;
         }
 
-        private static System.Drawing.Bitmap buildImage(Tab tab, List<System.Drawing.Bitmap> images, System.Drawing.Bitmap finalImage, int offset, string key)
+        private static void buildImage(Tab tab, int offset, string key)
         {
+            System.Drawing.Bitmap finalImage = null;
+            var images = new List<System.Drawing.Bitmap>();
+
             try
             {
                 System.Drawing.Font font = new System.Drawing.Font(ApplicationState.FontCollection.Families[0], 11);
@@ -99,22 +104,41 @@ namespace Procurement.Utility
 
                     BitmapImage bitmapclone = (BitmapImage)bitmap.Clone();
                     bitmap = null;
-                    imageCache.Add(key, new CroppedBitmap(bitmapclone, new Int32Rect(0, offset, (int)bitmapclone.Width, 26)));
+
+                    Int32Rect croppingRectangle = new Int32Rect();
+                    if (offset + _tabImageDefaultVisibleHeight > bitmapclone.Height)
+                    {
+                        // Something unexpected happened when fetching the tab images or piecing together the bitmap,
+                        // as the final image is not as tall as expected.  This can happen when we fail to retrieve all
+                        // of the parts of the tab image, since the replacement image is not tall enough.  In this
+                        // case, do not use a positive offset, and make sure we do not go beyond the final image's
+                        // height.
+                        int truncatedHeight = Math.Min(_tabImageDefaultVisibleHeight, (int)bitmapclone.Height);
+                        croppingRectangle = new Int32Rect(0, 0, (int)bitmapclone.Width, truncatedHeight);
+                    }
+                    else
+                    {
+                        croppingRectangle = new Int32Rect(0, offset, (int)bitmapclone.Width,
+                            _tabImageDefaultVisibleHeight);
+                    }
+                    imageCache.Add(key, new CroppedBitmap(bitmapclone, croppingRectangle));
                 }
             }
             catch (Exception ex)
             {
+                Logger.Log(string.Format("Error while building tab image for tab {0} with key {1}: {2}", tab.Name,
+                    key, ex.ToString()));
+
                 if (finalImage != null)
                     finalImage.Dispose();
 
-                throw ex;
+                throw;
             }
             finally
             {
                 foreach (System.Drawing.Bitmap image in images)
                     image.Dispose();
             }
-            return finalImage;
         }
     }
 }
