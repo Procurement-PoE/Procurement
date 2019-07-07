@@ -29,7 +29,7 @@ namespace POEApi.Transport
         private const string AccountNameURL = @"https://www.pathofexile.com/character-window/get-account-name?realm={0}";
         private const string CharacterURL = @"https://www.pathofexile.com/character-window/get-characters?&realm={0}";
         private const string StashURL = @"https://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}&accountName={2}&realm={3}";
-        private const string InventoryURL = @"http://www.pathofexile.com/character-window/get-items?character={0}&accountName={1}&realm={2}";
+        private const string InventoryURL = @"https://www.pathofexile.com/character-window/get-items?character={0}&accountName={1}&realm={2}";
         private const string HashRegEx = "name=\\\"hash\\\" value=\\\"(?<hash>[a-zA-Z0-9-]{1,})\\\"";
         private const string TitleRegex = @"\<title\b[^>]*\>\s*(?<Title>[\s\S]*?)\</title\>";
 
