@@ -30,6 +30,8 @@ namespace Procurement.ViewModel
         private bool currencyDistributionUsesCount;
         private string filter;
 
+        private const string _enableTabRefreshOnLocationChangedConfigName = "EnableTabRefreshOnLocationChanged";
+
         public string Filter
         {
             get { return filter; }
@@ -133,6 +135,32 @@ namespace Procurement.ViewModel
             ScreenController.Instance.InvalidateRecipeScreen();
         });
 
+        public static DateTime LastAutomaticRefresh { get; protected set; }
+        public void OnClientLogFileChanged(object sender, ClientLogFileEventArgs e)
+        {
+            // All actions currently taken when the log file changes relate to refreshing staash tabs.  This checks
+            // first that we are logged in, and quits early if we are not.
+            if (!LoggedIn)
+                return;
+
+            lock (this)
+            {
+                if ((DateTime.Now - LastAutomaticRefresh).TotalSeconds <= 120)
+                    return;
+                LastAutomaticRefresh = DateTime.Now;
+
+                Application.Current.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal,
+                    new Action(() =>
+                    {
+                        if (ScreenController.Instance.ButtonsVisible)
+                        {
+                            ScreenController.Instance.LoadRefreshViewUsed();
+                            ScreenController.Instance.InvalidateRecipeScreen();
+                        }
+                    }));
+            }
+        }
+
         public StashViewModel(StashView stashView)
         {
             this.stashView = stashView;
@@ -153,6 +181,17 @@ namespace Procurement.ViewModel
                 currencyDistributionUsesCount = true;
             else
                 configuredOrbType = (OrbType)Enum.Parse(typeof(OrbType), currencyDistributionMetric);
+
+            if (Settings.UserSettings.Keys.Contains(_enableTabRefreshOnLocationChangedConfigName))
+            {
+                var enabled = false;
+                if (bool.TryParse(Settings.UserSettings[_enableTabRefreshOnLocationChangedConfigName], out enabled)
+                    && enabled)
+                {
+                    ClientLogFileWatcher.ClientLogFileChanged -= OnClientLogFileChanged;
+                    ClientLogFileWatcher.ClientLogFileChanged += OnClientLogFileChanged;
+                }
+            }
         }
 
         private void getAvailableItems()

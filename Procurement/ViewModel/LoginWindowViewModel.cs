@@ -185,6 +185,8 @@ namespace Procurement.ViewModel
 
                 ApplicationState.SetDefaults();
 
+                ClientLogFileWatcher.Instance.Start();
+
                 if (!offline)
                 {
                     _statusController.DisplayMessage("\nDone!");
