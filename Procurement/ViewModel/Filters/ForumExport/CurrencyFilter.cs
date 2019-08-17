@@ -27,7 +27,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public bool Applicable(Item item)
         {
-            return item is Currency || item is BreachSplinter || item is LegionSplinter || item is LegionEmblem || item is Breachstone;
+            return item is Currency || item is BreachSplinter || item is LegionSplinter || item is LegionEmblem || item is Breachstone || item is Sextant;
         }
     }
 }
