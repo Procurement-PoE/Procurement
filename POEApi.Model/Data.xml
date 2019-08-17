@@ -1492,6 +1492,7 @@
       <Item name="A Dab of Ink"/>
       <Item name="A Mother's Parting Gift"/>
       <Item name="Abandoned Wealth"/>
+      <Item name="Alluring Bounty"/>
       <Item name="Alone in the Darkness"/>
       <Item name="Anarchy's Price"/>
       <Item name="Arrogance of the Vaal"/>
@@ -1506,17 +1507,22 @@
       <Item name="Boon of the First Ones"/>
       <Item name="Boundless Realms"/>
       <Item name="Bowyer's Dream"/>
+      <Item name="Buried Treasure"/>
+      <Item name="Burning Blood"/>
       <Item name="Call to the First Ones"/>
       <Item name="Cartographer's Delight"/>
       <Item name="Chaotic Disposition"/>
       <Item name="Coveted Possession"/>
+      <Item name="Dark Dreams"/>
       <Item name="Dark Temptation"/>
       <Item name="Death"/>
+      <Item name="Demigod's Wager"/>
       <Item name="Destined to Crumble"/>
       <Item name="Dialla's Subjugation"/>
       <Item name="Doedre's Madness"/>
       <Item name="Dying Anguish"/>
       <Item name="Earth Drinker"/>
+      <Item name="Echoes of Love"/>
       <Item name="Emperor of Purity"/>
       <Item name="Emperor's Luck"/>
       <Item name="Forbidden Power"/>
@@ -1534,6 +1540,7 @@
       <Item name="Hunter's Resolve"/>
       <Item name="Hunter's Reward"/>
       <Item name="Immortal Resolve"/>
+      <Item name="Imperial Legacy"/>
       <Item name="Jack in the Box"/>
       <Item name="Lantador's Lost Love"/>
       <Item name="Last Hope"/>
@@ -1553,6 +1560,7 @@
       <Item name="No Traces"/>
       <Item name="Perfection"/>
       <Item name="Pride Before the Fall"/>
+      <Item name="Pride of the First Ones"/>
       <Item name="Prosperity"/>
       <Item name="Rain of Chaos"/>
       <Item name="Rain Tempter"/>
@@ -1565,6 +1573,7 @@
       <Item name="Struck by Lightning"/>
       <Item name="The Admirer"/>
       <Item name="The Aesthete"/>
+      <Item name="The Archmage's Right Hand"/>
       <Item name="The Arena Champion"/>
       <Item name="The Army of Blood"/>
       <Item name="The Artist"/>
@@ -1592,6 +1601,7 @@
       <Item name="The Dark Mage"/>
       <Item name="The Darkest Dream"/>
       <Item name="The Deceiver"/>
+      <Item name="The Deep Ones"/>
       <Item name="The Demoness"/>
       <Item name="The Devastator"/>
       <Item name="The Doctor"/>
@@ -1613,6 +1623,7 @@
       <Item name="The Fiend"/>
       <Item name="The Fletcher"/>
       <Item name="The Flora's Gift"/>
+      <Item name="The Fool"/>
       <Item name="The Formless Sea"/>
       <Item name="The Forsaken"/>
       <Item name="The Fox"/>
@@ -1668,6 +1679,7 @@
       <Item name="The Polymath"/>
       <Item name="The Porcupine"/>
       <Item name="The Price of Protection"/>
+      <Item name="The Primordial"/>
       <Item name="The Professor"/>
       <Item name="The Puzzle"/>
       <Item name="The Queen"/>
@@ -1728,6 +1740,7 @@
       <Item name="The World Eater"/>
       <Item name="The Wrath"/>
       <Item name="The Wretched"/>
+      <Item name="Thirst for Knowledge"/>
       <Item name="Three Faces in the Dark"/>
       <Item name="Three Voices"/>
       <Item name="Thunderous Skies"/>
@@ -1735,6 +1748,7 @@
       <Item name="Tranquillity"/>
       <Item name="Treasure Hunter"/>
       <Item name="Turn the Other Cheek"/>
+      <Item name="Vanity"/>
       <Item name="Vinia's Token"/>
       <Item name="Volatile Power"/>
       <Item name="Wealth and Power"/>
