@@ -27,7 +27,7 @@ namespace Procurement.ViewModel.Filters
 
         public override FilterGroup Group
         {
-            get { return FilterGroup.VaalFragments; }
+            get { return FilterGroup.MapFragments; }
         }
     }
 }
