@@ -99,7 +99,7 @@
                         Text="{Binding ItemLevel}"
                         TextAlignment="Center"
                         TextWrapping="Wrap"
-                        Visibility="{Binding IsGear,
+                        Visibility="{Binding ItemLevel,
                                Converter={StaticResource bc},
                                ConverterParameter=CollapseWhenFalse}" />
 
@@ -107,7 +107,7 @@
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
-                            Visibility="{Binding IsGear,
+                            Visibility="{Binding ItemLevel,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
