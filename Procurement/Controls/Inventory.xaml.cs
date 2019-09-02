@@ -40,7 +40,9 @@ namespace Procurement.Controls
 
         private void refresh(string accountName)
         {
-            this.Invent = ApplicationState.Model.GetInventory(Character, false, accountName, ApplicationState.CurrentRealm).Where(i => i.InventoryId == "MainInventory").ToList();
+            // TODO: Get the correct tabId to use (instead of -1).
+            this.Invent = ApplicationState.Model.GetInventory(Character, -1, false, accountName,
+                ApplicationState.CurrentRealm).Where(i => i.InventoryId == "MainInventory").ToList();
             inventByLocation = Invent.ToDictionary(item => new Tuple<int, int>(item.X, item.Y));
             render();
         }

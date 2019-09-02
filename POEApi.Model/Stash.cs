@@ -139,7 +139,7 @@ namespace POEApi.Model
             var charTab = Tabs.First(t => t.i == tabId);
 
             var characterName = charTab.Name;
-            var characterItems = currentModel.GetInventory(characterName, true, accountName, realm);
+            var characterItems = currentModel.GetInventory(characterName, tabId, true, accountName, realm);
             var characterStashItems = CharacterStashBuilder.GetCharacterStashItems(characterName, characterItems, tabId + 1);
 
             items.AddRange(characterStashItems);
