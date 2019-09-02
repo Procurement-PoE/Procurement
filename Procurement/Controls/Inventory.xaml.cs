@@ -99,8 +99,6 @@ namespace Procurement.Controls
 
                     Item gearAtLocation = inventByLocation[currentKey];
 
-                    setBackround(childGrid, gearAtLocation);
-
                     Border border = getBorder();
                     childGrid.Children.Add(border);
 
@@ -132,16 +130,6 @@ namespace Procurement.Controls
             b.BorderBrush = Brushes.Transparent;
             b.BorderThickness = new Thickness(1);
             return b;
-        }
-
-        private void setBackround(Grid childGrid, Item item)
-        {
-            if (item is Gear && (item as Gear).Rarity != Rarity.Normal && (item as Gear).Explicitmods == null)
-                childGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#88001D"));
-            else
-                childGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#21007F"));
-
-            childGrid.Background.Opacity = 0.3;
         }
 
         private bool search(Item item)

@@ -8,12 +8,28 @@
              d:DesignHeight="300" d:DesignWidth="300" Loaded="ItemDisplay_Loaded" MouseRightButtonUp="ItemDisplay_MouseRightButtonUp"
              d:DataContext="{d:DesignInstance viewModel:ItemDisplayViewModel}">
     <UserControl.Resources>
-        <ResourceDictionary x:Key="ExpressionDarkGrid" Source="ExpressionDarkGrid.xaml" />
+        <SolidColorBrush x:Key="UnidBrush" Color="#88001D" />
+        <SolidColorBrush x:Key="IdBrush" Color="#21007F"/>
+        <Style x:Key="OpaqueBackgroundStyle" TargetType="Grid" >
+            <Setter Property="Background" Value="{StaticResource IdBrush}" />
+            <Setter Property="Opacity" Value="0.3" />
+            <Style.Triggers> 
+                <DataTrigger Binding="{Binding IsItemIdentified}" Value="False">
+                    <Setter Property="Background" Value="{StaticResource UnidBrush}" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IsItemIdentified}" Value="{x:Null}">
+                    <Setter Property="Background" Value="Transparent" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
     </UserControl.Resources>
     <Grid>
-        <Border BorderBrush="{Binding ItemFilterBrush}" BorderThickness="2" >
+        <Border BorderBrush="{Binding ItemFilterBrush}" BorderThickness="2">
             <Grid x:Name="MainGrid" Margin="-2">
-
+                <Image Source="{Binding ItemImage}" />
+                <Grid Style="{StaticResource OpaqueBackgroundStyle}" />
+                <Grid Visibility="{Binding HasSpecialBackground}" Background="{Binding SpecialBackground}" />
             </Grid>
         </Border>
 
@@ -27,7 +43,6 @@
                    Visibility="{Binding IsStackSizeVisible,
                                Converter={StaticResource bc},
                                ConverterParameter=CollapseWhenFalse}" />
-    </Grid>
-    
+        </Grid>
     
 </UserControl>
