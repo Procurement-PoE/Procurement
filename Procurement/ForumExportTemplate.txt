@@ -179,6 +179,9 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 [spoiler="          Resonators          "]
 {Resonator}
 [/spoiler]
+[spoiler="          Captured Beasts          "]
+{FullBestiaryOrbs}
+[/spoiler]
 
 Thanks for visiting!
 
