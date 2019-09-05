@@ -23,18 +23,18 @@ namespace Procurement.ViewModel.Filters.ForumExport
                     if (mod.Contains(keyword))
                         return true;
 
-            if (gear.Fracturedmods != null)
-                foreach (var mod in gear.Fracturedmods)
+            if (gear.FracturedMods != null)
+                foreach (var mod in gear.FracturedMods)
                     if (mod.Contains(keyword))
                         return true;
 
-            if (gear.Craftedmods != null)
-                foreach (var mod in gear.Craftedmods)
+            if (gear.CraftedMods != null)
+                foreach (var mod in gear.CraftedMods)
                     if (mod.Contains(keyword))
                         return true;
 
-            if (gear.Enchantmods != null)
-                foreach (var mod in gear.Enchantmods)
+            if (gear.EnchantMods != null)
+                foreach (var mod in gear.EnchantMods)
                     if (mod.Contains(keyword))
                         return true;
 
