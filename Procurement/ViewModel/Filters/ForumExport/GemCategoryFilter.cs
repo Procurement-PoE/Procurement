@@ -44,7 +44,7 @@ namespace Procurement.ViewModel.Filters
 
             try
             {
-                return gem.Properties[0].Name.ToLower().Contains(filter.ToLower());
+                return gem.Properties[0].Name.ToLowerInvariant().Contains(filter.ToLowerInvariant());
             }
             catch (Exception)
             {

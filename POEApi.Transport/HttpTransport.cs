@@ -323,7 +323,7 @@ namespace POEApi.Transport
 
             var title = Regex.Match(html, TitleRegex).Groups["Title"].Value;
 
-            if (!title.ToLower().Contains(threadTitle.ToLower()))
+            if (!title.ToLowerInvariant().Contains(threadTitle.ToLowerInvariant()))
                 throw new ForumThreadException();
 
             return Regex.Match(html, hashRegex).Groups["hash"].Value;
