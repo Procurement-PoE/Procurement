@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Procurement.ViewModel.Filters
 {
-    public class ItemQuantityFilter : StatFilter
+    public class ItemQuantityFilter : OrStatFilter
     {
         public override FilterGroup Group
         {
@@ -13,7 +13,7 @@ namespace Procurement.ViewModel.Filters
         }
 
         public ItemQuantityFilter()
-            : base("Item Quantity", "Item with the Item Quantity stat", "INCREASED QUANTITY")
+            : base("Item Quantity", "Items with the Item Quantity stat", "increased Quantity", "increased Item Quantity")
         { }
     }
 }

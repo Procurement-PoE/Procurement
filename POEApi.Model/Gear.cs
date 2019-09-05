@@ -11,6 +11,9 @@ namespace POEApi.Model
         public List<Socket> Sockets { get; set; }
         public List<SocketableItem> SocketedItems { get; set; }
         public List<string> Implicitmods { get; set; }
+        public List<string> Craftedmods { get; set; }
+        public List<string> Fracturedmods { get; set; }
+        public List<string> Enchantmods { get; set; }
         public List<Requirement> Requirements { get; set; }
         public GearType GearType { get; set; }
         public string BaseType { get; set; }
@@ -23,6 +26,9 @@ namespace POEApi.Model
             Explicitmods = item.ExplicitMods;
             SocketedItems = GetSocketedItems(item);
             Implicitmods = item.ImplicitMods;
+            Craftedmods = item.CraftedMods;
+            Fracturedmods = item.FracturedMods;
+            Enchantmods = item.EnchantMods;
             Requirements = ProxyMapper.GetRequirements(item.Requirements);
             ItemType = Model.ItemType.Gear;
             GearType = GearTypeFactory.GetType(this);

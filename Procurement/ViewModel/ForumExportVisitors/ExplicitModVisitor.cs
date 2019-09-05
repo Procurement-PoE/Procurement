@@ -18,6 +18,7 @@ namespace Procurement.ViewModel.ForumExportVisitors
             tokens.Add("{Life}", new LifeFilter());
             tokens.Add("{LifeRegen}", new LifeRegenFilter());
             tokens.Add("{CritChance}", new CritChanceFilter());
+            tokens.Add("{CritMultiplier}", new CritMultiplierFilter());
             tokens.Add("{GlobalCritChance}", new GlobalCritChanceFilter());
             tokens.Add("{GlobalCritMultiplier}", new GlobalCritMultiplierFilter());
             tokens.Add("{SpellDamage}", new SpellDamageFilter());
