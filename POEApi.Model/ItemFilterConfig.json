@@ -1,0 +1,83 @@
+﻿{
+  "fileConfig": [
+    {
+      "disabled": true,
+      "inputLocation": "<ITEM FILTER DIRECTORY>\\NeverSink's filter - 1-REGULAR.filter",
+      "outputLocation": "<ITEM FILTER DIRECTORY>\\[MOD] NeverSink's filter - 1-REGULAR.filter",
+      "filterRuleConfig": [
+        {
+          "ruleType": "CHANCING_BASES",
+          "name": "Chancing Bases",
+          "searchString": "#   [1008] Chancing items\r\n#------------------------------------",
+          "searchStringRelation": "AFTER",
+          "additionalConfig": {
+            "@type": "type.googleapis.com/POEApi.Model.Protobuf.ChancingBasesFilterRuleConfig",
+            "otherCharactersStyling": "SECONDARY"
+          }
+        },
+        {
+          "ruleType": "MISSING_SAME_BASE_TYPE",
+          "name": "Missing Same Base Types",
+          "searchString": "#===============================================================================================================\r\n# [[0300]]",
+          "additionalConfig": {
+            "@type": "type.googleapis.com/POEApi.Model.Protobuf.MissingSameBaseTypesFilterRuleConfig"
+          }
+        }
+      ]
+    }
+  ],
+  "leagueConfig": [
+    {
+      "name": "SSF Legion",
+      "buildConfig": [
+        {
+          "buildName": "Freezing Pulse",
+          "chancingBase": [
+            {
+              "baseTypeName": "Occultist's Vestment",
+              "uniqueItemName": "Shavronne's Wrappings",
+              "quantityNeeded": 1
+            },
+            {
+              "baseTypeName": "Prophecy Wand",
+              "uniqueItemName": "Void Battery",
+              "quantityNeeded": 2
+            },
+            {
+              "baseTypeName": "Jade Amulet",
+              "uniqueItemName": "The Pandemonius",
+              "quantityNeeded": 1
+            },
+            {
+              "baseTypeName": "Cobalt Jewel",
+              "uniqueItemName": "First Snow",
+              "quantityNeeded": 2,
+              "quantityHeld": 1
+            },
+            {
+              "baseTypeName": "Cobalt Jewel",
+              "uniqueItemName": "Energy From Within",
+              "quantityNeeded": 1
+            }
+          ]
+        },
+        {
+          "buildName": "2h Freezing Cyclone",
+          "chancingBase": [
+            {
+              "baseTypeName": "Goathide Gloves",
+              "uniqueItemName": "Hrimsorrow",
+              "quantityNeeded": 1
+            },
+            {
+              "disabled": true,
+              "baseTypeName": "Nightmare Bascinet",
+              "uniqueItemName": "Devoto's Devotion",
+              "quantityNeeded": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

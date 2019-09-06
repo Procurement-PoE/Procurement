@@ -40,9 +40,7 @@ namespace Procurement.Controls
 
         private void refresh(string accountName)
         {
-            // TODO: Get the correct tabId to use (instead of -1).
-            this.Invent = ApplicationState.Model.GetInventory(Character, -1, false, accountName,
-                ApplicationState.CurrentRealm).Where(i => i.InventoryId == "MainInventory").ToList();
+            this.Invent = ApplicationState.Model.GetInventory(Character, false, accountName, ApplicationState.CurrentRealm).Where(i => i.InventoryId == "MainInventory").ToList();
             inventByLocation = Invent.ToDictionary(item => new Tuple<int, int>(item.X, item.Y));
             render();
         }
@@ -101,6 +99,8 @@ namespace Procurement.Controls
 
                     Item gearAtLocation = inventByLocation[currentKey];
 
+                    setBackround(childGrid, gearAtLocation);
+
                     Border border = getBorder();
                     childGrid.Children.Add(border);
 
@@ -134,12 +134,22 @@ namespace Procurement.Controls
             return b;
         }
 
+        private void setBackround(Grid childGrid, Item item)
+        {
+            if (item is Gear && (item as Gear).Rarity != Rarity.Normal && (item as Gear).Explicitmods == null)
+                childGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#88001D"));
+            else
+                childGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#21007F"));
+
+            childGrid.Background.Opacity = 0.3;
+        }
+
         private bool search(Item item)
         {
             if (string.IsNullOrEmpty(Filter))
                 return false;
 
-            return item.TypeLine.ToLowerInvariant().Contains(Filter.ToLowerInvariant()) || item.Name.ToLowerInvariant().Contains(Filter.ToLowerInvariant());
+            return item.TypeLine.ToLower().Contains(Filter.ToLower()) || item.Name.ToLower().Contains(Filter.ToLower());
         }
     }
 }

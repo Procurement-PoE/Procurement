@@ -35,7 +35,7 @@ namespace Procurement.ViewModel.Filters
             if (string.IsNullOrEmpty(filter))
                 return false;
 
-            if (item.TypeLine.ToLowerInvariant().Contains(filter.ToLowerInvariant()) || item.Name.ToLowerInvariant().Contains(filter.ToLowerInvariant()) || containsMatchedCosmeticMod(item) || isMatchedGear(item))
+            if (item.TypeLine.ToLower().Contains(filter.ToLower()) || item.Name.ToLower().Contains(filter.ToLower()) || containsMatchedCosmeticMod(item) || isMatchedGear(item))
                 return true;
 
             var gear = item as Gear;
@@ -48,7 +48,7 @@ namespace Procurement.ViewModel.Filters
 
         private bool containsMatchedCosmeticMod(Item item)
         {
-            return item.Microtransactions.Any(x => x.ToLowerInvariant().Contains(filter.ToLowerInvariant()));
+            return item.Microtransactions.Any(x => x.ToLower().Contains(filter.ToLower()));
         }
 
         private bool isMatchedGear(Item item)
@@ -58,7 +58,7 @@ namespace Procurement.ViewModel.Filters
             if (gear == null)
                 return false;
 
-            return gear.GearType.ToString().ToLowerInvariant().Contains(filter.ToLowerInvariant());
+            return gear.GearType.ToString().ToLower().Contains(filter.ToLower());
         }
     }
 }

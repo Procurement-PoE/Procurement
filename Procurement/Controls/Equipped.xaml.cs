@@ -92,10 +92,7 @@ namespace Procurement.Controls
 
         private void render()
         {
-            // TODO: Get the correct tabId to use (instead of -1).
-            equipped = new EquipedItems(ApplicationState.Model.GetInventory(Character, -1, false,
-                ApplicationState.AccountName, ApplicationState.CurrentRealm).Where(
-                i => i.InventoryId != "MainInventory"));
+            equipped = new EquipedItems(ApplicationState.Model.GetInventory(Character, false, ApplicationState.AccountName, ApplicationState.CurrentRealm).Where(i => i.InventoryId != "MainInventory"));
             davinci.Children.Clear();
             Dictionary<string, Item> itemsAtPosition = equipped.GetItems();
 

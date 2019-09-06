@@ -206,26 +206,11 @@ namespace POEApi.Transport
         protected MemoryStream PerformHttpRequest(HttpMethod method, string url, bool? allowAutoRedirects = null,
             string requestData = null)
         {
-            HttpWebResponse response = null;
-            // TODO: Don't retry an infinite number of times.
-            bool retry = true;
-            while (retry)
+            using (var response = BuildHttpRequestAndGetResponse(method, url, allowAutoRedirects, requestData))
             {
-                try
-                {
-                    response = BuildHttpRequestAndGetResponse(method, url, allowAutoRedirects, requestData);
-                    retry = false;
-                }
-                catch (System.Net.WebException ex) when (
-                    !string.IsNullOrWhiteSpace(ex.Message) && ex.Message.Contains("(429) Too Many Requests."))
-                {
-                    Logger.Log("Exceeded API limit while performing HTTP request: " + ex.ToString());
-                    _taskThrottle.HandleUnexpectedOverload();
-                }
+                MemoryStream responseStream = GetMemoryStreamFromResponse(response);
+                return responseStream;
             }
-
-            MemoryStream responseStream = GetMemoryStreamFromResponse(response);
-            return responseStream;
         }
 
         // The refresh parameter in this ITransport implementation is ignored.
@@ -338,7 +323,7 @@ namespace POEApi.Transport
 
             var title = Regex.Match(html, TitleRegex).Groups["Title"].Value;
 
-            if (!title.ToLowerInvariant().Contains(threadTitle.ToLowerInvariant()))
+            if (!title.ToLower().Contains(threadTitle.ToLower()))
                 throw new ForumThreadException();
 
             return Regex.Match(html, hashRegex).Groups["hash"].Value;

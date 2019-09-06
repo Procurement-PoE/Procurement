@@ -14,7 +14,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public bool Applicable(Item item)
         {
-            return item.TypeLine.ToLowerInvariant().Contains("leaguestone");
+            return item.TypeLine.ToLower().Contains("leaguestone");
         }
     }
 }

@@ -11,17 +11,17 @@ namespace Procurement.ViewModel.ForumExportVisitors
     {
         protected virtual bool buyoutItemsOnlyVisibleInBuyoutsTag
         {
-            get { return Settings.UserSettings.GetEntry("BuyoutItemsOnlyVisibleInBuyoutsTag").ToLowerInvariant() == "true"; }
+            get { return Settings.UserSettings.GetEntry("BuyoutItemsOnlyVisibleInBuyoutsTag").ToLower() == "true"; }
         }
 
         protected virtual bool embedBuyouts
         {
-            get { return Settings.UserSettings.GetEntry("EmbedBuyouts").ToLowerInvariant() == "true"; }
+            get { return Settings.UserSettings.GetEntry("EmbedBuyouts").ToLower() == "true"; }
         }
 
         protected virtual bool onlyDisplayBuyouts
         {
-            get { return Settings.UserSettings.GetEntry("OnlyDisplayBuyouts").ToLowerInvariant() == "true"; }
+            get { return Settings.UserSettings.GetEntry("OnlyDisplayBuyouts").ToLower() == "true"; }
         }
 
         public abstract string Visit(IEnumerable<Item> items, string current);

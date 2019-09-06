@@ -22,7 +22,7 @@
 
         public override FilterGroup Group
         {
-            get { return FilterGroup.MapFragments; }
+            get { return FilterGroup.VaalFragments; }
         }
     }
 }

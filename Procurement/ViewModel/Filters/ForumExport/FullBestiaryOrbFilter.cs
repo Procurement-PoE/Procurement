@@ -16,7 +16,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
         {
             get
             {
-                return "Captured Beasts";
+                return "Full Bestiary Orb";
             }
         }
 

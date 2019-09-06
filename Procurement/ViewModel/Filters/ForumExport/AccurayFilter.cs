@@ -5,14 +5,14 @@ using System.Text;
 
 namespace Procurement.ViewModel.Filters.ForumExport
 {
-    internal class AccuracyFilter : StatFilter
+    internal class AccurayFilter : StatFilter
     {
         public override FilterGroup Group
         {
             get { return FilterGroup.Attacks; }
         }
 
-        public AccuracyFilter()
+        public AccurayFilter()
             : base("Increased Accuracy", "Increased Accuracy", "Accuracy")
         { }
     }

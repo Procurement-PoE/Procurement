@@ -6,7 +6,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
 {
     internal class DamageTriple : IFilter
     {
-        private List<OrStatFilter> resistances;
+        private List<StatFilter> resistances;
 
         public FilterGroup Group
         {
@@ -15,7 +15,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public DamageTriple()
         {
-            resistances = new List<OrStatFilter>();
+            resistances = new List<StatFilter>();
             resistances.Add(new DamageCold());
             resistances.Add(new DamageFire());
             resistances.Add(new DamageLightning());

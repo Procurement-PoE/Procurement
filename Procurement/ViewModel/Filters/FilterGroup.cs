@@ -14,7 +14,7 @@
         Level,
         Crit,
         CharacterAttributes,
-        MapFragments,
+        VaalFragments,
         GearTypes,
         SocketColour
     };

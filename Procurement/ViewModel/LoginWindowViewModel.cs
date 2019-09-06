@@ -299,19 +299,10 @@ namespace Procurement.ViewModel
             if (!offline)
                 _statusController.DisplayMessage((string.Format("Loading {0}'s inventory...", character.Name)));
 
-            // TODO: It looks like the character's fake stash tab does not exist at this point.  Confirm, and determine
-            // the best course of action at this point.
-            var tab = ApplicationState.Stash[character.League].Tabs.FirstOrDefault(
-                t => t.Name == character.Name && t.IsFakeTab);
-            int tabId = 0;
-            if (tab != null)
-                tabId = tab.i;
-
             List<Item> inventory;
             try
             {
-                inventory = ApplicationState.Model.GetInventory(character.Name, tabId, false, ApplicationState.AccountName,
-                    ApplicationState.CurrentRealm);
+                inventory = ApplicationState.Model.GetInventory(character.Name, false, ApplicationState.AccountName, ApplicationState.CurrentRealm);
                 success = true;
             }
             catch (WebException)
@@ -354,14 +345,8 @@ namespace Procurement.ViewModel
 
         void Model_Throttled(object sender, ThottledEventArgs e)
         {
-            if (!e.Expected)
-                Update(string.Format("Exceeded GGG Server request limit; throttling activated.  Waiting {0} " +
-                    "seconds.  Ensure you do not have other instances of Procurement running or other apps using " +
-                    "the GGG API with your account.", Convert.ToInt32(e.WaitTime.TotalSeconds)),
-                    new POEEventArgs(POEEventState.BeforeEvent));
-            else if (e.WaitTime.TotalSeconds > 4)
-                Update(string.Format("GGG Server request limit hit, throttling activated. Please wait {0} seconds",
-                    Convert.ToInt32(e.WaitTime.TotalSeconds)), new POEEventArgs(POEEventState.BeforeEvent));
+            if (e.WaitTime.TotalSeconds > 4)
+                Update(string.Format("GGG Server request limit hit, throttling activated. Please wait {0} seconds", e.WaitTime.Seconds), new POEEventArgs(POEEventState.BeforeEvent));
         }
 
         private void Update(string message, POEEventArgs e)

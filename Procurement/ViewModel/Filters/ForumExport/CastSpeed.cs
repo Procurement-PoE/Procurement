@@ -1,6 +1,6 @@
 ﻿namespace Procurement.ViewModel.Filters.ForumExport
 {
-    internal class CastSpeed : OrStatFilter
+    internal class CastSpeed : StatFilter
     {
         public override FilterGroup Group
         {
@@ -8,7 +8,7 @@
         }
 
         public CastSpeed()
-            : base("Increased Cast Speed", "Increased Cast Speed", "increased Cast Speed", "increased Attack and Cast Speed", "increased Attack, Cast and Movement Speed")
+            : base("Increased Cast Speed", "Increased Cast Speed", "Increased Cast Speed")
         { }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Procurement.ViewModel.Filters.ForumExport
 {
-    internal class DamageChaos : OrStatFilter
+    internal class DamageChaos : StatFilter
     {
         public override FilterGroup Group
         {
@@ -8,7 +8,7 @@
         }
 
         public DamageChaos()
-            : base("Adds Chaos Damage", "Adds Chaos Damage", "Adds \\d+ to \\d+ Chaos Damage", "as Extra Chaos Damage")
+            : base("Adds Chaos Damage", "Adds Chaos Damage", "Adds \\d+ to \\d+ Chaos Damage")
         { }
     }
 }

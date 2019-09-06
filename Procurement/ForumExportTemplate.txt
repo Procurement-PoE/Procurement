@@ -36,11 +36,9 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 {6Link}
 [/spoiler]
 [spoiler="          Maps          "]
-[spoiler="          Map Fragments          "]
+[spoiler="          Vaal Fragments          "]
 {VaalFragments}
 {VaalUberFragments}
-{ProphecyFragments}
-{AtlasFragments}
 [/spoiler]
 [spoiler="          Tier 1 - 5          "]
 {Tier1Maps}{Tier2Maps}{Tier3Maps}{Tier4Maps}{Tier5Maps}
@@ -180,9 +178,6 @@ Please message me here or ingame if something catches your eye. My IGN is {IGN}.
 [/spoiler]
 [spoiler="          Resonators          "]
 {Resonator}
-[/spoiler]
-[spoiler="          Captured Beasts          "]
-{FullBestiaryOrbs}
 [/spoiler]
 
 Thanks for visiting!
