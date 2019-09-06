@@ -45,7 +45,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
                 return true;
 
             Gear gear = item as Gear;
-            return gear != null && !gear.Corrupted && !(gear.MaxStackSize > 1);
+            return gear != null && !gear.Corrupted && !(gear.MaxStackSize > 0);
         }
     }
 }
