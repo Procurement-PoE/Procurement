@@ -18,6 +18,8 @@
       <Item name="Prismatic Ring"/>
       <Item name="Opal Ring"/>
       <Item name="Steel Ring"/>
+      <Item name="Vermillion Ring"/>
+      <Item name="Cerulean Ring"/>
     </GearBaseType>
     <GearBaseType name="Amulet">
       <Item name="Coral Amulet"/>
@@ -1483,6 +1485,7 @@
       <Item name="Tornado Wand"/>
       <Item name="Prophecy Wand"/>
       <Item name="Profane Wand"/>
+      <Item name="Convoking Wand"/>
     </GearBaseType>
 
     <!--Source data: https://pathofexile.gamepedia.com/Divination_card-->
@@ -1801,6 +1804,8 @@
                  baseType="Golden Buckler" />
     <FatedUnique targetName="Cameria's Maul" fatedName="Cameria's Avarice" prophecyName="Cold Greed"
                  baseType="Gavel" />
+    <FatedUnique targetName="Chober Chaber" fatedName="Chaber Cairn" prophecyName="Faith Exhumed"
+                 baseType="Great Mallet" />
     <FatedUnique targetName="Eclipse Solaris" fatedName="Corona Solaris" prophecyName="Blinding Light"
                  baseType="Crystal Wand" />
     <FatedUnique targetName="Craghead" fatedName="Cragfall" prophecyName="Heavy Blows"
@@ -1829,6 +1834,8 @@
                  baseType="Leather Hood" />
     <FatedUnique targetName="Geofri's Baptism" fatedName="Geofri's Devotion" prophecyName="Black Devotion"
                  baseType="Brass Maul" />
+    <FatedUnique targetName="Geofri's Crest" fatedName="Geofri's Legacy" prophecyName="The Bishop's Legacy"
+                 baseType="Great Crown" />
     <FatedUnique targetName="Wondertrap" fatedName="Greedtrap" prophecyName="Greed's Folly"
                  baseType="Velvet Slippers" />
     <FatedUnique targetName="Hrimsorrow" fatedName="Hrimburn" prophecyName="Fire and Ice"
@@ -1873,6 +1880,8 @@
                  baseType="Gold Amulet" />
     <FatedUnique targetName="The Screaming Eagle" fatedName="The Gryphon" prophecyName="The Apex Predator"
                  baseType="Jade Hatchet" />
+    <FatedUnique targetName="Iron Heart" fatedName="The Iron Fortress" prophecyName="Battle Hardened"
+                 baseType="Crusader Plate" />
     <FatedUnique targetName="The Magnate" fatedName="The Nomad" prophecyName="The Great Leader of the North"
                  baseType="Studded Belt" />
     <FatedUnique targetName="Springleaf" fatedName="The Oak" prophecyName="Nature's Resilience"
@@ -1893,6 +1902,8 @@
                  baseType="Iron Ring" />
     <FatedUnique targetName="Bramblejack" fatedName="Wall of Brambles" prophecyName="The King and the Brambles"
                  baseType="Plate Vest" />
+    <FatedUnique targetName="Matua Tupuna" fatedName="Whakatutuki o Matua" prophecyName="The Mentor"
+                 baseType="Tarnished Spirit Shield" />
     <FatedUnique targetName="Briskwrap" fatedName="Wildwrap" prophecyName="Last of the Wildmen"
                  baseType="Strapped Leather" />
     <FatedUnique targetName="Windscream" fatedName="Windshriek" prophecyName="Darktongue's Shriek"
