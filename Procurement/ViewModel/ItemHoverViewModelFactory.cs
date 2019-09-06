@@ -24,12 +24,7 @@ namespace Procurement.ViewModel
             if (stone != null)
                 r = stone.Rarity;
 
-            var vessel = item as DivineVessel;
-            if(vessel != null)
-                r = Rarity.Normal;
-
-            var offering = item as Offering;
-            if (offering != null)
+            if (item is DivineVessel || item is Offering || item is Scarab || item is Incubator || item is LegionEmblem)
                 r = Rarity.Normal;
 
             var abyssJewel = item as AbyssJewel;
@@ -73,8 +68,7 @@ namespace Procurement.ViewModel
             if (item is Prophecy)
                 return new ProphecyItemHoverViewModel(item);
             
-            if (item is Currency || item is Sextant || item is Essence || item is Fossil || item is Resonator || item is Scarab || item is BreachSplinter || item is Incubator 
-                || item is LegionEmblem || item is LegionSplinter)
+            if (item is Currency || item is Sextant || item is Essence || item is Fossil || item is Resonator || item is BreachSplinter || item is LegionSplinter)
                 return new CurrencyItemHoverViewModel(item);
 
             return new ItemHoverViewModel(item);
