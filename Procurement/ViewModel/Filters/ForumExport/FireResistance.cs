@@ -8,7 +8,7 @@
         }
 
         public FireResistance()
-            : base("Fire Resistance", "Fire Resistance", "to Fire Resistance", "to Fire and Lightning Resistances", "to Fire and Cold Resistances")
+            : base("Fire Resistance", "Fire Resistance", "to Fire Resistance", "to Fire and Lightning Resistances", "to Fire and Cold Resistances", "to Fire and Chaos Resistances", "to all Elemental Resistances")
         { }
     }
 }

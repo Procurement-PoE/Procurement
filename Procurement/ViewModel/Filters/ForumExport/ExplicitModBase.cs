@@ -14,12 +14,29 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public bool Applicable(Item item)
         {
-            if (item.Explicitmods == null || !(item is Gear))
+            Gear gear = item as Gear;
+            if (gear == null)
                 return false;
 
-            foreach (var mod in item.Explicitmods)
-                if (mod.Contains(keyword))
-                    return true;
+            if (gear.Explicitmods != null)
+                foreach (var mod in gear.Explicitmods)
+                    if (mod.Contains(keyword))
+                        return true;
+
+            if (gear.FracturedMods != null)
+                foreach (var mod in gear.FracturedMods)
+                    if (mod.Contains(keyword))
+                        return true;
+
+            if (gear.CraftedMods != null)
+                foreach (var mod in gear.CraftedMods)
+                    if (mod.Contains(keyword))
+                        return true;
+
+            if (gear.EnchantMods != null)
+                foreach (var mod in gear.EnchantMods)
+                    if (mod.Contains(keyword))
+                        return true;
 
             return false;
         }

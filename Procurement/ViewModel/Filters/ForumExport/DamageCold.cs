@@ -1,6 +1,6 @@
 ﻿namespace Procurement.ViewModel.Filters.ForumExport
 {
-    internal class DamageCold : StatFilter
+    internal class DamageCold : OrStatFilter
     {
         public override FilterGroup Group
         {
@@ -8,7 +8,7 @@
         }
 
         public DamageCold()
-            : base("Adds Cold Damage", "Adds Cold Damage", "Adds \\d+ to \\d+ Cold Damage")
+            : base("Adds Cold Damage", "Adds Cold Damage", "Adds \\d+ to \\d+ Cold Damage", "as Extra Cold Damage", "as Extra Damage of each Element", "as Extra Damage of a random Element")
         { }
     }
 }
