@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Procurement.ViewModel.Filters.ForumExport
 {
-    public class PercentEnergyShieldFilter : OrStatFilter
+    public class ArmourFilter : OrStatFilter
     {
-        public PercentEnergyShieldFilter()
-            : base("% Increased Energy Shield", "Items with % increased energy shield", "% increased maximum Energy Shield", "increased Global Defences")
+        public ArmourFilter()
+            : base("Armour", "Items with additional or increased Armour", "to Armour", "increased Armour", "increased Global Armour", "increased Global Defences")
         { }
 
         public override FilterGroup Group

@@ -34,6 +34,7 @@ namespace Procurement.ViewModel
         private const string INVENTORY_VIEW = "Inventory";
         private const string SETTINGS_VIEW = "Settings";
         private const string ABOUT_VIEW = "About";
+        private const string REFRESH_VIEW = "Refresh";
 
         public static ScreenController Instance = null;
         private UserControl _selectedView;
@@ -92,12 +93,8 @@ namespace Procurement.ViewModel
                 screens.Add(SETTINGS_VIEW, new SettingsView());
                 screens.Add(RECIPE_VIEW, null);
                 screens.Add(ABOUT_VIEW, new AboutView());
+                screens.Add(REFRESH_VIEW, new RefreshView());
             }));
-        }
-
-        public void InvalidateRecipeScreen()
-        {
-            screens[RECIPE_VIEW] = null;
         }
 
         public void RefreshRecipeScreen()
@@ -105,10 +102,13 @@ namespace Procurement.ViewModel
             Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
                 new Action(() =>
                 {
-                    // TODO: Cause the RecipeResultsViewModel in the RecipeView to refresh its recipes, instead of
-                    // recreating the RecipeView object.  This could perhaps be done by triggering an event, or
-                    // reaching into the view/viewmodel and calling it directly (but that's probably very bad form).
-                    screens[RECIPE_VIEW] = new RecipeView();
+                    // TODO: See if we can find a more elegant way to refresh receipes, instead of calling a method on
+                    // the view.  Perhaps something with events?
+                    RecipeView view = screens[RECIPE_VIEW] as RecipeView;
+                    if (view == null)
+                        screens[RECIPE_VIEW] = new RecipeView();
+                    else
+                        view.RefreshRecipes();
                 }));
         }
 
@@ -151,14 +151,14 @@ namespace Procurement.ViewModel
         public void LoadRefreshView()
         {
             ButtonsVisible = false;
-            SelectedView = new RefreshView();
+            SelectedView = screens[REFRESH_VIEW] as RefreshView;
             (SelectedView as RefreshView).RefreshAllTabs();
         }
 
         public void LoadRefreshViewUsed()
         {
             ButtonsVisible = false;
-            SelectedView = new RefreshView();
+            SelectedView = screens[REFRESH_VIEW] as RefreshView;
             (SelectedView as RefreshView).RefreshUsedTabs();
         }
 
@@ -167,7 +167,6 @@ namespace Procurement.ViewModel
             Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
                 new Action(() =>
                 {
-                    screens[STASH_VIEW] = new StashView();
                     SelectedView = screens[STASH_VIEW] as UserControl;
                     ButtonsVisible = true;
                 }));

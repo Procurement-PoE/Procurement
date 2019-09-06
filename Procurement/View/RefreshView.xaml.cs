@@ -10,13 +10,18 @@ using System.Windows.Controls;
 
 namespace Procurement.View
 {
-    public partial class RefreshView : UserControl
+    public partial class RefreshView : UserControl, IView
     {
         private StatusController statusController;
 
         public RefreshView()
         {
             InitializeComponent();
+        }
+
+        public new Grid Content
+        {
+            get { return this.ViewContent; }
         }
 
         public void RefreshAllTabs()
@@ -67,6 +72,7 @@ namespace Procurement.View
                     ScreenController.Instance.ReloadStash();
                     ScreenController.Instance.RefreshRecipeScreen();
                     ScreenController.Instance.UpdateTrading();
+                    statusController.Clear();
                 }
             });
         }
@@ -78,9 +84,14 @@ namespace Procurement.View
 
         void model_Throttled(object sender, ThottledEventArgs e)
         {
-            if (e.WaitTime.TotalSeconds > 4)
+            if (!e.Expected)
+                update(string.Format("Exceeded GGG Server request limit; throttling activated.  Waiting {0} " +
+                    "seconds.  Ensure you do not have other instances of Procurement running or other apps using " +
+                    "the GGG API with your account.", Convert.ToInt32(e.WaitTime.TotalSeconds)),
+                    new POEEventArgs(POEEventState.BeforeEvent));
+            else if (e.WaitTime.TotalSeconds > 4)
                 update(string.Format("GGG Server request limit hit, throttling activated. Please wait {0} seconds",
-                    e.WaitTime.Seconds), new POEEventArgs(POEEventState.BeforeEvent));
+                    Convert.ToInt32(e.WaitTime.TotalSeconds)), new POEEventArgs(POEEventState.BeforeEvent));
         }
 
         private void update(string message, POEEventArgs e)

@@ -22,7 +22,7 @@ namespace POEApi.Model
                 if (item.FrameType == 4)
                     return new Gem(item);
 
-                if (item.DescrText != null && item.DescrText.ToLower() == "right click this item then left click a location on the ground to create the object.")
+                if (item.DescrText != null && item.DescrText.ToLowerInvariant() == "right click this item then left click a location on the ground to create the object.")
                     return new Decoration(item);
 
                 if (item.DescrText != null && string.Equals(item.DescrText,
@@ -86,7 +86,7 @@ namespace POEApi.Model
 
         private static Item GetCurrency(JSONProxy.Item item)
         {
-            var typeline = item.TypeLine.ToLower();
+            var typeline = item.TypeLine.ToLowerInvariant();
 
             if (typeline.Contains("essence") || typeline.Contains("remnant of"))
                 return new Essence(item);

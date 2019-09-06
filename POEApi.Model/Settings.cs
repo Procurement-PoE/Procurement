@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Xml.Linq;
-using Google.Protobuf;
 using POEApi.Infrastructure;
 
 namespace POEApi.Model
@@ -14,8 +13,6 @@ namespace POEApi.Model
         private const string SaveLocation = "Settings.xml";
         private const string DataLocation = "Data.xml";
         private const string BuyoutLocation = "Buyouts.xml";
-        private const string ItemFilterConfigLocation = "ItemFilterConfig.json";
-        private static Google.Protobuf.Reflection.TypeRegistry ProtoTypeRegistry;
 
         public static Dictionary<OrbType, CurrencyRatio> CurrencyRatios { get; private set; }
         public static Dictionary<string, string> UserSettings { get; private set; }
@@ -24,7 +21,6 @@ namespace POEApi.Model
         public static Dictionary<string, ItemTradeInfo> Buyouts { get; private set; }
         public static Dictionary<string, string> TabsBuyouts { get; private set; }
         public static Dictionary<string, ShopSetting> ShopSettings { get; private set; }
-        public static Protobuf.ItemFilterConfig ItemFilterConfig { get; private set; }
         public static List<string> PopularGems { get; private set; }
         public static List<string> DropOnlyGems { get; private set; }
         private static XElement settingsFile;
@@ -62,11 +58,6 @@ namespace POEApi.Model
 
             LoadGearTypeData();
             LoadShopSettings();
-
-            ProtoTypeRegistry = Google.Protobuf.Reflection.TypeRegistry.FromMessages(
-                Protobuf.ChancingBasesFilterRuleConfig.Descriptor,
-                Protobuf.MissingSameBaseTypesFilterRuleConfig.Descriptor);
-            LoadItemFilterConfig();
         }
 
         private static void LoadBuyouts()
@@ -104,29 +95,6 @@ namespace POEApi.Model
         private static void LoadShopSettings()
         {
             ShopSettings = settingsFile.Elements("ShopSettings").Descendants().ToDictionary(shop => shop.Attribute("League").Value, shop => CreateShopSetting(shop));
-        }
-
-        private static void LoadItemFilterConfig()
-        {
-            if (!System.IO.File.Exists(ItemFilterConfigLocation))
-                return;
-
-            string jsonStringRead = System.IO.File.ReadAllText(ItemFilterConfigLocation);
-            var jsonParser = new JsonParser(new JsonParser.Settings(10, ProtoTypeRegistry));
-            try
-            {
-                ItemFilterConfig = jsonParser.Parse<Protobuf.ItemFilterConfig>(jsonStringRead);
-            }
-            catch (InvalidJsonException ex)
-            {
-                Logger.Log(string.Format("Failed to parse an ItemFilterConfig from the json string '{0}': {1}",
-                    jsonStringRead, ex.ToString()));
-            }
-            catch (System.InvalidOperationException ex)
-            {
-                Logger.Log(string.Format("Failed to parse an ItemFilterConfig from the json string '{0}': {1}",
-                    jsonStringRead, ex.ToString()));
-            }
         }
 
         private static ShopSetting CreateShopSetting(XElement shop)
@@ -314,26 +282,6 @@ namespace POEApi.Model
                 Logger.Log("Unable to save shop settings: " + ex.ToString());
                 return false;
             }
-        }
-
-        public static bool SaveItemFilterConfig()
-        {
-            if (ItemFilterConfig == null)
-                return true;
-
-            try
-            {
-                var formatter = new JsonFormatter(new JsonFormatter.Settings(false, ProtoTypeRegistry));
-                var jsonString = formatter.Format(ItemFilterConfig);
-                System.IO.File.WriteAllText(ItemFilterConfigLocation, jsonString);
-            }
-            catch (Exception ex)
-            {
-                Logger.Log("Unable to save item filter config: " + ex.ToString());
-                return false;
-            }
-
-            return true;
         }
     }
 }

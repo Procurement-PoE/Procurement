@@ -43,8 +43,8 @@ namespace Procurement.ViewModel.Filters.ForumExport
             {
                 var itemInfo = Settings.Buyouts[item.Id];
 
-                isItemBuyout = itemInfo.Buyout.ToLower() == buyoutValue.ToLower();
-                isItemPriced = itemInfo.Price.ToLower() == buyoutValue.ToLower();
+                isItemBuyout = itemInfo.Buyout.ToLowerInvariant() == buyoutValue.ToLowerInvariant();
+                isItemPriced = itemInfo.Price.ToLowerInvariant() == buyoutValue.ToLowerInvariant();
             }
 
             isTabBuyout = Settings.TabsBuyouts.ContainsKey(ApplicationState.Stash[ApplicationState.CurrentLeague].GetTabNameByInventoryId(item.InventoryId));
