@@ -41,7 +41,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
             if (item.TypeLine.Contains("Sacrifice at ") || item.TypeLine.Contains("Mortal ") || item.TypeLine.Contains(" Key") || item.TypeLine.Contains("Fragment of the ") || item.TypeLine.Contains(" Breachstone"))
                 return false;
 
-            if (item is Map && !item.Corrupted)
+            if ((item is Map || item is Gem) && !item.Corrupted)
                 return true;
 
             Gear gear = item as Gear;
