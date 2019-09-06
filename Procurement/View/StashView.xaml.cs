@@ -47,7 +47,7 @@ namespace Procurement.View
 
             foreach (AdvancedSearchCategory category in AdvancedSearchItemControl.ItemsSource)
             {
-                if (category.Key.ToLower().Contains(cb.Text.ToLower()))
+                if (category.Key.ToLowerInvariant().Contains(cb.Text.ToLowerInvariant()))
                 {
                     category.IsVisible = true;
                 }

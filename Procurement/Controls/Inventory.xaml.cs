@@ -139,7 +139,7 @@ namespace Procurement.Controls
             if (string.IsNullOrEmpty(Filter))
                 return false;
 
-            return item.TypeLine.ToLower().Contains(Filter.ToLower()) || item.Name.ToLower().Contains(Filter.ToLower());
+            return item.TypeLine.ToLowerInvariant().Contains(Filter.ToLowerInvariant()) || item.Name.ToLowerInvariant().Contains(Filter.ToLowerInvariant());
         }
     }
 }

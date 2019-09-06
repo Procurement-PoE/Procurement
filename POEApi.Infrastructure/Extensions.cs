@@ -15,7 +15,7 @@ namespace POEApi.Infrastructure
             StringBuilder sb = new StringBuilder();
 
             foreach (var item in MD5.Create().ComputeHash(Encoding.ASCII.GetBytes(input)))
-                sb.Append(item.ToString("x2").ToLower());
+                sb.Append(item.ToString("x2").ToLowerInvariant());
 
             return sb.ToString();
         }

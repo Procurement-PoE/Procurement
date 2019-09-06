@@ -174,7 +174,7 @@ namespace Procurement.ViewModel
 
             configuredOrbType = OrbType.Chaos;
             string currencyDistributionMetric = Settings.UserSettings["CurrencyDistributionMetric"];
-            if (currencyDistributionMetric.ToLower() == "count")
+            if (currencyDistributionMetric.ToLowerInvariant() == "count")
                 currencyDistributionUsesCount = true;
             else
                 configuredOrbType = (OrbType)Enum.Parse(typeof(OrbType), currencyDistributionMetric);
