@@ -246,6 +246,8 @@
     <Compile Include="ViewModel\Filters\ForumExport\TypeLineFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\VaalFragmentFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\VaalUberFragmentFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\ProphecyFragmentFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\AtlasFragmentFilter.cs" />
     <Compile Include="ViewModel\ForumExportVisitors\TypeLineVisitor.cs" />
     <Compile Include="ViewModel\PricingInfo.cs" />
     <Compile Include="ViewModel\SetBuyoutViewModel.cs" />
