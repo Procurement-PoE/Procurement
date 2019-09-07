@@ -46,17 +46,18 @@ namespace Procurement.ViewModel.Filters.ForumExport
             {
                 return true;
             }
-            else if (!(item.MaxStackSize > 0))
+            else
             {
                 Gear gear = item as Gear;
                 if (gear != null)
                 {
-                    return !gear.TypeLine.StartsWith("Sacrifice at ")
+                    return !gear.GearType.Equals(GearType.Flask)
+                    && !gear.GearType.Equals(GearType.Breachstone)
+                    && !gear.GearType.Equals(GearType.DivinationCard)
+                    && !gear.TypeLine.StartsWith("Sacrifice at ")
                     && !gear.TypeLine.StartsWith("Mortal ")
                     && !gear.TypeLine.StartsWith("Fragment of the ")
-                    && !gear.TypeLine.EndsWith(" Key")
-                    && !gear.TypeLine.EndsWith(" Breachstone")
-                    && !gear.TypeLine.Contains(" Flask");
+                    && !gear.TypeLine.EndsWith(" Key");
                 }
             }
 
