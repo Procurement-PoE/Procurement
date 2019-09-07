@@ -38,14 +38,29 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public bool Applicable(Item item)
         {
-            if (item.TypeLine.Contains(" Flask") || item.TypeLine.Contains("Sacrifice at ") || item.TypeLine.Contains("Mortal ") || item.TypeLine.Contains(" Key") || item.TypeLine.Contains("Fragment of the ") || item.TypeLine.Contains(" Breachstone"))
+            if (item.Corrupted)
+            {
                 return false;
-
-            if ((item is Map || item is Gem) && !item.Corrupted)
+            }
+            else if (item is Map || item is Gem)
+            {
                 return true;
+            }
+            else if (!(item.MaxStackSize > 0))
+            {
+                Gear gear = item as Gear;
+                if (gear != null)
+                {
+                    return !gear.TypeLine.StartsWith("Sacrifice at ")
+                    && !gear.TypeLine.StartsWith("Mortal ")
+                    && !gear.TypeLine.StartsWith("Fragment of the ")
+                    && !gear.TypeLine.EndsWith(" Key")
+                    && !gear.TypeLine.EndsWith(" Breachstone")
+                    && !gear.TypeLine.Contains(" Flask");
+                }
+            }
 
-            Gear gear = item as Gear;
-            return gear != null && !gear.Corrupted && !(gear.MaxStackSize > 0);
+            return false;
         }
     }
 }

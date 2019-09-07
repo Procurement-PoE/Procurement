@@ -38,6 +38,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public bool Applicable(Item item)
         {
+            // Item types that can't be unidentified always have identified value as true so a simple check is sufficient
             return !item.Identified;
         }
     }
