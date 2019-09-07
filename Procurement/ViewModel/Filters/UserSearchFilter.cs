@@ -35,50 +35,180 @@ namespace Procurement.ViewModel.Filters
             if (string.IsNullOrEmpty(filter))
                 return false;
 
-            if (item.TypeLine.ToLowerInvariant().Contains(filter.ToLowerInvariant()) || item.Name.ToLowerInvariant().Contains(filter.ToLowerInvariant()) || containsMatchedCosmeticMod(item) || isMatchedGear(item))
+            if (containsMatchedCosmeticMod(item) || isMatchedGear(item))
                 return true;
 
-            if (item.Explicitmods != null)
-                foreach (var mod in item.Explicitmods)
-                    if (mod.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
-                        return true;
+            string[] words = filter.ToLowerInvariant().Split(' ');
 
-            if (item.Implicitmods != null)
-                foreach (var mod in item.Implicitmods)
-                    if (mod.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
-                        return true;
+            int matchedcount = 0;
 
-            if (item.FracturedMods != null)
-                foreach (var mod in item.FracturedMods)
-                    if (mod.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
-                        return true;
+            foreach (var splitword in words)
+            {
+                var word = splitword;
 
-            if (item.CraftedMods != null)
-                foreach (var mod in item.CraftedMods)
-                    if (mod.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
-                        return true;
+                bool matched = false;
+                bool dontmatch = false;
 
-            if (item.EnchantMods != null)
-                foreach (var mod in item.EnchantMods)
-                    if (mod.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
-                        return true;
+                if (word.StartsWith("!"))
+                {
+                    dontmatch = true;
+                    word = word.Remove(0, 1);
+                }
 
-            if (item.FlavourText != null)
-                foreach (var text in item.FlavourText)
-                    if (text.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
-                        return true;
+                if (item.TypeLine.ToLowerInvariant().Contains(word) || item.Name.ToLowerInvariant().Contains(word))
+                    matched = true;
 
-            if (item.DescrText != null)
-                if (item.DescrText.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
-                    return true;
+                if (item.Explicitmods != null && !matched)
+                    foreach (var mod in item.Explicitmods)
+                        if (mod.ToLowerInvariant().Contains(word))
+                            matched = true;
 
-            if (item.SecDescrText != null)
-                if (item.SecDescrText.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
-                    return true;
+                if (item.Implicitmods != null && !matched)
+                    foreach (var mod in item.Implicitmods)
+                        if (mod.ToLowerInvariant().Contains(word))
+                            matched = true;
 
-            if (item.ProphecyText != null)
-                if (item.ProphecyText.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
-                    return true;
+                if (item.FracturedMods != null && !matched)
+                    foreach (var mod in item.FracturedMods)
+                        if (mod.ToLowerInvariant().Contains(word))
+                            matched = true;
+
+                if (item.CraftedMods != null && !matched)
+                    foreach (var mod in item.CraftedMods)
+                        if (mod.ToLowerInvariant().Contains(word))
+                            matched = true;
+
+                if (item.EnchantMods != null && !matched)
+                    foreach (var mod in item.EnchantMods)
+                        if (mod.ToLowerInvariant().Contains(word))
+                            matched = true;
+
+                if (item.FlavourText != null && !matched)
+                    foreach (var text in item.FlavourText)
+                        if (text.ToLowerInvariant().Contains(word))
+                            matched = true;
+
+                if (item.DescrText != null && !matched)
+                    if (item.DescrText.ToLowerInvariant().Contains(word))
+                        matched = true;
+
+                if (item.SecDescrText != null && !matched)
+                    if (item.SecDescrText.ToLowerInvariant().Contains(word))
+                        matched = true;
+
+                if (item.ProphecyText != null && !matched)
+                    if (item.ProphecyText.ToLowerInvariant().Contains(word))
+                        matched = true;
+
+                if ((item is Map || item is Gear) && !matched)
+                {
+                    string rarity = null;
+
+                    var gear1 = item as Gear;
+
+                    if (item is Map
+                        || (gear1 != null
+                        && !gear1.GearType.Equals(GearType.Breachstone)
+                        && !gear1.GearType.Equals(GearType.DivinationCard)
+                        && !gear1.TypeLine.StartsWith("Sacrifice at ")
+                        && !gear1.TypeLine.StartsWith("Mortal ")
+                        && !gear1.TypeLine.StartsWith("Fragment of the ")
+                        && !gear1.TypeLine.EndsWith(" Key")))
+                    {
+                        if (item.Rarity == Rarity.Normal)
+                            rarity = "normal";
+                        else if (item.Rarity == Rarity.Magic)
+                            rarity = "magic";
+                        else if (item.Rarity == Rarity.Rare)
+                            rarity = "rare";
+                        else if (item.Rarity == Rarity.Unique)
+                            rarity = "unique";
+                        else if (item.Rarity == Rarity.Relic)
+                            rarity = "relic";
+
+                        if (rarity.Contains(word))
+                            matched = true;
+                    }
+                }
+
+                int number;
+                int.TryParse(word, out number);
+
+                if (item.ItemLevel > 0 && !matched)
+                    if (number == item.ItemLevel)
+                        matched = true;
+
+                if (item.StackSize > 0 && !matched)
+                    if (number == item.StackSize)
+                        matched = true;
+
+                if (item.MaxStackSize > 0 && !matched)
+                    if (number == item.MaxStackSize)
+                        matched = true;
+
+                if (word.StartsWith("tier:") && !matched)
+                {
+                    int tier;
+                    bool greaterthan = false;
+                    bool lessthan = false;
+                    word = word.Remove(0, 5);
+                    if (word.EndsWith("+"))
+                    {
+                        word = word.Remove(word.Length - 1);
+                        greaterthan = true;
+                    } else if (word.EndsWith("-"))
+                    {
+                        word = word.Remove(word.Length - 1);
+                        lessthan = true;
+                    }
+                    
+                    int.TryParse(word, out tier);
+                    if (tier >= 1 && tier <= 16)
+                    {
+                        var map = item as Map;
+                        if (map != null)
+                            if (greaterthan && tier <= map.MapTier)
+                                matched = true;
+                            else if (lessthan && tier >= map.MapTier)
+                                matched = true;
+                            else if (tier == map.MapTier)
+                                matched = true;
+                    }
+                }
+
+                if (word.StartsWith("ilvl:") && !matched)
+                {
+                    int ilvl;
+                    bool greaterthan = false;
+                    bool lessthan = false;
+                    word = word.Remove(0, 5);
+                    if (word.EndsWith("+"))
+                    {
+                        word = word.Remove(word.Length - 1);
+                        greaterthan = true;
+                    } else if (word.EndsWith("-"))
+                    {
+                        word = word.Remove(word.Length - 1);
+                        lessthan = true;
+                    }
+                    int.TryParse(word, out ilvl);
+                    if (ilvl >= 1 && ilvl <= 100)
+                    {
+                        if (greaterthan && ilvl <= item.ItemLevel)
+                            matched = true;
+                        else if (lessthan && ilvl >= item.ItemLevel)
+                            matched = true;
+                        else if (ilvl == item.ItemLevel)
+                            matched = true;
+                    }
+                }
+
+                if ((matched && !dontmatch) || (!matched && dontmatch))
+                    matchedcount++;
+            }
+
+            if (words.Count() == matchedcount)
+                return true;
 
             var gear = item as Gear;
 
