@@ -176,7 +176,7 @@ namespace Procurement.ViewModel.Filters
                     }
                 }
 
-                if (word.StartsWith("ilvl:") && !matched)
+                if (word.StartsWith("ilvl:") && item.ItemLevel > 0 && !matched)
                 {
                     int ilvl;
                     bool greaterthan = false;
