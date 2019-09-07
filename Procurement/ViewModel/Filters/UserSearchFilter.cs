@@ -27,7 +27,7 @@ namespace Procurement.ViewModel.Filters
 
         public string Help
         {
-            get { return "Matches user search on name/typeline and geartype"; }
+            get { return "Matches user search on name/typeline, geartype, mods and texts"; }
         }
 
         public bool Applicable(Item item)
@@ -37,6 +37,48 @@ namespace Procurement.ViewModel.Filters
 
             if (item.TypeLine.ToLowerInvariant().Contains(filter.ToLowerInvariant()) || item.Name.ToLowerInvariant().Contains(filter.ToLowerInvariant()) || containsMatchedCosmeticMod(item) || isMatchedGear(item))
                 return true;
+
+            if (item.Explicitmods != null)
+                foreach (var mod in item.Explicitmods)
+                    if (mod.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
+                        return true;
+
+            if (item.Implicitmods != null)
+                foreach (var mod in item.Implicitmods)
+                    if (mod.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
+                        return true;
+
+            if (item.FracturedMods != null)
+                foreach (var mod in item.FracturedMods)
+                    if (mod.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
+                        return true;
+
+            if (item.CraftedMods != null)
+                foreach (var mod in item.CraftedMods)
+                    if (mod.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
+                        return true;
+
+            if (item.EnchantMods != null)
+                foreach (var mod in item.EnchantMods)
+                    if (mod.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
+                        return true;
+
+            if (item.FlavourText != null)
+                foreach (var text in item.FlavourText)
+                    if (text.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
+                        return true;
+
+            if (item.DescrText != null)
+                if (item.DescrText.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
+                    return true;
+
+            if (item.SecDescrText != null)
+                if (item.SecDescrText.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
+                    return true;
+
+            if (item.ProphecyText != null)
+                if (item.ProphecyText.ToLowerInvariant().Contains(filter.ToLowerInvariant()))
+                    return true;
 
             var gear = item as Gear;
 
