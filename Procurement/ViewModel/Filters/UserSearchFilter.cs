@@ -49,7 +49,7 @@ namespace Procurement.ViewModel.Filters
                 bool matched = false;
                 bool dontmatch = false;
 
-                if (word.StartsWith("!"))
+                if (word.StartsWith("-"))
                 {
                     dontmatch = true;
                     word = word.Remove(0, 1);
