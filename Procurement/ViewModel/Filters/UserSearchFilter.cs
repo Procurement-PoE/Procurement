@@ -332,6 +332,8 @@ namespace Procurement.ViewModel.Filters
                 End:
                     if (!dontmatch)
                         count++;
+                    else
+                        break;
             }
 
             if (words.Count() == count)
