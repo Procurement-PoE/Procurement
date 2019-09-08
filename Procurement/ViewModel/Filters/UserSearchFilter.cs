@@ -56,7 +56,6 @@ namespace Procurement.ViewModel.Filters
 
                 if (item.TypeLine.ToLowerInvariant().Contains(word) || item.Name.ToLowerInvariant().Contains(word))
                 {
-                    count++;
                     goto End;
                 }
 
@@ -66,7 +65,6 @@ namespace Procurement.ViewModel.Filters
                     {
                         if (mod.ToLowerInvariant().Contains(word))
                         {
-                            count++;
                             goto End;
                         }
                     }
@@ -78,7 +76,6 @@ namespace Procurement.ViewModel.Filters
                     {
                         if (mod.ToLowerInvariant().Contains(word))
                         {
-                            count++;
                             goto End;
                         }
                     }
@@ -90,7 +87,6 @@ namespace Procurement.ViewModel.Filters
                     {
                         if (mod.ToLowerInvariant().Contains(word))
                         {
-                            count++;
                             goto End;
                         }
                     }
@@ -102,7 +98,6 @@ namespace Procurement.ViewModel.Filters
                     {
                         if (mod.ToLowerInvariant().Contains(word))
                         {
-                            count++;
                             goto End;
                         }
                     }
@@ -114,7 +109,6 @@ namespace Procurement.ViewModel.Filters
                     {
                         if (mod.ToLowerInvariant().Contains(word))
                         {
-                            count++;
                             goto End;
                         }
                     }
@@ -126,7 +120,6 @@ namespace Procurement.ViewModel.Filters
                     {
                         if (flavourtext.ToLowerInvariant().Contains(word))
                         {
-                            count++;
                             goto End;
                         }
                     }
@@ -136,7 +129,6 @@ namespace Procurement.ViewModel.Filters
                 {
                     if (item.DescrText.ToLowerInvariant().Contains(word))
                     {
-                        count++;
                         goto End;
                     }
                 }
@@ -145,7 +137,6 @@ namespace Procurement.ViewModel.Filters
                 {
                     if (item.SecDescrText.ToLowerInvariant().Contains(word))
                     {
-                        count++;
                         goto End;
                     }
                 }
@@ -154,7 +145,6 @@ namespace Procurement.ViewModel.Filters
                 {
                     if (item.ProphecyText.ToLowerInvariant().Contains(word))
                     {
-                        count++;
                         goto End;
                     }
                 }
@@ -187,7 +177,6 @@ namespace Procurement.ViewModel.Filters
 
                         if (rarity.Contains(word))
                         {
-                            count++;
                             goto End;
                         }
                     }
@@ -199,7 +188,6 @@ namespace Procurement.ViewModel.Filters
                     text = "enchanted";
                     if (text.Contains(word))
                     {
-                        count++;
                         goto End;
                     }
                 }
@@ -208,7 +196,6 @@ namespace Procurement.ViewModel.Filters
                     text = "crafted";
                     if (text.Contains(word))
                     {
-                        count++;
                         goto End;
                     }
                 }
@@ -217,7 +204,6 @@ namespace Procurement.ViewModel.Filters
                     text = "fractured";
                     if (text.Contains(word))
                     {
-                        count++;
                         goto End;
                     }
                 }
@@ -226,7 +212,6 @@ namespace Procurement.ViewModel.Filters
                     text = "corrupted";
                     if (text.Contains(word))
                     {
-                        count++;
                         goto End;
                     }
                 }
@@ -235,7 +220,6 @@ namespace Procurement.ViewModel.Filters
                     text = "unidentified";
                     if (text.Contains(word))
                     {
-                        count++;
                         goto End;
                     }
                 }
@@ -244,7 +228,6 @@ namespace Procurement.ViewModel.Filters
                     text = item.ItemLevel.ToString();
                     if (text.Contains(word))
                     {
-                        count++;
                         goto End;
                     }
                 }
@@ -253,7 +236,6 @@ namespace Procurement.ViewModel.Filters
                     text = item.StackSize.ToString();
                     if (text.Contains(word))
                     {
-                        count++;
                         goto End;
                     }
                 }
@@ -262,7 +244,6 @@ namespace Procurement.ViewModel.Filters
                     text = item.MaxStackSize.ToString();
                     if (text.Contains(word))
                     {
-                        count++;
                         goto End;
                     }
                 }
@@ -292,17 +273,14 @@ namespace Procurement.ViewModel.Filters
                         {
                             if (greaterthan && tier <= map.MapTier)
                             {
-                                count++;
                                 goto End;
                             }
                             else if (lessthan && tier >= map.MapTier)
                             {
-                                count++;
                                 goto End;
                             }
                             else if (tier == map.MapTier)
                             {
-                                count++;
                                 goto End;
                             }
                         }
@@ -330,17 +308,14 @@ namespace Procurement.ViewModel.Filters
                     {
                         if (greaterthan && ilvl <= item.ItemLevel)
                         {
-                            count++;
                             goto End;
                         }
                         else if (lessthan && ilvl >= item.ItemLevel)
                         {
-                            count++;
                             goto End;
                         }
                         else if (ilvl == item.ItemLevel)
                         {
-                            count++;
                             goto End;
                         }
                     }
@@ -352,8 +327,8 @@ namespace Procurement.ViewModel.Filters
                 continue;
 
                 End:
-                    if (dontmatch)
-                        count--;
+                    if (!dontmatch)
+                        count++;
             }
 
             if (words.Count() == count)
