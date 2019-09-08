@@ -184,7 +184,7 @@ namespace Procurement.ViewModel.Filters
                     }
                 }
 
-                if (word.StartsWith("tier:") && !matched)
+                if (word.StartsWith("tier:") && item is Map &&!matched)
                 {
                     int tier;
                     bool greaterthan = false;
