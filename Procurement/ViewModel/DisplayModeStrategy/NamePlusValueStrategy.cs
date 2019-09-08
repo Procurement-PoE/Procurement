@@ -13,7 +13,11 @@ namespace Procurement.ViewModel
 
         public override Block Get()
         {
-            Paragraph ret = new Paragraph(new Run(property.Name) { Foreground = Brushes.Gray });
+            Paragraph ret;
+            if (property.Values.Count == 0)
+                ret = new Paragraph(new Run(property.Name) { Foreground = Brushes.Gray });
+            else
+                ret = new Paragraph(new Run(property.Name + ":") { Foreground = Brushes.Gray });
          
             for (int i = 0; i < property.Values.Count; i++)
             {
