@@ -322,9 +322,12 @@ namespace Procurement.ViewModel.Filters
                 }
                 
                 if (dontmatch)
+                {
                     count++;
-
-                continue;
+                    continue;
+                }
+                
+                break;
 
                 End:
                     if (!dontmatch)
