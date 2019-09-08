@@ -40,13 +40,12 @@ namespace Procurement.ViewModel.Filters
 
             string[] words = filter.ToLowerInvariant().Split(' ');
 
-            int matchedcount = 0;
+            int count = 0;
 
             foreach (var splitword in words)
             {
                 var word = splitword;
 
-                bool matched = false;
                 bool dontmatch = false;
 
                 if (word.StartsWith("-"))
@@ -56,51 +55,111 @@ namespace Procurement.ViewModel.Filters
                 }
 
                 if (item.TypeLine.ToLowerInvariant().Contains(word) || item.Name.ToLowerInvariant().Contains(word))
-                    matched = true;
+                {
+                    count++;
+                    goto End;
+                }
 
-                if (item.Explicitmods != null && !matched)
+                if (item.Explicitmods != null)
+                {
                     foreach (var mod in item.Explicitmods)
+                    {
                         if (mod.ToLowerInvariant().Contains(word))
-                            matched = true;
+                        {
+                            count++;
+                            goto End;
+                        }
+                    }
+                }
 
-                if (item.Implicitmods != null && !matched)
+                if (item.Implicitmods != null)
+                {
                     foreach (var mod in item.Implicitmods)
+                    {
                         if (mod.ToLowerInvariant().Contains(word))
-                            matched = true;
+                        {
+                            count++;
+                            goto End;
+                        }
+                    }
+                }
 
-                if (item.FracturedMods != null && !matched)
+                if (item.FracturedMods != null)
+                {
                     foreach (var mod in item.FracturedMods)
+                    {
                         if (mod.ToLowerInvariant().Contains(word))
-                            matched = true;
+                        {
+                            count++;
+                            goto End;
+                        }
+                    }
+                }
 
-                if (item.CraftedMods != null && !matched)
+                if (item.CraftedMods != null)
+                {
                     foreach (var mod in item.CraftedMods)
+                    {
                         if (mod.ToLowerInvariant().Contains(word))
-                            matched = true;
+                        {
+                            count++;
+                            goto End;
+                        }
+                    }
+                }
 
-                if (item.EnchantMods != null && !matched)
+                if (item.EnchantMods != null)
+                {
                     foreach (var mod in item.EnchantMods)
+                    {
                         if (mod.ToLowerInvariant().Contains(word))
-                            matched = true;
+                        {
+                            count++;
+                            goto End;
+                        }
+                    }
+                }
 
-                if (item.FlavourText != null && !matched)
-                    foreach (var text in item.FlavourText)
-                        if (text.ToLowerInvariant().Contains(word))
-                            matched = true;
+                if (item.FlavourText != null)
+                {
+                    foreach (var flavourtext in item.FlavourText)
+                    {
+                        if (flavourtext.ToLowerInvariant().Contains(word))
+                        {
+                            count++;
+                            goto End;
+                        }
+                    }
+                }
 
-                if (item.DescrText != null && !matched)
+                if (item.DescrText != null)
+                {
                     if (item.DescrText.ToLowerInvariant().Contains(word))
-                        matched = true;
+                    {
+                        count++;
+                        goto End;
+                    }
+                }
 
-                if (item.SecDescrText != null && !matched)
+                if (item.SecDescrText != null)
+                {
                     if (item.SecDescrText.ToLowerInvariant().Contains(word))
-                        matched = true;
+                    {
+                        count++;
+                        goto End;
+                    }
+                }
 
-                if (item.ProphecyText != null && !matched)
+                if (item.ProphecyText != null)
+                {
                     if (item.ProphecyText.ToLowerInvariant().Contains(word))
-                        matched = true;
+                    {
+                        count++;
+                        goto End;
+                    }
+                }
 
-                if ((item is Map || item is Gear) && !matched)
+                if (item is Map || item is Gear)
                 {
                     string rarity = null;
 
@@ -127,64 +186,88 @@ namespace Procurement.ViewModel.Filters
                             rarity = "relic";
 
                         if (rarity.Contains(word))
-                            matched = true;
-                    }
-                }
-                
-                if (!matched)
-                {
-                    string text = null;
-                    if (item.EnchantMods != null && item.EnchantMods.Count() > 0)
-                    {
-                        text = "enchanted";
-                        if (text.Contains(word))
-                            matched = true;
-                    }
-                    if (item.CraftedMods != null && item.CraftedMods.Count() > 0 && !matched)
-                    {
-                        text = "crafted";
-                        if (text.Contains(word))
-                            matched = true;
-                    }
-                    if (item.Fractured && !matched)
-                    {
-                        text = "fractured";
-                        if (text.Contains(word))
-                            matched = true;
-                    }
-                    if (item.Corrupted && !matched)
-                    {
-                        text = "corrupted";
-                        if (text.Contains(word))
-                            matched = true;
-                    }
-                    if (!item.Identified && !matched)
-                    {
-                        text = "unidentified";
-                        if (text.Contains(word))
-                            matched = true;
-                    }
-                    if (item.ItemLevel > 0 && !matched)
-                    {
-                        text = item.ItemLevel.ToString();
-                        if (text.Contains(word))
-                            matched = true;
-                    }
-                    if (item.StackSize > 0 && !matched)
-                    {
-                        text = item.StackSize.ToString();
-                        if (text.Contains(word))
-                            matched = true;
-                    }
-                    if (item.MaxStackSize > 0 && !matched)
-                    {
-                        text = item.MaxStackSize.ToString();
-                        if (text.Contains(word))
-                            matched = true;
+                        {
+                            count++;
+                            goto End;
+                        }
                     }
                 }
 
-                if (word.StartsWith("tier:") && item is Map &&!matched)
+                string text = null;
+                if (item.EnchantMods != null && item.EnchantMods.Count() > 0)
+                {
+                    text = "enchanted";
+                    if (text.Contains(word))
+                    {
+                        count++;
+                        goto End;
+                    }
+                }
+                if (item.CraftedMods != null && item.CraftedMods.Count() > 0)
+                {
+                    text = "crafted";
+                    if (text.Contains(word))
+                    {
+                        count++;
+                        goto End;
+                    }
+                }
+                if (item.Fractured)
+                {
+                    text = "fractured";
+                    if (text.Contains(word))
+                    {
+                        count++;
+                        goto End;
+                    }
+                }
+                if (item.Corrupted)
+                {
+                    text = "corrupted";
+                    if (text.Contains(word))
+                    {
+                        count++;
+                        goto End;
+                    }
+                }
+                if (!item.Identified)
+                {
+                    text = "unidentified";
+                    if (text.Contains(word))
+                    {
+                        count++;
+                        goto End;
+                    }
+                }
+                if (item.ItemLevel > 0)
+                {
+                    text = item.ItemLevel.ToString();
+                    if (text.Contains(word))
+                    {
+                        count++;
+                        goto End;
+                    }
+                }
+                if (item.StackSize > 0)
+                {
+                    text = item.StackSize.ToString();
+                    if (text.Contains(word))
+                    {
+                        count++;
+                        goto End;
+                    }
+                }
+                if (item.MaxStackSize > 0)
+                {
+                    text = item.MaxStackSize.ToString();
+                    if (text.Contains(word))
+                    {
+                        count++;
+                        goto End;
+                    }
+                }
+
+                if (word.StartsWith("tier:") && item is Map)
                 {
                     int tier;
                     bool greaterthan = false;
@@ -208,16 +291,25 @@ namespace Procurement.ViewModel.Filters
                         if (map != null)
                         {
                             if (greaterthan && tier <= map.MapTier)
-                                matched = true;
+                            {
+                                count++;
+                                goto End;
+                            }
                             else if (lessthan && tier >= map.MapTier)
-                                matched = true;
+                            {
+                                count++;
+                                goto End;
+                            }
                             else if (tier == map.MapTier)
-                                matched = true;
+                            {
+                                count++;
+                                goto End;
+                            }
                         }
                     }
                 }
 
-                if (word.StartsWith("ilvl:") && item.ItemLevel > 0 && !matched)
+                if (word.StartsWith("ilvl:") && item.ItemLevel > 0)
                 {
                     int ilvl;
                     bool greaterthan = false;
@@ -237,19 +329,34 @@ namespace Procurement.ViewModel.Filters
                     if (ilvl >= 1 && ilvl <= 100)
                     {
                         if (greaterthan && ilvl <= item.ItemLevel)
-                            matched = true;
+                        {
+                            count++;
+                            goto End;
+                        }
                         else if (lessthan && ilvl >= item.ItemLevel)
-                            matched = true;
+                        {
+                            count++;
+                            goto End;
+                        }
                         else if (ilvl == item.ItemLevel)
-                            matched = true;
+                        {
+                            count++;
+                            goto End;
+                        }
                     }
                 }
+                
+                if (dontmatch)
+                    count++;
 
-                if ((matched && !dontmatch) || (!matched && dontmatch))
-                    matchedcount++;
+                continue;
+
+                End:
+                    if (dontmatch)
+                        count--;
             }
 
-            if (words.Count() == matchedcount)
+            if (words.Count() == count)
                 return true;
 
             var gear = item as Gear;
