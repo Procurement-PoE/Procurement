@@ -206,12 +206,14 @@ namespace Procurement.ViewModel.Filters
                     {
                         var map = item as Map;
                         if (map != null)
+                        {
                             if (greaterthan && tier <= map.MapTier)
                                 matched = true;
                             else if (lessthan && tier >= map.MapTier)
                                 matched = true;
                             else if (tier == map.MapTier)
                                 matched = true;
+                        }
                     }
                 }
 
