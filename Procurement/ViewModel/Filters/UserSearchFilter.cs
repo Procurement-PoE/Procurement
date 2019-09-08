@@ -54,100 +54,53 @@ namespace Procurement.ViewModel.Filters
                     word = word.Remove(0, 1);
                 }
 
-                if (item.TypeLine.ToLowerInvariant().Contains(word) || item.Name.ToLowerInvariant().Contains(word))
-                {
+                if (item.TypeLine.ToLowerInvariant().Contains(word))
                     goto End;
-                }
+
+                if (item.Name.ToLowerInvariant().Contains(word))
+                    goto End;
 
                 if (item.Explicitmods != null)
-                {
                     foreach (var mod in item.Explicitmods)
-                    {
                         if (mod.ToLowerInvariant().Contains(word))
-                        {
                             goto End;
-                        }
-                    }
-                }
 
                 if (item.Implicitmods != null)
-                {
                     foreach (var mod in item.Implicitmods)
-                    {
                         if (mod.ToLowerInvariant().Contains(word))
-                        {
                             goto End;
-                        }
-                    }
-                }
 
                 if (item.FracturedMods != null)
-                {
                     foreach (var mod in item.FracturedMods)
-                    {
                         if (mod.ToLowerInvariant().Contains(word))
-                        {
                             goto End;
-                        }
-                    }
-                }
 
                 if (item.CraftedMods != null)
-                {
                     foreach (var mod in item.CraftedMods)
-                    {
                         if (mod.ToLowerInvariant().Contains(word))
-                        {
                             goto End;
-                        }
-                    }
-                }
 
                 if (item.EnchantMods != null)
-                {
                     foreach (var mod in item.EnchantMods)
-                    {
                         if (mod.ToLowerInvariant().Contains(word))
-                        {
                             goto End;
-                        }
-                    }
-                }
 
                 if (item.FlavourText != null)
-                {
                     foreach (var flavourtext in item.FlavourText)
-                    {
                         if (flavourtext.ToLowerInvariant().Contains(word))
-                        {
                             goto End;
-                        }
-                    }
-                }
 
                 if (item.DescrText != null)
-                {
                     if (item.DescrText.ToLowerInvariant().Contains(word))
-                    {
                         goto End;
-                    }
-                }
 
                 if (item.SecDescrText != null)
-                {
                     if (item.SecDescrText.ToLowerInvariant().Contains(word))
-                    {
                         goto End;
-                    }
-                }
 
                 if (item.ProphecyText != null)
-                {
                     if (item.ProphecyText.ToLowerInvariant().Contains(word))
-                    {
                         goto End;
-                    }
-                }
 
                 if (item is Map || item is Gear)
                 {
@@ -176,9 +129,7 @@ namespace Procurement.ViewModel.Filters
                             rarity = "relic";
 
                         if (rarity.Contains(word))
-                        {
                             goto End;
-                        }
                     }
                 }
 
@@ -187,65 +138,49 @@ namespace Procurement.ViewModel.Filters
                 {
                     text = "enchanted";
                     if (text.Contains(word))
-                    {
                         goto End;
-                    }
                 }
                 if (item.CraftedMods != null && item.CraftedMods.Count() > 0)
                 {
                     text = "crafted";
                     if (text.Contains(word))
-                    {
                         goto End;
-                    }
                 }
                 if (item.Fractured)
                 {
                     text = "fractured";
                     if (text.Contains(word))
-                    {
                         goto End;
-                    }
                 }
                 if (item.Corrupted)
                 {
                     text = "corrupted";
                     if (text.Contains(word))
-                    {
                         goto End;
-                    }
                 }
                 if (!item.Identified)
                 {
                     text = "unidentified";
                     if (text.Contains(word))
-                    {
                         goto End;
-                    }
                 }
                 if (item.ItemLevel > 0)
                 {
                     text = item.ItemLevel.ToString();
                     if (text.Contains(word))
-                    {
                         goto End;
-                    }
                 }
                 if (item.StackSize > 0)
                 {
                     text = item.StackSize.ToString();
                     if (text.Contains(word))
-                    {
                         goto End;
-                    }
                 }
                 if (item.MaxStackSize > 0)
                 {
                     text = item.MaxStackSize.ToString();
                     if (text.Contains(word))
-                    {
                         goto End;
-                    }
                 }
 
                 if (word.StartsWith("tier:") && item is Map)
@@ -272,17 +207,11 @@ namespace Procurement.ViewModel.Filters
                         if (map != null)
                         {
                             if (greaterthan && tier <= map.MapTier)
-                            {
                                 goto End;
-                            }
                             else if (lessthan && tier >= map.MapTier)
-                            {
                                 goto End;
-                            }
                             else if (tier == map.MapTier)
-                            {
                                 goto End;
-                            }
                         }
                     }
                 }
@@ -307,17 +236,11 @@ namespace Procurement.ViewModel.Filters
                     if (ilvl >= 1 && ilvl <= 100)
                     {
                         if (greaterthan && ilvl <= item.ItemLevel)
-                        {
                             goto End;
-                        }
                         else if (lessthan && ilvl >= item.ItemLevel)
-                        {
                             goto End;
-                        }
                         else if (ilvl == item.ItemLevel)
-                        {
                             goto End;
-                        }
                     }
                 }
                 
