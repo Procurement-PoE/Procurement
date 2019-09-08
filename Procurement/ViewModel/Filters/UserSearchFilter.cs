@@ -130,21 +130,59 @@ namespace Procurement.ViewModel.Filters
                             matched = true;
                     }
                 }
-
-                int number;
-                int.TryParse(word, out number);
-
-                if (item.ItemLevel > 0 && !matched)
-                    if (number == item.ItemLevel)
-                        matched = true;
-
-                if (item.StackSize > 0 && !matched)
-                    if (number == item.StackSize)
-                        matched = true;
-
-                if (item.MaxStackSize > 0 && !matched)
-                    if (number == item.MaxStackSize)
-                        matched = true;
+                
+                if (!matched)
+                {
+                    string text = null;
+                    if (item.EnchantMods != null && item.EnchantMods.Count() > 0)
+                    {
+                        text = "enchanted";
+                        if (text.Contains(word))
+                            matched = true;
+                    }
+                    if (item.CraftedMods != null && item.CraftedMods.Count() > 0 && !matched)
+                    {
+                        text = "crafted";
+                        if (text.Contains(word))
+                            matched = true;
+                    }
+                    if (item.Fractured && !matched)
+                    {
+                        text = "fractured";
+                        if (text.Contains(word))
+                            matched = true;
+                    }
+                    if (item.Corrupted && !matched)
+                    {
+                        text = "corrupted";
+                        if (text.Contains(word))
+                            matched = true;
+                    }
+                    if (!item.Identified && !matched)
+                    {
+                        text = "unidentified";
+                        if (text.Contains(word))
+                            matched = true;
+                    }
+                    if (item.ItemLevel > 0 && !matched)
+                    {
+                        text = item.ItemLevel.ToString();
+                        if (text.Contains(word))
+                            matched = true;
+                    }
+                    if (item.StackSize > 0 && !matched)
+                    {
+                        text = item.StackSize.ToString();
+                        if (text.Contains(word))
+                            matched = true;
+                    }
+                    if (item.MaxStackSize > 0 && !matched)
+                    {
+                        text = item.MaxStackSize.ToString();
+                        if (text.Contains(word))
+                            matched = true;
+                    }
+                }
 
                 if (word.StartsWith("tier:") && !matched)
                 {
@@ -156,7 +194,8 @@ namespace Procurement.ViewModel.Filters
                     {
                         word = word.Remove(word.Length - 1);
                         greaterthan = true;
-                    } else if (word.EndsWith("-"))
+                    }
+                    else if (word.EndsWith("-"))
                     {
                         word = word.Remove(word.Length - 1);
                         lessthan = true;
@@ -186,7 +225,8 @@ namespace Procurement.ViewModel.Filters
                     {
                         word = word.Remove(word.Length - 1);
                         greaterthan = true;
-                    } else if (word.EndsWith("-"))
+                    }
+                    else if (word.EndsWith("-"))
                     {
                         word = word.Remove(word.Length - 1);
                         lessthan = true;
