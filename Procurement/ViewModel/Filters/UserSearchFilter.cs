@@ -29,7 +29,7 @@ namespace Procurement.ViewModel.Filters
 
         public string Help
         {
-            get { return "Matches user search on name/typeline, geartype, mods and texts"; }
+            get { return "Matches user search on name/typeline, geartype, mods, properties and texts"; }
         }
 
         public bool Applicable(Item item)
@@ -37,9 +37,6 @@ namespace Procurement.ViewModel.Filters
             if (string.IsNullOrEmpty(filter))
                 return false;
 
-            if (containsMatchedCosmeticMod(item) || isMatchedGear(item))
-                return true;
-            
             var words = filter.ToLowerInvariant().Split('"')
                 .Select((element, index) => index % 2 == 0
                     ? element.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
@@ -47,9 +44,10 @@ namespace Procurement.ViewModel.Filters
                 .SelectMany(element => element).ToList();
 
             int count = 0;
-            
+
             var gear = item as Gear;
             var gem = item as Gem;
+            var map = item as Map;
 
             foreach (var splitword in words)
             {
@@ -68,6 +66,14 @@ namespace Procurement.ViewModel.Filters
 
                 if (item.Name.ToLowerInvariant().Contains(word))
                     goto End;
+                    
+                if (item.Microtransactions != null)
+                    if (item.Microtransactions.Any(x => x.ToLowerInvariant().Contains(word)))
+                        goto End;
+
+                if (gear != null)
+                        if (gear.GearType.ToString().ToLowerInvariant().Contains(word))
+                            goto End;
 
                 if (item.Explicitmods != null)
                     foreach (var mod in item.Explicitmods)
@@ -186,42 +192,23 @@ namespace Procurement.ViewModel.Filters
                             goto End;
                 }
 
-                if (item is Map || gear != null)
-                {
-                    string rarity = null;
+                if (map != null)
+                    if (item.Rarity.ToString().ToLowerInvariant().Contains(word))
+                        goto End;
 
-                    if (item is Map
-                        || (!gear.GearType.Equals(GearType.Breachstone)
-                        && !gear.GearType.Equals(GearType.DivinationCard)
-                        && !gear.TypeLine.StartsWith("Sacrifice at ")
-                        && !gear.TypeLine.StartsWith("Mortal ")
-                        && !gear.TypeLine.StartsWith("Fragment of the ")
-                        && !gear.TypeLine.EndsWith(" Key")))
-                    {
-                        if (item.Rarity == Rarity.Normal)
-                            rarity = "normal";
-                        else if (item.Rarity == Rarity.Magic)
-                            rarity = "magic";
-                        else if (item.Rarity == Rarity.Rare)
-                            rarity = "rare";
-                        else if (item.Rarity == Rarity.Unique)
-                            rarity = "unique";
-                        else if (item.Rarity == Rarity.Relic)
-                            rarity = "relic";
-
-                        if (rarity.Contains(word))
+                if (gear != null)
+                    if (!gear.GearType.Equals(GearType.Unknown) && !gear.GearType.Equals(GearType.DivinationCard) && !gear.GearType.Equals(GearType.Breachstone))
+                        if (item.Rarity.ToString().ToLowerInvariant().Contains(word))
                             goto End;
-                    }
-                }
 
-                string text = null;
-                if (item.EnchantMods != null && item.EnchantMods.Count() > 0)
+                string text = "";
+                if (item.EnchantMods != null && item.EnchantMods.Count > 0)
                 {
                     text = "enchanted";
                     if (text.Contains(word))
                         goto End;
                 }
-                if (item.CraftedMods != null && item.CraftedMods.Count() > 0)
+                if (item.CraftedMods != null && item.CraftedMods.Count > 0)
                 {
                     text = "crafted";
                     if (text.Contains(word))
@@ -264,7 +251,7 @@ namespace Procurement.ViewModel.Filters
                         goto End;
                 }
 
-                if (word.StartsWith("tier:") && item is Map)
+                if (word.StartsWith("tier:") && map != null)
                 {
                     int tier;
                     bool greaterthan = false;
@@ -280,20 +267,16 @@ namespace Procurement.ViewModel.Filters
                         word = word.Remove(word.Length - 1);
                         lessthan = true;
                     }
-                    
+
                     int.TryParse(word, out tier);
                     if (tier >= 1 && tier <= 16)
                     {
-                        var map = item as Map;
-                        if (map != null)
-                        {
-                            if (greaterthan && tier <= map.MapTier)
-                                goto End;
-                            else if (lessthan && tier >= map.MapTier)
-                                goto End;
-                            else if (tier == map.MapTier)
-                                goto End;
-                        }
+                        if (greaterthan && tier <= map.MapTier)
+                            goto End;
+                        else if (lessthan && tier >= map.MapTier)
+                            goto End;
+                        else if (tier == map.MapTier)
+                            goto End;
                     }
                 }
 
@@ -347,21 +330,6 @@ namespace Procurement.ViewModel.Filters
                 return true;
 
             return false;
-        }
-
-        private bool containsMatchedCosmeticMod(Item item)
-        {
-            return item.Microtransactions.Any(x => x.ToLowerInvariant().Contains(filter.ToLowerInvariant()));
-        }
-
-        private bool isMatchedGear(Item item)
-        {
-            Gear gear = item as Gear;
-
-            if (gear == null)
-                return false;
-
-            return gear.GearType.ToString().ToLowerInvariant().Contains(filter.ToLowerInvariant());
         }
     }
 }
