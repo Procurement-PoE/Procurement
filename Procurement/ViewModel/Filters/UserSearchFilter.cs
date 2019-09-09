@@ -37,7 +37,14 @@ namespace Procurement.ViewModel.Filters
             if (string.IsNullOrEmpty(filter))
                 return false;
 
-            var words = filter.ToLowerInvariant().Split('"')
+            string filterlow = filter.ToLowerInvariant();
+
+            filterlow = filterlow.Replace(" -\"", " \"-");
+
+            if (filterlow.StartsWith("-\""))
+                filterlow = "\"-" + filterlow.Substring(2);
+
+            var words = filterlow.Split('"')
                 .Select((element, index) => index % 2 == 0
                     ? element.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                     : new string[] { element })
