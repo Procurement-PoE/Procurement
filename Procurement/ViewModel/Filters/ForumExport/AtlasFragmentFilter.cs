@@ -1,9 +1,9 @@
 ﻿namespace Procurement.ViewModel.Filters
 {
-    public class VaalUberFragmentFilter : TypeLineFilter
+    public class AtlasFragmentFilter : TypeLineFilter
     {
-        public VaalUberFragmentFilter()
-            : base("Mortal Grief", "Mortal Rage", "Mortal Hope", "Mortal Ignorance")
+        public AtlasFragmentFilter()
+            : base("Fragment of the Hydra", "Fragment of the Phoenix", "Fragment of the Minotaur", "Fragment of the Chimera")
         { }
         public override bool CanFormCategory
         {
@@ -12,12 +12,12 @@
 
         public override string Keyword
         {
-            get { return "Uber Vaal Fragments"; }
+            get { return "Atlas Fragments"; }
         }
 
         public override string Help
         {
-            get { return "Uber Vaal Fragments"; }
+            get { return "Atlas Fragments"; }
         }
 
         public override FilterGroup Group

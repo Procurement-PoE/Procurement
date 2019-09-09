@@ -14,6 +14,8 @@ namespace Procurement.ViewModel.ForumExportVisitors
             tokens = new Dictionary<string, IFilter>();
             tokens.Add("{VaalFragments}", new VaalFragmentFilter());
             tokens.Add("{VaalUberFragments}", new VaalUberFragmentFilter());
+            tokens.Add("{ProphecyFragments}", new ProphecyFragmentFilter());
+            tokens.Add("{AtlasFragments}", new AtlasFragmentFilter());
         }
 
         public override string Visit(IEnumerable<Item> items, string current)
