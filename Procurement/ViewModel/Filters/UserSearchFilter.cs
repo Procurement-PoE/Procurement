@@ -64,8 +64,12 @@ namespace Procurement.ViewModel.Filters
 
                 if (word.StartsWith("-"))
                 {
-                    dontmatch = true;
                     word = word.Remove(0, 1);
+
+                    if (string.IsNullOrEmpty(word))
+                        goto End;
+
+                    dontmatch = true;
                 }
 
                 if (item.TypeLine.ToLowerInvariant().Contains(word))
