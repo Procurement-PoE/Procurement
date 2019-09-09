@@ -1,6 +1,7 @@
 ﻿using POEApi.Model;
 using System.Linq;
 using System;
+using System.Collections.Generic;
 
 namespace Procurement.ViewModel.Filters
 {
@@ -46,6 +47,8 @@ namespace Procurement.ViewModel.Filters
                 .SelectMany(element => element).ToList();
 
             int count = 0;
+            
+            var gear = item as Gear;
 
             foreach (var splitword in words)
             {
@@ -107,20 +110,92 @@ namespace Procurement.ViewModel.Filters
                     if (item.ProphecyText.ToLowerInvariant().Contains(word))
                         goto End;
 
-                if (item is Map || item is Gear)
+                if (item.Properties != null)
+                {
+                    foreach (var property in item.Properties)
+                    {
+                        string proptext = null;
+                        if (property.DisplayMode == 0)
+                        {
+                            if (property.Values.Count == 0)
+                                proptext = property.Name;
+                            else
+                            {
+                                proptext = property.Name + ":";
+                                for (int i = 0; i < property.Values.Count; i++)
+                                {
+                                    proptext += " " + property.Values[i].Item1;
+                                    if (i != property.Values.Count - 1)
+                                        proptext += ", ";
+                                }
+                            }
+                        }
+                        else if (property.DisplayMode == 1)
+                        {
+                            proptext = property.Values[0].Item1 + " " + property.Name;
+                        }
+                        else if (property.DisplayMode == 3)
+                        {
+                            var parts = property.Name.Split('%');
+
+                            proptext += parts[0] + property.Values[0].Item1 + parts[1].Substring(1);
+
+                            if (property.Values.Count > 1)
+                                proptext += property.Values[1].Item1 + parts[2].Substring(1);
+                        }
+
+                        if (proptext != null)
+                            if (proptext.ToLowerInvariant().Contains(word))
+                                goto End;
+                    }
+                }
+
+                if (gear != null && gear.Requirements != null)
+                {
+                    string reqtext = "Requires ";
+                    int reqcount = 1;
+                    foreach (var requirement in gear.Requirements)
+                    {
+                        if (requirement.NameFirst)
+                            reqtext += requirement.Name + " " + requirement.Value;
+                        else
+                            reqtext += requirement.Value + " " + requirement.Name;
+
+                        if (reqcount < gear.Requirements.Count)
+                        {
+                            reqtext += ", ";
+                            reqcount++;
+                        }
+                    }
+                    if (reqtext.ToLowerInvariant().Contains(word))
+                        goto End;
+                }
+
+                if (item.IncubatedDetails != null)
+                {
+                    List<string> inctexts = new List<string>();
+
+                    inctexts.Add(item.IncubatedDetails.Progress.ToString());
+                    inctexts.Add(item.IncubatedDetails.Total.ToString());
+                    inctexts.Add($"Incubating {item.IncubatedDetails.Name}");
+                    inctexts.Add($"Level {item.IncubatedDetails.Level}+ Monster Kills");
+
+                    foreach (string inctext in inctexts)
+                        if (inctext.ToLowerInvariant().Contains(word))
+                            goto End;
+                }
+
+                if (item is Map || gear != null)
                 {
                     string rarity = null;
 
-                    var gear1 = item as Gear;
-
                     if (item is Map
-                        || (gear1 != null
-                        && !gear1.GearType.Equals(GearType.Breachstone)
-                        && !gear1.GearType.Equals(GearType.DivinationCard)
-                        && !gear1.TypeLine.StartsWith("Sacrifice at ")
-                        && !gear1.TypeLine.StartsWith("Mortal ")
-                        && !gear1.TypeLine.StartsWith("Fragment of the ")
-                        && !gear1.TypeLine.EndsWith(" Key")))
+                        || (!gear.GearType.Equals(GearType.Breachstone)
+                        && !gear.GearType.Equals(GearType.DivinationCard)
+                        && !gear.TypeLine.StartsWith("Sacrifice at ")
+                        && !gear.TypeLine.StartsWith("Mortal ")
+                        && !gear.TypeLine.StartsWith("Fragment of the ")
+                        && !gear.TypeLine.EndsWith(" Key")))
                     {
                         if (item.Rarity == Rarity.Normal)
                             rarity = "normal";
@@ -264,10 +339,8 @@ namespace Procurement.ViewModel.Filters
                         break;
             }
 
-            if (words.Count() == count)
+            if (words.Count == count)
                 return true;
-
-            var gear = item as Gear;
 
             if (gear != null && gear.SocketedItems.Any(x => Applicable(x)))
                 return true;
