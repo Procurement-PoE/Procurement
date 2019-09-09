@@ -1,5 +1,6 @@
 ﻿using POEApi.Model;
 using System.Linq;
+using System;
 
 namespace Procurement.ViewModel.Filters
 {
@@ -37,8 +38,12 @@ namespace Procurement.ViewModel.Filters
 
             if (containsMatchedCosmeticMod(item) || isMatchedGear(item))
                 return true;
-
-            string[] words = filter.ToLowerInvariant().Split(' ');
+            
+            var words = filter.ToLowerInvariant().Split('"')
+                .Select((element, index) => index % 2 == 0
+                    ? element.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                    : new string[] { element })
+                .SelectMany(element => element).ToList();
 
             int count = 0;
 
