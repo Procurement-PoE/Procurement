@@ -72,8 +72,8 @@ namespace Procurement.ViewModel.Filters
                         goto End;
 
                 if (gear != null)
-                        if (gear.GearType.ToString().ToLowerInvariant().Contains(word))
-                            goto End;
+                    if (gear.GearType.ToString().ToLowerInvariant().Contains(word))
+                        goto End;
 
                 if (item.Explicitmods != null)
                     foreach (var mod in item.Explicitmods)
