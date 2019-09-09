@@ -192,61 +192,63 @@ namespace Procurement.ViewModel.Filters
                             goto End;
                 }
 
+                string text = "";
+
                 if (map != null)
-                    if (item.Rarity.ToString().ToLowerInvariant().Contains(word))
+                {
+                    text = "rarity: " + item.Rarity.ToString().ToLowerInvariant();
+                    if (text.Contains(word))
                         goto End;
+                }
 
                 if (gear != null)
-                    if (!gear.GearType.Equals(GearType.Unknown) && !gear.GearType.Equals(GearType.DivinationCard) && !gear.GearType.Equals(GearType.Breachstone))
-                        if (item.Rarity.ToString().ToLowerInvariant().Contains(word))
+                    if (!gear.GearType.Equals(GearType.Unknown)
+                     && !gear.GearType.Equals(GearType.DivinationCard)
+                     && !gear.GearType.Equals(GearType.Breachstone))
+                    {
+                        text = "rarity: " + item.Rarity.ToString().ToLowerInvariant();
+                        if (text.Contains(word))
                             goto End;
+                    }
 
-                string text = "";
+                if (item.ItemLevel > 0)
+                {
+                    text = "item level: " + item.ItemLevel.ToString();
+                    if (text.Contains(word))
+                        goto End;
+                }
+
                 if (item.EnchantMods != null && item.EnchantMods.Count > 0)
                 {
                     text = "enchanted";
                     if (text.Contains(word))
                         goto End;
                 }
+
                 if (item.CraftedMods != null && item.CraftedMods.Count > 0)
                 {
                     text = "crafted";
                     if (text.Contains(word))
                         goto End;
                 }
+
                 if (item.Fractured)
                 {
                     text = "fractured";
                     if (text.Contains(word))
                         goto End;
                 }
+
                 if (item.Corrupted)
                 {
                     text = "corrupted";
                     if (text.Contains(word))
                         goto End;
                 }
+
                 if (!item.Identified)
                 {
                     text = "unidentified";
-                    if (text.Contains(word))
-                        goto End;
-                }
-                if (item.ItemLevel > 0)
-                {
-                    text = item.ItemLevel.ToString();
-                    if (text.Contains(word))
-                        goto End;
-                }
-                if (item.StackSize > 0)
-                {
-                    text = item.StackSize.ToString();
-                    if (text.Contains(word))
-                        goto End;
-                }
-                if (item.MaxStackSize > 0)
-                {
-                    text = item.MaxStackSize.ToString();
                     if (text.Contains(word))
                         goto End;
                 }

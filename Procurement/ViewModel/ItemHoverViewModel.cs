@@ -197,7 +197,7 @@ namespace Procurement.ViewModel
         private void setGearProperties(Item item, Gear gear)
         {
             this.IsGear = true;
-            this.ItemLevel = string.Format("Item Level : {0}", item.ItemLevel);
+            this.ItemLevel = string.Format("Item Level: {0}", item.ItemLevel);
             this.Requirements = gear.Requirements;
             this.ImplicitMods = gear.Implicitmods;
         }
