@@ -110,6 +110,11 @@ namespace Procurement.ViewModel
             SecondaryDescriptionText = item.SecDescrText;
             setTypeSpecificProperties(item);
 
+            if ((item is AbyssJewel || item is FullBestiaryOrb) && item.ItemLevel > 0)
+            {
+                this.ItemLevel = string.Format("Item Level: {0}", item.ItemLevel);
+            }
+
             var gem = Item as Gem;
             if (gem != null)
             {

@@ -205,7 +205,7 @@ namespace Procurement.ViewModel.Filters
 
                 string text = "";
 
-                if (map != null)
+                if (map != null || item is AbyssJewel || item is FullBestiaryOrb)
                 {
                     text = "rarity: " + item.Rarity.ToString().ToLowerInvariant();
                     if (text.Contains(word))
@@ -260,6 +260,12 @@ namespace Procurement.ViewModel.Filters
                 if (!item.Identified)
                 {
                     text = "unidentified";
+                    if (text.Contains(word))
+                        goto End;
+                }
+                if (item is FullBestiaryOrb)
+                {
+                    text = "captured beast";
                     if (text.Contains(word))
                         goto End;
                 }
