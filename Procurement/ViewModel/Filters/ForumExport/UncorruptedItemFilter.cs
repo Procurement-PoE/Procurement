@@ -52,12 +52,9 @@ namespace Procurement.ViewModel.Filters.ForumExport
                 if (gear != null)
                 {
                     return !gear.GearType.Equals(GearType.Flask)
-                    && !gear.GearType.Equals(GearType.Breachstone)
+                    && !gear.GearType.Equals(GearType.Unknown)
                     && !gear.GearType.Equals(GearType.DivinationCard)
-                    && !gear.TypeLine.StartsWith("Sacrifice at ")
-                    && !gear.TypeLine.StartsWith("Mortal ")
-                    && !gear.TypeLine.StartsWith("Fragment of the ")
-                    && !gear.TypeLine.EndsWith(" Key");
+                    && !gear.GearType.Equals(GearType.Breachstone);
                 }
             }
 
