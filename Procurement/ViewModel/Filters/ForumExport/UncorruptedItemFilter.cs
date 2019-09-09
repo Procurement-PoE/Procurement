@@ -42,7 +42,7 @@ namespace Procurement.ViewModel.Filters.ForumExport
             {
                 return false;
             }
-            else if (item is Map || item is Gem)
+            else if (item is Map || item is Gem || item is AbyssJewel)
             {
                 return true;
             }
