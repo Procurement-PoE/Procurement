@@ -47,6 +47,7 @@ namespace POEApi.Model
         public List<string> Implicitmods { get; set; }
         public ItemType ItemType { get; set; }
         public List<Property> Properties { get; set; }
+        public List<Requirement> Requirements { get; set; }
         public bool IsQuality { get; private set; }
         public int Quality { get; private set; }
         public bool Corrupted { get; private set; }
@@ -113,6 +114,9 @@ namespace POEApi.Model
             StackSize = item.StackSize;
             MaxStackSize = item.MaxStackSize;
             IncubatedDetails = item.IncubatedItem;
+            
+            if (item.Requirements != null)
+                Requirements = ProxyMapper.GetRequirements(item.Requirements);
 
             if (item.Properties != null)
             {

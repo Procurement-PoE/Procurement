@@ -49,6 +49,7 @@ namespace Procurement.ViewModel.Filters
             int count = 0;
             
             var gear = item as Gear;
+            var gem = item as Gem;
 
             foreach (var splitword in words)
             {
@@ -150,18 +151,18 @@ namespace Procurement.ViewModel.Filters
                     }
                 }
 
-                if (gear != null && gear.Requirements != null)
+                if ((gem != null || gear != null) && item.Requirements != null)
                 {
                     string reqtext = "Requires ";
                     int reqcount = 1;
-                    foreach (var requirement in gear.Requirements)
+                    foreach (var requirement in item.Requirements)
                     {
                         if (requirement.NameFirst)
                             reqtext += requirement.Name + " " + requirement.Value;
                         else
                             reqtext += requirement.Value + " " + requirement.Name;
 
-                        if (reqcount < gear.Requirements.Count)
+                        if (reqcount < item.Requirements.Count)
                         {
                             reqtext += ", ";
                             reqcount++;
