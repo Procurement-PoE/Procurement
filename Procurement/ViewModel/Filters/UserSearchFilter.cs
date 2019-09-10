@@ -167,7 +167,7 @@ namespace Procurement.ViewModel.Filters
                     }
                 }
 
-                if ((item is Gem || gear != null) && item.Requirements != null)
+                if ((item is Gem || gear != null || item is AbyssJewel) && item.Requirements != null)
                 {
                     string reqtext = "Requires ";
                     int reqcount = 1;
@@ -228,6 +228,32 @@ namespace Procurement.ViewModel.Filters
                         goto End;
                 }
 
+                if (item.Implicitmods != null)
+                {
+                    if (item.Implicitmods.Count == 1)
+                    {
+                        text = "implicit";
+                        if (text.Contains(word))
+                            goto End;
+                    }
+                    else if (item.Implicitmods.Count == 2)
+                    {
+                        text = "two-implicit";
+                        if (text.Contains(word))
+                            goto End;
+                        text = "double implicit";
+                        if (text.Contains(word))
+                            goto End;
+                    }
+                }
+
+                if (item.IsMirrored)
+                {
+                    text = "mirrored";
+                    if (text.Contains(word))
+                        goto End;
+                }
+
                 if (item.EnchantMods != null && item.EnchantMods.Count > 0)
                 {
                     text = "enchanted";
@@ -262,12 +288,32 @@ namespace Procurement.ViewModel.Filters
                     if (text.Contains(word))
                         goto End;
                 }
+
                 if (item is FullBestiaryOrb)
                 {
                     text = "captured beast";
                     if (text.Contains(word))
                         goto End;
                 }
+
+                if (item is Gem)
+                {
+                    text = "gem";
+                    if (text.Contains(word))
+                        goto End;
+                }
+
+                if (gear != null)
+                    if (gear.GearType.Equals(GearType.Unknown))
+                        if (gear.TypeLine.StartsWith("Sacrifice at ")
+                         || gear.TypeLine.StartsWith("Mortal ")
+                         || gear.TypeLine.StartsWith("Fragment of the ")
+                         || gear.TypeLine.EndsWith(" Key"))
+                        {
+                            text = "map fragment";
+                            if (text.Contains(word))
+                                goto End;
+                        }
 
                 if (word.StartsWith("tier:") && map != null)
                 {

@@ -81,11 +81,7 @@
                       KNOWN ISSUES:
                         - Different dividers between different parts of text are not styled differently.  Instead, the
                           type of item determines what color the dividers will be.  Examples include: gems,
-                          phrophecies, and normal/magic/rare/unique items.
-                        - Items without DescriptionText will have an extra divider at the bottom of the ItemHover
-                          window.  I'm not sure of a good way to exclude it without complicated converters and/or lots
-                          of cascading if/else blocks.  But it looks like dividers are placed correctly between
-                          sections in all cases and all sections are being displayed.
+                          prophecies, and normal/magic/rare/unique items.
                         - Some sections, under some conditions, have extra space before or between lines.
                     -->
 
@@ -134,7 +130,7 @@
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
-                            Visibility="{Binding Properties,
+                            Visibility="{Binding SeparateProperties,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
@@ -150,7 +146,7 @@
                     <Border Margin="0 0 0 5"
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
-                            Visibility="{Binding HasRequirements,
+                            Visibility="{Binding SeparateRequirements,
                                                  Converter={StaticResource VisibilityConverter},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
@@ -203,7 +199,7 @@
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
-                            Visibility="{Binding HasEnchantMods,
+                            Visibility="{Binding SeparateEnchantMods,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
@@ -233,7 +229,7 @@
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
-                            Visibility="{Binding HasImplicitMods,
+                            Visibility="{Binding SeparateImplicitMods,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
@@ -347,11 +343,39 @@
                                                     Converter={StaticResource VisibilityConverter},
                                                     ConverterParameter=CollapseWhenFalse}" />
 
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="#D20000"
+                        Padding="10 0 10 5"
+                        Text="Unidentified"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding IsUnidentified,
+                                                    Converter={StaticResource bc},
+                                                    ConverterParameter=CollapseWhenFalse}" />
+
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="#D20000"
+                        Padding="10 0 10 5"
+                        Text="Corrupted"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding IsCorrupted,
+                                                    Converter={StaticResource bc},
+                                                    ConverterParameter=CollapseWhenFalse}" />
+
                     <Border Margin="0 0 0 5"
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
-                            Visibility="{Binding HasExplicitMods,
+                            Visibility="{Binding SeparateMods,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
@@ -392,7 +416,7 @@
                         HorizontalAlignment="Center"
                         FontFamily="../Resources/#Fontin SmallCaps"
                         FontStyle="Italic"
-                        Foreground="#9E6025"
+                        Foreground="#AF6025"
                         Padding="10 0 10 5"
                         Text="{Binding FlavourText}"
                         TextAlignment="Center"
@@ -404,7 +428,7 @@
                     <Border Margin="0 0 0 5"
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
-                            Visibility="{Binding FlavourText,
+                            Visibility="{Binding SeparateFlavourText,
                                                  Converter={StaticResource VisibilityConverter},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
@@ -452,27 +476,6 @@
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
-                    <TextBlock Width="{Binding Path=ActualWidth,
-                                               ElementName=ItemHeader,
-                                               Mode=OneWay}"
-                        HorizontalAlignment="Center"
-                        FontFamily="../Resources/#Fontin SmallCaps"
-                        Foreground="#960003"
-                        Padding="10 0 10 5"
-                        Text="Corrupted"
-                        TextAlignment="Center"
-                        TextWrapping="Wrap"
-                        Visibility="{Binding IsCorrupted,
-                                                    Converter={StaticResource bc},
-                                                    ConverterParameter=CollapseWhenFalse}" />
-
-                    <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource SeperatorBrush}"
-                            BorderThickness="1"
-                            Visibility="{Binding IsCorrupted,
-                                                 Converter={StaticResource VisibilityConverter},
-                                                 ConverterParameter=CollapseWhenFalse}" />
-
                     <StackPanel Orientation="Vertical"
                                 Visibility="{Binding IsGemProgressVisible,
                                                  Converter={StaticResource VisibilityConverter},
@@ -515,10 +518,6 @@
                                    Content="{Binding IncubationLevel}" Foreground="Gray" />
                             
                         </DockPanel>
-
-                        <Border Margin="0 0 0 5"
-                                BorderBrush="{StaticResource SeperatorBrush}"
-                                BorderThickness="1" />
                     </StackPanel>
 
                     <TextBlock Width="{Binding Path=ActualWidth,

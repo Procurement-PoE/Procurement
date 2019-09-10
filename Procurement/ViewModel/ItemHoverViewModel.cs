@@ -26,6 +26,13 @@ namespace Procurement.ViewModel
         public string DescriptionText { get; private set; }
         public string SecondaryDescriptionText { get; private set; }
         public bool IsCorrupted { get; private set; }
+        public bool IsUnidentified { get; private set; }
+        public bool SeparateProperties { get; private set; }
+        public bool SeparateRequirements { get; private set; }
+        public bool SeparateEnchantMods { get; private set; }
+        public bool SeparateImplicitMods { get; private set; }
+        public bool SeparateMods { get; private set; }
+        public bool SeparateFlavourText { get; private set; }
         public List<string> Microtransactions { get; private set; }
         public bool HasMicrotransactions { get; private set; }
         public List<string> EnchantMods { get; private set; }
@@ -42,7 +49,6 @@ namespace Procurement.ViewModel
         public bool IsProphecy { get; set; }
         public string ProphecyText { get; set; }
         public string ProphecyDifficultyText { get; set; }
-        public bool IsGear { get; set; }
 
         public string ItemLevel { get; set; }
 
@@ -96,6 +102,7 @@ namespace Procurement.ViewModel
             this.DescriptionText = item.DescrText;
 
             this.IsCorrupted = item.Corrupted;
+            this.IsUnidentified = !item.Identified;
 
             this.Microtransactions = item.Microtransactions;
             this.HasMicrotransactions = item.Microtransactions.Count > 0;
@@ -109,11 +116,6 @@ namespace Procurement.ViewModel
 
             SecondaryDescriptionText = item.SecDescrText;
             setTypeSpecificProperties(item);
-
-            if ((item is AbyssJewel || item is FullBestiaryOrb) && item.ItemLevel > 0)
-            {
-                this.ItemLevel = string.Format("Item Level: {0}", item.ItemLevel);
-            }
 
             var gem = Item as Gem;
             if (gem != null)
@@ -141,7 +143,7 @@ namespace Procurement.ViewModel
             this.HasCraftedMods = CraftedMods?.Count > 0;
             this.HasVeiledMods = VeiledMods?.Count > 0;
             this.HasFracturedMods = FracturedMods?.Count > 0;
-            this.HasExplicitMods = ExplicitMods?.Count > 0 || HasFracturedMods || HasCraftedMods || IsMirrored;
+            this.HasExplicitMods = ExplicitMods?.Count > 0;
             this.HasImplicitMods = ImplicitMods?.Count > 0;
             this.HasEnchantMods = item.EnchantMods.Count > 0;
             this.HasRequirements = Requirements?.Count > 0;
@@ -149,6 +151,38 @@ namespace Procurement.ViewModel
             if (item.FlavourText?.Count > 0)
             {
                 this.FlavourText = string.Join("", item.FlavourText);
+            }
+
+            bool HasMods = HasFracturedMods || HasExplicitMods || HasCraftedMods || HasVeiledMods || IsMirrored || IsUnidentified || IsCorrupted;
+
+            if (Properties != null && (HasRequirements || HasEnchantMods || HasImplicitMods || HasMods || FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
+            {
+                this.SeparateProperties = true;
+            }
+
+            if (HasRequirements && (HasEnchantMods || HasImplicitMods || HasMods || FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
+            {
+                this.SeparateRequirements = true;
+            }
+
+            if (HasEnchantMods && (HasImplicitMods || HasMods || FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
+            {
+                this.SeparateEnchantMods = true;
+            }
+
+            if (HasImplicitMods && (HasMods || FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
+            {
+                this.SeparateImplicitMods = true;
+            }
+
+            if (HasMods && (FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
+            {
+                this.SeparateMods = true;
+            }
+
+            if (FlavourText != null && (DescriptionText != null || IsIncubatorProgressVisible))
+            {
+                this.SeparateFlavourText = true;
             }
 
             setProphecyProperties(item);
@@ -188,26 +222,18 @@ namespace Procurement.ViewModel
 
         private void setTypeSpecificProperties(Item item)
         {
-            var gear = item as Gear;
-
-            if (gear != null)
-                setGearProperties(item, gear);
-
-            var gem = item as Gem;
-
-            if (gem != null)
-                this.Requirements = gem.Requirements;
-        }
-
-        private void setGearProperties(Item item, Gear gear)
-        {
-            this.IsGear = true;
-            if (item.ItemLevel > 0)
+            if ((item is Gear | item is AbyssJewel) && item.ItemLevel > 0)
             {
                 this.ItemLevel = string.Format("Item Level: {0}", item.ItemLevel);
+                this.Requirements = item.Requirements;
+                this.ImplicitMods = item.Implicitmods;
             }
-            this.Requirements = gear.Requirements;
-            this.ImplicitMods = gear.Implicitmods;
+
+            if (item is FullBestiaryOrb && item.ItemLevel > 0)
+                this.ItemLevel = string.Format("Item Level: {0}", item.ItemLevel);
+
+            if (item is Gem)
+                this.Requirements = item.Requirements;
         }
     }
 }
