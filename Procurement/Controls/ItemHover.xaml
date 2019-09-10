@@ -459,20 +459,6 @@
                         FontFamily="../Resources/#Fontin SmallCaps"
                         Foreground="#960003"
                         Padding="10 0 10 5"
-                        Text="Unidentified"
-                        TextAlignment="Center"
-                        TextWrapping="Wrap"
-                        Visibility="{Binding IsUnidentified,
-                                                    Converter={StaticResource bc},
-                                                    ConverterParameter=CollapseWhenFalse}" />
-
-                    <TextBlock Width="{Binding Path=ActualWidth,
-                                               ElementName=ItemHeader,
-                                               Mode=OneWay}"
-                        HorizontalAlignment="Center"
-                        FontFamily="../Resources/#Fontin SmallCaps"
-                        Foreground="#960003"
-                        Padding="10 0 10 5"
                         Text="Corrupted"
                         TextAlignment="Center"
                         TextWrapping="Wrap"
@@ -483,7 +469,7 @@
                     <Border Margin="0 0 0 5"
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
-                            Visibility="{Binding IsCorruptedOrUnidentified,
+                            Visibility="{Binding IsCorrupted,
                                                  Converter={StaticResource VisibilityConverter},
                                                  ConverterParameter=CollapseWhenFalse}" />
 

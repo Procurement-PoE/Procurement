@@ -26,14 +26,6 @@ namespace Procurement.ViewModel
         public string DescriptionText { get; private set; }
         public string SecondaryDescriptionText { get; private set; }
         public bool IsCorrupted { get; private set; }
-        public bool IsUnidentified { get; private set; }
-        public bool IsCorruptedOrUnidentified
-        {
-            get
-            {
-                return this.IsCorrupted || this.IsUnidentified;
-            }
-        }
         public List<string> Microtransactions { get; private set; }
         public bool HasMicrotransactions { get; private set; }
         public List<string> EnchantMods { get; private set; }
@@ -104,7 +96,6 @@ namespace Procurement.ViewModel
             this.DescriptionText = item.DescrText;
 
             this.IsCorrupted = item.Corrupted;
-            this.IsUnidentified = !item.Identified;
 
             this.Microtransactions = item.Microtransactions;
             this.HasMicrotransactions = item.Microtransactions.Count > 0;
