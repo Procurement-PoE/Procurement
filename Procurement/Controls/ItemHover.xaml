@@ -107,7 +107,11 @@
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
-                    <ItemsControl ItemsSource="{Binding Properties}" Padding="0 5 0 5">
+                    <ItemsControl ItemsSource="{Binding Properties}"
+                                  Padding="0 5 0 5"
+                                  Visibility="{Binding Properties,
+                                                       Converter={StaticResource bc},
+                                                       ConverterParameter=CollapseWhenFalse}">		    
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Vertical" />
