@@ -32,6 +32,7 @@ namespace Procurement.ViewModel
         public bool SeparateEnchantMods { get; private set; }
         public bool SeparateImplicitMods { get; private set; }
         public bool SeparateMods { get; private set; }
+        public bool SeparateMicrotransactions { get; private set; }
         public bool SeparateFlavourText { get; private set; }
         public List<string> Microtransactions { get; private set; }
         public bool HasMicrotransactions { get; private set; }
@@ -155,29 +156,34 @@ namespace Procurement.ViewModel
 
             bool HasMods = HasFracturedMods || HasExplicitMods || HasCraftedMods || HasVeiledMods || IsMirrored || IsUnidentified || IsCorrupted;
 
-            if (Properties != null && (HasRequirements || HasEnchantMods || HasImplicitMods || HasMods || FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
+            if (Properties != null && (HasRequirements || HasEnchantMods || HasImplicitMods || HasMods || HasMicrotransactions || FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
             {
                 this.SeparateProperties = true;
             }
 
-            if (HasRequirements && (HasEnchantMods || HasImplicitMods || HasMods || FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
+            if (HasRequirements && (HasEnchantMods || HasImplicitMods || HasMods || HasMicrotransactions || FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
             {
                 this.SeparateRequirements = true;
             }
 
-            if (HasEnchantMods && (HasImplicitMods || HasMods || FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
+            if (HasEnchantMods && (HasImplicitMods || HasMods || HasMicrotransactions || FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
             {
                 this.SeparateEnchantMods = true;
             }
 
-            if (HasImplicitMods && (HasMods || FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
+            if (HasImplicitMods && (HasMods || HasMicrotransactions || FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
             {
                 this.SeparateImplicitMods = true;
             }
 
-            if (HasMods && (FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
+            if (HasMods && (HasMicrotransactions || FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
             {
                 this.SeparateMods = true;
+            }
+
+            if (HasMicrotransactions && (FlavourText != null || DescriptionText != null || IsIncubatorProgressVisible))
+            {
+                this.SeparateMicrotransactions = true;
             }
 
             if (FlavourText != null && (DescriptionText != null || IsIncubatorProgressVisible))

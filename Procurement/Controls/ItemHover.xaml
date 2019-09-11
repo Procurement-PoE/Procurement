@@ -111,7 +111,7 @@
                                   Padding="0 5 0 5"
                                   Visibility="{Binding Properties,
                                                        Converter={StaticResource bc},
-                                                       ConverterParameter=CollapseWhenFalse}">		    
+                                                       ConverterParameter=CollapseWhenFalse}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Vertical" />
@@ -410,7 +410,7 @@
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
-                            Visibility="{Binding HasMicrotransactions,
+                            Visibility="{Binding SeparateMicrotransactions,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
