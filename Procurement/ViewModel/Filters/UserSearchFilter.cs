@@ -57,9 +57,7 @@ namespace Procurement.ViewModel.Filters
                                          .SelectMany(element => element).ToList();
 
                     if (words.All(x => hasMatch(x, item)))
-                    {
                         return true;
-                    }
                 }
             }
             else
