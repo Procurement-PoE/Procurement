@@ -234,11 +234,9 @@ namespace Procurement.ViewModel
                 this.Requirements = item.Requirements;
                 this.ImplicitMods = item.Implicitmods;
             }
-
-            if ((item is FullBestiaryOrb || item is Incubator) && item.ItemLevel > 0)
+            else if ((item is FullBestiaryOrb || item is Incubator) && item.ItemLevel > 0)
                 this.ItemLevel = string.Format("Item Level: {0}", item.ItemLevel);
-
-            if (item is Gem)
+            else if (item is Gem)
                 this.Requirements = item.Requirements;
         }
     }
