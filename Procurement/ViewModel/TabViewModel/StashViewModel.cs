@@ -84,7 +84,6 @@ namespace Procurement.ViewModel
                     HasSpace = true;
             }
 
-
             List<IFilter> allfilters = getUserFilter(cleanfilter, OrMatch, HasSpace);
             allfilters.AddRange(categoryFilter);
 
