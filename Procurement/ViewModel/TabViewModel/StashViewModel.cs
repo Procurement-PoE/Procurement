@@ -45,40 +45,45 @@ namespace Procurement.ViewModel
 
         private void processFilter()
         {
-            string cleanfilter = filter.ToLowerInvariant();
-
-            cleanfilter = Regex.Replace(cleanfilter, @"\s+", " ");
-
-            cleanfilter = cleanfilter.Replace(" or ", "|");
-
-            if (cleanfilter.StartsWith("|"))
-                cleanfilter = cleanfilter.Substring(1);
-
-            if (cleanfilter.EndsWith("|"))
-                cleanfilter = cleanfilter.Remove(cleanfilter.Length - 1);
-
-            cleanfilter = cleanfilter.Replace(" |", "|").Replace("| ", "|");
-
-            cleanfilter = cleanfilter.Replace(" not ", " -");
-            cleanfilter = cleanfilter.Replace("|not ", "|-");
-
-            if (cleanfilter.StartsWith("not "))
-                cleanfilter = "-" + cleanfilter.Substring(4);
-
-            cleanfilter = cleanfilter.Replace(" -\"", " \"-");
-            cleanfilter = cleanfilter.Replace("|-\"", "|\"-");
-
-            if (cleanfilter.StartsWith("-\""))
-                cleanfilter = "\"-" + cleanfilter.Substring(2);
-
+            string cleanfilter = null;
             bool OrMatch = false;
             bool HasSpace = false;
 
-            if (cleanfilter.Contains('|'))
-                OrMatch = true;
+            if (!string.IsNullOrEmpty(filter))
+            {
+                cleanfilter = filter.ToLowerInvariant();
 
-            if (cleanfilter.Contains(' '))
-                HasSpace = true;
+                cleanfilter = Regex.Replace(cleanfilter, @"\s+", " ");
+
+                cleanfilter = cleanfilter.Replace(" or ", "|");
+
+                if (cleanfilter.StartsWith("|"))
+                    cleanfilter = cleanfilter.Substring(1);
+
+                if (cleanfilter.EndsWith("|"))
+                    cleanfilter = cleanfilter.Remove(cleanfilter.Length - 1);
+
+                cleanfilter = cleanfilter.Replace(" |", "|").Replace("| ", "|");
+
+                cleanfilter = cleanfilter.Replace(" not ", " -");
+                cleanfilter = cleanfilter.Replace("|not ", "|-");
+
+                if (cleanfilter.StartsWith("not "))
+                    cleanfilter = "-" + cleanfilter.Substring(4);
+
+                cleanfilter = cleanfilter.Replace(" -\"", " \"-");
+                cleanfilter = cleanfilter.Replace("|-\"", "|\"-");
+
+                if (cleanfilter.StartsWith("-\""))
+                    cleanfilter = "\"-" + cleanfilter.Substring(2);
+
+                if (cleanfilter.Contains('|'))
+                    OrMatch = true;
+
+                if (cleanfilter.Contains(' '))
+                    HasSpace = true;
+            }
+
 
             List<IFilter> allfilters = getUserFilter(cleanfilter, OrMatch, HasSpace);
             allfilters.AddRange(categoryFilter);
