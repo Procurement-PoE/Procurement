@@ -192,7 +192,7 @@
                                     </TransformGroup>
                                 </Label.RenderTransform>
                             </Label>
-                            <toolkit:AutoCompleteBox x:Name="autoComplete" MinimumPopulateDelay="100" MinimumPrefixLength="2" FilterMode="ContainsOrdinal" Background="Black" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource BorderBrush}" Foreground="{StaticResource TextForecolour}" ItemsSource="{Binding AvailableItems}" Margin="0,4,-1,2" RenderTransformOrigin="0.498,0.438" Grid.Column="1" />
+                            <toolkit:AutoCompleteBox x:Name="autoComplete" MinimumPopulateDelay="100" MinimumPrefixLength="2" FilterMode="ContainsOrdinal" Background="Black" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=250}" BorderBrush="{StaticResource BorderBrush}" Foreground="{StaticResource TextForecolour}" ItemsSource="{Binding AvailableItems}" Margin="0,4,-1,2" RenderTransformOrigin="0.498,0.438" Grid.Column="1" />
                         </Grid>
                     </Grid>
                 </Border>

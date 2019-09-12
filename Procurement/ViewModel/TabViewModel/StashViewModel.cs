@@ -16,6 +16,7 @@ using System.Text;
 using POEApi.Infrastructure;
 using Procurement.Interfaces;
 using Procurement.View.ViewModel;
+using System.Text.RegularExpressions;
 
 namespace Procurement.ViewModel
 {
@@ -44,7 +45,42 @@ namespace Procurement.ViewModel
 
         private void processFilter()
         {
-            List<IFilter> allfilters = getUserFilter(filter);
+            string cleanfilter = filter.ToLowerInvariant();
+
+            cleanfilter = Regex.Replace(cleanfilter, @"\s+", " ");
+
+            cleanfilter = cleanfilter.Replace(" or ", "|");
+
+            if (cleanfilter.StartsWith("|"))
+                cleanfilter = cleanfilter.Substring(1);
+
+            if (cleanfilter.EndsWith("|"))
+                cleanfilter = cleanfilter.Remove(cleanfilter.Length - 1);
+
+            cleanfilter = cleanfilter.Replace(" |", "|").Replace("| ", "|");
+
+            cleanfilter = cleanfilter.Replace(" not ", " -");
+            cleanfilter = cleanfilter.Replace("|not ", "|-");
+
+            if (cleanfilter.StartsWith("not "))
+                cleanfilter = "-" + cleanfilter.Substring(4);
+
+            cleanfilter = cleanfilter.Replace(" -\"", " \"-");
+            cleanfilter = cleanfilter.Replace("|-\"", "|\"-");
+
+            if (cleanfilter.StartsWith("-\""))
+                cleanfilter = "\"-" + cleanfilter.Substring(2);
+
+            bool OrMatch = false;
+            bool HasSpace = false;
+
+            if (cleanfilter.Contains('|'))
+                OrMatch = true;
+
+            if (cleanfilter.Contains(' '))
+                HasSpace = true;
+
+            List<IFilter> allfilters = getUserFilter(cleanfilter, OrMatch, HasSpace);
             allfilters.AddRange(categoryFilter);
 
             foreach (var item in tabsAndContent)
@@ -342,7 +378,7 @@ namespace Procurement.ViewModel
                     BorderBrush = Brushes.Transparent
                 };
 
-                var stashTab = TabFactory.GenerateTab(currentTab, getUserFilter(string.Empty));
+                var stashTab = TabFactory.GenerateTab(currentTab, getUserFilter(string.Empty, false, false));
 
                 CraftTabAndContent(item, stashTab, i);
 
@@ -382,12 +418,12 @@ namespace Procurement.ViewModel
             return menuItem;
         }
 
-        private static List<IFilter> getUserFilter(string filter)
+        private static List<IFilter> getUserFilter(string filter, bool OrMatch, bool HasSpace)
         {
             if (string.IsNullOrEmpty(filter))
                 return new List<IFilter>();
 
-            UserSearchFilter searchCriteria = new UserSearchFilter(filter);
+            UserSearchFilter searchCriteria = new UserSearchFilter(filter, OrMatch, HasSpace);
             return new List<IFilter>() { searchCriteria };
         }
 

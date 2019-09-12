@@ -2,7 +2,6 @@
 using System.Linq;
 using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace Procurement.ViewModel.Filters
 {
@@ -14,9 +13,13 @@ namespace Procurement.ViewModel.Filters
         }
 
         private string filter;
-        public UserSearchFilter(string filter)
+        private bool OrMatch;
+        private bool HasSpace;
+        public UserSearchFilter(string filter, bool OrMatch, bool HasSpace)
         {
             this.filter = filter;
+            this.OrMatch = OrMatch;
+            this.HasSpace = HasSpace;
         }
         public bool CanFormCategory
         {
@@ -38,63 +41,34 @@ namespace Procurement.ViewModel.Filters
             if (string.IsNullOrEmpty(filter))
                 return false;
 
-            string filterlow = filter.ToLowerInvariant();
-
-            filterlow = Regex.Replace(filterlow, @"\s+", " ");
-
-            filterlow = filterlow.Replace(" or ", "|");
-
-            if (filterlow.EndsWith("|"))
-                filterlow = filterlow.Remove(filterlow.Length - 1);
-
-            filterlow = filterlow.Replace(" not ", " -");
-
-            if (filterlow.StartsWith("not "))
-                filterlow = "-" + filterlow.Substring(4);
-
-            filterlow = filterlow.Replace(" -\"", " \"-");
-
-            if (filterlow.StartsWith("-\""))
-                filterlow = "\"-" + filterlow.Substring(2);
-
-            if (!filterlow.Contains('|'))
+            if (!OrMatch)
             {
-                if (!filterlow.Contains(' '))
+                if (!HasSpace)
                 {
-                    if (hasMatch(filterlow.Trim('"'), item))
+                    if (hasMatch(filter.Trim('"'), item))
                         return true;
                 }
                 else
                 {
-                    var words = filterlow.Split('"')
+                    var words = filter.Split('"')
                                          .Select((element, index) => index % 2 == 0
                                              ? element.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                                              : new string[] { element })
                                          .SelectMany(element => element).ToList();
 
-                    int count = 0;
-
-                    foreach (var word in words)
+                    if (words.All(x => hasMatch(x, item)))
                     {
-                        if (hasMatch(word, item))
-                            count++;
-                        else
-                            break;
-                    }
-
-                    if (count == words.Count)
                         return true;
+                    }
                 }
             }
             else
             {
-                filterlow = filterlow.Replace(" |", "|").Replace("| ", "|");
-
-                var words = filterlow.Split('|');
+                var words = filter.Split('|');
 
                 foreach (var word in words)
                 {
-                    if (!word.Contains(' '))
+                    if (!HasSpace)
                     {
                         if (hasMatch(word.Trim('"'), item))
                             return true;
@@ -107,17 +81,7 @@ namespace Procurement.ViewModel.Filters
                                                  : new string[] { element })
                                              .SelectMany(element => element).ToList();
 
-                        int count1 = 0;
-
-                        foreach (var word1 in words1)
-                        {
-                            if (hasMatch(word1, item))
-                                count1++;
-                            else
-                                break;
-                        }
-
-                        if (count1 == words1.Count)
+                        if (words1.All(x => hasMatch(x, item)))
                             return true;
                     }
                 }
@@ -151,46 +115,39 @@ namespace Procurement.ViewModel.Filters
             if (item.TypeLine.ToLowerInvariant().Contains(word))
                 goto End;
 
-            if (item.Name.ToLowerInvariant().Contains(word))
+            if (!string.IsNullOrEmpty(item.Name) && item.Name.ToLowerInvariant().Contains(word))
                 goto End;
-                    
-            if (item.Microtransactions != null)
+
+            if (gear != null && gear.GearType.ToString().ToLowerInvariant().Contains(word))
+                goto End;
+
+            if (item.Microtransactions != null && item.Microtransactions.Count > 0)
                 if (item.Microtransactions.Any(x => x.ToLowerInvariant().Contains(word)))
                     goto End;
 
-            if (gear != null)
-                if (gear.GearType.ToString().ToLowerInvariant().Contains(word))
+            if (item.Explicitmods != null)
+                if (item.Explicitmods.Any(x => x.ToLowerInvariant().Contains(word)))
                     goto End;
 
-            if (item.Explicitmods != null)
-                foreach (var mod in item.Explicitmods)
-                    if (mod.ToLowerInvariant().Contains(word))
-                        goto End;
-
             if (item.Implicitmods != null)
-                foreach (var mod in item.Implicitmods)
-                    if (mod.ToLowerInvariant().Contains(word))
-                        goto End;
+                if (item.Implicitmods.Any(x => x.ToLowerInvariant().Contains(word)))
+                    goto End;
 
-            if (item.FracturedMods != null)
-                foreach (var mod in item.FracturedMods)
-                    if (mod.ToLowerInvariant().Contains(word))
-                        goto End;
+            if (item.FracturedMods != null && item.FracturedMods.Count > 0)
+                if (item.FracturedMods.Any(x => x.ToLowerInvariant().Contains(word)))
+                    goto End;
 
-            if (item.CraftedMods != null)
-                foreach (var mod in item.CraftedMods)
-                    if (mod.ToLowerInvariant().Contains(word))
-                        goto End;
+            if (item.CraftedMods != null && item.CraftedMods.Count > 0)
+                if (item.CraftedMods.Any(x => x.ToLowerInvariant().Contains(word)))
+                    goto End;
 
-            if (item.EnchantMods != null)
-                foreach (var mod in item.EnchantMods)
-                    if (mod.ToLowerInvariant().Contains(word))
-                        goto End;
+            if (item.EnchantMods != null && item.EnchantMods.Count > 0)
+                if (item.EnchantMods.Any(x => x.ToLowerInvariant().Contains(word)))
+                    goto End;
 
             if (item.FlavourText != null)
-                foreach (var flavourtext in item.FlavourText)
-                    if (flavourtext.ToLowerInvariant().Contains(word))
-                        goto End;
+                if (item.FlavourText.Any(x => x.ToLowerInvariant().Contains(word)))
+                    goto End;
 
             if (item.DescrText != null)
                 if (item.DescrText.ToLowerInvariant().Contains(word))
@@ -244,7 +201,7 @@ namespace Procurement.ViewModel.Filters
                 }
             }
 
-            if ((item is Gem || gear != null || item is AbyssJewel) && item.Requirements != null)
+            if (item.Requirements != null)
             {
                 string reqtext = "Requires ";
                 int reqcount = 1;
@@ -267,36 +224,25 @@ namespace Procurement.ViewModel.Filters
 
             if (item.IncubatedDetails != null)
             {
-                List<string> inctexts = new List<string>();
+                List<string> inctext = new List<string>();
 
-                inctexts.Add(item.IncubatedDetails.Progress.ToString());
-                inctexts.Add(item.IncubatedDetails.Total.ToString());
-                inctexts.Add($"Incubating {item.IncubatedDetails.Name}");
-                inctexts.Add($"Level {item.IncubatedDetails.Level}+ Monster Kills");
+                inctext.Add(item.IncubatedDetails.Progress.ToString());
+                inctext.Add(item.IncubatedDetails.Total.ToString());
+                inctext.Add($"Incubating {item.IncubatedDetails.Name}");
+                inctext.Add($"Level {item.IncubatedDetails.Level}+ Monster Kills");
 
-                foreach (string inctext in inctexts)
-                    if (inctext.ToLowerInvariant().Contains(word))
-                        goto End;
+                if (inctext.Any(x => x.ToLowerInvariant().Contains(word)))
+                    goto End;
             }
 
             string text = "";
 
-            if (map != null || item is AbyssJewel || item is FullBestiaryOrb)
+            if (item.ItemLevel > 0 && !(item is Incubator))
             {
                 text = "rarity: " + item.Rarity.ToString().ToLowerInvariant();
                 if (text.Contains(word))
                     goto End;
             }
-
-            if (gear != null)
-                if (!gear.GearType.Equals(GearType.Unknown)
-                 && !gear.GearType.Equals(GearType.DivinationCard)
-                 && !gear.GearType.Equals(GearType.Breachstone))
-                {
-                    text = "rarity: " + item.Rarity.ToString().ToLowerInvariant();
-                    if (text.Contains(word))
-                        goto End;
-                }
 
             if (item.ItemLevel > 0)
             {
@@ -345,6 +291,13 @@ namespace Procurement.ViewModel.Filters
                     goto End;
             }
 
+            if (item.VeiledMods != null && item.VeiledMods.Count > 0)
+            {
+                text = "veiled";
+                if (text.Contains(word))
+                    goto End;
+            }
+
             if (item.Fractured)
             {
                 text = "fractured";
@@ -380,19 +333,18 @@ namespace Procurement.ViewModel.Filters
                     goto End;
             }
 
-            if (gear != null)
-                if (gear.GearType.Equals(GearType.Unknown))
-                    if (gear.TypeLine.StartsWith("Sacrifice at ")
-                     || gear.TypeLine.StartsWith("Mortal ")
-                     || gear.TypeLine.StartsWith("Fragment of the ")
-                     || gear.TypeLine.EndsWith(" Key"))
-                    {
-                        text = "map fragment";
-                        if (text.Contains(word))
-                            goto End;
-                    }
+            if (gear != null && gear.GearType.Equals(GearType.Unknown)
+                && (gear.TypeLine.StartsWith("Sacrifice at ")
+                 || gear.TypeLine.StartsWith("Mortal ")
+                 || gear.TypeLine.StartsWith("Fragment of the ")
+                 || gear.TypeLine.EndsWith(" Key")))
+            {
+                text = "map fragment";
+                if (text.Contains(word))
+                    goto End;
+            }
 
-            if (word.StartsWith("tier:") && map != null)
+            if (map != null && word.StartsWith("tier:"))
             {
                 int tier;
                 bool greaterthan = false;
@@ -421,7 +373,7 @@ namespace Procurement.ViewModel.Filters
                 }
             }
 
-            if (word.StartsWith("ilvl:") && item.ItemLevel > 0)
+            if (item.ItemLevel > 0 && word.StartsWith("ilvl:"))
             {
                 int ilvl;
                 bool greaterthan = false;
