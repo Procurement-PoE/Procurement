@@ -21,7 +21,7 @@ namespace Procurement.ViewModel.Filters
         public string Keyword { get; set; }
         public string Help { get { return "Returns All " + gearType.ToString() + " gear"; } }
 
-        public bool Applicable(Item item)
+        public virtual bool Applicable(Item item)
         {
             Gear gear = item as Gear;
             if (gear != null)

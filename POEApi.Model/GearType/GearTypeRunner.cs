@@ -125,6 +125,7 @@ namespace POEApi.Model
             : base(GearType.Helmet, Settings.GearBaseTypes[GearType.Helmet])
         {
             _generalTypes.AddRange(new List<string>() { "Helmet", "Circlet", "Cap", "Mask", "Chain Coif", "Casque", "Hood", "Ringmail Coif", "Chainmail Coif", "Ring Coif", "Crown", "Burgonet", "Bascinet", "Pelt" });
+            _incompatibleTypes.Add("Her Mask");
         }
     }
 
@@ -200,7 +201,7 @@ namespace POEApi.Model
             : base(GearType.Gloves, Settings.GearBaseTypes[GearType.Gloves])
         {
             _generalTypes.Add("Glove");
-            _generalTypes.Add("Mitts");
+            _generalTypes.Add(" Mitts");
             _generalTypes.Add("Gauntlets");
         }
     }
@@ -302,6 +303,7 @@ namespace POEApi.Model
         {
             _generalTypes.AddRange(new List<string>() { "Sword", "sword", "Sabre", "Dusk Blade", "Cutlass", "Baselard", "Gladius", "Variscite Blade", "Vaal Blade", "Midnight Blade", "Corroded Blade",
                    "Highland Blade", "Ezomyte Blade", "Rusted Spike", "Rapier", "Foil", "Pecoraro", "Estoc", "Twilight Blade", "Lithe Blade" });
+            _incompatibleTypes.Add("The Sword King's Salute");
         }
     }
 
