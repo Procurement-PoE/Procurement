@@ -228,14 +228,14 @@ namespace Procurement.ViewModel
 
         private void setTypeSpecificProperties(Item item)
         {
-            if ((item is Gear | item is AbyssJewel) && item.ItemLevel > 0)
+            if ((item is Gear || item is AbyssJewel) && item.ItemLevel > 0)
             {
                 this.ItemLevel = string.Format("Item Level: {0}", item.ItemLevel);
                 this.Requirements = item.Requirements;
                 this.ImplicitMods = item.Implicitmods;
             }
 
-            if ((item is FullBestiaryOrb | item is Incubator) && item.ItemLevel > 0)
+            if ((item is FullBestiaryOrb || item is Incubator) && item.ItemLevel > 0)
                 this.ItemLevel = string.Format("Item Level: {0}", item.ItemLevel);
 
             if (item is Gem)
