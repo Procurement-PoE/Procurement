@@ -13,12 +13,23 @@ namespace Procurement.ViewModel
 
         public override Block Get()
         {
-            Paragraph ret;
+            Paragraph ret = new Paragraph();
             if (property.Values.Count == 0)
-                ret = new Paragraph(new Run(property.Name) { Foreground = Brushes.Gray });
+            {
+                if (property.Name.StartsWith("Requires <unmet>{"))
+                {
+                    ret.Inlines.Add(new Run("Requires ") { Foreground = Brushes.Gray });
+                    ret.Inlines.Add(new Run(property.Name[17].ToString()) { Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#D20000")) });
+                    ret.Inlines.Add(new Run(property.Name.Substring(19)) { Foreground = Brushes.Gray });
+                }
+                else
+                {
+                    ret.Inlines.Add(new Run(property.Name) { Foreground = Brushes.Gray });
+                }
+            }
             else
             {
-                ret = new Paragraph(new Run(property.Name + ":") { Foreground = Brushes.Gray });
+                ret.Inlines.Add(new Run(property.Name + ":") { Foreground = Brushes.Gray });
 
                 for (int i = 0; i < property.Values.Count; i++)
                 {

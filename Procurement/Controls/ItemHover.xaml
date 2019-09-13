@@ -15,6 +15,8 @@
         <v:ItemPropertyToFormattedRunConverter x:Key="pc" />
         <v:ItemRequirementToFormattedRunConverter x:Key="rc" />
         <v:ItemExplicitModsToFormattedRunConverter x:Key="ec" />
+        <v:DivinationCardToFormattedRunConverter x:Key="dc" />
+        <v:ItemFlavourTextToFormattedRunConverter x:Key="fc" />
         <v:VisibilityConverter x:Key="bc" />
 
         <LinearGradientBrush x:Key="SeperatorBrush" StartPoint="0,0" EndPoint="1,0">
@@ -383,6 +385,23 @@
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
+                    <v:BindableRichTextBox Width="{Binding Path=ActualWidth,
+                                                           ElementName=ItemHeader,
+                                                           Mode=OneWay}"
+                        Document="{Binding Converter={StaticResource dc}}"
+                        Padding="10 0 10 5"
+                        Visibility="{Binding IsDivinationCard,
+                                                                Converter={StaticResource bc},
+                                                                ConverterParameter=CollapseWhenFalse}" />
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7"
+                            Visibility="{Binding IsDivinationCard,
+                                                 Converter={StaticResource bc},
+                                                 ConverterParameter=CollapseWhenFalse}" />
+
                     <ItemsControl ItemsSource="{Binding Microtransactions}"
                                   Padding="10 0 10 5"
                                   Visibility="{Binding HasMicrotransactions,
@@ -414,20 +433,14 @@
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
-                    <TextBlock Width="{Binding Path=ActualWidth,
-                                               ElementName=ItemHeader,
-                                               Mode=OneWay}"
-                        HorizontalAlignment="Center"
-                        FontFamily="../Resources/#Fontin SmallCaps"
-                        FontStyle="Italic"
-                        Foreground="#AF6025"
+                    <v:BindableRichTextBox Width="{Binding Path=ActualWidth,
+                                                           ElementName=ItemHeader,
+                                                           Mode=OneWay}"
+                        Document="{Binding Converter={StaticResource fc}}"
                         Padding="10 0 10 5"
-                        Text="{Binding FlavourText}"
-                        TextAlignment="Center"
-                        TextWrapping="Wrap"
                         Visibility="{Binding FlavourText,
-                               Converter={StaticResource bc},
-                               ConverterParameter=CollapseWhenFalse}" />
+                                                                Converter={StaticResource bc},
+                                                                ConverterParameter=CollapseWhenFalse}" />
 
                     <Border Margin="0 0 0 5"
                             BorderBrush="{StaticResource SeperatorBrush}"

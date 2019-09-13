@@ -391,9 +391,11 @@
     <Compile Include="View\Converters\CharacterToImageConverter.cs" />
     <Compile Include="View\Converters\CharacterToLevelConverter.cs" />
     <Compile Include="View\Converters\CurrencyCraftingSlotScalingConverter.cs" />
+    <Compile Include="View\Converters\DivinationCardToFormattedRunConverter.cs" />
     <Compile Include="View\Converters\FilterListToNameConverter.cs" />
     <Compile Include="View\Converters\ItemDisplayConverter.cs" />
     <Compile Include="View\Converters\ItemExplicitModsToFormattedRunConverter.cs" />
+    <Compile Include="View\Converters\ItemFlavourTextToFormattedRunConverter.cs" />
     <Compile Include="View\Converters\ItemPropertyToFormattedRunConverter.cs" />
     <Compile Include="View\Converters\ItemRequirementToFormattedRunConverter.cs" />
     <Compile Include="View\Converters\ItemToColorBrushConverter.cs" />

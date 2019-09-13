@@ -167,7 +167,16 @@ namespace Procurement.ViewModel.Filters
                     if (property.DisplayMode == 0)
                     {
                         if (property.Values.Count == 0)
-                            proptext = property.Name;
+                        {
+                            if (item is Resonator && property.Name.StartsWith("Requires <unmet>{"))
+                            {
+                                proptext = "Requires " + property.Name[17].ToString() + property.Name.Substring(19);
+                            }
+                            else
+                            {
+                                proptext = property.Name;
+                            }
+                        }
                         else
                         {
                             proptext = property.Name + ":";
