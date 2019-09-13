@@ -50,6 +50,7 @@ namespace Procurement.ViewModel
         public bool IsProphecy { get; set; }
         public string ProphecyText { get; set; }
         public string ProphecyDifficultyText { get; set; }
+        public bool IsDivinationCard { get; set; }
 
         public string ItemLevel { get; set; }
 
@@ -118,6 +119,10 @@ namespace Procurement.ViewModel
             SecondaryDescriptionText = item.SecDescrText;
             setTypeSpecificProperties(item);
 
+            var gear = Item as Gear;
+
+            this.IsDivinationCard = gear != null && gear.GearType == GearType.DivinationCard;
+
             var gem = Item as Gem;
             if (gem != null)
             {
@@ -144,7 +149,7 @@ namespace Procurement.ViewModel
             this.HasCraftedMods = CraftedMods?.Count > 0;
             this.HasVeiledMods = VeiledMods?.Count > 0;
             this.HasFracturedMods = FracturedMods?.Count > 0;
-            this.HasExplicitMods = ExplicitMods?.Count > 0;
+            this.HasExplicitMods = ExplicitMods?.Count > 0 && !IsDivinationCard;
             this.HasImplicitMods = ImplicitMods?.Count > 0;
             this.HasEnchantMods = item.EnchantMods.Count > 0;
             this.HasRequirements = Requirements?.Count > 0;
