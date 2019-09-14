@@ -276,6 +276,9 @@ namespace Procurement.Controls
         {
             var abbreviation = CurrencyAbbreviationMap.Instance.FromCurrency(orbType);
 
+            if (string.IsNullOrEmpty(abbreviation))
+                abbreviation = orbType;
+
             var vm = DataContext as ItemDisplayViewModel;
             var item = vm.Item;
 

@@ -24,7 +24,7 @@
             <Button Content="+"  Height="25" Width="20" Command="{Binding Path=BuyoutInfo.IncreaseValue}" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}"/>
             <Button Content="-"  Height="25" Width="20" Command="{Binding Path=BuyoutInfo.DecreaseValue}" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}"/>
         </StackPanel>
-        <ComboBox Grid.Column="2" Grid.Row="0" Height="25" x:Name="OrbType" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}" ItemsSource="{Binding OrbTypes}" SelectedItem="{Binding BuyoutInfo.Orb}" />
+        <ComboBox IsEditable="True" Grid.Column="2" Grid.Row="0" Height="25" x:Name="OrbType" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}" ItemsSource="{Binding OrbTypes}" Text="{Binding BuyoutInfo.Orb}" />
 
         <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>

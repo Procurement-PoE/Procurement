@@ -88,15 +88,23 @@ namespace Procurement.ViewModel
             value = valueOrbPair[0];
             orb = CurrencyAbbreviationMap.Instance.FromAbbreviation(valueOrbPair[1]);
 
-            enabled = value != string.Empty;
+            if (string.IsNullOrEmpty(orb))
+                orb = valueOrbPair[1];
+
+            enabled = !string.IsNullOrEmpty(value) && !string.IsNullOrEmpty(orb);
         }
 
         public string GetSaveText()
         {
-            if (!enabled || (string.IsNullOrEmpty(value) && string.IsNullOrEmpty(orb)))
+            if (!enabled)
                 return string.Empty;
 
-            return $"{value} {CurrencyAbbreviationMap.Instance.FromCurrency(orb)}";
+            string abbreviation = CurrencyAbbreviationMap.Instance.FromCurrency(orb);
+
+            if (string.IsNullOrEmpty(abbreviation))
+                return $"{value} {orb}";
+
+            return $"{value} {abbreviation}";
         }
     }
 }
