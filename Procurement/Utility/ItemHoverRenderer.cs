@@ -22,10 +22,17 @@ namespace Procurement.Utility
             {
                 createSaveFolder();
 
+                string name = "";
+
+                if (string.IsNullOrEmpty(item.Name))
+                    name = item.TypeLine;
+                else
+                    name = item.Name + " " + item.TypeLine;
+
                 SaveFileDialog saveDialog = new SaveFileDialog();
 
                 saveDialog.InitialDirectory = string.Format("{0}\\{1}", Environment.CurrentDirectory, SAVE_LOCATION);
-                saveDialog.FileName = string.Format("{0} - {1}.png", item.Name, DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss"));
+                saveDialog.FileName = string.Format("{0} - {1}.png", name, DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss"));
                 saveDialog.Filter = "png files (*.png)|*.png|All files (*.*)|*.*";
                 saveDialog.FilterIndex = 2;
                 saveDialog.RestoreDirectory = true;
@@ -55,7 +62,7 @@ namespace Procurement.Utility
                     encoder.Save(fileStream);
                 }
 
-                MessageBox.Show("Image saved", item.Name + " saved", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(name + " saved.", "Image saved", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {

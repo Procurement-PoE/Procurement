@@ -5,13 +5,18 @@
              xmlns:local="clr-namespace:Procurement.Controls"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:v="clr-namespace:Procurement.View"
+             xmlns:vm="clr-namespace:Procurement.ViewModel"
              mc:Ignorable="d">
 
     <UserControl.Resources>
+        <SolidColorBrush x:Key="CraftedModBrush">#B4B4FF</SolidColorBrush>
+
         <v:VisibilityConverter x:Key="VisibilityConverter" />
         <v:ItemPropertyToFormattedRunConverter x:Key="pc" />
         <v:ItemRequirementToFormattedRunConverter x:Key="rc" />
         <v:ItemExplicitModsToFormattedRunConverter x:Key="ec" />
+        <v:DivinationCardToFormattedRunConverter x:Key="dc" />
+        <v:ItemFlavourTextToFormattedRunConverter x:Key="fc" />
         <v:VisibilityConverter x:Key="bc" />
 
         <LinearGradientBrush x:Key="SeperatorBrush" StartPoint="0,0" EndPoint="1,0">
@@ -19,6 +24,13 @@
             <GradientStop Offset="0.50" Color="#FF808080" />
             <GradientStop Offset="0.75" Color="#00808080" />
         </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ProphecySeperatorBrush" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Offset="0.25" Color="#00808080" />
+            <GradientStop Offset="0.50" Color="#881672" />
+            <GradientStop Offset="0.75" Color="#00808080" />
+        </LinearGradientBrush>
+
 
         <Style TargetType="{x:Type Paragraph}">
             <Setter Property="Margin" Value="0" />
@@ -34,6 +46,15 @@
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderBrush" Value="Transparent" />
             <Setter Property="FontFamily" Value="../Resources/#Fontin SmallCaps" />
+        </Style>
+
+        <Style x:Key="ExperienceBarStyle" TargetType="ProgressBar">
+            <Setter Property="Minimum" Value="0" />
+            <Setter Property="Maximum" Value="1" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="BorderBrush" Value="LightGray" />
+            <Setter Property="Foreground" Value="DarkGoldenrod" />
+            <Setter Property="Height" Value="6" />
         </Style>
 
     </UserControl.Resources>
@@ -58,7 +79,41 @@
                 </Border.Background>
                 <StackPanel>
 
-                    <ItemsControl ItemsSource="{Binding Properties}" Padding="0 5 0 5">
+                    <!--
+                      KNOWN ISSUES:
+                        - Different dividers between different parts of text are not styled differently.  Instead, the
+                          type of item determines what color the dividers will be.  Examples include: gems,
+                          prophecies, and normal/magic/rare/unique items.
+                        - Some sections, under some conditions, have extra space before or between lines.
+                    -->
+
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="White"
+                        Padding="10 0 10 5"
+                        Text="{Binding ItemLevel}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding ItemLevel,
+                               Converter={StaticResource bc},
+                               ConverterParameter=CollapseWhenFalse}" />
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7"
+                            Visibility="{Binding ItemLevel,
+                                                 Converter={StaticResource bc},
+                                                 ConverterParameter=CollapseWhenFalse}" />
+
+                    <ItemsControl ItemsSource="{Binding Properties}"
+                                  Padding="0 5 0 5"
+                                  Visibility="{Binding Properties,
+                                                       Converter={StaticResource bc},
+                                                       ConverterParameter=CollapseWhenFalse}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Vertical" />
@@ -67,7 +122,11 @@
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <v:BindableRichTextBox Width="{Binding Path=ActualWidth, ElementName=ItemHeader, Mode=OneWay}" Document="{Binding Converter={StaticResource pc}}" />
+                                    <v:BindableRichTextBox
+                                        Width="{Binding Path=ActualWidth,
+                                                ElementName=ItemHeader,
+                                                Mode=OneWay}"
+                                        Document="{Binding Converter={StaticResource pc}}" />
                                 </StackPanel>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
@@ -77,37 +136,37 @@
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
-                            Visibility="{Binding HasRequirements,
+                            Visibility="{Binding SeparateProperties,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
                     <v:BindableRichTextBox Width="{Binding Path=ActualWidth,
                                                            ElementName=ItemHeader,
                                                            Mode=OneWay}"
-                                           Document="{Binding Converter={StaticResource rc}}"
-                                           Padding="10 0 10 5"
-                                           Visibility="{Binding HasRequirements,
+                        Document="{Binding Converter={StaticResource rc}}"
+                        Padding="10 0 10 5"
+                        Visibility="{Binding HasRequirements,
                                                                 Converter={StaticResource bc},
                                                                 ConverterParameter=CollapseWhenFalse}" />
 
                     <Border Margin="0 0 0 5"
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
-                            Visibility="{Binding SecondaryDescriptionText,
+                            Visibility="{Binding SeparateRequirements,
                                                  Converter={StaticResource VisibilityConverter},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
                                                Mode=OneWay}"
-                               HorizontalAlignment="Center"
-                               FontFamily="../Resources/#Fontin SmallCaps"
-                               Foreground="Turquoise"
-                               Padding="10 0 10 5"
-                               Text="{Binding SecondaryDescriptionText}"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding SecondaryDescriptionText,
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="Turquoise"
+                        Padding="10 0 10 5"
+                        Text="{Binding SecondaryDescriptionText}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding SecondaryDescriptionText,
                                                     Converter={StaticResource VisibilityConverter},
                                                     ConverterParameter=CollapseWhenFalse}" />
 
@@ -115,7 +174,38 @@
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
-                            Visibility="{Binding HasImplicitMods,
+                            Visibility="{Binding SecondaryDescriptionText,
+                                                 Converter={StaticResource bc},
+                                                 ConverterParameter=CollapseWhenFalse}" />
+
+                    <ItemsControl ItemsSource="{Binding EnchantMods}"
+                                  Padding="10 0 10 5"
+                                  Visibility="{Binding HasEnchantMods,
+                                                       Converter={StaticResource bc},
+                                                       ConverterParameter=CollapseWhenFalse}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
+                                               Foreground="{StaticResource CraftedModBrush}"
+                                               Text="{Binding}"
+                                               TextAlignment="Center"
+                                               TextWrapping="Wrap" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7"
+                            Visibility="{Binding SeparateEnchantMods,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
@@ -145,9 +235,32 @@
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
-                            Visibility="{Binding HasExplicitMods,
+                            Visibility="{Binding SeparateImplicitMods,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
+
+                    <ItemsControl ItemsSource="{Binding FracturedMods}"
+                                  Padding="10 0 10 5"
+                                  Visibility="{Binding HasFracturedMods,
+                                                       Converter={StaticResource bc},
+                                                       ConverterParameter=CollapseWhenFalse}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
+                                               Foreground="#a29162"
+                                               Text="{Binding}"
+                                               TextAlignment="Center"
+                                               TextWrapping="Wrap" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
 
                     <ItemsControl ItemsSource="{Binding ExplicitMods}"
                                   Padding="10 0 10 5"
@@ -172,27 +285,6 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
 
-                    <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource SeperatorBrush}"
-                            BorderThickness="1"
-                            Visibility="{Binding DescriptionText,
-                                                 Converter={StaticResource VisibilityConverter},
-                                                 ConverterParameter=CollapseWhenFalse}" />
-
-                    <TextBlock Width="{Binding Path=ActualWidth,
-                                               ElementName=ItemHeader,
-                                               Mode=OneWay}"
-                               HorizontalAlignment="Center"
-                               FontFamily="../Resources/#Fontin SmallCaps"
-                               Foreground="Gray"
-                               Padding="10 0 10 5"
-                               Text="{Binding DescriptionText}"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding DescriptionText,
-                                                    Converter={StaticResource VisibilityConverter},
-                                                    ConverterParameter=CollapseWhenFalse}" />
-
                     <ItemsControl ItemsSource="{Binding CraftedMods}"
                                   Padding="10 0 10 5"
                                   Visibility="{Binding HasCraftedMods,
@@ -207,37 +299,263 @@
                             <DataTemplate>
                                 <StackPanel>
                                     <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
-                                               Foreground="#b4b4ff"
+                                               Foreground="{StaticResource CraftedModBrush}"
                                                Text="{Binding}"
                                                TextAlignment="Center"
                                                TextWrapping="Wrap" />
                                 </StackPanel>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
-                    </ItemsControl>                    
-                    
+                    </ItemsControl>
+
+                    <ItemsControl ItemsSource="{Binding VeiledMods}"
+                                  Padding="10 0 10 5"
+                                  Visibility="{Binding HasVeiledMods,
+                                                       Converter={StaticResource bc},
+                                                       ConverterParameter=CollapseWhenFalse}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
+                                               Foreground="{StaticResource CraftedModBrush}"
+                                               Text="{Binding}"
+                                               TextAlignment="Center"
+                                               TextWrapping="Wrap" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!-- The pseudo-explicit property "Mirrored" should appear after any real explicit mods and any
+                         crafted mods.  It is mutually exclusive with being corrupted. -->
+                    <!-- TODO: Padding bug: there is extra padding between explicit mods, crafted mods, and the
+                               mirrored property is any two exist, due to the extra 5 padding below each. -->
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
                                                Mode=OneWay}"
-                               HorizontalAlignment="Center"
-                               FontFamily="../Resources/#Fontin SmallCaps"
-                               Foreground="#960003"
-                               Padding="10 0 10 5"
-                               Text="Corrupted"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Visibility="{Binding IsCorrupted,
-                               Converter={StaticResource bc},
-                               ConverterParameter=CollapseWhenFalse}" />
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="#FF8888FF"
+                        Padding="10 0 10 5"
+                        Text="Mirrored"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding IsMirrored,
+                                                    Converter={StaticResource VisibilityConverter},
+                                                    ConverterParameter=CollapseWhenFalse}" />
+
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="#D20000"
+                        Padding="10 0 10 5"
+                        Text="Unidentified"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding IsUnidentified,
+                                                    Converter={StaticResource bc},
+                                                    ConverterParameter=CollapseWhenFalse}" />
+
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="#D20000"
+                        Padding="10 0 10 5"
+                        Text="Corrupted"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding IsCorrupted,
+                                                    Converter={StaticResource bc},
+                                                    ConverterParameter=CollapseWhenFalse}" />
 
                     <Border Margin="0 0 0 5"
                             BorderBrush="{StaticResource SeperatorBrush}"
                             BorderThickness="1"
                             Opacity="0.7"
-                            Visibility="{Binding HasExplicitMods,
+                            Visibility="{Binding SeparateMods,
                                                  Converter={StaticResource bc},
-                                                 ConverterParameter=CollapseWhenFalse}" />                    
-                    
+                                                 ConverterParameter=CollapseWhenFalse}" />
+
+                    <v:BindableRichTextBox Width="{Binding Path=ActualWidth,
+                                                           ElementName=ItemHeader,
+                                                           Mode=OneWay}"
+                        Document="{Binding Converter={StaticResource dc}}"
+                        Padding="10 0 10 5"
+                        Visibility="{Binding IsDivinationCard,
+                                                                Converter={StaticResource bc},
+                                                                ConverterParameter=CollapseWhenFalse}" />
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7"
+                            Visibility="{Binding IsDivinationCard,
+                                                 Converter={StaticResource bc},
+                                                 ConverterParameter=CollapseWhenFalse}" />
+
+                    <ItemsControl ItemsSource="{Binding Microtransactions}"
+                                  Padding="10 0 10 5"
+                                  Visibility="{Binding HasMicrotransactions,
+                                                       Converter={StaticResource bc},
+                                                       ConverterParameter=CollapseWhenFalse}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock FontFamily="../Resources/#Fontin SmallCaps"
+                                               Foreground="#FFAA9E82"
+                                               Text="{Binding}"
+                                               TextAlignment="Center"
+                                               TextWrapping="Wrap" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7"
+                            Visibility="{Binding SeparateMicrotransactions,
+                                                 Converter={StaticResource bc},
+                                                 ConverterParameter=CollapseWhenFalse}" />
+
+                    <v:BindableRichTextBox Width="{Binding Path=ActualWidth,
+                                                           ElementName=ItemHeader,
+                                                           Mode=OneWay}"
+                        Document="{Binding Converter={StaticResource fc}}"
+                        Padding="10 0 10 5"
+                        Visibility="{Binding FlavourText,
+                                                                Converter={StaticResource bc},
+                                                                ConverterParameter=CollapseWhenFalse}" />
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderThickness="1"
+                            Visibility="{Binding SeparateFlavourText,
+                                                 Converter={StaticResource VisibilityConverter},
+                                                 ConverterParameter=CollapseWhenFalse}" />
+
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="White"
+                        Padding="10 0 10 5"
+                        Text="{Binding ProphecyText}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding ProphecyText,
+                                                    Converter={StaticResource bc},
+                                                    ConverterParameter=CollapseWhenFalse}" />
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource ProphecySeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7"
+                            Visibility="{Binding ProphecyText,
+                                                 Converter={StaticResource bc},
+                                                 ConverterParameter=CollapseWhenFalse}" />
+
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="#FF808080"
+                        Padding="10 0 10 5"
+                        Text="{Binding ProphecyDifficultyText}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding ProphecyDifficultyText,
+                                                    Converter={StaticResource bc},
+                                                    ConverterParameter=CollapseWhenFalse}" />
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource ProphecySeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7"
+                            Visibility="{Binding ProphecyDifficultyText,
+                                                 Converter={StaticResource bc},
+                                                 ConverterParameter=CollapseWhenFalse}" />
+
+                    <StackPanel Orientation="Vertical"
+                                Visibility="{Binding IsGemProgressVisible,
+                                                 Converter={StaticResource VisibilityConverter},
+                                                 ConverterParameter=CollapseWhenFalse}">
+                        <DockPanel Margin="10 0 10 5">
+                            <Label DockPanel.Dock="Right" FontFamily="../Resources/#Fontin SmallCaps"
+                                   Content="{Binding ExperienceDenominator, FallbackValue=2}" Foreground="White" />
+                            <Label DockPanel.Dock="Right" FontFamily="../Resources/#Fontin SmallCaps" Content="/"
+                                   Foreground="White" />
+                            <Label DockPanel.Dock="Right" FontFamily="../Resources/#Fontin SmallCaps"
+                                   Content="{Binding ExperienceNumerator, FallbackValue=1}" Foreground="White" />
+                            <ProgressBar Style="{StaticResource ExperienceBarStyle}"
+                                         Value="{Binding LevelExperienceProgress, FallbackValue=0.5}"  />
+                        </DockPanel>
+
+                        <Border Margin="0 0 0 5"
+                                BorderBrush="{StaticResource SeperatorBrush}"
+                                BorderThickness="1" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
+                                Visibility="{Binding IsIncubatorProgressVisible,
+                                                 Converter={StaticResource VisibilityConverter},
+                                                 ConverterParameter=CollapseWhenFalse}">
+                        <Label HorizontalAlignment="Center" FontFamily="../Resources/#Fontin SmallCaps" Content="{Binding Incubating, StringFormat=Incubating {}, FallbackValue='Incubating Some Item'}"
+                               Foreground="{StaticResource CraftedModBrush}" />
+
+                        <ProgressBar Style="{StaticResource ExperienceBarStyle}" Margin="10,0"
+                                     Value="{Binding IncubatorProgress, FallbackValue=0.5, Mode=OneTime}"  />
+                        <DockPanel Margin="10 0 10 5" LastChildFill="True">
+
+                            <Label DockPanel.Dock="Left" FontFamily="../Resources/#Fontin SmallCaps"
+                                   Content="{Binding IncubatorNumerator, FallbackValue=1}" Foreground="White" />
+                            <Label DockPanel.Dock="Left" FontFamily="../Resources/#Fontin SmallCaps" Content="/"
+                                   Foreground="White" />
+                            <Label DockPanel.Dock="Left" FontFamily="../Resources/#Fontin SmallCaps"
+                                   Content="{Binding IncubatorDenominator, FallbackValue=2}" Foreground="White" />
+                            
+                            <Label DockPanel.Dock="Right" FontFamily="../Resources/#Fontin SmallCaps" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Content="{Binding IncubationLevel}" Foreground="Gray" />
+                            
+                        </DockPanel>
+                    </StackPanel>
+
+                    <TextBlock Width="{Binding Path=ActualWidth,
+                                               ElementName=ItemHeader,
+                                               Mode=OneWay}"
+                        HorizontalAlignment="Center"
+                        FontFamily="../Resources/#Fontin SmallCaps"
+                        Foreground="Gray"
+                        Padding="10 0 10 5"
+                        Text="{Binding DescriptionText}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding DescriptionText,
+                                                    Converter={StaticResource VisibilityConverter},
+                                                    ConverterParameter=CollapseWhenFalse}" />
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderThickness="1"
+                            Opacity="0.7" />
+
                     <TextBlock Width="{Binding Path=ActualWidth,
                                                ElementName=ItemHeader,
                                                Mode=OneWay}"
@@ -249,7 +567,6 @@
                                TextAlignment="Center"
                                TextWrapping="Wrap"
                                Visibility="Visible" />
-
                 </StackPanel>
             </Border>
         </DockPanel>
