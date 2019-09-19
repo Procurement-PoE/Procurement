@@ -38,27 +38,11 @@ namespace Procurement.ViewModel.Filters.ForumExport
 
         public bool Applicable(Item item)
         {
-            if (item.Corrupted)
-            {
-                return false;
-            }
-            else if (item is Map || item is Gem || item is AbyssJewel)
-            {
-                return true;
-            }
-            else
-            {
-                Gear gear = item as Gear;
-                if (gear != null)
-                {
-                    return !gear.GearType.Equals(GearType.Flask)
-                    && !gear.GearType.Equals(GearType.Unknown)
-                    && !gear.GearType.Equals(GearType.DivinationCard)
-                    && !gear.GearType.Equals(GearType.Breachstone);
-                }
-            }
+            Gear gear = item as Gear;
 
-            return false;
+            return !item.Corrupted
+            && (item is Gem || (item.ItemLevel > 0 && !(item.StackSize > 0) && (!gear?.GearType.Equals(GearType.Flask) ?? true)))
+            && !(item is Incubator) && !(item is FullBestiaryOrb);
         }
     }
 }
