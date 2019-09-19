@@ -119,7 +119,7 @@ namespace Procurement.ViewModel.Filters
             if (gear != null && gear.GearType.ToString().ToLowerInvariant().Contains(word))
                 goto End;
 
-            if (item.Microtransactions != null && item.Microtransactions.Count > 0)
+            if (item.Microtransactions?.Count > 0)
                 if (item.Microtransactions.Any(x => x.ToLowerInvariant().Contains(word)))
                     goto End;
 
@@ -131,19 +131,19 @@ namespace Procurement.ViewModel.Filters
                 if (item.Implicitmods.Any(x => x.ToLowerInvariant().Contains(word)))
                     goto End;
 
-            if (item.FracturedMods != null && item.FracturedMods.Count > 0)
+            if (item.FracturedMods?.Count > 0)
                 if (item.FracturedMods.Any(x => x.ToLowerInvariant().Contains(word)))
                     goto End;
 
-            if (item.CraftedMods != null && item.CraftedMods.Count > 0)
+            if (item.CraftedMods?.Count > 0)
                 if (item.CraftedMods.Any(x => x.ToLowerInvariant().Contains(word)))
                     goto End;
 
-            if (item.EnchantMods != null && item.EnchantMods.Count > 0)
+            if (item.EnchantMods?.Count > 0)
                 if (item.EnchantMods.Any(x => x.ToLowerInvariant().Contains(word)))
                     goto End;
 
-            if (item.UtilityMods != null && item.UtilityMods.Count > 0)
+            if (item.UtilityMods?.Count > 0)
                 if (item.UtilityMods.Any(x => x.ToLowerInvariant().Contains(word)))
                     goto End;
 
@@ -246,16 +246,19 @@ namespace Procurement.ViewModel.Filters
                     goto End;
             }
 
+            bool HasItemLevel = item.ItemLevel > 0;
+            bool ItemIsGearOrMap = HasItemLevel && !(item.StackSize > 0) && !(item is Incubator) && !(item is FullBestiaryOrb);
+
             string text = "";
 
-            if (item.ItemLevel > 0 && !(item is Incubator))
+            if (ItemIsGearOrMap || item is FullBestiaryOrb)
             {
                 text = "rarity: " + item.Rarity.ToString().ToLowerInvariant();
                 if (text.Contains(word))
                     goto End;
             }
 
-            if (item.ItemLevel > 0)
+            if (HasItemLevel)
             {
                 text = "item level: " + item.ItemLevel.ToString();
                 if (text.Contains(word))
@@ -288,21 +291,21 @@ namespace Procurement.ViewModel.Filters
                     goto End;
             }
 
-            if (item.EnchantMods != null && item.EnchantMods.Count > 0)
+            if (item.EnchantMods?.Count > 0)
             {
                 text = "enchanted";
                 if (text.Contains(word))
                     goto End;
             }
 
-            if (item.CraftedMods != null && item.CraftedMods.Count > 0)
+            if (item.CraftedMods?.Count > 0)
             {
                 text = "crafted";
                 if (text.Contains(word))
                     goto End;
             }
 
-            if (item.VeiledMods != null && item.VeiledMods.Count > 0)
+            if (item.VeiledMods?.Count > 0)
             {
                 text = "veiled";
                 if (text.Contains(word))
@@ -316,6 +319,13 @@ namespace Procurement.ViewModel.Filters
                     goto End;
             }
 
+            if (!item.Corrupted && (item is Gem || (ItemIsGearOrMap && (!gear?.GearType.Equals(GearType.Flask) ?? true))))
+            {
+                text = "uncorrupted";
+                if (text.StartsWith(word))
+                    goto End;
+            }
+
             if (item.Corrupted)
             {
                 text = "corrupted";
@@ -323,23 +333,58 @@ namespace Procurement.ViewModel.Filters
                     goto End;
             }
 
+            if (item.Identified && ItemIsGearOrMap)
+            {
+                text = "identified";
+                if (text.StartsWith(word))
+                    goto End;
+            }
+
             if (!item.Identified)
             {
                 text = "unidentified";
+                if (text.Contains(word) && !"identified".StartsWith(word))
+                    goto End;
+            }
+
+            if (item.Elder)
+            {
+                text = "elder";
+                if (text.Contains(word))
+                    goto End;
+            }
+
+            if (item.Shaper)
+            {
+                text = "shaper";
                 if (text.Contains(word))
                     goto End;
             }
 
             if (item is FullBestiaryOrb)
             {
-                text = "captured beast";
+                text = "captured beasts";
                 if (text.Contains(word))
                     goto End;
             }
 
             if (item is Gem)
             {
-                text = "gem";
+                text = "gems";
+                if (text.Contains(word))
+                    goto End;
+            }
+
+            if ((gear == null && item.StackSize > 0) || item is Incubator)
+            {
+                text = "currency";
+                if (text.Contains(word))
+                    goto End;
+            }
+
+            if (ItemIsGearOrMap && map == null)
+            {
+                text = "gear";
                 if (text.Contains(word))
                     goto End;
             }
@@ -350,8 +395,72 @@ namespace Procurement.ViewModel.Filters
                  || gear.TypeLine.StartsWith("Fragment of the ")
                  || gear.TypeLine.EndsWith(" Key")))
             {
-                text = "map fragment";
+                text = "map fragments";
                 if (text.Contains(word))
+                    goto End;
+            }
+
+            if (gear?.Sockets.Count > 0)
+            {
+                List<string> sockettext = new List<string>();
+
+                if (gear.Sockets.Count == 1)
+                {
+                    sockettext.Add("one socket");
+                    sockettext.Add("1 socket");
+                    sockettext.Add("1-socket");
+                }
+                else
+                {
+                    sockettext.Add(gear.Sockets.Count.ToString() + " sockets");
+                    sockettext.Add(gear.Sockets.Count.ToString() + "-sockets");
+
+                    var linkedsockets = gear.Sockets
+                        .GroupBy(s => s.Group)
+                        .Select(g => new { links = g.Count() });
+
+                    if (linkedsockets.Any(g => g.links == 6))
+                    {
+                        sockettext.Add("six linked");
+                        sockettext.Add("6 linked");
+                        sockettext.Add("six-linked");
+                        sockettext.Add("6-linked");
+                    }
+                    else if (linkedsockets.Any(g => g.links == 5))
+                    {
+                        sockettext.Add("five linked");
+                        sockettext.Add("5 linked");
+                        sockettext.Add("five-linked");
+                        sockettext.Add("5-linked");
+                    }
+                    else
+                    {
+                        if (linkedsockets.Any(g => g.links == 4))
+                        {
+                            sockettext.Add("four linked");
+                            sockettext.Add("4 linked");
+                            sockettext.Add("four-linked");
+                            sockettext.Add("4-linked");
+                        }
+                        else if (linkedsockets.Any(g => g.links == 3))
+                        {
+                            sockettext.Add("three linked");
+                            sockettext.Add("3 linked");
+                            sockettext.Add("three-linked");
+                            sockettext.Add("3-linked");
+                        }
+
+                        if (linkedsockets.Any(g => g.links == 2))
+                        {
+                            sockettext.Add("two linked");
+                            sockettext.Add("2 linked");
+                            sockettext.Add("two-linked");
+                            sockettext.Add("2-linked");
+                        }
+                    }
+                }
+
+                if (sockettext.Any(x => x.Contains(word)))
                     goto End;
             }
 
@@ -384,7 +493,7 @@ namespace Procurement.ViewModel.Filters
                 }
             }
 
-            if (item.ItemLevel > 0 && word.StartsWith("ilvl:"))
+            if (HasItemLevel && word.StartsWith("ilvl:"))
             {
                 int ilvl;
                 bool greaterthan = false;
