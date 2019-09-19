@@ -59,6 +59,7 @@ namespace POEApi.Model
         public List<string> CraftedMods { get; set; }
         public List<string> VeiledMods { get; set; }
         public List<string> FracturedMods { get; set; }
+        public List<string> UtilityMods { get; set; }
 
         public IncubatedDetails IncubatedDetails { get; set; }
 
@@ -105,6 +106,7 @@ namespace POEApi.Model
             VeiledMods = item.VeiledMods ?? new List<string>();
             EnchantMods = item.EnchantMods ?? new List<string>();
             FracturedMods = item.FracturedMods ?? new List<string>();
+            UtilityMods = item.UtilityMods ?? new List<string>();
             FlavourText = item.FlavourText;
             ItemLevel = item.Ilvl;
             Shaper = item.Shaper;

@@ -78,6 +78,7 @@ namespace POEApi.Model.JSONProxy
         public List<string> EnchantMods { get; set; }
         public List<string> VeiledMods { get; set; }
         public List<string> FracturedMods { get; set; }
+        public List<string> UtilityMods { get; set; }
         public int Ilvl { get; set; }
         public string ProphecyText { get; set; }
         public string ProphecyDiffText { get; set; }

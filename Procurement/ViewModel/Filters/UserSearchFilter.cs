@@ -143,6 +143,10 @@ namespace Procurement.ViewModel.Filters
                 if (item.EnchantMods.Any(x => x.ToLowerInvariant().Contains(word)))
                     goto End;
 
+            if (item.UtilityMods != null && item.UtilityMods.Count > 0)
+                if (item.UtilityMods.Any(x => x.ToLowerInvariant().Contains(word)))
+                    goto End;
+
             if (item.FlavourText != null)
                 if (item.FlavourText.Any(x => x.ToLowerInvariant().Contains(word)))
                     goto End;
