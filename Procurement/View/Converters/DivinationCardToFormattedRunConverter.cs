@@ -23,7 +23,7 @@ namespace Procurement.View
 
             var mods = viewModel.ExplicitMods;
 
-            Paragraph paragraph = new Paragraph();
+            var paragraph = new Paragraph();
 
             Match match = Regex.Match(mods.First(), "<(augmented|corrupted|currencyitem|default|divination|gemitem|magicitem|normal|prophecy|rareitem|uniqueitem|whiteitem)>{(.+?)}(\r\n)?");
 
@@ -57,7 +57,7 @@ namespace Procurement.View
                 else if (colortext.Equals("whiteitem"))
                     color = "#C8C8C8";
 
-                paragraph.Inlines.Add(new Run(match.Groups[2].Value) { Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(color)), BaselineAlignment = BaselineAlignment.Center });
+                paragraph.Inlines.Add(new Run(match.Groups[2].Value) { Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(color)) });
 
                 if (match.Groups[3].Value.Equals("\r\n"))
                     paragraph.Inlines.Add(new Run("\r\n"));
