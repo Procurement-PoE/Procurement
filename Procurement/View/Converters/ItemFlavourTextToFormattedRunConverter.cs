@@ -24,7 +24,7 @@ namespace Procurement.View
             string flavourtext = viewModel.FlavourText;
             Paragraph paragraph = new Paragraph();
 
-            if (flavourtext.StartsWith("<size:") || flavourtext.StartsWith("<smaller>{"))
+            if (viewModel.IsDivinationCard && (flavourtext.StartsWith("<size:") || flavourtext.StartsWith("<smaller>{")))
                 flavourtext = flavourtext.TrimEnd('}').Substring(10);
 
             if (flavourtext.Contains("<d"))
