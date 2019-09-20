@@ -45,9 +45,9 @@ namespace Procurement.ViewModel
 
         private void processFilter()
         {
-            string cleanfilter = null;
-            bool OrMatch = false;
-            bool HasSpace = false;
+            string cleanfilter = "";
+            bool ContainsOr = false;
+            bool ContainsSpace = false;
 
             if (!string.IsNullOrEmpty(filter))
             {
@@ -78,13 +78,59 @@ namespace Procurement.ViewModel
                     cleanfilter = "\"-" + cleanfilter.Substring(2);
 
                 if (cleanfilter.Contains('|'))
-                    OrMatch = true;
+                    ContainsOr = true;
 
                 if (cleanfilter.Contains(' '))
-                    HasSpace = true;
+                    ContainsSpace = true;
             }
 
-            List<IFilter> allfilters = getUserFilter(cleanfilter, OrMatch, HasSpace);
+            var filterlists = new List<List<String>>();
+
+            if (!ContainsOr)
+            {
+                if (!ContainsSpace)
+                {
+                    if (!string.IsNullOrEmpty(cleanfilter.Trim('"')))
+                        filterlists.Add(new List<string> { cleanfilter.Trim('"') });
+                }
+                else
+                {
+                    var words = cleanfilter.Split('"')
+                                      .Select((element, index) => index % 2 == 0
+                                          ? element.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                                          : new string[] { element })
+                                      .SelectMany(element => element).ToList();
+
+                    if (words?.Count > 0)
+                        filterlists.Add(words);
+                }
+            }
+            else
+            {
+                var words = cleanfilter.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var word in words)
+                {
+                    if (!ContainsSpace)
+                    {
+                        if (!string.IsNullOrEmpty(word.Trim('"')))
+                            filterlists.Add(new List<string> { word.Trim('"') });
+                    }
+                    else
+                    {
+                        var words1 = word.Split('"')
+                                         .Select((element, index) => index % 2 == 0
+                                             ? element.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                                             : new string[] { element })
+                                         .SelectMany(element => element).ToList();
+
+                        if (words1?.Count > 0)
+                            filterlists.Add(words1);
+                    }
+                }
+            }
+
+            List<IFilter> allfilters = getUserFilter(filterlists);
             allfilters.AddRange(categoryFilter);
 
             foreach (var item in tabsAndContent)
@@ -382,7 +428,7 @@ namespace Procurement.ViewModel
                     BorderBrush = Brushes.Transparent
                 };
 
-                var stashTab = TabFactory.GenerateTab(currentTab, getUserFilter(string.Empty, false, false));
+                var stashTab = TabFactory.GenerateTab(currentTab, getUserFilter(new List<List<String>>()));
 
                 CraftTabAndContent(item, stashTab, i);
 
@@ -422,12 +468,12 @@ namespace Procurement.ViewModel
             return menuItem;
         }
 
-        private static List<IFilter> getUserFilter(string filter, bool OrMatch, bool HasSpace)
+        private static List<IFilter> getUserFilter(List<List<string>> filterlists)
         {
-            if (string.IsNullOrEmpty(filter))
+            if (!(filterlists?.Count > 0))
                 return new List<IFilter>();
 
-            UserSearchFilter searchCriteria = new UserSearchFilter(filter, OrMatch, HasSpace);
+            UserSearchFilter searchCriteria = new UserSearchFilter(filterlists);
             return new List<IFilter>() { searchCriteria };
         }
 
