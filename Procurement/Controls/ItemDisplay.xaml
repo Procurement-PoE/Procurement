@@ -27,6 +27,17 @@
                    Visibility="{Binding IsStackSizeVisible,
                                Converter={StaticResource bc},
                                ConverterParameter=CollapseWhenFalse}" />
+
+        <TextBlock HorizontalAlignment="Left"
+                   FontFamily="../Resources/#Fontin SmallCaps"
+                   FontWeight="Medium"
+                   Foreground="#00BAFE"
+                   Text="{Binding StackSize}"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   Visibility="{Binding IsFullSetOfCards,
+                               Converter={StaticResource bc},
+                               ConverterParameter=CollapseWhenFalse}" />
     </Grid>
     
     
