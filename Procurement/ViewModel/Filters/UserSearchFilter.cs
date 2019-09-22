@@ -370,6 +370,33 @@ namespace Procurement.ViewModel.Filters
                     goto End;
             }
 
+            if (!string.IsNullOrEmpty(item.Id) && Settings.Buyouts.ContainsKey(item.Id))
+            {
+                text = "priced";
+                if (text.Contains(word))
+                    goto End;
+
+                string price = Settings.Buyouts[item.Id].Buyout;
+
+                if (string.IsNullOrEmpty(price))
+                    price = Settings.Buyouts[item.Id].Price;
+                else
+                {
+                    text = "buyout";
+                    if (text.Contains(word))
+                    goto End;
+                }
+
+                if (price.Contains(word))
+                    goto End;
+            }
+            else if (!(item is QuestItem) && !(item is Decoration))
+            {
+                text = "unpriced";
+                if (text.StartsWith(word))
+                    goto End;
+            }
+
             if (gear?.Sockets.Count > 0)
             {
                 List<string> sockettext = new List<string>();
