@@ -372,23 +372,51 @@ namespace Procurement.ViewModel.Filters
 
             if (!string.IsNullOrEmpty(item.Id) && Settings.Buyouts.ContainsKey(item.Id))
             {
-                text = "priced";
-                if (text.Contains(word))
+                var itemInfo = Settings.Buyouts[item.Id];
+
+                List<string> pricetext = new List<string>();
+
+                pricetext.Add(itemInfo.Buyout);
+                pricetext.Add(itemInfo.CurrentOffer);
+                pricetext.Add(itemInfo.Price);
+                pricetext.Add(itemInfo.Notes);
+
+                if (pricetext.Any(x => x.ToLowerInvariant().Contains(word)))
                     goto End;
 
-                string price = Settings.Buyouts[item.Id].Buyout;
-
-                if (string.IsNullOrEmpty(price))
-                    price = Settings.Buyouts[item.Id].Price;
+                if (!string.IsNullOrEmpty(itemInfo.Buyout) || !string.IsNullOrEmpty(itemInfo.Price))
+                {
+                    text = "priced";
+                    if (text.Contains(word))
+                    goto End;
+                }
                 else
+                {
+                    text = "unpriced";
+                    if (text.StartsWith(word))
+                        goto End;
+                }
+
+                if (!string.IsNullOrEmpty(itemInfo.Buyout))
                 {
                     text = "buyout";
                     if (text.Contains(word))
                     goto End;
                 }
 
-                if (price.Contains(word))
+                if (!string.IsNullOrEmpty(itemInfo.CurrentOffer))
+                {
+                    text = "offer";
+                    if (text.Contains(word))
                     goto End;
+                }
+
+                if (!string.IsNullOrEmpty(itemInfo.Notes))
+                {
+                    text = "notes";
+                    if (text.Contains(word))
+                    goto End;
+                }
             }
             else if (!(item is QuestItem) && !(item is Decoration))
             {
