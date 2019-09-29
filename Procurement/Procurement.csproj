@@ -401,6 +401,7 @@
     <Compile Include="View\Converters\ItemToColorBrushConverter.cs" />
     <Compile Include="View\Converters\ItemToItemHoverSymbolPath.cs" />
     <Compile Include="View\Converters\ItemToItemHoverSymbolVisibility.cs" />
+    <Compile Include="View\Converters\ItemToSeparatorBrushConverter.cs" />
     <Compile Include="View\Converters\ObjectInListMultiConverter.cs" />
     <Compile Include="View\Converters\RecipeDescriptionConverter.cs" />
     <Compile Include="View\Converters\ResultMatchConverter.cs" />

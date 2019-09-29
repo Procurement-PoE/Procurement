@@ -18,19 +18,7 @@
         <v:DivinationCardToFormattedRunConverter x:Key="dc" />
         <v:ItemFlavourTextToFormattedRunConverter x:Key="fc" />
         <v:VisibilityConverter x:Key="bc" />
-
-        <LinearGradientBrush x:Key="SeperatorBrush" StartPoint="0,0" EndPoint="1,0">
-            <GradientStop Offset="0.25" Color="#00808080" />
-            <GradientStop Offset="0.50" Color="#FF808080" />
-            <GradientStop Offset="0.75" Color="#00808080" />
-        </LinearGradientBrush>
-
-        <LinearGradientBrush x:Key="ProphecySeperatorBrush" StartPoint="0,0" EndPoint="1,0">
-            <GradientStop Offset="0.25" Color="#00808080" />
-            <GradientStop Offset="0.50" Color="#881672" />
-            <GradientStop Offset="0.75" Color="#00808080" />
-        </LinearGradientBrush>
-
+        <v:ItemToSeparatorBrushConverter x:Key="sc" />
 
         <Style TargetType="{x:Type Paragraph}">
             <Setter Property="Margin" Value="0" />
@@ -81,9 +69,6 @@
 
                     <!--
                       KNOWN ISSUES:
-                        - Different dividers between different parts of text are not styled differently.  Instead, the
-                          type of item determines what color the dividers will be.  Examples include: gems,
-                          prophecies, and normal/magic/rare/unique items.
                         - Some sections, under some conditions, have extra space before or between lines.
                     -->
 
@@ -102,9 +87,8 @@
                                ConverterParameter=CollapseWhenFalse}" />
 
                     <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderBrush="{Binding Item, Converter={StaticResource sc}}"
                             BorderThickness="1"
-                            Opacity="0.7"
                             Visibility="{Binding ItemLevel,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
@@ -156,9 +140,8 @@
                     </ItemsControl>
 
                     <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderBrush="{Binding Item, Converter={StaticResource sc}}"
                             BorderThickness="1"
-                            Opacity="0.7"
                             Visibility="{Binding SeparateProperties,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
@@ -173,7 +156,7 @@
                                                                 ConverterParameter=CollapseWhenFalse}" />
 
                     <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderBrush="{Binding Item, Converter={StaticResource sc}}"
                             BorderThickness="1"
                             Visibility="{Binding SeparateRequirements,
                                                  Converter={StaticResource VisibilityConverter},
@@ -194,9 +177,8 @@
                                                     ConverterParameter=CollapseWhenFalse}" />
 
                     <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderBrush="{Binding Item, Converter={StaticResource sc}}"
                             BorderThickness="1"
-                            Opacity="0.7"
                             Visibility="{Binding SecondaryDescriptionText,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
@@ -225,9 +207,8 @@
                     </ItemsControl>
 
                     <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderBrush="{Binding Item, Converter={StaticResource sc}}"
                             BorderThickness="1"
-                            Opacity="0.7"
                             Visibility="{Binding SeparateEnchantMods,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
@@ -255,9 +236,8 @@
                     </ItemsControl>
 
                     <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderBrush="{Binding Item, Converter={StaticResource sc}}"
                             BorderThickness="1"
-                            Opacity="0.7"
                             Visibility="{Binding SeparateImplicitMods,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
@@ -401,9 +381,8 @@
                                                     ConverterParameter=CollapseWhenFalse}" />
 
                     <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderBrush="{Binding Item, Converter={StaticResource sc}}"
                             BorderThickness="1"
-                            Opacity="0.7"
                             Visibility="{Binding SeparateMods,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
@@ -423,9 +402,8 @@
                     </v:BindableRichTextBox>
 
                     <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderBrush="{Binding Item, Converter={StaticResource sc}}"
                             BorderThickness="1"
-                            Opacity="0.7"
                             Visibility="{Binding IsDivinationCard,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
@@ -454,9 +432,8 @@
                     </ItemsControl>
 
                     <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderBrush="{Binding Item, Converter={StaticResource sc}}"
                             BorderThickness="1"
-                            Opacity="0.7"
                             Visibility="{Binding SeparateMicrotransactions,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
@@ -471,7 +448,7 @@
                                                                 ConverterParameter=CollapseWhenFalse}" />
 
                     <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource SeperatorBrush}"
+                            BorderBrush="{Binding Item, Converter={StaticResource sc}}"
                             BorderThickness="1"
                             Visibility="{Binding SeparateFlavourText,
                                                  Converter={StaticResource VisibilityConverter},
@@ -492,9 +469,8 @@
                                                     ConverterParameter=CollapseWhenFalse}" />
 
                     <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource ProphecySeperatorBrush}"
+                            BorderBrush="{Binding Item, Converter={StaticResource sc}}"
                             BorderThickness="1"
-                            Opacity="0.7"
                             Visibility="{Binding ProphecyText,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
@@ -514,9 +490,8 @@
                                                     ConverterParameter=CollapseWhenFalse}" />
 
                     <Border Margin="0 0 0 5"
-                            BorderBrush="{StaticResource ProphecySeperatorBrush}"
+                            BorderBrush="{Binding Item, Converter={StaticResource sc}}"
                             BorderThickness="1"
-                            Opacity="0.7"
                             Visibility="{Binding ProphecyDifficultyText,
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
@@ -537,7 +512,7 @@
                         </DockPanel>
 
                         <Border Margin="0 0 0 5"
-                                BorderBrush="{StaticResource SeperatorBrush}"
+                                BorderBrush="{Binding Item, Converter={StaticResource sc}}"
                                 BorderThickness="1" />
                     </StackPanel>
 
