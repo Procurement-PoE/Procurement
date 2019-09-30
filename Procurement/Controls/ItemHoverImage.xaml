@@ -39,10 +39,49 @@
         <Style x:Key="ExperienceBarStyle" TargetType="ProgressBar">
             <Setter Property="Minimum" Value="0" />
             <Setter Property="Maximum" Value="1" />
-            <Setter Property="Margin" Value="2" />
-            <Setter Property="BorderBrush" Value="LightGray" />
-            <Setter Property="Foreground" Value="DarkGoldenrod" />
-            <Setter Property="Height" Value="6" />
+            <Setter Property="Height" Value="10" />
+            <Setter Property="Width" Value="212" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ProgressBar">
+                        <Border BorderBrush="#262A32" BorderThickness="1" CornerRadius="2">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Color="#FF333B4A" Offset="0.0" />
+                                    <GradientStop Color="#FF11161E" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Grid x:Name="PART_Track">
+                                <Rectangle x:Name="PART_Indicator" HorizontalAlignment="Left">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                          <GradientStop Color="#FF4B260D" Offset="0.00" />
+                                          <GradientStop Color="#FF4B260D" Offset="0.14" />
+                                          <GradientStop Color="#FFF6BB5C" Offset="0.36" />
+                                          <GradientStop Color="#FFEAE7A9" Offset="0.36" />
+                                          <GradientStop Color="#FFEAE7A9" Offset="0.50" />
+                                          <GradientStop Color="#FFC9A153" Offset="0.50" />
+                                          <GradientStop Color="#FF270904" Offset="0.86" />
+                                          <GradientStop Color="#FF270904" Offset="1.00" />
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="IncubatorSmall" TargetType="Label">
+            <Setter Property="FontFamily" Value="../Resources/#Fontin SmallCaps" />
+            <Setter Property="FontStyle" Value="Italic" />
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="0.9" ScaleY="0.9" />
+                </Setter.Value>
+            </Setter>
         </Style>
 
     </UserControl.Resources>
@@ -491,25 +530,22 @@
                                                  Converter={StaticResource bc},
                                                  ConverterParameter=CollapseWhenFalse}" />
 
-                    <StackPanel Orientation="Vertical"
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5"
                                 Visibility="{Binding IsGemProgressVisible,
                                                  Converter={StaticResource VisibilityConverter},
                                                  ConverterParameter=CollapseWhenFalse}">
-                        <DockPanel Margin="10 0 10 5">
-                            <Label DockPanel.Dock="Right" FontFamily="../Resources/#Fontin SmallCaps"
-                                   Content="{Binding ExperienceDenominator, FallbackValue=2}" Foreground="White" />
-                            <Label DockPanel.Dock="Right" FontFamily="../Resources/#Fontin SmallCaps" Content="/"
-                                   Foreground="White" />
-                            <Label DockPanel.Dock="Right" FontFamily="../Resources/#Fontin SmallCaps"
-                                   Content="{Binding ExperienceNumerator, FallbackValue=1}" Foreground="White" />
-                            <ProgressBar Style="{StaticResource ExperienceBarStyle}"
-                                         Value="{Binding LevelExperienceProgress, FallbackValue=0.5}"  />
-                        </DockPanel>
-
-                        <Border Margin="0 0 0 5"
-                                BorderBrush="{Binding Item, Converter={StaticResource sc}}"
-                                BorderThickness="1" />
+                        <ProgressBar Style="{StaticResource ExperienceBarStyle}"
+                                     Value="{Binding LevelExperienceProgress, FallbackValue=0.5, Mode=OneTime}"  />
+                        <Label FontFamily="../Resources/#Fontin SmallCaps"
+                               Content="{Binding ExperienceNumbers}" Foreground="White" />
                     </StackPanel>
+
+                    <Border Margin="0 0 0 5"
+                            BorderBrush="{Binding Item, Converter={StaticResource sc}}"
+                            BorderThickness="1"
+                            Visibility="{Binding IsGemProgressVisible,
+                                                 Converter={StaticResource bc},
+                                                 ConverterParameter=CollapseWhenFalse}" />
 
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
                                 Visibility="{Binding IsIncubatorProgressVisible,
@@ -517,22 +553,14 @@
                                                  ConverterParameter=CollapseWhenFalse}">
                         <Label HorizontalAlignment="Center" FontFamily="../Resources/#Fontin SmallCaps" Content="{Binding Incubating, StringFormat=Incubating {}, FallbackValue='Incubating Some Item'}"
                                Foreground="{StaticResource CraftedModBrush}" />
-
-                        <ProgressBar Style="{StaticResource ExperienceBarStyle}" Margin="10,0"
+                        <ProgressBar Style="{StaticResource ExperienceBarStyle}"
                                      Value="{Binding IncubatorProgress, FallbackValue=0.5, Mode=OneTime}"  />
-                        <DockPanel Margin="10 0 10 5" LastChildFill="True">
-
-                            <Label DockPanel.Dock="Left" FontFamily="../Resources/#Fontin SmallCaps"
-                                   Content="{Binding IncubatorNumerator, FallbackValue=1}" Foreground="White" />
-                            <Label DockPanel.Dock="Left" FontFamily="../Resources/#Fontin SmallCaps" Content="/"
-                                   Foreground="White" />
-                            <Label DockPanel.Dock="Left" FontFamily="../Resources/#Fontin SmallCaps"
-                                   Content="{Binding IncubatorDenominator, FallbackValue=2}" Foreground="White" />
-                            
-                            <Label DockPanel.Dock="Right" FontFamily="../Resources/#Fontin SmallCaps" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Center"
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Label Style="{StaticResource IncubatorSmall}" 
+                                   Content="{Binding IncubationNumbers}" Foreground="White" />
+                            <Label Style="{StaticResource IncubatorSmall}"
                                    Content="{Binding IncubationLevel}" Foreground="Gray" />
-                            
-                        </DockPanel>
+                        </StackPanel>
                     </StackPanel>
 
                     <TextBlock Width="{Binding Path=ActualWidth,

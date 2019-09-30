@@ -70,13 +70,11 @@ namespace Procurement.ViewModel
 
         public double LevelExperienceProgress { get; set; }
 
-        public int ExperienceNumerator { get; }
-        public int ExperienceDenominator { get; }
+        public string ExperienceNumbers { get; }
 
-        public int IncubatorNumerator { get; }
-        public int IncubatorDenominator { get; }
         public double IncubatorProgress { get; }
         public string Incubating { get; set; }
+        public string IncubationNumbers { get; set; }
         public string IncubationLevel { get; set; }
 
         public bool IsIncubatorProgressVisible
@@ -130,19 +128,22 @@ namespace Procurement.ViewModel
             if (gem != null)
             {
                 LevelExperienceProgress = gem.LevelExperienceProgress;
-                ExperienceNumerator = gem.ExperienceNumerator;
-                ExperienceDenominator = gem.ExperienceDenominator;
+                if (LevelExperienceProgress < 0.01)
+                        LevelExperienceProgress = 0.01; // Make it visible on progress bar
+
+                ExperienceNumbers = $"{gem.ExperienceNumerator:n0}/{gem.ExperienceDenominator:n0}";
             }
 
             if (IsIncubatorProgressVisible)
             {
-                IncubatorNumerator = item.IncubatedDetails.Progress;
-                IncubatorDenominator = item.IncubatedDetails.Total;
                 Incubating = $"Incubating {item.IncubatedDetails.Name}";
+                IncubationNumbers = $"{item.IncubatedDetails.Progress:n0}/{item.IncubatedDetails.Total:n0}";
                 IncubationLevel =  $"Level {item.IncubatedDetails.Level}+ Monster Kills";
                 if (Item.IncubatedDetails.Total > 0)
                 {
                     IncubatorProgress = Convert.ToDouble(item.IncubatedDetails.Progress) / Convert.ToDouble(item.IncubatedDetails.Total);
+                    if (IncubatorProgress < 0.01)
+                        IncubatorProgress = 0.01; // Make it visible on progress bar
                 }
             }
 

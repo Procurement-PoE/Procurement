@@ -196,8 +196,10 @@ namespace Procurement.ViewModel.Filters
             {
                 List<string> inctext = new List<string>();
 
-                inctext.Add(item.IncubatedDetails.Progress.ToString());
-                inctext.Add(item.IncubatedDetails.Total.ToString());
+                inctext.Add($"{item.IncubatedDetails.Progress}");
+                inctext.Add($"{item.IncubatedDetails.Total}");
+                inctext.Add($"{item.IncubatedDetails.Progress:n0}");
+                inctext.Add($"{item.IncubatedDetails.Total:n0}");
                 inctext.Add($"Incubating {item.IncubatedDetails.Name}");
                 inctext.Add($"Level {item.IncubatedDetails.Level}+ Monster Kills");
 
@@ -335,12 +337,14 @@ namespace Procurement.ViewModel.Filters
 
                 if (gem.HasExperience)
                 {
-                    text = gem.ExperienceNumerator.ToString();
-                    if (text.Contains(word))
-                        goto End;
+                    List<string> exptext = new List<string>();
 
-                    text = gem.ExperienceDenominator.ToString();
-                    if (text.Contains(word))
+                    exptext.Add($"{gem.ExperienceNumerator}");
+                    exptext.Add($"{gem.ExperienceDenominator}");
+                    exptext.Add($"{gem.ExperienceNumerator:n0}");
+                    exptext.Add($"{gem.ExperienceDenominator:n0}");
+
+                    if (exptext.Any(x => x.ToLowerInvariant().Contains(word)))
                         goto End;
                 }
             }
