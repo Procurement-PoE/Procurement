@@ -196,10 +196,8 @@ namespace Procurement.ViewModel.Filters
             {
                 List<string> inctext = new List<string>();
 
-                inctext.Add($"{item.IncubatedDetails.Progress}");
-                inctext.Add($"{item.IncubatedDetails.Total}");
-                inctext.Add($"{item.IncubatedDetails.Progress:n0}");
-                inctext.Add($"{item.IncubatedDetails.Total:n0}");
+                inctext.Add($"{item.IncubatedDetails.Progress}/{item.IncubatedDetails.Total}");
+                inctext.Add($"{item.IncubatedDetails.Progress:n0}/{item.IncubatedDetails.Total:n0}");
                 inctext.Add($"Incubating {item.IncubatedDetails.Name}");
                 inctext.Add($"Level {item.IncubatedDetails.Level}+ Monster Kills");
 
@@ -339,10 +337,8 @@ namespace Procurement.ViewModel.Filters
                 {
                     List<string> exptext = new List<string>();
 
-                    exptext.Add($"{gem.ExperienceNumerator}");
-                    exptext.Add($"{gem.ExperienceDenominator}");
-                    exptext.Add($"{gem.ExperienceNumerator:n0}");
-                    exptext.Add($"{gem.ExperienceDenominator:n0}");
+                    exptext.Add($"{gem.ExperienceNumerator}/{gem.ExperienceDenominator}");
+                    exptext.Add($"{gem.ExperienceNumerator:n0}/{gem.ExperienceDenominator:n0}");
 
                     if (exptext.Any(x => x.ToLowerInvariant().Contains(word)))
                         goto End;
