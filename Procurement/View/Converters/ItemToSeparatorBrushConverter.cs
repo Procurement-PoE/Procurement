@@ -13,6 +13,25 @@ namespace Procurement.View
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var item = value as Item;
+
+            if (item.Rarity == Rarity.Relic)
+            {
+                return new LinearGradientBrush()
+                {
+                    StartPoint = new Point(0, 0),
+                    EndPoint = new Point(1, 0),
+                    GradientStops = new GradientStopCollection()
+                    {
+                        new GradientStop((Color)ColorConverter.ConvertFromString("#004F3D07"), 0.00),
+                        new GradientStop((Color)ColorConverter.ConvertFromString("#FF4F3D07"), 0.30),
+                        new GradientStop((Color)ColorConverter.ConvertFromString("#FF506B3F"), 0.45),
+                        new GradientStop((Color)ColorConverter.ConvertFromString("#FF506B3F"), 0.55),
+                        new GradientStop((Color)ColorConverter.ConvertFromString("#FF142F51"), 0.70),
+                        new GradientStop((Color)ColorConverter.ConvertFromString("#00142F51"), 1.00)
+                    }
+                };
+            }
+
             string color;
 
             if (item is Gem)
@@ -38,9 +57,10 @@ namespace Procurement.View
                 EndPoint = new Point(1, 0),
                 GradientStops = new GradientStopCollection()
                 {
-                    new GradientStop((Color)ColorConverter.ConvertFromString("#00" + color), 0.25),
-                    new GradientStop((Color)ColorConverter.ConvertFromString("#FF" + color), 0.50),
-                    new GradientStop((Color)ColorConverter.ConvertFromString("#00" + color), 0.75)
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#00" + color), 0.0),
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#FF" + color), 0.4),
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#FF" + color), 0.6),
+                    new GradientStop((Color)ColorConverter.ConvertFromString("#00" + color), 1.0)
                 }
             };
         }

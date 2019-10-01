@@ -128,9 +128,6 @@ namespace Procurement.ViewModel
             if (gem != null)
             {
                 LevelExperienceProgress = gem.LevelExperienceProgress;
-                if (LevelExperienceProgress < 0.01)
-                        LevelExperienceProgress = 0.01; // Make it visible on progress bar
-
                 ExperienceNumbers = $"{gem.ExperienceNumerator:n0}/{gem.ExperienceDenominator:n0}";
             }
 
@@ -142,8 +139,6 @@ namespace Procurement.ViewModel
                 if (Item.IncubatedDetails.Total > 0)
                 {
                     IncubatorProgress = Convert.ToDouble(item.IncubatedDetails.Progress) / Convert.ToDouble(item.IncubatedDetails.Total);
-                    if (IncubatorProgress < 0.01)
-                        IncubatorProgress = 0.01; // Make it visible on progress bar
                 }
             }
 
