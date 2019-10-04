@@ -26,7 +26,7 @@ namespace Procurement.View
             if (viewModel.IsDivinationCard && (flavourtext.StartsWith("<size:") || flavourtext.StartsWith("<smaller>{")))
                 flavourtext = flavourtext.TrimEnd('}').Substring(10);
 
-            if (flavourtext.Contains("<d"))
+            if (viewModel.Item.Rarity == Rarity.Unique && flavourtext.Contains("<d"))
             {
                 Match match = Regex.Match(flavourtext, "(.*?)<default>{(.+?)}(.*)");
 

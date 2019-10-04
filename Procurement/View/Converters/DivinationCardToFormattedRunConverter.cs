@@ -25,11 +25,12 @@ namespace Procurement.View
 
             var paragraph = new Paragraph();
 
-            Match match = Regex.Match(mods.First(), "<(augmented|corrupted|currencyitem|default|divination|gemitem|magicitem|normal|prophecy|rareitem|uniqueitem|whiteitem)>{(.+?)}(\r\n)?");
+            Match match = Regex.Match(mods.First(), "<([a-z]+)>{(.+?)}( |\r\n)?");
 
             while (match.Success)
             {
                 string colortext = match.Groups[1].Value;
+                string spaceornewline = match.Groups[3].Value;
                 string color = "";
 
                 if (colortext.Equals("augmented"))
@@ -56,11 +57,13 @@ namespace Procurement.View
                     color = "#AF6025";
                 else if (colortext.Equals("whiteitem"))
                     color = "#C8C8C8";
+                else
+                    color = "#7F7F7F";
 
                 paragraph.Inlines.Add(new Run(match.Groups[2].Value) { Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(color)) });
 
-                if (match.Groups[3].Value.Equals("\r\n"))
-                    paragraph.Inlines.Add(new Run("\r\n"));
+                if (!string.IsNullOrEmpty(spaceornewline))
+                    paragraph.Inlines.Add(new Run(spaceornewline));
 
                 match = match.NextMatch();
             }

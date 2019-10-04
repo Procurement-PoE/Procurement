@@ -2,6 +2,7 @@
 using System.Linq;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Procurement.ViewModel.Filters
 {
@@ -83,8 +84,30 @@ namespace Procurement.ViewModel.Filters
                     goto End;
 
             if (item.Explicitmods != null)
-                if (item.Explicitmods.Any(x => x.ToLowerInvariant().Contains(word)))
+            {
+                if (gear != null && gear.GearType.Equals(GearType.DivinationCard))
+                {
+                    string cardtext = "";
+                    var colortext = new List<String>();
+
+                    Match match = Regex.Match(item.Explicitmods.First(), "<([a-z]+)>{(.+?)}( |\r\n)?");
+
+                    while (match.Success)
+                    {
+                        colortext.Add(match.Groups[1].Value);
+                        cardtext += match.Groups[2].Value + match.Groups[3].Value;
+                        match = match.NextMatch();
+                    }
+
+                    if (cardtext.ToLowerInvariant().Contains(word))
+                        goto End;
+
+                    if (colortext.Any(x => x.ToLowerInvariant().Contains(word)))
+                        goto End;
+                }
+                else if (item.Explicitmods.Any(x => x.ToLowerInvariant().Contains(word)))
                     goto End;
+            }
 
             if (item.Implicitmods != null)
                 if (item.Implicitmods.Any(x => x.ToLowerInvariant().Contains(word)))
@@ -107,8 +130,36 @@ namespace Procurement.ViewModel.Filters
                     goto End;
 
             if (item.FlavourText != null)
-                if (item.FlavourText.Any(x => x.ToLowerInvariant().Contains(word)))
+            {
+                if (gear != null && gear.Rarity == Rarity.Unique)
+                {
+                    foreach (string flavourtext in item.FlavourText)
+                    {
+                        if (flavourtext.StartsWith("<default>{"))
+                        {
+                            if (flavourtext.TrimEnd('}').Substring(10).ToLowerInvariant().Contains(word))
+                                goto End;
+                        }
+                        else if (flavourtext.ToLowerInvariant().Contains(word))
+                            goto End;
+                    }
+                }
+                else if (gear != null && gear.GearType.Equals(GearType.DivinationCard))
+                {
+                    foreach (string flavourtext in item.FlavourText)
+                    {
+                        if (flavourtext.StartsWith("<size:") || flavourtext.StartsWith("<smaller>{"))
+                        {
+                            if (flavourtext.TrimEnd('}').Substring(10).ToLowerInvariant().Contains(word))
+                                goto End;
+                        }
+                        else if (flavourtext.TrimEnd('}').ToLowerInvariant().Contains(word))
+                            goto End;
+                    }
+                }
+                else if (item.FlavourText.Any(x => x.ToLowerInvariant().Contains(word)))
                     goto End;
+            }
 
             if (item.DescrText != null)
                 if (item.DescrText.ToLowerInvariant().Contains(word))
@@ -132,13 +183,9 @@ namespace Procurement.ViewModel.Filters
                         if (property.Values.Count == 0)
                         {
                             if (item is Resonator && property.Name.StartsWith("Requires <unmet>{"))
-                            {
                                 proptext = "Requires " + property.Name[17].ToString() + property.Name.Substring(19);
-                            }
                             else
-                            {
                                 proptext = property.Name;
-                            }
                         }
                         else
                         {
@@ -224,11 +271,15 @@ namespace Procurement.ViewModel.Filters
                     goto End;
             }
 
-            if (item.Implicitmods != null)
+            if (item.Implicitmods != null && item.Implicitmods.Count > 0)
             {
+                text = item.Implicitmods.Count.ToString() + "-implicit";
+                if (text.Contains(word))
+                    goto End;
+
                 if (item.Implicitmods.Count == 1)
                 {
-                    text = "implicit";
+                    text = "one-implicit";
                     if (text.Contains(word))
                         goto End;
                 }
@@ -545,13 +596,11 @@ namespace Procurement.ViewModel.Filters
                         goto End;
                 }
             }
-                
+
             if (dontmatch)
-            {
                 return true;
-            }
-                
-            return false;
+            else
+                return false;
 
             End:
                 if (!dontmatch)
