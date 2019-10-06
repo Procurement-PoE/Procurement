@@ -18,7 +18,7 @@ namespace Procurement.View
         {
             var viewModel = value as ItemHoverViewModel;
 
-            if (viewModel == null || !viewModel.IsDivinationCard || viewModel.ExplicitMods.Count == 0)
+            if (viewModel == null || !viewModel.IsDivinationCard || viewModel.ExplicitMods == null || viewModel.ExplicitMods.Count == 0)
                 return null;
 
             var paragraph = new Paragraph();
