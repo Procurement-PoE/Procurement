@@ -102,7 +102,7 @@ namespace Procurement.ViewModel.Filters
                     if (cardtext.ToLowerInvariant().Contains(word))
                         goto End;
 
-                    if (colortext.Any(x => x.ToLowerInvariant().Contains(word)))
+                    if (colortext.Any(x => x.Contains(word)))
                         goto End;
                 }
                 else if (item.Explicitmods.Any(x => x.ToLowerInvariant().Contains(word)))

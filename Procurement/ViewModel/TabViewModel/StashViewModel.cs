@@ -118,7 +118,7 @@ namespace Procurement.ViewModel
                                       .Select((element, index) => index % 2 == 0
                                           ? element.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                                           : new string[] { element })
-                                      .SelectMany(element => element).ToList();
+                                      .SelectMany(element => element).Distinct().ToList();
 
                     if (words?.Count > 0)
                         filterlists.Add(words);
@@ -130,10 +130,12 @@ namespace Procurement.ViewModel
 
                 foreach (var word in words)
                 {
+                    var filterlist = new List<String>();
+
                     if (!ContainsSpace)
                     {
                         if (!string.IsNullOrEmpty(word.Trim('"')))
-                            filterlists.Add(new List<string> { word.Trim('"') });
+                            filterlist.Add(word.Trim('"'));
                     }
                     else
                     {
@@ -141,11 +143,14 @@ namespace Procurement.ViewModel
                                          .Select((element, index) => index % 2 == 0
                                              ? element.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                                              : new string[] { element })
-                                         .SelectMany(element => element).ToList();
+                                         .SelectMany(element => element).Distinct().ToList();
 
                         if (words1?.Count > 0)
-                            filterlists.Add(words1);
+                            filterlist = words1;
                     }
+
+                    if (!filterlists.Any(list => (list.Count == filterlist.Count) && !list.Except(filterlist).Any()))
+                        filterlists.Add(filterlist);
                 }
             }
 

@@ -21,11 +21,9 @@ namespace Procurement.View
             if (viewModel == null || !viewModel.IsDivinationCard || viewModel.ExplicitMods.Count == 0)
                 return null;
 
-            var mods = viewModel.ExplicitMods;
-
             var paragraph = new Paragraph();
 
-            Match match = Regex.Match(mods.First(), "<([a-z]+)>{(.+?)}( |\r\n)?");
+            Match match = Regex.Match(viewModel.ExplicitMods.First(), "<([a-z]+)>{(.+?)}( |\r\n)?");
 
             while (match.Success)
             {
