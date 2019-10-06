@@ -242,6 +242,8 @@ namespace Procurement.ViewModel
                 this.ItemLevel = string.Format("Item Level: {0}", item.ItemLevel);
             else if (item is Gem)
                 this.Requirements = item.Requirements;
+            else if (item is Map)
+                this.ImplicitMods = item.Implicitmods;
         }
     }
 }
