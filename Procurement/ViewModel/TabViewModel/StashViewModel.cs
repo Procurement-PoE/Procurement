@@ -178,10 +178,10 @@ namespace Procurement.ViewModel
                 if (first != null)
                     first.TabItem.IsSelected = true;
             }
-			else
-			{
-			    selectedTab.BringIntoView();
-			}
+            else
+            {
+                selectedTab.BringIntoView();
+            }
         }
 
         public bool LoggedIn { get { return !ApplicationState.Model.Offline; } }
