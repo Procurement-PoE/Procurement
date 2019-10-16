@@ -172,12 +172,16 @@ namespace Procurement.ViewModel
                     (item.TabItem.Content as UIElement).Visibility = Visibility.Visible;
                 }
             }
-            if ((stashView.tabControl.SelectedItem as UIElement).Visibility == Visibility.Collapsed)
+            if (selectedTab.Visibility == Visibility.Collapsed)
             {
                 var first = tabsAndContent.Find(w => w.TabItem.Visibility == Visibility.Visible);
                 if (first != null)
                     first.TabItem.IsSelected = true;
             }
+			else
+			{
+			    selectedTab.BringIntoView();
+			}
         }
 
         public bool LoggedIn { get { return !ApplicationState.Model.Offline; } }
