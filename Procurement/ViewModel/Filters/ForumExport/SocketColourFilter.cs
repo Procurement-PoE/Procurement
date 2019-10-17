@@ -50,6 +50,20 @@ namespace Procurement.ViewModel.Filters.ForumExport
         }
     }
 
+    class OneAbyssalSocket : SocketColourFilter
+    {
+        public OneAbyssalSocket()
+            : base("A", 1, "At Least 1 Abyssal Socket", "Gear with 1 or more abyssal sockets")
+        { }
+    }
+
+    class OneWhiteSocket : SocketColourFilter
+    {
+        public OneWhiteSocket()
+            : base("G", 1, "At Least 1 White Socket", "Gear with 1 or more white sockets")
+        { }
+    }
+
     class OneRedSocket : SocketColourFilter
     {
         public OneRedSocket()
@@ -68,6 +82,20 @@ namespace Procurement.ViewModel.Filters.ForumExport
     {
         public OneBlueSocket()
             : base("I", 1, "At Least 1 Blue Socket", "Gear with 1 or more blue sockets")
+        { }
+    }
+
+    class TwoAbyssalSockets : SocketColourFilter
+    {
+        public TwoAbyssalSockets()
+            : base("A", 2, "At Least 2 Abyssal Sockets", "Gear with 2 or more abyssal sockets")
+        { }
+    }
+
+    class TwoWhiteSockets : SocketColourFilter
+    {
+        public TwoWhiteSockets()
+            : base("G", 2, "At Least 2 White Sockets", "Gear with 2 or more white sockets")
         { }
     }
 
@@ -92,6 +120,13 @@ namespace Procurement.ViewModel.Filters.ForumExport
         { }
     }
 
+    class ThreeWhiteSockets : SocketColourFilter
+    {
+        public ThreeWhiteSockets()
+            : base("G", 3, "At Least 3 White Sockets", "Gear with 3 or more white sockets")
+        { }
+    }
+
     class ThreeRedSockets : SocketColourFilter
     {
         public ThreeRedSockets()
@@ -113,6 +148,13 @@ namespace Procurement.ViewModel.Filters.ForumExport
         { }
     }
 
+    class FourWhiteSockets : SocketColourFilter
+    {
+        public FourWhiteSockets()
+            : base("G", 4, "At Least 4 White Sockets", "Gear with 4 or more white sockets")
+        { }
+    }
+
     class FourRedSockets : SocketColourFilter
     {
         public FourRedSockets()
@@ -131,6 +173,13 @@ namespace Procurement.ViewModel.Filters.ForumExport
     {
         public FourBlueSockets()
             : base("I", 4, "At Least 4 Blue Sockets", "Gear with 4 or more blue sockets")
+        { }
+    }
+
+    class FiveWhiteSockets : SocketColourFilter
+    {
+        public FiveWhiteSockets()
+            : base("G", 5, "At Least 5 White Sockets", "Gear with 5 or more white sockets")
         { }
     }
 

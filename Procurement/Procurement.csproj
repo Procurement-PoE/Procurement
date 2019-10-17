@@ -209,6 +209,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\PercentLifeFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ProphecyFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ShaperItemFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\SixWhiteSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixBlueSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixGreenSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixLink.cs" />
