@@ -7,8 +7,8 @@ namespace Procurement.ViewModel.Filters.ForumExport
     {
         public bool Applicable(Item item)
         {
-		    if (item is AbyssJewel)
-			    return true;
+            if (item is AbyssJewel)
+                return true;
 
             Gear gear = item as Gear;
             if (gear != null && gear.SocketedItems.Any(x => Applicable(x)))
