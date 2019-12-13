@@ -9,7 +9,8 @@ using System.Security;
 using POEApi.Infrastructure.Events;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using CloudFlareUtilities;
+//using CloudFlareUtilities;
+using CloudflareSolverRe; 
 
 namespace POEApi.Transport
 {
@@ -101,8 +102,8 @@ namespace POEApi.Transport
         {
             try
             {
-                using (var clearanceHandler = new ClearanceHandler {MaxRetries = 2})
-                using (var handler = new HttpClientHandler() {CookieContainer = credentialCookies, Proxy = GetProxySettings()})
+                using (var clearanceHandler = new ClearanceHandler { })
+                using (var handler = new HttpClientHandler() { CookieContainer = credentialCookies, Proxy = GetProxySettings() })
                 {
                     clearanceHandler.InnerHandler = handler;
 
@@ -112,7 +113,7 @@ namespace POEApi.Transport
                     }
                 }
             }
-            catch (AggregateException ex) when (ex.InnerException is CloudFlareClearanceException)
+            catch (AggregateException ex) when (ex.InnerException is CloudflareSolverRe.Exceptions.CloudflareClearanceException)
             {
                 // After all retries, clearance still failed.
                 throw new Exception("Cloud flare clearance failed, please wait one minute and try again", ex);
