@@ -5,7 +5,7 @@ using POEApi.Model;
 
 namespace Procurement.ViewModel.Recipes
 {
-    internal class VaalOrbRecipe : Recipe
+    public class VaalOrbRecipe : Recipe
     {
         private const int NeededVaalGems = 7;
         private const decimal TotalNumberOfNeededItems = 8m;
@@ -15,9 +15,13 @@ namespace Procurement.ViewModel.Recipes
         {
             List<RecipeResult> recipeSets = new List<RecipeResult>();
 
-            var candidateGems = items.OfType<Gem>().Where(gem => gem.Corrupted).Cast<Item>().ToList();
+            var candidateGems = items.OfType<Gem>().Where(
+                gem => gem.Corrupted && gem.TypeLine.StartsWith("Vaal ", StringComparison.CurrentCultureIgnoreCase))
+                .Cast<Item>().ToList();
 
-            var fragments = items.Where(x => x.TypeLine.StartsWith("Sacrifice at", StringComparison.CurrentCultureIgnoreCase)).ToList();
+            var fragments = items.Where(
+                x => x.TypeLine.StartsWith("Sacrifice at", StringComparison.CurrentCultureIgnoreCase)).ToList();
+
             while(candidateGems.Count > 0)
             {
                 var recipeResult = new RecipeResult()
