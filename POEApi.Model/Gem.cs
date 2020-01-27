@@ -67,11 +67,15 @@ namespace POEApi.Model
 
         private int getLevel()
         {
-            int level;
-            var levelProperty = Properties.Find(p => p.Name == "Level").Values[0].Item1;
-            levelProperty = levelProperty.Split(' ')[0]; //fixes "20 (MAX)"
+            Property levelProperty = Properties.Find(p => p.Name == "Level");
+            if (levelProperty == null || levelProperty.Values.Count == 0)
+                return 1;
 
-            if (!int.TryParse(levelProperty, out level))
+            var levelPropertyValue = levelProperty.Values[0].Item1;
+            levelPropertyValue = levelPropertyValue.Split(' ')[0];  // fixes "20 (MAX)"
+
+            int level;
+            if (!int.TryParse(levelPropertyValue, out level))
                 return 1;
             
             return level;

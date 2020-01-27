@@ -40,6 +40,13 @@ namespace POEApi.TestHelpers.Builders
             return this;
         }
 
+        public JSONProxyItemBuilder ThatIsCorrupted(bool isCorrupted)
+        {
+            _item.Corrupted = isCorrupted;
+
+            return this;
+        }
+
         public JSONProxyItemBuilder WithoutSockets()
         {
             _item.Sockets = null;
