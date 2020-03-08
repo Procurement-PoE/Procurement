@@ -9,7 +9,6 @@ using System.Security;
 using POEApi.Infrastructure.Events;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-//using CloudFlareUtilities;
 using CloudflareSolverRe; 
 
 namespace POEApi.Transport
