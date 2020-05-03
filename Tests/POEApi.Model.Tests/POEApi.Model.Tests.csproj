@@ -84,6 +84,7 @@
     <Compile Include="UnknownItemTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="TestData\SampleFragmentStash.json" />
     <None Include="TestData\SampleCharacterExpiredName.json" />

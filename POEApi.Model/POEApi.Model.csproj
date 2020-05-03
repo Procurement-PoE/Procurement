@@ -171,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Protobuf Include="ItemFilterConfig.proto" />
+    <None Include="app.config" />
     <None Include="ItemFilterConfig.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
