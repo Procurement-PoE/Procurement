@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CloudflareSolverRe, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CloudflareSolverReNgosang.1.0.7.2\lib\netstandard1.3\CloudflareSolverRe.dll</HintPath>
+      <HintPath>..\packages\CloudflareSolverReNgosang.1.0.7.3\lib\netstandard1.3\CloudflareSolverRe.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Jint, Version=0.0.0.0, Culture=neutral, PublicKeyToken=2e92ba9c8d81157f, processorArchitecture=MSIL">
