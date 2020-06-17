@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -26,7 +26,11 @@ namespace POEApi.Transport
         private string _proxyDomain;
 
         private const string LoginURL = @"https://www.pathofexile.com/login";
+        // ******* Cloudflare login workaround //
+        private const string AccountURL = @"https://www.pathofexile.com/my-account";
+        // ******* //
         private const string AccountNameURL = @"https://www.pathofexile.com/character-window/get-account-name?realm={0}";
+
         private const string CharacterURL = @"https://www.pathofexile.com/character-window/get-characters?&realm={0}";
         private const string StashURL = @"https://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}&accountName={2}&realm={3}";
         private const string InventoryURL = @"https://www.pathofexile.com/character-window/get-items?character={0}&accountName={1}&realm={2}";
@@ -126,11 +130,21 @@ namespace POEApi.Transport
 
         private void TraditionalSessionIdLogin()
         {
-            using (var sessionIdLoginResponse = BuildHttpRequestAndGetResponse(HttpMethod.GET, LoginURL))
+            // ******* Cloudflare login workaround //
+            // using (var sessionIdLoginResponse = BuildHttpRequestAndGetResponse(HttpMethod.GET, LoginURL)) {
+            using (var sessionIdLoginResponse = BuildHttpRequestAndGetResponse(HttpMethod.GET, AccountURL))
             {
+                // ******* //
+                if (sessionIdLoginResponse.ResponseUri.ToString() == AccountURL)
+                {
+                    // Login succeeded, otherwise the POESESSID is wrong
+                }
                 // If the response URI is the login URL, then the login action failed.
                 if (sessionIdLoginResponse.ResponseUri.ToString() == LoginURL)
+                {
                     throw new LogonFailedException();
+                }
+
             }
         }
 
