@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>POEApi.Model.Tests</RootNamespace>
     <AssemblyName>POEApi.Model.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -42,9 +42,11 @@
     </Reference>
     <Reference Include="FluentAssertions, Version=4.19.4.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FluentAssertions.4.19.4\lib\net45\FluentAssertions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="FluentAssertions.Core, Version=4.19.4.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FluentAssertions.4.19.4\lib\net45\FluentAssertions.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Moq, Version=4.5.22.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Moq.4.5.22\lib\net45\Moq.dll</HintPath>
@@ -84,6 +86,7 @@
     <Compile Include="UnknownItemTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="TestData\SampleFragmentStash.json" />
     <None Include="TestData\SampleCharacterExpiredName.json" />
