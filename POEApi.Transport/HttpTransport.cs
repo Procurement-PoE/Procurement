@@ -26,6 +26,7 @@ namespace POEApi.Transport
         private string _proxyDomain;
 
         private const string LoginURL = @"https://www.pathofexile.com/login";
+        private const string AccountURL = @"https://www.pathofexile.com/my-account";
         private const string AccountNameURL = @"https://www.pathofexile.com/character-window/get-account-name?realm={0}";
         private const string CharacterURL = @"https://www.pathofexile.com/character-window/get-characters?&realm={0}";
         private const string StashURL = @"https://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}&accountName={2}&realm={3}";
@@ -80,21 +81,8 @@ namespace POEApi.Transport
 
             credentialCookies.Add(new Cookie("POESESSID", unwrappedPassword, "/", ".pathofexile.com"));
 
-            try
-            {
-                TraditionalSessionIdLogin();
-                return true;
-            }
-            catch (WebException ex)
-            {
-                if (((HttpWebResponse)ex.Response).Server == "cloudflare" && ((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.ServiceUnavailable)
-                {
-                    CloudFlareSessionIdLogin();
-                    return true;
-                }
-
-                throw;
-            }
+            TraditionalSessionIdLogin();
+            return true;
         }
 
         private void CloudFlareSessionIdLogin()
@@ -126,11 +114,12 @@ namespace POEApi.Transport
 
         private void TraditionalSessionIdLogin()
         {
-            using (var sessionIdLoginResponse = BuildHttpRequestAndGetResponse(HttpMethod.GET, LoginURL))
+            using (var sessionIdLoginResponse = BuildHttpRequestAndGetResponse(HttpMethod.GET, AccountURL))
             {
-                // If the response URI is the login URL, then the login action failed.
-                if (sessionIdLoginResponse.ResponseUri.ToString() == LoginURL)
+                if (sessionIdLoginResponse.ResponseUri.ToString() != AccountURL)
+                {
                     throw new LogonFailedException();
+                }
             }
         }
 
