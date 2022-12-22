@@ -73,12 +73,12 @@ namespace POEApi.Model
 
                 var account = GetProperObjectFromTransport<Account>(Transport.GetAccountName(realm));
 
-                if (string.IsNullOrEmpty(account?.AccountName))
+                if (string.IsNullOrEmpty(account?.name))
                 {
                     throw new Exception("Null account name received from API");
                 }
 
-                return account.AccountName;
+                return account.name;
             }
             catch (Exception ex)
             {
