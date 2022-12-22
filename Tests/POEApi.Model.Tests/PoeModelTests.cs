@@ -174,13 +174,13 @@ namespace POEApi.Model.Tests
         [TestMethod]
         public void GetAccountNameTest()
         {
-            var fakeAccountNameResponse = "{\"accountName\":\"fakeAccountName\"}";
+            var fakeAccountNameResponse = "{\"name\":\"fakeAccountName\"}";
 
             using (var stream = GenerateStreamFromString(fakeAccountNameResponse))
             {
-                _mockTransport.Setup(m => m.GetAccountName("fakeAccountName", Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetAccountName(Realm.PC)).Returns(stream);
 
-                var account = _model.GetAccountName("fakeAccountName", Realm.PC);
+                var account = _model.GetAccountName(Realm.PC);
 
                 Assert.AreEqual("fakeAccountName", account);
             }

@@ -1,7 +1,11 @@
-﻿namespace POEApi.Model.JSONProxy
+﻿using System;
+namespace POEApi.Model.JSONProxy
+
 {
     public class Account
     {
-        public string AccountName { get; set; }
+        public Guid uuid { get; set; }
+        public string name { get; set; }
+        public string realm { get; set; }
     }
 }

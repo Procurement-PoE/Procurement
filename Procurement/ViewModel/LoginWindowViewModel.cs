@@ -151,7 +151,7 @@ namespace Procurement.ViewModel
                 if (!offline)
                 {
                     _statusController.DisplayMessage("Fetching account name...");
-                    ApplicationState.AccountName = ApplicationState.Model.GetAccountName(Email, ApplicationState.CurrentRealm);
+                    ApplicationState.AccountName = ApplicationState.Model.GetAccountName(ApplicationState.CurrentRealm);
                     _statusController.Ok();
                     if (ForceRefresh)
                     {
