@@ -54,8 +54,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject>Procurement.App</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Images\Procurement.ico</ApplicationIcon>

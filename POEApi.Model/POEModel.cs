@@ -62,7 +62,7 @@ namespace POEApi.Model
             return true;
         }
 
-        public string GetAccountName(string realm)
+        public string GetAccountName(string username, string realm)
         {
             try
             {
@@ -71,7 +71,8 @@ namespace POEApi.Model
                     return string.Empty;
                 }
 
-                var account = GetProperObjectFromTransport<Account>(Transport.GetAccountName(realm));
+                var account = GetProperObjectFromTransport<Account>(Transport.GetAccountName(username, realm));
+                account.AccountName = username;
 
                 if (string.IsNullOrEmpty(account?.AccountName))
                 {

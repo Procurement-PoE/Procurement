@@ -178,9 +178,9 @@ namespace POEApi.Model.Tests
 
             using (var stream = GenerateStreamFromString(fakeAccountNameResponse))
             {
-                _mockTransport.Setup(m => m.GetAccountName(Realm.PC)).Returns(stream);
+                _mockTransport.Setup(m => m.GetAccountName("fakeAccountName", Realm.PC)).Returns(stream);
 
-                var account = _model.GetAccountName(Realm.PC);
+                var account = _model.GetAccountName("fakeAccountName", Realm.PC);
 
                 Assert.AreEqual("fakeAccountName", account);
             }

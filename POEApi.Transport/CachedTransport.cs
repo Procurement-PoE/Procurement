@@ -37,9 +37,9 @@ namespace POEApi.Transport
             return _innerTranport.Authenticate(email, password);
         }
 
-        public Stream GetAccountName(string realm)
+        public Stream GetAccountName(string username, string realm)
         {
-            return _innerTranport.GetAccountName(realm);
+            return _innerTranport.GetAccountName(username, realm);
         }
 
         public Stream GetStash(int index, string league, string accountName, string realm, bool refresh)
