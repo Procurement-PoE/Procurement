@@ -174,7 +174,7 @@ namespace POEApi.Model.Tests
         [TestMethod]
         public void GetAccountNameTest()
         {
-            var fakeAccountNameResponse = "{\"accountName\":\"fakeAccountName\"}";
+            var fakeAccountNameResponse = "{\"name\":\"fakeAccountName\"}";
 
             using (var stream = GenerateStreamFromString(fakeAccountNameResponse))
             {
