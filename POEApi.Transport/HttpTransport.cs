@@ -27,7 +27,7 @@ namespace POEApi.Transport
 
         private const string LoginURL = @"https://www.pathofexile.com/login";
         private const string AccountURL = @"https://www.pathofexile.com/my-account";
-        private const string AccountNameURL = @"https://api.poe.watch/char?name={0}&realm={1}";
+        private const string AccountNameURL = @"https://api.poe.watch/account?name={0}&realm={1}";
         private const string CharacterURL = @"https://www.pathofexile.com/character-window/get-characters?&realm={0}";
         private const string StashURL = @"https://www.pathofexile.com/character-window/get-stash-items?league={0}&tabs=1&tabIndex={1}&accountName={2}&realm={3}";
         private const string InventoryURL = @"https://www.pathofexile.com/character-window/get-items?character={0}&accountName={1}&realm={2}";
