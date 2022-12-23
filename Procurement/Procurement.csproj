@@ -196,6 +196,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\FullBestiaryOrbFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GearSearchFilters.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GemLevelFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\IdentifiedItemFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\IncreasedDamageFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\IncursionVialsFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\LeagestoneFilter.cs" />
@@ -214,6 +215,9 @@
     <Compile Include="ViewModel\Filters\ForumExport\SixLink.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixRedSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SocketColourFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\CorruptedItemFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\UncorruptedItemFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\UnidentifiedItemFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\UnknownItemFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ScarabFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\VeiledModFilter.cs" />
