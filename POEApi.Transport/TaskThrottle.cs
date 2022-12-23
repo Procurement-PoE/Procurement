@@ -9,7 +9,7 @@ namespace POEApi.Transport
         protected Queue<DateTime> CurrentTasks { get; set; }
         public TimeSpan WindowSize { get; set; }
         public int WindowLimit { get; protected set; }
-        public int SimultaneiousTasksLimit { get; protected set; }
+        public int SimultaneousTasksLimit { get; protected set; }
 
         private int _numberOfOutstandingTasks;
         public int NumberOfOutstandingTasks
@@ -28,12 +28,18 @@ namespace POEApi.Transport
 
         private Object _lockObject = new Object();
 
-        public TaskThrottle(TimeSpan windowSize, int windowLimit, int simultaneiousTasksLimit)
+        public TaskThrottle(TimeSpan windowSize, int windowLimit, int simultaneousTasksLimit)
         {
-            CurrentTasks = new Queue<DateTime>(simultaneiousTasksLimit);
+            CurrentTasks = new Queue<DateTime>(simultaneousTasksLimit);
             WindowSize = windowSize;
             WindowLimit = windowLimit;
-            SimultaneiousTasksLimit = simultaneiousTasksLimit;
+            SimultaneousTasksLimit = simultaneousTasksLimit;
+        }
+
+        public void AdjustWindowLimit(int newWindowLimit, int newSimultaneousTasksLimit)
+        {
+            WindowLimit = newWindowLimit;
+            SimultaneousTasksLimit = newSimultaneousTasksLimit;
         }
 
         public void StartTask()
@@ -41,21 +47,21 @@ namespace POEApi.Transport
             bool finished = false;
             while (!finished)
             {
-                while (NumberOfOutstandingTasks >= SimultaneiousTasksLimit)
+                while (NumberOfOutstandingTasks >= SimultaneousTasksLimit)
                 {
                     System.Threading.Thread.Sleep(100);
                 }
 
                 lock(_lockObject)
                 {
-                    if (NumberOfOutstandingTasks >= SimultaneiousTasksLimit)
+                    if (NumberOfOutstandingTasks >= SimultaneousTasksLimit)
                     {
                         // Another thread added a task to the queue before we could get the lock.
                         continue;
                     }
 
-                    RemvoeExpiredTasks();
-                    if (CurrentTasks.Count == WindowLimit)
+                    RemoveExpiredTasks();
+                    while (CurrentTasks.Count >= WindowLimit)
                     {
                         TimeSpan waitTime = CurrentTasks.Dequeue() - DateTime.Now;
                         if (waitTime.TotalMilliseconds > 0)
@@ -77,11 +83,11 @@ namespace POEApi.Transport
             lock(_lockObject)
             {
                 System.Threading.Interlocked.Decrement(ref _numberOfOutstandingTasks);
-                RemvoeExpiredTasks();
+                RemoveExpiredTasks();
             }
         }
 
-        protected void RemvoeExpiredTasks()
+        protected void RemoveExpiredTasks()
         {
             while (CurrentTasks.Count > 0 && CurrentTasks.Peek() <= DateTime.Now)
             {
