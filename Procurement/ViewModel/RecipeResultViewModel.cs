@@ -39,7 +39,7 @@ namespace Procurement.ViewModel
         public RecipeResultViewModel()
         {
             manager = new RecipeManager();
-            ApplicationState.LeagueChanged += new System.ComponentModel.PropertyChangedEventHandler(ApplicationState_LeagueChanged);
+            ApplicationState.LeagueChanged += ApplicationState_LeagueChanged;
             updateResults();
         }
 
@@ -70,6 +70,11 @@ namespace Procurement.ViewModel
                 SelectedItem = Results.Values.First().First().MatchedItems[0];
 
             ItemFilterUpdater.UpdateLootFilters();
+        }
+
+        public void RefreshRecipes()
+        {
+            updateResults();
         }
 
         void ApplicationState_LeagueChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

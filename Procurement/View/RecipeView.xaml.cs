@@ -30,5 +30,10 @@ namespace Procurement.View
         {
             get { return this.ViewContent; }
         }
+
+        public void RefreshRecipes()
+        {
+            (this.DataContext as RecipeResultViewModel).RefreshRecipes();
+        }
     }
 }
