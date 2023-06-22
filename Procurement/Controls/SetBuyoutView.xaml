@@ -11,15 +11,15 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="75" />
+            <ColumnDefinition Width="95" />
+            <ColumnDefinition Width="170" />
         </Grid.ColumnDefinitions>
 
         <!--Buyouts-->
@@ -29,7 +29,7 @@
             <Button Content="+"  Height="25" Width="20" Command="{Binding Path=BuyoutInfo.IncreaseValue}" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}"/>
             <Button Content="-"  Height="25" Width="20" Command="{Binding Path=BuyoutInfo.DecreaseValue}" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}"/>
         </StackPanel>
-        <ComboBox Grid.Column="2" Grid.Row="0" Height="25" x:Name="OrbType" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}" ItemsSource="{Binding OrbTypes}" SelectedItem="{Binding BuyoutInfo.Orb}" />
+        <ComboBox IsEditable="True" Grid.Column="2" Grid.Row="0" Height="25" x:Name="OrbType" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}" ItemsSource="{Binding OrbTypes}" Text="{Binding BuyoutInfo.Orb}" IsTextSearchEnabled="False" />
 
         <!--Current Offer-->
         <CheckBox Content="Offer" Grid.Row="1" Foreground="#FFAB9066" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="{Binding OfferInfo.Enabled, Mode=TwoWay}"/>
@@ -38,7 +38,7 @@
             <Button Content="+"  Height="25" Width="20" Command="{Binding Path=OfferInfo.IncreaseValue}" IsEnabled="{Binding OfferInfo.Enabled, Mode=TwoWay}" />
             <Button Content="-"  Height="25" Width="20" Command="{Binding Path=OfferInfo.DecreaseValue}" IsEnabled="{Binding OfferInfo.Enabled, Mode=TwoWay}"/>
         </StackPanel>
-        <ComboBox Grid.Column="2" Grid.Row="1" Height="25" IsEnabled="{Binding OfferInfo.Enabled, Mode=TwoWay}" ItemsSource="{Binding OrbTypes}" SelectedItem="{Binding OfferInfo.Orb}"/>
+        <ComboBox IsEditable="True" Grid.Column="2" Grid.Row="1" Height="25" IsEnabled="{Binding OfferInfo.Enabled, Mode=TwoWay}" ItemsSource="{Binding OrbTypes}" Text="{Binding OfferInfo.Orb}" IsTextSearchEnabled="False" />
 
         <!--Price-->
         <CheckBox Content="Price" Grid.Row="2" Foreground="#FFAB9066" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="{Binding PriceInfo.Enabled, Mode=TwoWay}"/>
@@ -47,12 +47,12 @@
             <Button Content="+"  Height="25" Width="20" Command="{Binding Path=PriceInfo.IncreaseValue}" IsEnabled="{Binding PriceInfo.Enabled, Mode=TwoWay}"/>
             <Button Content="-"  Height="25" Width="20" Command="{Binding Path=PriceInfo.DecreaseValue}" IsEnabled="{Binding PriceInfo.Enabled, Mode=TwoWay}"/>
         </StackPanel>
-        <ComboBox Grid.Column="2" Grid.Row="2" Height="25" IsEnabled="{Binding PriceInfo.Enabled, Mode=TwoWay}" ItemsSource="{Binding OrbTypes}" SelectedItem="{Binding PriceInfo.Orb}" />
+        <ComboBox IsEditable="True" Grid.Column="2" Grid.Row="2" Height="25" IsEnabled="{Binding PriceInfo.Enabled, Mode=TwoWay}" ItemsSource="{Binding OrbTypes}" Text="{Binding PriceInfo.Orb}" IsTextSearchEnabled="False" />
 
 
-        <TextBlock Grid.Row="3" Foreground="#FFAB9066" Text="Notes:" />
+        <TextBlock Grid.Row="3" Foreground="#FFAB9066" Text="Notes:" VerticalAlignment="Center" />
 
-        <TextBlock Grid.Row="3" Foreground="#FFAB9066" Text="POB Data copied to Clipboard" Grid.Column="1" Grid.ColumnSpan="2" Visibility="{Binding IsDataInClipboard, Converter={StaticResource bc}}"/>
+        <TextBlock Grid.Row="3" Foreground="#FFAB9066" Text="POB Data copied to clipboard." HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2" Visibility="{Binding IsDataInClipboard, Converter={StaticResource bc}}"/>
 
         <Button Content="Export to POB" ToolTip="Copy item data to clipboard in Path of Building format" 
                 Grid.Column="2" Height="25" Command="{Binding PobDataGenerationCommand}"  Grid.Row="3" Visibility="{Binding IsDataInClipboard, Converter={StaticResource bc}, ConverterParameter=Invert}"
@@ -65,12 +65,12 @@
                 <ColumnDefinition Width="5" />
                 <ColumnDefinition Width="110" />
                 <ColumnDefinition Width="5" />
-                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="110" />
             </Grid.ColumnDefinitions>
 
             <Button Content="Save" Grid.Column="0" Height="25" Width="110" Click="Save_Clicked"/>
             <Button Content="Save Image" Grid.Column="2" Height="25" Width="110" Click="SaveImage_Click" HorizontalAlignment="Left" />
-            <Button Content="Timestamp" Grid.Column="4" Height="25" Width="90" Click="Timestamp_Click" HorizontalAlignment="Left" />
+            <Button Content="Timestamp" Grid.Column="4" Height="25" Width="110" Click="Timestamp_Click" HorizontalAlignment="Left" />
         </Grid>
     </Grid>
 </UserControl>

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Procurement.Controls.SetTabBuyoutView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Set Tabwide Buyout" WindowStyle="None" ResizeMode="NoResize" Width="340" Height="90">
+        Title="Set Tabwide Buyout" WindowStyle="None" ResizeMode="NoResize" Width="370" Height="90">
     <Window.Resources>
         <ResourceDictionary Source="/Procurement;component/Controls/ExpressionDark.xaml" />
     </Window.Resources>
@@ -13,8 +13,8 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="95" />
+            <ColumnDefinition Width="170" />
         </Grid.ColumnDefinitions>
 
         <!--Buyouts-->
@@ -24,16 +24,16 @@
             <Button Content="+"  Height="25" Width="20" Command="{Binding Path=BuyoutInfo.IncreaseValue}" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}"/>
             <Button Content="-"  Height="25" Width="20" Command="{Binding Path=BuyoutInfo.DecreaseValue}" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}"/>
         </StackPanel>
-        <ComboBox Grid.Column="2" Grid.Row="0" Height="25" x:Name="OrbType" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}" ItemsSource="{Binding OrbTypes}" SelectedItem="{Binding BuyoutInfo.Orb}" />
+        <ComboBox IsEditable="True" Grid.Column="2" Grid.Row="0" Height="25" x:Name="OrbType" IsEnabled="{Binding BuyoutInfo.Enabled, Mode=TwoWay}" ItemsSource="{Binding OrbTypes}" Text="{Binding BuyoutInfo.Orb}" IsTextSearchEnabled="False" />
 
         <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="160" />
-                <ColumnDefinition Width="10" />
-                <ColumnDefinition Width="160" />
+                <ColumnDefinition Width="175" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="175" />
             </Grid.ColumnDefinitions>
 
-            <Button Content="Save" Grid.Column="0" Height="25" Width="150" Click="Save_Clicked"/>
+            <Button Content="Save" Grid.Column="0" Height="25" Width="150" Click="Save_Clicked" HorizontalAlignment="Right" />
             <Button Content="Cancel" Grid.Column="2" Height="25" Width="150" Click="Cancel_Click" HorizontalAlignment="Left" />
 
             </Grid>
