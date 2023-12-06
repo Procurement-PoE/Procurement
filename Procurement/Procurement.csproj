@@ -181,7 +181,7 @@
     <Compile Include="Utility\StashHelper.cs" />
     <Compile Include="Utility\VersionChecker.cs" />
     <Compile Include="ViewModel\AdvancedSearchCategory.cs" />
-    <Compile Include="ViewModel\Filters\ForumExport\AccurayFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\AccuracyFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CraftedModFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CurrencyFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\DamageChaos.cs" />
@@ -209,6 +209,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\PercentLifeFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ProphecyFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ShaperItemFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\SixWhiteSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixBlueSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixGreenSockets.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\SixLink.cs" />
@@ -236,6 +237,8 @@
     <Compile Include="ViewModel\DisplayModeStrategy\StringFormatStrategy.cs" />
     <Compile Include="ViewModel\DisplayModeStrategy\ValuesPlusNameStrategy.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\EnergyShieldFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\ArmourFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\EvasionFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\IncreasedPhysicalDamageFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ManaFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\ManaRegenFilter.cs" />
@@ -268,6 +271,7 @@
     <Compile Include="ViewModel\Filters\ForumExport\ColdResistance.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CorruptedGemFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CritChanceFilter.cs" />
+    <Compile Include="ViewModel\Filters\ForumExport\CritMultiplierFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\GlobalCritMultiplierFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\CurseGemFilter.cs" />
     <Compile Include="ViewModel\Filters\ForumExport\DamageCold.cs" />

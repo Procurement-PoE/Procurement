@@ -1,6 +1,6 @@
 ﻿namespace Procurement.ViewModel.Filters.ForumExport
 {
-    internal class AttackSpeed : StatFilter
+    internal class AttackSpeed : OrStatFilter
     {
         public override FilterGroup Group
         {
@@ -8,7 +8,7 @@
         }
 
         public AttackSpeed()
-            : base("Increased Attack Speed", "Increased Attack Speed", "Increased Attack Speed")
+            : base("Increased Attack Speed", "Increased Attack Speed", "increased Attack Speed", "increased Attack and Cast Speed", "increased Attack, Cast and Movement Speed")
         { }
     }
 }

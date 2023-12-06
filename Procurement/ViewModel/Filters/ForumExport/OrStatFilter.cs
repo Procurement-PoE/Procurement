@@ -28,6 +28,15 @@ namespace Procurement.ViewModel.Filters
             if (gear.Explicitmods != null)
                 all.AddRange(gear.Explicitmods.Select(s => s));
 
+            if (gear.CraftedMods != null)
+                all.AddRange(gear.CraftedMods.Select(s => s));
+
+            if (gear.FracturedMods != null)
+                all.AddRange(gear.FracturedMods.Select(s => s));
+
+            if (gear.EnchantMods != null)
+                all.AddRange(gear.EnchantMods.Select(s => s));
+
             foreach (string stat in all)
             {
                 Regex result = pool.Find(s => s.IsMatch(stat));

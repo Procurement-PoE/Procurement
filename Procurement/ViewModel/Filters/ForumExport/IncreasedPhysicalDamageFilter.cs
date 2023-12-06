@@ -6,30 +6,18 @@ using System.Text;
 
 namespace Procurement.ViewModel.Filters
 {
-    public class IncreasedPhysicalDamageFilter : ExplicitModBase
+    public class IncreasedPhysicalDamageFilter : OrStatFilter
     {
-        public IncreasedPhysicalDamageFilter()
-            : base("increased Physical Damage")
-        { }
-
         public override bool CanFormCategory
         {
             get { return false; }
         }
-
-        public override string Keyword
-        {
-            get { return "Increased Physical Damage"; }
-        }
-
-        public override string Help
-        {
-            get { return "Items with Increased Physical Damage"; }
-        }
-
         public override FilterGroup Group
         {
             get { return FilterGroup.Damage; }
         }
+        public IncreasedPhysicalDamageFilter()
+            : base("Increased Physical Damage", "Items with Increased Physical Damage", "increased Physical Damage", "increased Global Physical Damage")
+        { }
     }
 }

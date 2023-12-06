@@ -16,7 +16,7 @@ namespace Procurement.ViewModel.Filters
             this.help = help;
             this.stats = stats.Select(stat => new Regex(stat, RegexOptions.Singleline | RegexOptions.IgnoreCase | RegexOptions.CultureInvariant)).ToList();
         }
-        public bool CanFormCategory
+        public virtual bool CanFormCategory
         {
             get { return true; }
         }

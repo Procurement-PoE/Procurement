@@ -14,6 +14,15 @@ namespace Procurement.ViewModel.Filters.ForumExport
         public AmuletFilter()
             : base(GearType.Amulet, "Amulets")
         { }
+        public override bool Applicable(Item item)
+        {
+            Gear gear = item as Gear;
+
+            if (gear != null)
+                return gear.GearType == GearType.Amulet || gear.GearType == GearType.Talisman;
+
+            return false;
+        }
     }
 
     class TalismanFilter : GearTypeFilter

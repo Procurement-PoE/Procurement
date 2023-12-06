@@ -1,28 +1,17 @@
 ﻿namespace Procurement.ViewModel.Filters.ForumExport
 {
-    public class ManaRegenFilter : ExplicitModBase
+    public class ManaRegenFilter : OrStatFilter
     {
-        public ManaRegenFilter()
-            : base("increased Mana Regeneration Rate")
-        { }
         public override bool CanFormCategory
         {
             get { return false; }
         }
-
-        public override string Keyword
-        {
-            get { return "Mana regen"; }
-        }
-
-        public override string Help
-        {
-            get { return "Items with increased Mana Regeneration Rate"; }
-        }
-
         public override FilterGroup Group
         {
             get { return FilterGroup.Default; }
         }
+        public ManaRegenFilter()
+            : base("Mana regen", "Items with increased Mana Regeneration Rate", "increased Mana Regeneration Rate", "Mana per second", "Mana Regenerated per second", "as extra Mana Regeneration")
+        { }
     }
 }

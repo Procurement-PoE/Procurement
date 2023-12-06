@@ -1,6 +1,6 @@
 ﻿namespace Procurement.ViewModel.Filters.ForumExport
 {
-    class StrengthFilter : StatFilter
+    class StrengthFilter : OrStatFilter
     {
         public override FilterGroup Group
         {
@@ -8,12 +8,12 @@
         }
 
         public StrengthFilter()
-            : base("Increased Strength", "Strength", "Strength")
+            : base("Increased Strength", "Increased Strength", "to Strength", "increased Strength", "to all Attributes", "increased Attributes")
         { }
     }
 
 
-    class IntelligenceFilter : StatFilter
+    class IntelligenceFilter : OrStatFilter
     {
         public override FilterGroup Group
         {
@@ -21,11 +21,11 @@
         }
 
         public IntelligenceFilter()
-            : base("Increased Intelligence", "Intelligence", "Intelligence")
+            : base("Increased Intelligence", "Increased Intelligence", "to Intelligence", "to Strength and Intelligence", "to Dexterity and Intelligence", "increased Intelligence", "to all Attributes", "increased Attributes")
         { }
     }
 
-    class DexterityFilter : StatFilter
+    class DexterityFilter : OrStatFilter
     {
         public override FilterGroup Group
         {
@@ -33,7 +33,7 @@
         }
 
         public DexterityFilter()
-            : base("Increased Dexterity", "Increased Dexterity", "Dexterity")
+            : base("Increased Dexterity", "Increased Dexterity", "to Dexterity", "to Strength and Dexterity", "increased Dexterity", "to all Attributes", "increased Attributes")
         { }
     }
 }
